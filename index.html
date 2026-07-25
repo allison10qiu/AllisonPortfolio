@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Allison Qiu — UX designer portfolio">
+  <title>Allison Qiu · UX Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html">Allison Qiu</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+      <ul class="mobile-nav__list">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">UX Design Portfolio</p>
+        <h1 class="hero__title">Designing thoughtful experiences for complex, real-world systems.</h1>
+        <p class="hero__lead">
+          I'm a UX designer focused on mobility, emerging markets, and products that meet people where they are.
+        </p>
+        <a class="btn btn--primary" href="#work">View selected work</a>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">Selected work</h2>
+          <div class="filter-bar" role="group" aria-label="Filter projects">
+            <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+            <button class="filter-btn" type="button" data-filter="product">Product</button>
+            <button class="filter-btn" type="button" data-filter="research">Research</button>
+            <button class="filter-btn" type="button" data-filter="systems">Systems</button>
+          </div>
+        </div>
+
+        <ul class="project-grid">
+          <li class="project-card" data-category="product systems">
+            <a class="project-card__link" href="projects/anda.html">
+              <figure class="project-card__media">
+                <img src="assets/anda-cover.svg" alt="" width="640" height="400">
+              </figure>
+              <div class="project-card__body">
+                <p class="project-card__meta">Product · Mobility</p>
+                <h3 class="project-card__title">Anda</h3>
+                <p class="project-card__desc">Redesigning ride-hailing for Angola's informal transit ecosystem.</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="project-card project-card--placeholder" data-category="research">
+            <div class="project-card__link" aria-disabled="true">
+              <figure class="project-card__media project-card__media--empty">
+                <span>Coming soon</span>
+              </figure>
+              <div class="project-card__body">
+                <p class="project-card__meta">Research</p>
+                <h3 class="project-card__title">Case study in progress</h3>
+                <p class="project-card__desc">Additional projects will appear here as case studies are published.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about__inner">
+        <h2 class="about__title">About</h2>
+        <div class="about__content">
+          <p>
+            I design end-to-end product experiences — from discovery and research through interaction
+            design and handoff. I'm especially interested in tools that improve everyday mobility and
+            access in underserved markets.
+          </p>
+          <p>
+            This portfolio is a work in progress. Visual design tokens and layout will be updated
+            to match my Figma source file as it comes together.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact__inner">
+        <h2 class="contact__title">Get in touch</h2>
+        <p class="contact__lead">Open to UX roles, freelance collaborations, and design conversations.</p>
+        <a class="contact__email" href="mailto:hello@allisonqiu.com">hello@allisonqiu.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span id="year"></span> Allison Qiu</p>
+      <a href="https://github.com/allison10qiu/AllisonPortfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
