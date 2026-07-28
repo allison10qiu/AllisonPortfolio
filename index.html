@@ -3,127 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Allison Qiu — UX designer portfolio">
-  <title>Allison Qiu · UX Design</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <meta name="description" content="Allison Qiu — UX design portfolio">
+  <title>Allison Qiu</title>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,400i,700i&display=swap">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <!--
+    Figma Home Page · 4:2 · 1440×2968.32
+    Uniform width scale; page scrolls vertically.
+  -->
+  <div class="canvas-wrapper">
+    <main class="design-canvas" aria-label="Allison Qiu" data-figma-frame="4:2">
+      <img
+        class="design-canvas__art"
+        src="assets/home-page.png?v=footer2"
+        alt="Allison Qiu portfolio — navy scrapbook home with lace, AQ monogram, and selected work"
+        width="2880"
+        height="5937"
+      >
 
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="site-logo" href="index.html">Allison Qiu</a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul class="site-nav__list">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
-    </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
-      <ul class="mobile-nav__list">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+      <!-- Landing frame · hero 1440×812 — hero art, lace, nav -->
+      <div class="home-hero" id="home-hero">
+        <img
+          class="home-hero__art"
+          src="assets/home-hero.png?v=stamps1"
+          alt=""
+          width="2880"
+          height="1624"
+        >
 
-  <main id="main">
-    <section class="hero">
-      <div class="container hero__inner">
-        <p class="hero__eyebrow">UX Design Portfolio</p>
-        <h1 class="hero__title">Designing thoughtful experiences for complex, real-world systems.</h1>
-        <p class="hero__lead">
-          I'm a UX designer focused on mobility, emerging markets, and products that meet people where they are.
-        </p>
-        <a class="btn btn--primary" href="#work">View selected work</a>
+        <!-- Lace · Figma 32:17053 · exactly 332×812 (+ bow overflow) -->
+        <div class="home-lace" aria-hidden="true">
+          <img
+            class="home-lace__hero"
+            src="assets/home-lace-hero.png?v=lace812"
+            alt=""
+            width="772"
+            height="1624"
+          >
+        </div>
+
+        <nav class="design-hotspots" aria-label="Primary">
+          <!-- Nav stamps · boxes match each PNG's natural size (1:1, no rescale)
+               and its exact baked position — stamps are erased from the hero art
+               so only these overlays draw them. -->
+          <a
+            class="design-hotspot design-hotspot--stamp"
+            href="#my-work"
+            aria-label="Work"
+            style="left:44px;top:1px;width:82px;height:180.5px"
+          >
+            <img src="assets/home-nav-work.png?v=v1440" alt="" width="164" height="361" aria-hidden="true">
+          </a>
+          <a
+            class="design-hotspot design-hotspot--stamp"
+            href="about.html"
+            aria-label="About me"
+            style="left:161px;top:1px;width:185px;height:74px"
+          >
+            <img src="assets/home-nav-about.png?v=v1440" alt="" width="370" height="148" aria-hidden="true">
+          </a>
+          <a
+            class="design-hotspot design-hotspot--stamp"
+            href="#resume"
+            aria-label="Resume"
+            style="left:365px;top:1px;width:196px;height:90px"
+          >
+            <img src="assets/home-nav-resume.png?v=v1440" alt="" width="392" height="180" aria-hidden="true">
+          </a>
+        </nav>
       </div>
-    </section>
 
-    <section class="work" id="work">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-header__title">Selected work</h2>
-          <div class="filter-bar" role="group" aria-label="Filter projects">
-            <button class="filter-btn is-active" type="button" data-filter="all">All</button>
-            <button class="filter-btn" type="button" data-filter="product">Product</button>
-            <button class="filter-btn" type="button" data-filter="research">Research</button>
-            <button class="filter-btn" type="button" data-filter="systems">Systems</button>
+      <!--
+        Project cards · Figma Frame 29 grid (5 cards, 3 rows)
+        HTML cards (no stacked PNG). Videos play when scrolled into view.
+      -->
+      <a
+        class="home-card home-card--terraform"
+        href="#terraform"
+        aria-label="Terraform Read-Only Initiative — Summer 2026"
+        id="terraform"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <video
+              class="home-card__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/home-media-terraform-2x.png?v=cards2"
+            >
+              <source src="assets/videos/terraform-card.mp4?v=cards2" type="video/mp4">
+            </video>
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">Terraform Read-Only Initiative</h2>
+              <p class="home-card__desc">
+                Improving visibility and compliance in Terraform Enterprise by giving read-only users access to critical settings without compromising security.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Summer 2026</span>
+              <span class="home-card__tag">Design Intern</span>
+            </div>
           </div>
         </div>
+      </a>
 
-        <ul class="project-grid">
-          <li class="project-card" data-category="product systems">
-            <a class="project-card__link" href="projects/anda.html">
-              <figure class="project-card__media">
-                <img src="assets/anda-cover.svg" alt="" width="640" height="400">
-              </figure>
-              <div class="project-card__body">
-                <p class="project-card__meta">Product · Mobility</p>
-                <h3 class="project-card__title">Anda</h3>
-                <p class="project-card__desc">Redesigning ride-hailing for Angola's informal transit ecosystem.</p>
-              </div>
-            </a>
-          </li>
-
-          <li class="project-card project-card--placeholder" data-category="research">
-            <div class="project-card__link" aria-disabled="true">
-              <figure class="project-card__media project-card__media--empty">
-                <span>Coming soon</span>
-              </figure>
-              <div class="project-card__body">
-                <p class="project-card__meta">Research</p>
-                <h3 class="project-card__title">Case study in progress</h3>
-                <p class="project-card__desc">Additional projects will appear here as case studies are published.</p>
-              </div>
+      <a
+        class="home-card home-card--anda"
+        href="projects/anda.html"
+        aria-label="ANDA — Spring 2026"
+        id="anda"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <video
+              class="home-card__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/home-media-anda-2x.png?v=cards2"
+            >
+              <source src="assets/videos/anda-card.mp4?v=cards2" type="video/mp4">
+            </video>
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">ANDA</h2>
+              <p class="home-card__desc">
+                Optimizing how Anda's admins and Customer Success Managers support drivers, by replacing fragmented spreadsheets and disconnected systems with one transparent, explainable view of every driver's performance.
+              </p>
             </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="container about__inner">
-        <h2 class="about__title">About</h2>
-        <div class="about__content">
-          <p>
-            I design end-to-end product experiences — from discovery and research through interaction
-            design and handoff. I'm especially interested in tools that improve everyday mobility and
-            access in underserved markets.
-          </p>
-          <p>
-            This portfolio is a work in progress. Visual design tokens and layout will be updated
-            to match my Figma source file as it comes together.
-          </p>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Spring 2026</span>
+              <span class="home-card__tag">Product Manager</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </a>
 
-    <section class="contact" id="contact">
-      <div class="container contact__inner">
-        <h2 class="contact__title">Get in touch</h2>
-        <p class="contact__lead">Open to UX roles, freelance collaborations, and design conversations.</p>
-        <a class="contact__email" href="mailto:hello@allisonqiu.com">hello@allisonqiu.com</a>
-      </div>
-    </section>
-  </main>
+      <a
+        class="home-card home-card--ose"
+        href="#ose"
+        aria-label="Operation Safe Escape — Fall 2025"
+        id="ose"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <video
+              class="home-card__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/home-media-ose-2x.png?v=figmacrop"
+            >
+              <source src="assets/videos/ose-card.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">Operation Safe Escape</h2>
+              <p class="home-card__desc">
+                Empowering Operation Safe Escape's admins and volunteers to support survivors faster, by replacing scattered emails and spreadsheets with one secure, centralized, and auditable case management system.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Fall 2025</span>
+              <span class="home-card__tag">Designer</span>
+            </div>
+          </div>
+        </div>
+      </a>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p>&copy; <span id="year"></span> Allison Qiu</p>
-      <a href="https://github.com/allison10qiu/AllisonPortfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-  </footer>
+      <a
+        class="home-card home-card--nabu"
+        href="#nabu"
+        aria-label="NABU — Spring 2025"
+        id="nabu"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <video
+              class="home-card__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/home-media-nabu-2x.png?v=cards2"
+            >
+              <source src="assets/videos/nabu-card.mp4?v=cards2" type="video/mp4">
+            </video>
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">NABU</h2>
+              <p class="home-card__desc">
+                Streamlining global literacy efforts by building a centralized platform for NABU, replacing scattered spreadsheets and databases with clear dashboards partners can use to track their impact.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Spring 2025</span>
+              <span class="home-card__tag">Designer</span>
+            </div>
+          </div>
+        </div>
+      </a>
 
-  <script src="scripts/main.js"></script>
+      <a
+        class="home-card home-card--brilliant"
+        href="#brilliant"
+        aria-label="Brilliant Cities — Fall 2024"
+        id="brilliant"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <video
+              class="home-card__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/home-media-brilliant-2x.png?v=cards3"
+            >
+              <source src="assets/videos/brilliant-card.mp4?v=cards3" type="video/mp4">
+            </video>
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">Brilliant Cities</h2>
+              <p class="home-card__desc">
+                Empowering parents to better support their child's development through Brilliant Cities, a habit tracker that turns everyday routines into building blocks for early literacy and number skills.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Fall 2024</span>
+              <span class="home-card__tag">Designer</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Footer links · Figma footer Frame 36 · abs x:1135, linkedin y:2870.8, email y:2904.8 -->
+      <nav class="footer-links" aria-label="Contact">
+        <a
+          class="footer-link"
+          href="https://www.linkedin.com/in/allisonqiu/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          style="left:1129px;top:2865px;width:293px;height:32px"
+        ></a>
+        <a
+          class="footer-link"
+          href="mailto:allisonqiu10@gmail.com"
+          aria-label="Email"
+          style="left:1129px;top:2899px;width:201px;height:33px"
+        ></a>
+      </nav>
+
+      <!-- Anchor for work tab scroll target (My Work heading abs y:852) -->
+      <div id="my-work" class="design-anchor" style="left:0;top:852px;width:1px;height:1px" aria-hidden="true"></div>
+      <div id="resume" class="design-anchor" style="left:0;top:0;width:1px;height:1px" aria-hidden="true"></div>
+    </main>
+  </div>
+
+  <script src="scripts/home-scale.js"></script>
+  <script src="scripts/home-cards.js"></script>
+  <script src="scripts/home-snap.js"></script>
+  <script src="scripts/mailto.js"></script>
 </body>
 </html>
