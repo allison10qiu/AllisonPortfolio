@@ -1,8 +1,6 @@
 /* NABU case study — Figma 128:19817 · exact 1440 canvas (scaled via case-scale.js) */
 
-html:has(.nabu-page) {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior left auto — case-snap.js owns Jump to Solution motion */
 
 .nabu-page #solution,
 .nabu-page #problem,
@@ -36,14 +34,14 @@ html:has(.nabu-page) {
   flex-shrink: 0;
 }
 
-/* Left · 341 · Mid · 669 · Right · 286 · gaps 16 */
+/* Left · 341 · Mid · 637 · Right · 286 · gaps 16 */
 .nabu-ds__col--left {
   width: 341px;
   gap: 17.827px;
 }
 
 .nabu-ds__col--mid {
-  width: 669px;
+  width: 637px;
   gap: 16px;
 }
 
@@ -63,39 +61,18 @@ html:has(.nabu-page) {
 
 .nabu-ds__tile--forms,
 .nabu-ds__tile--buttons {
-  width: 669px;
+  width: 637px;
 }
 
 .nabu-ds__tile--icons {
   width: 286px;
 }
 
-@media (max-width: 1100px) {
-  .nabu-ds {
-    flex-wrap: wrap;
-  }
-
-  .nabu-ds__col--left,
-  .nabu-ds__tile--colours,
-  .nabu-ds__tile--type {
-    width: min(341px, 100%);
-  }
-
-  .nabu-ds__col--mid,
-  .nabu-ds__tile--forms,
-  .nabu-ds__tile--buttons {
-    width: min(669px, 100%);
-  }
-
-  .nabu-ds__tile--icons {
-    width: min(286px, 100%);
-  }
-}
-
 /* ---------- Hero · Frame 41 / 179:34 · 1156×484 clip ---------- */
 
 .nabu-hero {
-  padding: 80px 48px 64px;
+  /* Figma Frame 41 · media at (70, 80) inside 1296×628 */
+  padding: 80px 70px 64px;
 }
 
 .nabu-hero__slot {
@@ -143,50 +120,49 @@ html:has(.nabu-page) {
   border-radius: 0;
 }
 
-/* ---------- Solution features · laptop mockups 694×451 ---------- */
+/* ---------- Solution features · Figma 128:19971 · 538×350 · gap 48 ---------- */
 
 .nabu-feature {
   display: grid;
-  grid-template-columns: 694px 586px;
+  grid-template-columns: 538px minmax(0, 1fr);
   gap: 48px;
   align-items: center;
   margin: 0;
-  width: 1328px;
+  width: 100%;
 }
 
 .nabu-feature--flip {
-  grid-template-columns: 586px 694px;
+  grid-template-columns: minmax(0, 1fr) 538px;
 }
 
 .nabu-feature--stack {
-  grid-template-columns: 694px 586px;
+  grid-template-columns: 538px minmax(0, 1fr);
   align-items: center;
-  width: 1328px;
+  width: 100%;
 }
 
 .nabu-feature__stack {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 694px;
+  width: 538px;
   flex-shrink: 0;
 }
 
 .nabu-feature__media-wrap {
   position: relative;
-  width: 694px;
-  height: 451px;
+  width: 538px;
+  height: 350px;
   overflow: hidden;
   background: transparent;
   flex-shrink: 0;
 }
 
-/* Framed posters are 1388×902. Videos are 2000×2000 — FILL-crop (cover + center). */
 .nabu-feature__media,
 .nabu-feature__video {
   display: block;
-  width: 694px;
-  height: 451px;
+  width: 538px;
+  height: 350px;
   object-fit: cover;
   object-position: center center;
   background: transparent;
@@ -209,38 +185,26 @@ html:has(.nabu-page) {
 
 .nabu-feature__copy p {
   margin: 0 0 8px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.35;
   color: #14243b;
 }
 
 .nabu-feature__copy .bc-bullets {
   margin-top: 8px;
+  font-size: 18px;
 }
 
-@media (max-width: 1100px) {
-  .nabu-feature,
-  .nabu-feature--flip,
-  .nabu-feature--stack,
-  .nabu-persona {
-    grid-template-columns: 1fr;
-  }
-
-  .nabu-feature__media-wrap,
-  .nabu-feature__stack,
-  .nabu-feature__media,
-  .nabu-feature__video {
-    width: min(694px, 100%);
-  }
-
-  .nabu-feature__media-wrap {
-    height: auto;
-    aspect-ratio: 694 / 451;
-  }
-
-  .nabu-feature__media,
-  .nabu-feature__video {
-    width: 100%;
-    height: 100%;
-  }
+/* Considerations · Figma 128:19940 · 48px number pills */
+.nabu-page .bc-numbered li {
+  grid-template-columns: 48px minmax(0, 1fr);
+  font-size: 18px;
 }
+
+.nabu-page .bc-numbered li::before {
+  width: 48px;
+  height: 48px;
+  border-radius: 20px;
+}
+
+/* No viewport breakpoints — layout locked to 1440 + case-scale.js (same as other case pages). */

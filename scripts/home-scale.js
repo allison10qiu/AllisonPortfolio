@@ -7,7 +7,7 @@
  */
 (function () {
   var FRAME_W = 1440;
-  var FRAME_H = 2968.32;
+  var FRAME_H = 2937.34; /* Figma Home Page 4:2 */
 
   function updateScale() {
     var canvas = document.querySelector(".design-canvas");

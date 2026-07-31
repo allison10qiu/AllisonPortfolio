@@ -77,6 +77,66 @@ body:has(.canvas-wrapper) {
   -webkit-user-drag: none;
 }
 
+/* Intro · Figma Frame 17 · x:78 y:493 · 617×176 */
+.home-intro {
+  position: absolute;
+  left: 78px;
+  top: 493px;
+  width: 617px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  background: #14243b; /* cover baked PNG text */
+  color: #ffffff;
+  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  pointer-events: none;
+}
+
+.home-intro__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+  margin: 0;
+}
+
+.home-intro__name {
+  margin: 0;
+  width: 100%;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: normal;
+  color: #ffffff;
+}
+
+.home-intro__role {
+  margin: 0;
+  width: 100%;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: normal;
+  color: #ffffff;
+}
+
+.home-intro__role strong {
+  font-weight: 700;
+}
+
+.home-intro__lede {
+  margin: 0;
+  width: 617px;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: normal;
+  color: #ffffff;
+}
+
 .design-canvas__art {
   display: block;
   position: absolute;
@@ -219,7 +279,7 @@ body:has(.canvas-wrapper) {
 .home-card__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 576 / 323.136; /* Figma media slot */
+  aspect-ratio: 568 / 318.648; /* Figma media · 568×318.65 (Brilliant 576×323.14 same ratio) */
   border-radius: 21.2px;
   overflow: hidden;
   background: #e8e8e8;
@@ -294,7 +354,7 @@ body:has(.canvas-wrapper) {
   height: 35px;
   padding: 0 8px;
   border: 1px solid #14243b;
-  border-radius: 999px;
+  border-radius: 16px; /* Figma Frame 22/23 tag pills */
   background: #fff;
   font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
   font-weight: 500;
@@ -320,42 +380,42 @@ body:has(.canvas-wrapper) {
 }
 
 /*
-  Card grid · Figma Frame 29 · abs origin (56, 936), cards 640×568.14,
-  columns at x 56 / 744, rows at y 936 / 1544.14 / 2152.27 (row 3 centered at x 400)
+  Card grid · Figma Frame 29 · My work px 64, pt 40, title→cards +84,
+  cards 632×563.65 (rows 1–2), Brilliant 640×546.14 centered at x 400
 */
 .home-card--terraform {
-  left: 56px;
+  left: 64px;
   top: 936px;
-  width: 640px;
-  height: 568.14px;
+  width: 632px;
+  height: 563.65px;
 }
 
 .home-card--anda {
   left: 744px;
   top: 936px;
-  width: 640px;
-  height: 568.14px;
+  width: 632px;
+  height: 563.65px;
 }
 
 .home-card--ose {
-  left: 56px;
-  top: 1544.14px;
-  width: 640px;
-  height: 568.14px;
+  left: 64px;
+  top: 1539.65px;
+  width: 632px;
+  height: 563.65px;
 }
 
 .home-card--nabu {
   left: 744px;
-  top: 1544.14px;
-  width: 640px;
-  height: 568.14px;
+  top: 1539.65px;
+  width: 632px;
+  height: 563.65px;
 }
 
 .home-card--brilliant {
   left: 400px;
-  top: 2152.27px;
+  top: 2143.3px;
   width: 640px;
-  height: 568.14px;
+  height: 546.14px;
 }
 
 /* ---------- Custom cursor · Figma #14243B / #FFFFFF / #EDF2F5 ---------- */
@@ -686,7 +746,7 @@ body:has(.work) {
   }
 }
 
-/* ---------- Inner pages (about placeholder) ---------- */
+/* ---------- Inner pages (legacy placeholder; about uses styles/about.css) ---------- */
 
 .page {
   min-height: 100svh;

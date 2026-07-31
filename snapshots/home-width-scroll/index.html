@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Allison Qiu — UX design portfolio">
+  <title>Allison Qiu</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <!--
+    Fixed Figma canvas 1512×982 + uniform scale to fit the Chrome viewport.
+    Elements stay at exact Figma px — the whole canvas scales as one rigid unit.
+  -->
+  <div class="canvas-wrapper">
+    <main class="design-canvas" aria-label="Allison Qiu" data-figma-frame="4:2">
+      <img
+        class="design-canvas__art"
+        src="assets/home-page.png?v=canvas"
+        alt="Allison Qiu portfolio — navy scrapbook cover with lace, photo strips, and AQ monogram"
+        width="3024"
+        height="1964"
+      >
+
+      <!-- Hit targets — exact Figma px from Groups 2–4 + description stamps -->
+      <nav class="design-hotspots" aria-label="Primary">
+        <!-- Group 2 · home · x:57 y:0 w:140 h:88 -->
+        <a
+          class="design-hotspot"
+          href="index.html"
+          aria-label="Home"
+          style="left:57px;top:0;width:140px;height:88px"
+        ></a>
+        <!-- Group 3 · work · x:237 y:0.1 w:73.93 h:173.44 -->
+        <a
+          class="design-hotspot"
+          href="work.html"
+          aria-label="Work"
+          style="left:237px;top:0;width:73.93px;height:173.44px"
+        ></a>
+        <!-- Group 4 · about · x:351 y:0 w:176.64 h:67 -->
+        <a
+          class="design-hotspot"
+          href="about.html"
+          aria-label="About me"
+          style="left:351px;top:0;width:176.64px;height:67px"
+        ></a>
+        <!-- linkedin · frame x:57 y:629 (description 41,629 + local 16,0) w:73 h:79 -->
+        <a
+          class="design-hotspot"
+          href="https://www.linkedin.com/in/allisonqiu/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          style="left:57px;top:629px;width:73px;height:79px"
+        ></a>
+        <!-- email · frame x:144 y:629 w:72.48 h:79 -->
+        <a
+          class="design-hotspot"
+          href="mailto:allisonqiu10@gmail.com"
+          aria-label="Email"
+          style="left:144px;top:629px;width:72.48px;height:79px"
+        ></a>
+      </nav>
+    </main>
+  </div>
+
+  <script src="scripts/home-scale.js"></script>
+</body>
+</html>

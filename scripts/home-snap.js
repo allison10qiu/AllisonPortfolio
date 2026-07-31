@@ -9,8 +9,7 @@
 (function () {
   var FRAME_W = 1440;
   var WORK_TOP = 812; // design px — page turn completes here
-
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var animating = false;
   var root = document.documentElement;
@@ -24,6 +23,10 @@
   }
 
   function snapTo(targetY, duration) {
+    if (reduceMotion) {
+      window.scrollTo(0, targetY);
+      return;
+    }
     if (animating) return;
     animating = true;
     var prevBehavior = root.style.scrollBehavior;
@@ -46,6 +49,16 @@
     }
     window.requestAnimationFrame(step);
   }
+
+  // Arrive from about/work stamps via index.html#my-work
+  function scrollToWorkFromHash() {
+    if (location.hash !== "#my-work") return;
+    snapTo(workTopPx(), reduceMotion ? 0 : 700);
+  }
+  window.addEventListener("load", scrollToWorkFromHash);
+  window.addEventListener("hashchange", scrollToWorkFromHash);
+
+  if (reduceMotion) return;
 
   window.addEventListener(
     "wheel",

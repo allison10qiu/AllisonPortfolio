@@ -1,8 +1,6 @@
 /* Operation Safe Escape case study — Figma 155:2 / 155:3 · exact 1440 canvas (scaled via case-scale.js) */
 
-html:has(.ose-page) {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior left auto — case-snap.js owns Jump to Solution motion */
 
 /* Hard-lock to Figma 1440 — never fluid-shrink like older max-width layouts */
 .ose-page .bc-canvas,
@@ -25,23 +23,23 @@ html:has(.ose-page) {
 }
 
 .ose-title {
-  /* Figma 155:20 · 1050 wide, x:139 inside 1328 */
+  /* Figma 155:20 · 1050 wide, centered in 1296 */
   width: 1050px;
   max-width: none;
-  margin-left: 139px;
+  margin-left: auto;
   margin-right: auto;
   font-size: 48px;
-  line-height: 1.15;
+  line-height: normal;
   text-wrap: balance;
 }
 
 /* ---------- Hero · Frame 41 / 40 · 1156×484 clip of 1156×546 FILL ---------- */
 
-/* Frame 41 · 1328×628 · gray panel; media Frame 40 · 1156×484 at (86, 80) */
+/* Frame 41 · 1296×628 · gray panel; media Frame 40 · 1156×484 at (70, 80) */
 .ose-hero.bc-hero {
-  width: 1328px;
-  max-width: 1328px;
-  padding: 80px 86px 64px;
+  width: 1296px;
+  max-width: 1296px;
+  padding: 80px 70px 64px;
   box-sizing: border-box;
 }
 
@@ -94,13 +92,13 @@ html:has(.ose-page) {
 /* Framed Figma exports at native aspect — no non-uniform crop (keeps 1px strokes) */
 
 .ose-ds {
-  /* Figma 155:108 Frame 69 · clipped to 1328 (tiles sum to 1341) */
+  /* Figma 155:108 Frame 69 · 1296 wide (tiles + gaps sum to 1341, clipped) */
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 16px;
-  width: 1328px;
-  max-width: 1328px;
+  width: 1296px;
+  max-width: 1296px;
   margin: 0;
   overflow: hidden;
 }
@@ -130,43 +128,45 @@ html:has(.ose-page) {
   width: 346px;
 }
 
-/* ---------- Solution features · laptop 694×451 · phone 296.389×585.171 ---------- */
+/* ---------- Solution features · laptop 538×350 · phone 241×475 ---------- */
+
+.ose-page #solution.bc-section--stack {
+  gap: 56px;
+}
 
 .ose-feature {
   display: grid;
-  grid-template-columns: 694px 586px;
+  grid-template-columns: 538px minmax(0, 1fr);
   gap: 48px;
   align-items: center;
   margin: 0;
-  width: 1328px;
+  width: 100%;
 }
 
 .ose-feature--flip {
-  grid-template-columns: 586px 694px;
+  grid-template-columns: minmax(0, 1fr) 538px;
 }
 
 .ose-feature--phone {
-  grid-template-columns: 296.389px 1fr;
+  grid-template-columns: 241px minmax(0, 1fr);
   gap: 48px;
-  width: 1328px;
+  width: 100%;
 }
 
 .ose-feature__media-wrap {
   position: relative;
-  width: 694px;
-  height: 451px;
+  width: 538px;
+  height: 350px;
   overflow: hidden;
   background: transparent;
   flex-shrink: 0;
 }
 
-/* Static posters are already 1388×902 (2× of 694×451).
-   Videos are 2000×2000 — FILL-crop like Figma (cover + center). */
 .ose-feature__media,
 .ose-feature__video {
   display: block;
-  width: 694px;
-  height: 451px;
+  width: 538px;
+  height: 350px;
   object-fit: cover;
   object-position: center center;
   background: transparent;
@@ -181,8 +181,8 @@ html:has(.ose-page) {
 
 .ose-feature__phone-wrap {
   position: relative;
-  width: 296.389px;
-  height: 585.171px;
+  width: 241px;
+  height: 475px;
   overflow: hidden;
   background: #ffffff;
   flex-shrink: 0;
@@ -212,11 +212,12 @@ html:has(.ose-page) {
 
 .ose-feature__copy p {
   margin: 0 0 8px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.35;
   color: #14243b;
 }
 
 .ose-feature__copy .bc-bullets {
   margin-top: 8px;
+  font-size: 18px;
 }

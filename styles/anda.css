@@ -1,8 +1,6 @@
 /* ANDA case study — Figma 158:292 / 158:293 · exact 1440 canvas (scaled via case-scale.js) */
 
-html:has(.anda-page) {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior left auto — case-snap.js owns Jump to Solution motion */
 
 .anda-page #solution,
 .anda-page #problem,
@@ -14,20 +12,21 @@ html:has(.anda-page) {
 }
 
 .anda-title {
-  /* Figma 158:310 · 1200 wide inside 1328 content */
+  /* Figma 158:310 · 1200 wide inside 1296 content */
   width: 1200px;
   max-width: none;
-  margin-left: 64px;
+  margin-left: auto;
   margin-right: auto;
   font-size: 48px;
-  line-height: 1.15;
+  line-height: normal;
   text-wrap: balance;
 }
 
 /* ---------- Hero · Frame 41 · 1156×484 clip of 1156×546 FILL ---------- */
 
 .anda-hero {
-  padding: 80px 48px 64px;
+  /* Figma Frame 41 · media at (70, 80) inside 1296×628 */
+  padding: 80px 70px 64px;
 }
 
 .anda-hero__slot {
@@ -96,48 +95,48 @@ html:has(.anda-page) {
 
 .anda-prio__label {
   margin: 0 0 8px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.35;
 }
 
 .anda-prio__card .bc-bullets {
-  font-size: 20px;
+  font-size: 18px;
 }
 
-/* ---------- Solution features · laptop 694×451 · 56px row gaps ---------- */
+/* ---------- Solution features · laptop 538×350 · 56px row gaps ---------- */
 
 .anda-page #solution.bc-section--stack {
   gap: 56px;
 }
 
-/* Feature rows · Figma 1328: 694 media + 48 gap + 586 copy */
+/* Feature rows · Figma 1296: 538 media + 48 gap + flex copy */
 .anda-feature {
   display: grid;
-  grid-template-columns: 694px 586px;
+  grid-template-columns: 538px minmax(0, 1fr);
   gap: 48px;
   align-items: center;
   margin: 0;
-  width: 1328px;
+  width: 100%;
 }
 
 .anda-feature--flip {
-  grid-template-columns: 586px 694px;
+  grid-template-columns: minmax(0, 1fr) 538px;
 }
 
 .anda-feature__media-col {
   display: flex;
   flex-direction: column;
   gap: 0;
-  width: 694px;
+  width: 538px;
   flex-shrink: 0;
 }
 
 .anda-feature__media,
 .anda-feature__video {
   display: block;
-  width: 694px;
-  height: 451px;
+  width: 538px;
+  height: 350px;
   object-fit: cover;
   object-position: center center;
   background: transparent;
@@ -168,12 +167,12 @@ html:has(.anda-page) {
 
 .anda-feature__copy p {
   margin: 0 0 8px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.35;
   color: #14243b;
 }
 
 .anda-feature__copy .bc-bullets {
-  font-size: 20px;
+  font-size: 18px;
 }
 

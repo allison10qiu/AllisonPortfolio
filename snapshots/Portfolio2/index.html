@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Allison Qiu — UX design portfolio">
+  <title>Allison Qiu</title>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,400i,700i&display=swap">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <!--
+    Figma Home Page · 4:2 · 1440×2694.4
+    Uniform width scale; page scrolls vertically.
+  -->
+  <div class="canvas-wrapper">
+    <main class="design-canvas" aria-label="Allison Qiu" data-figma-frame="4:2">
+      <img
+        class="design-canvas__art"
+        src="assets/home-page.png?v=work5"
+        alt="Allison Qiu portfolio — navy scrapbook home with lace, AQ monogram, and selected work"
+        width="2880"
+        height="5390"
+      >
+
+      <!-- Lace · Figma 32:17053 · exactly 332×812 (+ bow overflow) -->
+      <div class="home-lace" aria-hidden="true">
+        <img
+          class="home-lace__hero"
+          src="assets/home-lace-hero.png?v=lace812"
+          alt=""
+          width="772"
+          height="1624"
+        >
+      </div>
+
+      <nav class="design-hotspots" aria-label="Primary">
+        <!-- Group 3 · work · x:48 y:0 w:73.93 h:173.44 → scroll to My Work -->
+        <a
+          class="design-hotspot design-hotspot--stamp"
+          href="#my-work"
+          aria-label="Work"
+          style="left:48px;top:0;width:73.93px;height:173.44px"
+        >
+          <img src="assets/home-nav-work.png?v=v1440" alt="" width="164" height="361" aria-hidden="true">
+        </a>
+        <!-- Group 4 · about me · x:165 y:0 w:176.64 h:67 -->
+        <a
+          class="design-hotspot design-hotspot--stamp"
+          href="about.html"
+          aria-label="About me"
+          style="left:165px;top:0;width:176.64px;height:67px"
+        >
+          <img src="assets/home-nav-about.png?v=v1440" alt="" width="370" height="148" aria-hidden="true">
+        </a>
+        <!-- resume · ~x:371 y:0 w:184 h:75 (+ shadow pad) -->
+        <a
+          class="design-hotspot design-hotspot--stamp"
+          href="#resume"
+          aria-label="Resume"
+          style="left:365px;top:0;width:196px;height:90px"
+        >
+          <img src="assets/home-nav-resume.png?v=v1440" alt="" width="392" height="180" aria-hidden="true">
+        </a>
+      </nav>
+
+      <!--
+        Project cards · Figma Frame 29 grid (5 cards, 3 rows)
+        HTML cards (no stacked PNG). Videos play when scrolled into view.
+      -->
+      <a
+        class="home-card home-card--terraform"
+        href="#terraform"
+        aria-label="Terraform Read-Only Initiative — Summer 2026"
+        id="terraform"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <img
+              class="home-card__img"
+              src="assets/home-media-terraform.png?v=work5"
+              alt=""
+              width="576"
+              height="324"
+              aria-hidden="true"
+            >
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">Terraform Read-Only Initiative</h2>
+              <p class="home-card__desc">
+                Internal platform for Operation Safe Escape to manage survivor cases, prioritize urgent needs, and maintain secure records.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Summer 2026</span>
+              <span class="home-card__tag">Designer</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a
+        class="home-card home-card--anda"
+        href="projects/anda.html"
+        aria-label="ANDA — Spring 2026"
+        id="anda"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <video
+              class="home-card__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/home-media-anda-2x.png?v=figmacrop"
+            >
+              <source src="assets/videos/anda-card.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">ANDA</h2>
+              <p class="home-card__desc">
+                An internal platform for Anda to track driver performance, manage assets, and support drivers across their ride-hailing network in Angola.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Spring 2026</span>
+              <span class="home-card__tag">Product Manager</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a
+        class="home-card home-card--ose"
+        href="#ose"
+        aria-label="Operation Safe Escape — Fall 2025"
+        id="ose"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <video
+              class="home-card__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/home-media-ose-2x.png?v=figmacrop"
+            >
+              <source src="assets/videos/ose-card.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">Operation Safe Escape</h2>
+              <p class="home-card__desc">
+                Internal platform for Operation Safe Escape to manage survivor cases, prioritize urgent needs, and maintain secure records.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Fall 2025</span>
+              <span class="home-card__tag">Designer</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a
+        class="home-card home-card--nabu"
+        href="#nabu"
+        aria-label="NABU — Spring 2025"
+        id="nabu"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <img
+              class="home-card__img"
+              src="assets/home-media-nabu.png?v=work5"
+              alt=""
+              width="576"
+              height="324"
+              aria-hidden="true"
+            >
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">NABU</h2>
+              <p class="home-card__desc">
+                Internal platform for Operation Safe Escape to manage survivor cases, prioritize urgent needs, and maintain secure records.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Spring 2025</span>
+              <span class="home-card__tag">Designer</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a
+        class="home-card home-card--brilliant"
+        href="#brilliant"
+        aria-label="Brilliant Cities — Fall 2024"
+        id="brilliant"
+      >
+        <div class="home-card__inner">
+          <div class="home-card__media">
+            <img
+              class="home-card__img"
+              src="assets/home-media-brilliant.png?v=work5"
+              alt=""
+              width="576"
+              height="324"
+              aria-hidden="true"
+            >
+          </div>
+          <div class="home-card__body">
+            <div class="home-card__copy">
+              <h2 class="home-card__title">Brilliant Cities</h2>
+              <p class="home-card__desc">
+                An internal platform for Anda to track driver performance, manage assets, and support drivers across their ride-hailing network in Angola.
+              </p>
+            </div>
+            <div class="home-card__tags">
+              <span class="home-card__tag">Fall 2024</span>
+              <span class="home-card__tag">Designer</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Anchor for work tab scroll target (My Work heading abs y:852) -->
+      <div id="my-work" class="design-anchor" style="left:0;top:852px;width:1px;height:1px" aria-hidden="true"></div>
+      <div id="resume" class="design-anchor" style="left:0;top:0;width:1px;height:1px" aria-hidden="true"></div>
+    </main>
+  </div>
+
+  <script src="scripts/home-scale.js"></script>
+  <script src="scripts/home-cards.js"></script>
+</body>
+</html>

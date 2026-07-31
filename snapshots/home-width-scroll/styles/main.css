@@ -1,0 +1,229 @@
+/* Allison Portfolio — pixel-matched to Figma frame 1512×982 */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #f4f7fb;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/*
+  Home — fixed Figma canvas 1512×982, uniformly scaled to the viewport.
+  No per-element % / vw sizing (that warps stickers when aspect differs).
+*/
+body:has(.canvas-wrapper) {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #14253c;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: 100vw;
+  /* height set in JS to scaled canvas height */
+  overflow: hidden;
+  background: #14253c;
+}
+
+.design-canvas {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1512px;
+  height: 982px;
+  margin-left: -756px; /* 1512 / 2 — center before scale */
+  background: #14253c;
+  overflow: hidden;
+}
+
+.design-canvas__art {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1512px;
+  height: 982px;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.design-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.design-hotspot {
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  background: transparent;
+  border: none;
+}
+
+.design-hotspot:focus-visible {
+  outline: 2px solid #e1f1fd;
+  outline-offset: 2px;
+}
+
+/* ---------- Work page · Figma frame 1512×1524 (scrollable) ---------- */
+
+body:has(.work) {
+  height: auto;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.work {
+  position: relative;
+  display: block;
+  width: 100%;
+  /* Keep Figma proportions — width drives height (no viewport warp) */
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+}
+
+.work__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1512 / 1524;
+  object-fit: contain;
+  object-position: top center;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.work-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.work-hotspot {
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  background: transparent;
+  border: none;
+  z-index: 2;
+}
+
+.work-hotspot:focus-visible {
+  outline: 2px solid #14243b;
+  outline-offset: 2px;
+}
+
+/* home · x:57 y:0 w:165.84 h:104 */
+.work-hotspot--home {
+  left: calc(100% * 57 / 1512);
+  top: calc(100% * 0 / 1524);
+  width: calc(100% * 165.83782958984375 / 1512);
+  height: calc(100% * 104 / 1524);
+}
+
+/* about me · x:252 y:0 w:203 h:77 */
+.work-hotspot--about {
+  left: calc(100% * 252 / 1512);
+  top: calc(100% * 0 / 1524);
+  width: calc(100% * 203 / 1512);
+  height: calc(100% * 77 / 1524);
+}
+
+/* footer linkedin · Frame 10 y:1356 + stamp y:72 → 1428 */
+.work-hotspot--linkedin {
+  left: calc(100% * 1336 / 1512);
+  top: calc(100% * 1428 / 1524);
+  width: calc(100% * 62 / 1512);
+  height: calc(100% * 67 / 1524);
+}
+
+/* footer email · Frame 10 y:1356 + stamp y:73 → 1429 */
+.work-hotspot--email {
+  left: calc(100% * 1408 / 1512);
+  top: calc(100% * 1429 / 1524);
+  width: calc(100% * 61 / 1512);
+  height: calc(100% * 67 / 1524);
+}
+
+/* ---------- Inner pages (about placeholder) ---------- */
+
+.page {
+  min-height: 100svh;
+  padding: 2rem clamp(1.25rem, 4vw, 3rem) 4rem;
+}
+
+.page__header {
+  margin-bottom: 3rem;
+}
+
+.page__back {
+  display: inline-block;
+  width: min(148px, 28vw);
+  line-height: 0;
+  transition: transform 160ms ease;
+}
+
+.page__back img {
+  width: 100%;
+  height: auto;
+}
+
+.page__back:hover,
+.page__back:focus-visible {
+  transform: scale(1.04);
+}
+
+.page__back:focus-visible {
+  outline: 2px solid #e1f1fd;
+  outline-offset: 4px;
+}
+
+.page__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9eb6c4;
+}
+
+.page__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.page__lead {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #b7c4d6;
+}

@@ -8,6 +8,16 @@
   font-display: swap;
 }
 
+.bc-page #solution,
+.bc-page #problem,
+.bc-page #users,
+.bc-page #design-system,
+.bc-page #considerations,
+.bc-page #roadmap,
+.bc-page #reflections {
+  scroll-margin-top: 24px;
+}
+
 html:has(.bc-page) {
   margin: 0;
   height: 100%;
@@ -149,7 +159,7 @@ html:has(.bc-page) {
   outline-offset: 4px;
 }
 
-/* ---------- Main column · Figma Frame 46: flex-col gap 40px, px 56, pb 48 ---------- */
+/* ---------- Main column · Figma Frame 46: flex-col gap 40px, px 72, pb 48 ---------- */
 
 .bc-main {
   display: flex;
@@ -158,16 +168,25 @@ html:has(.bc-page) {
   gap: 40px;
   width: 1440px;
   margin: 0;
-  padding: 0 56px 48px;
+  padding: 0 72px 48px;
   box-sizing: border-box;
 }
 
 .bc-intro {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  gap: 16px;
+  align-items: center;
+  gap: 16px; /* Figma Frame 24 · title → body stack */
   margin: 0;
+  width: 100%;
+}
+
+/* Figma Frame 74 · lede + jump group */
+.bc-intro__stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
   width: 100%;
 }
 
@@ -175,18 +194,28 @@ html:has(.bc-page) {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: normal;
   text-align: center;
   color: #14243b;
 }
 
 .bc-lede {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   font-style: italic;
-  line-height: 1.35;
+  line-height: normal;
   color: #14243b;
+  width: 100%;
+}
+
+.bc-lede strong,
+.bc-body strong {
+  font-weight: 700;
+}
+
+.bc-lede strong {
+  font-style: italic;
 }
 
 .bc-jump {
@@ -194,11 +223,6 @@ html:has(.bc-page) {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-}
-
-/* Figma Frame 74 · 24px between lede and Short on time (intro gap is 16px) */
-.bc-lede + .bc-jump {
-  margin-top: 8px;
 }
 
 .bc-jump__label {
@@ -213,11 +237,11 @@ html:has(.bc-page) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 8px;
+  padding: 8px;
   min-height: 38px;
   background: #14243b;
   color: #fff !important;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
@@ -383,7 +407,7 @@ html:has(.bc-page) {
 
 .bc-body {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.35;
   color: #14243b;
@@ -394,15 +418,15 @@ html:has(.bc-page) {
 }
 
 .bc-bullets {
-  margin: 8px 0 0;
-  padding-left: 1.25em;
-  font-size: 20px;
+  margin: 0;
+  padding-left: 30px;
+  font-size: 18px;
   line-height: 1.35;
   color: #14243b;
 }
 
 .bc-bullets li + li {
-  margin-top: 8px;
+  margin-top: 0;
 }
 
 .bc-persona .bc-bullets {
@@ -424,7 +448,7 @@ html:has(.bc-page) {
 }
 
 .bc-callout__label {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -666,11 +690,11 @@ html:has(.bc-page) {
 .bc-numbered li {
   counter-increment: bc-num;
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
+  grid-template-columns: 48px minmax(0, 1fr);
   gap: 16px;
   align-items: start;
   padding: 8px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.35;
   color: #14243b;
 }
@@ -680,8 +704,8 @@ html:has(.bc-page) {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   border-radius: 999px;
   background: #14243b;
   color: #fff;
@@ -689,11 +713,11 @@ html:has(.bc-page) {
   font-weight: 700;
 }
 
-/* ---------- Solution features ---------- */
+/* ---------- Solution features · Figma Frame 85: gap 32 / row gap 48 ---------- */
 
 .bc-feature {
   display: grid;
-  grid-template-columns: 296px minmax(0, 1fr);
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 48px;
   align-items: center;
   margin: 0;
@@ -701,11 +725,18 @@ html:has(.bc-page) {
 }
 
 .bc-feature--flip {
-  grid-template-columns: minmax(0, 1fr) 296px;
+  grid-template-columns: minmax(0, 1fr) 240px;
+}
+
+.bc-feature__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
 }
 
 .bc-feature__copy h3 {
-  margin: 0 0 16px;
+  margin: 0;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.3;
@@ -713,16 +744,20 @@ html:has(.bc-page) {
 }
 
 .bc-feature__copy p {
-  margin: 0 0 8px;
-  font-size: 20px;
+  margin: 0;
+  font-size: 18px;
   line-height: 1.35;
   color: #14243b;
 }
 
+.bc-feature__copy p + .bc-bullets {
+  margin-top: 8px;
+}
+
 .bc-phone {
   position: relative;
-  width: 296px;
-  aspect-ratio: 296.389 / 585.171;
+  width: 240px;
+  aspect-ratio: 240 / 475;
   border-radius: 0;
   overflow: hidden;
   background: #ffffff;
@@ -759,7 +794,7 @@ html:has(.bc-page) {
 .bc-reflect__title {
   margin: 0 0 8px;
   padding-left: 1.5em;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.35;
   color: #14243b;
@@ -771,7 +806,7 @@ html:has(.bc-page) {
 
 .bc-reflect__card p {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.35;
   color: #14243b;
