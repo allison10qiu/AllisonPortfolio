@@ -89,7 +89,7 @@
 }
 
 .about-intro__body {
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
@@ -131,7 +131,7 @@
   border-radius: 8px;
   background: #14243b;
   color: #ffffff;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
@@ -266,7 +266,7 @@
 
 .about-job__company {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: normal;
@@ -275,7 +275,7 @@
 
 .about-job__dates {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
@@ -285,7 +285,7 @@
 
 .about-job__role {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
@@ -316,7 +316,7 @@
 
 .about-community__title {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: normal;
@@ -341,7 +341,7 @@
 
 .about-community__text {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
@@ -417,7 +417,7 @@
 
 .about-enjoy__title {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: normal;
@@ -426,7 +426,7 @@
 
 .about-enjoy__text {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: normal;

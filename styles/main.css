@@ -1,5 +1,61 @@
 /* Allison Portfolio — pixel-matched to Figma */
 
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -21,6 +77,7 @@ body {
   overflow-y: auto;
   color: #f4f7fb;
   font-family: Georgia, "Times New Roman", serif;
+  font-synthesis: none;
 }
 
 /*
@@ -92,7 +149,8 @@ body:has(.canvas-wrapper) {
   padding: 0;
   background: #14243b; /* cover baked PNG text */
   color: #ffffff;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
   pointer-events: none;
 }
 
@@ -321,7 +379,7 @@ body:has(.canvas-wrapper) {
 
 .home-card__title {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.2;
@@ -330,7 +388,7 @@ body:has(.canvas-wrapper) {
 
 .home-card__desc {
   margin: 0;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: 16px;
@@ -356,7 +414,7 @@ body:has(.canvas-wrapper) {
   border: 1px solid #14243b;
   border-radius: 16px; /* Figma Frame 22/23 tag pills */
   background: #fff;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
@@ -470,7 +528,7 @@ body:has(.canvas-wrapper) {
   border-radius: 999px;
   background: #14243b;
   color: #ffffff;
-  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 1;
