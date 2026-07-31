@@ -1,0 +1,179 @@
+/* ANDA case study — Figma 158:292 / 158:293 · exact 1440 canvas (scaled via case-scale.js) */
+
+html:has(.anda-page) {
+  scroll-behavior: smooth;
+}
+
+.anda-page #solution,
+.anda-page #problem,
+.anda-page #users,
+.anda-page #roadmap,
+.anda-page #considerations,
+.anda-page #reflections {
+  scroll-margin-top: 24px;
+}
+
+.anda-title {
+  /* Figma 158:310 · 1200 wide inside 1328 content */
+  width: 1200px;
+  max-width: none;
+  margin-left: 64px;
+  margin-right: auto;
+  font-size: 48px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* ---------- Hero · Frame 41 · 1156×484 clip of 1156×546 FILL ---------- */
+
+.anda-hero {
+  padding: 80px 48px 64px;
+}
+
+.anda-hero__slot {
+  position: relative;
+  width: min(1156px, 100%);
+  aspect-ratio: 1156 / 484;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Image node 188:77 · exported 1156×546 at y: -31 inside 1156×484 clip */
+.anda-hero__media {
+  position: absolute;
+  left: 0;
+  top: calc(-31 / 484 * 100%);
+  width: 100%;
+  height: calc(546 / 484 * 100%);
+  overflow: hidden;
+}
+
+.anda-hero__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---------- Persona · Afonso Ndalu · 238×293 photo column ---------- */
+
+.anda-persona {
+  grid-template-columns: 238px minmax(0, 1fr);
+  gap: 48px;
+}
+
+.anda-persona .bc-persona__photo {
+  aspect-ratio: 238.12 / 293;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0;
+}
+
+/* ---------- Roadmap priority cards · Frame 75/85/86 ---------- */
+
+.anda-prio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+}
+
+.anda-prio__card {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  background: #edf2f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+  color: #14243b;
+}
+
+.anda-prio__label {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.anda-prio__card .bc-bullets {
+  font-size: 20px;
+}
+
+/* ---------- Solution features · laptop 694×451 · 56px row gaps ---------- */
+
+.anda-page #solution.bc-section--stack {
+  gap: 56px;
+}
+
+/* Feature rows · Figma 1328: 694 media + 48 gap + 586 copy */
+.anda-feature {
+  display: grid;
+  grid-template-columns: 694px 586px;
+  gap: 48px;
+  align-items: center;
+  margin: 0;
+  width: 1328px;
+}
+
+.anda-feature--flip {
+  grid-template-columns: 586px 694px;
+}
+
+.anda-feature__media-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 694px;
+  flex-shrink: 0;
+}
+
+.anda-feature__media,
+.anda-feature__video {
+  display: block;
+  width: 694px;
+  height: 451px;
+  object-fit: cover;
+  object-position: center center;
+  background: transparent;
+}
+
+.anda-feature__note {
+  margin: 0;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  color: #14243b;
+}
+
+.anda-credit-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.anda-feature__copy h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #14243b;
+}
+
+.anda-feature__copy p {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.anda-feature__copy .bc-bullets {
+  font-size: 20px;
+}
+

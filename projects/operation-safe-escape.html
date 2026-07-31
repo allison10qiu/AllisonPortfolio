@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Operation Safe Escape — FLOW case management platform case study by Allison Qiu">
+  <title>Operation Safe Escape · Allison Qiu</title>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,300i,400i,700i&display=swap">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/brilliant.css">
+  <link rel="stylesheet" href="../styles/ose.css">
+</head>
+<body class="bc-page ose-page">
+  <div class="bc-canvas-wrapper">
+    <div class="bc-canvas">
+  <header class="bc-header">
+    <div class="bc-header__inner">
+      <nav class="bc-header__nav" aria-label="Primary">
+        <a class="bc-stamp bc-stamp--work" href="../index.html#my-work" aria-label="Work">
+          <img src="../assets/ose/nav-work.png" alt="" width="164" height="363">
+        </a>
+        <a class="bc-stamp bc-stamp--about" href="../about.html" aria-label="About me">
+          <img src="../assets/ose/nav-about.png?v=figmafix10" alt="" width="349" height="138">
+        </a>
+        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1bDn7PCWzDGHNRlBC6BLyx6SrvJgHSYRJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+          <img src="../assets/ose/nav-resume.png" alt="" width="384" height="166">
+        </a>
+      </nav>
+      <a class="bc-header__name" href="../index.html">allison qiu</a>
+    </div>
+  </header>
+
+  <main class="bc-main">
+    <section class="bc-intro">
+      <h1 class="bc-title ose-title">Operation Safe Escape Support Dashboard + Survivor Form Collection</h1>
+      <p class="bc-lede">
+        Operation Safe Escape (OSE) helps survivors of domestic violence, stalking, and harassment stay safe and rebuild their lives, supporting over 750 survivors and their families in 2024 alone. I helped design FLOW, a secure case management platform that replaced OSE's manual email-and-spreadsheet process with one centralized system, so admins and volunteers could support more survivors, faster and more safely.
+      </p>
+      <div class="bc-jump">
+        <p class="bc-jump__label">SHORT ON TIME?</p>
+        <a class="bc-btn" href="#solution">Jump to Final Product</a>
+      </div>
+    </section>
+
+    <section class="bc-hero ose-hero" aria-label="Product preview">
+      <div class="ose-hero__slot">
+        <div class="ose-hero__media">
+          <img
+            src="../assets/ose/hero.png?v=ose1"
+            alt="FLOW platform laptop mockups — login, dashboard, case card, messaging, form builder, and intake"
+            width="2000"
+            height="2000"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-meta" aria-label="Project details">
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TIMELINE</p>
+        <p class="bc-meta__value">Sept 2025 - Dec 2025</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TOOLS</p>
+        <p class="bc-meta__value">Figma</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">ROLE</p>
+        <p class="bc-meta__value">Product Designer</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">SKILLS</p>
+        <ul class="bc-meta__list">
+          <li>Product Design</li>
+          <li>User Research</li>
+          <li>Design Systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bc-section" id="problem">
+      <div class="bc-heading">
+        <h2>Problem</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <p class="bc-body">
+        OSE was tracking every survivor case by hand, through email threads and spreadsheets, while supporting hundreds of families a year with a small staff and volunteer base. That meant fragmented records, no consistent way to review a case, and no reliable trail if law enforcement ever needed one. It also meant admins and volunteers were burning limited hours on manual admin work, like re-explaining case history over email or hunting through a spreadsheet, instead of spending that time on survivors directly. Our goal was to design a platform that made intake, case review, and follow-up faster, so OSE's small team could support more survivors without needing to grow their staff just to keep up.
+      </p>
+    </section>
+
+    <aside class="bc-callout" aria-label="Problem statement">
+      <p class="bc-callout__label">PROBLEM STATEMENT</p>
+      <p class="bc-callout__text">
+        OSE's manual, spreadsheet-based process left admins and volunteers without a fast, reliable way to track and support survivors, at real cost to people who needed help now.
+      </p>
+    </aside>
+
+    <section class="bc-section" id="users">
+      <div class="bc-heading">
+        <h2>Understanding the Users</h2>
+      </div>
+      <div class="bc-persona ose-persona">
+        <div class="bc-persona__left">
+          <p class="bc-persona__eyebrow">PERSONA</p>
+          <p class="bc-persona__name">Robert Gomez</p>
+          <img
+            class="bc-persona__photo"
+            src="../assets/ose/persona.png?v=ose1"
+            alt="Portrait of persona Robert Gomez"
+            width="1593"
+            height="1904"
+          >
+        </div>
+        <div class="bc-persona__right">
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">ABOUT</p>
+            <p class="bc-persona__row">
+              <img src="../assets/ose/icon-user.svg" alt="" width="16" height="16">
+              <span>OSE Volunteer</span>
+            </p>
+            <p class="bc-persona__row">
+              <img src="../assets/ose/icon-sad.svg" alt="" width="16" height="16">
+              <span>Only has a few minutes between other commitments to check in on his cases, and can't afford to dig through pages of notes to figure out what's going on</span>
+            </p>
+            <p class="bc-persona__row bc-persona__row--quote">
+              <img src="../assets/ose/icon-quote.svg" alt="" width="16" height="16">
+              <span>"I need to know in seconds what this person needs from me right now, not spend ten minutes piecing it together."</span>
+            </p>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">PAIN POINTS</p>
+            <ul class="bc-bullets">
+              <li>Only sees the cases assigned to him, but still has to hunt for the important details within each one</li>
+              <li>Can't tell at a glance how urgent a case is or what's already been done</li>
+              <li>Depends on other volunteers and admins leaving clear notes, if they don't, he's working blind</li>
+              <li>Needs to log in and communicate securely, knowing how sensitive this data is</li>
+            </ul>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">NEEDS:</p>
+            <p class="bc-body bc-body--tight">
+              Robert needs to open a case and immediately know how urgent it is, what the survivor needs, and what's already happened, so his limited volunteer hours go toward actually helping someone instead of piecing together context. He also needs a secure way to log her own updates so the next person isn't starting from scratch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="design-system">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Creating a Design System</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          OSE Didn't have an existing design system, only a logo and the fonts from their website, so we had to build our own components from scratch and decide early on which patterns we would keep consistent across the whole platform.
+        </p>
+      </div>
+      <div class="ose-ds" aria-label="Design system samples">
+        <img class="ose-ds__tile ose-ds__tile--colours" src="../assets/ose/ds-colours.png?v=ose2" alt="FLOW color palette" width="510" height="1192">
+        <img class="ose-ds__tile ose-ds__tile--buttons" src="../assets/ose/ds-buttons.png?v=ose2" alt="FLOW button components" width="692" height="1094">
+        <img class="ose-ds__tile ose-ds__tile--forms" src="../assets/ose/ds-forms.png?v=ose2" alt="FLOW form components" width="692" height="1094">
+        <img class="ose-ds__tile ose-ds__tile--additional" src="../assets/ose/ds-additional.png?v=ose2" alt="FLOW additional components" width="692" height="1498">
+      </div>
+    </section>
+
+    <section class="bc-section" id="considerations">
+      <div class="bc-heading">
+        <h2>Project Considerations</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <ol class="bc-numbered">
+        <li>Since this wasn't a normal internal tool, I designed every screen around who was really behind the data, people fleeing abuse, knowing that even a small misstep could put someone at real risk.</li>
+        <li>Before I designed the workflow, I spent time learning how survivor support actually plays out, since it's an ongoing relationship between admins, volunteers, and the survivor rather than a single interaction.</li>
+        <li>Since each case held dozens of fields, I had to decide what to show first, figuring out what a volunteer needed to see in the first three seconds versus what could wait one click deeper, which drove the priority tags, status labels, and case-type flags.</li>
+      </ol>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="solution">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Solution</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          FLOW gives OSE's admins and volunteers one secure platform to track survivor cases, prioritize who needs help most urgently, and keep the kind of reliable records OSE can act on and hand off when it counts.
+        </p>
+      </div>
+
+      <article class="ose-feature">
+        <div class="ose-feature__media-wrap">
+          <video
+            class="ose-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/ose/feature-dashboard.png?v=ose1"
+            aria-label="Survivor Case Dashboard on a laptop"
+          >
+            <source src="../assets/videos/ose-survivor-case-dashboard.mp4?v=ose1" type="video/mp4">
+          </video>
+        </div>
+        <div class="ose-feature__copy">
+          <h3>Survivor Case Dashboard</h3>
+          <p>This is the home screen admins land on to see every case at a glance instead of scrolling through a spreadsheet. A new, unassigned case visually stands out from a completed one, so admins spend less time reopening cases that don't need it and more time on the ones that do.</p>
+          <ul class="bc-bullets">
+            <li>Sortable columns (Name, Status, Priority, Case Type) let admins reorder the list by whatever matters most in the moment</li>
+            <li>Color-coded priority and case type tags make urgency and category scannable without opening a case</li>
+            <li>“Export Cases to CSV” automates the documentation process that OSE was manually completing for law enforcement</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="ose-feature ose-feature--flip">
+        <div class="ose-feature__copy">
+          <h3>Survivor Case Card</h3>
+          <p>This card view pulls a survivor’s information into one centralized pop-up, making it easy for admins and volunteers to review at a glance.</p>
+          <ul class="bc-bullets">
+            <li>"Edit" and per-case "Export Case to CSV" let admins update or document a single case without leaving the detail view</li>
+            <li>“Send Account Creation Email” automates the account creation email that admins and volunteers would have to send to survivors after escalating a case</li>
+            <li>Priority, status, and case type stay visible on the left side, so that admins and volunteers don’t lose context once they click into a case</li>
+          </ul>
+        </div>
+        <img
+          class="ose-feature__media"
+          src="../assets/ose/feature-case-card.png?v=ose1"
+          alt="Survivor Case Card modal on a laptop"
+          width="1388"
+          height="902"
+        >
+      </article>
+
+      <article class="ose-feature">
+        <img
+          class="ose-feature__media"
+          src="../assets/ose/feature-messaging.png?v=ose1"
+          alt="Secure messaging screen on a laptop"
+          width="1388"
+          height="902"
+        >
+        <div class="ose-feature__copy">
+          <h3>Secure Messaging</h3>
+          <p>This is where admins and volunteers can message a survivor directly instead of going back and forth over personal email. This keeps the communication between OSE and the survivor confidential without getting information lost in email threads.</p>
+          <ul class="bc-bullets">
+            <li>Color coded typing profiles help admin and volunteers differentiate between internal and external users</li>
+            <li>Blue → Survivors</li>
+            <li>Purple → Volunteers</li>
+            <li>Red → Admin</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="ose-feature ose-feature--flip">
+        <div class="ose-feature__copy">
+          <h3>OSE Form Builder</h3>
+          <p>Admins can build and edit internal forms, like the intake questionnaire, themselves, instead of needing a developer every time OSE wants to change a question. That gives OSE the freedom to customize and roll out new forms as their needs grow, without being limited by engineering resources.</p>
+          <ul class="bc-bullets">
+            <li>Multiple question type options allows admins to select between diverse inputs for each question</li>
+            <li>Ability to preview and publish the form allows admins to test the form before it reaches a survivor</li>
+          </ul>
+        </div>
+        <div class="ose-feature__media-wrap">
+          <video
+            class="ose-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/ose/feature-form-builder.png?v=ose1"
+            aria-label="OSE Form Builder on a laptop"
+          >
+            <source src="../assets/videos/ose-form-builder.mp4?v=ose1" type="video/mp4">
+          </video>
+        </div>
+      </article>
+
+      <article class="ose-feature ose-feature--phone">
+        <div class="ose-feature__phone-wrap">
+          <video
+            class="ose-feature__phone-video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/ose/feature-intake.png?v=ose1"
+            aria-label="Mobile-first survivor intake form"
+          >
+            <source src="../assets/videos/ose-mobile-first-form.mp4?v=ose1" type="video/mp4">
+          </video>
+        </div>
+        <div class="ose-feature__copy">
+          <h3>Mobile-First Survivor Intake Form</h3>
+          <p>This is the intake form a survivor fills out, and is the most sensitive screen in the product. We designed it to be mobile-first, quick, and discreet, since a phone is often the one device a survivor has access to. We developed it to show one question at a time to keep it fast and to keep the survivor’s focus on one question at a time.</p>
+          <ul class="bc-bullets">
+            <li>Safety Exit stays fixed on every screen, so a survivor never has to hunt for it in a moment of urgency</li>
+            <li>The intro screen sets expectations upfront: how long it takes, that skipping is fine, that info stays confidential</li>
+            <li>The progress bar and section counter allows survivors to gauge their progress without having to mentally keep track of how many questions they have completed.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="bc-section bc-section--reflect" id="reflections">
+      <div class="bc-heading">
+        <h2>Takeaways</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="1">
+          <li>Designing for a vulnerable user base</li>
+        </ol>
+        <p>This project taught me how to design with a completely different user base in mind. Most projects I've worked on before were about making something more efficient or more delightful, but here safety came first. Something as small as keeping Safety Exit in the same spot on every screen, or making the intake form mobile-first and one question at a time, came from constantly asking what happens if someone only has a few seconds before they need to put their phone away.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="2">
+          <li>Building a framework OSE could keep using without us</li>
+        </ol>
+        <p>OSE didn't have developers on staff to make changes to their own platform, so instead of building a form only our team could update, we built a Form Builder that let admins create and edit questions themselves. That shifted how I thought about the whole project: I wasn't just designing screens, I was designing something OSE could keep adapting on their own, long after we handed it off, so the impact didn't stop when our team did.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="3">
+          <li>Designing for internal efficiency at a resource-strapped nonprofit</li>
+        </ol>
+        <p>Knowing OSE runs on a small staff and volunteer base changed how I approached individual screens, even for features that were already defined. Things like sortable case lists, one-click CSV exports, and the self-serve Form Builder only mattered if they actually saved an admin time in practice. That taught me to treat "does this work as specified" as the starting point, not the finish line, and to keep asking whether a real, busy admin would actually feel the difference.</p>
+      </article>
+    </section>
+
+    <p class="bc-cta-wrap">
+      <a class="bc-btn" href="../index.html#my-work">Check out my other work!</a>
+    </p>
+  </main>
+
+  <footer class="bc-footer">
+    <img
+      class="bc-footer__art"
+      src="../assets/ose/footer.png?v=ose1"
+      alt=""
+      width="2880"
+      height="384"
+      aria-hidden="true"
+    >
+    <nav class="bc-footer__hotspots" aria-label="Contact">
+      <a
+        class="bc-footer__hit bc-footer__hit--home"
+        href="../index.html"
+        aria-label="Home"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--linkedin"
+        href="https://www.linkedin.com/in/allisonqiu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--email"
+        href="mailto:allisonqiu10@gmail.com"
+        aria-label="Email"
+      ></a>
+    </nav>
+  </footer>
+    </div>
+  </div>
+
+  <script src="../scripts/case-scale.js"></script>
+  <script src="../scripts/case-videos.js"></script>
+  <script src="../scripts/custom-cursor.js"></script>
+  <script src="../scripts/mailto.js"></script>
+</body>
+</html>

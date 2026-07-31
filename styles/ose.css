@@ -1,0 +1,222 @@
+/* Operation Safe Escape case study — Figma 155:2 / 155:3 · exact 1440 canvas (scaled via case-scale.js) */
+
+html:has(.ose-page) {
+  scroll-behavior: smooth;
+}
+
+/* Hard-lock to Figma 1440 — never fluid-shrink like older max-width layouts */
+.ose-page .bc-canvas,
+.ose-page .bc-header,
+.ose-page .bc-header__inner,
+.ose-page .bc-main,
+.ose-page .bc-footer,
+.ose-page .bc-footer__art {
+  width: 1440px;
+  max-width: 1440px;
+}
+
+.ose-page #solution,
+.ose-page #problem,
+.ose-page #users,
+.ose-page #design-system,
+.ose-page #considerations,
+.ose-page #reflections {
+  scroll-margin-top: 24px;
+}
+
+.ose-title {
+  /* Figma 155:20 · 1050 wide, x:139 inside 1328 */
+  width: 1050px;
+  max-width: none;
+  margin-left: 139px;
+  margin-right: auto;
+  font-size: 48px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* ---------- Hero · Frame 41 / 40 · 1156×484 clip of 1156×546 FILL ---------- */
+
+/* Frame 41 · 1328×628 · gray panel; media Frame 40 · 1156×484 at (86, 80) */
+.ose-hero.bc-hero {
+  width: 1328px;
+  max-width: 1328px;
+  padding: 80px 86px 64px;
+  box-sizing: border-box;
+}
+
+.ose-hero__slot {
+  position: relative;
+  width: 1156px;
+  height: 484px;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Image node 155:29 · 1156×546 at y: -31 inside Frame 40 */
+.ose-hero__media {
+  position: absolute;
+  left: 0;
+  top: calc(-31 / 484 * 100%);
+  width: 100%;
+  height: calc(546 / 484 * 100%);
+  overflow: hidden;
+}
+
+.ose-hero__media img {
+  position: absolute;
+  left: 0;
+  top: -55.92%;
+  width: 100%;
+  height: 211.72%;
+  max-width: none;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---------- Persona · Robert Gomez wider photo column ---------- */
+
+.ose-persona {
+  grid-template-columns: 298px minmax(0, 1fr);
+  gap: 48px;
+}
+
+.ose-persona .bc-persona__photo {
+  aspect-ratio: 298 / 337;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0;
+}
+
+/* ---------- Design system · Frame 70 four-column layout ---------- */
+/* Framed Figma exports at native aspect — no non-uniform crop (keeps 1px strokes) */
+
+.ose-ds {
+  /* Figma 155:108 Frame 69 · clipped to 1328 (tiles sum to 1341) */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 1328px;
+  max-width: 1328px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.ose-ds__tile {
+  display: block;
+  flex-shrink: 0;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Colors · 155:110 · 255×595.581 */
+.ose-ds__tile--colours {
+  width: 255px;
+}
+
+/* Buttons · 155:113 · Forms · 162:591 · 346×547 */
+.ose-ds__tile--buttons,
+.ose-ds__tile--forms {
+  width: 346px;
+}
+
+/* Additional components · 162:604 · 346×749 */
+.ose-ds__tile--additional {
+  width: 346px;
+}
+
+/* ---------- Solution features · laptop 694×451 · phone 296.389×585.171 ---------- */
+
+.ose-feature {
+  display: grid;
+  grid-template-columns: 694px 586px;
+  gap: 48px;
+  align-items: center;
+  margin: 0;
+  width: 1328px;
+}
+
+.ose-feature--flip {
+  grid-template-columns: 586px 694px;
+}
+
+.ose-feature--phone {
+  grid-template-columns: 296.389px 1fr;
+  gap: 48px;
+  width: 1328px;
+}
+
+.ose-feature__media-wrap {
+  position: relative;
+  width: 694px;
+  height: 451px;
+  overflow: hidden;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+/* Static posters are already 1388×902 (2× of 694×451).
+   Videos are 2000×2000 — FILL-crop like Figma (cover + center). */
+.ose-feature__media,
+.ose-feature__video {
+  display: block;
+  width: 694px;
+  height: 451px;
+  object-fit: cover;
+  object-position: center center;
+  background: transparent;
+}
+
+.ose-feature__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ose-feature__phone-wrap {
+  position: relative;
+  width: 296.389px;
+  height: 585.171px;
+  overflow: hidden;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.ose-feature__phone,
+.ose-feature__phone-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.ose-feature__phone-video {
+  position: absolute;
+  inset: 0;
+}
+
+.ose-feature__copy h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #14243b;
+}
+
+.ose-feature__copy p {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.ose-feature__copy .bc-bullets {
+  margin-top: 8px;
+}

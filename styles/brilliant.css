@@ -1,0 +1,867 @@
+/* Brilliant Cities case study — Figma 65:18795 · 1440 wide */
+
+@font-face {
+  font-family: "Cross Stitch Cursive";
+  src: url("../assets/fonts/CrossStitchCursive.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html:has(.bc-page) {
+  margin: 0;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden; /* body is the only scrollport — prevents dual scrollbars */
+}
+
+.bc-page {
+  margin: 0;
+  height: 100%;
+  background: #ffffff;
+  color: #14243b;
+  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.bc-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Fixed 1440 Figma canvas (scaled to viewport like home) ---------- */
+
+.bc-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  /* height set in case-scale.js to scaled canvas height */
+  overflow: hidden; /* clip absolute unscaled canvas so body doesn't grow a second giant scrollbar */
+}
+
+.bc-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  max-width: 1440px;
+  background: #ffffff;
+  transform-origin: top left;
+  overflow-x: hidden; /* keep Figma 1440; prevent DS/feature overflow widening canvas */
+}
+
+/* ---------- Header (not sticky · Figma Group 24) ---------- */
+
+.bc-header {
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  overflow: visible;
+  width: 1440px;
+}
+
+.bc-header__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 1440px;
+  margin: 0;
+  padding: 0 48px;
+  min-height: 146px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.bc-header__nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.bc-stamp {
+  display: block;
+  line-height: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  /* Drop shadow is baked into the Figma stamp exports */
+  transform-origin: center top;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bc-stamp img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top left;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Natural Figma export sizes (2× PNG → 1× layout) · Group 3/4/22 */
+.bc-stamp--work {
+  width: 73.93px;
+  height: 173.44px;
+}
+
+.bc-stamp--about {
+  width: 174.5px;
+  height: 69.0px;
+}
+
+.bc-stamp--resume {
+  width: 184px;
+  height: 75px;
+}
+
+.bc-stamp:hover {
+  transform: translateY(-4px) scale(1.06);
+}
+
+.bc-stamp:focus,
+.bc-stamp:focus-visible {
+  outline: none;
+}
+
+.bc-header__name {
+  display: block;
+  margin: 0;
+  padding-top: 32px;
+  font-family: "Cross Stitch Cursive", cursive;
+  font-size: 40px; /* Figma 158:307 */
+  font-weight: 400;
+  line-height: normal;
+  color: #14243b;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.bc-header__name:hover,
+.bc-header__name:focus-visible {
+  opacity: 0.75;
+}
+
+.bc-header__name:focus-visible {
+  outline: 2px solid #14243b;
+  outline-offset: 4px;
+}
+
+/* ---------- Main column · Figma Frame 46: flex-col gap 40px, px 56, pb 48 ---------- */
+
+.bc-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;
+  width: 1440px;
+  margin: 0;
+  padding: 0 56px 48px;
+  box-sizing: border-box;
+}
+
+.bc-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  margin: 0;
+  width: 100%;
+}
+
+.bc-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  color: #14243b;
+}
+
+.bc-lede {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.bc-jump {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Figma Frame 74 · 24px between lede and Short on time (intro gap is 16px) */
+.bc-lede + .bc-jump {
+  margin-top: 8px;
+}
+
+.bc-jump__label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #14243b;
+}
+
+.bc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 8px;
+  min-height: 38px;
+  background: #14243b;
+  color: #fff !important;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.bc-btn:hover,
+.bc-btn:focus-visible {
+  transform: translateY(-1px);
+  background: #1c3254;
+}
+
+.bc-btn:focus-visible {
+  outline: 2px solid #14243b;
+  outline-offset: 3px;
+}
+
+/* ---------- Hero phones · Figma Frame 41 (83:19037) ---------- */
+
+.bc-hero {
+  margin: 0;
+  padding: 80px 48px 64px;
+  background: #edf2f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bc-hero__phones {
+  display: flex;
+  align-items: center;
+  gap: 25.554px;
+  width: 100%;
+}
+
+/* Figma slots 83:19039 / 83:19040 — 592.528 × 370.53 with FILL crop */
+.bc-hero__slot {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 592.528 / 370.53;
+  overflow: hidden;
+}
+
+.bc-hero__slot img {
+  position: absolute;
+  left: -0.03%;
+  top: -30.17%;
+  width: 100.06%;
+  height: 160.01%;
+  max-width: none;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---------- Meta row · Figma 86:19080 ---------- */
+
+.bc-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #14243b;
+}
+
+.bc-meta__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.bc-meta__label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #14243b;
+}
+
+.bc-meta__value,
+.bc-meta__list {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  color: #14243b;
+}
+
+.bc-meta__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Sections · parent .bc-main supplies the 40px gap ---------- */
+
+.bc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  width: 100%;
+}
+
+/* Design system + Solution: 32px between text block and media rows */
+.bc-section--stack {
+  gap: 32px;
+}
+
+/* Final reflections block: 24px between heading + takeaway cards */
+.bc-section--reflect {
+  gap: 24px;
+}
+
+.bc-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.bc-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.bc-heading h2 {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #14243b;
+}
+
+.bc-heading__rule {
+  display: block;
+  flex: 1 1 auto;
+  height: 1px;
+  background: #dcdcdc;
+  opacity: 1;
+}
+
+.bc-body {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.bc-body--tight {
+  font-size: 16px;
+}
+
+.bc-bullets {
+  margin: 8px 0 0;
+  padding-left: 1.25em;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.bc-bullets li + li {
+  margin-top: 8px;
+}
+
+.bc-persona .bc-bullets {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+/* ---------- Callout ---------- */
+
+.bc-callout {
+  margin: 0;
+  padding: 24px;
+  background: #edf2f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 30px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bc-callout__label {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #14243b;
+}
+
+.bc-callout__text {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+/* ---------- Persona ---------- */
+
+.bc-persona {
+  display: grid;
+  grid-template-columns: 201px minmax(0, 1fr);
+  gap: 48px;
+  padding: 32px 40px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+
+.bc-persona__eyebrow {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #14243b;
+}
+
+.bc-persona__name {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #14243b;
+}
+
+.bc-persona__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  aspect-ratio: 201 / 315;
+}
+
+.bc-persona__right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.bc-persona__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.bc-persona__row img {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.bc-persona__row--quote span {
+  font-style: italic;
+}
+
+/* ---------- Design system grid · Figma Frame 70 (96:19577) ---------- */
+
+.bc-ds {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  margin: 0;
+  width: 100%;
+}
+
+.bc-ds__group {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 928px;
+  flex-shrink: 0;
+}
+
+.bc-ds__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bc-ds__col--left {
+  width: 498.033px;
+  gap: 17.827px;
+  flex-shrink: 0;
+}
+
+.bc-ds__col--mid {
+  flex: 1 0 0;
+  min-width: 0;
+  gap: 16px;
+}
+
+.bc-ds__col--right {
+  width: 324px;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.bc-ds__frame {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #edf2f5;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.bc-ds__frame img {
+  position: absolute;
+  max-width: none;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Colours 1 · 94:19453 */
+.bc-ds__frame--colours-1 {
+  width: 100%;
+  aspect-ratio: 626 / 342;
+  border-width: 1.114px;
+  border-radius: 22.283px;
+}
+
+.bc-ds__frame--colours-1 img {
+  width: 111.17%;
+  height: 120.93%;
+  left: -4.63%;
+  top: -10.74%;
+}
+
+/* Colours 2 / Typography · 94:19572 */
+.bc-ds__frame--colours-2 {
+  width: 100%;
+  aspect-ratio: 611 / 375;
+  border-width: 1.114px;
+  border-radius: 22.283px;
+}
+
+.bc-ds__frame--colours-2 img {
+  width: 113.9%;
+  height: 110.29%;
+  left: -7.2%;
+  top: -5.46%;
+}
+
+/* Forms · 97:19587 */
+.bc-ds__frame--forms {
+  width: 100%;
+  aspect-ratio: 356 / 295;
+  border-radius: 20px;
+}
+
+.bc-ds__frame--forms img {
+  width: 147.52%;
+  height: 122.85%;
+  left: -9.52%;
+  top: -11.15%;
+}
+
+/* Tags / controls · 97:19623 */
+.bc-ds__frame--tags {
+  width: 100%;
+  height: 239px;
+  border-width: 0.956px;
+  border-radius: 19.117px;
+}
+
+.bc-ds__frame--tags img {
+  width: 112.51%;
+  height: 156.72%;
+  left: -4.12%;
+  top: -12.27%;
+}
+
+/* Accordion · 96:19574 */
+.bc-ds__frame--accordion {
+  width: 255.226px;
+  height: 424.581px;
+  border-width: 0.708px;
+  border-radius: 14.151px;
+}
+
+.bc-ds__frame--accordion img {
+  width: 172.9%;
+  height: 123.49%;
+  left: 0.08%;
+  top: -14.25%;
+}
+
+/* Buttons · 97:19626 */
+.bc-ds__frame--buttons {
+  width: 324px;
+  height: 288px;
+  border-radius: 20px;
+}
+
+.bc-ds__frame--buttons img {
+  width: 135.96%;
+  height: 140.25%;
+  left: -7.75%;
+  top: -9.37%;
+}
+
+/* ---------- Numbered considerations ---------- */
+
+.bc-numbered {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: bc-num;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bc-numbered li {
+  counter-increment: bc-num;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 8px;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.bc-numbered li::before {
+  content: counter(bc-num);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 54px;
+  border-radius: 999px;
+  background: #14243b;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ---------- Solution features ---------- */
+
+.bc-feature {
+  display: grid;
+  grid-template-columns: 296px minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+}
+
+.bc-feature--flip {
+  grid-template-columns: minmax(0, 1fr) 296px;
+}
+
+.bc-feature__copy h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #14243b;
+}
+
+.bc-feature__copy p {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.bc-phone {
+  position: relative;
+  width: 296px;
+  aspect-ratio: 296.389 / 585.171;
+  border-radius: 0;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.bc-phone__video,
+.bc-phone__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ---------- Reflections ---------- */
+
+.bc-reflect {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.bc-reflect__card {
+  padding: 16px;
+  background: #edf2f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+}
+
+.bc-reflect__title {
+  margin: 0 0 8px;
+  padding-left: 1.5em;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.bc-reflect__title li {
+  padding-left: 0.25em;
+}
+
+.bc-reflect__card p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.bc-cta-wrap {
+  margin: 0;
+  text-align: center;
+}
+
+/* ---------- Footer · Figma 94:19511 · full 1440 bleed ---------- */
+
+.bc-footer {
+  position: relative;
+  width: 1440px;
+  background: #14243b;
+  color: #fff;
+  line-height: 0;
+}
+
+.bc-footer__art {
+  display: block;
+  width: 1440px;
+  max-width: none;
+  height: auto;
+  margin: 0;
+}
+
+.bc-footer__hotspots {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1440px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bc-footer__hit {
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  background: transparent;
+}
+
+/* Figma footer AQ logo · Untitled design (10) 1 · links home */
+.bc-footer__hit--home {
+  left: 24px;
+  top: 89px;
+  width: 155px;
+  height: 66px;
+}
+
+/* Figma footer Frame 36 · linkedin / email on right */
+.bc-footer__hit--linkedin {
+  right: 24px;
+  top: 42%;
+  width: 22%;
+  height: 16%;
+  min-width: 180px;
+  min-height: 28px;
+}
+
+.bc-footer__hit--email {
+  right: 24px;
+  top: 62%;
+  width: 18%;
+  height: 16%;
+  min-width: 160px;
+  min-height: 28px;
+}
+
+.bc-footer__hit:focus-visible {
+  outline: 2px solid #e1f1fd;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bc-stamp,
+  .bc-btn {
+    transition: none;
+  }
+
+  .bc-stamp:hover,
+  .bc-stamp:focus-visible,
+  .bc-btn:hover,
+  .bc-btn:focus-visible {
+    transform: none;
+  }
+}
+
+/* ---------- No viewport breakpoints ----------
+   Layout is locked to the 1440 Figma canvas and scaled by case-scale.js,
+   so media-query layout changes would break exact Figma proportions. */

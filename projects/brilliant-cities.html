@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brilliant Cities Habit Tracker — case study by Allison Qiu">
+  <title>Brilliant Cities · Allison Qiu</title>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,300i,400i,700i&display=swap">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/brilliant.css">
+</head>
+<body class="bc-page">
+  <div class="bc-canvas-wrapper">
+    <div class="bc-canvas">
+  <header class="bc-header">
+    <div class="bc-header__inner">
+      <nav class="bc-header__nav" aria-label="Primary">
+        <a class="bc-stamp bc-stamp--work" href="../index.html#my-work" aria-label="Work">
+          <img src="../assets/brilliant/nav-work.png?v=bc2" alt="" width="164" height="363">
+        </a>
+        <a class="bc-stamp bc-stamp--about" href="../about.html" aria-label="About me">
+          <img src="../assets/brilliant/nav-about.png?v=figmafix10" alt="" width="349" height="138">
+        </a>
+        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1bDn7PCWzDGHNRlBC6BLyx6SrvJgHSYRJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+          <img src="../assets/brilliant/nav-resume.png?v=bc2" alt="" width="384" height="166">
+        </a>
+      </nav>
+      <a class="bc-header__name" href="../index.html">allison qiu</a>
+    </div>
+  </header>
+
+  <main class="bc-main">
+    <section class="bc-intro">
+      <h1 class="bc-title">Brilliant Cities Habit Tracker</h1>
+      <p class="bc-lede">
+        I helped design a family habit-tracking app for Brilliant Cities that helps parents and children build healthier routines together. The platform educates families about the importance of consistent habits, lets parents track progress for each child, and helps Brilliant Cities community engagement managers support families beyond their structured programs.
+      </p>
+      <div class="bc-jump">
+        <p class="bc-jump__label">SHORT ON TIME?</p>
+        <a class="bc-btn" href="#solution">Jump to Final Product</a>
+      </div>
+    </section>
+
+    <section class="bc-hero" aria-label="Product preview">
+      <div class="bc-hero__phones">
+        <div class="bc-hero__slot">
+          <img
+            src="../assets/brilliant/hero-left.png?v=bc4"
+            alt="Brilliant Cities app screens — login, onboarding, and goal categories"
+            width="2000"
+            height="2000"
+          >
+        </div>
+        <div class="bc-hero__slot">
+          <img
+            src="../assets/brilliant/hero-right.png?v=bc4"
+            alt="Brilliant Cities app screens — search, goals card, and family dashboard"
+            width="2000"
+            height="2000"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-meta" aria-label="Project details">
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TIMELINE</p>
+        <p class="bc-meta__value">Sept 2024 - Dec 2024</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TOOLS</p>
+        <p class="bc-meta__value">Figma</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">ROLE</p>
+        <p class="bc-meta__value">Product Designer</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">SKILLS</p>
+        <ul class="bc-meta__list">
+          <li>Product Design</li>
+          <li>User Research</li>
+          <li>Design Systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bc-section" id="problem">
+      <div class="bc-heading">
+        <h2>Problem</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <p class="bc-body">
+        Brilliant Cities runs dozens of program offerings, like community dinners, fitness classes, computer lab hours, etc, out of neighborhood hubs, all meant to help families grow. Unfortunately, that support ends once a family leaves a program and Brilliant Cities has almost no visibility into what happens next. With only biannual check-ins, there was no way to help families keep practicing healthy habits at home, and no way for families to track that progress themselves either. On top of that, most of the families Brilliant Cities serves have low-tech literacy, which meant any solution had to be simple enough to use without a learning curve.
+      </p>
+    </section>
+
+    <aside class="bc-callout" aria-label="Problem statement">
+      <p class="bc-callout__label">PROBLEM STATEMENT</p>
+      <p class="bc-callout__text">
+        Families have no way to build their progress once they leave a Brilliant Cities program, and no simple way to learn or track healthy habits at home
+      </p>
+    </aside>
+
+    <section class="bc-section" id="users">
+      <div class="bc-heading">
+        <h2>Understanding the Users</h2>
+      </div>
+      <div class="bc-persona">
+        <div class="bc-persona__left">
+          <p class="bc-persona__eyebrow">PERSONA</p>
+          <p class="bc-persona__name">Cynthia Grey</p>
+          <img
+            class="bc-persona__photo"
+            src="../assets/brilliant/persona-photo.png?v=bc1"
+            alt="Portrait of persona Cynthia Grey"
+            width="804"
+            height="1260"
+          >
+        </div>
+        <div class="bc-persona__right">
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">ABOUT</p>
+            <p class="bc-persona__row">
+              <img src="../assets/brilliant/icon-user.svg" alt="" width="16" height="16">
+              <span>Single Mom</span>
+            </p>
+            <p class="bc-persona__row">
+              <img src="../assets/brilliant/icon-sad.svg" alt="" width="16" height="16">
+              <span>Struggles with finding time to attend Brilliant Cities Programs</span>
+            </p>
+            <p class="bc-persona__row bc-persona__row--quote">
+              <img src="../assets/brilliant/icon-quote.svg" alt="" width="16" height="16">
+              <span>“I want my kids to develop healthy habits, but I don’t have time to attend Brilliant Cities’ programs. I need simple, practical ways to help them eat better and stay active.”</span>
+            </p>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">PAIN POINTS</p>
+            <ul class="bc-bullets">
+              <li>Low-tech literacy</li>
+              <li>Lack of resources and knowledge on cultivating healthy habits within her children</li>
+              <li>Lack of support from community and family</li>
+            </ul>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">NEEDS:</p>
+            <p class="bc-body bc-body--tight">
+              Cynthia wants to help <strong>cultivate healthy habits</strong> in her children but <strong>lacks</strong> the <strong>resources</strong> and <strong>knowledge</strong> to do so. She wants an application that will help <strong>inform</strong> her on how to help her children grow in various aspects. Because she has such a busy schedule, she wants to continue <strong>enriching</strong> her children <strong>at home</strong> in addition to making time to attend <strong>Brilliant Cities’ programs.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="design-system">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Creating a Design System</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          For this project, I collaborated with another product designer to create a comprehensive design system to use for our Habit Tracker Web Application. We were given a comprehensive branding kit with colors, fonts, accordions, and more components that we were able to build off of and use as inspiration.
+        </p>
+      </div>
+      <div class="bc-ds" aria-label="Design system samples">
+        <div class="bc-ds__group">
+          <div class="bc-ds__col bc-ds__col--left">
+            <div class="bc-ds__frame bc-ds__frame--colours-1">
+              <img src="../assets/brilliant/colours-1.png?v=bc5" alt="Color palette" width="2000" height="2000">
+            </div>
+            <div class="bc-ds__frame bc-ds__frame--colours-2">
+              <img src="../assets/brilliant/colours-2.png?v=bc5" alt="Typography samples" width="2000" height="2000">
+            </div>
+          </div>
+          <div class="bc-ds__col bc-ds__col--mid">
+            <div class="bc-ds__frame bc-ds__frame--forms">
+              <img src="../assets/brilliant/buttons-2.png?v=bc5" alt="Form and list components" width="2000" height="2000">
+            </div>
+            <div class="bc-ds__frame bc-ds__frame--tags">
+              <img src="../assets/brilliant/buttons-3.png?v=bc5" alt="Tags, checkboxes, and text area" width="2000" height="2000">
+            </div>
+          </div>
+        </div>
+        <div class="bc-ds__col bc-ds__col--right">
+          <div class="bc-ds__frame bc-ds__frame--accordion">
+            <img src="../assets/brilliant/buttons-1.png?v=bc5" alt="Goal and habit accordion components" width="2000" height="2000">
+          </div>
+          <div class="bc-ds__frame bc-ds__frame--buttons">
+            <img src="../assets/brilliant/buttons-4.png?v=bc5" alt="Button components" width="2000" height="2000">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-section" id="considerations">
+      <div class="bc-heading">
+        <h2>Project Considerations</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <ol class="bc-numbered">
+        <li>Our user base was mainly composed of adults who could potentially have low tech literacy, so I made it a priority to ensure my designs were clear and intuitive.</li>
+        <li>Our project deliverables weren’t clearly defined at the start due to miscommunication within Brilliant Cities, so it was important for me to stay adaptable and flexible to potential changes.</li>
+        <li>We were on a tight timeline, with only three months to design and put our application into production. With this in mind, I made sure to prioritize efficiency without sacrificing design quality.</li>
+        <li>Along with collaborating with Brilliant Cities, we also worked with a child psychologist to make sure our wording and phrasing were supportive and encouraging for children. This emphasized the importance of making our designs and language child-friendly.</li>
+        <li>Our client specifically wanted a mobile website because their clients would mostly be accessing this application on phones through their website due to having low tech literacy.</li>
+      </ol>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="solution">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Solution</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          The Habit Tracker is a mobile-first web app that lets families set personalized habit goals for each child, get gentle reminders to stick with them, and stay connected to Brilliant Cities’ support even outside of a scheduled program.
+        </p>
+      </div>
+
+      <article class="bc-feature">
+        <div class="bc-phone">
+          <video
+            class="bc-phone__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/brilliant/phone-goal-categories.png?v=bc1"
+          >
+            <source src="../assets/videos/goal-categories.mp4?v=bc1" type="video/mp4">
+          </video>
+        </div>
+        <div class="bc-feature__copy">
+          <h3>Goal Categories Page</h3>
+          <p>Brilliant Cities was very intentional about what types of goal categories they wanted, so we had to come up with a very unique design to fit their needs.</p>
+          <ul class="bc-bullets">
+            <li>Specific goal category cards so that users would be able to understand the different categories and what habits they included</li>
+            <li>Multi-select check box to allow users to search through multiple goal categories</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="bc-feature bc-feature--flip">
+        <div class="bc-feature__copy">
+          <h3>Relevant Goals Search Functionality</h3>
+          <p>To simplify the process of searching through various goal categories, we drew inspiration from shopping website filters to develop a unique search functionality.</p>
+          <ul class="bc-bullets">
+            <li>Pill search style helps users associate different icons and colors with different goal categories, making it easier to filter and search for different habits</li>
+            <li>Dropdown menu allows the user to see all the different goal category options and removes the need for them to type and recall the names of the goal categories</li>
+          </ul>
+        </div>
+        <div class="bc-phone">
+          <img
+            class="bc-phone__img"
+            src="../assets/brilliant/phone-search.png?v=bc1"
+            alt="Relevant goals search with category filter pills"
+            width="593"
+            height="1171"
+          >
+        </div>
+      </article>
+
+      <article class="bc-feature">
+        <div class="bc-phone">
+          <img
+            class="bc-phone__img"
+            src="../assets/brilliant/phone-search-results.png?v=bc1"
+            alt="Relevant goals search results grouped by category"
+            width="593"
+            height="1171"
+          >
+        </div>
+        <div class="bc-feature__copy">
+          <h3>Relevant Goals Search Results</h3>
+          <ul class="bc-bullets">
+            <li>Separating habits by their goal category makes it easy for the user to swipe and see all the various goal options</li>
+            <li>Organizing the search results in this structure made the most sense since this is meant to be a mobile web application</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="bc-feature bc-feature--flip">
+        <div class="bc-feature__copy">
+          <h3>Goals Card</h3>
+          <p>Since we collaborated with a child psychologist to determine the best wording for encouraging healthy habits, we needed to design a creative and engaging way to present tips and advice that parents could easily follow and apply.</p>
+          <ul class="bc-bullets">
+            <li>Clear pill labels for each goal category helps users quickly recognize which section they’re viewing</li>
+            <li>Including steps helps users adapt to the interface and navigate confidently during their first use</li>
+            <li>Grouping habits by age makes it easier for users to find recommendations that match their needs</li>
+            <li>Sorting and tracking habits by child allows parents to conveniently monitor each child’s progress</li>
+          </ul>
+        </div>
+        <div class="bc-phone">
+          <video
+            class="bc-phone__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/brilliant/phone-goal-card.png?v=bc1"
+          >
+            <source src="../assets/videos/goal-card.mp4?v=bc1" type="video/mp4">
+          </video>
+        </div>
+      </article>
+
+      <article class="bc-feature">
+        <div class="bc-phone">
+          <video
+            class="bc-phone__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/brilliant/phone-family-dashboard.png?v=bc1"
+          >
+            <source src="../assets/videos/family-dashboard.mp4?v=bc1" type="video/mp4">
+          </video>
+        </div>
+        <div class="bc-feature__copy">
+          <h3>Family Dashboard</h3>
+          <ul class="bc-bullets">
+            <li>Categorizing habits by goal makes it easier for users to track progress within each area</li>
+            <li>Creating separate pages for each child gives users more space and flexibility to add as many habits as they’d like</li>
+            <li>A floating action button for adding children or goals simplifies both processes and makes navigation more intuitive</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="bc-section bc-section--reflect" id="reflections">
+      <div class="bc-heading">
+        <h2>Takeaways</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="1">
+          <li>Communicating clearly in a design partnership</li>
+        </ol>
+        <p>This was my first time collaborating with another designer, which emphasized the importance of clear and consistent communication in a design partnership. We spent time aligning our ideas to reach a shared vision and collaborated closely to understand each other’s design styles.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="2">
+          <li>Managing a project end to end on a tight timeline</li>
+        </ol>
+        <p>It was also my first experience managing an end-to-end project on a tight timeline, which pushed me to design more efficiently and focus on what truly mattered in the process.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="3">
+          <li>Balancing creativity with business and technical goals</li>
+        </ol>
+        <p>Since I had only worked on solo design projects before, collaborating with a PM and developers also taught me how to balance creativity with business goals and technical feasibility.</p>
+      </article>
+    </section>
+
+    <p class="bc-cta-wrap">
+      <a class="bc-btn" href="../index.html#my-work">Check out my other work!</a>
+    </p>
+  </main>
+
+  <footer class="bc-footer">
+    <img
+      class="bc-footer__art"
+      src="../assets/brilliant/footer.png?v=bc1"
+      alt=""
+      width="2880"
+      height="384"
+      aria-hidden="true"
+    >
+    <nav class="bc-footer__hotspots" aria-label="Contact">
+      <a
+        class="bc-footer__hit bc-footer__hit--home"
+        href="../index.html"
+        aria-label="Home"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--linkedin"
+        href="https://www.linkedin.com/in/allisonqiu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--email"
+        href="mailto:allisonqiu10@gmail.com"
+        aria-label="Email"
+      ></a>
+    </nav>
+  </footer>
+    </div>
+  </div>
+
+  <script src="../scripts/case-scale.js"></script>
+  <script src="../scripts/case-videos.js"></script>
+  <script src="../scripts/case-snap.js"></script>
+  <script src="../scripts/custom-cursor.js"></script>
+  <script src="../scripts/mailto.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NABU Internal Management Dashboard — case study by Allison Qiu">
+  <title>NABU · Allison Qiu</title>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,300i,400i,700i&display=swap">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/brilliant.css">
+  <link rel="stylesheet" href="../styles/nabu.css">
+</head>
+<body class="bc-page nabu-page">
+  <div class="bc-canvas-wrapper">
+    <div class="bc-canvas">
+  <header class="bc-header">
+    <div class="bc-header__inner">
+      <nav class="bc-header__nav" aria-label="Primary">
+        <a class="bc-stamp bc-stamp--work" href="../index.html#my-work" aria-label="Work">
+          <img src="../assets/nabu/nav-work.png" alt="" width="164" height="363">
+        </a>
+        <a class="bc-stamp bc-stamp--about" href="../about.html" aria-label="About me">
+          <img src="../assets/nabu/nav-about.png?v=figmafix10" alt="" width="349" height="138">
+        </a>
+        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1bDn7PCWzDGHNRlBC6BLyx6SrvJgHSYRJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+          <img src="../assets/nabu/nav-resume.png" alt="" width="384" height="166">
+        </a>
+      </nav>
+      <a class="bc-header__name" href="../index.html">allison qiu</a>
+    </div>
+  </header>
+
+  <main class="bc-main">
+    <section class="bc-intro">
+      <h1 class="bc-title">NABU Internal Management Dashboard</h1>
+      <p class="bc-lede">
+        NABU works to end illiteracy by publishing storybooks in kids' native languages, and they're reaching over 12 million learners worldwide. We designed the platform behind all that data, taking three disconnected systems (MySQL, spreadsheets, and Google Analytics) and consolidating them onto one centralized platform for admins to manage partners, organize data, and build visualizations that actually show NABU's impact.
+      </p>
+      <div class="bc-jump">
+        <p class="bc-jump__label">SHORT ON TIME?</p>
+        <a class="bc-btn" href="#solution">Jump to Final Product</a>
+      </div>
+    </section>
+
+    <section class="bc-hero nabu-hero" aria-label="Product preview">
+      <div class="nabu-hero__slot">
+        <div class="nabu-hero__media">
+          <img
+            src="../assets/nabu/hero.png?v=nabu1"
+            alt="NABU dashboard laptop mockups — partner access, roles, visualizations, and admin tools"
+            width="2000"
+            height="2000"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-meta" aria-label="Project details">
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TIMELINE</p>
+        <p class="bc-meta__value">Feb 2025 - May 2025</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TOOLS</p>
+        <p class="bc-meta__value">Figma</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">ROLE</p>
+        <p class="bc-meta__value">Product Designer</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">SKILLS</p>
+        <ul class="bc-meta__list">
+          <li>Product Design</li>
+          <li>Data Visualization</li>
+          <li>Design Systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bc-section" id="problem">
+      <div class="bc-heading">
+        <h2>Problem</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <p class="bc-body">
+        NABU helps kids around the world learn to read in their native languages through fun, digital storybooks. But behind the scenes, their data was all over the place, split between MySQL, spreadsheets, and Google Analytics. Every time a new partner joined, admins had to manually set up dashboards and chase down data from country managers. It was messy, time-consuming, and hard to keep everything consistent. Our goal was to design one simple, centralized platform that made it easy to manage data, track impact, and keep NABU's mission running smoothly.
+      </p>
+    </section>
+
+    <aside class="bc-callout" aria-label="Problem statement">
+      <p class="bc-callout__label">PROBLEM STATEMENT</p>
+      <p class="bc-callout__text">
+        NABU's data was scattered across three disconnected systems, making it slow and error-prone for admins to manage partners and turn raw data into usable insights.
+      </p>
+    </aside>
+
+    <section class="bc-section" id="users">
+      <div class="bc-heading">
+        <h2>Understanding the Users</h2>
+      </div>
+      <div class="bc-persona nabu-persona">
+        <div class="bc-persona__left">
+          <p class="bc-persona__eyebrow">PERSONA</p>
+          <p class="bc-persona__name">Leila Mwangi</p>
+          <img
+            class="bc-persona__photo"
+            src="../assets/nabu/persona.png?v=nabu1"
+            alt="Portrait of persona Leila Mwangi"
+            width="2000"
+            height="2000"
+          >
+        </div>
+        <div class="bc-persona__right">
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">ABOUT</p>
+            <p class="bc-persona__row">
+              <img src="../assets/nabu/icon-user.svg" alt="" width="16" height="16">
+              <span>NABU Admin</span>
+            </p>
+            <p class="bc-persona__row">
+              <img src="../assets/nabu/icon-sad.svg" alt="" width="16" height="16">
+              <span>Struggles with sorting and filtering through disorganized datasets across multiple systems</span>
+            </p>
+            <p class="bc-persona__row bc-persona__row--quote">
+              <img src="../assets/nabu/icon-quote.svg" alt="" width="16" height="16">
+              <span>“I spend more time cleaning data and setting up dashboards than actually analyzing our impact. I just want everything in one place.”</span>
+            </p>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">PAIN POINTS</p>
+            <ul class="bc-bullets">
+              <li>Juggling multiple data sources (MySQL, spreadsheets, Google Analytics) is time-consuming and confusing</li>
+              <li>Creating new Looker Studio dashboards for every partner leads to redundancy and clutter</li>
+              <li>Manual data submissions often have errors or missing values</li>
+              <li>No centralized system to view, approve, or manage partner accounts and roles</li>
+            </ul>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">NEEDS:</p>
+            <p class="bc-body bc-body--tight">
+              Leila needs a single platform that brings all of NABU’s <strong>data</strong> together, so she no longer has to juggle spreadsheets, databases, and analytics tools. She wants an easy way to <strong>approve partners, manage roles,</strong> and <strong>assign dashboards</strong>, all while keeping NABU’s branding consistent.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="design-system">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Creating a Design System</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          NABU gave us a very thorough design system and clear branding guidelines, which meant we could focus our time on solving the actual data problem instead of rebuilding the basics. Since we already had so many great resources, we only had to design a few extra components, letting us move faster toward something NABU could actually put to use.
+        </p>
+      </div>
+      <div class="nabu-ds" aria-label="Design system samples">
+        <div class="nabu-ds__col nabu-ds__col--left">
+          <img class="nabu-ds__tile nabu-ds__tile--colours" src="../assets/nabu/ds-colours.png?v=nabu3" alt="NABU color palette" width="682" height="344">
+          <img class="nabu-ds__tile nabu-ds__tile--type" src="../assets/nabu/ds-typography.png?v=nabu3" alt="NABU typography samples" width="682" height="233">
+        </div>
+        <div class="nabu-ds__col nabu-ds__col--mid">
+          <img class="nabu-ds__tile nabu-ds__tile--forms" src="../assets/nabu/ds-forms.png?v=nabu3" alt="NABU form components" width="1338" height="446">
+          <img class="nabu-ds__tile nabu-ds__tile--buttons" src="../assets/nabu/ds-buttons.png?v=nabu3" alt="NABU button components" width="1338" height="314">
+        </div>
+        <img class="nabu-ds__tile nabu-ds__tile--icons" src="../assets/nabu/ds-icons.png?v=nabu3" alt="NABU icon and status components" width="572" height="1524">
+      </div>
+    </section>
+
+    <section class="bc-section" id="considerations">
+      <div class="bc-heading">
+        <h2>Project Considerations</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <ol class="bc-numbered">
+        <li>Our project deals with a lot of data, so I spent a lot of time researching how to best organize it to optimize the workflow for creating visualizations.</li>
+        <li>We were on a tight timeline, with only three months to design and put our application into production. With this in mind, I made sure to prioritize efficiency without sacrificing design quality, so NABU would have a solid foundation to build on going forward.</li>
+        <li>This project was mostly about turning NABU's data into well-organized tables, which is different from the typical UI/UX projects I usually work on. That meant a lot of learning, not just to understand the data itself, but how admins and partners actually interact with it, so I could design something that held up under how it would be used.</li>
+      </ol>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="solution">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Solution</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          The NABU dashboard we built is a centralized web platform that lets admins manage partner access, organize data from multiple sources, and build custom visualizations, giving NABU one reliable place to make decisions and support their partners.
+        </p>
+      </div>
+
+      <article class="nabu-feature">
+        <div class="nabu-feature__media-wrap">
+          <video
+            class="nabu-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/nabu/feature-review.png?v=nabu3"
+            aria-label="Review Partner Access Table on a laptop"
+          >
+            <source src="../assets/videos/nabu-partner-access-table.mp4?v=nabu3" type="video/mp4">
+          </video>
+        </div>
+        <div class="nabu-feature__copy">
+          <h3>Review Partner Access Table</h3>
+          <p>NABU wanted a platform that better organized and centralized their data, so one of the solutions we proposed was using tables. We designed the Review Partner Access table, which lets NABU administrators approve, reject, and view details on each requestor.</p>
+          <ul class="bc-bullets">
+            <li>Specific goal category cards so that users would be able to understand the different categories and what habits they included</li>
+            <li>Multi-select check box to allow users to search through multiple goal categories</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="nabu-feature nabu-feature--flip">
+        <div class="nabu-feature__copy">
+          <h3>Role Builder Table</h3>
+          <p>This table helps organize the different roles partners and volunteers can have. Roles control access to data and visualizations, so volunteers only see what’s relevant to them, keeping sensitive data protected while still letting NABU share the right insights with the right people.</p>
+          <ul class="bc-bullets">
+            <li>Expanding visualizations within a dropdown lets users view several at once without cluttering the table</li>
+            <li>Edit, delete, and create role buttons put all the key admin actions in one place, so managing access takes minutes instead of back-and-forth</li>
+          </ul>
+        </div>
+        <img
+          class="nabu-feature__media"
+          src="../assets/nabu/feature-role.png?v=nabu3"
+          alt="Role Builder Table on a laptop"
+          width="1388"
+          height="902"
+        >
+      </article>
+
+      <article class="nabu-feature">
+        <div class="nabu-feature__media-wrap">
+          <video
+            class="nabu-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/nabu/feature-partner.png?v=nabu3"
+            aria-label="Add Partner Flow modal on a laptop"
+          >
+            <source src="../assets/videos/nabu-add-partner.mp4?v=nabu3" type="video/mp4">
+          </video>
+        </div>
+        <div class="nabu-feature__copy">
+          <h3>Add Partner Flow</h3>
+          <ul class="bc-bullets">
+            <li>The pop-up modal design cuts down on the number of tabs a user needs open, and lets them see existing roles they’ve already created, so onboarding a new partner takes a few minutes instead of turning into its own task</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="nabu-feature nabu-feature--flip">
+        <div class="nabu-feature__copy">
+          <h3>Visualization Builder</h3>
+          <p>This breaks down the process of turning data into a visualization step by step, simplifying the process for admins who lack technical experience.</p>
+          <ul class="bc-bullets">
+            <li>Splits the process into 5 steps, keeping it organized and easy to follow</li>
+            <li>Pre-filled dropdown menus simplify the process and cut down on room for error</li>
+          </ul>
+        </div>
+        <img
+          class="nabu-feature__media"
+          src="../assets/nabu/feature-viz-builder.png?v=nabu2"
+          alt="Visualization Builder on a laptop"
+          width="1388"
+          height="902"
+        >
+      </article>
+
+      <article class="nabu-feature nabu-feature--stack">
+        <div class="nabu-feature__stack">
+          <img
+            class="nabu-feature__media"
+            src="../assets/nabu/feature-viz-1.png?v=nabu1"
+            alt="Data visualization example — bar chart dashboard"
+            width="1388"
+            height="902"
+          >
+          <img
+            class="nabu-feature__media"
+            src="../assets/nabu/feature-viz-2.png?v=nabu1"
+            alt="Data visualization example — line chart dashboard"
+            width="1388"
+            height="902"
+          >
+        </div>
+        <div class="nabu-feature__copy">
+          <h3>Data Visualization Examples</h3>
+          <p>The Visualization Builder was one of the most important parts of our design, since it’s what lets admins turn scattered data into something partners and funders can actually read and trust. Here are a few examples of what that data could look like once it’s organized.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="bc-section bc-section--reflect" id="reflections">
+      <div class="bc-heading">
+        <h2>Takeaways</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="1">
+          <li>Designing for a data-heavy, internal application</li>
+        </ol>
+        <p>This was my first time designing an internal application built around this much data, and it changed how I think about data organization and just how much of an impact it can have on workflow efficiency at scale.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="2">
+          <li>Designing for internal efficiency</li>
+        </ol>
+        <p>Every screen I designed had to make an admin’s day-to-day easier, not just look good. Things like bulk partner approval and role-based dashboard access weren’t just features, they were direct fixes to the manual, error-prone workflow NABU was stuck in. I learned to prioritize that kind of efficiency first and then focus on visual appeal.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="3">
+          <li>Building technical fluency to support creativity</li>
+        </ol>
+        <p>Understanding how the data is aggregated and filtered gave me more room to be creative, since I could focus on designing a visualization builder that let admins go from raw, scattered data to something a partner or funder could actually understand.</p>
+      </article>
+    </section>
+
+    <p class="bc-cta-wrap">
+      <a class="bc-btn" href="../index.html#my-work">Check out my other work!</a>
+    </p>
+  </main>
+
+  <footer class="bc-footer">
+    <img
+      class="bc-footer__art"
+      src="../assets/nabu/footer.png?v=nabu1"
+      alt=""
+      width="2880"
+      height="384"
+      aria-hidden="true"
+    >
+    <nav class="bc-footer__hotspots" aria-label="Contact">
+      <a
+        class="bc-footer__hit bc-footer__hit--home"
+        href="../index.html"
+        aria-label="Home"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--linkedin"
+        href="https://www.linkedin.com/in/allisonqiu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--email"
+        href="mailto:allisonqiu10@gmail.com"
+        aria-label="Email"
+      ></a>
+    </nav>
+  </footer>
+    </div>
+  </div>
+
+  <script src="../scripts/case-scale.js"></script>
+  <script src="../scripts/case-videos.js"></script>
+  <script src="../scripts/custom-cursor.js"></script>
+  <script src="../scripts/mailto.js"></script>
+</body>
+</html>

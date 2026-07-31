@@ -3,132 +3,423 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Anda case study — Angolan mobility platform UX design">
-  <title>Anda · Case Study · Allison Qiu</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <meta name="description" content="ANDA Driver Performance Model + Management Dashboard — case study by Allison Qiu">
+  <title>ANDA · Allison Qiu</title>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,300i,400i,700i&display=swap">
   <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/brilliant.css">
+  <link rel="stylesheet" href="../styles/anda.css">
 </head>
-<body class="case-study-page">
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="site-logo" href="../index.html">Allison Qiu</a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul class="site-nav__list">
-          <li><a href="../index.html#work">Work</a></li>
-          <li><a href="../index.html#about">About</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
+<body class="bc-page anda-page">
+  <div class="bc-canvas-wrapper">
+    <div class="bc-canvas">
+  <header class="bc-header">
+    <div class="bc-header__inner">
+      <nav class="bc-header__nav" aria-label="Primary">
+        <a class="bc-stamp bc-stamp--work" href="../index.html#my-work" aria-label="Work">
+          <img src="../assets/anda/nav-work.png" alt="" width="164" height="363">
+        </a>
+        <a class="bc-stamp bc-stamp--about" href="../about.html" aria-label="About me">
+          <img src="../assets/anda/nav-about.png?v=figmafix10" alt="" width="349" height="138">
+        </a>
+        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1bDn7PCWzDGHNRlBC6BLyx6SrvJgHSYRJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+          <img src="../assets/anda/nav-resume.png" alt="" width="384" height="166">
+        </a>
       </nav>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
+      <a class="bc-header__name" href="../index.html">allison qiu</a>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
-      <ul class="mobile-nav__list">
-        <li><a href="../index.html#work">Work</a></li>
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main id="main">
-    <article class="case-study">
-      <header class="case-study__hero">
-        <div class="container case-study__hero-inner">
-          <a class="back-link" href="../index.html#work">&larr; Back to work</a>
-          <p class="case-study__meta">Product · Mobility · Angola</p>
-          <h1 class="case-study__title">Anda</h1>
-          <p class="case-study__subtitle">
-            A mobility platform designed around informal transit networks in Luanda — connecting riders,
-            drivers, and local operators through a flexible, trust-first experience.
-          </p>
-          <dl class="case-study__facts">
-            <div>
-              <dt>Role</dt>
-              <dd>Lead UX Designer</dd>
-            </div>
-            <div>
-              <dt>Timeline</dt>
-              <dd>12 weeks</dd>
-            </div>
-            <div>
-              <dt>Team</dt>
-              <dd>PM, 2 engineers, researcher</dd>
-            </div>
-            <div>
-              <dt>Deliverables</dt>
-              <dd>Research synthesis, flows, hi-fi UI</dd>
-            </div>
-          </dl>
+  <main class="bc-main">
+    <section class="bc-intro">
+      <h1 class="bc-title anda-title">ANDA<br>Driver Performance Model + Management Dashboard</h1>
+      <p class="bc-lede">
+        Anda is transforming transportation in Angola by helping drivers own their vehicles through asset financing, alongside ride-hailing and delivery services. I <em><strong>led the development</strong></em> of a platform that <em><strong>centralized their internal operations</strong></em>, taking Odoo, manual spreadsheets, and disconnected GPS and Yango data and turning them into <em><strong>one transparent system</strong></em> for admins and Customer Success Managers to track <em><strong>how active drivers are day to day</strong></em>, whether <em><strong>payments</strong></em> are coming in <em><strong>on time</strong></em>, and who actually needs support.
+      </p>
+      <div class="bc-jump">
+        <p class="bc-jump__label">SHORT ON TIME?</p>
+        <a class="bc-btn" href="#solution">Jump to Final Product</a>
+      </div>
+    </section>
+
+    <section class="bc-hero anda-hero" aria-label="Product preview">
+      <div class="anda-hero__slot">
+        <div class="anda-hero__media">
+          <img
+            src="../assets/anda/hero.png?v=anda2"
+            alt="ANDA dashboard laptop mockups — driver performance, CSM queue, and admin tools"
+            width="2312"
+            height="1092"
+          >
         </div>
-        <figure class="case-study__cover container">
-          <img src="../assets/anda-cover.svg" alt="Anda app concept screens placeholder">
-        </figure>
-      </header>
+      </div>
+    </section>
 
-      <div class="container case-study__body">
-        <section class="case-study__section">
-          <h2>Overview</h2>
-          <p>
-            Anda explores how ride-hailing can adapt to Angola's mix of formal apps and informal
-            shared taxis (<em>candongueiros</em>). Rather than replacing existing habits, the product
-            surfaces trusted local options and simplifies coordination for everyday trips.
-          </p>
-          <p><em>This is a placeholder case study. Full research findings, process, and screens will be added.</em></p>
-        </section>
+    <section class="bc-meta" aria-label="Project details">
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TIMELINE</p>
+        <p class="bc-meta__value">Feb 2026 - May 2026</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">TOOLS</p>
+        <p class="bc-meta__value">Figma</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">ROLE</p>
+        <p class="bc-meta__value">Product Manager</p>
+      </div>
+      <div class="bc-meta__item">
+        <p class="bc-meta__label">SKILLS</p>
+        <ul class="bc-meta__list">
+          <li>Product Management</li>
+          <li>Requirements + Roadmapping</li>
+          <li>Cross-Functional Collaboration</li>
+        </ul>
+      </div>
+    </section>
 
-        <section class="case-study__section">
-          <h2>Problem</h2>
-          <p>
-            Urban mobility in Luanda is fragmented. Riders juggle cash payments, unreliable ETAs, and
-            limited visibility into which routes serve their neighborhood — especially outside central districts.
-          </p>
-        </section>
+    <section class="bc-section" id="problem">
+      <div class="bc-heading">
+        <h2>Problem</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <p class="bc-body">
+        Anda helps people in Angola work, earn, and build a better future by combining ride-hailing and delivery work with a path to owning their own vehicle. But behind the scenes, admins and Customer Success Managers had <strong>no easy way to see how a driver was actually doing</strong>, were they driving regularly, going offline for long stretches, keeping up with payments, or falling behind. That data lived across <strong>Odoo, manual spreadsheets</strong>, and <strong>GPS</strong> and <strong>Yango APIs</strong> that didn't talk to each other, so admins couldn't tell whether a quiet driver was underperforming, dealing with a broken bike, or unwilling to pay. <strong>My goal</strong> was to <strong>guide</strong> the team <strong>to develop one system</strong> <strong>that pulled daily activity and payment data into a single, trustworthy view</strong>, so admins and CSMs could act <strong>fast and fairly</strong>.
+      </p>
+    </section>
 
-        <section class="case-study__section">
-          <h2>Approach</h2>
-          <ul class="case-study__list">
-            <li>Contextual inquiry with riders and candongueiro operators</li>
-            <li>Journey mapping across cash, connectivity, and trust constraints</li>
-            <li>Iterative prototyping focused on offline-first booking flows</li>
-            <li>Usability testing in low-bandwidth conditions</li>
+    <aside class="bc-callout" aria-label="Problem statement">
+      <p class="bc-callout__label">PROBLEM STATEMENT</p>
+      <p class="bc-callout__text">
+        Anda's driver data was scattered across disconnected systems, making it hard for admins and CSMs to know who needed support, and why.
+      </p>
+    </aside>
+
+    <section class="bc-section" id="users">
+      <div class="bc-heading">
+        <h2>Understanding the Users</h2>
+      </div>
+      <div class="bc-persona anda-persona">
+        <div class="bc-persona__left">
+          <p class="bc-persona__eyebrow">PERSONA</p>
+          <p class="bc-persona__name">Afonso Ndalu</p>
+          <img
+            class="bc-persona__photo"
+            src="../assets/anda/persona.png?v=anda1"
+            alt="Portrait of persona Afonso Ndalu"
+            width="477"
+            height="586"
+          >
+        </div>
+        <div class="bc-persona__right">
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">ABOUT</p>
+            <p class="bc-persona__row">
+              <img src="../assets/anda/icon-user.svg" alt="" width="16" height="16">
+              <span>Customer Success manager</span>
+            </p>
+            <p class="bc-persona__row">
+              <img src="../assets/anda/icon-sad.svg" alt="" width="16" height="16">
+              <span>Struggles to know which drivers need help most, since the data he needs is scattered across Odoo, GPS, and Yango</span>
+            </p>
+            <p class="bc-persona__row bc-persona__row--quote">
+              <img src="../assets/anda/icon-quote.svg" alt="" width="16" height="16">
+              <span>"I don't want to guess whether someone's struggling or just having a bad week, I need to know before I reach out."</span>
+            </p>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">PAIN POINTS</p>
+            <ul class="bc-bullets">
+              <li>Has to check multiple disconnected systems just to see how active a driver has been or whether their payments are current</li>
+              <li>Can't easily tell the difference between poor performance, vehicle downtime, or a driver who simply can't pay</li>
+              <li>Has no clear way to prioritize which drivers need help most urgently</li>
+              <li>Wants to support drivers fairly, without decisions feeling arbitrary or biased</li>
+            </ul>
+          </div>
+          <div class="bc-persona__block">
+            <p class="bc-persona__eyebrow">NEEDS:</p>
+            <p class="bc-body bc-body--tight">
+              Afonso needs a <strong>ranked view</strong> of her drivers, built on real signals like <strong>daily activity</strong> and <strong>payment status</strong>, that shows who needs help most urgently and why, backed by reasoning that's <strong>explainable</strong> enough for her to <strong>trust</strong> it and repeat it back to a driver if they ask.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="roadmap">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Defining the Roadmap</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          I wrote the PRD for this project and <strong>framed the P0, P1, and P2 priorities</strong>, deciding what needed to ship first and help align the team around those priorities.
+        </p>
+      </div>
+      <div class="anda-prio">
+        <article class="anda-prio__card">
+          <p class="anda-prio__label">P0</p>
+          <ul class="bc-bullets">
+            <li>Prioritized authentication and the core Driver Performance Overview System first, since nothing else on the platform mattered if admins couldn't trust the underlying data</li>
+            <li>Made sure explainability and fairness, like showing why a driver got flagged and checking for bias, implemented from the beginning instead of adding it later, to ensure the data was trustworthy</li>
+            <li>Focused the Admin and CSM dashboards on the same two things: how active a driver actually is (km driven, offline time, last active) and whether they're keeping up on payments, to keep everyone on the same page</li>
           </ul>
-        </section>
+        </article>
+        <article class="anda-prio__card">
+          <p class="anda-prio__label">P1</p>
+          <ul class="bc-bullets">
+            <li>Scoped in the Priority Queue View and risk scoring once the core data was solid, giving CSMs a clear way to see who to check on first</li>
+            <li>Held off on predictive risk scoring until the system could actually explain itself, since flagging a driver as "at risk" without a reason wasn't good enough</li>
+          </ul>
+        </article>
+        <article class="anda-prio__card">
+          <p class="anda-prio__label">P2</p>
+          <ul class="bc-bullets">
+            <li>Pushed the driver-facing mobile dashboard and reward system further down the roadmap, since the priority was giving admins and CSMs visibility first, before building tools for drivers</li>
+            <li>Deferred CSM messaging and CSM performance scoring, to make sure CSMs had the tools to support drivers before adding ways to message them directly</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-        <section class="case-study__section">
-          <h2>Outcome</h2>
-          <p>
-            Placeholder for impact metrics and key design decisions. Screenshots and annotated flows
-            will live in this section once assets are finalized.
-          </p>
-          <figure class="case-study__figure case-study__figure--placeholder">
-            <span>Screen mockups coming soon</span>
-          </figure>
-        </section>
+    <section class="bc-section" id="considerations">
+      <div class="bc-heading">
+        <h2>Project Considerations</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <ol class="bc-numbered">
+        <li>This project was about the data, not just what showed up on screen. Getting the data model right mattered, since admins and CSMs were going to base real decisions about someone's livelihood on what the platform said about their activity and payment history.</li>
+        <li>Explainability had to be built in from the start, not added on later. Admins and drivers needed to see the actual reasoning behind a risk score, like which specific activity or payment pattern drove it, so internal decisions could hold up if a driver pushed back.</li>
+        <li>We were working under a tight timeline, which meant prioritization couldn't just be about what mattered most, it also had to account for what we could realistically design, build, and test in the time we had.</li>
+        <li>We were relying on Anda to provide real driver data, and delays on their end became a recurring setback. When data didn't arrive on schedule, it held up testing and validation on our side, so I had to build that risk into the roadmap instead of assuming data would show up when we needed it. We created synthetic data ourselves, generating realistic driver activity and payment patterns to train and test the model, so we weren't held back waiting on data to test from Anda.</li>
+      </ol>
+    </section>
+
+    <section class="bc-section bc-section--stack" id="solution">
+      <div class="bc-block">
+        <div class="bc-heading">
+          <h2>Solution</h2>
+          <span class="bc-heading__rule" aria-hidden="true"></span>
+        </div>
+        <p class="bc-body">
+          The platform gives Anda's admins and Customer Success Managers one transparent system to track driver activity and payments, prioritize who needs support, and act on data they can trust and explain.
+        </p>
       </div>
 
-      <footer class="case-study__footer">
-        <div class="container">
-          <p class="case-study__next-label">More work</p>
-          <a class="back-link" href="../index.html#work">Return to portfolio</a>
+      <article class="anda-feature">
+        <div class="anda-feature__media-col">
+          <video
+            class="anda-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/anda/feature-score.png?v=anda1"
+            aria-label="Driver Performance Overview — Score on a laptop"
+          >
+            <source src="../assets/videos/anda-score.mp4?v=anda1" type="video/mp4">
+          </video>
+          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
         </div>
-      </footer>
-    </article>
+        <div class="anda-feature__copy">
+          <h3>Driver Performance Overview - Score</h3>
+          <p>This came out of a P0 requirement I wrote for a fully explainable performance model, admins needed to see exactly which factors made up a driver's score, not just the number itself.</p>
+          <ul class="bc-bullets">
+            <li>Score breakdown shows the weight behind each factor: payment timeliness, hours worked, collection rate, and portfolio risk</li>
+            <li>Collection Rate and % Portfolio at Risk are shown as simple ratios (received vs. expected), so the math is never a mystery</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="anda-feature anda-feature--flip">
+        <div class="anda-feature__copy">
+          <h3>Driver Performance Overview — Vehicle</h3>
+          <p>This ties directly to the activity data requirement, giving admins a way to tell an inactive driver from one whose bike is simply parked mid-shift.</p>
+          <ul class="bc-bullets">
+            <li>Real-time speed and engine status show what's happening right now, not just historical averages</li>
+            <li>Driving History timestamps each location, so admins can trace exactly where and when a driver was active</li>
+          </ul>
+        </div>
+        <div class="anda-feature__media-col">
+          <video
+            class="anda-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/anda/feature-vehicle.png?v=anda1"
+            aria-label="Driver Performance Overview — Vehicle on a laptop"
+          >
+            <source src="../assets/videos/anda-vehicle.mp4?v=anda1" type="video/mp4">
+          </video>
+          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
+        </div>
+      </article>
+
+      <article class="anda-feature">
+        <div class="anda-feature__media-col">
+          <video
+            class="anda-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/anda/feature-revenue.png?v=anda1"
+            aria-label="Driver Performance Overview — Revenue on a laptop"
+          >
+            <source src="../assets/videos/anda-revenue.mp4?v=anda1" type="video/mp4">
+          </video>
+          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
+        </div>
+        <div class="anda-feature__copy">
+          <h3>Driver Performance Overview — Revenue</h3>
+          <p>This covers the payment side of the requirement, tracking revenue and default rate over time instead of just a current balance.</p>
+          <ul class="bc-bullets">
+            <li>Revenue Summary and Default Rate charts make patterns visible at a glance instead of buried in a spreadsheet</li>
+            <li>Revenue Per Trip breaks earnings down trip by trip, so a balance issue can be traced back to its source</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="anda-feature anda-feature--flip">
+        <div class="anda-feature__copy">
+          <h3>Customer Success Manager Dashboard</h3>
+          <p>This is the Priority Queue view I scoped as P1, giving CSMs a ranked list of their drivers instead of digging through separate systems.</p>
+          <ul class="bc-bullets">
+            <li>Tabs for All, Active, New, and Churn let a CSM focus on the group that matters right now</li>
+            <li>Score column surfaces risk immediately, without needing to open each driver individually</li>
+          </ul>
+        </div>
+        <div class="anda-feature__media-col">
+          <img
+            class="anda-feature__media"
+            src="../assets/anda/feature-csm.png?v=anda2"
+            alt="Customer Success Manager Dashboard on a laptop"
+            width="1388"
+            height="902"
+          >
+          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
+        </div>
+      </article>
+
+      <article class="anda-feature">
+        <div class="anda-feature__media-col">
+          <video
+            class="anda-feature__video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/anda/feature-admin.png?v=anda2"
+            aria-label="Admin Dashboard on a laptop"
+          >
+            <source src="../assets/videos/anda-dashboard.mp4?v=anda2" type="video/mp4">
+          </video>
+          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
+        </div>
+        <div class="anda-feature__copy">
+          <h3>Admin Dashboard</h3>
+          <p>This expands on the CSM dashboard with the full filter set I wrote into the P0 requirements, so admins can slice the whole driver base by exactly the signals that matter.</p>
+          <ul class="bc-bullets">
+            <li>Filters for payment status, offline duration, vehicle type, and location narrow the list down in seconds</li>
+            <li>A wider column set (Payment Status, Last Active, Offline Duration) gives admins more context than a CSM needs day to day</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="anda-feature anda-feature--flip">
+        <div class="anda-feature__copy">
+          <h3>Manage Users</h3>
+          <p>This covers the user verification and role assignment requirement, letting admins control who has access and to what.</p>
+          <ul class="bc-bullets">
+            <li>Role tags (Admin, CSM) make each user's access level clear at a glance</li>
+            <li>Drivers Assigned column shows CSM workload, so admins can rebalance if one person is overloaded</li>
+          </ul>
+        </div>
+        <div class="anda-feature__media-col">
+          <img
+            class="anda-feature__media"
+            src="../assets/anda/feature-users.png?v=anda1"
+            alt="Manage Users screen on a laptop"
+            width="1388"
+            height="902"
+          >
+          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="bc-section bc-section--reflect" id="reflections">
+      <div class="bc-heading">
+        <h2>Takeaways</h2>
+        <span class="bc-heading__rule" aria-hidden="true"></span>
+      </div>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="1">
+          <li>Managing a project that was development-driven, not design-driven</li>
+        </ol>
+        <p>The UI only worked if we could actually get the data and build a model that reflected it accurately, so managing this meant staying closely tied to whether the technical side was on track, since a design without a working model behind it wouldn't function at all.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="2">
+          <li>Working with a tech lead despite my own technical gaps</li>
+        </ol>
+        <p>Working alongside a tech lead taught me how to make up for what I didn't know technically by communicating clearly and leaning on him for what I couldn't answer myself. I learned to ask better questions instead of trying to have all the answers.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="3">
+          <li>Owning a project instead of just executing on one</li>
+        </ol>
+        <p>As a designer, I'm usually the one following direction, not setting it. Being responsible for the decisions and actually owning this project was a new experience, and honestly a little scary at first, but it taught me a lot about how to guide and support the rest of the team instead of just contributing to someone else's plan.</p>
+      </article>
+      <article class="bc-reflect__card">
+        <ol class="bc-reflect__title" start="4">
+          <li>Learning to stay flexible when things didn't go as planned</li>
+        </ol>
+        <p>Relying on Anda for real data taught me not to just move forward assuming it would show up on time. It pushed me to get better at brainstorming backup plans early, like generating synthetic data ourselves, so the team always had somewhere to go instead of stalling every time we hit a setback.</p>
+      </article>
+    </section>
+
+    <p class="bc-cta-wrap">
+      <a class="bc-btn" href="../index.html#my-work">Check out my other work!</a>
+    </p>
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p>&copy; <span id="year"></span> Allison Qiu</p>
-      <a href="https://github.com/allison10qiu/AllisonPortfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
+  <footer class="bc-footer">
+    <img
+      class="bc-footer__art"
+      src="../assets/anda/footer.png?v=anda1"
+      alt=""
+      width="2880"
+      height="384"
+      aria-hidden="true"
+    >
+    <nav class="bc-footer__hotspots" aria-label="Contact">
+      <a
+        class="bc-footer__hit bc-footer__hit--home"
+        href="../index.html"
+        aria-label="Home"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--linkedin"
+        href="https://www.linkedin.com/in/allisonqiu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      ></a>
+      <a
+        class="bc-footer__hit bc-footer__hit--email"
+        href="mailto:allisonqiu10@gmail.com"
+        aria-label="Email"
+      ></a>
+    </nav>
   </footer>
+    </div>
+  </div>
 
-  <script src="../scripts/main.js"></script>
+  <script src="../scripts/case-scale.js"></script>
+  <script src="../scripts/case-videos.js"></script>
+  <script src="../scripts/custom-cursor.js"></script>
+  <script src="../scripts/mailto.js"></script>
 </body>
 </html>

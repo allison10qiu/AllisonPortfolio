@@ -1,0 +1,246 @@
+/* NABU case study — Figma 128:19817 · exact 1440 canvas (scaled via case-scale.js) */
+
+html:has(.nabu-page) {
+  scroll-behavior: smooth;
+}
+
+.nabu-page #solution,
+.nabu-page #problem,
+.nabu-page #users,
+.nabu-page #design-system,
+.nabu-page #considerations,
+.nabu-page #reflections {
+  scroll-margin-top: 24px;
+}
+
+/* Solution · Frame 85 · 56px between feature rows */
+.nabu-page #solution.bc-section--stack {
+  gap: 56px;
+}
+
+/* ---------- Design system · Frame 70 (updated tiles) ---------- */
+
+.nabu-ds {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+}
+
+.nabu-ds__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+/* Left · 341 · Mid · 669 · Right · 286 · gaps 16 */
+.nabu-ds__col--left {
+  width: 341px;
+  gap: 17.827px;
+}
+
+.nabu-ds__col--mid {
+  width: 669px;
+  gap: 16px;
+}
+
+.nabu-ds__tile {
+  display: block;
+  height: auto;
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.nabu-ds__tile--colours,
+.nabu-ds__tile--type {
+  width: 341px;
+}
+
+.nabu-ds__tile--forms,
+.nabu-ds__tile--buttons {
+  width: 669px;
+}
+
+.nabu-ds__tile--icons {
+  width: 286px;
+}
+
+@media (max-width: 1100px) {
+  .nabu-ds {
+    flex-wrap: wrap;
+  }
+
+  .nabu-ds__col--left,
+  .nabu-ds__tile--colours,
+  .nabu-ds__tile--type {
+    width: min(341px, 100%);
+  }
+
+  .nabu-ds__col--mid,
+  .nabu-ds__tile--forms,
+  .nabu-ds__tile--buttons {
+    width: min(669px, 100%);
+  }
+
+  .nabu-ds__tile--icons {
+    width: min(286px, 100%);
+  }
+}
+
+/* ---------- Hero · Frame 41 / 179:34 · 1156×484 clip ---------- */
+
+.nabu-hero {
+  padding: 80px 48px 64px;
+}
+
+.nabu-hero__slot {
+  position: relative;
+  width: min(1156px, 100%);
+  aspect-ratio: 1156 / 484;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.nabu-hero__media {
+  position: absolute;
+  left: 0;
+  top: calc(-31 / 484 * 100%);
+  width: 100%;
+  height: calc(546 / 484 * 100%);
+  overflow: hidden;
+}
+
+.nabu-hero__media img {
+  position: absolute;
+  left: 0;
+  top: -55.92%;
+  width: 100%;
+  height: 211.72%;
+  max-width: none;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---------- Persona · Leila Mwangi · 337×337 ---------- */
+
+.nabu-persona {
+  grid-template-columns: 337px minmax(0, 1fr);
+  gap: 48px;
+}
+
+.nabu-persona .bc-persona__photo {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0;
+}
+
+/* ---------- Solution features · laptop mockups 694×451 ---------- */
+
+.nabu-feature {
+  display: grid;
+  grid-template-columns: 694px 586px;
+  gap: 48px;
+  align-items: center;
+  margin: 0;
+  width: 1328px;
+}
+
+.nabu-feature--flip {
+  grid-template-columns: 586px 694px;
+}
+
+.nabu-feature--stack {
+  grid-template-columns: 694px 586px;
+  align-items: center;
+  width: 1328px;
+}
+
+.nabu-feature__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 694px;
+  flex-shrink: 0;
+}
+
+.nabu-feature__media-wrap {
+  position: relative;
+  width: 694px;
+  height: 451px;
+  overflow: hidden;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+/* Framed posters are 1388×902. Videos are 2000×2000 — FILL-crop (cover + center). */
+.nabu-feature__media,
+.nabu-feature__video {
+  display: block;
+  width: 694px;
+  height: 451px;
+  object-fit: cover;
+  object-position: center center;
+  background: transparent;
+}
+
+.nabu-feature__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nabu-feature__copy h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #14243b;
+}
+
+.nabu-feature__copy p {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #14243b;
+}
+
+.nabu-feature__copy .bc-bullets {
+  margin-top: 8px;
+}
+
+@media (max-width: 1100px) {
+  .nabu-feature,
+  .nabu-feature--flip,
+  .nabu-feature--stack,
+  .nabu-persona {
+    grid-template-columns: 1fr;
+  }
+
+  .nabu-feature__media-wrap,
+  .nabu-feature__stack,
+  .nabu-feature__media,
+  .nabu-feature__video {
+    width: min(694px, 100%);
+  }
+
+  .nabu-feature__media-wrap {
+    height: auto;
+    aspect-ratio: 694 / 451;
+  }
+
+  .nabu-feature__media,
+  .nabu-feature__video {
+    width: 100%;
+    height: 100%;
+  }
+}

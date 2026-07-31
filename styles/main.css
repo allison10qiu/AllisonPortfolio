@@ -285,18 +285,21 @@ body:has(.canvas-wrapper) {
   align-items: center;
 }
 
+/* Figma Frame 22/23 · 35 tall, 8px padding, stadium ends */
 .home-card__tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  box-sizing: border-box;
+  height: 35px;
+  padding: 0 8px;
   border: 1px solid #14243b;
-  border-radius: 16px;
+  border-radius: 999px;
   background: #fff;
   font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 19px;
   color: #14243b;
   white-space: nowrap;
 }
@@ -353,6 +356,70 @@ body:has(.canvas-wrapper) {
   top: 2152.27px;
   width: 640px;
   height: 568.14px;
+}
+
+/* ---------- Custom cursor · Figma #14243B / #FFFFFF / #EDF2F5 ---------- */
+
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 120ms ease;
+}
+
+.custom-cursor.is-on {
+  opacity: 1;
+}
+
+.custom-cursor__dot {
+  display: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff; /* on navy / dark */
+}
+
+.custom-cursor.is-light .custom-cursor__dot {
+  background: #14243b; /* on white / light (#EDF2F5, etc.) */
+}
+
+.custom-cursor.is-dot .custom-cursor__dot {
+  display: block;
+}
+
+.custom-cursor__label {
+  display: none;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #14243b;
+  color: #ffffff;
+  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.custom-cursor.is-label .custom-cursor__label {
+  display: block;
 }
 
 /* Footer contact links — invisible hotspots over the baked footer art */
@@ -422,7 +489,10 @@ body:has(.work) {
 .work-card {
   position: absolute;
   z-index: 1;
+  display: block;
   line-height: 0;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -554,11 +624,11 @@ body:has(.work) {
   height: auto;
 }
 
-/* about me · Group 4 · x:237 y:0 w:176.64 h:67 — width-driven, native aspect */
+/* about me · Group 4 — width-driven, native aspect (padded stamp 182.5×73) */
 .work-hotspot--about {
   left: calc(100% * 237 / 1512);
   top: calc(100% * 0 / 1524);
-  width: calc(100% * 176.63636779785156 / 1512);
+  width: calc(100% * 174.5 / 1512);
   height: auto;
 }
 
