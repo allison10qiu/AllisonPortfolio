@@ -18,8 +18,8 @@
 
 .about-page .bc-stamp--resume {
   display: block;
-  width: 196px;
-  height: 90px;
+  width: 184px; /* Figma Group 22 */
+  height: 75px;
   flex-shrink: 0;
 }
 

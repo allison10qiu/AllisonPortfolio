@@ -5,10 +5,14 @@
  * plays the page-turn (home-turn.js is scroll-driven). Scrolling up from
  * the top of the work section snaps back to the hero. Below that
  * boundary the page scrolls normally.
+ *
+ * In-page "work" links scroll without adding # to the URL. Bookmarked
+ * /#my-work still scrolls, then the hash is cleared via replaceState.
  */
 (function () {
   var FRAME_W = 1440;
   var WORK_TOP = 812; // design px — page turn completes here
+  var SCROLL_KEY = "aq-scroll-to";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var animating = false;
@@ -20,6 +24,13 @@
 
   function easeInOutCubic(t) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function clearHashFromUrl() {
+    if (!location.hash) return;
+    if (history.replaceState) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
   }
 
   function snapTo(targetY, duration) {
@@ -50,13 +61,51 @@
     window.requestAnimationFrame(step);
   }
 
-  // Arrive from about/work stamps via index.html#my-work
-  function scrollToWorkFromHash() {
-    if (location.hash !== "#my-work") return;
-    snapTo(workTopPx(), reduceMotion ? 0 : 700);
+  function scrollToWork(duration) {
+    var el = document.getElementById("my-work");
+    if (el && reduceMotion) {
+      el.scrollIntoView({ behavior: "auto", block: "start" });
+      return;
+    }
+    snapTo(workTopPx(), duration);
   }
-  window.addEventListener("load", scrollToWorkFromHash);
-  window.addEventListener("hashchange", scrollToWorkFromHash);
+
+  function consumeScrollIntent() {
+    var fromHash = location.hash === "#my-work";
+    var fromStore = false;
+    try {
+      fromStore = sessionStorage.getItem(SCROLL_KEY) === "my-work";
+      if (fromStore) sessionStorage.removeItem(SCROLL_KEY);
+    } catch (err) {}
+
+    if (!fromHash && !fromStore) return;
+
+    scrollToWork(reduceMotion ? 0 : 700);
+    clearHashFromUrl();
+  }
+
+  window.addEventListener("load", consumeScrollIntent);
+  window.addEventListener("hashchange", function () {
+    if (location.hash === "#my-work") {
+      scrollToWork(reduceMotion ? 0 : 700);
+      clearHashFromUrl();
+    }
+  });
+
+  // Same-page work ribbon / data-scroll-to — never leave a hash in the URL
+  function bindWorkLinks() {
+    document
+      .querySelectorAll('a[href="#my-work"], a[data-scroll-to="my-work"]')
+      .forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          if (!document.getElementById("my-work")) return;
+          e.preventDefault();
+          scrollToWork();
+          clearHashFromUrl();
+        });
+      });
+  }
+  bindWorkLinks();
 
   if (reduceMotion) return;
 
@@ -135,13 +184,5 @@
       e.preventDefault();
       snapTo(0);
     }
-  });
-
-  // The "work" ribbon should trigger the same snap (not CSS smooth scroll)
-  document.querySelectorAll('a[href="#my-work"]').forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      snapTo(workTopPx());
-    });
   });
 })();

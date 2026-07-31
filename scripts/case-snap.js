@@ -5,6 +5,9 @@
  * Case pages scroll on body.bc-page (html overflow is hidden), not window.
  * Content lives on a transform-scaled 1440 canvas, so targets must be
  * computed in design px then multiplied by scale (same as home-snap).
+ *
+ * Clicks never write a hash into the URL. Bookmarked /…#solution still
+ * scrolls, then the hash is cleared via replaceState.
  */
 (function () {
   var FRAME_W = 1440;
@@ -57,6 +60,13 @@
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
 
+  function clearHashFromUrl() {
+    if (!location.hash) return;
+    if (history.replaceState) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+  }
+
   function snapTo(targetY, duration) {
     if (animating) return;
     animating = true;
@@ -103,31 +113,40 @@
 
   function jumpToSolution(e) {
     if (e) e.preventDefault();
+    var el = document.getElementById("solution");
+    if (!el) return;
+
     if (REDUCE) {
-      var el = document.getElementById("solution");
       var root = scrollRoot();
-      if (el && root) {
+      if (root) {
         root.style.scrollBehavior = "auto";
         root.scrollTop = targetTop("solution");
-      } else if (el) {
+      } else {
         el.scrollIntoView({ behavior: "auto", block: "start" });
       }
+      clearHashFromUrl();
       return;
     }
+
     snapTo(targetTop("solution"), 1000);
-    if (history.replaceState) {
-      history.replaceState(null, "", "#solution");
-    }
+    clearHashFromUrl();
   }
 
-  document.querySelectorAll('a[href="#solution"]').forEach(function (link) {
-    link.addEventListener("click", jumpToSolution);
-  });
-
-  // Direct load / refresh with #solution
-  if (location.hash === "#solution") {
-    window.addEventListener("load", function () {
-      jumpToSolution();
+  document
+    .querySelectorAll(
+      'a[href="#solution"], a[data-scroll-to="solution"], button[data-scroll-to="solution"]'
+    )
+    .forEach(function (link) {
+      link.addEventListener("click", jumpToSolution);
     });
+
+  // Direct load / refresh with #solution (old bookmarks) — scroll, then clean URL
+  function consumeHash() {
+    if (location.hash !== "#solution") return;
+    jumpToSolution();
   }
+  if (location.hash === "#solution") {
+    window.addEventListener("load", consumeHash);
+  }
+  window.addEventListener("hashchange", consumeHash);
 })();

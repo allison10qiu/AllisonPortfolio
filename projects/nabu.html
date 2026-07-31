@@ -16,10 +16,10 @@
   <header class="bc-header">
     <div class="bc-header__inner">
       <nav class="bc-header__nav" aria-label="Primary">
-        <a class="bc-stamp bc-stamp--work" href="../index.html#my-work" aria-label="Work">
+        <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="Work">
           <img src="../assets/nabu/nav-work.png" alt="" width="164" height="363">
         </a>
-        <a class="bc-stamp bc-stamp--about" href="../about.html" aria-label="About me">
+        <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me">
           <img src="../assets/nabu/nav-about.png?v=figmafix10" alt="" width="349" height="138">
         </a>
         <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1bDn7PCWzDGHNRlBC6BLyx6SrvJgHSYRJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
@@ -39,7 +39,7 @@
         </p>
         <div class="bc-jump">
           <p class="bc-jump__label">SHORT ON TIME?</p>
-          <a class="bc-btn" href="#solution">Jump to Final Product</a>
+          <button type="button" class="bc-btn" data-scroll-to="solution">Jump to Final Product</button>
         </div>
       </div>
     </section>
@@ -326,7 +326,7 @@
     </section>
 
     <p class="bc-cta-wrap">
-      <a class="bc-btn" href="../index.html#my-work">Check out my other work!</a>
+      <a class="bc-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
     </p>
   </main>
 
@@ -365,6 +365,7 @@
   <script src="../scripts/case-scale.js"></script>
   <script src="../scripts/case-videos.js"></script>
   <script src="../scripts/case-snap.js"></script>
+  <script src="../scripts/cross-scroll.js"></script>
   <script src="../scripts/custom-cursor.js"></script>
   <script src="../scripts/mailto.js"></script>
 </body>
