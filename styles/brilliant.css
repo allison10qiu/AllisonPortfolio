@@ -128,6 +128,33 @@ html:has(.bc-page) {
   height: 75px;
 }
 
+/* Brilliant Cities nav · Figma 83:19044 / Groups 3·4·22 (lace stamps) */
+.brilliant-page .bc-header,
+.brilliant-page .bc-header__inner,
+.brilliant-page .bc-header__nav {
+  overflow: visible;
+}
+
+/* Header · Figma Group 24 · 130 tall (other pages keep 146) */
+.brilliant-page .bc-header__inner {
+  min-height: 130px;
+}
+
+.brilliant-page .bc-stamp--work {
+  width: 73.93px; /* Group 3 */
+  height: 173.44px;
+}
+
+.brilliant-page .bc-stamp--about {
+  width: 176.64px; /* Group 4 · 176.636 × 67 */
+  height: 67px;
+}
+
+.brilliant-page .bc-stamp--resume {
+  width: 184px; /* Group 22 · lace doily */
+  height: 75px;
+}
+
 .bc-stamp:hover {
   transform: translateY(-4px) scale(1.06);
 }
@@ -160,7 +187,9 @@ html:has(.bc-page) {
   outline-offset: 4px;
 }
 
-/* ---------- Main column · Figma Frame 46: flex-col gap 40px, px 72, pb 48 ---------- */
+/* ---------- Main column · Figma Frame 46: flex-col gap 40px, pb 48 ---------- */
+/* Default (ANDA/NABU/OSE/Terraform): content 1296 → px 72 */
+/* Brilliant Cities (83:19070): content 1120 → px 160 */
 
 .bc-main {
   display: flex;
@@ -171,6 +200,10 @@ html:has(.bc-page) {
   margin: 0;
   padding: 0 72px 48px;
   box-sizing: border-box;
+}
+
+.brilliant-page .bc-main {
+  padding: 0 160px 48px;
 }
 
 .bc-intro {
@@ -198,6 +231,11 @@ html:has(.bc-page) {
   line-height: normal;
   text-align: center;
   color: #14243b;
+}
+
+/* Brilliant Cities title · Figma 88:19295 · Satoshi Bold 40 */
+.brilliant-page .bc-title {
+  font-size: 40px;
 }
 
 .bc-lede {
@@ -291,13 +329,18 @@ html:has(.bc-page) {
   width: 100%;
 }
 
-/* Figma slots 83:19039 / 83:19040 — 592.528 × 370.53 with FILL crop */
+/* Default slots (pre-margin update / other pages) */
 .bc-hero__slot {
   position: relative;
   flex: 1 1 0;
   min-width: 0;
   aspect-ratio: 592.528 / 370.53;
   overflow: hidden;
+}
+
+/* Brilliant Cities · Frame 40 media 1024×312.18 · slots 499.223 × 312.183 */
+.brilliant-page .bc-hero__slot {
+  aspect-ratio: 499.223 / 312.183;
 }
 
 .bc-hero__slot img {
@@ -351,6 +394,16 @@ html:has(.bc-page) {
   font-weight: 400;
   line-height: normal;
   color: #14243b;
+}
+
+/* Brilliant Cities meta · Figma 86:19080 · labels 14 / values 18 */
+.brilliant-page .bc-meta__label {
+  font-size: 14px;
+}
+
+.brilliant-page .bc-meta__value,
+.brilliant-page .bc-meta__list {
+  font-size: 18px;
 }
 
 .bc-meta__list {
@@ -483,6 +536,18 @@ html:has(.bc-page) {
   box-sizing: border-box;
 }
 
+/* Brilliant Cities · Frame 52 photo 214.98 × 337 */
+.brilliant-page .bc-persona {
+  grid-template-columns: 214.98px minmax(0, 1fr);
+}
+
+.brilliant-page .bc-persona__photo {
+  aspect-ratio: 214.976 / 337;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .bc-persona__eyebrow {
   margin: 0 0 4px;
   font-size: 14px;
@@ -574,6 +639,27 @@ html:has(.bc-page) {
   width: 324px;
   gap: 16px;
   flex-shrink: 0;
+}
+
+/* Brilliant Cities DS · Frame 70 · equal mid cols + 255.226 right (96:19577) */
+.brilliant-page .bc-ds {
+  justify-content: flex-start;
+}
+
+.brilliant-page .bc-ds__group {
+  width: auto;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.brilliant-page .bc-ds__col--left {
+  width: auto;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.brilliant-page .bc-ds__col--right {
+  width: 255.226px;
 }
 
 .bc-ds__frame {
@@ -680,6 +766,17 @@ html:has(.bc-page) {
   height: 140.25%;
   left: -7.75%;
   top: -9.37%;
+}
+
+/* Brilliant Cities buttons tile · now 255.226 wide, aspect 890/790 */
+.brilliant-page .bc-ds__frame--buttons {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 890 / 790;
+}
+
+.brilliant-page .bc-ds__frame--accordion {
+  width: 100%;
 }
 
 /* ---------- Numbered considerations ---------- */
