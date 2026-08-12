@@ -82,15 +82,6 @@
     el.classList.toggle("is-dark", !light);
   }
 
-  function move(e) {
-    lastX = e.clientX;
-    lastY = e.clientY;
-    el.style.transform =
-      "translate(" + e.clientX + "px, " + e.clientY + "px) translate(-50%, -50%)";
-    el.classList.add("is-on");
-    applyContrast(e.clientX, e.clientY);
-  }
-
   function showDot() {
     overCard = false;
     el.classList.add("is-dot");
@@ -106,6 +97,33 @@
     label.textContent = text;
   }
 
+  function labelForTarget(node) {
+    if (!node || !node.closest) return "";
+    if (node.closest(".home-card--soon, .work-card--soon")) return "COMING SOON";
+    if (node.closest("a.home-card, a.work-card")) return "VIEW PROJECT";
+    return "";
+  }
+
+  function move(e) {
+    lastX = e.clientX;
+    lastY = e.clientY;
+    el.style.transform =
+      "translate(" + e.clientX + "px, " + e.clientY + "px) translate(-50%, -50%)";
+    el.classList.add("is-on");
+
+    // Hit-test each move so labels work on the scaled home canvas
+    // (mouseenter/leave can miss on transformed ancestors).
+    var hit = document.elementFromPoint(e.clientX, e.clientY);
+    var text = labelForTarget(hit);
+    if (text) {
+      if (label.textContent !== text || !overCard) showLabel(text);
+    } else if (overCard) {
+      showDot();
+    } else {
+      applyContrast(e.clientX, e.clientY);
+    }
+  }
+
   document.addEventListener("mousemove", move, { passive: true });
   document.addEventListener("mouseleave", function () {
     el.classList.remove("is-on");
@@ -114,20 +132,6 @@
     el.classList.remove("is-on");
     showDot();
   });
-
-  function bind(selector, text) {
-    document.querySelectorAll(selector).forEach(function (node) {
-      node.addEventListener("mouseenter", function () {
-        showLabel(text);
-      });
-      node.addEventListener("mouseleave", function () {
-        showDot();
-      });
-    });
-  }
-
-  bind(".home-card--soon, .work-card--soon", "COMING SOON");
-  bind("a.home-card:not(.home-card--soon), a.work-card:not(.work-card--soon)", "VIEW PROJECT");
 
   // Expose Figma tokens for CSS via custom properties (single source)
   document.documentElement.style.setProperty("--cursor-navy", NAVY);

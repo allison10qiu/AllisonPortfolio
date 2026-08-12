@@ -421,6 +421,10 @@ body:has(.canvas-wrapper) {
   white-space: nowrap;
 }
 
+.home-card--soon {
+  cursor: default;
+}
+
 .home-card:hover {
   transform: scale(1.035);
 }

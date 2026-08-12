@@ -22,6 +22,11 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
         query = f"?{parsed.query}" if parsed.query else ""
         fragment_safe = path  # fragment never reaches the server
 
+        # Keep drafts offline (case-study backups, etc.)
+        if path == "/drafts" or path.startswith("/drafts/"):
+            self.send_error(404, "Not Found")
+            return
+
         # /index.html → /
         if path == "/index.html":
             self.send_response(301)
