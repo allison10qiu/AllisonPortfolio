@@ -6,7 +6,7 @@
 }
 
 .about-header__inner {
-  min-height: 179px;
+  min-height: 178px;
 }
 
 /* Keep work + resume stamps visible (don't clip the lace stamp) */
@@ -14,6 +14,11 @@
 .about-page .bc-header__inner,
 .about-page .bc-header__nav {
   overflow: visible;
+}
+
+.about-page .bc-stamp--work {
+  width: 73.93px;
+  height: 173.44px;
 }
 
 .about-page .bc-stamp--resume {

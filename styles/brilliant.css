@@ -128,29 +128,28 @@ html:has(.bc-page) {
   height: 75px;
 }
 
-/* Brilliant Cities nav · Figma 83:19044 / Groups 3·4·22 (lace stamps) */
-.brilliant-page .bc-header,
-.brilliant-page .bc-header__inner,
-.brilliant-page .bc-header__nav {
+/* Case studies (excl. Terraform) · lace nav · Figma Groups 3·4·22 · header 130 */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header,
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header__inner,
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header__nav {
   overflow: visible;
 }
 
-/* Header · Figma Group 24 · 130 tall (other pages keep 146) */
-.brilliant-page .bc-header__inner {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header__inner {
   min-height: 130px;
 }
 
-.brilliant-page .bc-stamp--work {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-stamp--work {
   width: 73.93px; /* Group 3 */
   height: 173.44px;
 }
 
-.brilliant-page .bc-stamp--about {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-stamp--about {
   width: 176.64px; /* Group 4 · 176.636 × 67 */
   height: 67px;
 }
 
-.brilliant-page .bc-stamp--resume {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-stamp--resume {
   width: 184px; /* Group 22 · lace doily */
   height: 75px;
 }
@@ -188,8 +187,8 @@ html:has(.bc-page) {
 }
 
 /* ---------- Main column · Figma Frame 46: flex-col gap 40px, pb 48 ---------- */
-/* Default (ANDA/NABU/OSE/Terraform): content 1296 → px 72 */
-/* Brilliant Cities (83:19070): content 1120 → px 160 */
+/* Default (Terraform): content 1296 → px 72 */
+/* BC / NABU / OSE / ANDA: content 1120 → px 160 */
 
 .bc-main {
   display: flex;
@@ -202,7 +201,7 @@ html:has(.bc-page) {
   box-sizing: border-box;
 }
 
-.brilliant-page .bc-main {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-main {
   padding: 0 160px 48px;
 }
 
@@ -233,8 +232,8 @@ html:has(.bc-page) {
   color: #14243b;
 }
 
-/* Brilliant Cities title · Figma 88:19295 · Satoshi Bold 40 */
-.brilliant-page .bc-title {
+/* Case studies (excl. Terraform) · page titles · Satoshi Bold 40 */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-title {
   font-size: 40px;
 }
 
@@ -268,7 +267,7 @@ html:has(.bc-page) {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: normal; /* Figma · no tracking */
   color: #14243b;
 }
 
@@ -287,7 +286,7 @@ html:has(.bc-page) {
   font-family: inherit;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: normal; /* Figma leading-[normal] */
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -396,13 +395,13 @@ html:has(.bc-page) {
   color: #14243b;
 }
 
-/* Brilliant Cities meta · Figma 86:19080 · labels 14 / values 18 */
-.brilliant-page .bc-meta__label {
+/* Case studies (excl. Terraform) · meta · labels 14 / values 18 */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-meta__label {
   font-size: 14px;
 }
 
-.brilliant-page .bc-meta__value,
-.brilliant-page .bc-meta__list {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-meta__value,
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-meta__list {
   font-size: 18px;
 }
 
@@ -453,7 +452,7 @@ html:has(.bc-page) {
   flex-shrink: 0;
   font-size: 24px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: normal; /* Figma leading-[normal] · 24 in 32 frame */
   color: #14243b;
 }
 
@@ -469,7 +468,7 @@ html:has(.bc-page) {
   margin: 0;
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: normal; /* Figma leading-[normal] */
   color: #14243b;
 }
 
@@ -481,7 +480,7 @@ html:has(.bc-page) {
   margin: 0;
   padding-left: 30px;
   font-size: 18px;
-  line-height: 1.35;
+  line-height: normal;
   color: #14243b;
 }
 
@@ -511,7 +510,7 @@ html:has(.bc-page) {
   margin: 0 0 8px;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: normal; /* Figma · no tracking */
   color: #14243b;
 }
 
@@ -519,8 +518,48 @@ html:has(.bc-page) {
   margin: 0;
   font-size: 24px;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: normal;
   color: #14243b;
+}
+
+/* Case studies (excl. Terraform) · problem statement · 20 */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-callout__text {
+  font-size: 20px;
+}
+
+/* Terraform keeps prior 1.35 body/callout rhythm */
+.terraform-page .bc-body,
+.terraform-page .bc-bullets,
+.terraform-page .bc-callout__text,
+.terraform-page .bc-numbered li,
+.terraform-page .bc-feature__copy p,
+.terraform-page .bc-feature__body,
+.terraform-page .bc-reflect__title,
+.terraform-page .bc-reflect__card p,
+.terraform-page .bc-persona__row {
+  line-height: 1.35;
+}
+
+.terraform-page .bc-heading h2,
+.terraform-page .bc-feature__title,
+.terraform-page .bc-feature__copy h3 {
+  line-height: 1.3;
+}
+
+.terraform-page .bc-jump__label {
+  letter-spacing: 0.02em;
+}
+
+.terraform-page .bc-callout__label {
+  letter-spacing: 0.06em;
+}
+
+.terraform-page .bc-persona__eyebrow {
+  letter-spacing: 0.04em;
+}
+
+.terraform-page .bc-btn {
+  line-height: 1.35;
 }
 
 /* ---------- Persona ---------- */
@@ -552,7 +591,7 @@ html:has(.bc-page) {
   margin: 0 0 4px;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: normal; /* Figma · no tracking */
   color: #14243b;
 }
 
@@ -584,7 +623,7 @@ html:has(.bc-page) {
   gap: 8px;
   margin: 8px 0 0;
   font-size: 16px;
-  line-height: 1.35;
+  line-height: normal;
 }
 
 .bc-persona__row img {
@@ -799,7 +838,7 @@ html:has(.bc-page) {
   align-items: start;
   padding: 8px;
   font-size: 18px;
-  line-height: 1.35;
+  line-height: normal;
   color: #14243b;
 }
 
@@ -843,14 +882,14 @@ html:has(.bc-page) {
   margin: 0;
   font-size: 24px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: normal;
   color: #14243b;
 }
 
 .bc-feature__copy p {
   margin: 0;
   font-size: 18px;
-  line-height: 1.35;
+  line-height: normal;
   color: #14243b;
 }
 
@@ -900,7 +939,7 @@ html:has(.bc-page) {
   padding-left: 1.5em;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: normal;
   color: #14243b;
 }
 
@@ -912,7 +951,7 @@ html:has(.bc-page) {
   margin: 0;
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: normal;
   color: #14243b;
 }
 

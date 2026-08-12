@@ -23,32 +23,32 @@
 }
 
 .ose-title {
-  /* Figma 155:20 · 1050 wide, centered in 1296 */
-  width: 1050px;
-  max-width: none;
+  /* Figma · title within 1120 content */
+  width: 100%;
+  max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 48px;
+  font-size: 40px;
   line-height: normal;
   text-wrap: balance;
 }
 
-/* ---------- Hero · Frame 41 / 40 · 1156×484 clip of 1156×546 FILL ---------- */
+/* ---------- Hero · Frame 41 · 1120×628 · media 1156×484 at (-18, 80) ---------- */
 
-/* Frame 41 · 1296×628 · gray panel; media Frame 40 · 1156×484 at (70, 80) */
 .ose-hero.bc-hero {
-  width: 1296px;
-  max-width: 1296px;
-  padding: 80px 70px 64px;
+  width: 100%;
+  max-width: none;
+  padding: 80px 0 64px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .ose-hero__slot {
   position: relative;
   width: 1156px;
   height: 484px;
+  margin-left: -18px;
   overflow: hidden;
-  margin: 0;
 }
 
 /* Image node 155:29 · 1156×546 at y: -31 inside Frame 40 */
@@ -74,31 +74,29 @@
   -webkit-user-drag: none;
 }
 
-/* ---------- Persona · Robert Gomez wider photo column ---------- */
+/* ---------- Persona · Robert Gomez · 375.816×425 photo ---------- */
 
 .ose-persona {
-  grid-template-columns: 298px minmax(0, 1fr);
+  grid-template-columns: 375.816px minmax(0, 1fr);
   gap: 48px;
 }
 
 .ose-persona .bc-persona__photo {
-  aspect-ratio: 298 / 337;
+  aspect-ratio: 375.816 / 425;
   object-fit: cover;
   object-position: center top;
   border-radius: 0;
 }
 
-/* ---------- Design system · Frame 70 four-column layout ---------- */
-/* Framed Figma exports at native aspect — no non-uniform crop (keeps 1px strokes) */
+/* ---------- Design system · Frame 70 · 1120 four-column layout ---------- */
 
 .ose-ds {
-  /* Figma 155:108 Frame 69 · 1296 wide (tiles + gaps sum to 1341, clipped) */
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 16px;
-  width: 1296px;
-  max-width: 1296px;
+  width: 100%;
+  max-width: 1120px;
   margin: 0;
   overflow: hidden;
 }
@@ -112,20 +110,24 @@
   -webkit-user-drag: none;
 }
 
-/* Colors · 155:110 · 255×595.581 */
+/* Colors · 155:110 · 244.53 */
 .ose-ds__tile--colours {
-  width: 255px;
+  width: 244.53px;
 }
 
-/* Buttons · 155:113 · Forms · 162:591 · 346×547 */
-.ose-ds__tile--buttons,
+/* Buttons · 155:113 · 338.41 */
+.ose-ds__tile--buttons {
+  width: 338.41px;
+}
+
+/* Forms · 162:591 · 244.53 */
 .ose-ds__tile--forms {
-  width: 346px;
+  width: 244.53px;
 }
 
-/* Additional components · 162:604 · 346×749 */
+/* Additional · 162:604 · 244.53 */
 .ose-ds__tile--additional {
-  width: 346px;
+  width: 244.53px;
 }
 
 /* ---------- Solution features · laptop 538×350 · phone 241×475 ---------- */

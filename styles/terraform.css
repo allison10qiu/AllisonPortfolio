@@ -1,0 +1,60 @@
+/* Terraform case study — Figma 226:2195 / 226:2196 · 1440 canvas */
+
+.terraform-page #solution,
+.terraform-page #problem,
+.terraform-page #users,
+.terraform-page #design-system,
+.terraform-page #considerations,
+.terraform-page #reflections {
+  scroll-margin-top: 24px;
+}
+
+/* Figma 226:2213 · Satoshi Bold 40 (other case pages use 48) */
+.terraform-page .bc-title,
+.terraform-title {
+  width: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40px;
+  line-height: normal;
+  white-space: nowrap;
+  text-wrap: unset;
+}
+
+/* Figma 226:2215 · Satoshi Italic 16 (shared .bc-lede is 18) */
+.terraform-page .bc-lede {
+  font-size: 16px;
+  line-height: normal;
+}
+
+/* Figma 226:2217 / 226:2219 · already 16 on .bc-jump / .bc-btn */
+
+/* Meta · Figma 226:2224 · labels 14 / values 18 (shared is 16 / 20) */
+.terraform-meta {
+  align-items: flex-start;
+}
+
+.terraform-meta .bc-meta__label {
+  font-size: 14px;
+}
+
+.terraform-meta .bc-meta__value,
+.terraform-meta .bc-meta__list {
+  font-size: 18px;
+}
+
+.terraform-meta .bc-meta__item:last-child {
+  min-width: 222px;
+}
+
+/* Hero · Frame 41 · dual laptop slots 592.528 × 370.53 */
+.terraform-hero .bc-hero__slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+}

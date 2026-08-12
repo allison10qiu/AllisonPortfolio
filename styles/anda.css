@@ -12,30 +12,30 @@
 }
 
 .anda-title {
-  /* Figma 158:310 · 1200 wide inside 1296 content */
-  width: 1200px;
-  max-width: none;
+  /* Figma 158:310 · title within 1120 content */
+  width: 100%;
+  max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 48px;
+  font-size: 40px;
   line-height: normal;
   text-wrap: balance;
 }
 
-/* ---------- Hero · Frame 41 · 1156×484 clip of 1156×546 FILL ---------- */
+/* ---------- Hero · Frame 41 · 1120×628 · media 1156×484 at (-18, 80) ---------- */
 
 .anda-hero {
-  /* Figma Frame 41 · media at (70, 80) inside 1296×628 */
-  padding: 80px 70px 64px;
+  padding: 80px 0 64px;
+  overflow: hidden;
 }
 
 .anda-hero__slot {
   position: relative;
-  width: min(1156px, 100%);
+  width: 1156px;
+  margin-left: -18px;
   aspect-ratio: 1156 / 484;
   height: auto;
   overflow: hidden;
-  margin: 0 auto;
 }
 
 /* Image node 188:77 · exported 1156×546 at y: -31 inside 1156×484 clip */
@@ -59,15 +59,15 @@
   -webkit-user-drag: none;
 }
 
-/* ---------- Persona · Afonso Ndalu · 238×293 photo column ---------- */
+/* ---------- Persona · Afonso Ndalu · 327.517×403 photo ---------- */
 
 .anda-persona {
-  grid-template-columns: 238px minmax(0, 1fr);
+  grid-template-columns: 327.517px minmax(0, 1fr);
   gap: 48px;
 }
 
 .anda-persona .bc-persona__photo {
-  aspect-ratio: 238.12 / 293;
+  aspect-ratio: 327.517 / 403;
   object-fit: cover;
   object-position: center top;
   border-radius: 0;

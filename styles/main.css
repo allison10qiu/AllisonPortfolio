@@ -337,8 +337,8 @@ body:has(.canvas-wrapper) {
 .home-card__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 568 / 318.648; /* Figma media · 568×318.65 (Brilliant 576×323.14 same ratio) */
-  border-radius: 21.2px;
+  aspect-ratio: 2000 / 1122; /* Figma media · exact */
+  border-radius: 21.199px;
   overflow: hidden;
   background: #e8e8e8;
   flex-shrink: 0;
@@ -382,7 +382,7 @@ body:has(.canvas-wrapper) {
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 700;
   font-size: 24px;
-  line-height: 1.2;
+  line-height: normal; /* Figma leading-[normal] */
   color: #14243b;
 }
 
@@ -392,7 +392,7 @@ body:has(.canvas-wrapper) {
   font-weight: 400;
   font-style: italic;
   font-size: 16px;
-  line-height: 1.35;
+  line-height: normal; /* Figma leading-[normal] */
   color: #14243b;
 }
 
@@ -403,21 +403,20 @@ body:has(.canvas-wrapper) {
   align-items: center;
 }
 
-/* Figma Frame 22/23 · 35 tall, 8px padding, stadium ends */
+/* Figma Frame 22/23 · p-[8px], 14 Medium, stadium ends */
 .home-card__tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  height: 35px;
-  padding: 0 8px;
+  padding: 8px;
   border: 1px solid #14243b;
-  border-radius: 16px; /* Figma Frame 22/23 tag pills */
+  border-radius: 16px;
   background: #fff;
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 19px;
+  line-height: normal;
   color: #14243b;
   white-space: nowrap;
 }

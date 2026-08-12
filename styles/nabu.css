@@ -34,14 +34,14 @@
   flex-shrink: 0;
 }
 
-/* Left · 341 · Mid · 637 · Right · 286 · gaps 16 */
+/* Left · 341 · Mid · 461 · Right · 286 · gaps 16 → 1120 */
 .nabu-ds__col--left {
   width: 341px;
   gap: 17.827px;
 }
 
 .nabu-ds__col--mid {
-  width: 637px;
+  width: 461px;
   gap: 16px;
 }
 
@@ -61,27 +61,27 @@
 
 .nabu-ds__tile--forms,
 .nabu-ds__tile--buttons {
-  width: 637px;
+  width: 461px;
 }
 
 .nabu-ds__tile--icons {
   width: 286px;
 }
 
-/* ---------- Hero · Frame 41 / 179:34 · 1156×484 clip ---------- */
+/* ---------- Hero · Frame 41 · 1120×628 · media 1156×484 at (-18, 80) ---------- */
 
 .nabu-hero {
-  /* Figma Frame 41 · media at (70, 80) inside 1296×628 */
-  padding: 80px 70px 64px;
+  padding: 80px 0 64px;
+  overflow: hidden;
 }
 
 .nabu-hero__slot {
   position: relative;
-  width: min(1156px, 100%);
+  width: 1156px;
+  margin-left: -18px;
   aspect-ratio: 1156 / 484;
   height: auto;
   overflow: hidden;
-  margin: 0 auto;
 }
 
 .nabu-hero__media {
@@ -106,10 +106,10 @@
   -webkit-user-drag: none;
 }
 
-/* ---------- Persona · Leila Mwangi · 337×337 ---------- */
+/* ---------- Persona · Leila Mwangi · 403×403 ---------- */
 
 .nabu-persona {
-  grid-template-columns: 337px minmax(0, 1fr);
+  grid-template-columns: 403px minmax(0, 1fr);
   gap: 48px;
 }
 
