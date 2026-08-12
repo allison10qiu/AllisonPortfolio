@@ -337,12 +337,13 @@ html:has(.bc-page) {
   overflow: hidden;
 }
 
-/* Brilliant Cities · Frame 40 media 1024×312.18 · slots 499.223 × 312.183 */
+/* Brilliant Cities · Frame 40 media 1024×312.18 · slots 499.223 × 312.183
+   Figma FILL · top -30.17% / height 160.01% / width 100.06% */
 .brilliant-page .bc-hero__slot {
   aspect-ratio: 499.223 / 312.183;
 }
 
-.bc-hero__slot img {
+.brilliant-page .bc-hero__slot img {
   position: absolute;
   left: -0.03%;
   top: -30.17%;
@@ -350,6 +351,23 @@ html:has(.bc-page) {
   height: 160.01%;
   max-width: none;
   display: block;
+  object-fit: unset;
+  object-position: unset;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Default / other pages using .bc-hero__slot */
+.bc-hero__slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;

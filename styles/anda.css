@@ -22,7 +22,7 @@
   text-wrap: balance;
 }
 
-/* ---------- Hero · Frame 41 · 1120×628 · media 1156×484 at (-18, 80) ---------- */
+/* ---------- Hero · Frame 41 · 1120×628 · media 1024×484 at x:48 ---------- */
 
 .anda-hero {
   padding: 80px 0 64px;
@@ -31,20 +31,16 @@
 
 .anda-hero__slot {
   position: relative;
-  width: 1156px;
-  margin-left: -18px;
-  aspect-ratio: 1156 / 484;
+  width: 1024px;
+  margin: 0 auto;
+  aspect-ratio: 1024 / 484;
   height: auto;
   overflow: hidden;
 }
 
-/* Image node 188:77 · exported 1156×546 at y: -31 inside 1156×484 clip */
 .anda-hero__media {
   position: absolute;
-  left: 0;
-  top: calc(-31 / 484 * 100%);
-  width: 100%;
-  height: calc(546 / 484 * 100%);
+  inset: 0;
   overflow: hidden;
 }
 

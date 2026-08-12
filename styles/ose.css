@@ -33,34 +33,32 @@
   text-wrap: balance;
 }
 
-/* ---------- Hero · Frame 41 · 1120×628 · media 1156×484 at (-18, 80) ---------- */
+/* ---------- Hero · Frame 41 · 1120×628 · clip 1024×484 · FILL crop ---------- */
 
 .ose-hero.bc-hero {
   width: 100%;
   max-width: none;
-  padding: 80px 0 64px;
+  padding: 80px 48px 64px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .ose-hero__slot {
   position: relative;
-  width: 1156px;
+  width: 100%;
+  max-width: 1024px;
   height: 484px;
-  margin-left: -18px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
-/* Image node 155:29 · 1156×546 at y: -31 inside Frame 40 */
 .ose-hero__media {
   position: absolute;
-  left: 0;
-  top: calc(-31 / 484 * 100%);
-  width: 100%;
-  height: calc(546 / 484 * 100%);
+  inset: 0;
   overflow: hidden;
 }
 
+/* Figma 155:29 · FILL top -55.92% / height 211.72% inside 1024×484 */
 .ose-hero__media img {
   position: absolute;
   left: 0;
@@ -69,6 +67,8 @@
   height: 211.72%;
   max-width: none;
   display: block;
+  object-fit: unset;
+  object-position: unset;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
@@ -164,8 +164,8 @@
   flex-shrink: 0;
 }
 
-.ose-feature__media,
-.ose-feature__video {
+/* Baked poster / still frames already match 538×350 */
+.ose-feature__media {
   display: block;
   width: 538px;
   height: 350px;
@@ -174,11 +174,17 @@
   background: transparent;
 }
 
+/* Square 2000×2000 videos · Figma FILL top -26.99% / height 153.54% */
 .ose-feature__video {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: -0.17%;
+  top: -26.99%;
+  width: 99.78%;
+  height: 153.54%;
+  max-width: none;
+  display: block;
+  object-fit: unset;
+  background: transparent;
 }
 
 .ose-feature__phone-wrap {
@@ -196,7 +202,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
 }
 
 .ose-feature__phone-video {
