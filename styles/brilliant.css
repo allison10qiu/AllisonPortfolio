@@ -128,28 +128,28 @@ html:has(.bc-page) {
   height: 75px;
 }
 
-/* Case studies (excl. Terraform) · lace nav · Figma Groups 3·4·22 · header 130 */
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header,
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header__inner,
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header__nav {
+/* Case studies · lace nav · Figma Groups 3·4·22 · header 130 */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header,
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__inner,
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__nav {
   overflow: visible;
 }
 
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-header__inner {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__inner {
   min-height: 130px;
 }
 
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-stamp--work {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-stamp--work {
   width: 73.93px; /* Group 3 */
   height: 173.44px;
 }
 
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-stamp--about {
-  width: 176.64px; /* Group 4 · 176.636 × 67 */
-  height: 67px;
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-stamp--about {
+  width: 183.5px; /* Group 4 export incl. drop shadow · 367×149 @2x */
+  height: 74.5px;
 }
 
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-stamp--resume {
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-stamp--resume {
   width: 184px; /* Group 22 · lace doily */
   height: 75px;
 }
