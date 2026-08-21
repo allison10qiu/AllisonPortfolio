@@ -10,6 +10,21 @@
       "source": "/drafts/:path*",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/api/terraform-locked.fragment.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/api/_terraformAuth",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/api/_terraformAuth.js",
+      "destination": "/",
+      "permanent": false
     }
   ]
 }
