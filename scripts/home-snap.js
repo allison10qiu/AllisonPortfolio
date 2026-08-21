@@ -1,14 +1,14 @@
 /**
  * Snap scroll between the landing frame and My Work (MakeReign-style).
  *
- * One gesture in the hero zone animates the scroll the whole way, which
- * plays the page-turn (home-turn.js is scroll-driven). Scrolling up from
- * the top of the work section snaps back to the hero. Below that
- * boundary the page scrolls normally.
+ * One gesture in the hero zone animates the scroll the whole way.
+ * Scrolling up from the top of the work section snaps back to the hero.
+ * Below that boundary the page scrolls normally.
  *
- * In-page "work" links scroll without adding # to the URL. Bookmarked
- * /#my-work still scrolls, then the hash is cleared via replaceState.
+ * Snap easing uses Motion springs instead of a hand-rolled rAF cubic.
  */
+import { animate } from "./vendor/motion.js";
+
 (function () {
   var FRAME_W = 1440;
   var WORK_TOP = 812; // design px — page turn completes here
@@ -16,14 +16,11 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var animating = false;
+  var activeAnim = null;
   var root = document.documentElement;
 
   function workTopPx() {
     return WORK_TOP * (window.innerWidth / FRAME_W);
-  }
-
-  function easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
 
   function clearHashFromUrl() {
@@ -33,41 +30,52 @@
     }
   }
 
-  function snapTo(targetY, duration) {
+  function snapTo(targetY, opts) {
+    opts = opts || {};
     if (reduceMotion) {
       window.scrollTo(0, targetY);
       return;
     }
     if (animating) return;
     animating = true;
-    var prevBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = "auto"; // rAF drives the motion, not CSS
-    var startY = window.scrollY;
-    var dist = targetY - startY;
-    var start = null;
-    duration = duration || 900;
 
-    function step(ts) {
-      if (start === null) start = ts;
-      var t = Math.min(1, (ts - start) / duration);
-      window.scrollTo(0, startY + dist * easeInOutCubic(t));
-      if (t < 1) {
-        window.requestAnimationFrame(step);
-      } else {
+    if (activeAnim && typeof activeAnim.stop === "function") {
+      activeAnim.stop();
+    }
+
+    var prevBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+
+    var startY = window.scrollY;
+    var stiffness = opts.stiffness != null ? opts.stiffness : 140;
+    var damping = opts.damping != null ? opts.damping : 26;
+
+    activeAnim = animate(startY, targetY, {
+      type: "spring",
+      stiffness: stiffness,
+      damping: damping,
+      mass: 0.85,
+      restDelta: 0.5,
+      restSpeed: 0.5,
+      onUpdate: function (v) {
+        window.scrollTo(0, v);
+      },
+      onComplete: function () {
+        window.scrollTo(0, targetY);
         root.style.scrollBehavior = prevBehavior;
         animating = false;
-      }
-    }
-    window.requestAnimationFrame(step);
+        activeAnim = null;
+      },
+    });
   }
 
-  function scrollToWork(duration) {
+  function scrollToWork() {
     var el = document.getElementById("my-work");
     if (el && reduceMotion) {
       el.scrollIntoView({ behavior: "auto", block: "start" });
       return;
     }
-    snapTo(workTopPx(), duration);
+    snapTo(workTopPx(), { stiffness: 150, damping: 28 });
   }
 
   function consumeScrollIntent() {
@@ -80,19 +88,18 @@
 
     if (!fromHash && !fromStore) return;
 
-    scrollToWork(reduceMotion ? 0 : 700);
+    scrollToWork();
     clearHashFromUrl();
   }
 
   window.addEventListener("load", consumeScrollIntent);
   window.addEventListener("hashchange", function () {
     if (location.hash === "#my-work") {
-      scrollToWork(reduceMotion ? 0 : 700);
+      scrollToWork();
       clearHashFromUrl();
     }
   });
 
-  // Same-page work ribbon / data-scroll-to — never leave a hash in the URL
   function bindWorkLinks() {
     document
       .querySelectorAll('a[href="#my-work"], a[data-scroll-to="my-work"]')
@@ -112,7 +119,7 @@
   window.addEventListener(
     "wheel",
     function (e) {
-      if (e.ctrlKey) return; // pinch zoom
+      if (e.ctrlKey) return;
       if (animating) {
         e.preventDefault();
         return;
@@ -120,14 +127,12 @@
       var wt = workTopPx();
       var y = window.scrollY;
       if (y < wt - 1) {
-        // Hero zone — a single gesture commits to one side
         e.preventDefault();
         if (e.deltaY > 8) snapTo(wt);
-        else if (e.deltaY < -8) snapTo(0, 700);
+        else if (e.deltaY < -8) snapTo(0, { stiffness: 160, damping: 28 });
       } else if (y <= wt + 2 && e.deltaY < -8) {
-        // At the top of the work section, scrolling up returns to the hero
         e.preventDefault();
-        snapTo(0);
+        snapTo(0, { stiffness: 160, damping: 28 });
       }
     },
     { passive: false }
@@ -151,19 +156,19 @@
       }
       var wt = workTopPx();
       var y = window.scrollY;
-      var dy = touchY - e.touches[0].clientY; // >0 means scrolling down
+      var dy = touchY - e.touches[0].clientY;
       if (y < wt - 1) {
         e.preventDefault();
         if (dy > 12) {
           snapTo(wt);
           touchY = null;
         } else if (dy < -12) {
-          snapTo(0, 700);
+          snapTo(0, { stiffness: 160, damping: 28 });
           touchY = null;
         }
       } else if (y <= wt + 2 && dy < -12) {
         e.preventDefault();
-        snapTo(0);
+        snapTo(0, { stiffness: 160, damping: 28 });
         touchY = null;
       }
     },
@@ -179,10 +184,10 @@
     var y = window.scrollY;
     if (y < wt - 1) {
       e.preventDefault();
-      snapTo(down ? wt : 0, down ? 900 : 700);
+      snapTo(down ? wt : 0, down ? {} : { stiffness: 160, damping: 28 });
     } else if (y <= wt + 2 && up) {
       e.preventDefault();
-      snapTo(0);
+      snapTo(0, { stiffness: 160, damping: 28 });
     }
   });
 })();

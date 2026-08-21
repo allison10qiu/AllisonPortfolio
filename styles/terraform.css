@@ -1,9 +1,285 @@
-/* Terraform case study — Figma 226:2195 / 226:2196 · 1440 canvas
-   Case-study layout rules below are unused while the live page is Coming Soon.
-   Full HTML lives in drafts/terraform.case-study.html for restore. */
+/* Terraform case study — Figma 226:2195 “Terraform- Password Protected View”
+   Public page only: intro → hero → meta → internship overview → password gate.
+   Locked frame 244:7 is not shipped. */
 
-/* ---------- Coming Soon (live) ---------- */
+.terraform-page .bc-main {
+  padding: 0 160px 48px;
+}
 
+.terraform-page #overview,
+.terraform-page #terraform-gate {
+  scroll-margin-top: 24px;
+}
+
+/* Figma 226:2213 · Satoshi Bold 40 */
+.terraform-page .bc-title,
+.terraform-title {
+  width: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40px;
+  line-height: normal;
+  white-space: nowrap;
+  text-wrap: unset;
+}
+
+/* Figma 243:2 · Satoshi Italic 18 */
+.terraform-page .bc-lede {
+  font-size: 18px;
+  line-height: normal;
+}
+
+/* Meta · Figma 226:2224 · labels 14 / values 18 */
+.terraform-meta {
+  align-items: flex-start;
+}
+
+.terraform-meta .bc-meta__label {
+  font-size: 14px;
+}
+
+.terraform-meta .bc-meta__value,
+.terraform-meta .bc-meta__list {
+  font-size: 18px;
+}
+
+.terraform-meta .bc-meta__item:last-child {
+  min-width: 222px;
+}
+
+/* Hero · Frame 243:3 · single laptop in #edf2f5 rounded panel (Figma export) */
+.terraform-hero {
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dcdcdc;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #edf2f5;
+  line-height: 0;
+}
+
+.terraform-hero__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Internship Overview · Frame 244:8 */
+.terraform-overview {
+  gap: 24px;
+}
+
+.terraform-overview__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.terraform-overview__tagline {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: normal;
+  color: #14243b;
+}
+
+.terraform-overview .bc-body {
+  margin: 0;
+  font-size: 18px;
+  line-height: normal;
+  color: #14243b;
+}
+
+.terraform-overview__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+}
+
+.terraform-overview__card {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  background: #edf2f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+  color: #14243b;
+}
+
+.terraform-overview__card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.terraform-overview__card p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* Password gate UI · Frame 249:40 (locked content frame 244:7 not rendered) */
+.terraform-gate {
+  gap: 16px;
+}
+
+.terraform-gate__heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.terraform-gate__heading h2 {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  color: #14243b;
+  white-space: nowrap;
+}
+
+.terraform-gate__rule {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 0;
+  border-top: 1px solid #14243b;
+}
+
+.terraform-gate__copy {
+  margin: 0;
+  font-size: 18px;
+  line-height: normal;
+  color: #14243b;
+}
+
+.terraform-gate__contact {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.terraform-gate__contact:hover,
+.terraform-gate__contact:focus-visible {
+  opacity: 0.75;
+}
+
+.terraform-gate__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.terraform-gate__label {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  color: #14243b;
+}
+
+.terraform-gate__input {
+  box-sizing: border-box;
+  width: 297px;
+  max-width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  color: #14243b;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.terraform-gate__input:focus {
+  outline: 2px solid #14243b;
+  outline-offset: 2px;
+}
+
+.terraform-gate__error {
+  margin: 0;
+  font-size: 14px;
+  line-height: normal;
+  color: #b42318;
+}
+
+.terraform-gate__unlocked-msg {
+  display: none;
+  margin: 0;
+  font-size: 14px;
+  line-height: normal;
+  color: #14243b;
+}
+
+.terraform-gate--unlocked .terraform-gate__label,
+.terraform-gate--unlocked .terraform-gate__input,
+.terraform-gate--unlocked .terraform-gate__error {
+  display: none;
+}
+
+.terraform-gate--unlocked .terraform-gate__unlocked-msg {
+  display: block;
+}
+
+.terraform-locked {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.terraform-locked.is-open {
+  opacity: 1;
+}
+
+.terraform-locked.is-open--instant {
+  transition: none !important;
+}
+
+.terraform-locked.is-settled {
+  height: auto !important;
+  overflow: visible;
+  opacity: 1;
+}
+
+.terraform-locked[hidden] {
+  display: none !important;
+}
+
+.terraform-locked__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.terraform-page #problem,
+.terraform-page #users,
+.terraform-page #design-system,
+.terraform-page #considerations,
+.terraform-page #solution,
+.terraform-page #reflections {
+  scroll-margin-top: 24px;
+}
+
+/* Coming Soon shell (kept for restore if needed) */
 .terraform-page--soon .bc-canvas {
   min-height: 100vh;
 }
@@ -53,65 +329,4 @@
   font-size: 18px;
   line-height: normal;
   color: #14243b;
-}
-
-/* ---------- Case study (restore) ---------- */
-
-.terraform-page #solution,
-.terraform-page #problem,
-.terraform-page #users,
-.terraform-page #design-system,
-.terraform-page #considerations,
-.terraform-page #reflections {
-  scroll-margin-top: 24px;
-}
-
-/* Figma 226:2213 · Satoshi Bold 40 (other case pages use 48) */
-.terraform-page .bc-title,
-.terraform-title {
-  width: auto;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 40px;
-  line-height: normal;
-  white-space: nowrap;
-  text-wrap: unset;
-}
-
-/* Figma 226:2215 · Satoshi Italic 16 (shared .bc-lede is 18) */
-.terraform-page .bc-lede {
-  font-size: 16px;
-  line-height: normal;
-}
-
-/* Figma 226:2217 / 226:2219 · already 16 on .bc-jump / .bc-btn */
-
-/* Meta · Figma 226:2224 · labels 14 / values 18 (shared is 16 / 20) */
-.terraform-meta {
-  align-items: flex-start;
-}
-
-.terraform-meta .bc-meta__label {
-  font-size: 14px;
-}
-
-.terraform-meta .bc-meta__value,
-.terraform-meta .bc-meta__list {
-  font-size: 18px;
-}
-
-.terraform-meta .bc-meta__item:last-child {
-  min-width: 222px;
-}
-
-/* Hero · Frame 41 · dual laptop slots 592.528 × 370.53 */
-.terraform-hero .bc-hero__slot img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: cover;
-  object-position: center center;
 }

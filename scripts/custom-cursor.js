@@ -3,6 +3,8 @@
  *   navy #14243B · white #FFFFFF · light #EDF2F5
  * Circle: white on navy/dark, navy on white/light.
  * Project pills: navy fill, white text.
+ *
+ * Direct 1:1 follow (no spring). Hit-testing pauses while scrolling.
  */
 (function () {
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -25,6 +27,9 @@
   var overCard = false;
   var lastX = 0;
   var lastY = 0;
+  var isScrolling = false;
+  var scrollIdleTimer = null;
+  var hitRaf = 0;
 
   function parseRgb(color) {
     if (!color || color === "transparent") return null;
@@ -56,7 +61,6 @@
       var rgb = parseRgb(style.backgroundColor);
       if (rgb) return rgb;
 
-      // Solid-looking images (hero art, page bake) — treat by nearby page context
       if (node.tagName === "IMG" || node.tagName === "VIDEO") {
         var parent = node.parentElement;
         while (parent && parent !== document.documentElement) {
@@ -104,24 +108,45 @@
     return "";
   }
 
-  function move(e) {
-    lastX = e.clientX;
-    lastY = e.clientY;
-    el.style.transform =
-      "translate(" + e.clientX + "px, " + e.clientY + "px) translate(-50%, -50%)";
-    el.classList.add("is-on");
-
-    // Hit-test each move so labels work on the scaled home canvas
-    // (mouseenter/leave can miss on transformed ancestors).
-    var hit = document.elementFromPoint(e.clientX, e.clientY);
+  function updateHitTest() {
+    hitRaf = 0;
+    if (isScrolling) return;
+    var hit = document.elementFromPoint(lastX, lastY);
     var text = labelForTarget(hit);
     if (text) {
       if (label.textContent !== text || !overCard) showLabel(text);
     } else if (overCard) {
       showDot();
     } else {
-      applyContrast(e.clientX, e.clientY);
+      applyContrast(lastX, lastY);
     }
+  }
+
+  function scheduleHitTest() {
+    if (isScrolling || hitRaf) return;
+    hitRaf = requestAnimationFrame(updateHitTest);
+  }
+
+  function onScrollActivity() {
+    isScrolling = true;
+    if (hitRaf) {
+      cancelAnimationFrame(hitRaf);
+      hitRaf = 0;
+    }
+    if (scrollIdleTimer) clearTimeout(scrollIdleTimer);
+    scrollIdleTimer = setTimeout(function () {
+      isScrolling = false;
+      scheduleHitTest();
+    }, 120);
+  }
+
+  function move(e) {
+    lastX = e.clientX;
+    lastY = e.clientY;
+    el.style.transform =
+      "translate3d(" + lastX + "px, " + lastY + "px, 0) translate(-50%, -50%)";
+    el.classList.add("is-on");
+    scheduleHitTest();
   }
 
   document.addEventListener("mousemove", move, { passive: true });
@@ -132,8 +157,9 @@
     el.classList.remove("is-on");
     showDot();
   });
+  window.addEventListener("scroll", onScrollActivity, { passive: true, capture: true });
+  document.addEventListener("scroll", onScrollActivity, { passive: true, capture: true });
 
-  // Expose Figma tokens for CSS via custom properties (single source)
   document.documentElement.style.setProperty("--cursor-navy", NAVY);
   document.documentElement.style.setProperty("--cursor-white", WHITE);
 })();
