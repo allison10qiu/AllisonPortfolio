@@ -311,8 +311,13 @@
 }
 
 .password .password-input::selection {
-  background: var(--background);
-  color: var(--background);
+  background: transparent;
+  color: transparent;
+}
+
+.password .password-input::-moz-selection {
+  background: transparent;
+  color: transparent;
 }
 
 .password .password-input:disabled {
@@ -332,29 +337,49 @@
   justify-content: flex-start;
   align-items: center;
   white-space: pre;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 2;
 }
 
 .password .password-text > span,
 .password .password-dots > span {
-  transition: all 0.5s ease;
   display: inline-block;
-  opacity: var(--opacity, 0);
+  opacity: 1;
 }
 
-.password .password-text.cursor::after,
-.password .password-dots.cursor::after {
-  content: "";
+.password .password-text > span.is-new,
+.password .password-dots > span.is-new {
+  animation: terraform-pw-bounce 0.45s cubic-bezier(0, 1.26, 0.42, 1.26) forwards;
+}
+
+.password .password-selection {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 28px;
+  margin-top: -14px;
+  border-radius: 4px;
+  background: rgba(20, 36, 59, 0.18);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.password .password-caret {
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 1px;
   height: 20px;
-  background: rgba(65, 72, 86, 0.5);
-  opacity: var(--opacity, 0);
-  display: inline-block;
+  margin-top: -10px;
+  background: rgba(65, 72, 86, 0.55);
+  pointer-events: none;
+  z-index: 3;
   animation: terraform-pw-blink 0.75s linear infinite alternate;
 }
 
 .password .password-dots {
   letter-spacing: 6px;
-  -webkit-text-security: disc;
 }
 
 .password.show .monkey-hands svg {
@@ -382,154 +407,10 @@
   visibility: hidden;
 }
 
-.password.show .password-text > span {
-  animation: terraform-pw-bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards;
-}
-
-.password.show .password-text.cursor > span {
-  animation: none;
-  opacity: var(--opacity, 1);
-}
-
-.password.show .password-text.cursor > span:last-child {
-  animation: terraform-pw-bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards
-    alternate;
-  opacity: var(--opacity, 0);
-}
-
-.password.show .password-dots.cursor::after {
-  display: none;
-}
-
-.password:not(.show) .password-text.cursor::after {
-  display: none;
-}
-
-.password:not(.show) .password-dots > span {
-  animation: terraform-pw-bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards
-    alternate;
-}
-
-.password:not(.show) .password-dots.cursor > span {
-  animation: none;
-  opacity: var(--opacity, 1);
-}
-
-.password:not(.show) .password-dots.cursor > span:last-child {
-  animation: terraform-pw-bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards
-    alternate;
-  opacity: var(--opacity, 0);
-}
-
-.password .password-text > span:nth-child(1),
-.password .password-dots > span:nth-child(1) {
-  animation-delay: 0.04s;
-}
-.password .password-text > span:nth-child(2),
-.password .password-dots > span:nth-child(2) {
-  animation-delay: 0.08s;
-}
-.password .password-text > span:nth-child(3),
-.password .password-dots > span:nth-child(3) {
-  animation-delay: 0.12s;
-}
-.password .password-text > span:nth-child(4),
-.password .password-dots > span:nth-child(4) {
-  animation-delay: 0.16s;
-}
-.password .password-text > span:nth-child(5),
-.password .password-dots > span:nth-child(5) {
-  animation-delay: 0.2s;
-}
-.password .password-text > span:nth-child(6),
-.password .password-dots > span:nth-child(6) {
-  animation-delay: 0.24s;
-}
-.password .password-text > span:nth-child(7),
-.password .password-dots > span:nth-child(7) {
-  animation-delay: 0.28s;
-}
-.password .password-text > span:nth-child(8),
-.password .password-dots > span:nth-child(8) {
-  animation-delay: 0.32s;
-}
-.password .password-text > span:nth-child(9),
-.password .password-dots > span:nth-child(9) {
-  animation-delay: 0.36s;
-}
-.password .password-text > span:nth-child(10),
-.password .password-dots > span:nth-child(10) {
-  animation-delay: 0.4s;
-}
-.password .password-text > span:nth-child(11),
-.password .password-dots > span:nth-child(11) {
-  animation-delay: 0.44s;
-}
-.password .password-text > span:nth-child(12),
-.password .password-dots > span:nth-child(12) {
-  animation-delay: 0.48s;
-}
-.password .password-text > span:nth-child(13),
-.password .password-dots > span:nth-child(13) {
-  animation-delay: 0.52s;
-}
-.password .password-text > span:nth-child(14),
-.password .password-dots > span:nth-child(14) {
-  animation-delay: 0.56s;
-}
-.password .password-text > span:nth-child(15),
-.password .password-dots > span:nth-child(15) {
-  animation-delay: 0.6s;
-}
-.password .password-text > span:nth-child(16),
-.password .password-dots > span:nth-child(16) {
-  animation-delay: 0.64s;
-}
-.password .password-text > span:nth-child(17),
-.password .password-dots > span:nth-child(17) {
-  animation-delay: 0.68s;
-}
-.password .password-text > span:nth-child(18),
-.password .password-dots > span:nth-child(18) {
-  animation-delay: 0.72s;
-}
-.password .password-text > span:nth-child(19),
-.password .password-dots > span:nth-child(19) {
-  animation-delay: 0.76s;
-}
-.password .password-text > span:nth-child(20),
-.password .password-dots > span:nth-child(20) {
-  animation-delay: 0.8s;
-}
-.password .password-text > span:nth-child(21),
-.password .password-dots > span:nth-child(21) {
-  animation-delay: 0.84s;
-}
-.password .password-text > span:nth-child(22),
-.password .password-dots > span:nth-child(22) {
-  animation-delay: 0.88s;
-}
-.password .password-text > span:nth-child(23),
-.password .password-dots > span:nth-child(23) {
-  animation-delay: 0.92s;
-}
-.password .password-text > span:nth-child(24),
-.password .password-dots > span:nth-child(24) {
-  animation-delay: 0.96s;
-}
-
 @keyframes terraform-pw-bounce {
   0% {
     opacity: 0;
-    transform: translateY(12px);
-  }
-  30% {
-    transform: translateY(0);
-    animation-timing-function: ease;
-  }
-  35% {
-    transform: translateY(1px);
-    animation-timing-function: ease;
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;

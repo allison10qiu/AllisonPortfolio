@@ -28,28 +28,123 @@
   var contentLoaded = false;
 
   // Minimal charming.js: wrap each character in a <span> for bounce delays.
-  function charming(el) {
+  var prevPasswordLen = 0;
+
+  function charming(el, text, animateFromIndex) {
     if (!el) return;
-    var text = el.textContent || "";
     el.textContent = "";
     for (var i = 0; i < text.length; i++) {
       var span = document.createElement("span");
       span.textContent = text.charAt(i);
+      if (typeof animateFromIndex === "number" && i >= animateFromIndex) {
+        span.classList.add("is-new");
+      }
       el.appendChild(span);
     }
   }
 
-  function syncPasswordDisplay() {
+  function activeOverlay() {
+    if (!widget) return null;
+    return widget.classList.contains("show") ? textEl : dotsEl;
+  }
+
+  function charSpans(el) {
+    if (!el) return [];
+    return Array.prototype.slice.call(el.querySelectorAll(":scope > span"));
+  }
+
+  function syncCaret() {
+    var caret = widget && widget.querySelector(".password-caret");
+    if (!caret || !widget) return;
+    var start = input.selectionStart || 0;
+    var end = input.selectionEnd || 0;
+    if (document.activeElement !== input || start !== end) {
+      caret.hidden = true;
+      return;
+    }
+    caret.hidden = false;
+    var el = activeOverlay();
+    var spans = charSpans(el);
+    var pos = start;
+    var left = 0;
+    if (spans.length && pos > 0) {
+      var idx = Math.min(pos, spans.length) - 1;
+      var span = spans[idx];
+      left = span.offsetLeft + span.offsetWidth;
+    } else if (spans.length && pos === 0) {
+      left = spans[0].offsetLeft;
+    }
+    caret.style.left = left + "px";
+  }
+
+  function syncSelectionHighlight() {
+    var start = input.selectionStart || 0;
+    var end = input.selectionEnd || 0;
+    var hasRange = start !== end;
+    var selection = widget && widget.querySelector(".password-selection");
+    var el = activeOverlay();
+    var spans = charSpans(el);
+
+    if (selection) {
+      if (!hasRange || !spans.length || document.activeElement !== input) {
+        selection.hidden = true;
+      } else {
+        var from = Math.max(0, Math.min(start, spans.length - 1));
+        var to = Math.max(0, Math.min(end - 1, spans.length - 1));
+        if (end <= start) {
+          selection.hidden = true;
+        } else {
+          var first = spans[from];
+          var last = spans[to];
+          var left = first.offsetLeft;
+          var width = last.offsetLeft + last.offsetWidth - left;
+          selection.hidden = false;
+          selection.style.left = left + "px";
+          selection.style.width = Math.max(0, width) + "px";
+        }
+      }
+    }
+
+    syncCaret();
+  }
+
+  function caretIndexFromClientX(clientX) {
+    var el = activeOverlay();
+    var spans = charSpans(el);
+    if (!spans.length) return 0;
+    for (var i = 0; i < spans.length; i++) {
+      var rect = spans[i].getBoundingClientRect();
+      if (clientX < rect.left + rect.width / 2) return i;
+    }
+    return spans.length;
+  }
+
+  function syncPasswordDisplay(opts) {
+    opts = opts || {};
     var value = input.value || "";
-    if (textEl) {
-      textEl.textContent = value;
-      charming(textEl);
-    }
+    var selStart = input.selectionStart;
+    var selEnd = input.selectionEnd;
+    var animateAll = !!opts.animateAll;
+    var animateFrom = animateAll
+      ? 0
+      : value.length > prevPasswordLen
+        ? prevPasswordLen
+        : value.length;
+
+    if (textEl) charming(textEl, value, animateFrom);
     if (dotsEl) {
-      // Bullet chars so dots work without -webkit-text-security / disc font.
-      dotsEl.textContent = value.replace(/[\s\S]/g, "•");
-      charming(dotsEl);
+      charming(dotsEl, value.replace(/[\s\S]/g, "•"), animateFrom);
     }
+    prevPasswordLen = value.length;
+
+    if (selStart != null && selEnd != null) {
+      try {
+        input.setSelectionRange(selStart, selEnd);
+      } catch (e) {
+        /* ignore */
+      }
+    }
+    requestAnimationFrame(syncSelectionHighlight);
   }
 
   function setPasswordVisible(visible) {
@@ -62,8 +157,7 @@
         visible ? "Hide password" : "Show password"
       );
     }
-    // Re-run charming so bounce animations restart on the active layer.
-    syncPasswordDisplay();
+    syncPasswordDisplay({ animateAll: true });
   }
 
   if (toggle) {
@@ -79,16 +173,37 @@
     });
   }
 
-  input.addEventListener("input", syncPasswordDisplay);
-  input.addEventListener("focusin", function () {
-    if (textEl) textEl.classList.add("cursor");
-    if (dotsEl) dotsEl.classList.add("cursor");
+  input.addEventListener("input", function () {
+    syncPasswordDisplay();
   });
+  input.addEventListener("click", function (event) {
+    // detail > 1 is part of a double/triple click — don’t collapse selection
+    if (event.detail > 1) return;
+    var idx = caretIndexFromClientX(event.clientX);
+    input.setSelectionRange(idx, idx);
+    syncSelectionHighlight();
+  });
+  input.addEventListener("dblclick", function () {
+    input.select();
+    syncSelectionHighlight();
+  });
+  input.addEventListener("select", syncSelectionHighlight);
+  input.addEventListener("keyup", syncSelectionHighlight);
+  input.addEventListener("mouseup", syncSelectionHighlight);
+  document.addEventListener("selectionchange", function () {
+    if (document.activeElement !== input) return;
+    syncSelectionHighlight();
+  });
+  input.addEventListener("focusin", syncSelectionHighlight);
   input.addEventListener("focusout", function () {
-    if (textEl) textEl.classList.remove("cursor");
-    if (dotsEl) dotsEl.classList.remove("cursor");
+    var caret = widget && widget.querySelector(".password-caret");
+    var selection = widget && widget.querySelector(".password-selection");
+    if (caret) caret.hidden = true;
+    if (selection) selection.hidden = true;
   });
-  window.addEventListener("load", syncPasswordDisplay);
+  window.addEventListener("load", function () {
+    syncPasswordDisplay();
+  });
   syncPasswordDisplay();
 
   function setError(message) {
