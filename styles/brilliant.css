@@ -351,8 +351,8 @@ html:has(.bc-page) {
   height: 160.01%;
   max-width: none;
   display: block;
-  object-fit: unset;
-  object-position: unset;
+  object-fit: cover;
+  object-position: center top;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;

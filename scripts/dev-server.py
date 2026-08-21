@@ -16,6 +16,12 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
+    def end_headers(self):
+        # Always fresh assets while designing locally
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+        self.send_header("Pragma", "no-cache")
+        super().end_headers()
+
     def do_GET(self):  # noqa: N802
         parsed = urlsplit(self.path)
         path = unquote(parsed.path)

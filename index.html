@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -23,7 +24,7 @@
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/og-cover.png" />
 
   <title>Allison Qiu</title>
-  <link rel="stylesheet" href="styles/main.css?v=scrollfix1">
+  <link rel="stylesheet" href="styles/main.css?v=wipe4">
 </head>
 <body>
   <!--
@@ -307,6 +308,8 @@
   <script src="scripts/home-cards.js"></script>
   <script type="module" src="scripts/home-snap.js?v=motion1"></script>
   <script src="scripts/custom-cursor.js?v=cursorDirect1"></script>
+  <script src="scripts/page-transition.js?v=wipe4"></script>
   <script src="scripts/mailto.js"></script>
+  <div class="vt-wipe" aria-hidden="true"></div>
 </body>
 </html>

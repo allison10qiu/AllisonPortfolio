@@ -360,6 +360,76 @@ body:has(.canvas-wrapper) {
   -webkit-user-drag: none;
 }
 
+/* Seamless curtain wipe: cover current page → navigate while covered → reveal.
+   html.aq-wipe-cover::before paints on first paint (no flash of the next page). */
+@view-transition {
+  navigation: none;
+}
+
+:root {
+  --vt-wipe-bg: #ffffff;
+  --vt-wipe-half: 600ms;
+  --vt-wipe-ease: cubic-bezier(0.76, 0, 0.24, 1);
+  --aq-wipe-color: #ffffff;
+}
+
+body:has(.canvas-wrapper) {
+  --vt-wipe-bg: #14243b;
+}
+
+/* Instant full-screen cover before body paints (set by head script) */
+html.aq-wipe-cover::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 2147483647;
+  background: var(--aq-wipe-color, #ffffff);
+  pointer-events: none;
+}
+
+.vt-wipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  z-index: 2147483646;
+  background: var(--vt-wipe-bg);
+  pointer-events: none;
+  transform: translate3d(0, 100%, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.vt-wipe.is-animating {
+  transition: transform var(--vt-wipe-half) var(--vt-wipe-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.aq-wipe-cover::before {
+    display: none;
+  }
+
+  .vt-wipe,
+  .vt-wipe.is-animating {
+    transition: none !important;
+  }
+}
+
 .home-card__video {
   z-index: 1;
 }

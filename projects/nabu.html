@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -9,7 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="description" content="NABU Internal Management Dashboard — case study by Allison Qiu">
   <title>NABU · Allison Qiu</title>
-  <link rel="stylesheet" href="../styles/main.css?v=scrollfix1">
+  <link rel="stylesheet" href="../styles/main.css?v=wipe4">
   <link rel="stylesheet" href="../styles/brilliant.css">
   <link rel="stylesheet" href="../styles/nabu.css">
 </head>
@@ -370,6 +371,8 @@
   <script src="../scripts/case-snap.js"></script>
   <script src="../scripts/cross-scroll.js"></script>
   <script src="../scripts/custom-cursor.js?v=cursorDirect1"></script>
+  <script src="../scripts/page-transition.js?v=wipe4"></script>
   <script src="../scripts/mailto.js"></script>
+  <div class="vt-wipe" aria-hidden="true"></div>
 </body>
 </html>
