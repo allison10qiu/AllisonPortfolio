@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/og-cover.png" />
 
   <title>Allison Qiu</title>
-  <link rel="stylesheet" href="styles/main.css?v=lace-clip3">
+  <link rel="stylesheet" href="styles/main.css?v=perf2">
 </head>
 <body>
   <!--
@@ -33,23 +33,42 @@
   -->
   <div class="canvas-wrapper">
     <main class="design-canvas" aria-label="Allison Qiu" data-figma-frame="4:2">
-      <img
-        class="design-canvas__art"
-        src="assets/home-page.png?v=laceSeam1"
-        alt="Allison Qiu portfolio — navy scrapbook home with lace, AQ monogram, and selected work"
-        width="2880"
-        height="5937"
-      >
+      <!-- Slim page art: My Work title + footer only (full home-page.png deferred off critical path) -->
+      <picture class="home-work-title">
+        <source type="image/webp" srcset="assets/home-work-title.webp?v=perf1">
+        <img
+          src="assets/home-work-title.png?v=perf1"
+          alt=""
+          width="2880"
+          height="179"
+          decoding="async"
+        >
+      </picture>
+      <picture class="home-footer-art">
+        <source type="image/webp" srcset="assets/home-footer.webp?v=perf1">
+        <img
+          src="assets/home-footer.png?v=perf1"
+          alt=""
+          width="2880"
+          height="394"
+          decoding="async"
+          loading="lazy"
+        >
+      </picture>
 
       <!-- Landing frame · hero 1440×812 — hero art, lace, nav -->
       <div class="home-hero" id="home-hero">
-        <img
-          class="home-hero__art"
-          src="assets/home-hero.png?v=figmaSWE2"
-          alt=""
-          width="2880"
-          height="1624"
-        >
+        <picture class="home-hero__art">
+          <source type="image/webp" srcset="assets/home-hero.webp?v=perf1">
+          <img
+            src="assets/home-hero.png?v=figmaSWE2"
+            alt=""
+            width="2880"
+            height="1624"
+            fetchpriority="high"
+            decoding="async"
+          >
+        </picture>
 
         <!-- Intro copy · Figma Frame 17 · 46:17167 · live text over navy plate -->
         <div class="home-intro">
@@ -64,13 +83,16 @@
 
         <!-- Lace · Figma 32:17053 · exactly 332×812 (+ bow overflow) -->
         <div class="home-lace" id="home-lace" aria-hidden="true">
-          <img
-            class="home-lace__hero"
-            src="assets/home-lace-hero.png?v=lace812"
-            alt=""
-            width="772"
-            height="1624"
-          >
+          <picture class="home-lace__hero">
+            <source type="image/webp" srcset="assets/home-lace-hero.webp?v=perf1">
+            <img
+              src="assets/home-lace-hero.png?v=lace812"
+              alt=""
+              width="772"
+              height="1624"
+              decoding="async"
+            >
+          </picture>
         </div>
 
         <nav class="design-hotspots" aria-label="Primary">
@@ -127,11 +149,10 @@
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               poster="assets/home-media-terraform-2x.png?v=cards3"
-            >
-              <source src="assets/videos/terraform-card.mp4?v=cards2" type="video/mp4">
-            </video>
+              data-src="assets/videos/terraform-card.mp4?v=cards2"
+            ></video>
           </div>
           <div class="home-card__body">
             <div class="home-card__copy">
@@ -161,11 +182,10 @@
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               poster="assets/home-media-anda-2x.png?v=cards2"
-            >
-              <source src="assets/videos/anda-card.mp4?v=cards2" type="video/mp4">
-            </video>
+              data-src="assets/videos/anda-card.mp4?v=cards2"
+            ></video>
           </div>
           <div class="home-card__body">
             <div class="home-card__copy">
@@ -195,11 +215,10 @@
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               poster="assets/home-media-ose-2x.png?v=figmacrop"
-            >
-              <source src="assets/videos/ose-card.mp4" type="video/mp4">
-            </video>
+              data-src="assets/videos/ose-card.mp4"
+            ></video>
           </div>
           <div class="home-card__body">
             <div class="home-card__copy">
@@ -229,11 +248,10 @@
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               poster="assets/home-media-nabu-2x.png?v=cards2"
-            >
-              <source src="assets/videos/nabu-card.mp4?v=cards2" type="video/mp4">
-            </video>
+              data-src="assets/videos/nabu-card.mp4?v=cards2"
+            ></video>
           </div>
           <div class="home-card__body">
             <div class="home-card__copy">
@@ -263,11 +281,10 @@
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               poster="assets/home-media-brilliant-2x.png?v=cards3"
-            >
-              <source src="assets/videos/brilliant-card.mp4?v=cards3" type="video/mp4">
-            </video>
+              data-src="assets/videos/brilliant-card.mp4?v=cards3"
+            ></video>
           </div>
           <div class="home-card__body">
             <div class="home-card__copy">
@@ -309,10 +326,10 @@
   </div>
 
   <script src="scripts/home-scale.js"></script>
-  <script src="scripts/home-cards.js"></script>
-  <script type="module" src="scripts/home-snap.js?v=laceHide1"></script>
-  <script src="scripts/custom-cursor.js?v=cursorDirect1"></script>
-  <script src="scripts/page-transition.js?v=wipe4"></script>
+  <script src="scripts/home-cards.js?v=perf1"></script>
+  <script type="module" src="scripts/home-snap.js?v=workJump2"></script>
+  <script src="scripts/custom-cursor.js?v=cursorNav1"></script>
+  <script src="scripts/page-transition.js?v=wipe6"></script>
   <script src="scripts/mailto.js"></script>
   <div class="vt-wipe" aria-hidden="true"></div>
 </body>

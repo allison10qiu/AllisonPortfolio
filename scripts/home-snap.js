@@ -5,6 +5,9 @@
  * Scrolling up from the top of the work section snaps back to the hero.
  * Below that boundary the page scrolls normally.
  *
+ * Same-page Work tab keeps the spring snap. Arriving from About / a project
+ * (sessionStorage handoff) jumps to My Work with no scroll animation.
+ *
  * Snap easing uses Motion springs instead of a hand-rolled rAF cubic.
  */
 import { animate } from "./vendor/motion.js";
@@ -40,8 +43,15 @@ import { animate } from "./vendor/motion.js";
 
   function snapTo(targetY, opts) {
     opts = opts || {};
-    if (reduceMotion) {
+    if (reduceMotion || opts.instant) {
+      if (activeAnim && typeof activeAnim.stop === "function") {
+        activeAnim.stop();
+        activeAnim = null;
+        animating = false;
+      }
+      root.style.scrollBehavior = "auto";
       window.scrollTo(0, targetY);
+      syncLaceVisibility();
       return;
     }
     if (animating) return;
@@ -79,15 +89,23 @@ import { animate } from "./vendor/motion.js";
     });
   }
 
-  function scrollToWork() {
-    var el = document.getElementById("my-work");
-    if (el && reduceMotion) {
-      el.scrollIntoView({ behavior: "auto", block: "start" });
+  function jumpToWork() {
+    snapTo(workTopPx(), { instant: true });
+  }
+
+  /** Same-page Work tab — spring snap. */
+  function scrollToWorkAnimated() {
+    if (reduceMotion) {
+      jumpToWork();
       return;
     }
     snapTo(workTopPx(), { stiffness: 150, damping: 28 });
   }
 
+  /**
+   * Cross-page handoff (About / projects → home via sessionStorage).
+   * Land on My Work immediately — no scroll animation after the wipe.
+   */
   function consumeScrollIntent() {
     var fromHash = location.hash === "#my-work";
     var fromStore = false;
@@ -98,16 +116,18 @@ import { animate } from "./vendor/motion.js";
 
     if (!fromHash && !fromStore) return;
 
-    scrollToWork();
+    jumpToWork();
     clearHashFromUrl();
   }
 
+  // Jump early when arriving from another page (before load / wipe reveal).
+  consumeScrollIntent();
   window.addEventListener("load", consumeScrollIntent);
+
   window.addEventListener("hashchange", function () {
-    if (location.hash === "#my-work") {
-      scrollToWork();
-      clearHashFromUrl();
-    }
+    if (location.hash !== "#my-work") return;
+    scrollToWorkAnimated();
+    clearHashFromUrl();
   });
 
   function bindWorkLinks() {
@@ -115,9 +135,10 @@ import { animate } from "./vendor/motion.js";
       .querySelectorAll('a[href="#my-work"], a[data-scroll-to="my-work"]')
       .forEach(function (link) {
         link.addEventListener("click", function (e) {
+          // Same-page only; cross-page is page-transition / cross-scroll + consumeScrollIntent.
           if (!document.getElementById("my-work")) return;
           e.preventDefault();
-          scrollToWork();
+          scrollToWorkAnimated();
           clearHashFromUrl();
         });
       });

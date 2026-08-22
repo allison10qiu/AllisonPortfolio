@@ -4,7 +4,9 @@
  * Circle: white on navy/dark, navy on white/light.
  * Project pills: navy fill, white text.
  *
- * Direct 1:1 follow (no spring). Hit-testing pauses while scrolling.
+ * Direct 1:1 follow (no spring). Card labels switch on pointerover
+ * (instant); background contrast still samples on move. Hit-testing
+ * after scroll resumes quickly so a stationary cursor over a card updates.
  */
 (function () {
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -25,6 +27,7 @@
 
   var label = el.querySelector(".custom-cursor__label");
   var overCard = false;
+  var overNavStamp = false;
   var lastX = 0;
   var lastY = 0;
   var isScrolling = false;
@@ -80,14 +83,28 @@
 
   function applyContrast(x, y) {
     if (overCard) return;
+    if (overNavStamp) {
+      setNavyDot();
+      return;
+    }
     var rgb = sampleBackground(x, y);
     var light = luminance(rgb) >= 0.55;
     el.classList.toggle("is-light", light);
     el.classList.toggle("is-dark", !light);
   }
 
+  /** Force navy circle (home Work / About / Resume stamps). */
+  function setNavyDot() {
+    overNavStamp = true;
+    overCard = false;
+    el.classList.add("is-dot", "is-light");
+    el.classList.remove("is-label", "is-dark");
+    label.textContent = "";
+  }
+
   function showDot() {
     overCard = false;
+    overNavStamp = false;
     el.classList.add("is-dot");
     el.classList.remove("is-label");
     label.textContent = "";
@@ -96,6 +113,7 @@
 
   function showLabel(text) {
     overCard = true;
+    overNavStamp = false;
     el.classList.add("is-label");
     el.classList.remove("is-dot", "is-light", "is-dark");
     label.textContent = text;
@@ -108,14 +126,20 @@
     return "";
   }
 
+  /** Home hero nav only: Work, About me, Resume stamps. */
+  function isHomeNavStamp(node) {
+    return !!(node && node.closest && node.closest(".design-hotspots .design-hotspot--stamp"));
+  }
+
   function updateHitTest() {
     hitRaf = 0;
-    if (isScrolling) return;
     var hit = document.elementFromPoint(lastX, lastY);
     var text = labelForTarget(hit);
     if (text) {
       if (label.textContent !== text || !overCard) showLabel(text);
-    } else if (overCard) {
+    } else if (isHomeNavStamp(hit)) {
+      setNavyDot();
+    } else if (overCard || overNavStamp) {
       showDot();
     } else {
       applyContrast(lastX, lastY);
@@ -123,7 +147,7 @@
   }
 
   function scheduleHitTest() {
-    if (isScrolling || hitRaf) return;
+    if (hitRaf) return;
     hitRaf = requestAnimationFrame(updateHitTest);
   }
 
@@ -134,10 +158,11 @@
       hitRaf = 0;
     }
     if (scrollIdleTimer) clearTimeout(scrollIdleTimer);
+    // Short idle — cards can sit under a still cursor after snap/scroll.
     scrollIdleTimer = setTimeout(function () {
       isScrolling = false;
-      scheduleHitTest();
-    }, 120);
+      updateHitTest();
+    }, 32);
   }
 
   function move(e) {
@@ -146,6 +171,18 @@
     el.style.transform =
       "translate3d(" + lastX + "px, " + lastY + "px, 0) translate(-50%, -50%)";
     el.classList.add("is-on");
+    // While scrolling, still allow card labels so moving onto a card feels instant.
+    if (isScrolling) {
+      var text = labelForTarget(e.target);
+      if (text) {
+        if (label.textContent !== text || !overCard) showLabel(text);
+      } else if (isHomeNavStamp(e.target)) {
+        setNavyDot();
+      } else if (overCard || overNavStamp) {
+        showDot();
+      }
+      return;
+    }
     scheduleHitTest();
   }
 
@@ -159,6 +196,46 @@
   });
   window.addEventListener("scroll", onScrollActivity, { passive: true, capture: true });
   document.addEventListener("scroll", onScrollActivity, { passive: true, capture: true });
+
+  // Instant label when the pointer enters a card (no wait for rAF / scroll idle).
+  document.addEventListener(
+    "pointerover",
+    function (e) {
+      var text = labelForTarget(e.target);
+      if (text) {
+        if (label.textContent !== text || !overCard) showLabel(text);
+        return;
+      }
+      if (isHomeNavStamp(e.target)) {
+        setNavyDot();
+      }
+    },
+    { passive: true }
+  );
+  document.addEventListener(
+    "pointerout",
+    function (e) {
+      var next = e.relatedTarget;
+      if (overCard) {
+        if (labelForTarget(next)) return;
+        if (isHomeNavStamp(next)) {
+          setNavyDot();
+          return;
+        }
+        showDot();
+        return;
+      }
+      if (overNavStamp) {
+        if (isHomeNavStamp(next)) return;
+        if (labelForTarget(next)) {
+          showLabel(labelForTarget(next));
+          return;
+        }
+        showDot();
+      }
+    },
+    { passive: true }
+  );
 
   document.documentElement.style.setProperty("--cursor-navy", NAVY);
   document.documentElement.style.setProperty("--cursor-white", WHITE);
