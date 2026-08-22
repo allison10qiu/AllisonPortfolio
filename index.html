@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/og-cover.png" />
 
   <title>Allison Qiu</title>
-  <link rel="stylesheet" href="styles/main.css?v=wipe4">
+  <link rel="stylesheet" href="styles/main.css?v=lace-clip3">
 </head>
 <body>
   <!--
@@ -35,7 +35,7 @@
     <main class="design-canvas" aria-label="Allison Qiu" data-figma-frame="4:2">
       <img
         class="design-canvas__art"
-        src="assets/home-page.png?v=figmafix10"
+        src="assets/home-page.png?v=laceSeam1"
         alt="Allison Qiu portfolio — navy scrapbook home with lace, AQ monogram, and selected work"
         width="2880"
         height="5937"
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Lace · Figma 32:17053 · exactly 332×812 (+ bow overflow) -->
-        <div class="home-lace" aria-hidden="true">
+        <div class="home-lace" id="home-lace" aria-hidden="true">
           <img
             class="home-lace__hero"
             src="assets/home-lace-hero.png?v=lace812"
@@ -106,6 +106,9 @@
           </a>
         </nav>
       </div>
+
+      <!-- Covers home-page.png lace that stretches a few px past the 812 seam -->
+      <div class="home-seam-cover" aria-hidden="true"></div>
 
       <!--
         Project cards · Figma Frame 29 grid (5 cards, 3 rows)
@@ -307,7 +310,7 @@
 
   <script src="scripts/home-scale.js"></script>
   <script src="scripts/home-cards.js"></script>
-  <script type="module" src="scripts/home-snap.js?v=motion1"></script>
+  <script type="module" src="scripts/home-snap.js?v=laceHide1"></script>
   <script src="scripts/custom-cursor.js?v=cursorDirect1"></script>
   <script src="scripts/page-transition.js?v=wipe4"></script>
   <script src="scripts/mailto.js"></script>

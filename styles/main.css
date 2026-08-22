@@ -120,6 +120,8 @@ body:has(.canvas-wrapper) {
   height: 812px;
   z-index: 6;
   background: #14243b;
+  /* Clip lace at the hero/work seam so scaled/subpixel edges never peek into My Work */
+  overflow: hidden;
 }
 
 .home-hero__art {
@@ -211,7 +213,7 @@ body:has(.canvas-wrapper) {
 
 /*
   Lace · Figma 32:17053 · x:1108 w:332 h:812 (+ bow overflow -54 → 386 wide).
-  Exact Figma length — do not extend below 812.
+  Full hero height — peek into My Work is handled by seam cover + scroll hide.
 */
 .home-lace {
   position: absolute;
@@ -235,6 +237,18 @@ body:has(.canvas-wrapper) {
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+/* Navy plate only in the work band — covers home-page.png lace past the 812 seam */
+.home-seam-cover {
+  position: absolute;
+  left: 1040px;
+  top: 812px;
+  width: 400px;
+  height: 24px;
+  background: #14243b;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .design-hotspots {

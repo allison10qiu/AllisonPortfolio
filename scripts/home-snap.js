@@ -23,6 +23,14 @@ import { animate } from "./vendor/motion.js";
     return WORK_TOP * (window.innerWidth / FRAME_W);
   }
 
+  /** Hide hero lace once My Work is in view so it can't peek at the seam. */
+  function syncLaceVisibility() {
+    var lace = document.getElementById("home-lace");
+    if (!lace) return;
+    var hide = window.scrollY >= workTopPx() - 4;
+    lace.style.visibility = hide ? "hidden" : "visible";
+  }
+
   function clearHashFromUrl() {
     if (!location.hash) return;
     if (history.replaceState) {
@@ -59,12 +67,14 @@ import { animate } from "./vendor/motion.js";
       restSpeed: 0.5,
       onUpdate: function (v) {
         window.scrollTo(0, v);
+        syncLaceVisibility();
       },
       onComplete: function () {
         window.scrollTo(0, targetY);
         root.style.scrollBehavior = prevBehavior;
         animating = false;
         activeAnim = null;
+        syncLaceVisibility();
       },
     });
   }
@@ -113,6 +123,9 @@ import { animate } from "./vendor/motion.js";
       });
   }
   bindWorkLinks();
+
+  window.addEventListener("scroll", syncLaceVisibility, { passive: true });
+  syncLaceVisibility();
 
   if (reduceMotion) return;
 
