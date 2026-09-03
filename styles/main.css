@@ -163,7 +163,10 @@ body:has(.canvas-wrapper) {
   color: #ffffff;
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
-  pointer-events: none;
+  /* Allow selecting; one click/double-click grabs the whole intro block */
+  pointer-events: auto;
+  user-select: all;
+  -webkit-user-select: all;
 }
 
 .home-intro__head {
