@@ -6,26 +6,34 @@
 }
 
 .about-header__inner {
-  min-height: 178px;
+  min-height: 178px; /* Figma Group 25 / Frame 44 */
 }
 
-/* Keep work + resume stamps visible (don't clip the lace stamp) */
+/* Keep work + about + resume stamps visible (don't clip lace / drop shadow) */
 .about-page .bc-header,
 .about-page .bc-header__inner,
 .about-page .bc-header__nav {
   overflow: visible;
 }
 
+.about-page .bc-header__nav {
+  gap: 31.73px; /* Figma Frame 46 stamp gap */
+}
+
+/* Lace stamps · Figma Groups 3 / 4 / 22 · sizes include baked shadow */
 .about-page .bc-stamp--work {
-  width: 73.93px;
-  height: 173.44px;
+  width: 73.32px;
+  height: 172px;
+}
+
+.about-page .bc-stamp--about {
+  width: 183.5px; /* 367×149 @2x export */
+  height: 74.5px;
 }
 
 .about-page .bc-stamp--resume {
-  display: block;
-  width: 184px; /* Figma Group 22 */
-  height: 75px;
-  flex-shrink: 0;
+  width: 190.5px; /* 381×165 @2x export */
+  height: 82.5px;
 }
 
 .about-main {

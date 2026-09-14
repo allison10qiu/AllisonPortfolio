@@ -583,7 +583,7 @@ html.aq-wipe-cover::before {
 
 /*
   Card grid · Figma Frame 29 · My work px 64, pt 40, title→cards +84,
-  cards 632×563.65 (rows 1–2), Brilliant 640×546.14 centered at x 400
+  cards 632×563.65 (rows 1–2), Brilliant 640×546.14 left-aligned at x 64
 */
 .home-card--terraform {
   left: 64px;
@@ -614,7 +614,7 @@ html.aq-wipe-cover::before {
 }
 
 .home-card--brilliant {
-  left: 400px;
+  left: 64px;
   top: 2143.3px;
   width: 640px;
   height: 546.14px;
