@@ -361,6 +361,9 @@
     if (!inner) return;
     inner.innerHTML = html;
     contentLoaded = true;
+    if (typeof window.initTerraformLocked === "function") {
+      window.initTerraformLocked(inner);
+    }
   }
 
   function fetchContent() {

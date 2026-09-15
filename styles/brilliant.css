@@ -545,10 +545,9 @@ html:has(.bc-page) {
   font-size: 20px;
 }
 
-/* Terraform keeps prior 1.35 body/callout rhythm */
+/* Terraform keeps prior 1.35 body rhythm (callout uses Figma leading-normal) */
 .terraform-page .bc-body,
 .terraform-page .bc-bullets,
-.terraform-page .bc-callout__text,
 .terraform-page .bc-numbered li,
 .terraform-page .bc-feature__copy p,
 .terraform-page .bc-feature__body,
@@ -568,8 +567,20 @@ html:has(.bc-page) {
   letter-spacing: 0.02em;
 }
 
+/* Problem statement · Figma 226:2249 · flex-col gap 8, Satoshi 24 / leading-normal */
+.terraform-page .bc-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .terraform-page .bc-callout__label {
-  letter-spacing: 0.06em;
+  margin: 0;
+  letter-spacing: normal;
+}
+
+.terraform-page .bc-callout__text {
+  line-height: normal;
 }
 
 .terraform-page .bc-persona__eyebrow {
