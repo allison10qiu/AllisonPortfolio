@@ -109,6 +109,11 @@ body:has(.canvas-wrapper) {
   margin-left: 0;
   background: #14243b;
   overflow: visible; /* allow sticker hover scale to peek out */
+
+  /* Shared with case-study production gutters · My Work title + card grid */
+  --home-work-gutter: 140px;
+  --home-work-gap: 48px;
+  --home-work-col: 556px; /* (1440 − 2×140 − 48) / 2 */
 }
 
 /* Landing frame — scrolls normally; snap handled by scripts/home-snap.js */
@@ -218,21 +223,30 @@ body:has(.canvas-wrapper) {
 
 .home-work-title {
   position: absolute;
-  left: 0;
+  left: var(--home-work-gutter); /* same left edge as project cards */
   top: 820px;
-  width: 1440px;
+  width: auto;
   height: 90px;
   z-index: 3;
   margin: 0;
   padding: 0;
   pointer-events: none;
+  line-height: 0;
+}
+
+.home-work-anchor {
+  left: var(--home-work-gutter);
+  top: 852px;
+  width: 1px;
+  height: 1px;
 }
 
 .home-work-title img {
   display: block;
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
+  object-position: left center;
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -582,41 +596,41 @@ html.aq-wipe-cover::before {
 }
 
 /*
-  Card grid · Figma Frame 29 · My work px 64, pt 40, title→cards +84,
-  cards 632×563.65 (rows 1–2), Brilliant 640×546.14 left-aligned at x 64
+  Card grid · same --home-work-gutter as .home-work-title
+  content 1160 · gap 48 · cols 556
 */
 .home-card--terraform {
-  left: 64px;
+  left: var(--home-work-gutter);
   top: 936px;
-  width: 632px;
+  width: var(--home-work-col);
   height: 563.65px;
 }
 
 .home-card--anda {
-  left: 744px;
+  left: calc(var(--home-work-gutter) + var(--home-work-col) + var(--home-work-gap));
   top: 936px;
-  width: 632px;
+  width: var(--home-work-col);
   height: 563.65px;
 }
 
 .home-card--ose {
-  left: 64px;
+  left: var(--home-work-gutter);
   top: 1539.65px;
-  width: 632px;
+  width: var(--home-work-col);
   height: 563.65px;
 }
 
 .home-card--nabu {
-  left: 744px;
+  left: calc(var(--home-work-gutter) + var(--home-work-col) + var(--home-work-gap));
   top: 1539.65px;
-  width: 632px;
+  width: var(--home-work-col);
   height: 563.65px;
 }
 
 .home-card--brilliant {
-  left: 64px;
+  left: var(--home-work-gutter);
   top: 2143.3px;
-  width: 640px;
+  width: var(--home-work-col);
   height: 546.14px;
 }
 
@@ -714,7 +728,7 @@ html.aq-wipe-cover::before {
   }
 }
 
-/* ---------- Work page · Figma frame 1512×1524 (scrollable) ---------- */
+/* ---------- Work page · share production outer container (~1200) ---------- */
 
 body:has(.work) {
   height: auto;
@@ -728,11 +742,18 @@ body:has(.work) {
   position: relative;
   display: block;
   width: 100%;
-  /* Keep Figma proportions — width drives height (no viewport warp) */
-  max-width: 100%;
+  max-width: 1200px; /* ≈ case-study content band (1160–1200) */
   margin: 0 auto;
   background: #fff;
   overflow: visible; /* allow tab hover scale to peek out */
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .work {
+    max-width: 100%;
+    padding-inline: 20px;
+  }
 }
 
 .work__art {
@@ -878,19 +899,19 @@ body:has(.work) {
   }
 }
 
-/* home · Group 2 · x:57 y:0 w:140 — height from native asset aspect (no warp) */
+/* home · Group 2 · production scale (~12% under Figma) */
 .work-hotspot--home {
   left: calc(100% * 57 / 1512);
   top: calc(100% * 0 / 1524);
-  width: calc(100% * 140 / 1512);
+  width: calc(100% * 123 / 1512); /* was 140 */
   height: auto;
 }
 
-/* about me · Group 4 — width-driven, native aspect (padded stamp 182.5×73) */
+/* about me · Group 4 — width-driven, native aspect */
 .work-hotspot--about {
-  left: calc(100% * 237 / 1512);
+  left: calc(100% * 210 / 1512); /* was 237 · tighten after shrink */
   top: calc(100% * 0 / 1524);
-  width: calc(100% * 174.5 / 1512);
+  width: calc(100% * 153.5 / 1512); /* was 174.5 */
   height: auto;
 }
 

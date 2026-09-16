@@ -6,7 +6,7 @@
 }
 
 .about-header__inner {
-  min-height: 178px; /* Figma Group 25 / Frame 44 */
+  min-height: 156px; /* was 178 · ~12% tighter */
 }
 
 /* Keep work + about + resume stamps visible (don't clip lace / drop shadow) */
@@ -17,23 +17,23 @@
 }
 
 .about-page .bc-header__nav {
-  gap: 31.73px; /* Figma Frame 46 stamp gap */
+  gap: var(--header-nav-gap);
 }
 
-/* Lace stamps · Figma Groups 3 / 4 / 22 · sizes include baked shadow */
+/* Lace stamps · production scale (~12% under Figma) */
 .about-page .bc-stamp--work {
-  width: 73.32px;
-  height: 172px;
+  width: 64.5px; /* was 73.32 */
+  height: 151px; /* was 172 */
 }
 
 .about-page .bc-stamp--about {
-  width: 183.5px; /* 367×149 @2x export */
-  height: 74.5px;
+  width: 161.5px; /* was 183.5 */
+  height: 65.6px; /* was 74.5 */
 }
 
 .about-page .bc-stamp--resume {
-  width: 190.5px; /* 381×165 @2x export */
-  height: 82.5px;
+  width: 167.6px; /* was 190.5 */
+  height: 72.6px; /* was 82.5 */
 }
 
 .about-main {
@@ -446,12 +446,12 @@
   color: #14243b;
 }
 
-/* ---------- Footer hotspot tweak (lace + navy block · ~192px) ---------- */
+/* ---------- Footer hotspot · shortened 153px footer ---------- */
 
 .about-footer .bc-footer__hit--home {
   left: 24px;
   top: auto;
-  bottom: 36.5px;
+  bottom: 17px;
   width: 155px;
   height: 66px;
 }
@@ -459,7 +459,7 @@
 .about-footer .bc-footer__hit--linkedin {
   right: 24px;
   top: auto;
-  bottom: 70px;
+  bottom: 56px;
   width: 281px;
   height: 22px;
   min-width: 0;
@@ -469,7 +469,7 @@
 .about-footer .bc-footer__hit--email {
   right: 116px;
   top: auto;
-  bottom: 36px;
+  bottom: 22px;
   width: 189px;
   height: 22px;
   min-width: 0;

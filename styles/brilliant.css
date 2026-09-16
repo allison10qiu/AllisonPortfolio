@@ -34,6 +34,58 @@ html:has(.bc-page) {
   font-synthesis: none;
   overflow-x: hidden;
   overflow-y: auto;
+
+  /* Shared defaults (About inherits neutrally; case studies override below) */
+  --page-max-width: 1440px;
+  --page-gutter: 120px;
+  --page-gutter-wide: 72px; /* About / wider column */
+  --text-max-width: 720px;
+  --section-space: 36px;
+  --section-space-tight: 28px;
+  --section-pad-bottom: 40px;
+  --hero-pad-y: 56px;
+  --hero-pad-y-end: 48px;
+  --hero-pad-x: 40px;
+  --feature-gap: 40px;
+  --case-title-size: 40px;
+  --case-heading-size: 22px;
+  --case-subhead-size: 20px;
+  --case-body-size: 16px;
+  --case-body-lh: 1.55;
+  --case-meta-size: 14px;
+  --case-label-size: 13px;
+
+  /* Header / nav · production scale (~12% under original Figma) */
+  --header-inner-min-height: 128px;
+  --header-nav-gap: 28px;
+  --header-pad-x: 48px;
+  --header-name-size: 35px;
+  --header-name-pad-top: 28px;
+  --header-stamp-work-w: 65px;
+  --header-stamp-work-h: 152.6px;
+  --header-stamp-about-w: 161.5px;
+  --header-stamp-about-h: 65.6px;
+  --header-stamp-resume-w: 162px;
+  --header-stamp-resume-h: 66px;
+}
+
+/* Case studies · ~10–15% more zoomed-out on the 1440 canvas (no page scale hack) */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) {
+  --page-gutter: 140px; /* content ~1160 · outer margins */
+  /* Explanatory text uses the full content column — not a nested narrow measure */
+  --text-max-width: none;
+  --section-space: 32px; /* was 36 */
+  --section-space-tight: 24px; /* was 28 */
+  --section-pad-bottom: 36px; /* was 40 */
+  --hero-pad-y: 48px; /* was 56 */
+  --hero-pad-y-end: 40px; /* was 48 */
+  --hero-pad-x: 36px; /* was 40 */
+  --feature-gap: 36px; /* was 40 */
+  --case-title-size: 36px; /* was 40 · ~10% */
+  --case-heading-size: 22px; /* already appropriate · leave */
+  --case-subhead-size: 18px; /* was 20 */
+  --case-body-size: 16px; /* keep readable floor */
+  --case-body-lh: 1.55;
 }
 
 .bc-page a {
@@ -61,7 +113,7 @@ html:has(.bc-page) {
   overflow-x: hidden; /* keep Figma 1440; prevent DS/feature overflow widening canvas */
 }
 
-/* ---------- Header (not sticky · Figma Group 24) ---------- */
+/* ---------- Header (not sticky) · production nav scale ---------- */
 
 .bc-header {
   position: relative;
@@ -77,8 +129,8 @@ html:has(.bc-page) {
   justify-content: space-between;
   width: 1440px;
   margin: 0;
-  padding: 0 48px;
-  min-height: 146px;
+  padding: 0 var(--header-pad-x);
+  min-height: var(--header-inner-min-height);
   box-sizing: border-box;
   overflow: visible;
 }
@@ -86,7 +138,7 @@ html:has(.bc-page) {
 .bc-header__nav {
   display: flex;
   align-items: flex-start;
-  gap: 32px;
+  gap: var(--header-nav-gap);
 }
 
 .bc-stamp {
@@ -112,23 +164,23 @@ html:has(.bc-page) {
   -webkit-user-drag: none;
 }
 
-/* Natural Figma export sizes (2× PNG → 1× layout) · Group 3/4/22 */
+/* Lace stamps · shared production sizes */
 .bc-stamp--work {
-  width: 73.93px;
-  height: 173.44px;
+  width: var(--header-stamp-work-w);
+  height: var(--header-stamp-work-h);
 }
 
 .bc-stamp--about {
-  width: 174.5px;
-  height: 69.0px;
+  width: var(--header-stamp-about-w);
+  height: var(--header-stamp-about-h);
 }
 
 .bc-stamp--resume {
-  width: 184px;
-  height: 75px;
+  width: var(--header-stamp-resume-w);
+  height: var(--header-stamp-resume-h);
 }
 
-/* Case studies · lace nav · Figma Groups 3·4·22 · header 130 */
+/* Case studies · keep lace visible; same production stamp scale */
 :is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header,
 :is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__inner,
 :is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__nav {
@@ -136,22 +188,7 @@ html:has(.bc-page) {
 }
 
 :is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__inner {
-  min-height: 130px;
-}
-
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-stamp--work {
-  width: 73.93px; /* Group 3 */
-  height: 173.44px;
-}
-
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-stamp--about {
-  width: 183.5px; /* Group 4 export incl. drop shadow · 367×149 @2x */
-  height: 74.5px;
-}
-
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-stamp--resume {
-  width: 184px; /* Group 22 · lace doily */
-  height: 75px;
+  min-height: 114px; /* was 130 */
 }
 
 .bc-stamp:hover {
@@ -166,9 +203,9 @@ html:has(.bc-page) {
 .bc-header__name {
   display: block;
   margin: 0;
-  padding-top: 32px;
+  padding-top: var(--header-name-pad-top);
   font-family: "Cross Stitch Cursive", cursive;
-  font-size: 40px; /* Figma 158:307 */
+  font-size: var(--header-name-size);
   font-weight: 400;
   line-height: normal;
   color: #14243b;
@@ -186,23 +223,23 @@ html:has(.bc-page) {
   outline-offset: 4px;
 }
 
-/* ---------- Main column · Figma Frame 46: flex-col gap 40px, pb 48 ---------- */
-/* Default (Terraform): content 1296 → px 72 */
-/* BC / NABU / OSE / ANDA: content 1120 → px 160 */
+/* ---------- Main column · Figma Frame 46 ---------- */
+/* Default (About): --page-gutter-wide (72) → ~1296 */
+/* Case studies: --page-gutter (140) → ~1160 */
 
 .bc-main {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 40px;
-  width: 1440px;
+  gap: var(--section-space);
+  width: var(--page-max-width);
   margin: 0;
-  padding: 0 72px 48px;
+  padding: 0 var(--page-gutter-wide) var(--section-pad-bottom);
   box-sizing: border-box;
 }
 
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-main {
-  padding: 0 160px 48px;
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-main {
+  padding: 0 var(--page-gutter) var(--section-pad-bottom);
 }
 
 .bc-intro {
@@ -219,7 +256,7 @@ html:has(.bc-page) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 20px; /* was 24 · tighter intro rhythm */
   width: 100%;
 }
 
@@ -232,19 +269,20 @@ html:has(.bc-page) {
   color: #14243b;
 }
 
-/* Case studies (excl. Terraform) · page titles · Satoshi Bold 40 */
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-title {
-  font-size: 40px;
+/* Case studies · page titles · Satoshi Bold */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-title {
+  font-size: var(--case-title-size);
 }
 
 .bc-lede {
   margin: 0;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   font-style: italic;
-  line-height: normal;
+  line-height: var(--case-body-lh);
   color: #14243b;
   width: 100%;
+  max-width: none;
 }
 
 .bc-lede strong,
@@ -308,7 +346,7 @@ html:has(.bc-page) {
 
 .bc-hero {
   margin: 0;
-  padding: 80px 48px 64px;
+  padding: var(--hero-pad-y) var(--hero-pad-x) var(--hero-pad-y-end);
   background: #edf2f5;
   border: 1px solid #dcdcdc;
   border-radius: 30px;
@@ -379,9 +417,9 @@ html:has(.bc-page) {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px; /* was 24 */
   margin: 0;
-  padding: 0 24px;
+  padding: 0 20px; /* was 24 */
   width: 100%;
   box-sizing: border-box;
   color: #14243b;
@@ -397,7 +435,7 @@ html:has(.bc-page) {
 
 .bc-meta__label {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--case-meta-size);
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
@@ -407,20 +445,20 @@ html:has(.bc-page) {
 .bc-meta__value,
 .bc-meta__list {
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
   color: #14243b;
 }
 
-/* Case studies (excl. Terraform) · meta · labels 14 / values 18 */
+/* Case studies (excl. Terraform) · meta · labels 14 / values 16 */
 :is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-meta__label {
   font-size: 14px;
 }
 
 :is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-meta__value,
 :is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-meta__list {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .bc-meta__list {
@@ -431,7 +469,7 @@ html:has(.bc-page) {
   list-style: none;
 }
 
-/* ---------- Sections · parent .bc-main supplies the 40px gap ---------- */
+/* ---------- Sections · parent .bc-main supplies --section-space ---------- */
 
 .bc-section {
   display: flex;
@@ -441,14 +479,14 @@ html:has(.bc-page) {
   width: 100%;
 }
 
-/* Design system + Solution: 32px between text block and media rows */
+/* Design system + Solution: space between text block and media rows */
 .bc-section--stack {
-  gap: 32px;
+  gap: var(--section-space-tight);
 }
 
-/* Final reflections block: 24px between heading + takeaway cards */
+/* Final reflections block: related cards */
 .bc-section--reflect {
-  gap: 24px;
+  gap: 20px; /* was 24 */
 }
 
 .bc-block {
@@ -468,9 +506,9 @@ html:has(.bc-page) {
 .bc-heading h2 {
   margin: 0;
   flex-shrink: 0;
-  font-size: 24px;
+  font-size: var(--case-heading-size);
   font-weight: 700;
-  line-height: normal; /* Figma leading-[normal] · 24 in 32 frame */
+  line-height: 1.3;
   color: #14243b;
 }
 
@@ -484,10 +522,13 @@ html:has(.bc-page) {
 
 .bc-body {
   margin: 0;
-  font-size: 18px;
+  font-size: var(--case-body-size);
   font-weight: 400;
-  line-height: normal; /* Figma leading-[normal] */
+  line-height: var(--case-body-lh);
   color: #14243b;
+  width: 100%;
+  max-width: var(--text-max-width);
+  box-sizing: border-box;
 }
 
 .bc-body--tight {
@@ -497,9 +538,12 @@ html:has(.bc-page) {
 .bc-bullets {
   margin: 0;
   padding-left: 30px;
-  font-size: 18px;
-  line-height: normal;
+  font-size: var(--case-body-size);
+  line-height: var(--case-body-lh);
   color: #14243b;
+  width: 100%;
+  max-width: var(--text-max-width);
+  box-sizing: border-box;
 }
 
 .bc-bullets li + li {
@@ -515,7 +559,7 @@ html:has(.bc-page) {
 
 .bc-callout {
   margin: 0;
-  padding: 24px;
+  padding: 20px; /* was 24 · ~15% tighter */
   background: #edf2f5;
   border: 1px solid #dcdcdc;
   border-radius: 30px;
@@ -534,27 +578,29 @@ html:has(.bc-page) {
 
 .bc-callout__text {
   margin: 0;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.45;
   color: #14243b;
 }
 
-/* Case studies (excl. Terraform) · problem statement · 20 */
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page) .bc-callout__text {
-  font-size: 20px;
+.brilliant-page {
+  /* Slightly warmer / more open than Terraform */
+  --section-space: 34px; /* was 40 */
+  --case-body-size: 16px;
 }
 
-/* Terraform keeps prior 1.35 body rhythm (callout uses Figma leading-normal) */
+/* Terraform body rhythm · readable LH aligned with shared tokens */
 .terraform-page .bc-body,
 .terraform-page .bc-bullets,
+.terraform-page .bc-callout__text,
 .terraform-page .bc-numbered li,
 .terraform-page .bc-feature__copy p,
 .terraform-page .bc-feature__body,
 .terraform-page .bc-reflect__title,
 .terraform-page .bc-reflect__card p,
 .terraform-page .bc-persona__row {
-  line-height: 1.35;
+  line-height: var(--case-body-lh);
 }
 
 .terraform-page .bc-heading h2,
@@ -596,8 +642,8 @@ html:has(.bc-page) {
 .bc-persona {
   display: grid;
   grid-template-columns: 201px minmax(0, 1fr);
-  gap: 48px;
-  padding: 32px 40px;
+  gap: var(--feature-gap);
+  padding: 24px 32px; /* was 28×36 · ~12% tighter */
   background: #ffffff;
   border: 1px solid #dcdcdc;
   border-radius: 30px;
@@ -626,7 +672,7 @@ html:has(.bc-page) {
 
 .bc-persona__name {
   margin: 0 0 16px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: #14243b;
 }
@@ -643,7 +689,7 @@ html:has(.bc-page) {
 .bc-persona__right {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px; /* was 32 */
 }
 
 .bc-persona__row {
@@ -866,7 +912,7 @@ html:has(.bc-page) {
   gap: 16px;
   align-items: start;
   padding: 8px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: normal;
   color: #14243b;
 }
@@ -881,7 +927,7 @@ html:has(.bc-page) {
   border-radius: 999px;
   background: #14243b;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -890,7 +936,7 @@ html:has(.bc-page) {
 .bc-feature {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
-  gap: 48px;
+  gap: var(--feature-gap);
   align-items: center;
   margin: 0;
   width: 100%;
@@ -909,15 +955,15 @@ html:has(.bc-page) {
 
 .bc-feature__copy h3 {
   margin: 0;
-  font-size: 24px;
+  font-size: var(--case-subhead-size);
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.3;
   color: #14243b;
 }
 
 .bc-feature__copy p {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: normal;
   color: #14243b;
 }
@@ -952,12 +998,12 @@ html:has(.bc-page) {
 .bc-reflect {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px; /* was 24 */
   width: 100%;
 }
 
 .bc-reflect__card {
-  padding: 16px;
+  padding: 14px; /* was 16 */
   background: #edf2f5;
   border: 1px solid #dcdcdc;
   border-radius: 20px;
@@ -966,7 +1012,7 @@ html:has(.bc-page) {
 .bc-reflect__title {
   margin: 0 0 8px;
   padding-left: 1.5em;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   line-height: normal;
   color: #14243b;
@@ -978,7 +1024,7 @@ html:has(.bc-page) {
 
 .bc-reflect__card p {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
   color: #14243b;
@@ -989,7 +1035,7 @@ html:has(.bc-page) {
   text-align: center;
 }
 
-/* ---------- Footer · Figma 94:19511 · full 1440 bleed ---------- */
+/* ---------- Footer · Figma 321:10695 · 1440 × 153 ---------- */
 
 .bc-footer {
   position: relative;
@@ -1023,31 +1069,31 @@ html:has(.bc-page) {
   background: transparent;
 }
 
-/* Figma footer AQ logo · Untitled design (10) 1 · links home */
+/* Figma · Untitled design (10) 1 · AQ logo → home */
 .bc-footer__hit--home {
   left: 24px;
-  top: 89px;
+  top: 70px;
   width: 155px;
   height: 66px;
 }
 
-/* Figma footer Frame 36 · linkedin / email on right */
+/* Figma · Frame 36 · linkedin / email */
 .bc-footer__hit--linkedin {
-  right: 24px;
-  top: 42%;
-  width: 22%;
-  height: 16%;
-  min-width: 180px;
-  min-height: 28px;
+  left: 1135px;
+  top: 75px;
+  width: 281px;
+  height: 22px;
+  min-width: 0;
+  min-height: 0;
 }
 
 .bc-footer__hit--email {
-  right: 24px;
-  top: 62%;
-  width: 18%;
-  height: 16%;
-  min-width: 160px;
-  min-height: 28px;
+  left: 1135px;
+  top: 109px;
+  width: 189px;
+  height: 22px;
+  min-width: 0;
+  min-height: 0;
 }
 
 .bc-footer__hit:focus-visible {

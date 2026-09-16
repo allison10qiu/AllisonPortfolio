@@ -12,12 +12,12 @@
 }
 
 .anda-title {
-  /* Figma 158:310 · title within 1120 content */
+  /* Title within content column · shared case title token */
   width: 100%;
-  max-width: 1120px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  font-size: 40px;
+  font-size: var(--case-title-size);
   line-height: normal;
   text-wrap: balance;
 }
@@ -25,7 +25,7 @@
 /* ---------- Hero · Frame 41 · 1120×628 · media 1024×484 at x:48 ---------- */
 
 .anda-hero {
-  padding: 80px 0 64px;
+  padding: var(--hero-pad-y, 56px) 0 var(--hero-pad-y-end, 48px);
   overflow: hidden;
 }
 
@@ -59,7 +59,7 @@
 
 .anda-persona {
   grid-template-columns: 327.517px minmax(0, 1fr);
-  gap: 48px;
+  gap: 40px; /* was 48 */
 }
 
 .anda-persona .bc-persona__photo {
@@ -91,26 +91,26 @@
 
 .anda-prio__label {
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
 }
 
 .anda-prio__card .bc-bullets {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* ---------- Solution features · laptop 538×350 · 56px row gaps ---------- */
 
 .anda-page #solution.bc-section--stack {
-  gap: 56px;
+  gap: 42px; /* was 48 */
 }
 
 /* Feature rows · Figma 1296: 538 media + 48 gap + flex copy */
 .anda-feature {
   display: grid;
   grid-template-columns: 538px minmax(0, 1fr);
-  gap: 48px;
+  gap: 40px; /* was 48 · keep 538 media */
   align-items: center;
   margin: 0;
   width: 100%;
@@ -154,8 +154,8 @@
 }
 
 .anda-feature__copy h3 {
-  margin: 0 0 16px;
-  font-size: 24px;
+  margin: 0 0 14px;
+  font-size: var(--case-subhead-size);
   font-weight: 700;
   line-height: 1.3;
   color: #14243b;
@@ -163,12 +163,12 @@
 
 .anda-feature__copy p {
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.35;
   color: #14243b;
 }
 
 .anda-feature__copy .bc-bullets {
-  font-size: 18px;
+  font-size: 16px;
 }
 

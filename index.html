@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/og-cover.png" />
 
   <title>Allison Qiu</title>
-  <link rel="stylesheet" href="styles/main.css?v=brilliantLeft1">
+  <link rel="stylesheet" href="styles/main.css?v=workAlign1">
 </head>
 <body>
   <!--
@@ -33,13 +33,13 @@
   -->
   <div class="canvas-wrapper">
     <main class="design-canvas" aria-label="Allison Qiu" data-figma-frame="4:2">
-      <!-- Slim page art: My Work title + footer only (full home-page.png deferred off critical path) -->
+      <!-- My Work title · cropped so glyphs start at asset left; positioned with --home-work-gutter -->
       <picture class="home-work-title">
-        <source type="image/webp" srcset="assets/home-work-title.webp?v=perf1">
+        <source type="image/webp" srcset="assets/home-work-title.webp?v=align1">
         <img
-          src="assets/home-work-title.png?v=perf1"
-          alt=""
-          width="2880"
+          src="assets/home-work-title.png?v=align1"
+          alt="My Work"
+          width="520"
           height="179"
           decoding="async"
         >
@@ -96,15 +96,13 @@
         </div>
 
         <nav class="design-hotspots" aria-label="Primary">
-          <!-- Nav stamps · boxes match each PNG's natural size (1:1, no rescale)
-               and its exact baked position — stamps are erased from the hero art
-               so only these overlays draw them. -->
+          <!-- Nav stamps · production scale (~12% under original Figma boxes) -->
           <a
             class="design-hotspot design-hotspot--stamp"
             href="/"
             data-scroll-to="my-work"
             aria-label="Work"
-            style="left:48px;top:0;width:73.32px;height:172px"
+            style="left:48px;top:0;width:64.5px;height:151px"
           >
             <img src="assets/home-nav-work.png?v=lace2" alt="" width="164" height="361" aria-hidden="true">
           </a>
@@ -112,7 +110,7 @@
             class="design-hotspot design-hotspot--stamp"
             href="/about"
             aria-label="About me"
-            style="left:153.05px;top:0;width:175.171px;height:66.444px"
+            style="left:140.5px;top:0;width:154px;height:58.5px"
           >
             <img src="assets/home-nav-about.png?v=lace2" alt="" width="370" height="150" aria-hidden="true">
           </a>
@@ -122,7 +120,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Resume"
-            style="left:359.96px;top:0;width:182.473px;height:74.378px"
+            style="left:322.5px;top:0;width:160.5px;height:65.5px"
           >
             <img src="assets/home-nav-resume.png?v=lace2" alt="" width="384" height="166" aria-hidden="true">
           </a>
@@ -319,8 +317,8 @@
         ></a>
       </nav>
 
-      <!-- Anchor for work tab scroll target (My Work heading abs y:852) -->
-      <div id="my-work" class="design-anchor" style="left:0;top:852px;width:1px;height:1px" aria-hidden="true"></div>
+      <!-- Anchor for work tab scroll · same gutter as title/cards -->
+      <div id="my-work" class="design-anchor home-work-anchor" aria-hidden="true"></div>
       <div id="resume" class="design-anchor" style="left:0;top:0;width:1px;height:1px" aria-hidden="true"></div>
     </main>
   </div>

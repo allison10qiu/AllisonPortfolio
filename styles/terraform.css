@@ -2,8 +2,19 @@
    Public: intro → hero → meta → internship overview → password gate.
    Locked: Problem → Who designing for → Auditing (pan/zoom SVG). */
 
+.terraform-page {
+  /* Enterprise case · denser gutters already; keep intro lede at Figma 18 */
+  --section-space: 28px;
+  --section-space-tight: 22px;
+  --case-body-size: 16px;
+  --case-body-lh: 1.5;
+  --hero-pad-y: 44px;
+  --hero-pad-y-end: 36px;
+  --page-gutter: 160px; /* content ~1120 · keep extra side room */
+}
+
 .terraform-page .bc-main {
-  padding: 0 160px 48px;
+  padding: 0 var(--page-gutter) var(--section-pad-bottom);
 }
 
 .terraform-page #overview,
@@ -11,26 +22,28 @@
   scroll-margin-top: 24px;
 }
 
-/* Figma 226:2213 · Satoshi Bold 40 */
+/* Figma 226:2213 · Satoshi Bold · shared case title token (~36) */
 .terraform-page .bc-title,
 .terraform-title {
   width: auto;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  font-size: 40px;
+  font-size: var(--case-title-size);
   line-height: normal;
   white-space: nowrap;
   text-wrap: unset;
 }
 
-/* Figma 243:2 · Satoshi Italic 18 */
+/* Figma 243:2 · Satoshi Italic 18 · full content width */
 .terraform-page .bc-lede {
   font-size: 18px;
   line-height: normal;
+  max-width: none;
+  width: 100%;
 }
 
-/* Meta · Figma 226:2224 · labels 14 / values 18 */
+/* Meta · densified · labels 14 / values 16 */
 .terraform-meta {
   align-items: flex-start;
 }
@@ -41,7 +54,7 @@
 
 .terraform-meta .bc-meta__value,
 .terraform-meta .bc-meta__list {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .terraform-meta .bc-meta__item:last-child {
@@ -85,7 +98,7 @@
 
 .terraform-overview__tagline {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   font-style: italic;
   line-height: normal;
@@ -94,7 +107,7 @@
 
 .terraform-overview .bc-body {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: normal;
   color: #14243b;
 }
@@ -111,7 +124,7 @@
   box-sizing: border-box;
   width: 100%;
   margin: 0;
-  padding: 16px;
+  padding: 14px; /* was 16 */
   background: #edf2f5;
   border: 1px solid #dcdcdc;
   border-radius: 20px;
@@ -120,14 +133,14 @@
 
 .terraform-overview__card h3 {
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   line-height: normal;
 }
 
 .terraform-overview__card p {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
 }
@@ -147,7 +160,7 @@
 .terraform-gate__heading h2 {
   margin: 0;
   flex-shrink: 0;
-  font-size: 24px;
+  font-size: var(--case-heading-size);
   font-weight: 700;
   line-height: normal;
   color: #14243b;
@@ -163,7 +176,7 @@
 
 .terraform-gate__copy {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: normal;
   color: #14243b;
 }
@@ -198,7 +211,7 @@
 
 .terraform-gate__label {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
   color: #14243b;
@@ -510,7 +523,7 @@
 .terraform-locked__inner {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--section-space, 32px);
   width: 100%;
 }
 
@@ -976,6 +989,7 @@
   border-radius: 30px;
   /* Isolate compositor work so drag transforms don't repaint the page */
   isolation: isolate;
+  contain: layout paint;
   transform: translateZ(0);
   cursor: grab;
   touch-action: none;
@@ -984,8 +998,21 @@
   user-select: none;
 }
 
+/* Hide stage until fit transform is applied (no wrong-size flash) */
+.tf-audit.is-loading .tf-audit__stage {
+  visibility: hidden;
+}
+
+.tf-audit.is-ready .tf-audit__stage {
+  visibility: visible;
+}
+
 .tf-audit__viewport.is-dragging {
   cursor: grabbing;
+}
+
+.tf-audit__viewport.is-dragging .tf-audit__stage {
+  pointer-events: none;
 }
 
 .tf-audit__viewport.is-dragging .tf-audit__hint,
@@ -999,10 +1026,12 @@
   top: 0;
   left: 0;
   transform-origin: 0 0;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scale(1);
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  /* No transitions while dragging — JS owns the transform */
+  transition: none;
 }
 
 .tf-audit.is-loading .tf-audit__viewport::after {

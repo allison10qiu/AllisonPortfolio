@@ -29,6 +29,8 @@
     }
     if (rectH > frameH) frameH = rectH;
 
+    // Always fill the viewport width so the footer stays edge-to-edge.
+    // Density is handled via CSS tokens, not by capping scale.
     var scale = window.innerWidth / FRAME_W;
     var scaledH = frameH * scale;
     var left = Math.max(0, (window.innerWidth - FRAME_W * scale) / 2);
