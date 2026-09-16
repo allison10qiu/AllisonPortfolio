@@ -8,7 +8,8 @@
 .ose-page .bc-header__inner,
 .ose-page .bc-main,
 .ose-page .bc-footer,
-.ose-page .bc-footer__art {
+.ose-page .bc-footer__lace,
+.ose-page .bc-footer__inner {
   width: 1440px;
   max-width: 1440px;
 }

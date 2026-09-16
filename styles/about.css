@@ -446,35 +446,7 @@
   color: #14243b;
 }
 
-/* ---------- Footer hotspot · shortened 153px footer ---------- */
-
-.about-footer .bc-footer__hit--home {
-  left: 24px;
-  top: auto;
-  bottom: 17px;
-  width: 155px;
-  height: 66px;
-}
-
-.about-footer .bc-footer__hit--linkedin {
-  right: 24px;
-  top: auto;
-  bottom: 56px;
-  width: 281px;
-  height: 22px;
-  min-width: 0;
-  min-height: 0;
-}
-
-.about-footer .bc-footer__hit--email {
-  right: 116px;
-  top: auto;
-  bottom: 22px;
-  width: 189px;
-  height: 22px;
-  min-width: 0;
-  min-height: 0;
-}
+/* ---------- Footer · shared flex layout in brilliant.css ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   .about-page a.about-cta {

@@ -1035,68 +1035,102 @@ html:has(.bc-page) {
   text-align: center;
 }
 
-/* ---------- Footer · Figma 321:10695 · 1440 × 153 ---------- */
+/* ---------- Footer · lace + balanced content band ---------- */
 
 .bc-footer {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 1440px;
   background: #14243b;
   color: #fff;
-  line-height: 0;
+  line-height: normal;
 }
 
-.bc-footer__art {
+.bc-footer__lace {
   display: block;
   width: 1440px;
-  max-width: none;
   height: auto;
   margin: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-.bc-footer__hotspots {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+/*
+  Content band under lace · flex-centered (lace is decorative only,
+  not part of the vertical centering calculation).
+*/
+.bc-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
   width: 1440px;
-  height: 100%;
+  margin: 0;
+  min-height: 122px;
+  padding: 0 24px;
+  gap: 24px;
+}
+
+.bc-footer__brand {
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.bc-footer__brand img {
+  display: block;
+  width: 155px;
+  height: 66px;
+  object-fit: contain;
+  object-position: left center;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.bc-footer__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px; /* Figma Frame 36 · 34 − 22 */
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.bc-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bc-footer__link img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
   pointer-events: none;
 }
 
-.bc-footer__hit {
-  position: absolute;
-  display: block;
-  pointer-events: auto;
-  background: transparent;
+.bc-footer__link:hover,
+.bc-footer__link:focus-visible {
+  opacity: 0.8;
 }
 
-/* Figma · Untitled design (10) 1 · AQ logo → home */
-.bc-footer__hit--home {
-  left: 24px;
-  top: 70px;
-  width: 155px;
-  height: 66px;
-}
-
-/* Figma · Frame 36 · linkedin / email */
-.bc-footer__hit--linkedin {
-  left: 1135px;
-  top: 75px;
-  width: 281px;
-  height: 22px;
-  min-width: 0;
-  min-height: 0;
-}
-
-.bc-footer__hit--email {
-  left: 1135px;
-  top: 109px;
-  width: 189px;
-  height: 22px;
-  min-width: 0;
-  min-height: 0;
-}
-
-.bc-footer__hit:focus-visible {
+.bc-footer__link:focus-visible {
   outline: 2px solid #e1f1fd;
   outline-offset: 2px;
 }
