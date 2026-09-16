@@ -183,16 +183,28 @@
   >
       <div class="tf-audit__viewport" data-tf-audit-viewport tabindex="0">
       <div class="tf-audit__stage" data-tf-audit-stage>
-        <!-- High-res <img> composites more smoothly under transform than <object> -->
+        <!-- Tiny preview for instant first paint; full SVG loads when in view -->
         <img
-          class="tf-audit__svg"
+          class="tf-audit__svg tf-audit__svg--preview"
+          data-tf-audit-preview
+          src="/assets/terraform/tf-audit-preview.webp?v=preview1"
+          alt=""
+          width="1600"
+          height="2167"
+          draggable="false"
+          decoding="async"
+          fetchpriority="high"
+        >
+        <img
+          class="tf-audit__svg tf-audit__svg--full"
           data-tf-audit-img
-          src="/assets/terraform/tf-audit.svg?v=webp1"
+          data-src="/assets/terraform/tf-audit.svg?v=webp2"
           alt="Full Terraform configuration audit covering 41 routes"
           width="29420"
           height="39846"
           draggable="false"
           decoding="async"
+          hidden
         >
       </div>
     </div>

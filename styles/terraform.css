@@ -974,12 +974,35 @@
   background: #cbcccf;
   border: 1px solid #dcdcdc;
   border-radius: 30px;
-  /* Create a containing block so transformed stage content clips to the radius */
-  transform: translateZ(0);
+  /* Isolate compositor work so drag transforms don't repaint the page */
   isolation: isolate;
+  transform: translateZ(0);
   cursor: grab;
   touch-action: none;
   outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.tf-audit__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.tf-audit__viewport.is-dragging .tf-audit__hint,
+.tf-audit__viewport.is-dragging ~ .tf-audit__hint,
+.tf-audit.is-dragging .tf-audit__controls {
+  pointer-events: none;
+}
+
+.tf-audit__stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .tf-audit.is-loading .tf-audit__viewport::after {
@@ -996,23 +1019,36 @@
   pointer-events: none;
 }
 
+.tf-audit.is-loading-hires .tf-audit__viewport::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 3;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #14243b;
+  opacity: 0.35;
+  animation: tf-audit-pulse 1s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes tf-audit-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.25);
+  }
+}
+
 .tf-audit__viewport:focus-visible {
   outline: 2px solid #0f62fe;
   outline-offset: 3px;
-}
-
-.tf-audit__viewport.is-dragging {
-  cursor: grabbing;
-}
-
-.tf-audit__stage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: 0 0;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  backface-visibility: hidden;
 }
 
 .tf-audit__svg {
@@ -1024,6 +1060,27 @@
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
+  image-rendering: auto;
+}
+
+.tf-audit__svg--preview,
+.tf-audit__svg--full {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tf-audit__svg--preview {
+  z-index: 0;
+  transition: opacity 360ms ease;
+}
+
+.tf-audit__svg--preview.is-fading {
+  opacity: 0;
+}
+
+.tf-audit__svg--full {
+  z-index: 1;
 }
 
 .tf-audit__hint {
