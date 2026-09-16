@@ -35,57 +35,7 @@ html:has(.bc-page) {
   overflow-x: hidden;
   overflow-y: auto;
 
-  /* Shared defaults (About inherits neutrally; case studies override below) */
-  --page-max-width: 1440px;
-  --page-gutter: 120px;
-  --page-gutter-wide: 72px; /* About / wider column */
-  --text-max-width: 720px;
-  --section-space: 36px;
-  --section-space-tight: 28px;
-  --section-pad-bottom: 40px;
-  --hero-pad-y: 56px;
-  --hero-pad-y-end: 48px;
-  --hero-pad-x: 40px;
-  --feature-gap: 40px;
-  --case-title-size: 40px;
-  --case-heading-size: 22px;
-  --case-subhead-size: 20px;
-  --case-body-size: 16px;
-  --case-body-lh: 1.55;
-  --case-meta-size: 14px;
-  --case-label-size: 13px;
-
-  /* Header / nav · production scale (~12% under original Figma) */
-  --header-inner-min-height: 128px;
-  --header-nav-gap: 28px;
-  --header-pad-x: 48px;
-  --header-name-size: 35px;
-  --header-name-pad-top: 28px;
-  --header-stamp-work-w: 65px;
-  --header-stamp-work-h: 152.6px;
-  --header-stamp-about-w: 161.5px;
-  --header-stamp-about-h: 65.6px;
-  --header-stamp-resume-w: 162px;
-  --header-stamp-resume-h: 66px;
-}
-
-/* Case studies · ~10–15% more zoomed-out on the 1440 canvas (no page scale hack) */
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) {
-  --page-gutter: 140px; /* content ~1160 · outer margins */
-  /* Explanatory text uses the full content column — not a nested narrow measure */
-  --text-max-width: none;
-  --section-space: 32px; /* was 36 */
-  --section-space-tight: 24px; /* was 28 */
-  --section-pad-bottom: 36px; /* was 40 */
-  --hero-pad-y: 48px; /* was 56 */
-  --hero-pad-y-end: 40px; /* was 48 */
-  --hero-pad-x: 36px; /* was 40 */
-  --feature-gap: 36px; /* was 40 */
-  --case-title-size: 36px; /* was 40 · ~10% */
-  --case-heading-size: 22px; /* already appropriate · leave */
-  --case-subhead-size: 18px; /* was 20 */
-  --case-body-size: 16px; /* keep readable floor */
-  --case-body-lh: 1.55;
+  /* Layout + typography tokens: :root in main.css (production case-study scale) */
 }
 
 .bc-page a {
@@ -157,38 +107,58 @@ html:has(.bc-page) {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* never stretch lace stamps to the box */
   object-position: top left;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
 }
 
-/* Lace stamps · shared production sizes */
+/* Lace stamps · size from --header-stamp-* (About default; case studies override compact) */
 .bc-stamp--work {
   width: var(--header-stamp-work-w);
   height: var(--header-stamp-work-h);
+  aspect-ratio: var(--header-stamp-work-w) / var(--header-stamp-work-h);
 }
 
 .bc-stamp--about {
   width: var(--header-stamp-about-w);
   height: var(--header-stamp-about-h);
+  aspect-ratio: var(--header-stamp-about-w) / var(--header-stamp-about-h);
 }
 
 .bc-stamp--resume {
   width: var(--header-stamp-resume-w);
   height: var(--header-stamp-resume-h);
+  aspect-ratio: var(--header-stamp-resume-w) / var(--header-stamp-resume-h);
 }
 
-/* Case studies · keep lace visible; same production stamp scale */
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header,
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__inner,
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__nav {
+/* Case studies + About · keep lace visible */
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page, .about-page) .bc-header,
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page, .about-page) .bc-header__inner,
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page, .about-page) .bc-header__nav {
   overflow: visible;
 }
 
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-header__inner {
-  min-height: 114px; /* was 130 */
+/*
+  COMPACT HEADER (~12% under previous stamp size).
+  Shared by all case studies AND About — quieter than homepage expressive nav.
+  Homepage keeps --home-stamp-* (intentionally larger).
+*/
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page, .about-page) {
+  --header-stamp-work-w: 57.2px; /* was 65 */
+  --header-stamp-work-h: 134.3px; /* was 152.6 */
+  --header-stamp-about-w: 142.1px; /* was 161.5 */
+  --header-stamp-about-h: 57.7px; /* was 65.6 */
+  --header-stamp-resume-w: 142.6px; /* was 162 */
+  --header-stamp-resume-h: 58.1px; /* was 66 */
+  --header-nav-gap: 25px; /* was 28 */
+  --header-name-size: 31px; /* was 35 */
+  --header-name-pad-top: 25px; /* was 28 */
+}
+
+:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page, .about-page) .bc-header__inner {
+  min-height: 100px; /* was 114 · compact footprint */
 }
 
 .bc-stamp:hover {
@@ -223,9 +193,7 @@ html:has(.bc-page) {
   outline-offset: 4px;
 }
 
-/* ---------- Main column · Figma Frame 46 ---------- */
-/* Default (About): --page-gutter-wide (72) → ~1296 */
-/* Case studies: --page-gutter (140) → ~1160 */
+/* ---------- Main column · production gutter (--page-gutter → 1160 content) ---------- */
 
 .bc-main {
   display: flex;
@@ -234,12 +202,8 @@ html:has(.bc-page) {
   gap: var(--section-space);
   width: var(--page-max-width);
   margin: 0;
-  padding: 0 var(--page-gutter-wide) var(--section-pad-bottom);
-  box-sizing: border-box;
-}
-
-:is(.brilliant-page, .nabu-page, .ose-page, .anda-page, .terraform-page) .bc-main {
   padding: 0 var(--page-gutter) var(--section-pad-bottom);
+  box-sizing: border-box;
 }
 
 .bc-intro {
@@ -276,7 +240,7 @@ html:has(.bc-page) {
 
 .bc-lede {
   margin: 0;
-  font-size: 17px;
+  font-size: var(--type-lede-size);
   font-weight: 400;
   font-style: italic;
   line-height: var(--case-body-lh);

@@ -82,6 +82,79 @@ body {
 }
 
 /*
+  PRODUCTION WEB SYSTEM · source of truth (optimized case-study scale).
+  Figma exports are design reference only — map new Figma text/layout to these tokens.
+  Do NOT shrink again or restore larger Figma dimensions on individual pages.
+*/
+:root {
+  /*
+    HEADER · two intentional contexts (do NOT normalize to identical sizes):
+    A. HOMEPAGE expressive · --home-stamp-* (pre-consistency-pass sizes)
+    B. INNER PAGES compact · --header-stamp-* on case studies + About (~12% smaller)
+    Homepage keeps expressive --home-stamp-*.
+  */
+  --header-inner-min-height: 128px;
+  --header-nav-gap: 28px;
+  --header-pad-x: 48px;
+  --header-name-size: 35px;
+  --header-name-pad-top: 28px;
+
+  /* Default / About header stamps */
+  --header-stamp-work-w: 65px;
+  --header-stamp-work-h: 152.6px;
+  --header-stamp-about-w: 161.5px;
+  --header-stamp-about-h: 65.6px;
+  --header-stamp-resume-w: 162px;
+  --header-stamp-resume-h: 66px;
+
+  /* Homepage expressive nav · restored from pre-unify inline sizes */
+  --home-stamp-work-w: 64.5px;
+  --home-stamp-work-h: 151px;
+  --home-stamp-about-w: 154px;
+  --home-stamp-about-h: 58.5px;
+  --home-stamp-resume-w: 160.5px;
+  --home-stamp-resume-h: 65.5px;
+  --home-nav-gap: 28px;
+
+  /* Layout · 1440 canvas · 140px gutters → 1160px content column */
+  --page-max-width: 1440px;
+  --page-gutter: 140px;
+  --page-content-width: 1160px;
+  --page-gutter-mobile: 20px;
+  --text-max-width: none; /* full content column on case studies */
+  --text-measure: 720px; /* optional narrow prose when explicitly scoped */
+
+  /* Section rhythm · production case-study values */
+  --section-space: 32px;
+  --section-space-tight: 24px;
+  --section-pad-bottom: 36px;
+  --hero-pad-y: 48px;
+  --hero-pad-y-end: 40px;
+  --hero-pad-x: 36px;
+  --feature-gap: 36px;
+
+  /* Typography · informational roles (case-study reference) */
+  --type-body-size: 16px;
+  --type-body-lh: 1.55;
+  --type-lede-size: 17px;
+  --type-title-size: 36px;
+  --type-heading-size: 22px;
+  --type-subhead-size: 18px;
+  --type-meta-size: 14px;
+  --type-label-size: 13px;
+  --type-card-title-size: 24px; /* home project cards · intentional card role */
+
+  /* Aliases · existing case-study class names */
+  --case-title-size: var(--type-title-size);
+  --case-heading-size: var(--type-heading-size);
+  --case-subhead-size: var(--type-subhead-size);
+  --case-body-size: var(--type-body-size);
+  --case-body-lh: var(--type-body-lh);
+  --case-meta-size: var(--type-meta-size);
+  --case-label-size: var(--type-label-size);
+}
+
+/*
   Home — fixed Figma canvas 1440×2330, uniformly scaled to the viewport.
   No per-element % / vw sizing (that warps stickers when aspect differs).
 */
@@ -110,10 +183,10 @@ body:has(.canvas-wrapper) {
   background: #14243b;
   overflow: visible; /* allow sticker hover scale to peek out */
 
-  /* Shared with case-study production gutters · My Work title + card grid */
-  --home-work-gutter: 140px;
+  /* My Work title + card grid · same outer gutter as case studies */
+  --home-work-gutter: var(--page-gutter);
   --home-work-gap: 48px;
-  --home-work-col: 556px; /* (1440 − 2×140 − 48) / 2 */
+  --home-work-col: calc((var(--page-max-width) - 2 * var(--page-gutter) - var(--home-work-gap)) / 2);
 }
 
 /* Landing frame — scrolls normally; snap handled by scripts/home-snap.js */
@@ -363,11 +436,42 @@ body:has(.canvas-wrapper) {
   z-index: 5;
 }
 
+/*
+  Homepage expressive nav · --home-stamp-* (NOT case-study compact).
+  Restored: left 48 / 140.5 / 322.5 with prior box sizes.
+*/
+.design-hotspot--work {
+  left: var(--header-pad-x); /* 48 */
+  top: 0;
+  width: var(--home-stamp-work-w);
+  height: var(--home-stamp-work-h);
+  aspect-ratio: 64.5 / 151;
+}
+
+.design-hotspot--about {
+  left: calc(var(--header-pad-x) + var(--home-stamp-work-w) + var(--home-nav-gap)); /* 140.5 */
+  top: 0;
+  width: var(--home-stamp-about-w);
+  height: var(--home-stamp-about-h);
+  aspect-ratio: 154 / 58.5;
+}
+
+.design-hotspot--resume {
+  left: calc(
+    var(--header-pad-x) + var(--home-stamp-work-w) + var(--home-nav-gap) +
+      var(--home-stamp-about-w) + var(--home-nav-gap)
+  ); /* 322.5 */
+  top: 0;
+  width: var(--home-stamp-resume-w);
+  height: var(--home-stamp-resume-h);
+  aspect-ratio: 160.5 / 65.5;
+}
+
 .design-hotspot img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* never stretch lace stamps */
   object-position: top center;
   pointer-events: none;
   user-select: none;
@@ -536,8 +640,8 @@ html.aq-wipe-cover::before {
   margin: 0;
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  line-height: normal; /* Figma leading-[normal] */
+  font-size: var(--type-card-title-size);
+  line-height: normal;
   color: #14243b;
 }
 
@@ -546,8 +650,8 @@ html.aq-wipe-cover::before {
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
   font-style: italic;
-  font-size: 16px;
-  line-height: normal; /* Figma leading-[normal] */
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-lh);
   color: #14243b;
 }
 
@@ -570,7 +674,7 @@ html.aq-wipe-cover::before {
   background: #fff;
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--type-meta-size);
   line-height: normal;
   color: #14243b;
   white-space: nowrap;
@@ -728,7 +832,7 @@ html.aq-wipe-cover::before {
   }
 }
 
-/* ---------- Work page · share production outer container (~1200) ---------- */
+/* ---------- Work page · production content width (1160) ---------- */
 
 body:has(.work) {
   height: auto;
@@ -742,7 +846,7 @@ body:has(.work) {
   position: relative;
   display: block;
   width: 100%;
-  max-width: 1200px; /* ≈ case-study content band (1160–1200) */
+  max-width: var(--page-content-width);
   margin: 0 auto;
   background: #fff;
   overflow: visible; /* allow tab hover scale to peek out */
@@ -752,7 +856,7 @@ body:has(.work) {
 @media (max-width: 768px) {
   .work {
     max-width: 100%;
-    padding-inline: 20px;
+    padding-inline: var(--page-gutter-mobile);
   }
 }
 
@@ -907,7 +1011,7 @@ body:has(.work) {
   height: auto;
 }
 
-/* about me · Group 4 — width-driven, native aspect */
+/* about me · Group 4 — width-driven, native aspect (Work page uses Home/About, not Work ribbon) */
 .work-hotspot--about {
   left: calc(100% * 210 / 1512); /* was 237 · tighten after shrink */
   top: calc(100% * 0 / 1524);
