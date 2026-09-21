@@ -1,0 +1,1537 @@
+/* Brilliant Cities case study — Figma "final brilliant cities" 392:1732 · fluid, max 1440
+   Scoped to .brilliant-final so no other page is affected. */
+
+.brilliant-final {
+  /* Local Figma paint styles · navy blue, light blue, light grey, white */
+  --bf-navy: #14243b;
+  --bf-mist: #edf2f5;
+  --bf-grey: #dcdcdc;
+  --bf-white: #ffffff;
+  --bf-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --bf-sans: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --bf-gutter: 80px;
+  --bf-rail-w: 200px;
+  --bf-rail-gap: 56px;
+  --bf-pad: 48px;
+  --bf-section-gap: 40px;
+}
+
+/* ---------- Canvas overrides ----------
+   The shared case-study shell positions .bc-canvas absolutely at a fixed 1440
+   and scales it with case-scale.js. This page is fluid instead, and the sticky
+   rail needs a scrollport with no transformed ancestors. */
+
+html:has(.brilliant-final) {
+  overflow: visible;
+  height: auto;
+  scroll-behavior: auto;
+}
+
+/* Everything below the document must stay overflow:visible — `hidden`/`clip` on
+   an ancestor would make it the sticky rail's scrollport (or clip it outright),
+   so horizontal overflow is prevented by sizing instead. */
+.brilliant-final {
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+}
+
+.brilliant-final .bc-canvas-wrapper {
+  overflow: visible;
+  height: auto !important;
+}
+
+.brilliant-final .bc-canvas {
+  position: static;
+  width: 100%;
+  max-width: none;
+  transform: none !important;
+  left: auto !important;
+  overflow: visible;
+}
+
+/* Header + footer markup is untouched; only the fixed 1440 widths go fluid. */
+.brilliant-final .bc-header,
+.brilliant-final .bc-footer {
+  width: 100%;
+}
+
+.brilliant-final .bc-header__inner,
+.brilliant-final .bc-footer__inner {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+}
+
+.brilliant-final .bc-footer__lace {
+  width: 100%;
+}
+
+/* ---------- Page shell ---------- */
+
+.bf-main {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: var(--bf-white);
+}
+
+.bf-main img {
+  max-width: 100%;
+}
+
+.bf-layout {
+  display: grid;
+  grid-template-columns: var(--bf-rail-w) minmax(0, 1fr);
+  column-gap: var(--bf-rail-gap);
+  /* Cells must stretch: a sticky child can only travel inside its own
+     containing block, so the rail column has to span the full row height. */
+  align-items: stretch;
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+  padding-inline: var(--bf-gutter);
+  box-sizing: border-box;
+}
+
+/* ---------- Sticky rail ---------- */
+
+/* The 103px offset lives on the (non-sticky) grid cell so it drops away
+   once the rail sticks. */
+.bf-rail-col {
+  padding-top: 103px;
+  padding-bottom: 96px;
+}
+
+.bf-rail {
+  position: sticky;
+  top: 48px;
+  color: var(--bf-navy);
+}
+
+.bf-rail__eyebrow {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.5px;
+  letter-spacing: 1.98px;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--bf-navy) 50%, transparent);
+}
+
+.bf-rail__title {
+  margin: 6px 0 0;
+  font-family: var(--bf-serif);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 33.5px;
+  color: var(--bf-navy);
+}
+
+.bf-rail__nav {
+  position: relative;
+  margin-top: 52px;
+}
+
+.bf-rail__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Progress fill runs between the first and last dot centres.
+   Upcoming dots stay opaque so the line never shows through them. */
+.bf-rail__fill {
+  position: absolute;
+  left: 5px;
+  top: 14.5px;
+  z-index: 0;
+  width: 1px;
+  height: calc(var(--bf-progress, 0) * (100% - 32.8px));
+  border-radius: 1px;
+  background: var(--bf-navy);
+  transition: height 180ms ease-out;
+}
+
+/* .brilliant-final prefix beats the shared `.bc-page a { color: inherit }`. */
+.brilliant-final .bf-rail__link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 9px 0 9.8px;
+  border: 0;
+  background: none;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.5px;
+  letter-spacing: 1.54px;
+  text-transform: uppercase;
+  text-align: left;
+  color: color-mix(in srgb, var(--bf-navy) 45%, transparent);
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.bf-rail__dot {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  border-radius: 5.5px;
+  background: color-mix(in srgb, var(--bf-navy) 22%, var(--bf-white));
+  box-shadow: 0 0 0 3px var(--bf-white);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.brilliant-final .bf-rail__link:hover,
+.brilliant-final .bf-rail__link:focus-visible {
+  color: color-mix(in srgb, var(--bf-navy) 78%, transparent);
+}
+
+.bf-rail__link:hover .bf-rail__dot {
+  background: color-mix(in srgb, var(--bf-navy) 40%, var(--bf-white));
+}
+
+.bf-rail__link:focus-visible {
+  outline: 2px solid var(--bf-navy);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.bf-rail__item.is-done .bf-rail__dot,
+.bf-rail__item.is-active .bf-rail__dot {
+  background: var(--bf-navy);
+  box-shadow: none;
+}
+
+.brilliant-final .bf-rail__item.is-active .bf-rail__link {
+  color: var(--bf-navy);
+}
+
+.bf-rail__item.is-active .bf-rail__dot {
+  transform: scale(1.1);
+}
+
+/* ---------- Content column ---------- */
+
+.bf-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bf-section-gap);
+  min-width: 0;
+  padding-top: 48px;
+  padding-bottom: 96px;
+}
+
+/* Beats the id-based scroll-margin rules in brilliant.css. */
+.brilliant-final
+  :is(#problem, #users, #constraints, #decisions, #design-system, #takeaways) {
+  scroll-margin-top: 32px;
+}
+
+/* Shared type scale */
+.bf-eyebrow {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.5px;
+  letter-spacing: 1.98px;
+  text-transform: uppercase;
+}
+
+/* Numbered section header · "01  PROBLEM" */
+.bf-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 0 0 20px;
+}
+
+.bf-head__num {
+  font-family: var(--bf-sans);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+}
+
+.bf-head__label {
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.5px;
+  letter-spacing: 1.98px;
+  text-transform: uppercase;
+}
+
+/* ---------- Hero ---------- */
+
+.bf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 334px;
+  column-gap: 44px;
+  align-items: center;
+  padding: 0;
+}
+
+.bf-hero__stitch {
+  margin: 0;
+  font-family: "Cross Stitch Cursive", cursive;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 34px;
+  color: var(--bf-navy);
+}
+
+.bf-hero__title {
+  margin: 12.9px 0 0;
+  font-family: var(--bf-serif);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 65.72px;
+  letter-spacing: -0.93px;
+  color: var(--bf-navy);
+}
+
+.bf-hero__title em {
+  display: block;
+  font-style: italic;
+}
+
+.bf-hero__lede {
+  margin: 20px 0 0;
+  max-width: 560px;
+  font-family: var(--bf-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 31px;
+  color: var(--bf-navy);
+}
+
+.bf-jump {
+  margin-top: 26px;
+}
+
+.bf-jump__label {
+  margin: 0 0 14px;
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--bf-navy);
+}
+
+.bf-jump__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* .brilliant-final prefix beats the shared `.bc-page a { color: inherit }`. */
+.brilliant-final .bf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--bf-navy);
+  color: var(--bf-white);
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.brilliant-final .bf-btn:hover,
+.brilliant-final .bf-btn:focus-visible {
+  transform: translateY(-1px);
+  background: var(--bf-navy);
+  color: var(--bf-white);
+}
+
+.brilliant-final .bf-btn:focus-visible {
+  outline: 2px solid var(--bf-navy);
+  outline-offset: 3px;
+}
+
+/* Shared header/footer buttons use a near-navy hover in brilliant.css. */
+.brilliant-final .bc-btn:hover,
+.brilliant-final .bc-btn:focus-visible {
+  background: var(--bf-navy);
+}
+
+.brilliant-final .bc-footer__link:focus-visible {
+  outline-color: var(--bf-mist);
+}
+
+.bf-jump__read {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  color: var(--bf-navy);
+}
+
+/* Two overlapping, slightly rotated phones.
+   Percentages are Figma's unrotated boxes inside the 334 × 401 slot. */
+.bf-hero__phones {
+  position: relative;
+  aspect-ratio: 334 / 359;
+  min-width: 0;
+}
+
+.bf-hero__phone {
+  position: absolute;
+  height: auto;
+}
+
+.bf-hero__phone--back {
+  left: -2.66%;
+  top: 12.3%;
+  width: 57.3%;
+  transform: rotate(-3deg);
+}
+
+.bf-hero__phone--front {
+  left: 47.4%;
+  top: -1.07%;
+  width: 59.7%;
+  transform: rotate(2.5deg);
+}
+
+/* ---------- Meta row ---------- */
+
+.bf-meta {
+  margin-inline: 0;
+  padding: 23px 0 25px;
+  border-top: 1px solid color-mix(in srgb, var(--bf-navy) 18%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--bf-navy) 18%, transparent);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 28px;
+}
+
+.bf-meta__label {
+  margin: 0 0 10px;
+  font-family: var(--bf-sans);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--bf-navy);
+}
+
+.bf-meta__value,
+.brilliant-final .bf-meta__list {
+  margin: 0;
+  padding: 0;
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  color: var(--bf-navy);
+}
+
+.brilliant-final .bf-meta__list {
+  padding-left: 24px;
+  list-style: disc;
+}
+
+.brilliant-final .bf-meta__list li {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Marquee ---------- */
+
+.bf-marquee {
+  margin-inline: 0;
+  position: relative;
+  padding: 52px 0;
+  border-radius: 20px;
+  background: var(--bf-mist);
+  overflow: hidden;
+}
+
+/* Fade only the phones, so the mist band keeps its clean rounded edges. */
+.bf-marquee__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.bf-marquee__track {
+  display: flex;
+  width: max-content;
+}
+
+.bf-marquee.is-ready .bf-marquee__track {
+  animation: bf-marquee 46s linear infinite;
+}
+
+.bf-marquee:hover .bf-marquee__track,
+.bf-marquee:focus-within .bf-marquee__track {
+  animation-play-state: paused;
+}
+
+/* Trailing gap on each group keeps -50% a seamless wrap point. */
+.bf-marquee__group {
+  display: flex;
+  gap: 32px;
+  padding-right: 32px;
+}
+
+.bf-marquee__item {
+  flex: 0 0 auto;
+  width: 240px;
+  aspect-ratio: 240 / 486.484;
+}
+
+.bf-marquee__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@keyframes bf-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ---------- 01 Problem (navy band) ---------- */
+
+.bf-problem {
+  padding: 64px var(--bf-pad) 86px;
+  background: var(--bf-navy);
+  color: var(--bf-white);
+}
+
+.bf-problem .bf-head__num,
+.bf-problem .bf-head__label {
+  color: var(--bf-white);
+}
+
+.bf-problem__top {
+  display: grid;
+  grid-template-columns: minmax(0, 233px) minmax(0, 1fr);
+  column-gap: 48px;
+  align-items: start;
+}
+
+.bf-problem__statement {
+  margin: 0;
+  font-family: var(--bf-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 48.8px;
+  color: var(--bf-white);
+}
+
+.bf-challenges {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-challenge {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 30px 0;
+  border-top: 1px solid color-mix(in srgb, var(--bf-white) 18%, transparent);
+}
+
+.bf-challenge__num {
+  margin: 0;
+  flex: 0 0 76px;
+  width: 76px;
+  font-family: var(--bf-serif);
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 46px;
+  color: color-mix(in srgb, var(--bf-white) 45%, transparent);
+}
+
+.bf-challenge__body {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  padding-top: 0;
+}
+
+.bf-challenge__kicker {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--bf-grey);
+}
+
+.bf-challenge__title {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29.76px;
+  letter-spacing: -0.24px;
+  color: var(--bf-white);
+}
+
+.bf-challenge__text {
+  margin: 0;
+  max-width: 650px;
+  font-family: var(--bf-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 25.84px;
+  color: var(--bf-white);
+}
+
+.bf-challenge__pill {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0;
+  padding: 10px 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--bf-white) 35%, transparent);
+  font-family: var(--bf-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: var(--bf-grey);
+}
+
+.bf-problem__card {
+  margin-top: 56px;
+  padding: 24px 64px;
+  border-radius: 24px;
+  background: var(--bf-white);
+  color: var(--bf-navy);
+  text-align: center;
+}
+
+.bf-problem__card .bf-eyebrow {
+  color: var(--bf-navy);
+}
+
+.bf-problem__quote {
+  margin: 17px 0 0;
+  font-family: var(--bf-serif);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 45.56px;
+  color: var(--bf-navy);
+}
+
+/* ---------- 02 Who we designed for ---------- */
+
+.bf-persona-section {
+  padding: 0;
+  color: var(--bf-navy);
+}
+
+.bf-persona-section .bf-head {
+  margin-bottom: 23px;
+}
+
+.bf-section__lead {
+  margin: 0 0 23px;
+  font-family: var(--bf-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 49.6px;
+  color: var(--bf-navy);
+}
+
+.bf-persona {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  border-radius: 30px;
+  background: var(--bf-white);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--bf-navy) 5%, transparent), 0 12px 28px color-mix(in srgb, var(--bf-navy) 5%, transparent);
+  overflow: hidden;
+}
+
+.bf-persona__figure {
+  position: relative;
+  margin: 0;
+  background: var(--bf-mist);
+}
+
+.bf-persona__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.bf-persona__caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 72px 28px 24px;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--bf-navy) 94%, transparent) 0%,
+    color-mix(in srgb, var(--bf-navy) 82%, transparent) 42%,
+    color-mix(in srgb, var(--bf-navy) 0%, transparent) 100%
+  );
+  color: var(--bf-white);
+}
+
+.bf-persona__name {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+.bf-persona__role {
+  margin: 4px 0 0;
+  font-family: var(--bf-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+  color: color-mix(in srgb, var(--bf-white) 88%, transparent);
+}
+
+.bf-persona__body {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+  padding: 40px 44px;
+}
+
+.bf-persona__quote {
+  margin: 0;
+  font-family: var(--bf-serif);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 36.4px;
+  color: var(--bf-navy);
+}
+
+.bf-persona__rule {
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: color-mix(in srgb, var(--bf-navy) 10%, transparent);
+}
+
+.bf-persona__label {
+  margin: 0 0 9px;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 11px;
+  letter-spacing: 1.54px;
+  text-transform: uppercase;
+  color: var(--bf-navy);
+}
+
+.bf-persona__text {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26.35px;
+  color: var(--bf-navy);
+}
+
+.bf-persona__text strong {
+  font-weight: 700;
+}
+
+.bf-persona__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid color-mix(in srgb, var(--bf-navy) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--bf-navy) 10%, transparent);
+}
+
+.bf-persona__stat {
+  padding: 20px;
+  border-right: 1px solid color-mix(in srgb, var(--bf-navy) 10%, transparent);
+}
+
+.bf-persona__stat:first-child {
+  padding-left: 0;
+}
+
+.bf-persona__stat:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.bf-persona__stat .bf-persona__label {
+  margin-bottom: 8px;
+}
+
+.bf-persona__stat-value {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  color: var(--bf-navy);
+}
+
+.bf-persona__note {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24.32px;
+  color: var(--bf-navy);
+}
+
+/* ---------- 03 Constraints (mist band) ---------- */
+
+.bf-constraints {
+  padding: 64px var(--bf-pad) 76px;
+  background: var(--bf-mist);
+  color: var(--bf-navy);
+}
+
+.bf-constraints .bf-head {
+  margin-bottom: 16px;
+}
+
+.bf-constraints__top {
+  display: grid;
+  grid-template-columns: minmax(0, 233px) minmax(0, 1fr);
+  column-gap: 48px;
+  align-items: end;
+  margin-bottom: 44px;
+}
+
+.bf-constraints__lead {
+  margin: 0;
+  font-family: var(--bf-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 48.8px;
+  color: var(--bf-navy);
+}
+
+.bf-constraints__aside {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--bf-navy);
+}
+
+.bf-constraints__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-constraint {
+  padding-top: 16px;
+  border-top: 1.5px solid var(--bf-navy);
+}
+
+.bf-constraint__num {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18.5px;
+  color: var(--bf-navy);
+}
+
+.bf-constraint__title {
+  margin: 10px 0 0;
+  font-family: var(--bf-sans);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 23.12px;
+  color: var(--bf-navy);
+}
+
+.bf-constraint__text {
+  margin: 13px 0 0;
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24.96px;
+  color: var(--bf-navy);
+}
+
+/* ---------- 04 Design decisions ---------- */
+
+.bf-decisions {
+  padding: 0 var(--bf-pad);
+  color: var(--bf-navy);
+}
+
+.bf-decisions .bf-head {
+  margin-bottom: 26px;
+}
+
+.bf-decisions__lead {
+  margin: 0 0 26px;
+  font-family: var(--bf-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 52px;
+  color: var(--bf-navy);
+}
+
+.bf-decisions__intro {
+  margin: 0 0 26px;
+  font-family: var(--bf-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27.9px;
+  color: var(--bf-navy);
+}
+
+.bf-decisions__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-decision {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  column-gap: 56px;
+  align-items: center;
+}
+
+.bf-decision--flip {
+  grid-template-columns: minmax(0, 1fr) 240px;
+}
+
+.bf-decision__phone {
+  position: relative;
+  margin: 0;
+  width: 240px;
+  aspect-ratio: 240 / 476;
+  overflow: hidden;
+}
+
+.bf-decision--flip .bf-decision__phone {
+  order: 2;
+}
+
+.bf-decision__phone img,
+.bf-decision__phone video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.bf-decision__phone img {
+  object-fit: contain;
+}
+
+.bf-decision__phone video {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.bf-decision__copy {
+  min-width: 0;
+}
+
+.bf-decision--flip .bf-decision__copy {
+  order: 1;
+}
+
+.bf-decision__copy .bf-eyebrow {
+  color: var(--bf-navy);
+}
+
+.bf-decision__title {
+  margin: 20px 0 0;
+  font-family: var(--bf-serif);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 39px;
+  color: var(--bf-navy);
+}
+
+.bf-decision__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.bf-card {
+  padding: 18.5px 22px 20px;
+  border-radius: 20px;
+}
+
+.bf-card--why {
+  background: var(--bf-mist);
+}
+
+.bf-card--tradeoff {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bf-navy) 16%, transparent);
+}
+
+.bf-card__label {
+  margin: 0 0 11px;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.5px;
+  letter-spacing: 1.98px;
+  text-transform: uppercase;
+  color: var(--bf-navy);
+}
+
+.bf-card__text {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24.32px;
+  color: var(--bf-navy);
+}
+
+/* ---------- 05 Design system ---------- */
+
+.bf-ds {
+  padding: 64px var(--bf-pad) 0;
+  color: var(--bf-navy);
+}
+
+.bf-ds .bf-head {
+  margin-bottom: 14px;
+}
+
+.bf-ds__lead {
+  margin: 0;
+  max-width: 520px;
+  font-family: var(--bf-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 49.6px;
+  color: var(--bf-navy);
+}
+
+.bf-ds__text {
+  margin: 16px 0 0;
+  font-family: var(--bf-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26.35px;
+  color: var(--bf-navy);
+}
+
+.bf-ds__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-ds__tile {
+  border-radius: 38px;
+  background: var(--bf-white);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--bf-navy) 5%, transparent), 0 21px 47px color-mix(in srgb, var(--bf-navy) 5%, transparent);
+  overflow: hidden;
+}
+
+.bf-ds__tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- 06 Takeaways ---------- */
+
+.bf-takeaways {
+  padding: 64px var(--bf-pad) 0;
+  color: var(--bf-navy);
+}
+
+.bf-takeaways .bf-head {
+  margin-bottom: 26px;
+}
+
+.bf-takeaways__lead {
+  margin: 0 0 26px;
+  font-family: var(--bf-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 52px;
+  color: var(--bf-navy);
+}
+
+.bf-takeaways__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-takeaway {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 274px) minmax(0, 550px);
+  column-gap: 28px;
+  align-items: start;
+  padding: 23px 0 28px;
+  border-top: 1px solid color-mix(in srgb, var(--bf-navy) 22%, transparent);
+}
+
+.bf-takeaway__num {
+  margin: 0;
+  font-family: var(--bf-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 52px;
+  color: var(--bf-navy);
+}
+
+.bf-takeaway__title {
+  margin: 6px 0 0;
+  font-family: var(--bf-serif);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 33.28px;
+  color: var(--bf-navy);
+}
+
+.bf-takeaway__text {
+  margin: 6px 0 0;
+  font-family: var(--bf-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26.52px;
+  color: var(--bf-navy);
+}
+
+.bf-cta {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+/*
+  The shared header and footer are laid out for a 1440 canvas and normally
+  shrink because case-scale.js scales the whole thing. This page is fluid, so
+  scale the header's own size tokens down and let the footer band stack.
+  Both are scoped to .brilliant-final, so other case studies keep their sizing.
+*/
+@media (max-width: 900px) {
+  .brilliant-final {
+    --bf-stamp-scale: 0.74;
+  }
+}
+
+@media (max-width: 560px) {
+  .brilliant-final {
+    --bf-stamp-scale: 0.58;
+  }
+}
+
+@media (max-width: 400px) {
+  .brilliant-final {
+    --bf-stamp-scale: 0.5;
+  }
+}
+
+@media (max-width: 900px) {
+  .brilliant-final {
+    --header-stamp-work-w: calc(57.2px * var(--bf-stamp-scale));
+    --header-stamp-work-h: calc(134.3px * var(--bf-stamp-scale));
+    --header-stamp-about-w: calc(142.1px * var(--bf-stamp-scale));
+    --header-stamp-about-h: calc(57.7px * var(--bf-stamp-scale));
+    --header-stamp-resume-w: calc(142.6px * var(--bf-stamp-scale));
+    --header-stamp-resume-h: calc(58.1px * var(--bf-stamp-scale));
+    --header-nav-gap: calc(25px * var(--bf-stamp-scale));
+    --header-name-size: calc(31px * var(--bf-stamp-scale));
+    --header-name-pad-top: calc(25px * var(--bf-stamp-scale));
+  }
+
+  .brilliant-final .bc-header__inner {
+    min-height: calc(100px * var(--bf-stamp-scale));
+  }
+}
+
+@media (max-width: 700px) {
+  .brilliant-final .bc-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    min-height: 0;
+    padding-block: 26px;
+  }
+
+  .brilliant-final .bc-footer__link {
+    white-space: normal;
+  }
+
+  .brilliant-final .bc-footer__link span {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Tighter gutters before the rail collapses. */
+@media (max-width: 1280px) {
+  .brilliant-final {
+    --bf-gutter: 40px;
+    --bf-rail-gap: 40px;
+  }
+
+  .brilliant-final .bc-header__inner {
+    padding-inline: 40px;
+  }
+}
+
+/* Rail becomes a sticky horizontal nav above the content. */
+@media (max-width: 1024px) {
+  .brilliant-final {
+    --bf-gutter: 32px;
+    --bf-pad: 0px;
+  }
+
+  .brilliant-final .bc-header__inner {
+    padding-inline: 32px;
+  }
+
+  .bf-layout {
+    display: block;
+  }
+
+  .bf-rail-col {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-inline: calc(-1 * var(--bf-gutter));
+    padding-inline: var(--bf-gutter);
+    background: color-mix(in srgb, var(--bf-white) 94%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid color-mix(in srgb, var(--bf-navy) 12%, transparent);
+  }
+
+  .bf-rail {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+  }
+
+  /* Drop the rail heading so all six labels fit without truncation —
+     the hero states the project name immediately below. */
+  .bf-rail__head {
+    display: none;
+  }
+
+  .bf-rail__nav {
+    margin-top: 0;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .bf-rail__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bf-rail__list {
+    display: flex;
+    gap: 20px;
+  }
+
+  /* Vertical track/progress only make sense in the rail layout. */
+  .bf-rail__list::before,
+  .bf-rail__fill {
+    display: none;
+  }
+
+  .bf-rail__link {
+    padding: 4px 0;
+    white-space: nowrap;
+  }
+
+  .bf-content {
+    padding-top: 40px;
+  }
+
+  /* Bands go edge-to-edge now that the column has no inner padding. */
+  .bf-problem,
+  .bf-constraints {
+    margin-inline: calc(-1 * var(--bf-gutter));
+    padding-inline: var(--bf-gutter);
+  }
+
+  .bf-meta,
+  .bf-marquee {
+    margin-inline: 0;
+  }
+
+  .bf-hero {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 32px;
+  }
+
+  .bf-hero__phones {
+    max-width: 420px;
+    aspect-ratio: 334 / 360;
+  }
+
+  .bf-problem__top,
+  .bf-constraints__top {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+
+  .bf-constraints__top {
+    align-items: start;
+  }
+
+  .bf-constraints__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .bf-persona {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bf-persona__photo {
+    min-height: 0;
+    aspect-ratio: 300 / 380;
+  }
+
+  .bf-decision,
+  .bf-decision--flip {
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+
+  .bf-decision--flip .bf-decision__phone {
+    order: 0;
+  }
+
+  .bf-decision--flip .bf-decision__copy {
+    order: 0;
+  }
+
+  .bf-takeaway {
+    grid-template-columns: 48px minmax(0, 1fr);
+    row-gap: 8px;
+  }
+
+  .bf-takeaway__text {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 860px) {
+  .brilliant-final {
+    --bf-gutter: 24px;
+  }
+
+  .brilliant-final .bc-header__inner {
+    padding-inline: 24px;
+  }
+
+  .bf-hero__title {
+    font-size: 44px;
+    line-height: 48px;
+    letter-spacing: -0.6px;
+  }
+
+  .bf-hero__lede {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .bf-problem__statement,
+  .bf-section__lead,
+  .bf-constraints__lead,
+  .bf-decisions__lead,
+  .bf-ds__lead,
+  .bf-takeaways__lead {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .bf-problem__quote {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .bf-problem__card {
+    padding: 24px;
+  }
+
+  .bf-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bf-constraints__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bf-persona__body {
+    padding: 28px 24px;
+  }
+
+  .bf-persona__stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bf-persona__stat {
+    padding: 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--bf-navy) 10%, transparent);
+  }
+
+  .bf-persona__stat:last-child {
+    border-bottom: 0;
+  }
+
+  .bf-decision,
+  .bf-decision--flip {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+
+  .bf-decision__cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bf-ds__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .bf-hero__title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .bf-head__num {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .bf-challenge {
+    gap: 16px;
+  }
+
+  .bf-challenge__num {
+    flex-basis: 48px;
+    width: 48px;
+    font-size: 34px;
+    line-height: 34px;
+  }
+
+  .bf-challenge__title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .bf-challenge__text {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .bf-meta,
+  .bf-constraints__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bf-takeaway {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bf-takeaway__text {
+    grid-column: 1;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-marquee.is-ready .bf-marquee__track {
+    animation: none;
+  }
+
+  /* Swap the animation for a manually scrollable strip. */
+  .bf-marquee__viewport {
+    overflow-x: auto;
+  }
+
+  .bf-rail__fill,
+  .bf-rail__dot,
+  .bf-rail__link,
+  .bf-btn {
+    transition: none;
+  }
+
+  .bf-btn:hover,
+  .bf-btn:focus-visible {
+    transform: none;
+  }
+}
+
+

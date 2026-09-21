@@ -10,10 +10,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="description" content="Brilliant Cities Habit Tracker — case study by Allison Qiu">
   <title>Brilliant Cities · Allison Qiu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="../styles/main.css?v=headerContexts1">
   <link rel="stylesheet" href="../styles/brilliant.css?v=headerCompactAbout1">
+  <link rel="stylesheet" href="../styles/brilliant-final.css?v=bcFinal8">
 </head>
-<body class="bc-page brilliant-page">
+<body class="bc-page brilliant-page brilliant-final">
   <div class="bc-canvas-wrapper">
     <div class="bc-canvas">
   <header class="bc-header">
@@ -33,335 +37,498 @@
     </div>
   </header>
 
-  <main class="bc-main">
-    <section class="bc-intro">
-      <h1 class="bc-title">Brilliant Cities Habit Tracker</h1>
-      <div class="bc-intro__stack">
-        <p class="bc-lede">
-          I helped design a family <strong>habit-tracking app</strong> for Brilliant Cities that helps parents and children <strong>build healthier</strong> routines together. The platform <strong>educates</strong> families about the <strong>importance</strong> of consistent habits, lets parents track progress for each child, and helps Brilliant Cities community engagement managers <strong>support</strong> families beyond their structured programs.
-        </p>
-        <div class="bc-jump">
-          <p class="bc-jump__label">SHORT ON TIME?</p>
-          <button type="button" class="bc-btn" data-scroll-to="solution">Jump to Final Product</button>
-        </div>
-      </div>
-    </section>
+  <main class="bf-main">
+    <div class="bf-layout">
 
-    <section class="bc-hero" aria-label="Product preview">
-      <div class="bc-hero__phones">
-        <div class="bc-hero__slot">
-          <img
-            src="../assets/brilliant/hero-left.png?v=figmaFill1"
-            alt="Brilliant Cities app screens — login, onboarding, and goal categories"
-            width="2000"
-            height="2000"
-          >
-        </div>
-        <div class="bc-hero__slot">
-          <img
-            src="../assets/brilliant/hero-right.png?v=figmaFill1"
-            alt="Brilliant Cities app screens — search, goals card, and family dashboard"
-            width="2000"
-            height="2000"
-          >
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-meta" aria-label="Project details">
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TIMELINE</p>
-        <p class="bc-meta__value">Sept 2024 - Dec 2024</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TOOLS</p>
-        <p class="bc-meta__value">Figma</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">ROLE</p>
-        <p class="bc-meta__value">Product Designer</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">SKILLS</p>
-        <ul class="bc-meta__list">
-          <li>Product Design</li>
-          <li>User Research</li>
-          <li>Design Systems</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="bc-section" id="problem">
-      <div class="bc-heading">
-        <h2>Problem</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <p class="bc-body">
-        Brilliant Cities runs dozens of program offerings, like community dinners, fitness classes, computer lab hours, etc, out of neighborhood hubs, all meant to <strong>help</strong> families <strong>grow</strong>. Unfortunately, that <strong>support</strong> ends once a family <strong>leaves</strong> a program and Brilliant Cities has almost no visibility into what happens next. With only biannual check-ins, there was <strong>no way to help</strong> families keep practicing healthy habits at home, and no way for families to <strong>track</strong> that <strong>progress</strong> themselves either. On top of that, most of the families Brilliant Cities serves have <strong>low-tech literacy</strong>, which meant any solution had to be simple enough to use without a learning curve.
-      </p>
-    </section>
-
-    <aside class="bc-callout" aria-label="Problem statement">
-      <p class="bc-callout__label">PROBLEM STATEMENT</p>
-      <p class="bc-callout__text">
-        Families have no way to build their progress once they leave a Brilliant Cities program, and no simple way to learn or track healthy habits at home
-      </p>
-    </aside>
-
-    <section class="bc-section" id="users">
-      <div class="bc-heading">
-        <h2>Understanding the Users</h2>
-      </div>
-      <div class="bc-persona">
-        <div class="bc-persona__left">
-          <p class="bc-persona__eyebrow">PERSONA</p>
-          <p class="bc-persona__name">Cynthia Grey</p>
-          <img
-            class="bc-persona__photo"
-            src="../assets/brilliant/persona-photo.png?v=bc1"
-            alt="Portrait of persona Cynthia Grey"
-            width="804"
-            height="1260"
-          >
-        </div>
-        <div class="bc-persona__right">
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">ABOUT</p>
-            <p class="bc-persona__row">
-              <img src="../assets/brilliant/icon-user.svg" alt="" width="16" height="16">
-              <span>Single Mom</span>
-            </p>
-            <p class="bc-persona__row">
-              <img src="../assets/brilliant/icon-sad.svg" alt="" width="16" height="16">
-              <span>Struggles with finding time to attend Brilliant Cities Programs</span>
-            </p>
-            <p class="bc-persona__row bc-persona__row--quote">
-              <img src="../assets/brilliant/icon-quote.svg" alt="" width="16" height="16">
-              <span>“I want my kids to develop healthy habits, but I don’t have time to attend Brilliant Cities’ programs. I need simple, practical ways to help them eat better and stay active.”</span>
-            </p>
+      <div class="bf-rail-col">
+        <div class="bf-rail">
+          <div class="bf-rail__head">
+            <p class="bf-rail__eyebrow">Case study</p>
+            <p class="bf-rail__title">Brilliant Cities</p>
           </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">PAIN POINTS</p>
-            <ul class="bc-bullets">
-              <li>Low-tech literacy</li>
-              <li>Lack of resources and knowledge on cultivating healthy habits within her children</li>
-              <li>Lack of support from community and family</li>
+          <nav class="bf-rail__nav" aria-label="Case study sections">
+            <span class="bf-rail__fill" aria-hidden="true"></span>
+            <ul class="bf-rail__list">
+              <li class="bf-rail__item is-active">
+                <a class="bf-rail__link" href="#problem" data-bf-scroll="problem">
+                  <span class="bf-rail__dot" aria-hidden="true"></span>
+                  <span>Problem</span>
+                </a>
+              </li>
+              <li class="bf-rail__item">
+                <a class="bf-rail__link" href="#users" data-bf-scroll="users">
+                  <span class="bf-rail__dot" aria-hidden="true"></span>
+                  <span>Who we designed for</span>
+                </a>
+              </li>
+              <li class="bf-rail__item">
+                <a class="bf-rail__link" href="#constraints" data-bf-scroll="constraints">
+                  <span class="bf-rail__dot" aria-hidden="true"></span>
+                  <span>Constraints</span>
+                </a>
+              </li>
+              <li class="bf-rail__item">
+                <a class="bf-rail__link" href="#decisions" data-bf-scroll="decisions">
+                  <span class="bf-rail__dot" aria-hidden="true"></span>
+                  <span>Design decisions</span>
+                </a>
+              </li>
+              <li class="bf-rail__item">
+                <a class="bf-rail__link" href="#design-system" data-bf-scroll="design-system">
+                  <span class="bf-rail__dot" aria-hidden="true"></span>
+                  <span>Design system</span>
+                </a>
+              </li>
+              <li class="bf-rail__item">
+                <a class="bf-rail__link" href="#takeaways" data-bf-scroll="takeaways">
+                  <span class="bf-rail__dot" aria-hidden="true"></span>
+                  <span>Takeaways</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="bf-content">
+
+        <section class="bf-hero" aria-label="Introduction">
+          <div class="bf-hero__copy">
+            <p class="bf-hero__stitch">brilliant cities</p>
+            <h1 class="bf-hero__title">A habit tracker families can keep using <em>at home</em></h1>
+            <p class="bf-hero__lede">
+              I helped design a mobile habit tracker where parents can set goals for each of their kids and keep up with them at home. We worked with Brilliant Cities over three months to extend the support families get from their in-person programs.
+            </p>
+            <div class="bf-jump">
+              <p class="bf-jump__label">SHORT ON TIME?</p>
+              <div class="bf-jump__row">
+                <button type="button" class="bf-btn" data-bf-scroll="decisions">Jump to Final Product</button>
+                <p class="bf-jump__read">5 min read</p>
+              </div>
+            </div>
+          </div>
+          <div class="bf-hero__phones">
+            <img
+              class="bf-hero__phone bf-hero__phone--back"
+              src="../assets/brilliant/final/hero-goals.png?v=bcFinal1"
+              alt="Goal categories screen listing Literacy, Math &amp; Science, Daily Routines, Movement, and Family"
+              width="323"
+              height="640"
+            >
+            <img
+              class="bf-hero__phone bf-hero__phone--front"
+              src="../assets/brilliant/final/hero-dashboard.png?v=bcFinal1"
+              alt="Family dashboard screen showing each child's habits grouped by goal"
+              width="325"
+              height="640"
+            >
+          </div>
+        </section>
+
+        <section class="bf-meta" aria-label="Project details">
+          <div class="bf-meta__item">
+            <p class="bf-meta__label">Timeline</p>
+            <p class="bf-meta__value">Sept – Dec 2024</p>
+          </div>
+          <div class="bf-meta__item">
+            <p class="bf-meta__label">Role</p>
+            <p class="bf-meta__value">Product Designer</p>
+          </div>
+          <div class="bf-meta__item">
+            <p class="bf-meta__label">Focus</p>
+            <ul class="bf-meta__list">
+              <li>Product Design</li>
+              <li>User Research</li>
+              <li>Design Systems</li>
             </ul>
           </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">NEEDS:</p>
-            <p class="bc-body bc-body--tight">
-              Cynthia wants to help <strong>cultivate healthy habits</strong> in her children but <strong>lacks</strong> the <strong>resources</strong> and <strong>knowledge</strong> to do so. She wants an application that will help <strong>inform</strong> her on how to help her children grow in various aspects. Because she has such a busy schedule, she wants to continue <strong>enriching</strong> her children <strong>at home</strong> in addition to making time to attend <strong>Brilliant Cities’ programs.</strong>
+          <div class="bf-meta__item">
+            <p class="bf-meta__label">Team</p>
+            <ul class="bf-meta__list">
+              <li>2 designers</li>
+              <li>PM</li>
+              <li>Developers</li>
+            </ul>
+          </div>
+          <div class="bf-meta__item">
+            <p class="bf-meta__label">Collaboration</p>
+            <ul class="bf-meta__list">
+              <li>Brilliant Cities</li>
+              <li>Child psychologist</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="bf-marquee" aria-label="Product screens">
+          <div class="bf-marquee__viewport">
+            <div class="bf-marquee__track">
+              <div class="bf-marquee__group">
+                <div class="bf-marquee__item">
+                  <img src="../assets/brilliant/final/marquee-login.png?v=bcFinal1" alt="Login screen with email and password fields" width="370" height="750" loading="lazy" decoding="async">
+                </div>
+                <div class="bf-marquee__item">
+                  <img src="../assets/brilliant/final/marquee-onboarding.png?v=bcFinal2" alt="Getting Started onboarding screen for parents" width="480" height="973" loading="lazy" decoding="async">
+                </div>
+                <div class="bf-marquee__item">
+                  <img src="../assets/brilliant/final/marquee-goals.png?v=bcFinal2" alt="Goal categories screen listing Literacy, Math &amp; Science, and more" width="480" height="973" loading="lazy" decoding="async">
+                </div>
+                <div class="bf-marquee__item">
+                  <img src="../assets/brilliant/final/marquee-filters.png?v=bcFinal1" alt="Relevant goals screen with colour-coded filter pills" width="370" height="750" loading="lazy" decoding="async">
+                </div>
+                <div class="bf-marquee__item">
+                  <img src="../assets/brilliant/final/marquee-detail.png?v=bcFinal1" alt="Number Sense habit detail screen with age group steps" width="390" height="750" loading="lazy" decoding="async">
+                </div>
+                <div class="bf-marquee__item">
+                  <img src="../assets/brilliant/final/marquee-dashboard.png?v=bcFinal1" alt="Family dashboard screen with a personalised welcome and habit cards" width="376" height="750" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bf-section bf-problem" id="problem" aria-labelledby="bf-problem-label">
+          <div class="bf-problem__top">
+            <div>
+              <div class="bf-head">
+                <span class="bf-head__num">01</span>
+                <span class="bf-head__label" id="bf-problem-label">Problem</span>
+              </div>
+              <p class="bf-problem__statement">
+                Brilliant Cities mostly connects with families during in-person programs, so support tapered off once families went home.
+              </p>
+            </div>
+            <ol class="bf-challenges">
+              <li class="bf-challenge">
+                <p class="bf-challenge__num">01</p>
+                <div class="bf-challenge__body">
+                  <p class="bf-challenge__kicker">What they run</p>
+                  <h3 class="bf-challenge__title">In-person family programming</h3>
+                  <p class="bf-challenge__text">Brilliant Cities runs community dinners, fitness classes, computer lab hours, and other programs out of neighborhood hubs.</p>
+                  <p class="bf-challenge__pill">Dozens of program offerings</p>
+                </div>
+              </li>
+              <li class="bf-challenge">
+                <p class="bf-challenge__num">02</p>
+                <div class="bf-challenge__body">
+                  <p class="bf-challenge__kicker">What happens after</p>
+                  <h3 class="bf-challenge__title">Limited availability for follow-ups</h3>
+                  <p class="bf-challenge__text">Staff told us they typically check in with families about twice a year, leaving a long stretch with little visibility into how things are going at home.</p>
+                  <p class="bf-challenge__pill">Check-ins about twice a year</p>
+                </div>
+              </li>
+              <li class="bf-challenge">
+                <p class="bf-challenge__num">03</p>
+                <div class="bf-challenge__body">
+                  <p class="bf-challenge__kicker">What that means for us</p>
+                  <h3 class="bf-challenge__title">Simple at home continuous development</h3>
+                  <p class="bf-challenge__text">Brilliant Cities told us families had different levels of comfort with technology, so we tried to make the main actions understandable without much onboarding.</p>
+                  <p class="bf-challenge__pill">Families vary a lot in tech comfort</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="bf-problem__card">
+            <p class="bf-eyebrow">Problem statement</p>
+            <p class="bf-problem__quote">
+              Families didn’t have an easy way to keep building healthy habits after a program ended, and Brilliant Cities didn’t have a way to see how they were doing in between.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="bc-section bc-section--stack" id="design-system">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Creating a Design System</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          For this project, I collaborated with another product designer to create a comprehensive design system to use for our Habit Tracker Web Application. We were given a comprehensive branding kit with colors, fonts, accordions, and more components that we were able to build off of and use as inspiration.
+        <section class="bf-section bf-persona-section" id="users" aria-labelledby="bf-users-label">
+          <div class="bf-head">
+            <span class="bf-head__num">02</span>
+            <span class="bf-head__label" id="bf-users-label">Who we designed for</span>
+          </div>
+          <p class="bf-section__lead">
+            We designed for parents who want to help their kids but don’t have much free time.
+          </p>
+          <article class="bf-persona">
+            <figure class="bf-persona__figure">
+              <img
+                class="bf-persona__photo"
+                src="../assets/brilliant/persona-photo.png?v=bcFinal1"
+                alt="Portrait of persona Cynthia Grey"
+                width="804"
+                height="1260"
+              >
+              <figcaption class="bf-persona__caption">
+                <p class="bf-persona__name">Cynthia Grey</p>
+                <p class="bf-persona__role">Single mom of two</p>
+              </figcaption>
+            </figure>
+            <div class="bf-persona__body">
+              <blockquote class="bf-persona__quote">
+                “I want my kids to develop healthy habits, but I don’t have time to attend the programs.”
+              </blockquote>
+              <hr class="bf-persona__rule">
+              <div>
+                <p class="bf-persona__label">What she needs</p>
+                <p class="bf-persona__text">
+                  Cynthia wants her kids to eat better and stay active, but she can’t always make it to Brilliant Cities’ programs. She’s looking for <strong>simple things she can do at home</strong>, and for a way to see whether they’re sticking.
+                </p>
+              </div>
+              <dl class="bf-persona__stats">
+                <div class="bf-persona__stat">
+                  <dt class="bf-persona__label">Household</dt>
+                  <dd class="bf-persona__stat-value">Two kids, ages 6 and 9</dd>
+                </div>
+                <div class="bf-persona__stat">
+                  <dt class="bf-persona__label">Schedule</dt>
+                  <dd class="bf-persona__stat-value">Works full time</dd>
+                </div>
+                <div class="bf-persona__stat">
+                  <dt class="bf-persona__label">Program attendance</dt>
+                  <dd class="bf-persona__stat-value">Rarely makes it in person</dd>
+                </div>
+              </dl>
+              <div>
+                <p class="bf-persona__label">Where she came from</p>
+                <p class="bf-persona__note">
+                  Cynthia came from conversations with a Brilliant Cities program manager who works directly with families. She shared common patterns around why parents come to programs, what makes attendance difficult, and what support they need at home. Cynthia combines those patterns rather than representing one person we interviewed.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="bf-section bf-constraints" id="constraints" aria-labelledby="bf-constraints-label">
+          <div class="bf-constraints__top">
+            <div>
+              <div class="bf-head">
+                <span class="bf-head__num">03</span>
+                <span class="bf-head__label" id="bf-constraints-label">Constraints</span>
+              </div>
+              <p class="bf-constraints__lead">A few things we had to design around.</p>
+            </div>
+            <p class="bf-constraints__aside">Most of the decisions below come back to one of these.</p>
+          </div>
+          <ol class="bf-constraints__grid">
+            <li class="bf-constraint">
+              <p class="bf-constraint__num">01</p>
+              <h3 class="bf-constraint__title">Had to be clear on first use</h3>
+              <p class="bf-constraint__text">Most of our users were adults who may not use apps often, so I kept screens simple and obvious.</p>
+            </li>
+            <li class="bf-constraint">
+              <p class="bf-constraint__num">02</p>
+              <h3 class="bf-constraint__title">Deliverables kept changing</h3>
+              <p class="bf-constraint__text">Scope wasn’t clear at the start because of miscommunication inside Brilliant Cities, so I had to stay flexible.</p>
+            </li>
+            <li class="bf-constraint">
+              <p class="bf-constraint__num">03</p>
+              <h3 class="bf-constraint__title">Three months, start to finish</h3>
+              <p class="bf-constraint__text">We had to design and get to production in one semester, so I had to work efficiently without cutting corners.</p>
+            </li>
+            <li class="bf-constraint">
+              <p class="bf-constraint__num">04</p>
+              <h3 class="bf-constraint__title">Wording reviewed by a child psychologist</h3>
+              <p class="bf-constraint__text">We worked with one to make sure our language was supportive for kids, so copy mattered as much as layout.</p>
+            </li>
+            <li class="bf-constraint">
+              <p class="bf-constraint__num">05</p>
+              <h3 class="bf-constraint__title">Mobile web, not an app</h3>
+              <p class="bf-constraint__text">The client wanted a mobile website, since families would mostly reach it through their site on a phone.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="bf-section bf-decisions" id="decisions" aria-labelledby="bf-decisions-label">
+          <div class="bf-head">
+            <span class="bf-head__num">04</span>
+            <span class="bf-head__label" id="bf-decisions-label">Design decisions</span>
+          </div>
+          <p class="bf-decisions__lead">The five decisions I’d point to first.</p>
+          <p class="bf-decisions__intro">
+            The final product is a mobile web app where parents set habit goals for each child, get reminders to keep up with them, and stay connected to Brilliant Cities between programs.
+          </p>
+          <ol class="bf-decisions__list">
+            <li class="bf-decision">
+              <figure class="bf-decision__phone">
+                <video
+                  class="bf-phone__video"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="../assets/brilliant/phone-goal-categories.png?v=bcFinal1"
+                  aria-label="Goal categories screen with a card and checkbox per category"
+                >
+                  <source src="../assets/videos/goal-categories.mp4?v=bc1" type="video/mp4">
+                </video>
+              </figure>
+              <div class="bf-decision__copy">
+                <p class="bf-eyebrow">Decision 01</p>
+                <h3 class="bf-decision__title">Gave each goal category its own card instead of a plain list</h3>
+                <div class="bf-decision__cards">
+                  <div class="bf-card bf-card--why">
+                    <p class="bf-card__label">Why</p>
+                    <p class="bf-card__text">Brilliant Cities was specific about the categories they wanted, but the names alone didn’t tell a parent which habits were in each one. Cards let us show that.</p>
+                  </div>
+                  <div class="bf-card bf-card--tradeoff">
+                    <p class="bf-card__label">Trade-off</p>
+                    <p class="bf-card__text">Cards take up more room than a list on a phone. We added multi-select checkboxes so parents could pick a few categories at once instead of scrolling through all of them.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="bf-decision bf-decision--flip">
+              <figure class="bf-decision__phone">
+                <img src="../assets/brilliant/phone-search.png?v=bcFinal1" alt="Relevant goals screen with colour-coded filter pills and checkboxes" width="480" height="950" loading="lazy" decoding="async">
+              </figure>
+              <div class="bf-decision__copy">
+                <p class="bf-eyebrow">Decision 02</p>
+                <h3 class="bf-decision__title">Used filter pills instead of a search bar</h3>
+                <div class="bf-decision__cards">
+                  <div class="bf-card bf-card--why">
+                    <p class="bf-card__label">Why</p>
+                    <p class="bf-card__text">We took inspiration from shopping site filters. Typing means remembering the exact category name, and the icons and colors on the pills let parents recognize categories instead.</p>
+                  </div>
+                  <div class="bf-card bf-card--tradeoff">
+                    <p class="bf-card__label">Trade-off</p>
+                    <p class="bf-card__text">Pills take up more space than a search bar. We thought that was worth it since parents don’t have to type or remember anything.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="bf-decision">
+              <figure class="bf-decision__phone">
+                <img src="../assets/brilliant/phone-search-results.png?v=bcFinal1" alt="Search results screen with habits grouped under category headers" width="482" height="950" loading="lazy" decoding="async">
+              </figure>
+              <div class="bf-decision__copy">
+                <p class="bf-eyebrow">Decision 03</p>
+                <h3 class="bf-decision__title">Grouped search results by category so parents could swipe through them</h3>
+                <div class="bf-decision__cards">
+                  <div class="bf-card bf-card--why">
+                    <p class="bf-card__label">Why</p>
+                    <p class="bf-card__text">Splitting habits up by category lets a parent see all the options in one area before moving on, which made the most sense for a mobile site.</p>
+                  </div>
+                  <div class="bf-card bf-card--tradeoff">
+                    <p class="bf-card__label">Trade-off</p>
+                    <p class="bf-card__text">Unlike a typical search, parents can only browse set options, which may feel less intuitive to those used to searching freely.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="bf-decision bf-decision--flip">
+              <figure class="bf-decision__phone">
+                <video
+                  class="bf-phone__video"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="../assets/brilliant/phone-goal-card.png?v=bcFinal1"
+                  aria-label="Number Sense habit detail screen with tips laid out as steps by age group"
+                >
+                  <source src="../assets/videos/goal-card.mp4?v=bc1" type="video/mp4">
+                </video>
+              </figure>
+              <div class="bf-decision__copy">
+                <p class="bf-eyebrow">Decision 04</p>
+                <h3 class="bf-decision__title">Laid out the habit tips as steps, grouped by age</h3>
+                <div class="bf-decision__cards">
+                  <div class="bf-card bf-card--why">
+                    <p class="bf-card__label">Why</p>
+                    <p class="bf-card__text">We had wording the psychologist approved but no format for it. Steps help parents figure out the interface the first time, and grouping by age gets them to habits that fit their kid.</p>
+                  </div>
+                  <div class="bf-card bf-card--tradeoff">
+                    <p class="bf-card__label">Trade-off</p>
+                    <p class="bf-card__text">Grouping by age means a parent with kids in different age ranges has to look at more than one group.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="bf-decision">
+              <figure class="bf-decision__phone">
+                <video
+                  class="bf-phone__video"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="../assets/brilliant/phone-family-dashboard.png?v=bcFinal1"
+                  aria-label="Family dashboard screen with a page per child and a floating add button"
+                >
+                  <source src="../assets/videos/family-dashboard.mp4?v=bc1" type="video/mp4">
+                </video>
+              </figure>
+              <div class="bf-decision__copy">
+                <p class="bf-eyebrow">Decision 05</p>
+                <h3 class="bf-decision__title">Gave each child their own page, with a floating button to add more</h3>
+                <div class="bf-decision__cards">
+                  <div class="bf-card bf-card--why">
+                    <p class="bf-card__label">Why</p>
+                    <p class="bf-card__text">Parents can add as many habits as they want, so a page per child keeps each list from getting crowded. Grouping by goal also makes it easier to see progress in one area.</p>
+                  </div>
+                  <div class="bf-card bf-card--tradeoff">
+                    <p class="bf-card__label">Trade-off</p>
+                    <p class="bf-card__text">Switching between kids takes an extra tap, but each list stays short, which matters more on a phone.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="bf-section bf-ds" id="design-system" aria-labelledby="bf-ds-label">
+          <div class="bf-head">
+            <span class="bf-head__num">05</span>
+            <span class="bf-head__label" id="bf-ds-label">Design system</span>
+          </div>
+          <p class="bf-ds__lead">We built the design system before we designed screens.</p>
+          <p class="bf-ds__text">
+            Brilliant Cities gave us a branding kit — colors, fonts, and a few components like accordions — but not a full component library. I worked with another product designer to build the rest of what our screens needed: forms, tags, buttons, and more. Having it settled early meant our screens matched even though we were splitting them between us.
+          </p>
+          <p class="bf-ds__text">
+            We collaborated on most of the components. The filter pill search was mine — I designed the pills and how they behave, and that pattern ended up carrying the whole search flow.
+          </p>
+          <ul class="bf-ds__grid">
+            <li class="bf-ds__tile">
+              <img src="../assets/brilliant/final/ds-colors.png?v=bcFinal1" alt="Colour palette with tints and shades for each brand hue" width="898" height="674" loading="lazy" decoding="async">
+            </li>
+            <li class="bf-ds__tile">
+              <img src="../assets/brilliant/final/ds-typography.png?v=bcFinal1" alt="Form fields, select menus, and multi-select list components" width="898" height="674" loading="lazy" decoding="async">
+            </li>
+            <li class="bf-ds__tile">
+              <img src="../assets/brilliant/final/ds-forms.png?v=bcFinal1" alt="Habit list and goal card components in their various states" width="898" height="674" loading="lazy" decoding="async">
+            </li>
+            <li class="bf-ds__tile">
+              <img src="../assets/brilliant/final/ds-buttons.png?v=bcFinal1" alt="Primary, secondary, tertiary, and text link button styles" width="898" height="674" loading="lazy" decoding="async">
+            </li>
+          </ul>
+        </section>
+
+        <section class="bf-section bf-takeaways" id="takeaways" aria-labelledby="bf-takeaways-label">
+          <div class="bf-head">
+            <span class="bf-head__num">06</span>
+            <span class="bf-head__label" id="bf-takeaways-label">Takeaways</span>
+          </div>
+          <p class="bf-takeaways__lead">What I took away from this project.</p>
+          <ol class="bf-takeaways__list">
+            <li class="bf-takeaway">
+              <p class="bf-takeaway__num">01</p>
+              <h3 class="bf-takeaway__title">Working with another designer takes real communication</h3>
+              <p class="bf-takeaway__text">This was my first time designing alongside another designer. We spent time getting to a shared vision and learning how each other works, and that turned out to matter as much as the design itself.</p>
+            </li>
+            <li class="bf-takeaway">
+              <p class="bf-takeaway__num">02</p>
+              <h3 class="bf-takeaway__title">Running a project end to end on a tight timeline</h3>
+              <p class="bf-takeaway__text">It was also my first time managing a project from start to finish with a real deadline. It pushed me to design faster and to be honest with myself about what actually mattered.</p>
+            </li>
+            <li class="bf-takeaway">
+              <p class="bf-takeaway__num">03</p>
+              <h3 class="bf-takeaway__title">Balancing creativity with business and technical limits</h3>
+              <p class="bf-takeaway__text">I’d only done solo projects before this, so working with a PM, developers, and a child psychologist taught me how to weigh what I wanted to design against what was feasible.</p>
+            </li>
+          </ol>
+        </section>
+
+        <p class="bf-cta">
+          <a class="bf-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
         </p>
+
       </div>
-      <div class="bc-ds" aria-label="Design system samples">
-        <div class="bc-ds__group">
-          <div class="bc-ds__col bc-ds__col--left">
-            <div class="bc-ds__frame bc-ds__frame--colours-1">
-              <img src="../assets/brilliant/colours-1.png?v=bc5" alt="Color palette" width="2000" height="2000">
-            </div>
-            <div class="bc-ds__frame bc-ds__frame--colours-2">
-              <img src="../assets/brilliant/colours-2.png?v=bc5" alt="Typography samples" width="2000" height="2000">
-            </div>
-          </div>
-          <div class="bc-ds__col bc-ds__col--mid">
-            <div class="bc-ds__frame bc-ds__frame--forms">
-              <img src="../assets/brilliant/buttons-2.png?v=bc5" alt="Form and list components" width="2000" height="2000">
-            </div>
-            <div class="bc-ds__frame bc-ds__frame--tags">
-              <img src="../assets/brilliant/buttons-3.png?v=bc5" alt="Tags, checkboxes, and text area" width="2000" height="2000">
-            </div>
-          </div>
-        </div>
-        <div class="bc-ds__col bc-ds__col--right">
-          <div class="bc-ds__frame bc-ds__frame--accordion">
-            <img src="../assets/brilliant/buttons-1.png?v=bc5" alt="Goal and habit accordion components" width="2000" height="2000">
-          </div>
-          <div class="bc-ds__frame bc-ds__frame--buttons">
-            <img src="../assets/brilliant/buttons-4.png?v=bc5" alt="Button components" width="2000" height="2000">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-section" id="considerations">
-      <div class="bc-heading">
-        <h2>Project Considerations</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <ol class="bc-numbered">
-        <li>Our user base was mainly composed of adults who could potentially have low tech literacy, so I made it a priority to ensure my designs were clear and intuitive.</li>
-        <li>Our project deliverables weren’t clearly defined at the start due to miscommunication within Brilliant Cities, so it was important for me to stay adaptable and flexible to potential changes.</li>
-        <li>We were on a tight timeline, with only three months to design and put our application into production. With this in mind, I made sure to prioritize efficiency without sacrificing design quality.</li>
-        <li>Along with collaborating with Brilliant Cities, we also worked with a child psychologist to make sure our wording and phrasing were supportive and encouraging for children. This emphasized the importance of making our designs and language child-friendly.</li>
-        <li>Our client specifically wanted a mobile website because their clients would mostly be accessing this application on phones through their website due to having low tech literacy.</li>
-      </ol>
-    </section>
-
-    <section class="bc-section bc-section--stack" id="solution">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Solution</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          The Habit Tracker is a mobile-first web app that lets families set personalized habit goals for each child, get gentle reminders to stick with them, and stay connected to Brilliant Cities’ support even outside of a scheduled program.
-        </p>
-      </div>
-
-      <article class="bc-feature">
-        <div class="bc-phone">
-          <video
-            class="bc-phone__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/brilliant/phone-goal-categories.png?v=bc2"
-          >
-            <source src="../assets/videos/goal-categories.mp4?v=bc1" type="video/mp4">
-          </video>
-        </div>
-        <div class="bc-feature__copy">
-          <h3>Goal Categories Page</h3>
-          <p>Brilliant Cities was very intentional about what types of goal categories they wanted, so we had to come up with a very unique design to fit their needs.</p>
-          <ul class="bc-bullets">
-            <li>Specific goal category cards so that users would be able to understand the different categories and what habits they included</li>
-            <li>Multi-select check box to allow users to search through multiple goal categories</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="bc-feature bc-feature--flip">
-        <div class="bc-feature__copy">
-          <h3>Relevant Goals Search Functionality</h3>
-          <p>To simplify the process of searching through various goal categories, we drew inspiration from shopping website filters to develop a unique search functionality.</p>
-          <ul class="bc-bullets">
-            <li>Pill search style helps users associate different icons and colors with different goal categories, making it easier to filter and search for different habits</li>
-            <li>Dropdown menu allows the user to see all the different goal category options and removes the need for them to type and recall the names of the goal categories</li>
-          </ul>
-        </div>
-        <div class="bc-phone">
-          <img
-            class="bc-phone__img"
-            src="../assets/brilliant/phone-search.png?v=bc2"
-            alt="Relevant goals search with category filter pills"
-            width="593"
-            height="1171"
-          >
-        </div>
-      </article>
-
-      <article class="bc-feature">
-        <div class="bc-phone">
-          <img
-            class="bc-phone__img"
-            src="../assets/brilliant/phone-search-results.png?v=bc2"
-            alt="Relevant goals search results grouped by category"
-            width="593"
-            height="1171"
-          >
-        </div>
-        <div class="bc-feature__copy">
-          <h3>Relevant Goals Search Results</h3>
-          <ul class="bc-bullets">
-            <li>Separating habits by their goal category makes it easy for the user to swipe and see all the various goal options</li>
-            <li>Organizing the search results in this structure made the most sense since this is meant to be a mobile web application</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="bc-feature bc-feature--flip">
-        <div class="bc-feature__copy">
-          <h3>Goals Card</h3>
-          <p>Since we collaborated with a child psychologist to determine the best wording for encouraging healthy habits, we needed to design a creative and engaging way to present tips and advice that parents could easily follow and apply.</p>
-          <ul class="bc-bullets">
-            <li>Clear pill labels for each goal category helps users quickly recognize which section they’re viewing</li>
-            <li>Including steps helps users adapt to the interface and navigate confidently during their first use</li>
-            <li>Grouping habits by age makes it easier for users to find recommendations that match their needs</li>
-            <li>Sorting and tracking habits by child allows parents to conveniently monitor each child’s progress</li>
-          </ul>
-        </div>
-        <div class="bc-phone">
-          <video
-            class="bc-phone__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/brilliant/phone-goal-card.png?v=bc2"
-          >
-            <source src="../assets/videos/goal-card.mp4?v=bc1" type="video/mp4">
-          </video>
-        </div>
-      </article>
-
-      <article class="bc-feature">
-        <div class="bc-phone">
-          <video
-            class="bc-phone__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/brilliant/phone-family-dashboard.png?v=bc2"
-          >
-            <source src="../assets/videos/family-dashboard.mp4?v=bc1" type="video/mp4">
-          </video>
-        </div>
-        <div class="bc-feature__copy">
-          <h3>Family Dashboard</h3>
-          <ul class="bc-bullets">
-            <li>Categorizing habits by goal makes it easier for users to track progress within each area</li>
-            <li>Creating separate pages for each child gives users more space and flexibility to add as many habits as they’d like</li>
-            <li>A floating action button for adding children or goals simplifies both processes and makes navigation more intuitive</li>
-          </ul>
-        </div>
-      </article>
-    </section>
-
-    <section class="bc-section bc-section--reflect" id="reflections">
-      <div class="bc-heading">
-        <h2>Takeaways</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="1">
-          <li>Communicating clearly in a design partnership</li>
-        </ol>
-        <p>This was my first time collaborating with another designer, which emphasized the importance of clear and consistent communication in a design partnership. We spent time aligning our ideas to reach a shared vision and collaborated closely to understand each other’s design styles.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="2">
-          <li>Managing a project end to end on a tight timeline</li>
-        </ol>
-        <p>It was also my first experience managing an end-to-end project on a tight timeline, which pushed me to design more efficiently and focus on what truly mattered in the process.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="3">
-          <li>Balancing creativity with business and technical goals</li>
-        </ol>
-        <p>Since I had only worked on solo design projects before, collaborating with a PM and developers also taught me how to balance creativity with business goals and technical feasibility.</p>
-      </article>
-    </section>
-
-    <p class="bc-cta-wrap">
-      <a class="bc-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
-    </p>
+    </div>
   </main>
 
     <footer class="bc-footer">
@@ -403,13 +570,12 @@
     </div>
   </div>
 
-  <script src="../scripts/case-scale.js"></script>
-  <script src="../scripts/case-videos.js"></script>
-  <script src="../scripts/case-snap.js"></script>
   <script src="../scripts/cross-scroll.js"></script>
   <script src="../scripts/custom-cursor.js?v=cursorNav1"></script>
   <script src="../scripts/page-transition.js?v=wipe6"></script>
   <script src="../scripts/mailto.js"></script>
+  <script src="../scripts/case-videos.js?v=bcFinal4"></script>
+  <script src="../scripts/brilliant-final.js?v=bcFinal7"></script>
   <div class="vt-wipe" aria-hidden="true"></div>
 </body>
 </html>

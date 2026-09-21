@@ -54,14 +54,14 @@
     );
     observer.observe(
       video.closest(
-        ".bc-phone, .ose-feature__media-wrap, .ose-feature__phone-wrap, .nabu-feature__media-wrap, .anda-feature__media-col"
+        ".bc-phone, .bf-decision__phone, .ose-feature__media-wrap, .ose-feature__phone-wrap, .nabu-feature__media-wrap, .anda-feature__media-col"
       ) || video
     );
   }
 
   document
     .querySelectorAll(
-      ".bc-phone__video, .ose-feature__video, .ose-feature__phone-video, .nabu-feature__video, .anda-feature__video"
+      ".bc-phone__video, .bf-phone__video, .ose-feature__video, .ose-feature__phone-video, .nabu-feature__video, .anda-feature__video"
     )
     .forEach(setupVideo);
 })();
