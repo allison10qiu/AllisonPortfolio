@@ -1,0 +1,1055 @@
+/* Shared case-study shell for Anda, NABU, OSE, and Terraform.
+   Header, footer, CTA, and rail match the local Brilliant Cities page
+   (.brilliant-final). Scoped to .case-final so Brilliant Cities is untouched. */
+
+.case-final {
+  --bf-navy: #14243b;
+  --bf-mist: #edf2f5;
+  --bf-white: #ffffff;
+  --bf-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --bf-sans: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bf-gutter: 80px;
+  --bf-rail-w: 200px;
+  --bf-rail-gap: 56px;
+  --bf-section-gap: 0px;
+  --cs-x: 48px;
+  --bf-stamp-scale: 1;
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+}
+
+html:has(.case-final) {
+  overflow: visible;
+  height: auto;
+  scroll-behavior: auto;
+}
+
+.case-final .bc-canvas-wrapper {
+  overflow: visible;
+  height: auto !important;
+}
+
+.case-final .bc-canvas {
+  position: static;
+  width: 100%;
+  max-width: none;
+  transform: none !important;
+  left: auto !important;
+  overflow: visible;
+}
+
+.case-final .bc-header,
+.case-final .bc-footer {
+  width: 100%;
+}
+
+.case-final .site-header__inner,
+.case-final .site-footer__body {
+  max-width: none;
+}
+
+.case-final .bc-footer__lace {
+  width: 100%;
+}
+
+.bf-main {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: var(--bf-white);
+}
+
+.bf-layout {
+  display: grid;
+  grid-template-columns: var(--bf-rail-w) minmax(0, 1fr);
+  column-gap: var(--bf-rail-gap);
+  align-items: stretch;
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: var(--bf-gutter);
+  box-sizing: border-box;
+}
+
+.bf-rail-col {
+  padding-top: 36px;
+  padding-bottom: 96px;
+}
+
+.bf-rail {
+  position: sticky;
+  top: 48px;
+  color: var(--bf-navy);
+}
+
+.bf-rail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 28px;
+  font-family: var(--bf-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(20, 36, 59, 0.62);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms ease;
+}
+
+.bf-rail__back span {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.bf-rail__back:hover {
+  color: rgba(20, 36, 59, 0.45);
+  text-decoration: none;
+}
+
+.bf-rail__back:hover span {
+  transform: translateX(-4px);
+}
+
+.bf-rail__back:focus-visible {
+  outline: 1px solid rgba(20, 36, 59, 0.45);
+  outline-offset: 4px;
+  text-decoration: none;
+}
+
+.bf-rail__eyebrow {
+  margin: 0;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.5px;
+  letter-spacing: 1.98px;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--bf-navy) 50%, transparent);
+}
+
+.bf-rail__title {
+  margin: 6px 0 0;
+  font-family: var(--bf-serif);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--bf-navy);
+}
+
+.bf-rail__kicker {
+  margin: 8px 0 0;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--bf-navy) 50%, transparent);
+}
+
+.bf-rail__nav {
+  position: relative;
+  margin-top: 52px;
+}
+
+.bf-rail__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-rail__list::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: color-mix(in srgb, var(--bf-navy) 18%, transparent);
+  z-index: 0;
+}
+
+.bf-rail__fill {
+  position: absolute;
+  left: 5px;
+  top: 14.5px;
+  z-index: 0;
+  width: 1px;
+  height: calc(var(--bf-progress, 0) * (100% - 32.8px));
+  border-radius: 1px;
+  background: var(--bf-navy);
+  transition: height 180ms ease-out;
+}
+
+.case-final .bf-rail__link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 9px 0;
+  border: 0;
+  background: none;
+  font-family: var(--bf-sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: left;
+  color: color-mix(in srgb, var(--bf-navy) 45%, transparent);
+  cursor: pointer;
+  transition: color 200ms ease, opacity 200ms ease;
+}
+
+.bf-rail__dot {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bf-navy) 22%, var(--bf-white));
+  box-shadow: 0 0 0 3px var(--bf-white);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.case-final .bf-rail__link:hover,
+.case-final .bf-rail__link:focus-visible {
+  color: color-mix(in srgb, var(--bf-navy) 78%, transparent);
+}
+
+.bf-rail__link:hover .bf-rail__dot {
+  background: color-mix(in srgb, var(--bf-navy) 40%, var(--bf-white));
+}
+
+.bf-rail__link:focus-visible {
+  outline: 2px solid var(--bf-navy);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.bf-rail__item.is-done .bf-rail__dot,
+.bf-rail__item.is-active .bf-rail__dot {
+  background: var(--bf-navy);
+  box-shadow: none;
+}
+
+.case-final .bf-rail__item.is-active .bf-rail__dot {
+  transform: scale(1.08);
+}
+
+.case-final .bf-rail__item.is-active .bf-rail__link {
+  color: var(--bf-navy);
+}
+
+.bf-rail__item.is-active .bf-rail__dot {
+  transform: scale(1.1);
+}
+
+.case-final .bf-rail__item.is-locked .bf-rail__link {
+  cursor: default;
+}
+
+.case-final .bf-rail__item.is-locked .bf-rail__link:hover {
+  color: color-mix(in srgb, var(--bf-navy) 45%, transparent);
+}
+
+.bf-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-top: 28px;
+  padding-bottom: 96px;
+}
+
+.case-final .cs-body {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--bf-navy);
+}
+
+.case-final .cs-meta__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--bf-navy);
+  font: 400 17px/146% "Satoshi", sans-serif;
+}
+
+.case-final .cs-meta__list li {
+  position: relative;
+  margin: 0;
+  padding-left: 0.72em;
+}
+
+.case-final .cs-meta__list li + li {
+  margin-top: 1px;
+}
+
+.case-final .cs-meta__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Project summary bar — same treatment as Brilliant Cities .bf-meta */
+.case-final .bf-meta {
+  margin: 0;
+  padding: 23px 0 25px;
+  border-top: 1px solid color-mix(in srgb, var(--bf-navy) 18%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--bf-navy) 18%, transparent);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 28px;
+}
+
+.case-final .bf-meta__label {
+  margin: 0 0 10px;
+  font-family: var(--bf-sans);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--bf-navy);
+}
+
+.case-final .bf-meta__value,
+.case-final .bf-meta__list {
+  margin: 0;
+  padding: 0;
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  color: var(--bf-navy);
+}
+
+.case-final .bf-meta__list {
+  padding-left: 24px;
+  list-style: disc;
+}
+
+.case-final .bf-meta__list li {
+  margin: 0;
+  padding: 0;
+}
+
+.case-final .bf-content,
+.case-final .cs-body > div {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.case-final .cs-body img:not(.tf-audit__svg) {
+  max-width: 100%;
+  height: auto;
+}
+
+.case-final .cs-body [data-preview-track] img,
+.case-final .cs-body [data-showcase] img {
+  max-width: none;
+  height: auto;
+}
+
+/* Design-system boards match Brilliant Cities: two-up white cards, light outline, soft shadow. */
+.case-final .cs-ds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin: 44px 0 0;
+}
+
+.case-final .cs-ds-tile {
+  border-radius: 38px;
+  background: #fff;
+  border: 1px solid rgba(20, 36, 59, 0.14);
+  box-shadow: 0 2px 6px rgba(20, 36, 59, 0.05), 0 21px 47px rgba(20, 36, 59, 0.05);
+  overflow: hidden;
+}
+
+.case-final .cs-ds-tile img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+/* Same outline and shadow as .cs-ds-tile, with room for a label and the artifact. */
+.case-final .cs-specimens {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.case-final .cs-specimens.cs-specimens--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+/* Tall portrait boards. Same cards, kept to two rows so the section stays readable. */
+.case-final .cs-specimens.cs-specimens--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-final .cs-specimens--compact .cs-specimen__media {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.case-final .cs-specimens--compact .cs-specimen__media img {
+  width: auto;
+  max-width: 100%;
+  max-height: 420px;
+}
+
+.case-final .cs-specimens__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.case-final .cs-specimens__row--lead {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr) minmax(150px, 0.52fr);
+}
+
+.case-final .cs-specimen {
+  min-width: 0;
+}
+
+.case-final .cs-specimen--icons {
+  width: max-content;
+  max-width: 100%;
+}
+
+.case-final .cs-specimen--icons .cs-specimen__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.case-final .cs-specimen--icons .cs-specimen__media img {
+  width: auto;
+  max-width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+}
+
+@media (max-width: 860px) {
+  .case-final .cs-ds-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-final .bf-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.case-final .cs-decisions {
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+}
+
+.case-final .cs-decision__head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.case-final .cs-decision__num {
+  font: italic 400 42px/1 "Instrument Serif", serif;
+  color: #14243b;
+}
+
+.case-final .cs-decision__kicker {
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #14243b;
+}
+
+.case-final .cs-decision__title {
+  margin: 0 0 22px;
+  padding-bottom: 18px;
+  border-bottom: 1.5px solid #14243b;
+  max-width: none;
+  font: 400 32px/126% "Instrument Serif", serif;
+  color: #14243b;
+}
+
+.case-final .cs-decision__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 28px 44px;
+  align-items: start;
+}
+
+.case-final .cs-decision__shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-final .cs-decision__shot.cs-decision__shot--phone {
+  width: min(100%, 280px);
+}
+
+@media (max-width: 860px) {
+  .case-final .cs-decision__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Same carousel chrome as Brilliant Cities: white panel, devices fade at the sides. */
+.case-final .cs-strip {
+  background: #fff;
+  border-radius: 20px;
+  padding: 52px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.case-final .cs-device-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+}
+
+.case-final .cs-body .cs-device-row img {
+  flex: 0 0 auto;
+  width: 477px;
+  height: auto;
+  max-width: none;
+  display: block;
+}
+
+.case-final .cs-body .cs-device-row img.is-phone {
+  width: auto;
+  height: 272px;
+}
+
+.case-final [data-preview-track].is-ready,
+.case-final [data-showcase].is-ready {
+  animation: cs-marquee 48s linear infinite;
+}
+
+.case-final [data-preview-track]:hover,
+.case-final [data-showcase]:hover {
+  animation-play-state: paused;
+}
+
+@keyframes cs-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.case-final .ose-feature__media-wrap video,
+.case-final .ose-feature__video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-final .bf-cta {
+  margin: 48px 0 0;
+  padding: 0 0 0 var(--cs-x);
+}
+
+.case-final .bf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--bf-navy);
+  color: var(--bf-white);
+  font-family: var(--bf-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.case-final .bf-btn:hover,
+.case-final .bf-btn:focus-visible {
+  transform: translateY(-1px);
+  background: var(--bf-navy);
+  color: var(--bf-white);
+}
+
+.case-final .bf-btn:focus-visible {
+  outline: 2px solid var(--bf-navy);
+  outline-offset: 3px;
+}
+
+.case-final .bc-footer__link:focus-visible {
+  outline-color: var(--bf-mist);
+}
+
+.case-final :is(
+  #problem, #users, #role, #data, #roadmap, #explainability, #predictive,
+  #synthetic, #solution, #outcome, #considerations, #design-system,
+  #final-product, #takeaways, #overview, #terraform-gate, #mapping, #pattern,
+  #research, #explorations, #testing, #combining, #refining, #workflow,
+  #scaling, #learned, #decisions, #solution
+) {
+  scroll-margin-top: 32px;
+}
+
+@media (max-width: 1280px) {
+  .case-final {
+    --bf-gutter: 40px;
+    --bf-rail-gap: 40px;
+    --cs-x: 32px;
+  }
+
+  .case-final .bc-header__inner {
+    padding-inline: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .case-final {
+    --bf-gutter: 32px;
+    --cs-x: 16px;
+  }
+
+  .case-final .bc-header__inner {
+    padding-inline: 32px;
+  }
+
+  .bf-layout {
+    display: block;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .bf-rail-col {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-inline: calc(-1 * var(--bf-gutter));
+    padding-inline: var(--bf-gutter);
+    background: color-mix(in srgb, var(--bf-white) 94%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid color-mix(in srgb, var(--bf-navy) 12%, transparent);
+  }
+
+  .bf-rail {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+  }
+
+  .bf-rail__head {
+    display: none;
+  }
+
+  .bf-rail__back {
+    margin: 0;
+    flex: none;
+    white-space: nowrap;
+  }
+
+  .bf-rail__nav {
+    margin-top: 0;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .bf-rail__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bf-rail__list {
+    display: flex;
+    gap: 4px 18px;
+    width: max-content;
+  }
+
+  .bf-rail__list::before,
+  .bf-rail__fill {
+    display: none;
+  }
+
+  .bf-rail__link {
+    padding: 4px 0;
+    white-space: nowrap;
+  }
+
+  .bf-content {
+    padding-top: 28px;
+  }
+
+}
+
+/* Shared desktop sidebar. Same column on every case study.
+   The tint lives on the grid column, which stretches the full height.
+   Width is the page gutter plus the rail. The 24px right inset stays
+   inside that width. Space after the divider is --bf-rail-gap.
+   Below 1200px this block does not apply; the compact bar starts at 1024px. */
+@media (min-width: 1200px) {
+  .case-final .bf-layout {
+    padding-left: 0;
+    padding-right: 0;
+    column-gap: var(--bf-rail-gap);
+    grid-template-columns: calc(var(--bf-gutter) + var(--bf-rail-w)) minmax(0, 1fr);
+  }
+
+  .case-final .bf-rail-col {
+    box-sizing: border-box;
+    background: #f4f7f9;
+    border-right: 1px solid #d9e0e6;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-final .bf-rail {
+    width: min(100%, var(--bf-rail-w));
+    margin-inline: auto;
+  }
+
+  .case-final .bf-rail__head {
+    padding-bottom: 18px;
+    background-image: linear-gradient(
+      to right,
+      rgba(20, 36, 59, 0.28) 0 3px,
+      transparent 3px 7px
+    );
+    background-size: 7px 1px;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+  }
+
+  .case-final .bf-rail__nav {
+    margin-top: 22px;
+  }
+
+  .case-final .bf-rail__item:not(.is-active):not(.is-done) .bf-rail__dot {
+    box-shadow: 0 0 0 3px #f4f7f9;
+  }
+}
+
+/* Full-width main, constrained inner column.
+   Scoped away from Terraform. The main cell already starts at the
+   sidebar divider (no column gap), so a section at width 100% fills
+   that region. Content inside stops at the shared page column. */
+@media (min-width: 1200px) {
+  .case-final:not(.terraform-page) {
+    --cs-x: 64px;
+  }
+
+  .case-final:not(.terraform-page) .bf-layout {
+    column-gap: 0;
+  }
+
+  .case-final:not(.terraform-page) .cs-body > * > * {
+    box-sizing: border-box;
+    max-width: var(--page-content-width);
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .case-final:not(.terraform-page) {
+    --cs-x: 36px;
+  }
+
+  .case-final:not(.terraform-page) .bf-layout {
+    padding-inline: 0;
+  }
+
+  .case-final:not(.terraform-page) .bf-rail-col {
+    margin-inline: 0;
+    padding-inline: 36px;
+  }
+
+  .case-final:not(.terraform-page) .cs-body > * > * {
+    box-sizing: border-box;
+    max-width: var(--page-content-width);
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .case-final:not(.terraform-page) {
+    --cs-x: 24px;
+  }
+
+  .case-final:not(.terraform-page) .bf-rail-col {
+    padding-inline: 24px;
+  }
+}
+
+.case-final:not(.terraform-page) .cs-body p {
+  max-width: 68ch;
+}
+
+@media (max-width: 900px) {
+  .case-final .cs-body img:not(.tf-audit__svg) {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .case-final .cs-body [data-preview-track] img,
+  .case-final .cs-body [data-showcase] img {
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  .case-final {
+    --bf-stamp-scale: 0.74;
+    --header-stamp-work-w: calc(57.2px * var(--bf-stamp-scale));
+    --header-stamp-work-h: calc(134.3px * var(--bf-stamp-scale));
+    --header-stamp-about-w: calc(142.1px * var(--bf-stamp-scale));
+    --header-stamp-about-h: calc(57.7px * var(--bf-stamp-scale));
+    --header-stamp-resume-w: calc(142.6px * var(--bf-stamp-scale));
+    --header-stamp-resume-h: calc(58.1px * var(--bf-stamp-scale));
+    --header-nav-gap: calc(25px * var(--bf-stamp-scale));
+    --header-name-size: calc(31px * var(--bf-stamp-scale));
+    --header-name-pad-top: calc(25px * var(--bf-stamp-scale));
+  }
+
+  .case-final .bc-header__inner {
+    min-height: calc(100px * var(--bf-stamp-scale));
+  }
+
+  .case-final .cs-body [style*="repeat(3"],
+  .case-final .cs-body [style*="repeat(4"],
+  .case-final .cs-body [style*="265px"],
+  .case-final .cs-body [style*="200px minmax"],
+  .case-final .cs-body [style*="minmax(0,200px)"],
+  .case-final .cs-body [style*="minmax(0,0."],
+  .case-final .cs-body [style*="minmax(0,1fr) minmax"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .case-final .cs-body h1 {
+    font-size: 44px !important;
+    line-height: 1.08 !important;
+  }
+
+  .case-final .cs-body h2 {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .case-final .bc-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    min-height: 0;
+    padding-block: 26px;
+  }
+
+  .case-final .bc-footer__link {
+    white-space: normal;
+  }
+
+  .case-final .bc-footer__link span {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 560px) {
+  .case-final {
+    --bf-stamp-scale: 0.58;
+    --bf-gutter: 24px;
+    --cs-x: 0px;
+  }
+
+  .case-final .bf-meta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-final .cs-body,
+  .case-final .cs-body * {
+    min-width: 0;
+  }
+
+  .case-final .cs-body [style*="repeat(5"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .case-final .bc-header__inner {
+    padding-inline: 24px;
+  }
+
+  .case-final .cs-body h1 {
+    font-size: 36px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .case-final .cs-specimens__row,
+  .case-final .cs-specimens__row--lead,
+  .case-final .cs-specimens.cs-specimens--grid,
+  .case-final .cs-specimens.cs-specimens--compact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-final .cs-specimens--compact .cs-specimen__media img {
+    width: 100%;
+    max-height: none;
+  }
+
+  .case-final .cs-specimen--icons {
+    width: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .case-final .cs-body .cs-specimen--forms .cs-specimen__media {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .case-final .cs-body .cs-specimen--forms .cs-specimen__media img {
+    width: 720px !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  .case-final .cs-body .cs-specimen--icons .cs-specimen__media img {
+    width: auto !important;
+    max-width: 100% !important;
+    max-height: 220px;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-final .cs-body [style*="320px"],
+  .case-final .cs-body [style*="380px"],
+  .case-final .cs-body [style*="420px"],
+  .case-final .cs-body [style*="300px"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .case-final {
+    --bf-stamp-scale: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-final [data-preview-track].is-ready,
+  .case-final [data-showcase].is-ready {
+    animation: none;
+  }
+
+  .case-final .cs-body [style*="overflow:hidden"] {
+    overflow-x: auto !important;
+  }
+
+  .bf-rail__fill,
+  .bf-rail__dot,
+  .bf-rail__link,
+  .bf-rail__back,
+  .bf-rail__back span,
+  .case-final .bf-btn {
+    transition: none;
+  }
+
+  .bf-rail__back:hover span {
+    transform: none;
+  }
+
+  .case-final .bf-btn:hover,
+  .case-final .bf-btn:focus-visible {
+    transform: none;
+  }
+}
+
+/* Header and footer stay in the shared page column.
+   The case study itself runs to both screen edges. */
+@media (min-width: 1200px) {
+  .case-final .site-header__inner,
+  .case-final .site-footer__body {
+    width: min(calc(100% - 2 * var(--page-gutter)), var(--page-max));
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: 0;
+    box-sizing: border-box;
+  }
+
+  .case-final .bf-layout {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .case-final .site-header__inner,
+  .case-final .site-footer__body {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    padding-inline: var(--page-gutter);
+    box-sizing: border-box;
+  }
+
+  .case-final .bf-layout,
+  .case-final:not(.terraform-page) .bf-layout {
+    width: 100%;
+    max-width: none;
+    padding-inline: var(--page-gutter);
+    box-sizing: border-box;
+  }
+
+  .case-final .bf-rail-col,
+  .case-final:not(.terraform-page) .bf-rail-col {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}

@@ -1,287 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
+  <script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/assets/shared/favicon-aq.svg?v=aqheart" type="image/svg+xml">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="description" content="About me — Allison Qiu">
+  <meta name="description" content="About me — Allison Qiu">
   <title>About me · Allison Qiu</title>
-  <link rel="stylesheet" href="styles/main.css?v=headerCompactAbout1">
-  <link rel="stylesheet" href="styles/brilliant.css?v=headerCompactAbout1">
-  <link rel="stylesheet" href="styles/about.css?v=headerCompactAbout1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="styles/main.css?v=editorial3">
+  <link rel="stylesheet" href="styles/editorial.css?v=closing1">
+  <link rel="stylesheet" href="styles/motion.css?v=motion6">
+  <link rel="stylesheet" href="styles/page-transitions.css?v=tx8">
 </head>
-<body class="bc-page about-page">
-  <div class="bc-canvas-wrapper">
-    <div class="bc-canvas">
-      <header class="bc-header">
-        <div class="bc-header__inner">
-          <nav class="bc-header__nav" aria-label="Primary">
-            <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="View my work">
-              <img src="assets/brilliant/nav-work.png?v=bcnav1" alt="" width="164" height="363">
-            </a>
-            <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me" aria-current="page">
-              <img src="assets/brilliant/nav-about.png?v=bcnav1" alt="" width="370" height="150">
-            </a>
-            <a
-              class="bc-stamp bc-stamp--resume"
-              href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Resume"
-            >
-              <img src="assets/brilliant/nav-resume.png?v=bcnav1" alt="" width="384" height="166">
-            </a>
-          </nav>
-          <a class="bc-header__name" href="/">allison qiu</a>
-        </div>
-      </header>
-
-      <main class="about-main">
-        <section class="about-intro" aria-label="About me">
-          <div class="about-intro__photo">
-            <img
-              src="assets/about/portrait.png?v=about1"
-              alt="Allison Qiu"
-              width="612"
-              height="850"
-            >
-          </div>
-          <div class="about-intro__copy">
-            <h1 class="about-heading about-heading--hero">about me!</h1>
-            <div class="about-intro__body">
-              <p>Hello! I'm Allison and I'm currently a Junior at UIUC studying Information Sciences with a focus in UI/UX Design!</p>
-              <p>
-                I'm a product designer driven by <strong>curiosity</strong> and a <strong>love</strong> for figuring out how things <strong>work</strong> (and how they could <strong>work better</strong>). I'm especially interested in the <strong>messy</strong> space where people, technology, and business needs meet, turning complex problems into experiences that actually <strong>make sense</strong>.
-              </p>
-              <p>
-                Lately, I've also been pushing myself <strong>beyond Figma</strong>, experimenting with new tools, learning to build, and occasionally breaking things along the way. For me, design is all about <strong>staying curious</strong>, trying something new, and hopefully making someone's life a little <strong>easier</strong> in the process.
-              </p>
-              <p>When I'm not figma-maxxing, you can find me:</p>
-              <ul>
-                <li>Crocheting gifts for friends</li>
-                <li>Starting a new DIY project</li>
-                <li>Planning my next trip</li>
-                <li>Trying new restaurants and cafes</li>
-              </ul>
-            </div>
-            <a class="about-cta" href="/" data-scroll-to="my-work">Check out my projects!</a>
-          </div>
-        </section>
-
-        <section class="about-section" aria-labelledby="work-experience-heading">
-          <div class="about-section__header">
-            <div class="about-section__title-row">
-              <h2 id="work-experience-heading" class="about-heading">work experience</h2>
-              <div class="about-section__rule" aria-hidden="true"></div>
-            </div>
-            <a
-              class="about-cta about-cta--resume"
-              href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Check out my Resume for more information!
-            </a>
-          </div>
-          <div class="about-scroll" tabindex="0" aria-label="Work experience cards">
-            <div class="about-scroll__track about-scroll__track--work">
-              <article class="about-job">
-                <div class="about-job__top">
-                  <h3 class="about-job__company">IBM</h3>
-                  <p class="about-job__dates">May 2026 - Aug 2026</p>
-                </div>
-                <p class="about-job__role">SWE Design Intern</p>
-              </article>
-              <article class="about-job">
-                <div class="about-job__top">
-                  <h3 class="about-job__company">COUNTRY Financial</h3>
-                  <p class="about-job__dates">May 2025 - Dec 2025</p>
-                </div>
-                <p class="about-job__role">UI/UX Design Intern</p>
-              </article>
-              <article class="about-job">
-                <div class="about-job__top about-job__top--spread">
-                  <h3 class="about-job__company">HEB</h3>
-                  <p class="about-job__dates">Jun 2024 - Aug 2024</p>
-                </div>
-                <p class="about-job__role">High School UI/UX Design Intern</p>
-              </article>
-              <article class="about-job">
-                <div class="about-job__top about-job__top--spread">
-                  <h3 class="about-job__company">HEB</h3>
-                  <p class="about-job__dates">Jun 2023 - Aug 2023</p>
-                </div>
-                <p class="about-job__role">High School UI/UX Design Intern</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="about-section" aria-labelledby="communities-heading">
-          <div class="about-section__header about-section__header--full">
-            <div class="about-section__title-row">
-              <h2 id="communities-heading" class="about-heading">my communities</h2>
-              <div class="about-section__rule" aria-hidden="true"></div>
-            </div>
-          </div>
-          <div class="about-communities">
-            <article class="about-community">
-              <h3 class="about-community__title">Psi Eta Mu</h3>
-              <div class="about-community__photo">
-                <img
-                  src="assets/about/community-psi.png?v=about1"
-                  alt="Psi Eta Mu community photo"
-                  width="1232"
-                  height="642"
-                >
-              </div>
-              <p class="about-community__text">
-                I served as PR Director for the nation's first and only Information Sciences + Data Sciences Professional Fraternity, where I helped connect students across the technical space and cultivate a culture that was both supportive and ambitious.
-              </p>
-            </article>
-            <article class="about-community">
-              <h3 class="about-community__title">Hack4Impact</h3>
-              <div class="about-community__photo">
-                <img
-                  src="assets/about/community-h4i.png?v=about1"
-                  alt="Hack4Impact community photo"
-                  width="1232"
-                  height="642"
-                >
-              </div>
-              <p class="about-community__text">
-                I served as a Product Designer and later Product Manager for Hack4Impact, a student-run organization that builds technology for nonprofits, where I helped translate real operational challenges into intuitive, scalable products and led cross-functional teams to bring them to life.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="about-section" aria-labelledby="enjoy-heading">
-          <div class="about-section__header about-section__header--full">
-            <div class="about-section__title-row">
-              <h2 id="enjoy-heading" class="about-heading">things i enjoy</h2>
-              <div class="about-section__rule" aria-hidden="true"></div>
-            </div>
-          </div>
-          <div class="about-scroll" tabindex="0" aria-label="Things I enjoy cards">
-            <div class="about-scroll__track about-scroll__track--enjoy">
-              <article class="about-enjoy">
-                <div class="about-enjoy__photo">
-                  <img src="assets/about/enjoy-foods.png?v=about1" alt="Tarts from a local cafe" width="552" height="594">
-                </div>
-                <div class="about-enjoy__copy">
-                  <h3 class="about-enjoy__title">Trying new foods</h3>
-                  <p class="about-enjoy__text">My favorite tart place! It's local to my university, and it's the first place I ever tried tarts. Genuinely the best ever!</p>
-                </div>
-              </article>
-              <article class="about-enjoy">
-                <div class="about-enjoy__photo">
-                  <img src="assets/about/enjoy-coloring.png?v=about1" alt="Coloring book page in progress" width="552" height="594">
-                </div>
-                <div class="about-enjoy__copy">
-                  <h3 class="about-enjoy__title">Coloring Books</h3>
-                  <p class="about-enjoy__text">Over winter break this past year, I couldn't crochet at home, so I tried coloring! I'm not the best at art so it gave me more structure to practice art!</p>
-                </div>
-              </article>
-              <article class="about-enjoy">
-                <div class="about-enjoy__photo">
-                  <img src="assets/about/enjoy-travel.png?v=about1" alt="View from IBM NYC office" width="552" height="594">
-                </div>
-                <div class="about-enjoy__copy">
-                  <h3 class="about-enjoy__title">Traveling</h3>
-                  <p class="about-enjoy__text">I got the chance to visit NYC IBM office this summer and this is the view from the building on the 28th floor!</p>
-                </div>
-              </article>
-              <article class="about-enjoy">
-                <div class="about-enjoy__photo">
-                  <img src="assets/about/enjoy-baking.png?v=about1" alt="Mini jellycat themed cakes" width="552" height="594">
-                </div>
-                <div class="about-enjoy__copy">
-                  <h3 class="about-enjoy__title">Baking</h3>
-                  <p class="about-enjoy__text">My friends and I baked mini jellycat themed cakes! It's a goal of mine to try baking new pastries this year, like sourdough bread!</p>
-                </div>
-              </article>
-              <article class="about-enjoy">
-                <div class="about-enjoy__photo about-enjoy__photo--crop about-enjoy__photo--shrinky">
-                  <img src="assets/about/enjoy-shrinky-fill.png?v=about1" alt="Shrinky Dink crafts" width="3024" height="4032">
-                </div>
-                <div class="about-enjoy__copy">
-                  <h3 class="about-enjoy__title">Shrinky Dinks</h3>
-                  <p class="about-enjoy__text">I love making gifts for friends and this was also something I discovered this past winter break! Really easy, cheap and thoughtful gifts for my friends!</p>
-                </div>
-              </article>
-              <article class="about-enjoy">
-                <div class="about-enjoy__photo about-enjoy__photo--crop about-enjoy__photo--blindbox">
-                  <img src="assets/about/enjoy-blindbox.png?v=about1" alt="Blind box plush keychains" width="1536" height="2730">
-                </div>
-                <div class="about-enjoy__copy">
-                  <h3 class="about-enjoy__title">Blind Boxes</h3>
-                  <p class="about-enjoy__text">I love collecting mystery figurines and decorating my room with them! This was a unique blind box I found in LA with the cutest plush keychains!</p>
-                </div>
-              </article>
-              <article class="about-enjoy">
-                <div class="about-enjoy__photo about-enjoy__photo--crop about-enjoy__photo--concerts">
-                  <img src="assets/about/enjoy-concerts.png?v=about1" alt="Laufey concert in Chicago" width="1536" height="2730">
-                </div>
-                <div class="about-enjoy__copy">
-                  <h3 class="about-enjoy__title">Concerts</h3>
-                  <p class="about-enjoy__text">This is a picture from when I got to see Laufey in Chicago! The memories I make at concerts make the songs I got to hear live more meaningful!</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-      </main>
-
-        <footer class="bc-footer">
-          <img
-            class="bc-footer__lace"
-            src="assets/shared/footer-lace.png?v=flex3"
-            alt=""
-            width="2880"
-            height="69"
-            aria-hidden="true"
-          >
-          <div class="bc-footer__inner">
-            <a class="bc-footer__brand" href="/" aria-label="Home">
-              <img
-                src="assets/shared/footer-aq.png?v=flex3"
-                alt=""
-                width="257"
-                height="101"
-                aria-hidden="true"
-              >
-            </a>
-            <nav class="bc-footer__contact" aria-label="Contact">
-              <a
-                class="bc-footer__link"
-                href="https://www.linkedin.com/in/allisonqiu/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="assets/shared/icon-linkedin.svg?v=flex1" alt="" width="20" height="17" aria-hidden="true">
-                <span>https://www.linkedin.com/in/allisonqiu/</span>
-              </a>
-              <a class="bc-footer__link" href="mailto:allisonqiu10@gmail.com">
-                <img src="assets/shared/icon-mail.svg?v=flex1" alt="" width="20" height="20" aria-hidden="true">
-                <span>allisonqiu10@gmail.com</span>
-              </a>
-            </nav>
-          </div>
-        </footer>
+<body class="about-page">
+  <div id="tx-cover" aria-hidden="true"></div>
+  <script src="scripts/tx-cover.js?v=tx6"></script>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
+        <img class="site-header__mark" src="assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+        <span class="site-header__aq" aria-hidden="true">AQ</span>
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a class="site-header__link" href="/" data-scroll-to="my-work">Work</a>
+        <a class="site-header__link" href="/about" aria-current="page">About <img class="site-header__marklet" src="assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+        <a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <script src="scripts/case-scale.js"></script>
-  <script src="scripts/about-scroll.js"></script>
+  <main class="site-main">
+    <section class="about-hero" aria-labelledby="about-hero">
+      <div>
+        <span class="site-kicker">About</span>
+        <h1 id="about-hero">Hello! I’m <em>Allison.</em></h1>
+        <p class="about-hero__lede">I’m currently a Junior at UIUC studying Information Sciences with a focus in UI/UX Design.</p>
+        <div class="about-list">
+          <span class="site-kicker">When I’m not figma-maxxing, you can find me</span>
+          <ul>
+            <li><span>a.</span>Crocheting gifts for friends</li>
+            <li><span>b.</span>Starting a new DIY project</li>
+            <li><span>c.</span>Planning my next trip</li>
+            <li><span>d.</span>Trying new restaurants and cafes</li>
+          </ul>
+        </div>
+        <a class="about-textlink" href="/" data-scroll-to="my-work">Check out my projects →</a>
+      </div>
+      <figure class="about-portrait">
+        <img src="assets/about/portrait.jpg?v=refcrop" alt="Portrait of Allison Qiu" width="529" height="940">
+        <figcaption><span>Allison Qiu</span><span>Information Sciences, UIUC</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="about-block" aria-labelledby="story-heading">
+      <div class="about-split">
+        <div>
+          <span class="site-kicker">How I got here</span>
+          <h2 id="story-heading">Four design internships and two student communities.</h2>
+          <a class="about-textlink" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Full resume ↗</a>
+        </div>
+        <div>
+          <span class="site-kicker jobs-label">Work experience</span>
+          <article class="job">
+            <span class="job__org">IBM</span>
+            <span class="job__role">Product Design Intern</span>
+            <span class="job__dates">May 2026 – Aug 2026</span>
+          </article>
+          <article class="job">
+            <span class="job__org">COUNTRY Financial</span>
+            <span class="job__role">UI/UX Design Intern</span>
+            <span class="job__dates">May 2025 – Dec 2025</span>
+          </article>
+          <article class="job">
+            <span class="job__org">HEB</span>
+            <span class="job__role">High School UI/UX Design Intern</span>
+            <span class="job__dates">Jun 2024 – Aug 2024</span>
+          </article>
+          <article class="job">
+            <span class="job__org">HEB</span>
+            <span class="job__role">High School UI/UX Design Intern</span>
+            <span class="job__dates">Jun 2023 – Aug 2023</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-block" aria-labelledby="community-heading">
+      <span class="site-kicker">Outside the classroom</span>
+      <h2 id="community-heading">The communities I’ve grown with.</h2>
+
+      <article class="community">
+        <div class="community__copy">
+          <span class="site-kicker">Psi Eta Mu · Information Sciences Professional Fraternity</span>
+          <h3 id="pem-title">PR Director</h3>
+          <p>I served as PR Director for the nation’s first and only Information Sciences + Data Sciences Professional Fraternity, where I helped connect students across the technical space and cultivate a culture that was both supportive and ambitious.</p>
+        </div>
+        <div>
+          <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Psi Eta Mu photos" tabindex="0">
+            <div class="carousel__slide" data-slide>
+              <img src="assets/about/pem-01.jpg" alt="Psi Eta Mu members together at a celebration under a Congrats balloon banner" style="object-position:50% 38%">
+            </div>
+            <div class="carousel__slide" data-slide>
+              <img src="assets/about/pem-02.jpg" alt="Psi Eta Mu members dressed up for a formal at Alto Vineyards" style="object-position:50% 40%">
+            </div>
+            <div class="carousel__slide" data-slide>
+              <img src="assets/about/pem-03.jpg" alt="Psi Eta Mu members together outdoors at night" style="object-position:50% 45%">
+            </div>
+            <div class="carousel__slide" data-slide>
+              <img src="assets/about/pem-04.jpg" alt="Psi Eta Mu members together at the Curtis Orchard pumpkin patch" style="object-position:50% 55%">
+            </div>
+          </div>
+          <div class="carousel__nav">
+            <button type="button" data-carousel-prev aria-label="Previous photo">←</button>
+            <span class="carousel__count" data-carousel-count aria-live="polite">01 / 04</span>
+            <button type="button" data-carousel-next aria-label="Next photo">→</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="community community--h4i">
+        <div class="community__media">
+          <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Hack4Impact photos" tabindex="0">
+            <div class="carousel__slide" data-slide>
+              <img src="assets/about/hack4impact.jpg" alt="Hack4Impact team members together" style="object-position:50% 50%">
+            </div>
+            <div class="carousel__slide" data-slide>
+              <img src="assets/about/h4i-02.jpg" alt="Hack4Impact members together indoors" style="object-position:50% 30%">
+            </div>
+          </div>
+          <div class="carousel__nav">
+            <button type="button" data-carousel-prev aria-label="Previous photo">←</button>
+            <span class="carousel__count" data-carousel-count aria-live="polite">01 / 02</span>
+            <button type="button" data-carousel-next aria-label="Next photo">→</button>
+          </div>
+        </div>
+        <div class="community__copy">
+          <span class="site-kicker">Hack4Impact · Technology for nonprofits</span>
+          <h3 id="h4i-title">Product Designer <em>→</em> Product Manager</h3>
+          <p>I served as a Product Designer and later Product Manager for Hack4Impact, a student-run organization that builds technology for nonprofits, where I helped translate real operational challenges into intuitive, scalable products and led cross-functional teams to bring them to life.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="belief" aria-labelledby="design-heading">
+      <div class="belief__top">
+        <div>
+          <span class="site-kicker">How I think about design</span>
+          <h2 id="design-heading">Figuring out how things work, <em>and how they could work better.</em></h2>
+        </div>
+        <p class="belief__quote">“For me, design is all about staying curious, trying something new, and hopefully making someone’s life a little easier in the process.”</p>
+      </div>
+      <div class="belief__cols">
+        <p>I’m a product designer driven by curiosity. I’m especially interested in the messy space where people, technology, and business needs meet, turning complex problems into experiences that actually make sense.</p>
+        <p>Lately, I’ve also been pushing myself beyond Figma, experimenting with new tools, learning to build, and occasionally breaking things along the way.</p>
+      </div>
+    </section>
+
+    <section class="life" aria-labelledby="life-heading">
+      <div class="life-copy">
+        <span class="site-kicker">Life outside Figma</span>
+        <h2 id="life-heading">When I’m not designing…</h2>
+      </div>
+      <div class="board-frame" data-board-frame>
+        <div class="board" data-board>
+          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Traveling">
+            <div class="polaroid__photo">
+              <img src="assets/about/enjoy-travel.png?v=about1" alt="View from the IBM NYC office" style="object-position:50% 70%">
+              <div class="polaroid__cap"><strong>Traveling</strong><span>I got the chance to visit NYC IBM office this summer and this is the view from the building on the 28th floor!</span></div>
+            </div>
+            <div class="polaroid__label">Traveling</div>
+          </div>
+          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Coloring books">
+            <div class="polaroid__photo">
+              <img src="assets/about/enjoy-coloring.png?v=about1" alt="A coloring book page" style="object-position:50% 45%">
+              <div class="polaroid__cap"><strong>Coloring books</strong><span>Over winter break this past year, I couldn't crochet at home, so I tried coloring! I'm not the best at art so it gave me more structure to practice art!</span></div>
+            </div>
+            <div class="polaroid__label">Coloring</div>
+          </div>
+          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Baking">
+            <div class="polaroid__photo">
+              <img src="assets/about/enjoy-baking.png?v=about1" alt="Mini jellycat themed cakes" style="object-position:50% 75%">
+              <div class="polaroid__cap"><strong>Baking</strong><span>My friends and I baked mini jellycat themed cakes! It's a goal of mine to try baking new pastries this year, like sourdough bread!</span></div>
+            </div>
+            <div class="polaroid__label">Baking</div>
+          </div>
+          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Blind boxes">
+            <div class="polaroid__photo">
+              <img src="assets/about/enjoy-blindbox.png?v=about1" alt="Blind box plush keychains" style="object-position:50% 30%">
+              <div class="polaroid__cap"><strong>Blind boxes</strong><span>I love collecting mystery figurines and decorating my room with them! This was a unique blind box I found in LA with the cutest plush keychains!</span></div>
+            </div>
+            <div class="polaroid__label">Blind boxes</div>
+          </div>
+          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Trying new foods">
+            <div class="polaroid__photo">
+              <img src="assets/about/enjoy-foods.png?v=about1" alt="Tarts from a local cafe" style="object-position:50% 60%">
+              <div class="polaroid__cap"><strong>Trying new foods</strong><span>My favorite tart place! It's local to my university, and it's the first place I ever tried tarts. Genuinely the best ever!</span></div>
+            </div>
+            <div class="polaroid__label">Foods</div>
+          </div>
+          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Shrinky Dinks">
+            <div class="polaroid__photo">
+              <img src="assets/about/enjoy-shrinky-fill.png?v=about1" alt="Shrinky Dink crafts" style="object-position:50% 40%">
+              <div class="polaroid__cap"><strong>Shrinky Dinks</strong><span>I love making gifts for friends and this was also something I discovered this past winter break! Really easy, cheap and thoughtful gifts for my friends!</span></div>
+            </div>
+            <div class="polaroid__label">Shrinky Dinks</div>
+          </div>
+          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Concerts">
+            <div class="polaroid__photo">
+              <img src="assets/about/enjoy-concerts.png?v=about1" alt="Laufey concert in Chicago" style="object-position:50% 40%">
+              <div class="polaroid__cap"><strong>Concerts</strong><span>This is a picture from when I got to see Laufey in Chicago! The memories I make at concerts make the songs I got to hear live more meaningful!</span></div>
+            </div>
+            <div class="polaroid__label">Concerts</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-heading">
+      <div class="closing__intro">
+        <span class="site-kicker">Get in touch</span>
+        <h2 id="closing-heading">Want to talk design, crochet, <em>or a good café?</em></h2>
+      </div>
+      <ul class="closing__links">
+        <li>
+          <a href="mailto:allisonqiu10@gmail.com">
+            <span>allisonqiu10@gmail.com</span>
+            <span class="closing__meta">Email <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">
+            <span>LinkedIn</span>
+            <span class="closing__meta" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+            <span class="closing__meta" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="site-footer__lace" src="assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+    <div class="site-footer__body">
+      <div class="site-footer__top">
+        <div>
+          <p class="site-footer__hello">Say hi</p>
+          <a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+          <a href="/" data-scroll-to="my-work">Work</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="scripts/editorial.js?v=swipe2"></script>
   <script src="scripts/cross-scroll.js"></script>
-  <script src="scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="scripts/page-transition.js?v=wipe6"></script>
+  <script src="scripts/custom-cursor.js?v=cursorHover1"></script>
+  <script src="scripts/page-transition.js?v=tx10"></script>
   <script src="scripts/mailto.js"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
+  <script src="scripts/motion.js?v=motion9"></script>
 </body>
 </html>

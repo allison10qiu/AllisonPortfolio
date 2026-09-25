@@ -1,331 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
+  <script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/assets/shared/favicon-aq.svg?v=aqheart" type="image/svg+xml">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="description" content="Allison Qiu — UX design portfolio">
-
-  <!-- Open Graph -->
+  <meta name="description" content="Allison Qiu — product design portfolio">
   <meta property="og:title" content="Allison Qiu" />
   <meta property="og:description" content="A curious product designer turning messy problems into thoughtful experiences, and occasionally convincing myself I can code them too." />
   <meta property="og:image" content="https://www.allisonqiu.com/assets/og-cover.png" />
   <meta property="og:url" content="https://allisonqiu.com" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Allison Qiu" />
   <meta name="twitter:description" content="A curious product designer turning messy problems into thoughtful experiences, and occasionally convincing myself I can code them too." />
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/og-cover.png" />
-
-  <title>Allison Qiu</title>
-  <link rel="stylesheet" href="styles/main.css?v=headerContexts1">
+  <title>Allison Qiu — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="styles/main.css?v=editorial3">
+  <link rel="stylesheet" href="styles/editorial.css?v=cards2">
+  <link rel="stylesheet" href="styles/motion.css?v=motion6">
+  <link rel="stylesheet" href="styles/page-transitions.css?v=tx8">
 </head>
-<body>
-  <!--
-    Figma Home Page · 4:2 · 1440×2937.34
-    Uniform width scale; page scrolls vertically.
-  -->
-  <div class="canvas-wrapper">
-    <main class="design-canvas" aria-label="Allison Qiu" data-figma-frame="4:2">
-      <!-- My Work title · cropped so glyphs start at asset left; positioned with --home-work-gutter -->
-      <picture class="home-work-title">
-        <source type="image/webp" srcset="assets/home-work-title.webp?v=align1">
-        <img
-          src="assets/home-work-title.png?v=align1"
-          alt="My Work"
-          width="520"
-          height="179"
-          decoding="async"
-        >
-      </picture>
-      <picture class="home-footer-art">
-        <source type="image/webp" srcset="assets/home-footer.webp?v=perf1">
-        <img
-          src="assets/home-footer.png?v=perf1"
-          alt=""
-          width="2880"
-          height="394"
-          decoding="async"
-          loading="lazy"
-        >
-      </picture>
+<body class="home-page">
+  <div id="tx-cover" aria-hidden="true"></div>
+  <script src="scripts/tx-cover.js?v=tx6"></script>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
+        <img class="site-header__mark" src="assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+        <span class="site-header__aq" aria-hidden="true">AQ</span>
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a class="site-header__link" href="#my-work" aria-current="page">Work <img class="site-header__marklet" src="assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+        <a class="site-header__link" href="/about">About</a>
+        <a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
 
-      <!-- Landing frame · hero 1440×812 — hero art, lace, nav -->
-      <div class="home-hero" id="home-hero">
-        <picture class="home-hero__art">
-          <source type="image/webp" srcset="assets/home-hero.webp?v=perf1">
-          <img
-            src="assets/home-hero.png?v=figmaSWE2"
-            alt=""
-            width="2880"
-            height="1624"
-            fetchpriority="high"
-            decoding="async"
-          >
-        </picture>
+  <main class="site-main">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div>
+        <h1 class="home-hero__title" id="home-title">Allison Qiu</h1>
+        <p class="home-hero__lede">A curious product designer turning messy problems into thoughtful experiences, <em>and occasionally convincing myself I can code them too.</em></p>
+        <div class="home-hero__links">
+          <a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+          <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="home-index">
+        <div class="home-index__head">
+          <span class="home-index__role">Product Designer</span>
+          <span class="home-index__prev">Previously Product Design Intern @ IBM</span>
+        </div>
+        <ol class="home-index__list">
+          <li><a href="/projects/terraform"><span class="home-index__num">01</span><span class="home-index__name">Terraform</span><span class="home-index__meta">Product Design Intern</span></a></li>
+          <li><a href="/projects/anda"><span class="home-index__num">02</span><span class="home-index__name">Anda</span><span class="home-index__meta">Product Manager</span></a></li>
+          <li><a href="/projects/operation-safe-escape"><span class="home-index__num">03</span><span class="home-index__name">Operation Safe Escape</span><span class="home-index__meta">Designer</span></a></li>
+          <li><a href="/projects/nabu"><span class="home-index__num">04</span><span class="home-index__name">NABU</span><span class="home-index__meta">Designer</span></a></li>
+          <li><a href="/projects/brilliant-cities"><span class="home-index__num">05</span><span class="home-index__name">Brilliant Cities</span><span class="home-index__meta">Designer</span></a></li>
+        </ol>
+      </div>
+    </section>
 
-        <!-- Intro copy · Figma Frame 17 · 46:17167 · live text over navy plate -->
-        <div class="home-intro">
-          <div class="home-intro__head">
-            <p class="home-intro__name">ALLISON QIU</p>
-            <p class="home-intro__role">Prev Product Design Intern @ <strong>IBM</strong></p>
+    <section class="work" id="my-work" aria-labelledby="work-heading">
+      <div class="work-head">
+        <span id="work-heading">Selected work</span>
+        <span>2024 — 2026 · 5 projects</span>
+      </div>
+
+      <a class="project project--feature" href="/projects/terraform" data-tx-project="terraform">
+        <div class="project__stage">
+          <span class="project__cue" aria-hidden="true">↗</span>
+          <div class="project__screen">
+            <img src="assets/home/terraform.png?v=editorial3" alt="Terraform Organizations settings on a laptop" width="2048" height="1034">
           </div>
-          <p class="home-intro__lede">
-            A curious product designer turning messy problems into thoughtful experiences, and occasionally convincing myself I can code them too.
-          </p>
         </div>
-
-        <!-- Lace · Figma 32:17053 · exactly 332×812 (+ bow overflow) -->
-        <div class="home-lace" id="home-lace" aria-hidden="true">
-          <picture class="home-lace__hero">
-            <source type="image/webp" srcset="assets/home-lace-hero.webp?v=perf1">
-            <img
-              src="assets/home-lace-hero.png?v=lace812"
-              alt=""
-              width="772"
-              height="1624"
-              decoding="async"
-            >
-          </picture>
+        <div class="project__info">
+          <h2 class="project__title">Read-only governance in Terraform</h2>
+          <div class="project__tags">
+            <span class="project__tag project__tag--lead">Featured</span>
+            <span class="project__tag">Product Design Intern</span>
+            <span class="project__tag">Summer 2026</span>
+          </div>
         </div>
+        <p class="project__blurb"><strong>IBM · Terraform</strong> — Improving visibility and compliance in Terraform Enterprise by giving read-only users access to critical settings without compromising security.</p>
+      </a>
 
-        <nav class="design-hotspots" aria-label="Primary">
-          <!-- Nav stamps · homepage expressive scale (--home-stamp-*), not case compact -->
-          <a
-            class="design-hotspot design-hotspot--stamp design-hotspot--work"
-            href="/"
-            data-scroll-to="my-work"
-            aria-label="Work"
-          >
-            <img src="assets/home-nav-work.png?v=lace2" alt="" width="164" height="361" aria-hidden="true">
-          </a>
-          <a
-            class="design-hotspot design-hotspot--stamp design-hotspot--about"
-            href="/about"
-            aria-label="About me"
-          >
-            <img src="assets/home-nav-about.png?v=lace2" alt="" width="370" height="150" aria-hidden="true">
-          </a>
-          <a
-            class="design-hotspot design-hotspot--stamp design-hotspot--resume"
-            href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Resume"
-          >
-            <img src="assets/home-nav-resume.png?v=lace2" alt="" width="384" height="166" aria-hidden="true">
-          </a>
+      <div class="project-row">
+        <a class="project" href="/projects/anda" data-tx-project="anda">
+          <div class="project__stage">
+            <span class="project__cue" aria-hidden="true">↗</span>
+            <div class="project__screen">
+              <img src="assets/anda/feature-csm.png?v=alpha1" alt="Anda customer success dashboard, designed by the Anda product team" width="1076" height="700">
+            </div>
+          </div>
+          <div class="project__info">
+            <h2 class="project__title">Anda</h2>
+            <div class="project__tags">
+              <span class="project__tag project__tag--lead">Product Manager</span>
+              <span class="project__tag">Spring 2026</span>
+            </div>
+          </div>
+          <p class="project__blurb"><strong>Anda</strong> — Optimizing how Anda's admins and Customer Success Managers support drivers, by replacing fragmented spreadsheets and disconnected systems with one transparent, explainable view of every driver's performance.</p>
+        </a>
+        <a class="project" href="/projects/operation-safe-escape" data-tx-project="operation-safe-escape">
+          <div class="project__stage">
+            <span class="project__cue" aria-hidden="true">↗</span>
+            <div class="project__screen">
+              <img src="assets/home/ose.png?v=editorial3" alt="Operation Safe Escape case dashboard" width="1076" height="700">
+            </div>
+          </div>
+          <div class="project__info">
+            <h2 class="project__title">Operation Safe Escape</h2>
+            <div class="project__tags">
+              <span class="project__tag">Designer</span>
+              <span class="project__tag">Fall 2025</span>
+            </div>
+          </div>
+          <p class="project__blurb"><strong>Operation Safe Escape</strong> — Empowering Operation Safe Escape's admins and volunteers to support survivors faster, by replacing scattered emails and spreadsheets with one secure, centralized, and auditable case management system.</p>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a class="project" href="/projects/nabu" data-tx-project="nabu">
+          <div class="project__stage">
+            <span class="project__cue" aria-hidden="true">↗</span>
+            <div class="project__screen">
+              <img src="assets/home/nabu.png?v=editorial3" alt="NABU visualization builder" width="1076" height="700">
+            </div>
+          </div>
+          <div class="project__info">
+            <h2 class="project__title">NABU</h2>
+            <div class="project__tags">
+              <span class="project__tag">Designer</span>
+              <span class="project__tag">Spring 2025</span>
+            </div>
+          </div>
+          <p class="project__blurb"><strong>NABU</strong> — Streamlining global literacy efforts by building a centralized platform for NABU, replacing scattered spreadsheets and databases with clear dashboards partners can use to track their impact.</p>
+        </a>
+        <a class="project project--phones" href="/projects/brilliant-cities" data-tx-project="brilliant-cities">
+          <div class="project__stage">
+            <span class="project__cue" aria-hidden="true">↗</span>
+            <span class="project__phones">
+              <img src="assets/brilliant/final/hero-goals.png?v=bc1" alt="Brilliant Cities habit goals on a phone" width="400" height="800">
+              <img src="assets/brilliant/final/hero-dashboard.png?v=bc1" alt="Brilliant Cities family dashboard on a phone" width="400" height="800">
+            </span>
+          </div>
+          <div class="project__info">
+            <h2 class="project__title">Brilliant Cities</h2>
+            <div class="project__tags">
+              <span class="project__tag">Designer</span>
+              <span class="project__tag">Fall 2024</span>
+            </div>
+          </div>
+          <p class="project__blurb"><strong>Brilliant Cities</strong> — Supporting habit growth in families by developing the Brilliant Cities Habit Tracker, an app that helps parents build routines with their children.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="site-footer__lace" src="assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+    <div class="site-footer__body">
+      <div class="site-footer__top">
+        <div>
+          <p class="site-footer__hello">Say hi</p>
+          <a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+          <a href="/about">About</a>
         </nav>
       </div>
 
-      <!-- Covers home-page.png lace that stretches a few px past the 812 seam -->
-      <div class="home-seam-cover" aria-hidden="true"></div>
+    </div>
+  </footer>
 
-      <!--
-        Project cards · Figma Frame 29 grid (5 cards, 3 rows)
-        HTML cards (no stacked PNG). Videos play when scrolled into view.
-      -->
-      <a
-        class="home-card home-card--terraform"
-        href="/projects/terraform"
-        aria-label="Terraform Read-Only Governance Experiences — Summer 2026"
-        id="terraform"
-      >
-        <div class="home-card__inner">
-          <div class="home-card__media">
-            <video
-              class="home-card__video"
-              muted
-              loop
-              playsinline
-              preload="none"
-              poster="assets/home-media-terraform-2x.png?v=cards3"
-              data-src="assets/videos/terraform-card.mp4?v=cards2"
-            ></video>
-          </div>
-          <div class="home-card__body">
-            <div class="home-card__copy">
-              <h2 class="home-card__title">Terraform Read-Only Governance Experiences</h2>
-              <p class="home-card__desc">
-                Improving visibility and compliance in Terraform Enterprise by giving read-only users access to critical settings without compromising security.
-              </p>
-            </div>
-            <div class="home-card__tags">
-              <span class="home-card__tag">Summer 2026</span>
-              <span class="home-card__tag">Product Design Intern</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a
-        class="home-card home-card--anda"
-        href="/projects/anda"
-        aria-label="ANDA — Spring 2026"
-        id="anda"
-      >
-        <div class="home-card__inner">
-          <div class="home-card__media">
-            <video
-              class="home-card__video"
-              muted
-              loop
-              playsinline
-              preload="none"
-              poster="assets/home-media-anda-2x.png?v=cards2"
-              data-src="assets/videos/anda-card.mp4?v=cards2"
-            ></video>
-          </div>
-          <div class="home-card__body">
-            <div class="home-card__copy">
-              <h2 class="home-card__title">ANDA</h2>
-              <p class="home-card__desc">
-                Optimizing how Anda's admins and Customer Success Managers support drivers, by replacing fragmented spreadsheets and disconnected systems with one transparent, explainable view of every driver's performance.
-              </p>
-            </div>
-            <div class="home-card__tags">
-              <span class="home-card__tag">Spring 2026</span>
-              <span class="home-card__tag">Product Manager</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a
-        class="home-card home-card--ose"
-        href="/projects/operation-safe-escape"
-        aria-label="Operation Safe Escape — Fall 2025"
-        id="ose"
-      >
-        <div class="home-card__inner">
-          <div class="home-card__media">
-            <video
-              class="home-card__video"
-              muted
-              loop
-              playsinline
-              preload="none"
-              poster="assets/home-media-ose-2x.png?v=figmacrop"
-              data-src="assets/videos/ose-card.mp4"
-            ></video>
-          </div>
-          <div class="home-card__body">
-            <div class="home-card__copy">
-              <h2 class="home-card__title">Operation Safe Escape</h2>
-              <p class="home-card__desc">
-                Empowering Operation Safe Escape's admins and volunteers to support survivors faster, by replacing scattered emails and spreadsheets with one secure, centralized, and auditable case management system.
-              </p>
-            </div>
-            <div class="home-card__tags">
-              <span class="home-card__tag">Fall 2025</span>
-              <span class="home-card__tag">Designer</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a
-        class="home-card home-card--nabu"
-        href="/projects/nabu"
-        aria-label="NABU — Spring 2025"
-        id="nabu"
-      >
-        <div class="home-card__inner">
-          <div class="home-card__media">
-            <video
-              class="home-card__video"
-              muted
-              loop
-              playsinline
-              preload="none"
-              poster="assets/home-media-nabu-2x.png?v=cards2"
-              data-src="assets/videos/nabu-card.mp4?v=cards2"
-            ></video>
-          </div>
-          <div class="home-card__body">
-            <div class="home-card__copy">
-              <h2 class="home-card__title">NABU</h2>
-              <p class="home-card__desc">
-                Streamlining global literacy efforts by building a centralized platform for NABU, replacing scattered spreadsheets and databases with clear dashboards partners can use to track their impact.
-              </p>
-            </div>
-            <div class="home-card__tags">
-              <span class="home-card__tag">Spring 2025</span>
-              <span class="home-card__tag">Designer</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a
-        class="home-card home-card--brilliant"
-        href="/projects/brilliant-cities"
-        aria-label="Brilliant Cities — Fall 2024"
-        id="brilliant"
-      >
-        <div class="home-card__inner">
-          <div class="home-card__media">
-            <video
-              class="home-card__video"
-              muted
-              loop
-              playsinline
-              preload="none"
-              poster="assets/home-media-brilliant-2x.png?v=cards3"
-              data-src="assets/videos/brilliant-card.mp4?v=cards3"
-            ></video>
-          </div>
-          <div class="home-card__body">
-            <div class="home-card__copy">
-              <h2 class="home-card__title">Brilliant Cities</h2>
-              <p class="home-card__desc">
-                Supporting habit growth in families by developing the Brilliant Cities Habit Tracker, an app that helps parents build routines with their children.
-              </p>
-            </div>
-            <div class="home-card__tags">
-              <span class="home-card__tag">Fall 2024</span>
-              <span class="home-card__tag">Designer</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Footer links · Figma Frame 36 · abs x:1135; linkedin top:2840, email top:2874 -->
-      <nav class="footer-links" aria-label="Contact">
-        <a
-          class="footer-link"
-          href="https://www.linkedin.com/in/allisonqiu/"
-          target="_blank"
-          rel="noopener"
-          aria-label="LinkedIn"
-          style="left:1135px;top:2840px;width:281px;height:32px"
-        ></a>
-        <a
-          class="footer-link"
-          href="mailto:allisonqiu10@gmail.com"
-          aria-label="Email"
-          style="left:1135px;top:2874px;width:189px;height:28px"
-        ></a>
-      </nav>
-
-      <!-- Anchor for work tab scroll · same gutter as title/cards -->
-      <div id="my-work" class="design-anchor home-work-anchor" aria-hidden="true"></div>
-      <div id="resume" class="design-anchor" style="left:0;top:0;width:1px;height:1px" aria-hidden="true"></div>
-    </main>
-  </div>
-
-  <script src="scripts/home-scale.js"></script>
-  <script src="scripts/home-cards.js?v=perf1"></script>
-  <script type="module" src="scripts/home-snap.js?v=workJump2"></script>
-  <script src="scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="scripts/page-transition.js?v=wipe6"></script>
+  <script src="scripts/editorial.js?v=editorial4"></script>
+  <script src="scripts/cross-scroll.js"></script>
+  <script src="scripts/custom-cursor.js?v=cursorHover1"></script>
+  <script src="scripts/page-transition.js?v=tx10"></script>
   <script src="scripts/mailto.js"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
+  <script src="scripts/motion.js?v=motion8"></script>
 </body>
 </html>

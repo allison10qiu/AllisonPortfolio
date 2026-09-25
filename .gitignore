@@ -6,3 +6,6 @@ Thumbs.db
 !.env.example
 
 node_modules/
+
+# Local Figma case-study exports. Reference only — not production pages.
+case-study-references-for-cursor/

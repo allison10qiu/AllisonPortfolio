@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
+  <script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/assets/shared/favicon-aq.svg?v=aqheart" type="image/svg+xml">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="description" content="Brilliant Cities Habit Tracker — case study by Allison Qiu">
   <title>Brilliant Cities · Allison Qiu</title>
@@ -14,26 +12,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="../styles/main.css?v=headerContexts1">
-  <link rel="stylesheet" href="../styles/brilliant.css?v=headerCompactAbout1">
-  <link rel="stylesheet" href="../styles/brilliant-final.css?v=bcFinal8">
+  <link rel="stylesheet" href="../styles/brilliant.css?v=specimen1">
+  <link rel="stylesheet" href="../styles/editorial.css?v=editorial8">
+  <link rel="stylesheet" href="../styles/brilliant-final.css?v=railgap4">
+  <link rel="stylesheet" href="../styles/motion.css?v=motion6">
+  <link rel="stylesheet" href="../styles/page-transitions.css?v=tx8">
 </head>
-<body class="bc-page brilliant-page brilliant-final">
+<body class="bc-page brilliant-page brilliant-final" data-tx-project="brilliant-cities">
+  <div id="tx-cover" aria-hidden="true"></div>
+  <script src="../scripts/tx-cover.js?v=tx6"></script>
   <div class="bc-canvas-wrapper">
     <div class="bc-canvas">
-  <header class="bc-header">
-    <div class="bc-header__inner">
-      <nav class="bc-header__nav" aria-label="Primary">
-        <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="Work">
-          <img src="../assets/brilliant/nav-work.png?v=bcnav1" alt="" width="164" height="363">
-        </a>
-        <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me">
-          <img src="../assets/brilliant/nav-about.png?v=bcnav1" alt="" width="370" height="150">
-        </a>
-        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-          <img src="../assets/brilliant/nav-resume.png?v=bcnav1" alt="" width="384" height="166">
-        </a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
+        <img class="site-header__mark" src="../assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+        <span class="site-header__aq" aria-hidden="true">AQ</span>
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a class="site-header__link" href="/" data-scroll-to="my-work" aria-current="page">Work <img class="site-header__marklet" src="../assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+        <a class="site-header__link" href="/about">About</a>
+        <a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
       </nav>
-      <a class="bc-header__name" href="/">allison qiu</a>
     </div>
   </header>
 
@@ -42,6 +42,7 @@
 
       <div class="bf-rail-col">
         <div class="bf-rail">
+          <a class="bf-rail__back" href="/#my-work"><span aria-hidden="true">←</span> Back to Projects</a>
           <div class="bf-rail__head">
             <p class="bf-rail__eyebrow">Case study</p>
             <p class="bf-rail__title">Brilliant Cities</p>
@@ -94,7 +95,7 @@
 
         <section class="bf-hero" aria-label="Introduction">
           <div class="bf-hero__copy">
-            <p class="bf-hero__stitch">brilliant cities</p>
+            <p class="case-project-kicker">brilliant cities</p>
             <h1 class="bf-hero__title">A habit tracker families can keep using <em>at home</em></h1>
             <p class="bf-hero__lede">
               I helped design a mobile habit tracker where parents can set goals for each of their kids and keep up with them at home. We worked with Brilliant Cities over three months to extend the support families get from their in-person programs.
@@ -167,16 +168,16 @@
                   <img src="../assets/brilliant/final/marquee-login.png?v=bcFinal1" alt="Login screen with email and password fields" width="370" height="750" loading="lazy" decoding="async">
                 </div>
                 <div class="bf-marquee__item">
-                  <img src="../assets/brilliant/final/marquee-onboarding.png?v=bcFinal2" alt="Getting Started onboarding screen for parents" width="480" height="973" loading="lazy" decoding="async">
+                  <img src="../assets/brilliant/final/marquee-onboarding.png?v=bcFinal3" alt="Getting Started onboarding screen for parents" width="480" height="973" loading="lazy" decoding="async">
                 </div>
                 <div class="bf-marquee__item">
-                  <img src="../assets/brilliant/final/marquee-goals.png?v=bcFinal2" alt="Goal categories screen listing Literacy, Math &amp; Science, and more" width="480" height="973" loading="lazy" decoding="async">
+                  <img src="../assets/brilliant/final/marquee-goals.png?v=bcFinal3" alt="Goal categories screen listing Literacy, Math &amp; Science, and more" width="480" height="973" loading="lazy" decoding="async">
                 </div>
                 <div class="bf-marquee__item">
                   <img src="../assets/brilliant/final/marquee-filters.png?v=bcFinal1" alt="Relevant goals screen with colour-coded filter pills" width="370" height="750" loading="lazy" decoding="async">
                 </div>
                 <div class="bf-marquee__item">
-                  <img src="../assets/brilliant/final/marquee-detail.png?v=bcFinal1" alt="Number Sense habit detail screen with age group steps" width="390" height="750" loading="lazy" decoding="async">
+                  <img src="../assets/brilliant/final/marquee-detail.png?v=bcFinal3" alt="Number Sense habit detail screen with age group steps" width="390" height="750" loading="lazy" decoding="async">
                 </div>
                 <div class="bf-marquee__item">
                   <img src="../assets/brilliant/final/marquee-dashboard.png?v=bcFinal1" alt="Family dashboard screen with a personalised welcome and habit cards" width="376" height="750" loading="lazy" decoding="async">
@@ -220,7 +221,7 @@
                 <p class="bf-challenge__num">03</p>
                 <div class="bf-challenge__body">
                   <p class="bf-challenge__kicker">What that means for us</p>
-                  <h3 class="bf-challenge__title">Simple at home continuous development</h3>
+                  <h3 class="bf-challenge__title">Different levels of tech comfort</h3>
                   <p class="bf-challenge__text">Brilliant Cities told us families had different levels of comfort with technology, so we tried to make the main actions understandable without much onboarding.</p>
                   <p class="bf-challenge__pill">Families vary a lot in tech comfort</p>
                 </div>
@@ -322,7 +323,7 @@
             <li class="bf-constraint">
               <p class="bf-constraint__num">04</p>
               <h3 class="bf-constraint__title">Wording reviewed by a child psychologist</h3>
-              <p class="bf-constraint__text">We worked with one to make sure our language was supportive for kids, so copy mattered as much as layout.</p>
+              <p class="bf-constraint__text">Copy mattered as much as layout.</p>
             </li>
             <li class="bf-constraint">
               <p class="bf-constraint__num">05</p>
@@ -373,7 +374,7 @@
             </li>
             <li class="bf-decision bf-decision--flip">
               <figure class="bf-decision__phone">
-                <img src="../assets/brilliant/phone-search.png?v=bcFinal1" alt="Relevant goals screen with colour-coded filter pills and checkboxes" width="480" height="950" loading="lazy" decoding="async">
+                <img src="../assets/brilliant/final/decision-filters.png?v=clear1" alt="Relevant goals screen with colour-coded filter pills and checkboxes" width="480" height="950" loading="lazy" decoding="async">
               </figure>
               <div class="bf-decision__copy">
                 <p class="bf-eyebrow">Decision 02</p>
@@ -392,7 +393,7 @@
             </li>
             <li class="bf-decision">
               <figure class="bf-decision__phone">
-                <img src="../assets/brilliant/phone-search-results.png?v=bcFinal1" alt="Search results screen with habits grouped under category headers" width="482" height="950" loading="lazy" decoding="async">
+                <img src="../assets/brilliant/final/decision-search.png?v=clear1" alt="Search results screen with habits grouped under category headers" width="482" height="950" loading="lazy" decoding="async">
               </figure>
               <div class="bf-decision__copy">
                 <p class="bf-eyebrow">Decision 03</p>
@@ -482,20 +483,32 @@
           <p class="bf-ds__text">
             We collaborated on most of the components. The filter pill search was mine — I designed the pills and how they behave, and that pattern ended up carrying the whole search flow.
           </p>
-          <ul class="bf-ds__grid">
-            <li class="bf-ds__tile">
-              <img src="../assets/brilliant/final/ds-colors.png?v=bcFinal1" alt="Colour palette with tints and shades for each brand hue" width="898" height="674" loading="lazy" decoding="async">
-            </li>
-            <li class="bf-ds__tile">
-              <img src="../assets/brilliant/final/ds-typography.png?v=bcFinal1" alt="Form fields, select menus, and multi-select list components" width="898" height="674" loading="lazy" decoding="async">
-            </li>
-            <li class="bf-ds__tile">
-              <img src="../assets/brilliant/final/ds-forms.png?v=bcFinal1" alt="Habit list and goal card components in their various states" width="898" height="674" loading="lazy" decoding="async">
-            </li>
-            <li class="bf-ds__tile">
-              <img src="../assets/brilliant/final/ds-buttons.png?v=bcFinal1" alt="Primary, secondary, tertiary, and text link button styles" width="898" height="674" loading="lazy" decoding="async">
-            </li>
-          </ul>
+          <div class="cs-specimens">
+            <article class="cs-specimen">
+              <span class="cs-specimen__label">Colors</span>
+              <div class="cs-specimen__media">
+                <img src="../assets/brilliant/final/ds-colors.png?v=bcFit1" alt="Colour palette with tints and shades for each brand hue" width="832" height="514" loading="lazy" decoding="async">
+              </div>
+            </article>
+            <article class="cs-specimen">
+              <span class="cs-specimen__label">Form fields</span>
+              <div class="cs-specimen__media">
+                <img src="../assets/brilliant/final/ds-typography.png?v=bcFit1" alt="Form fields, select menus, and multi-select list components" width="835" height="568" loading="lazy" decoding="async">
+              </div>
+            </article>
+            <article class="cs-specimen">
+              <span class="cs-specimen__label">Components</span>
+              <div class="cs-specimen__media">
+                <img src="../assets/brilliant/final/ds-forms.png?v=bcFit1" alt="Habit list and goal card components in their various states" width="462" height="474" loading="lazy" decoding="async">
+              </div>
+            </article>
+            <article class="cs-specimen">
+              <span class="cs-specimen__label">Buttons</span>
+              <div class="cs-specimen__media">
+                <img src="../assets/brilliant/final/ds-buttons.png?v=bcFit1" alt="Primary, secondary, tertiary, and text link button styles" width="680" height="624" loading="lazy" decoding="async">
+              </div>
+            </article>
+          </div>
         </section>
 
         <section class="bf-section bf-takeaways" id="takeaways" aria-labelledby="bf-takeaways-label">
@@ -531,51 +544,32 @@
     </div>
   </main>
 
-    <footer class="bc-footer">
-      <img
-        class="bc-footer__lace"
-        src="../assets/shared/footer-lace.png?v=flex3"
-        alt=""
-        width="2880"
-        height="69"
-        aria-hidden="true"
-      >
-      <div class="bc-footer__inner">
-        <a class="bc-footer__brand" href="/" aria-label="Home">
-          <img
-            src="../assets/shared/footer-aq.png?v=flex3"
-            alt=""
-            width="257"
-            height="101"
-            aria-hidden="true"
-          >
-        </a>
-        <nav class="bc-footer__contact" aria-label="Contact">
-          <a
-            class="bc-footer__link"
-            href="https://www.linkedin.com/in/allisonqiu/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="../assets/shared/icon-linkedin.svg?v=flex1" alt="" width="20" height="17" aria-hidden="true">
-            <span>https://www.linkedin.com/in/allisonqiu/</span>
-          </a>
-          <a class="bc-footer__link" href="mailto:allisonqiu10@gmail.com">
-            <img src="../assets/shared/icon-mail.svg?v=flex1" alt="" width="20" height="20" aria-hidden="true">
-            <span>allisonqiu10@gmail.com</span>
-          </a>
-        </nav>
-      </div>
-    </footer>
+    <footer class="site-footer">
+<img class="site-footer__lace" src="../assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+<div class="site-footer__body">
+<div class="site-footer__top">
+<div>
+<p class="site-footer__hello">Say hi</p>
+<a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+</div>
+<nav class="site-footer__nav" aria-label="Footer">
+<a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+<a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+<a href="/about">About</a>
+</nav>
+</div>
+
+</div>
+</footer>
     </div>
   </div>
 
   <script src="../scripts/cross-scroll.js"></script>
-  <script src="../scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="../scripts/page-transition.js?v=wipe6"></script>
+  <script src="../scripts/custom-cursor.js?v=cursorHover1"></script>
+  <script src="../scripts/page-transition.js?v=tx10"></script>
   <script src="../scripts/mailto.js"></script>
   <script src="../scripts/case-videos.js?v=bcFinal4"></script>
   <script src="../scripts/brilliant-final.js?v=bcFinal7"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
+  <script src="../scripts/motion.js?v=motion8"></script>
 </body>
 </html>

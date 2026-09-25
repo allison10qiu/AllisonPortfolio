@@ -13,7 +13,7 @@
   --bf-gutter: 80px;
   --bf-rail-w: 200px;
   --bf-rail-gap: 56px;
-  --bf-pad: 48px;
+  --bf-pad: 64px;
   --bf-section-gap: 40px;
 }
 
@@ -58,9 +58,11 @@ html:has(.brilliant-final) {
 }
 
 .brilliant-final .bc-header__inner,
-.brilliant-final .bc-footer__inner {
+.brilliant-final .bc-footer__inner,
+.brilliant-final .site-header__inner,
+.brilliant-final .site-footer__body {
   width: 100%;
-  max-width: var(--page-max-width);
+  max-width: none;
   margin-inline: auto;
 }
 
@@ -89,7 +91,7 @@ html:has(.brilliant-final) {
      containing block, so the rail column has to span the full row height. */
   align-items: stretch;
   width: 100%;
-  max-width: var(--page-max-width);
+  max-width: none;
   margin-inline: auto;
   padding-inline: var(--bf-gutter);
   box-sizing: border-box;
@@ -97,10 +99,10 @@ html:has(.brilliant-final) {
 
 /* ---------- Sticky rail ---------- */
 
-/* The 103px offset lives on the (non-sticky) grid cell so it drops away
-   once the rail sticks. */
+/* Offset lives on the (non-sticky) grid cell so it drops away once the
+   rail sticks. 48px matches the hero script line in the content column. */
 .bf-rail-col {
-  padding-top: 103px;
+  padding-top: 48px;
   padding-bottom: 96px;
 }
 
@@ -108,6 +110,41 @@ html:has(.brilliant-final) {
   position: sticky;
   top: 48px;
   color: var(--bf-navy);
+}
+
+.bf-rail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 28px;
+  font-family: var(--bf-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(20, 36, 59, 0.62);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms ease;
+}
+
+.bf-rail__back span {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.bf-rail__back:hover {
+  color: rgba(20, 36, 59, 0.45);
+  text-decoration: none;
+}
+
+.bf-rail__back:hover span {
+  transform: translateX(-4px);
+}
+
+.bf-rail__back:focus-visible {
+  outline: 1px solid rgba(20, 36, 59, 0.45);
+  outline-offset: 4px;
+  text-decoration: none;
 }
 
 .bf-rail__eyebrow {
@@ -279,13 +316,8 @@ html:has(.brilliant-final) {
   padding: 0;
 }
 
-.bf-hero__stitch {
-  margin: 0;
-  font-family: "Cross Stitch Cursive", cursive;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 34px;
-  color: var(--bf-navy);
+.bf-hero__copy .case-project-kicker {
+  margin: 0 0 4px;
 }
 
 .bf-hero__title {
@@ -391,6 +423,14 @@ html:has(.brilliant-final) {
   min-width: 0;
 }
 
+/* The front phone is rotated past the slot. On a narrow screen that
+   overhang becomes page scroll; keep it inside the phone group. */
+@media (max-width: 480px) {
+  .bf-hero__phones {
+    overflow: hidden;
+  }
+}
+
 .bf-hero__phone {
   position: absolute;
   height: auto;
@@ -462,11 +502,11 @@ html:has(.brilliant-final) {
   position: relative;
   padding: 52px 0;
   border-radius: 20px;
-  background: var(--bf-mist);
+  background: #fff;
   overflow: hidden;
 }
 
-/* Fade only the phones, so the mist band keeps its clean rounded edges. */
+/* Fade the devices at the edges. The white panel stays solid. */
 .bf-marquee__viewport {
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
@@ -1075,26 +1115,12 @@ html:has(.brilliant-final) {
   color: var(--bf-navy);
 }
 
-.bf-ds__grid {
+.brilliant-final .cs-specimens {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
+  gap: 18px;
+  align-items: start;
   margin: 44px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.bf-ds__tile {
-  border-radius: 38px;
-  background: var(--bf-white);
-  box-shadow: 0 2px 6px color-mix(in srgb, var(--bf-navy) 5%, transparent), 0 21px 47px color-mix(in srgb, var(--bf-navy) 5%, transparent);
-  overflow: hidden;
-}
-
-.bf-ds__tile img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 /* ---------- 06 Takeaways ---------- */
@@ -1226,6 +1252,50 @@ html:has(.brilliant-final) {
   }
 }
 
+/* Same desktop column as the other case studies. */
+@media (min-width: 1200px) {
+  .brilliant-final .bf-layout {
+    padding-left: 0;
+    padding-right: 0;
+    column-gap: var(--bf-rail-gap);
+    grid-template-columns: calc(var(--bf-gutter) + var(--bf-rail-w)) minmax(0, 1fr);
+  }
+
+  .brilliant-final .bf-rail-col {
+    box-sizing: border-box;
+    background: #f4f7f9;
+    border-right: 1px solid #d9e0e6;
+    padding-top: 36px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .brilliant-final .bf-rail {
+    width: min(100%, var(--bf-rail-w));
+    margin-inline: auto;
+  }
+
+  .brilliant-final .bf-rail__head {
+    padding-bottom: 18px;
+    background-image: linear-gradient(
+      to right,
+      rgba(20, 36, 59, 0.28) 0 3px,
+      transparent 3px 7px
+    );
+    background-size: 7px 1px;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+  }
+
+  .brilliant-final .bf-rail__nav {
+    margin-top: 22px;
+  }
+
+  .brilliant-final .bf-rail__item:not(.is-active):not(.is-done) .bf-rail__dot {
+    box-shadow: 0 0 0 3px #f4f7f9;
+  }
+}
+
 /* Tighter gutters before the rail collapses. */
 @media (max-width: 1280px) {
   .brilliant-final {
@@ -1251,12 +1321,17 @@ html:has(.brilliant-final) {
 
   .bf-layout {
     display: block;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .bf-rail-col {
     position: sticky;
     top: 0;
     z-index: 9;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
     padding-top: 0;
     padding-bottom: 0;
     margin-inline: calc(-1 * var(--bf-gutter));
@@ -1279,6 +1354,12 @@ html:has(.brilliant-final) {
      the hero states the project name immediately below. */
   .bf-rail__head {
     display: none;
+  }
+
+  .bf-rail__back {
+    margin: 0;
+    flex: none;
+    white-space: nowrap;
   }
 
   .bf-rail__nav {
@@ -1457,8 +1538,10 @@ html:has(.brilliant-final) {
   .bf-decision__cards {
     grid-template-columns: minmax(0, 1fr);
   }
+}
 
-  .bf-ds__grid {
+@media (max-width: 700px) {
+  .brilliant-final .cs-specimens {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -1524,13 +1607,132 @@ html:has(.brilliant-final) {
   .bf-rail__fill,
   .bf-rail__dot,
   .bf-rail__link,
+  .bf-rail__back,
+  .bf-rail__back span,
   .bf-btn {
     transition: none;
+  }
+
+  .bf-rail__back:hover span {
+    transform: none;
   }
 
   .bf-btn:hover,
   .bf-btn:focus-visible {
     transform: none;
+  }
+}
+
+/* Full-width main, constrained inner column.
+   The main cell starts at the sidebar divider. Navy and mist bands
+   stay full width of that cell. Readable content stops at the shared
+   page column and lines up with the other case studies. */
+@media (min-width: 1200px) {
+  .brilliant-final .bf-layout {
+    column-gap: 0;
+  }
+}
+
+.brilliant-final .bf-hero,
+.brilliant-final .bf-meta,
+.brilliant-final .bf-marquee,
+.brilliant-final .bf-persona-section,
+.brilliant-final .bf-cta {
+  box-sizing: border-box;
+  width: min(var(--page-content-width), calc(100% - 2 * var(--bf-pad)));
+  margin-left: var(--bf-pad);
+  margin-right: auto;
+}
+
+.brilliant-final .bf-decisions,
+.brilliant-final .bf-ds,
+.brilliant-final .bf-takeaways {
+  box-sizing: border-box;
+  width: min(100%, calc(var(--page-content-width) + 2 * var(--bf-pad)));
+  margin-right: auto;
+}
+
+.brilliant-final .bf-problem > *,
+.brilliant-final .bf-constraints > * {
+  box-sizing: border-box;
+  max-width: var(--page-content-width);
+  margin-right: auto;
+}
+
+.brilliant-final .bf-decisions__intro {
+  max-width: 68ch;
+}
+
+@media (max-width: 1024px) {
+  .brilliant-final {
+    --bf-pad: 36px;
+  }
+
+  .brilliant-final .bf-layout {
+    padding-inline: 0;
+  }
+
+  .brilliant-final .bf-rail-col {
+    margin-inline: 0;
+    padding-inline: 36px;
+  }
+
+  .brilliant-final .bf-problem,
+  .brilliant-final .bf-constraints {
+    margin-inline: 0;
+    padding-inline: var(--bf-pad);
+  }
+}
+
+@media (max-width: 700px) {
+  .brilliant-final {
+    --bf-pad: 24px;
+  }
+
+  .brilliant-final .bf-rail-col {
+    padding-inline: 24px;
+  }
+}
+
+/* Header and footer stay in the shared page column.
+   The case study itself runs to both screen edges. */
+@media (min-width: 1200px) {
+  .brilliant-final .site-header__inner,
+  .brilliant-final .site-footer__body {
+    width: min(calc(100% - 2 * var(--page-gutter)), var(--page-max));
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: 0;
+    box-sizing: border-box;
+  }
+
+  .brilliant-final .bf-layout {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .brilliant-final .site-header__inner,
+  .brilliant-final .site-footer__body {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    padding-inline: var(--page-gutter);
+    box-sizing: border-box;
+  }
+
+  .brilliant-final .bf-layout {
+    width: 100%;
+    max-width: none;
+    padding-inline: var(--page-gutter);
+    box-sizing: border-box;
+  }
+
+  .brilliant-final .bf-rail-col {
+    margin-inline: 0;
+    padding-inline: 0;
   }
 }
 

@@ -1,5 +1,19 @@
 {
   "cleanUrls": true,
+  "functions": {
+    "api/terraform-content.js": {
+      "includeFiles": "api/terraform-locked.fragment.html"
+    },
+    "api/terraform-prototype.js": {
+      "includeFiles": "api/terraform-private/policy-set.html"
+    },
+    "api/terraform-runtime.js": {
+      "includeFiles": "api/terraform-private/support.js"
+    },
+    "api/terraform-scaling.js": {
+      "includeFiles": "api/terraform-private/scaling/**"
+    }
+  },
   "redirects": [
     {
       "source": "/index.html",
@@ -23,6 +37,11 @@
     },
     {
       "source": "/api/_terraformAuth.js",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/api/terraform-private/:path*",
       "destination": "/",
       "permanent": false
     }

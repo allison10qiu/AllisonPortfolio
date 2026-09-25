@@ -16,6 +16,17 @@
       // Target exists here — page snap script owns the scroll.
       if (document.getElementById(id)) return;
 
+      // Let the browser navigate so the cross-document fade can run.
+      if (
+        "onpagereveal" in window &&
+        !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+      ) {
+        try {
+          sessionStorage.setItem(KEY, id);
+        } catch (err) {}
+        return;
+      }
+
       e.preventDefault();
       try {
         sessionStorage.setItem(KEY, id);

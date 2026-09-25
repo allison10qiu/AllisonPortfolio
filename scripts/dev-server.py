@@ -9,10 +9,12 @@ import hmac
 import json
 import os
 import re
+import socket
+import threading
 from http.cookies import SimpleCookie
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qs, unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 COOKIE_NAME = "terraform_case"
@@ -162,11 +164,139 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
             self.wfile.write(html)
             return
 
-        # Block accidental static access to auth helpers / fragment
+        if path == "/api/terraform-prototype":
+            secret = os.environ.get("TERRAFORM_CASE_SECRET")
+            if not secret:
+                self._json(
+                    500,
+                    {
+                        "ok": False,
+                        "error": "Server configuration error. Password gate is not ready.",
+                    },
+                )
+                return
+            token = self._cookie_token()
+            expected = sign_token(secret)
+            if not token or not hmac.compare_digest(token, expected):
+                self._json(401, {"ok": False, "error": "Unauthorized"})
+                return
+            private = ROOT / "api" / "terraform-private"
+            html = (private / "policy-set.html").read_text(encoding="utf-8")
+            tag = '<script src="./support.js"></script>'
+            if tag not in html:
+                self._json(
+                    500,
+                    {
+                        "ok": False,
+                        "error": "Server configuration error. Password gate is not ready.",
+                    },
+                )
+                return
+            body = html.replace(
+                tag, '<script src="/api/terraform-runtime"></script>', 1
+            ).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("X-Frame-Options", "SAMEORIGIN")
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
+        if path == "/api/terraform-runtime":
+            secret = os.environ.get("TERRAFORM_CASE_SECRET")
+            if not secret:
+                self._json(
+                    500,
+                    {
+                        "ok": False,
+                        "error": "Server configuration error. Password gate is not ready.",
+                    },
+                )
+                return
+            token = self._cookie_token()
+            expected = sign_token(secret)
+            if not token or not hmac.compare_digest(token, expected):
+                self._json(401, {"ok": False, "error": "Unauthorized"})
+                return
+            body = (ROOT / "api" / "terraform-private" / "support.js").read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "text/javascript; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
+        if path == "/api/terraform-scaling":
+            allowed = {
+                "superselect-ro.png",
+                "superselect-empty.png",
+                "select-ro.png",
+                "select-empty.png",
+                "select-edit.png",
+                "toggle-ro.png",
+                "toggle-empty.png",
+                "toggle-edit.png",
+                "checkbox-ro.png",
+                "checkbox-empty.png",
+                "checkbox-edit.png",
+                "radio-ro.png",
+                "radio-edit.png",
+                "masked-ro.png",
+                "masked-edit.png",
+                "textinput-ro.png",
+                "textinput-empty.png",
+                "textinput-edit.png",
+                "textarea-ro.png",
+                "textarea-empty.png",
+                "textarea-edit.png",
+                "radiocard-ro.png",
+                "radiocard-edit.png",
+            }
+            qs = parse_qs(parsed.query)
+            name = (qs.get("name") or [""])[0]
+            if name not in allowed:
+                self._json(404, {"ok": False, "error": "Not found"})
+                return
+            secret = os.environ.get("TERRAFORM_CASE_SECRET")
+            if not secret:
+                self._json(
+                    500,
+                    {
+                        "ok": False,
+                        "error": "Server configuration error. Password gate is not ready.",
+                    },
+                )
+                return
+            token = self._cookie_token()
+            expected = sign_token(secret)
+            if not token or not hmac.compare_digest(token, expected):
+                self._json(401, {"ok": False, "error": "Unauthorized"})
+                return
+            scaling_dir = (ROOT / "api" / "terraform-private" / "scaling").resolve()
+            file_path = (scaling_dir / name).resolve()
+            if file_path.parent != scaling_dir or not file_path.is_file():
+                self._json(404, {"ok": False, "error": "Not found"})
+                return
+            body = file_path.read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "image/png")
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("X-Content-Type-Options", "nosniff")
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
+        # Block accidental static access to auth helpers / fragment / prototype
         if path in (
             "/api/terraform-locked.fragment.html",
             "/api/_terraformAuth",
             "/api/_terraformAuth.js",
+        ) or path == "/api/terraform-private" or path.startswith(
+            "/api/terraform-private/"
         ):
             self.send_error(404, "Not Found")
             return
@@ -202,13 +332,36 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
         sys_stdout.write("%s - %s\n" % (self.address_string(), fmt % args))
 
 
+class IPv6HTTPServer(ThreadingHTTPServer):
+    address_family = socket.AF_INET6
+
+    def server_bind(self):
+        self.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 1)
+        super().server_bind()
+
+
+def listen(host: str, port: int):
+    # Browsers resolve "localhost" to ::1 first. A 127.0.0.1-only socket
+    # makes that tab fail, so loopback listens on both families.
+    if host in {"127.0.0.1", "localhost", "::1"}:
+        servers = [
+            ThreadingHTTPServer(("127.0.0.1", port), CleanUrlHandler),
+            IPv6HTTPServer(("::1", port), CleanUrlHandler),
+        ]
+    else:
+        servers = [ThreadingHTTPServer((host, port), CleanUrlHandler)]
+    for server in servers:
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+    return servers
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=3000)
     args = parser.parse_args()
-    server = ThreadingHTTPServer((args.host, args.port), CleanUrlHandler)
-    print(f"Serving {ROOT} with cleanUrls at http://127.0.0.1:{args.port}/")
+    servers = listen(args.host, args.port)
+    print(f"Serving {ROOT} with cleanUrls at http://localhost:{args.port}/")
     if os.environ.get("TERRAFORM_CASE_PASSWORD") and os.environ.get(
         "TERRAFORM_CASE_SECRET"
     ):
@@ -219,9 +372,11 @@ def main():
             "TERRAFORM_CASE_SECRET to .env.local"
         )
     try:
-        server.serve_forever()
+        threading.Event().wait()
     except KeyboardInterrupt:
         print("\nStopped.")
+        for server in servers:
+            server.shutdown()
 
 
 if __name__ == "__main__":

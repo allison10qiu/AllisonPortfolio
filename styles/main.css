@@ -116,11 +116,12 @@ body {
   --home-stamp-resume-h: 65.5px;
   --home-nav-gap: 28px;
 
-  /* Layout · 1440 canvas · 140px gutters → 1160px content column */
-  --page-max-width: 1440px;
-  --page-gutter: 140px;
+  /* Outer frame. Content stops at 1360px; side space is at least the gutter. */
+  --page-max: 1360px;
+  --page-gutter: 80px;
+  --page-max-width: var(--page-max);
   --page-content-width: 1160px;
-  --page-gutter-mobile: 20px;
+  --page-gutter-mobile: 22px;
   --text-max-width: none; /* full content column on case studies */
   --text-measure: 720px; /* optional narrow prose when explicitly scoped */
 
@@ -152,6 +153,36 @@ body {
   --case-body-lh: var(--type-body-lh);
   --case-meta-size: var(--type-meta-size);
   --case-label-size: var(--type-label-size);
+
+  /* Editorial system · Home, About, shared chrome */
+  --navy: #14243b;
+  --white: #ffffff;
+  --off-white: #f7f8fa;
+  --blue-gray: #eef1f4;
+  --text-primary: #14243b;
+  --text-secondary: rgba(20, 36, 59, 0.72);
+  --rule: rgba(20, 36, 59, 0.16);
+  --shadow-soft: 0 12px 32px rgba(20, 36, 59, 0.1);
+  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --page-gutter: 60px;
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --page-gutter: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-gutter: 22px;
+  }
 }
 
 /*
@@ -548,11 +579,7 @@ body:has(.canvas-wrapper) {
   -webkit-user-drag: none;
 }
 
-/* Seamless curtain wipe: cover current page → navigate while covered → reveal.
-   html.aq-wipe-cover::before paints on first paint (no flash of the next page). */
-@view-transition {
-  navigation: none;
-}
+/* Cross-document view transitions are declared in styles/page-transitions.css. */
 
 :root {
   --vt-wipe-bg: #ffffff;

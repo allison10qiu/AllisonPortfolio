@@ -1,388 +1,470 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="description" content="Operation Safe Escape — FLOW case management platform case study by Allison Qiu">
-  <title>Operation Safe Escape · Allison Qiu</title>
-  <link rel="stylesheet" href="../styles/main.css?v=headerContexts1">
-  <link rel="stylesheet" href="../styles/brilliant.css?v=headerCompactAbout1">
-  <link rel="stylesheet" href="../styles/ose.css?v=width1">
+<script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/assets/shared/favicon-aq.svg?v=aqheart" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="Operation Safe Escape — making case information easier to find when time matters. Case study by Allison Qiu." name="description"/>
+<title>Operation Safe Escape · Allison Qiu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/main.css?v=headerContexts1" rel="stylesheet"/>
+<link href="../styles/brilliant.css?v=specimen1" rel="stylesheet"/>
+<link href="../styles/editorial.css?v=editorial8" rel="stylesheet"/>
+<link href="../styles/case-shell.css?v=railgap4" rel="stylesheet"/>
+<link href="../styles/motion.css?v=motion6" rel="stylesheet"/>
+<link href="../styles/page-transitions.css?v=tx8" rel="stylesheet"/>
+<style>
+  /* Square 2000×2000 recordings. Crop to the same laptop frame as the stills
+     so the box does not grow to a square once the video starts. */
+  .ose-page.case-final .cs-body .ose-shot {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1078 / 700;
+    overflow: hidden;
+    background: transparent;
+  }
+  .ose-page.case-final .cs-body .ose-shot--phone {
+    width: min(100%, 280px);
+    aspect-ratio: 255 / 480;
+    justify-self: center;
+    margin-inline: auto;
+  }
+  .ose-page.case-final .cs-body .ose-shot .ose-feature__video {
+    position: absolute;
+    left: 0;
+    top: -27%;
+    display: block;
+    width: 100%;
+    height: 154%;
+    max-width: none !important;
+    object-fit: contain;
+    background: transparent;
+  }
+  .ose-page.case-final .cs-body .ose-shot--phone .ose-feature__video {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+</style>
 </head>
-<body class="bc-page ose-page">
-  <div class="bc-canvas-wrapper">
-    <div class="bc-canvas">
-  <header class="bc-header">
-    <div class="bc-header__inner">
-      <nav class="bc-header__nav" aria-label="Primary">
-        <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="Work">
-          <img src="../assets/ose/nav-work.png?v=lace1" alt="" width="164" height="363">
-        </a>
-        <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me">
-          <img src="../assets/ose/nav-about.png?v=lace1" alt="" width="370" height="150">
-        </a>
-        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-          <img src="../assets/ose/nav-resume.png?v=lace1" alt="" width="384" height="166">
-        </a>
-      </nav>
-      <a class="bc-header__name" href="/">allison qiu</a>
-    </div>
-  </header>
+<body class="bc-page ose-page case-final" data-tx-project="operation-safe-escape">
+<div id="tx-cover" aria-hidden="true"></div>
+<script src="../scripts/tx-cover.js?v=tx6"></script>
+<div class="bc-canvas-wrapper">
+<div class="bc-canvas">
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
+  <img class="site-header__mark" src="../assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+  <span class="site-header__aq" aria-hidden="true">AQ</span>
+</a>
+<nav class="site-header__nav" aria-label="Primary">
+<a class="site-header__link" href="/" data-scroll-to="my-work" aria-current="page">Work <img class="site-header__marklet" src="../assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+<a class="site-header__link" href="/about">About</a>
+<a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+</nav>
+</div>
+</header>
+<main class="bf-main">
+<div class="bf-layout">
+<div class="bf-rail-col">
+<div class="bf-rail">
+<a class="bf-rail__back" href="/#my-work"><span aria-hidden="true">←</span> Back to Projects</a>
+<div class="bf-rail__head">
+<p class="bf-rail__eyebrow">Case study</p>
+<p class="bf-rail__title">Operation Safe Escape</p>
+</div>
+<nav aria-label="Case study sections" class="bf-rail__nav">
+<span aria-hidden="true" class="bf-rail__fill"></span>
+<ul class="bf-rail__list">
+<li class="bf-rail__item is-active">
+<a class="bf-rail__link" data-bf-scroll="problem" href="#problem">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Problem</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="users" href="#users">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Who we designed for</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="considerations" href="#considerations">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Considerations</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="design-system" href="#design-system">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Design system</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="solution" href="#solution">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Final product</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="outcome" href="#outcome">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Outcome &amp; reflection</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="bf-content">
+<div class="cs-body" data-screen-label="Operation Safe Escape case study">
+<div style="padding:8px var(--cs-x) 0">
+<p class="case-project-kicker">operation safe escape</p>
+<div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,0.85fr);gap:44px;align-items:center">
+<div>
+<h1 style="margin:0 0 26px;font:400 74px/104% 'Instrument Serif',serif;letter-spacing:-.01em">Making case information easier to find when time matters</h1>
+<p style="margin:0 0 28px;max-width:600px;font:400 19px/158% 'Satoshi',sans-serif">Operation Safe Escape supports survivors of domestic violence, stalking, and harassment. I designed several flows for FLOW, a secure case management platform that replaced parts of their email-and-spreadsheet process with one centralized system.</p>
+<div style="display:flex;align-items:center;gap:26px">
+<a href="#solution" style="display:inline-block;padding:19px 34px;border-radius:999px;background:#14243B;color:#fff;font:500 16px/1 'Satoshi',sans-serif">Jump to the final product</a>
+<span style="font:400 15px/1 'Satoshi',sans-serif;opacity:.7">6 min read</span>
+</div>
+</div>
+<div style="position:relative;min-width:0;aspect-ratio:400/308">
+<img alt="Survivor case dashboard" src="../assets/home/ose.png?v=clear1" style="position:absolute;left:0;top:0;width:82%;height:auto;filter:drop-shadow(0 16px 30px rgba(20,36,59,.18))">
+<img alt="Survivor case card" src="../assets/ose/feature-case-card-clear.png?v=hq1" style="position:absolute;right:0;bottom:0;width:82%;height:auto;z-index:2;filter:drop-shadow(0 20px 36px rgba(20,36,59,.22))">
+</img></img></div>
+</div>
+</div>
+<div style="padding:56px var(--cs-x) 0">
+<section class="bf-meta" aria-label="Project details">
+<div class="bf-meta__item">
+<p class="bf-meta__label">Timeline</p>
+<p class="bf-meta__value">Sept – Dec 2025</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Role</p>
+<p class="bf-meta__value">Product Designer</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Scope</p>
+<p class="bf-meta__value">Specific flows within FLOW</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Focus</p>
+<ul class="bf-meta__list">
+<li>Product Design</li>
+<li>Research</li>
+<li>Design Systems</li>
+</ul>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Client</p>
+<p class="bf-meta__value">Operation Safe Escape</p>
+</div>
+</section>
+</div>
+<div style="padding:40px var(--cs-x) 0">
+<div class="cs-strip">
+<div class="cs-device-row" data-showcase="1">
+<img alt="Survivor case dashboard" src="../assets/home/ose.png?v=clear1">
+<img alt="Survivor case card" src="../assets/ose/feature-case-card-clear.png?v=hq1">
+<img alt="Secure messaging" src="../assets/ose/feature-messaging-clear.png?v=clear1">
+<img alt="Form builder" src="../assets/ose/feature-form-builder-clear.png?v=clear1">
+<img alt="Mobile-first survivor intake" class="is-phone" src="../assets/ose/feature-intake-clear.png?v=clear1">
+</div>
+</div>
+</div>
+<div id="problem" style="margin-top:72px;background:#14243B;color:#fff;padding:78px var(--cs-x) 86px">
+<div style="display:grid;grid-template-columns:minmax(0,0.36fr) minmax(0,1fr);gap:48px;align-items:start">
+<div>
+<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+<span data-sec="01" style="font:700 32px/1 'Satoshi',sans-serif;color:#fff">01</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Problem</span>
+</div>
+<h2 style="margin:0 0 16px;font:400 40px/122% 'Instrument Serif',serif;color:#fff">OSE was managing hundreds of cases through email and spreadsheets.</h2>
+<p style="margin:0;font:400 16px/158% 'Satoshi',sans-serif;color:#fff">For a small team, keeping up with that information took time away from supporting survivors.</p>
+</div>
+<div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;padding:24px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="font:400 40px/1 'Instrument Serif',serif;color:#fff">01</span>
+<p style="margin:0;font:400 18px/158% 'Satoshi',sans-serif;color:#fff">OSE tracked survivor cases through email threads and spreadsheets while working with a small staff and volunteer team.</p>
+</div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;padding:24px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="font:400 40px/1 'Instrument Serif',serif;color:#fff">02</span>
+<p style="margin:0;font:400 18px/158% 'Satoshi',sans-serif;color:#fff">That made case history harder to follow and left the team without one consistent place to review what had already happened.</p>
+</div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;padding:24px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="font:400 40px/1 'Instrument Serif',serif;color:#fff">03</span>
+<p style="margin:0;font:400 18px/158% 'Satoshi',sans-serif;color:#fff">Admins and volunteers could spend time piecing together information before they could figure out what someone needed next.</p>
+</div>
+</div>
+</div>
+<div style="margin-top:56px;background:#fff;color:#14243B;padding:var(--cs-x) 64px;border-radius:24px;text-align:center">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px">Problem statement</span>
+<p style="margin:0 auto;max-width:900px;font:400 34px/134% 'Instrument Serif',serif">OSE needed a secure way for admins and volunteers to understand a case quickly, keep its history in one place, and hand work off without losing context.</p>
+</div>
+</div>
+<div id="users" style="padding:76px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:28px">
+<span data-sec="02" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">02</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Who we designed for</span>
+</div>
+<div style="display:grid;grid-template-columns:265px minmax(0,1fr);align-items:stretch;background:#FFFFFF;border-radius:24px;overflow:hidden;box-sizing:border-box;box-shadow:0 10px 30px rgba(20,36,59,.1),0 1px 3px rgba(20,36,59,.06)">
+<div style="position:relative;background:#EDF2F5;align-self:stretch;justify-self:center;width:100%;max-width:477px;max-height:586px;overflow:hidden">
+<img alt="Portrait of persona Robert Gomez" src="../assets/ose/persona.png?v=case1" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:52px 22px 18px;background:linear-gradient(to top,rgba(20,36,59,.92) 0%,rgba(20,36,59,.7) 48%,rgba(20,36,59,0) 100%)">
+<span style="display:block;font:700 20px/1.2 'Satoshi',sans-serif;color:#fff">Robert Gomez</span>
+<span style="display:block;margin-top:4px;font:400 13px/1.3 'Satoshi',sans-serif;color:#fff">OSE volunteer</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;padding:30px 34px;box-sizing:border-box">
+<div>
+<span style="font:400 21px/142% 'Instrument Serif',serif;color:#14243B">“I need to know in seconds what this person needs from me right now, not spend ten minutes piecing it together.”</span>
+</div>
+<div style="height:1px;background:rgba(20,36,59,.18)"></div>
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:8px">What he needs</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">To open a case and understand how urgent it is, what the survivor needs, and what has already happened — then leave a <strong style="font-weight:700">clear update for whoever works on it next</strong>.</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(20,36,59,.18);border-bottom:1px solid rgba(20,36,59,.18)">
+<div style="padding:20px 20px 20px 0;border-right:1px solid rgba(20,36,59,.18);box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Access</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">Only his assigned cases</span>
+</div>
+<div style="padding:20px;border-right:1px solid rgba(20,36,59,.18);border-top:none;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Handoff</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">Depends on others’ notes</span>
+</div>
+<div style="padding:20px 0 20px 20px;border-top:none;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Records</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">Sensitive, secure login</span>
+</div>
+</div>
+<div style="margin-top:auto">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:8px">Where he came from</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#14243B">Robert represents the volunteers OSE relies on alongside its small staff. I don’t have interview notes from this project, so he stands for the volunteer workflow described to us rather than a specific person I spoke to.</span>
+</div>
+</div>
+</div>
+</div>
+<div id="considerations" style="margin-top:76px;background:#EDF2F5;padding:70px var(--cs-x) 76px">
+<div style="display:grid;grid-template-columns:minmax(0,0.36fr) minmax(0,1fr);gap:48px;align-items:start">
+<div>
+<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+<span data-sec="03" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">03</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Considerations</span>
+</div>
+<h2 style="margin:0;font:400 36px/124% 'Instrument Serif',serif">Safety shaped every part of the workflow.</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px">
+<div style="padding:22px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">Privacy above all</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif">FLOW handles sensitive information about people seeking help, so privacy and safety had to come before convenience.</p>
+</div>
+<div style="padding:22px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">An ongoing process</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif">A case can move between survivors, admins, and volunteers over time. The workflow needed to preserve enough history that someone new could understand what had already happened.</p>
+</div>
+<div style="padding:22px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">A lot of information per case</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif">Each case could contain a lot of information. I focused on making the most important details easy to find first, with deeper information available when someone needed it.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="design-system" style="padding:76px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:14px">
+<span data-sec="04" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">04</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Design system</span>
+</div>
+<div>
+<div style="display:flex;flex-direction:column;gap:16px;max-width:680px">
+<h2 style="margin:0;max-width:520px;font:400 40px/124% 'Instrument Serif',serif">We needed a system the whole platform could share.</h2>
+<p style="margin:0;font:400 17px/155% 'Satoshi',sans-serif">OSE didn't have a full product design system when we started, so we built the components FLOW needed around its existing logo and typography. Establishing those patterns early helped the different parts of the platform feel like the same product.</p>
+</div>
+<div class="cs-specimens cs-specimens--grid cs-specimens--compact">
+<article class="cs-specimen">
+<span class="cs-specimen__label">Colors</span>
+<div class="cs-specimen__media">
+<img alt="FLOW color palette" src="../assets/ose/ds-colours.png?v=case1" width="510" height="1192">
+</div>
+</article>
+<article class="cs-specimen">
+<span class="cs-specimen__label">Buttons</span>
+<div class="cs-specimen__media">
+<img alt="FLOW buttons" src="../assets/ose/ds-buttons.png?v=case1" width="692" height="1094">
+</div>
+</article>
+<article class="cs-specimen">
+<span class="cs-specimen__label">Forms</span>
+<div class="cs-specimen__media">
+<img alt="FLOW form components" src="../assets/ose/ds-forms.png?v=case1" width="692" height="1094">
+</div>
+</article>
+<article class="cs-specimen">
+<span class="cs-specimen__label">Additional components</span>
+<div class="cs-specimen__media">
+<img alt="Additional FLOW components" src="../assets/ose/ds-additional.png?v=case1" width="692" height="1498">
+</div>
+</article>
+</div>
+</div>
+</div>
+<div id="solution" style="padding:78px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:14px">
+<span data-sec="05" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">05</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Final product</span>
+</div>
+<h2 style="margin:0 0 12px;max-width:880px;font:400 40px/124% 'Instrument Serif',serif">One place to understand a case, update it, and pass it along.</h2>
+<div class="cs-decisions" style="margin-top:44px">
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">01</span>
+<span class="cs-decision__kicker">Feature 01</span>
+</div>
+<h3 class="cs-decision__title">Survivor case dashboard</h3>
+<div class="cs-decision__row">
+<div class="ose-shot">
+<video aria-label="Survivor case dashboard" class="ose-feature__video" loop="" muted="" playsinline="" poster="../assets/ose/feature-dashboard.png?v=hq1" preload="metadata"><source src="../assets/videos/ose-survivor-case-dashboard.mp4?v=ose1" type="video/mp4"/></video>
+</div>
+<div>
+<p style="margin:0 0 18px;font:400 17px/156% 'Satoshi',sans-serif">The dashboard puts every case in one place, so an admin can tell status, priority, and case type apart without opening each one.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Sortable columns for name, status, priority, and case type let admins reorder the list</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Color-coded priority and case type tags show urgency without opening a case</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Export Cases to CSV replaces documentation OSE was putting together by hand for law enforcement</div>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">02</span>
+<span class="cs-decision__kicker">Feature 02</span>
+</div>
+<h3 class="cs-decision__title">Survivor case card</h3>
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Survivor case card" src="../assets/ose/feature-case-card-clear.png?v=hq1"/>
+<div>
+<p style="margin:0 0 18px;font:400 17px/156% 'Satoshi',sans-serif">Opening a case brings the important information into one view, so an admin or volunteer isn't piecing the story together from separate records.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Edit and per-case CSV export let admins update or document one case without leaving the view</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Send Account Creation Email replaces the email admins were sending manually after escalating a case</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Priority, status, and case type stay visible on the left, so context stays with the case</div>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">03</span>
+<span class="cs-decision__kicker">Feature 03</span>
+</div>
+<h3 class="cs-decision__title">Secure messaging</h3>
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Secure messaging" src="../assets/ose/feature-messaging.png?v=hq1"/>
+<div>
+<p style="margin:0 0 18px;font:400 17px/156% 'Satoshi',sans-serif">Secure messaging gives survivors, volunteers, and admins one place to talk instead of personal email threads.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Color-coded typing profiles separate internal from external users</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Blue for survivors, purple for volunteers, and red for admins</div>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">04</span>
+<span class="cs-decision__kicker">Feature 04</span>
+</div>
+<h3 class="cs-decision__title">Form builder</h3>
+<div class="cs-decision__row">
+<div class="ose-shot">
+<video aria-label="Form builder" class="ose-feature__video" loop="" muted="" playsinline="" poster="../assets/ose/feature-form-builder.png?v=hq1" preload="metadata"><source src="../assets/videos/ose-form-builder.mp4?v=ose1" type="video/mp4"/></video>
+</div>
+<div>
+<p style="margin:0 0 18px;font:400 17px/156% 'Satoshi',sans-serif">The Form Builder lets OSE update forms like its intake questionnaire without needing a developer every time a question changes.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Multiple question types let admins pick the right input for each question</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Preview and publish let them test a form before it reaches a survivor</div>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">05</span>
+<span class="cs-decision__kicker">Feature 05</span>
+</div>
+<h3 class="cs-decision__title">Mobile-first survivor intake</h3>
+<div class="cs-decision__row">
+<div class="ose-shot ose-shot--phone">
+<video aria-label="Mobile-first survivor intake" class="ose-feature__video" loop="" muted="" playsinline="" poster="../assets/ose/feature-intake.png?v=ose3" preload="metadata"><source src="../assets/videos/ose-mobile-first-form.mp4?v=ose1" type="video/mp4"/></video>
+</div>
+<div>
+<p style="margin:0 0 18px;font:400 17px/156% 'Satoshi',sans-serif">I designed the intake flow around mobile, since a phone may be the only device someone has when they need to fill it out.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Safety Exit stays fixed on every screen instead of moving between steps</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">The intro sets expectations up front: how long it takes, that skipping is fine, that it stays confidential</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">A progress bar and section counter show how much is left without anyone having to keep track</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div id="outcome" style="padding:76px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:14px">
+<span data-sec="06" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">06</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Outcome &amp; reflection</span>
+</div>
+<h2 style="margin:0 0 32px;max-width:780px;font:400 40px/124% 'Instrument Serif',serif">What we handed over, and what I took from it.</h2>
+<div style="display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1fr);gap:20px 48px;align-items:start">
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">Delivered work</span>
+<p style="margin:0 0 14px;font:400 17px/154% 'Satoshi',sans-serif">The flows I designed inside FLOW: the survivor case dashboard, the case card, secure messaging, the form builder, and the mobile-first intake.</p>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">OSE doesn't have developers on staff, so the form builder mattered as much as the screens did. It's how their team keeps forms up to date after handoff.</p>
+</div>
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">Reflection</span>
+<div style="padding:16px 0;border-top:1px solid rgba(20,36,59,.22);font:400 17px/154% 'Satoshi',sans-serif">Most of my earlier projects were about making a task faster. Here privacy and safety came before convenience, and that changed which options were even on the table.</div>
+<div style="padding:16px 0;border-top:1px solid rgba(20,36,59,.22);font:400 17px/154% 'Satoshi',sans-serif">A case moves between survivors, admins, and volunteers, so keeping its history attached to it was part of the design. Whoever picks it up next needs to know what already happened.</div>
+<div style="padding:16px 0;border-top:1px solid rgba(20,36,59,.22);font:400 17px/154% 'Satoshi',sans-serif">Sortable lists and CSV exports weren't the exciting parts, but they replaced work OSE was doing by hand. I pay more attention now to whether a feature actually takes work off someone's plate.</div>
+</div>
+</div>
+</div>
+</div>
+<p class="bf-cta">
+<a class="bf-btn" data-scroll-to="my-work" href="/">Check out my other work!</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<img class="site-footer__lace" src="../assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+<div class="site-footer__body">
+<div class="site-footer__top">
+<div>
+<p class="site-footer__hello">Say hi</p>
+<a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+</div>
+<nav class="site-footer__nav" aria-label="Footer">
+<a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+<a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+<a href="/about">About</a>
+</nav>
+</div>
 
-  <main class="bc-main">
-    <section class="bc-intro">
-      <h1 class="bc-title ose-title">Operation Safe Escape Support Dashboard + Survivor Form Collection</h1>
-      <div class="bc-intro__stack">
-        <p class="bc-lede">
-          Operation Safe Escape (OSE) helps survivors of domestic violence, stalking, and harassment stay safe and rebuild their lives, supporting <strong>over 750 survivors and their families in 2024 alone</strong>. I helped design <strong>FLOW</strong>, a secure case management platform that <strong>replaced</strong> OSE's <strong>manual</strong> email-and-spreadsheet process with <strong>one centralized system</strong>, so admins and volunteers could support more survivors, <strong>faster</strong> and <strong>more safely</strong>.
-        </p>
-        <div class="bc-jump">
-          <p class="bc-jump__label">SHORT ON TIME?</p>
-          <button type="button" class="bc-btn" data-scroll-to="solution">Jump to Final Product</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-hero ose-hero" aria-label="Product preview">
-      <div class="ose-hero__slot">
-        <div class="ose-hero__media">
-          <img
-            src="../assets/ose/hero.png?v=figmaFill1"
-            alt="FLOW platform laptop mockups — login, dashboard, case card, messaging, form builder, and intake"
-            width="2000"
-            height="2000"
-          >
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-meta" aria-label="Project details">
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TIMELINE</p>
-        <p class="bc-meta__value">Sept 2025 - Dec 2025</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TOOLS</p>
-        <p class="bc-meta__value">Figma</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">ROLE</p>
-        <p class="bc-meta__value">Product Designer</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">SKILLS</p>
-        <ul class="bc-meta__list">
-          <li>Product Design</li>
-          <li>User Research</li>
-          <li>Design Systems</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="bc-section" id="problem">
-      <div class="bc-heading">
-        <h2>Problem</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <p class="bc-body">
-        OSE was tracking every survivor case <strong>by hand</strong>, through email threads and spreadsheets, while <strong>supporting hundreds</strong> of families a year with a small staff and volunteer base. That meant <strong>fragmented records</strong>, no consistent way to review a case, and <strong>no reliable trail</strong> if law enforcement ever needed one. It also meant admins and volunteers were <strong>burning</strong> limited hours on manual admin work, like re-explaining case history over email or hunting through a spreadsheet, instead of spending that time on survivors directly. Our <strong>goal</strong> was to <strong>design</strong> a platform that made intake, case review, and follow-up <strong>faster</strong>, so OSE's small team could <strong>support</strong> more survivors without needing to grow their staff just to keep up.
-      </p>
-    </section>
-
-    <aside class="bc-callout" aria-label="Problem statement">
-      <p class="bc-callout__label">PROBLEM STATEMENT</p>
-      <p class="bc-callout__text">
-        OSE's manual, spreadsheet-based process left admins and volunteers without a fast, reliable way to track and support survivors, at real cost to people who needed help now.
-      </p>
-    </aside>
-
-    <section class="bc-section" id="users">
-      <div class="bc-heading">
-        <h2>Understanding the Users</h2>
-      </div>
-      <div class="bc-persona ose-persona">
-        <div class="bc-persona__left">
-          <p class="bc-persona__eyebrow">PERSONA</p>
-          <p class="bc-persona__name">Robert Gomez</p>
-          <img
-            class="bc-persona__photo"
-            src="../assets/ose/persona.png?v=ose1"
-            alt="Portrait of persona Robert Gomez"
-            width="1593"
-            height="1904"
-          >
-        </div>
-        <div class="bc-persona__right">
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">ABOUT</p>
-            <p class="bc-persona__row">
-              <img src="../assets/ose/icon-user.svg" alt="" width="16" height="16">
-              <span>OSE Volunteer</span>
-            </p>
-            <p class="bc-persona__row">
-              <img src="../assets/ose/icon-sad.svg" alt="" width="16" height="16">
-              <span>Only has a few minutes between other commitments to check in on his cases, and can't afford to dig through pages of notes to figure out what's going on</span>
-            </p>
-            <p class="bc-persona__row bc-persona__row--quote">
-              <img src="../assets/ose/icon-quote.svg" alt="" width="16" height="16">
-              <span>"I need to know in seconds what this person needs from me right now, not spend ten minutes piecing it together."</span>
-            </p>
-          </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">PAIN POINTS</p>
-            <ul class="bc-bullets">
-              <li>Only sees the cases assigned to him, but still has to hunt for the important details within each one</li>
-              <li>Can't tell at a glance how urgent a case is or what's already been done</li>
-              <li>Depends on other volunteers and admins leaving clear notes, if they don't, he's working blind</li>
-              <li>Needs to log in and communicate securely, knowing how sensitive this data is</li>
-            </ul>
-          </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">NEEDS:</p>
-            <p class="bc-body bc-body--tight">
-              Robert needs to open a case and immediately know how urgent it is, what the survivor needs, and what's already happened, so his limited volunteer hours go toward actually helping someone instead of piecing together context. He also needs a secure way to log her own updates so the next person isn't starting from scratch.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-section bc-section--stack" id="design-system">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Creating a Design System</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          OSE Didn't have an existing design system, only a logo and the fonts from their website, so we had to build our own components from scratch and decide early on which patterns we would keep consistent across the whole platform.
-        </p>
-      </div>
-      <div class="ose-ds" aria-label="Design system samples">
-        <img class="ose-ds__tile ose-ds__tile--colours" src="../assets/ose/ds-colours.png?v=ose2" alt="FLOW color palette" width="510" height="1192">
-        <img class="ose-ds__tile ose-ds__tile--buttons" src="../assets/ose/ds-buttons.png?v=ose2" alt="FLOW button components" width="692" height="1094">
-        <img class="ose-ds__tile ose-ds__tile--forms" src="../assets/ose/ds-forms.png?v=ose2" alt="FLOW form components" width="692" height="1094">
-        <img class="ose-ds__tile ose-ds__tile--additional" src="../assets/ose/ds-additional.png?v=ose2" alt="FLOW additional components" width="692" height="1498">
-      </div>
-    </section>
-
-    <section class="bc-section" id="considerations">
-      <div class="bc-heading">
-        <h2>Project Considerations</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <ol class="bc-numbered">
-        <li>Unlike typical internal software, Safe Escape handles sensitive data for people actively fleeing abuse, so I designed every screen to protect survivor privacy and safety above all else.</li>
-        <li>Because supporting a survivor is an ongoing process rather than a single interaction, I mapped out workflows that seamlessly connect survivors, admins, and assigned volunteers throughout the case.</li>
-        <li>Since each case contained a massive amount of data, I structured the information to give volunteers what they needed in the first few seconds while keeping deeper details easily accessible.</li>
-      </ol>
-    </section>
-
-    <section class="bc-section bc-section--stack" id="solution">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Solution</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          FLOW gives OSE's admins and volunteers one secure platform to track survivor cases, prioritize who needs help most urgently, and keep the kind of reliable records OSE can act on and hand off when it counts.
-        </p>
-      </div>
-
-      <article class="ose-feature">
-        <div class="ose-feature__media-wrap">
-          <video
-            class="ose-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/ose/feature-dashboard.png?v=ose3"
-            aria-label="Survivor Case Dashboard on a laptop"
-          >
-            <source src="../assets/videos/ose-survivor-case-dashboard.mp4?v=ose1" type="video/mp4">
-          </video>
-        </div>
-        <div class="ose-feature__copy">
-          <h3>Survivor Case Dashboard</h3>
-          <p>This is the home screen admins land on to see every case at a glance instead of scrolling through a spreadsheet. A new, unassigned case visually stands out from a completed one, so admins spend less time reopening cases that don't need it and more time on the ones that do.</p>
-          <ul class="bc-bullets">
-            <li>Sortable columns (Name, Status, Priority, Case Type) let admins reorder the list by whatever matters most in the moment</li>
-            <li>Color-coded priority and case type tags make urgency and category scannable without opening a case</li>
-            <li>“Export Cases to CSV” automates the documentation process that OSE was manually completing for law enforcement</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="ose-feature ose-feature--flip">
-        <div class="ose-feature__copy">
-          <h3>Survivor Case Card</h3>
-          <p>This card view pulls a survivor’s information into one centralized pop-up, making it easy for admins and volunteers to review at a glance.</p>
-          <ul class="bc-bullets">
-            <li>"Edit" and per-case "Export Case to CSV" let admins update or document a single case without leaving the detail view</li>
-            <li>“Send Account Creation Email” automates the account creation email that admins and volunteers would have to send to survivors after escalating a case</li>
-            <li>Priority, status, and case type stay visible on the left side, so that admins and volunteers don’t lose context once they click into a case</li>
-          </ul>
-        </div>
-        <img
-          class="ose-feature__media"
-          src="../assets/ose/feature-case-card.png?v=ose3"
-          alt="Survivor Case Card modal on a laptop"
-          width="1388"
-          height="902"
-        >
-      </article>
-
-      <article class="ose-feature">
-        <img
-          class="ose-feature__media"
-          src="../assets/ose/feature-messaging.png?v=ose3"
-          alt="Secure messaging screen on a laptop"
-          width="1388"
-          height="902"
-        >
-        <div class="ose-feature__copy">
-          <h3>Secure Messaging</h3>
-          <p>This is where admins and volunteers can message a survivor directly instead of going back and forth over personal email. This keeps the communication between OSE and the survivor confidential without getting information lost in email threads.</p>
-          <ul class="bc-bullets">
-            <li>Color coded typing profiles help admin and volunteers differentiate between internal and external users</li>
-            <li>Blue → Survivors</li>
-            <li>Purple → Volunteers</li>
-            <li>Red → Admin</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="ose-feature ose-feature--flip">
-        <div class="ose-feature__copy">
-          <h3>OSE Form Builder</h3>
-          <p>Admins can build and edit internal forms, like the intake questionnaire, themselves, instead of needing a developer every time OSE wants to change a question. That gives OSE the freedom to customize and roll out new forms as their needs grow, without being limited by engineering resources.</p>
-          <ul class="bc-bullets">
-            <li>Multiple question type options allows admins to select between diverse inputs for each question</li>
-            <li>Ability to preview and publish the form allows admins to test the form before it reaches a survivor</li>
-          </ul>
-        </div>
-        <div class="ose-feature__media-wrap">
-          <video
-            class="ose-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/ose/feature-form-builder.png?v=ose3"
-            aria-label="OSE Form Builder on a laptop"
-          >
-            <source src="../assets/videos/ose-form-builder.mp4?v=ose1" type="video/mp4">
-          </video>
-        </div>
-      </article>
-
-      <article class="ose-feature ose-feature--phone">
-        <div class="ose-feature__phone-wrap">
-          <video
-            class="ose-feature__phone-video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/ose/feature-intake.png?v=ose3"
-            aria-label="Mobile-first survivor intake form"
-          >
-            <source src="../assets/videos/ose-mobile-first-form.mp4?v=ose1" type="video/mp4">
-          </video>
-        </div>
-        <div class="ose-feature__copy">
-          <h3>Mobile-First Survivor Intake Form</h3>
-          <p>This is the intake form a survivor fills out, and is the most sensitive screen in the product. We designed it to be mobile-first, quick, and discreet, since a phone is often the one device a survivor has access to. We developed it to show one question at a time to keep it fast and to keep the survivor’s focus on one question at a time.</p>
-          <ul class="bc-bullets">
-            <li>Safety Exit stays fixed on every screen, so a survivor never has to hunt for it in a moment of urgency</li>
-            <li>The intro screen sets expectations upfront: how long it takes, that skipping is fine, that info stays confidential</li>
-            <li>The progress bar and section counter allows survivors to gauge their progress without having to mentally keep track of how many questions they have completed.</li>
-          </ul>
-        </div>
-      </article>
-    </section>
-
-    <section class="bc-section bc-section--reflect" id="reflections">
-      <div class="bc-heading">
-        <h2>Takeaways</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="1">
-          <li>Designing for a vulnerable user base</li>
-        </ol>
-        <p>This project taught me how to design with a completely different user base in mind. Most projects I've worked on before were about making something more efficient or more delightful, but here safety came first. Something as small as keeping Safety Exit in the same spot on every screen, or making the intake form mobile-first and one question at a time, came from constantly asking what happens if someone only has a few seconds before they need to put their phone away.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="2">
-          <li>Building a framework OSE could keep using without us</li>
-        </ol>
-        <p>OSE didn't have developers on staff to make changes to their own platform, so instead of building a form only our team could update, we built a Form Builder that let admins create and edit questions themselves. That shifted how I thought about the whole project: I wasn't just designing screens, I was designing something OSE could keep adapting on their own, long after we handed it off, so the impact didn't stop when our team did.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="3">
-          <li>Designing for internal efficiency at a resource-strapped nonprofit</li>
-        </ol>
-        <p>Knowing OSE runs on a small staff and volunteer base changed how I approached individual screens, even for features that were already defined. Things like sortable case lists, one-click CSV exports, and the self-serve Form Builder only mattered if they actually saved an admin time in practice. That taught me to treat "does this work as specified" as the starting point, not the finish line, and to keep asking whether a real, busy admin would actually feel the difference.</p>
-      </article>
-    </section>
-
-    <p class="bc-cta-wrap">
-      <a class="bc-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
-    </p>
-  </main>
-
-    <footer class="bc-footer">
-      <img
-        class="bc-footer__lace"
-        src="../assets/shared/footer-lace.png?v=flex3"
-        alt=""
-        width="2880"
-        height="69"
-        aria-hidden="true"
-      >
-      <div class="bc-footer__inner">
-        <a class="bc-footer__brand" href="/" aria-label="Home">
-          <img
-            src="../assets/shared/footer-aq.png?v=flex3"
-            alt=""
-            width="257"
-            height="101"
-            aria-hidden="true"
-          >
-        </a>
-        <nav class="bc-footer__contact" aria-label="Contact">
-          <a
-            class="bc-footer__link"
-            href="https://www.linkedin.com/in/allisonqiu/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="../assets/shared/icon-linkedin.svg?v=flex1" alt="" width="20" height="17" aria-hidden="true">
-            <span>https://www.linkedin.com/in/allisonqiu/</span>
-          </a>
-          <a class="bc-footer__link" href="mailto:allisonqiu10@gmail.com">
-            <img src="../assets/shared/icon-mail.svg?v=flex1" alt="" width="20" height="20" aria-hidden="true">
-            <span>allisonqiu10@gmail.com</span>
-          </a>
-        </nav>
-      </div>
-    </footer>
-    </div>
-  </div>
-
-  <script src="../scripts/case-scale.js"></script>
-  <script src="../scripts/case-videos.js"></script>
-  <script src="../scripts/case-snap.js"></script>
-  <script src="../scripts/cross-scroll.js"></script>
-  <script src="../scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="../scripts/page-transition.js?v=wipe6"></script>
-  <script src="../scripts/mailto.js"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
+</div>
+</footer>
+</div>
+</div>
+<script src="../scripts/case-final.js?v=case1"></script>
+<script src="../scripts/cross-scroll.js"></script>
+<script src="../scripts/custom-cursor.js?v=cursorHover1"></script>
+<script src="../scripts/page-transition.js?v=tx10"></script>
+<script src="../scripts/mailto.js"></script>
+<script src="../scripts/motion.js?v=motion8"></script>
+<script src="../scripts/case-videos.js?v=case1"></script>
 </body>
 </html>

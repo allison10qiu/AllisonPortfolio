@@ -94,6 +94,21 @@ function readLockedHtml() {
   return fs.readFileSync(file, "utf8");
 }
 
+function readPrivateFile(name) {
+  return fs.readFileSync(path.join(__dirname, "terraform-private", name));
+}
+
+function readPrototypeHtml() {
+  const html = readPrivateFile("policy-set.html").toString("utf8");
+  const tag = '<script src="./support.js"></script>';
+  if (!html.includes(tag)) {
+    const err = new Error("Prototype runtime marker missing");
+    err.statusCode = 500;
+    throw err;
+  }
+  return html.replace(tag, '<script src="/api/terraform-runtime"></script>');
+}
+
 function sendJson(res, status, body) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -110,5 +125,7 @@ module.exports = {
   clearCookie,
   verifyRequest,
   readLockedHtml,
+  readPrototypeHtml,
+  readPrivateFile,
   sendJson,
 };

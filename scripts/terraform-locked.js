@@ -72,6 +72,7 @@
     var chromeDirty = false;
     var lastPct = -1;
     var revealed = false;
+    var fitted = false;
     var fullLoaded = false;
     var fullRequested = false;
     var tweenRaf = 0;
@@ -259,19 +260,21 @@
     function centerFit(instant) {
       stopTween();
       refreshMetrics();
+      if (!vpW || !vpH) return false;
       layoutImage();
+      if (!cssW) return false;
+      fitted = true;
       var nextS = minScale;
-      var nextX = 0;
-      var nextY = 0;
       if (instant) {
         scale = nextS;
         refreshBounds();
-        x = nextX;
-        y = nextY;
+        x = 0;
+        y = 0;
         requestRender(true);
-        return;
+        return true;
       }
-      softTo(nextS, nextX, nextY);
+      softTo(nextS, 0, 0);
+      return true;
     }
 
     function reveal() {
@@ -575,14 +578,7 @@
     });
 
     function readyPreview() {
-      refreshMetrics();
-      layoutImage();
-      scale = minScale;
-      refreshBounds();
-      x = 0;
-      y = 0;
-      applyTransform();
-      updateChrome();
+      if (!centerFit(true)) return;
       reveal();
       observeFullLoad();
     }
@@ -604,8 +600,16 @@
 
     var resizeTimer = 0;
     function onResize() {
-      var ratio = scale / minScale;
+      if (!fitted) {
+        if (centerFit(true)) {
+          reveal();
+          observeFullLoad();
+        }
+        return;
+      }
+      var ratio = minScale ? scale / minScale : 1;
       refreshMetrics();
+      if (!vpW || !vpH) return;
       layoutImage();
       scale = clamp(minScale * ratio, minScale, maxScale);
       refreshBounds();
@@ -645,8 +649,99 @@
     }
   }
 
+  var workflowCleanup = null;
+
+  function initWorkflow(root) {
+    var section = root.querySelector("[data-tf-workflow]");
+    if (!section || section.dataset.ready === "1") return null;
+
+    var frame = section.querySelector("[data-tf-proto-frame]");
+    var iframe = section.querySelector("[data-tf-proto]");
+    var steps = section.querySelectorAll("[data-ps-step]");
+    var status = section.querySelector(".tf-workflow__status");
+    if (!frame || !iframe || !steps.length) return null;
+
+    section.dataset.ready = "1";
+    var PW = 1000;
+    var PH = 760;
+    var READABLE = 640;
+    var reduce =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) section.classList.add("is-reduced");
+
+    var copy = {
+      view: "View. Inspect the current configuration, with no editable controls.",
+      edit: "Edit. Choosing Edit deliberately exposes the controls needed to make a change.",
+      verify: "Verify. After saving, return to the view to review the resulting state.",
+    };
+
+    function setStep(step) {
+      if (!copy[step]) return;
+      Array.prototype.forEach.call(steps, function (el) {
+        var on = el.getAttribute("data-ps-step") === step;
+        el.classList.toggle("is-active", on);
+        if (on) el.setAttribute("aria-current", "step");
+        else el.setAttribute("aria-current", "false");
+      });
+      if (status) status.textContent = copy[step];
+    }
+
+    function fit() {
+      var width = frame.clientWidth;
+      if (!width) return;
+      if (width < READABLE) {
+        frame.style.height = PH + "px";
+        frame.style.overflowX = "auto";
+        frame.style.overflowY = "hidden";
+        iframe.style.width = PW + "px";
+        iframe.style.height = PH + "px";
+        iframe.style.transform = "none";
+        return;
+      }
+      var scale = width < PW ? width / PW : 1;
+      frame.style.height = Math.round(PH * scale) + "px";
+      frame.style.overflow = "hidden";
+      iframe.style.width = scale < 1 ? PW + "px" : "100%";
+      iframe.style.height = PH + "px";
+      iframe.style.transform = scale < 1 ? "scale(" + scale + ")" : "none";
+    }
+
+    function onMessage(event) {
+      if (!iframe.isConnected) {
+        cleanup();
+        return;
+      }
+      if (event.origin !== window.location.origin) return;
+      if (event.source !== iframe.contentWindow) return;
+      var step = event.data && event.data.psStep;
+      if (step === "view" || step === "edit" || step === "verify") setStep(step);
+    }
+
+    var ro = null;
+    if (typeof ResizeObserver === "function") {
+      ro = new ResizeObserver(fit);
+      ro.observe(frame);
+    } else {
+      window.addEventListener("resize", fit);
+    }
+    window.addEventListener("message", onMessage);
+    fit();
+
+    function cleanup() {
+      window.removeEventListener("message", onMessage);
+      window.removeEventListener("resize", fit);
+      if (ro) ro.disconnect();
+      if (workflowCleanup === cleanup) workflowCleanup = null;
+    }
+
+    return cleanup;
+  }
+
   window.initTerraformLocked = function (root) {
     if (!root) return;
+    if (workflowCleanup) workflowCleanup();
     initAuditViewer(root);
+    workflowCleanup = initWorkflow(root);
   };
 })();

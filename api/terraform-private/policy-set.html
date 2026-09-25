@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#0C0C0E;-webkit-font-smoothing:antialiased}
+a{color:#1060FF;text-decoration:none}a:hover{text-decoration:underline}
+*{box-sizing:border-box}
+input,select,button,textarea{font-family:inherit}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+  <header style="position:sticky;top:0;z-index:30;height:60px;background:#0C0C0E;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 20px">
+    <div style="display:flex;align-items:center;gap:22px">
+      <div style="width:26px;height:28px;display:grid;place-items:center"><svg viewBox="22 16.5 24 27" width="24" height="27"><path d="M22.3335 16.7031V25.0998L29.5812 29.2992V20.9025L22.3335 16.7031Z" fill="white"></path><path d="M37.6251 25.5874L30.3753 21.3902V29.7869L37.6251 33.9863V25.5874Z" fill="white"></path><path d="M38.4192 33.9863V25.5874L45.6669 21.3902V29.7869L38.4192 33.9863Z" fill="white"></path><path d="M37.6229 43.3031L30.3753 39.1037V30.7071L37.6229 34.9065V43.3031Z" fill="white"></path></svg></div>
+      <button style="height:36px;display:flex;align-items:center;gap:8px;padding:0 12px;background:transparent;border:1px solid #8C909C;border-radius:5px;color:#fff;font-size:14px;cursor:pointer" style-hover="background:#1f1f22">
+        <svg width="18" height="18" viewBox="79.00 21.00 18 18" fill="none" style="flex:none;display:block"><path d="M84.75 30C84.3358 30 84 30.3358 84 30.75C84 31.1642 84.3358 31.5 84.75 31.5H90.25C90.6642 31.5 91 31.1642 91 30.75C91 30.3358 90.6642 30 90.25 30H84.75Z" fill="currentColor"></path><path d="M84 33.75C84 33.3358 84.3358 33 84.75 33H88.25C88.6642 33 89 33.3358 89 33.75C89 34.1642 88.6642 34.5 88.25 34.5H84.75C84.3358 34.5 84 34.1642 84 33.75Z" fill="currentColor"></path><path d="M84.75 27C84.3358 27 84 27.3358 84 27.75C84 28.1642 84.3358 28.5 84.75 28.5H86.25C86.6642 28.5 87 28.1642 87 27.75C87 27.3358 86.6642 27 86.25 27H84.75Z" fill="currentColor"></path><path d="M81 24.25C81 23.0074 82.0074 22 83.25 22H89.5429C89.8744 22 90.1924 22.1317 90.4268 22.3661L94.6339 26.5732C94.8683 26.8076 95 27.1256 95 27.4571V35.75C95 36.9926 93.9926 38 92.75 38H83.25C82.0074 38 81 36.9926 81 35.75V24.25ZM83.25 23.5C82.8358 23.5 82.5 23.8358 82.5 24.25V35.75C82.5 36.1642 82.8358 36.5 83.25 36.5H92.75C93.1642 36.5 93.5 36.1642 93.5 35.75V28H89.75C89.3358 28 89 27.6642 89 27.25V23.5H83.25ZM90.5 24.5607L92.4393 26.5H90.5V24.5607Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>Policy-Sentinel2-0<span style="margin-left:6px;display:flex"><svg width="13" height="13" viewBox="238.50 23.46 13 13" fill="none" style="flex:none;display:block"><path d="M240.235 27.2047C240.536 26.9203 241.011 26.9339 241.295 27.235L245 31.1577L248.705 27.235C248.989 26.9339 249.464 26.9203 249.765 27.2047C250.066 27.4892 250.08 27.9638 249.795 28.265L245.545 32.765C245.404 32.915 245.206 33 245 33C244.794 33 244.596 32.915 244.455 32.765L240.205 28.265C239.92 27.9638 239.934 27.4892 240.235 27.2047Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
+      </button>
+    </div>
+    <div style="display:flex;gap:12px">
+      <button style="width:36px;height:36px;background:transparent;border:1px solid #8C909C;border-radius:5px;color:#fff;cursor:pointer;display:grid;place-items:center" style-hover="background:#1f1f22"><svg width="17" height="17" viewBox="1261.53 21.54 17 17" fill="none" style="flex:none;display:block"><path d="M1268.34 22.9688C1265.38 22.9688 1262.97 25.3752 1262.97 28.3438C1262.97 31.3123 1265.38 33.7188 1268.34 33.7188C1269.56 33.7188 1270.68 33.3164 1271.58 32.6378L1275.75 36.8116C1276.04 37.1045 1276.52 37.1045 1276.81 36.8116C1277.1 36.5187 1277.1 36.0438 1276.81 35.7509L1272.64 31.5772C1273.32 30.6774 1273.72 29.5576 1273.72 28.3438C1273.72 25.3752 1271.31 22.9688 1268.34 22.9688ZM1264.47 28.3438C1264.47 26.2036 1266.2 24.4688 1268.34 24.4688C1270.48 24.4688 1272.22 26.2036 1272.22 28.3438C1272.22 30.4839 1270.48 32.2188 1268.34 32.2188C1266.2 32.2188 1264.47 30.4839 1264.47 28.3438Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button>
+      <button style="width:56px;height:36px;background:transparent;border:1px solid #8C909C;border-radius:5px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="background:#1f1f22"><svg width="18" height="18" viewBox="1309.00 21.00 18 18" fill="none" style="flex:none;display:block"><path d="M1318.2 26.5228C1317.84 26.4597 1317.46 26.5285 1317.15 26.7185C1316.83 26.9087 1316.58 27.2091 1316.46 27.5691C1316.32 27.9605 1315.9 28.1681 1315.5 28.0328C1315.11 27.8974 1314.91 27.4703 1315.04 27.0789C1315.28 26.3892 1315.75 25.8046 1316.38 25.4311C1317 25.0573 1317.74 24.92 1318.45 25.0451C1319.17 25.1701 1319.82 25.5488 1320.28 26.1105C1320.75 26.6717 1321 27.3799 1321 28.1096C1321 28.5972 1320.91 29.0153 1320.73 29.3763C1320.54 29.7369 1320.29 29.9952 1320.05 30.1934C1319.85 30.349 1319.64 30.4843 1319.46 30.5915C1319.43 30.6125 1319.4 30.6325 1319.37 30.6513C1319.17 30.7792 1319.03 30.8789 1318.92 30.9905C1318.81 31.0946 1318.77 31.1868 1318.76 31.2382C1318.75 31.2604 1318.75 31.2763 1318.75 31.2835C1318.73 31.6822 1318.4 32 1318 32C1317.58 32 1317.25 31.6642 1317.25 31.25C1317.25 31.0869 1317.28 30.9255 1317.33 30.7711C1317.41 30.528 1317.56 30.2276 1317.85 29.939C1318.09 29.6964 1318.35 29.5202 1318.57 29.3845C1318.61 29.356 1318.65 29.3294 1318.69 29.3043C1318.86 29.1987 1318.99 29.119 1319.11 29.0232C1319.24 28.9168 1319.33 28.8168 1319.39 28.6998C1319.45 28.5831 1319.5 28.4041 1319.5 28.1092L1319.5 28.1081C1319.5 27.7254 1319.37 27.3565 1319.13 27.0668C1318.89 26.7773 1318.56 26.5858 1318.2 26.5228Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M1318 33C1317.45 33 1317 33.4477 1317 34C1317 34.5523 1317.45 35 1318 35H1318.01C1318.56 35 1319.01 34.5523 1319.01 34C1319.01 33.4477 1318.56 33 1318.01 33H1318Z" fill="currentColor"></path><path d="M1310 30C1310 25.5817 1313.58 22 1318 22C1322.42 22 1326 25.5817 1326 30C1326 34.4183 1322.42 38 1318 38C1313.58 38 1310 34.4183 1310 30ZM1318 23.5C1314.41 23.5 1311.5 26.4101 1311.5 30C1311.5 33.5899 1314.41 36.5 1318 36.5C1321.59 36.5 1324.5 33.5899 1324.5 30C1324.5 26.4101 1321.59 23.5 1318 23.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg><svg width="13" height="13" viewBox="238.50 23.46 13 13" fill="none" style="flex:none;display:block"><path d="M240.235 27.2047C240.536 26.9203 241.011 26.9339 241.295 27.235L245 31.1577L248.705 27.235C248.989 26.9339 249.464 26.9203 249.765 27.2047C250.066 27.4892 250.08 27.9638 249.795 28.265L245.545 32.765C245.404 32.915 245.206 33 245 33C244.794 33 244.596 32.915 244.455 32.765L240.205 28.265C239.92 27.9638 239.934 27.4892 240.235 27.2047Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button>
+      <button style="width:56px;height:36px;background:transparent;border:1px solid #8C909C;border-radius:5px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="background:#1f1f22"><svg width="16" height="16" viewBox="1378.00 22.00 16 16" fill="none" style="flex:none;display:block"><path d="M1386 23C1383.79 23 1382 24.7909 1382 27C1382 29.2091 1383.79 31 1386 31C1388.21 31 1390 29.2091 1390 27C1390 24.7909 1388.21 23 1386 23ZM1383.5 27C1383.5 25.6193 1384.62 24.5 1386 24.5C1387.38 24.5 1388.5 25.6193 1388.5 27C1388.5 28.3807 1387.38 29.5 1386 29.5C1384.62 29.5 1383.5 28.3807 1383.5 27Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M1383.25 32C1381.18 32 1379.5 33.6789 1379.5 35.75V36.25C1379.5 36.6642 1379.84 37 1380.25 37C1380.66 37 1381 36.6642 1381 36.25V35.75C1381 34.5074 1382.01 33.5 1383.25 33.5H1388.75C1389.99 33.5 1391 34.5074 1391 35.75V36.25C1391 36.6642 1391.34 37 1391.75 37C1392.16 37 1392.5 36.6642 1392.5 36.25V35.75C1392.5 33.6789 1390.82 32 1388.75 32H1383.25Z" fill="currentColor"></path></svg><svg width="13" height="13" viewBox="238.50 23.46 13 13" fill="none" style="flex:none;display:block"><path d="M240.235 27.2047C240.536 26.9203 241.011 26.9339 241.295 27.235L245 31.1577L248.705 27.235C248.989 26.9339 249.464 26.9203 249.765 27.2047C250.066 27.4892 250.08 27.9638 249.795 28.265L245.545 32.765C245.404 32.915 245.206 33 245 33C244.794 33 244.596 32.915 244.455 32.765L240.205 28.265C239.92 27.9638 239.934 27.4892 240.235 27.2047Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button>
+    </div>
+  </header>
+
+  <div style="display:flex;flex:1">
+    <sc-if value="{{ sidebarOpen }}" hint-placeholder-val="{{ true }}"><aside style="width:280px;flex:none;background:#FAFAFA;border-right:1px solid #E5E6E8;position:sticky;top:60px;height:calc(100vh - 60px);overflow:auto;padding:22px 16px 24px">
+      <div style="display:flex;align-items:center;gap:12px;padding:4px 8px;font-size:14px;font-weight:500;margin-bottom:22px;cursor:pointer"><svg width="13" height="13" viewBox="25.54 87.50 13 13" fill="none" style="flex:none;display:block"><path d="M34.7953 89.235C35.0797 89.5362 35.0661 90.0109 34.765 90.2953L30.8423 94L34.765 97.7047C35.0661 97.9892 35.0797 98.4638 34.7953 98.765C34.5109 99.0661 34.0362 99.0797 33.735 98.7953L29.235 94.5453C29.085 94.4036 29 94.2063 29 94C29 93.7937 29.085 93.5964 29.235 93.4547L33.735 89.2047C34.0362 88.9203 34.5109 88.9339 34.7953 89.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span>Workspaces</span></div>
+      <sc-for list="{{ navSections }}" as="sec" hint-placeholder-count="3">
+        <div style="margin-bottom:18px">
+          <div style="font-size:13px;font-weight:500;color:#656A76;padding:6px 8px 10px">{{ sec.title }}</div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <sc-for list="{{ sec.items }}" as="it">
+              <div style="position:relative;padding:8px 8px;border-radius:5px;font-size:14px;cursor:pointer;color:{{ it.color }};background:{{ it.bg }}" style-hover="background:#F1F2F3">
+                <sc-if value="{{ it.active }}"><div style="position:absolute;left:-16px;top:0;bottom:0;width:3px;background:#1060FF"></div></sc-if>
+                {{ it.label }}
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </aside></sc-if>
+
+    <main style="flex:1;min-width:0;display:flex;flex-direction:column;position:relative">
+      <button onClick="{{ toggleSidebar }}" title="Toggle sidebar" style="position:absolute;left:0;top:16px;z-index:5;width:24px;height:36px;padding:0;background:#fff;border:1px solid #E5E6E8;border-left:0;border-radius:0 6px 6px 0;display:grid;place-items:center;color:#3B3D45;cursor:pointer" style-hover="background:#F1F2F3"><span style="display:flex;transform:{{ collapseRot }}"><svg width="13" height="13" viewBox="285.54 87.50 13 13" fill="none" style="flex:none;display:block"><path d="M291.76 91.2996C292.064 91.0177 292.081 90.5432 291.8 90.2397C291.518 89.9361 291.043 89.9186 290.74 90.2004L287.24 93.4504C287.087 93.5923 287 93.7915 287 94C287 94.2086 287.087 94.4077 287.24 94.5496L290.74 97.7996C291.043 98.0815 291.518 98.0639 291.8 97.7603C292.081 97.4568 292.064 96.9823 291.76 96.7004L288.852 94L291.76 91.2996Z" fill="currentColor"></path><path d="M296.76 91.2996C297.064 91.0177 297.081 90.5432 296.8 90.2397C296.518 89.9361 296.043 89.9186 295.74 90.2004L292.24 93.4504C292.087 93.5923 292 93.7915 292 94C292 94.2086 292.087 94.4077 292.24 94.5496L295.74 97.7996C296.043 98.0815 296.518 98.0639 296.8 97.7603C297.081 97.4568 297.064 96.9823 296.76 96.7004L293.852 94L296.76 91.2996Z" fill="currentColor"></path></svg></span></button>
+      <div style="flex:1;padding:28px 48px 72px;max-width:1160px;width:100%">
+        <nav style="display:flex;gap:8px;align-items:center;font-size:13px;color:#3B3D45;margin-bottom:20px;padding-left:4px">
+          <span>Policy-Sentinel2-0</span><span style="color:#C2C5CB">/</span><span>Organization Settings: Policy Sets</span><span style="color:#C2C5CB">/</span><span style="color:#0C0C0E;font-weight:500">workspace_tag_test</span>
+        </nav>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
+          <div>
+            <h1 style="margin:0;font-size:30px;font-weight:700;letter-spacing:-0.4px">Policy set: workspace_tag_test</h1>
+            <div style="font-size:14px;color:#656A76;margin-top:12px">Last updated {{ lastUpdated }}</div>
+          </div>
+          <sc-if value="{{ showEditBtn }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ startEdit }}" style="height:36px;padding:0 16px;background:#1060FF;color:#fff;border:1px solid #0C56E9;border-radius:5px;font-size:14px;font-weight:500;cursor:pointer" style-hover="background:#0C56E9">Edit</button>
+          </sc-if>
+        </div>
+
+        <sc-if value="{{ deleted }}">
+          <div style="margin-top:48px;max-width:709px;border:1px solid #E5E6E8;border-radius:8px;padding:40px;text-align:center">
+            <div style="font-size:16px;font-weight:600">This policy set was deleted</div>
+            <div style="font-size:14px;color:#656A76;margin-top:8px">Workspaces in scope will no longer be evaluated against its policies.</div>
+            <button onClick="{{ restore }}" style="margin-top:20px;height:36px;padding:0 16px;background:#fff;border:1px solid #8C909C;border-radius:5px;font-size:14px;font-weight:500;cursor:pointer" style-hover="background:#F1F2F3">Restore (prototype reset)</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isView }}" hint-placeholder-val="{{ true }}">
+          <div style="max-width:709px;margin-top:40px;display:flex;flex-direction:column;gap:28px">
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:14px;font-weight:600">Policy framework</div>
+              <sc-for list="{{ vFramework }}" as="r">
+                <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:{{ r.weight }}"><span style="width:16px;display:flex;justify-content:center;color:{{ r.color }}"><sc-if value="{{ r.on }}"><svg width="16" height="16" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if><sc-if value="{{ r.off }}"><svg width="16" height="16" viewBox="329.50 291.50 13 13" fill="none" style="flex:none;display:block"><path d="M339.72 293.219C340.012 292.927 340.487 292.927 340.78 293.219C341.071 293.512 341.072 293.988 340.78 294.28L337.06 298L340.78 301.719C341.071 302.012 341.072 302.488 340.78 302.78C340.488 303.072 340.013 303.071 339.72 302.78L336 299.06L332.28 302.78C331.988 303.072 331.513 303.071 331.22 302.78C330.927 302.487 330.927 302.012 331.22 301.719L334.939 298L331.22 294.28C330.927 293.987 330.927 293.512 331.22 293.219C331.512 292.927 331.987 292.927 332.28 293.219L336 296.939L339.72 293.219Z" fill="currentColor"></path></svg></sc-if></span>{{ r.label }}<span tabindex="0" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" onFocus="{{ r.enter }}" onBlur="{{ r.leave }}" style="position:relative;display:inline-flex;color:#656A76;cursor:help;outline:none"><svg width="16" height="16" viewBox="416.00 258.00 16 16" fill="none" style="flex:none;display:block"><path d="M424 259C427.866 259 431 262.134 431 266C431 269.866 427.866 273 424 273C420.134 273 417 269.866 417 266C417 262.134 420.134 259 424 259ZM424 260.312C420.859 260.313 418.313 262.859 418.312 266C418.312 269.141 420.859 271.687 424 271.688C427.141 271.688 429.688 269.141 429.688 266C429.687 262.859 427.141 260.312 424 260.312ZM424 265.125C424.362 265.125 424.656 265.419 424.656 265.781V268.844C424.656 269.206 424.362 269.5 424 269.5C423.638 269.5 423.344 269.206 423.344 268.844V265.781C423.344 265.419 423.638 265.125 424 265.125ZM424.006 262.5C424.489 262.5 424.881 262.892 424.881 263.375C424.881 263.858 424.489 264.25 424.006 264.25H424C423.517 264.25 423.125 263.858 423.125 263.375C423.125 262.892 423.517 262.5 424 262.5H424.006Z" fill="currentColor"></path></svg><sc-if value="{{ r.tipOpen }}"><span style="position:absolute;z-index:25;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);width:260px;background:#0C0C0E;color:#fff;border-radius:5px;padding:8px 10px;font-size:13px;line-height:18px;font-weight:400;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,.2)">{{ r.tip }}<span style="position:absolute;left:50%;top:100%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0C0C0E"></span></span></sc-if></span></div>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;font-weight:600">Policy set name</div><div style="font-size:14px">{{ saved.name }}</div></div>
+            <div style="display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;font-weight:600">Policy set description</div><div style="font-size:14px">{{ vDesc }}</div></div>
+            <div style="display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;font-weight:600">Scope of policies</div><div style="font-size:14px">{{ vScope }}</div></div>
+
+            <sc-if value="{{ vShowEnf }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <div style="font-size:16px;font-weight:600">Enforcements</div>
+                <div style="height:36px;border:1px solid #8C909C;border-radius:5px;display:flex;align-items:center;gap:8px;padding:0 10px">
+                  <span style="color:#656A76;display:flex"><svg width="17" height="17" viewBox="335.54 597.54 17 17" fill="none" style="flex:none;display:block"><path d="M342.344 598.969C339.375 598.969 336.969 601.375 336.969 604.344C336.969 607.312 339.375 609.719 342.344 609.719C343.558 609.719 344.677 609.316 345.577 608.638L349.751 612.812C350.044 613.104 350.519 613.104 350.812 612.812C351.104 612.519 351.104 612.044 350.812 611.751L346.638 607.577C347.316 606.677 347.719 605.558 347.719 604.344C347.719 601.375 345.312 598.969 342.344 598.969ZM338.469 604.344C338.469 602.204 340.204 600.469 342.344 600.469C344.484 600.469 346.219 602.204 346.219 604.344C346.219 606.484 344.484 608.219 342.344 608.219C340.204 608.219 338.469 606.484 338.469 604.344Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
+                  <input value="{{ enfSearch }}" onInput="{{ onEnfSearch }}" placeholder="Search" style="flex:1;border:0;outline:0;font-size:14px;background:transparent"></input>
+                </div>
+                <div style="border:1px solid #E5E6E8;border-radius:6px;overflow:hidden">
+                  <div style="background:#F1F2F3;padding:13px 16px;font-size:14px;font-weight:600;border-bottom:1px solid #E5E6E8">Enforced projects</div>
+                  <sc-for list="{{ vProjects }}" as="r"><div style="padding:13px 16px;font-size:14px;color:#3B3D45;background:{{ r.bg }};border-top:{{ r.bt }}">{{ r.label }}</div></sc-for>
+                  <sc-if value="{{ vProjectsEmpty }}"><div style="padding:13px 16px;font-size:14px;color:#656A76">No matching projects</div></sc-if>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:13px;margin-top:-4px">
+                  <span>{{ vProjectsCount }}</span>
+                  <div style="display:flex;gap:22px;align-items:center;color:#656A76"><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="640.54 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M649.795 885.235C650.08 885.536 650.066 886.011 649.765 886.295L645.842 890L649.765 893.705C650.066 893.989 650.08 894.464 649.795 894.765C649.511 895.066 649.036 895.08 648.735 894.795L644.235 890.545C644.085 890.404 644 890.206 644 890C644 889.794 644.085 889.596 644.235 889.455L648.735 885.205C649.036 884.92 649.511 884.934 649.795 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span><span style="color:#1060FF;border-bottom:2px solid #1060FF;padding:4px 6px">1</span><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="711.46 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M715.205 885.235C714.92 885.536 714.934 886.011 715.235 886.295L719.158 890L715.235 893.705C714.934 893.989 714.92 894.464 715.205 894.765C715.489 895.066 715.964 895.08 716.265 894.795L720.765 890.545C720.915 890.404 721 890.206 721 890C721 889.794 720.915 889.596 720.765 889.455L716.265 885.205C715.964 884.92 715.489 884.934 715.205 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span></div>
+                  <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px">Items per page<span style="border:1px solid #8C909C;border-radius:5px;padding:4px 6px 4px 8px;display:flex;align-items:center;gap:4px">10<span style="display:flex;color:#656A76"><svg width="14" height="14" viewBox="1014.00 883.00 14 14" fill="none" style="flex:none;display:block"><path d="M1021.55 884.24C1021.41 884.087 1021.21 884 1021 884C1020.79 884 1020.59 884.087 1020.45 884.24L1017.2 887.74C1016.92 888.043 1016.94 888.518 1017.24 888.8C1017.54 889.081 1018.02 889.064 1018.3 888.76L1021 885.852L1023.7 888.76C1023.98 889.064 1024.46 889.081 1024.76 888.8C1025.06 888.518 1025.08 888.043 1024.8 887.74L1021.55 884.24Z" fill="currentColor"></path><path d="M1020.45 895.76C1020.59 895.913 1020.79 896 1021 896C1021.21 896 1021.41 895.913 1021.55 895.76L1024.8 892.26C1025.08 891.957 1025.06 891.482 1024.76 891.2C1024.46 890.919 1023.98 890.936 1023.7 891.24L1021 894.148L1018.3 891.24C1018.02 890.936 1017.54 890.919 1017.24 891.2C1016.94 891.482 1016.92 891.957 1017.2 892.26L1020.45 895.76Z" fill="currentColor"></path></svg></span></span></div>
+                </div>
+                <div style="border:1px solid #E5E6E8;border-radius:6px;overflow:hidden;margin-top:12px">
+                  <div style="background:#F1F2F3;padding:13px 16px;font-size:14px;font-weight:600;border-bottom:1px solid #E5E6E8">Enforced workspaces</div>
+                  <sc-for list="{{ vWorkspaces }}" as="r"><div style="padding:13px 16px;font-size:14px;color:#3B3D45;background:{{ r.bg }};border-top:{{ r.bt }}">{{ r.label }}</div></sc-for>
+                  <sc-if value="{{ vWorkspacesEmpty }}"><div style="padding:13px 16px;font-size:14px;color:#656A76">No matching workspaces</div></sc-if>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:13px;margin-top:-4px">
+                  <span>{{ vWorkspacesCount }}</span>
+                  <div style="display:flex;gap:22px;align-items:center;color:#656A76"><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="640.54 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M649.795 885.235C650.08 885.536 650.066 886.011 649.765 886.295L645.842 890L649.765 893.705C650.066 893.989 650.08 894.464 649.795 894.765C649.511 895.066 649.036 895.08 648.735 894.795L644.235 890.545C644.085 890.404 644 890.206 644 890C644 889.794 644.085 889.596 644.235 889.455L648.735 885.205C649.036 884.92 649.511 884.934 649.795 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span><span style="color:#1060FF;border-bottom:2px solid #1060FF;padding:4px 6px">1</span><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="711.46 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M715.205 885.235C714.92 885.536 714.934 886.011 715.235 886.295L719.158 890L715.235 893.705C714.934 893.989 714.92 894.464 715.205 894.765C715.489 895.066 715.964 895.08 716.265 894.795L720.765 890.545C720.915 890.404 721 890.206 721 890C721 889.794 720.915 889.596 720.765 889.455L716.265 885.205C715.964 884.92 715.489 884.934 715.205 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span></div>
+                  <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px">Items per page<span style="border:1px solid #8C909C;border-radius:5px;padding:4px 6px 4px 8px;display:flex;align-items:center;gap:4px">10<span style="display:flex;color:#656A76"><svg width="14" height="14" viewBox="1014.00 883.00 14 14" fill="none" style="flex:none;display:block"><path d="M1021.55 884.24C1021.41 884.087 1021.21 884 1021 884C1020.79 884 1020.59 884.087 1020.45 884.24L1017.2 887.74C1016.92 888.043 1016.94 888.518 1017.24 888.8C1017.54 889.081 1018.02 889.064 1018.3 888.76L1021 885.852L1023.7 888.76C1023.98 889.064 1024.46 889.081 1024.76 888.8C1025.06 888.518 1025.08 888.043 1024.8 887.74L1021.55 884.24Z" fill="currentColor"></path><path d="M1020.45 895.76C1020.59 895.913 1020.79 896 1021 896C1021.21 896 1021.41 895.913 1021.55 895.76L1024.8 892.26C1025.08 891.957 1025.06 891.482 1024.76 891.2C1024.46 890.919 1023.98 890.936 1023.7 891.24L1021 894.148L1018.3 891.24C1018.02 890.936 1017.54 890.919 1017.24 891.2C1016.94 891.482 1016.92 891.957 1017.2 892.26L1020.45 895.76Z" fill="currentColor"></path></svg></span></span></div>
+                </div>
+              </div>
+            </sc-if>
+
+            <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px">
+              <div style="font-size:16px;font-weight:600">Exclusions</div>
+              <div style="height:36px;border:1px solid #8C909C;border-radius:5px;display:flex;align-items:center;gap:8px;padding:0 10px">
+                <span style="color:#656A76;display:flex"><svg width="17" height="17" viewBox="335.54 597.54 17 17" fill="none" style="flex:none;display:block"><path d="M342.344 598.969C339.375 598.969 336.969 601.375 336.969 604.344C336.969 607.312 339.375 609.719 342.344 609.719C343.558 609.719 344.677 609.316 345.577 608.638L349.751 612.812C350.044 613.104 350.519 613.104 350.812 612.812C351.104 612.519 351.104 612.044 350.812 611.751L346.638 607.577C347.316 606.677 347.719 605.558 347.719 604.344C347.719 601.375 345.312 598.969 342.344 598.969ZM338.469 604.344C338.469 602.204 340.204 600.469 342.344 600.469C344.484 600.469 346.219 602.204 346.219 604.344C346.219 606.484 344.484 608.219 342.344 608.219C340.204 608.219 338.469 606.484 338.469 604.344Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
+                <input value="{{ excSearch }}" onInput="{{ onExcSearch }}" placeholder="Search" style="flex:1;border:0;outline:0;font-size:14px;background:transparent"></input>
+              </div>
+              <div style="border:1px solid #E5E6E8;border-radius:6px;overflow:hidden">
+                <div style="background:#F1F2F3;padding:13px 16px;font-size:14px;font-weight:600;border-bottom:1px solid #E5E6E8">Excluded workspaces</div>
+                <sc-for list="{{ vExcluded }}" as="r"><div style="padding:13px 16px;font-size:14px;color:#3B3D45;background:{{ r.bg }};border-top:{{ r.bt }}">{{ r.label }}</div></sc-for>
+                <sc-if value="{{ vExcludedEmpty }}"><div style="padding:13px 16px;font-size:14px;color:#656A76">No excluded workspaces</div></sc-if>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:13px;margin-top:-4px">
+                <span>{{ vExcludedCount }}</span>
+                <div style="display:flex;gap:22px;align-items:center;color:#656A76"><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="640.54 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M649.795 885.235C650.08 885.536 650.066 886.011 649.765 886.295L645.842 890L649.765 893.705C650.066 893.989 650.08 894.464 649.795 894.765C649.511 895.066 649.036 895.08 648.735 894.795L644.235 890.545C644.085 890.404 644 890.206 644 890C644 889.794 644.085 889.596 644.235 889.455L648.735 885.205C649.036 884.92 649.511 884.934 649.795 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span><span style="color:#1060FF;border-bottom:2px solid #1060FF;padding:4px 6px">1</span><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="711.46 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M715.205 885.235C714.92 885.536 714.934 886.011 715.235 886.295L719.158 890L715.235 893.705C714.934 893.989 714.92 894.464 715.205 894.765C715.489 895.066 715.964 895.08 716.265 894.795L720.765 890.545C720.915 890.404 721 890.206 721 890C721 889.794 720.915 889.596 720.765 889.455L716.265 885.205C715.964 884.92 715.489 884.934 715.205 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span></div>
+                <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px">Items per page<span style="border:1px solid #8C909C;border-radius:5px;padding:4px 6px 4px 8px;display:flex;align-items:center;gap:4px">10<span style="display:flex;color:#656A76"><svg width="14" height="14" viewBox="1014.00 883.00 14 14" fill="none" style="flex:none;display:block"><path d="M1021.55 884.24C1021.41 884.087 1021.21 884 1021 884C1020.79 884 1020.59 884.087 1020.45 884.24L1017.2 887.74C1016.92 888.043 1016.94 888.518 1017.24 888.8C1017.54 889.081 1018.02 889.064 1018.3 888.76L1021 885.852L1023.7 888.76C1023.98 889.064 1024.46 889.081 1024.76 888.8C1025.06 888.518 1025.08 888.043 1024.8 887.74L1021.55 884.24Z" fill="currentColor"></path><path d="M1020.45 895.76C1020.59 895.913 1020.79 896 1021 896C1021.21 896 1021.41 895.913 1021.55 895.76L1024.8 892.26C1025.08 891.957 1025.06 891.482 1024.76 891.2C1024.46 890.919 1023.98 890.936 1023.7 891.24L1021 894.148L1018.3 891.24C1018.02 890.936 1017.54 890.919 1017.24 891.2C1016.94 891.482 1016.92 891.957 1017.2 892.26L1020.45 895.76Z" fill="currentColor"></path></svg></span></span></div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:14px;font-weight:600">Execution mode</div>
+                <div style="font-size:13px;color:#656A76">The execution mode determines the environment that runs your policy set.</div>
+                <a href="#" style="font-size:13px">Learn about policy execution modes<span style="display:inline-block;vertical-align:-3px;margin-left:6px"><svg width="16" height="16" viewBox="553.00 1427.00 16 16" fill="none" style="flex:none;display:block"><path d="M556.5 1430.25C556.5 1429.84 556.836 1429.5 557.25 1429.5H561C561.414 1429.5 561.75 1429.16 561.75 1428.75C561.75 1428.34 561.414 1428 561 1428H557.25C556.007 1428 555 1429.01 555 1430.25V1439.75C555 1440.99 556.007 1442 557.25 1442H565.75C566.44 1442 567 1441.44 567 1440.75V1434C567 1433.59 566.664 1433.25 566.25 1433.25C565.836 1433.25 565.5 1433.59 565.5 1434V1437H557.25C556.987 1437 556.735 1437.05 556.5 1437.13V1430.25ZM556.5 1439.25V1439.75C556.5 1440.16 556.836 1440.5 557.25 1440.5H565.5V1438.5H557.25C556.836 1438.5 556.5 1438.84 556.5 1439.25Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M565.5 1430.56V1431.25C565.5 1431.66 565.836 1432 566.25 1432C566.664 1432 567 1431.66 567 1431.25V1428.75C567 1428.55 566.921 1428.36 566.78 1428.22C566.64 1428.08 566.449 1428 566.25 1428H563.75C563.336 1428 563 1428.34 563 1428.75C563 1429.16 563.336 1429.5 563.75 1429.5H564.439L562.47 1431.47C562.177 1431.76 562.177 1432.24 562.47 1432.53C562.763 1432.82 563.237 1432.82 563.53 1432.53L565.5 1430.56Z" fill="currentColor"></path></svg></span></a>
+              </div>
+              <sc-for list="{{ vExec }}" as="r">
+                <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:{{ r.weight }}"><span style="width:16px;display:flex;justify-content:center;color:{{ r.color }}"><sc-if value="{{ r.on }}"><svg width="16" height="16" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if><sc-if value="{{ r.off }}"><svg width="16" height="16" viewBox="329.50 291.50 13 13" fill="none" style="flex:none;display:block"><path d="M339.72 293.219C340.012 292.927 340.487 292.927 340.78 293.219C341.071 293.512 341.072 293.988 340.78 294.28L337.06 298L340.78 301.719C341.071 302.012 341.072 302.488 340.78 302.78C340.488 303.072 340.013 303.071 339.72 302.78L336 299.06L332.28 302.78C331.988 303.072 331.513 303.071 331.22 302.78C330.927 302.487 330.927 302.012 331.22 301.719L334.939 298L331.22 294.28C330.927 293.987 330.927 293.512 331.22 293.219C331.512 292.927 331.987 292.927 332.28 293.219L336 296.939L339.72 293.219Z" fill="currentColor"></path></svg></sc-if></span>{{ r.label }}<span tabindex="0" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" onFocus="{{ r.enter }}" onBlur="{{ r.leave }}" style="position:relative;display:inline-flex;color:#656A76;cursor:help;outline:none"><svg width="16" height="16" viewBox="416.00 258.00 16 16" fill="none" style="flex:none;display:block"><path d="M424 259C427.866 259 431 262.134 431 266C431 269.866 427.866 273 424 273C420.134 273 417 269.866 417 266C417 262.134 420.134 259 424 259ZM424 260.312C420.859 260.313 418.313 262.859 418.312 266C418.312 269.141 420.859 271.687 424 271.688C427.141 271.688 429.688 269.141 429.688 266C429.687 262.859 427.141 260.312 424 260.312ZM424 265.125C424.362 265.125 424.656 265.419 424.656 265.781V268.844C424.656 269.206 424.362 269.5 424 269.5C423.638 269.5 423.344 269.206 423.344 268.844V265.781C423.344 265.419 423.638 265.125 424 265.125ZM424.006 262.5C424.489 262.5 424.881 262.892 424.881 263.375C424.881 263.858 424.489 264.25 424.006 264.25H424C423.517 264.25 423.125 263.858 423.125 263.375C423.125 262.892 423.517 262.5 424 262.5H424.006Z" fill="currentColor"></path></svg><sc-if value="{{ r.tipOpen }}"><span style="position:absolute;z-index:25;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);width:260px;background:#0C0C0E;color:#fff;border-radius:5px;padding:8px 10px;font-size:13px;line-height:18px;font-weight:400;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,.2)">{{ r.tip }}<span style="position:absolute;left:50%;top:100%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0C0C0E"></span></span></sc-if></span></div>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:14px;font-weight:600">Runtime Version</div>
+                <div style="font-size:13px;color:#656A76">{{ vRuntimeHelp }}</div>
+              </div>
+              <div style="font-size:14px">{{ vRuntime }}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:14px;font-weight:600">Overrides</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:{{ vOverride.weight }}"><span style="width:16px;display:flex;justify-content:center;color:{{ vOverride.color }}"><sc-if value="{{ vOverride.on }}"><svg width="16" height="16" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if><sc-if value="{{ vOverride.off }}"><svg width="16" height="16" viewBox="329.50 291.50 13 13" fill="none" style="flex:none;display:block"><path d="M339.72 293.219C340.012 292.927 340.487 292.927 340.78 293.219C341.071 293.512 341.072 293.988 340.78 294.28L337.06 298L340.78 301.719C341.071 302.012 341.072 302.488 340.78 302.78C340.488 303.072 340.013 303.071 339.72 302.78L336 299.06L332.28 302.78C331.988 303.072 331.513 303.071 331.22 302.78C330.927 302.487 330.927 302.012 331.22 301.719L334.939 298L331.22 294.28C330.927 293.987 330.927 293.512 331.22 293.219C331.512 292.927 331.987 292.927 332.28 293.219L336 296.939L339.72 293.219Z" fill="currentColor"></path></svg></sc-if></span>Allow overriding mandatory policy failures<span tabindex="0" onMouseEnter="{{ vOverride.enter }}" onMouseLeave="{{ vOverride.leave }}" onFocus="{{ vOverride.enter }}" onBlur="{{ vOverride.leave }}" style="position:relative;display:inline-flex;color:#656A76;cursor:help;outline:none"><svg width="16" height="16" viewBox="416.00 258.00 16 16" fill="none" style="flex:none;display:block"><path d="M424 259C427.866 259 431 262.134 431 266C431 269.866 427.866 273 424 273C420.134 273 417 269.866 417 266C417 262.134 420.134 259 424 259ZM424 260.312C420.859 260.313 418.313 262.859 418.312 266C418.312 269.141 420.859 271.687 424 271.688C427.141 271.688 429.688 269.141 429.688 266C429.687 262.859 427.141 260.312 424 260.312ZM424 265.125C424.362 265.125 424.656 265.419 424.656 265.781V268.844C424.656 269.206 424.362 269.5 424 269.5C423.638 269.5 423.344 269.206 423.344 268.844V265.781C423.344 265.419 423.638 265.125 424 265.125ZM424.006 262.5C424.489 262.5 424.881 262.892 424.881 263.375C424.881 263.858 424.489 264.25 424.006 264.25H424C423.517 264.25 423.125 263.858 423.125 263.375C423.125 262.892 423.517 262.5 424 262.5H424.006Z" fill="currentColor"></path></svg><sc-if value="{{ vOverride.tipOpen }}"><span style="position:absolute;z-index:25;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);width:280px;background:#0C0C0E;color:#fff;border-radius:5px;padding:8px 10px;font-size:13px;line-height:18px;font-weight:400;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,.2)">{{ vOverride.tip }}<span style="position:absolute;left:50%;top:100%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0C0C0E"></span></span></sc-if></span></div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:14px;font-weight:600">Policies</div>
+              <div style="border:1px solid #E5E6E8;border-radius:6px;overflow:hidden">
+                <div style="display:grid;grid-template-columns:30% 1fr 22%;background:#F1F2F3;font-size:14px;font-weight:600">
+                  <div style="padding:13px 16px;border-right:1px solid #E5E6E8">Name</div><div style="padding:13px 16px;border-right:1px solid #E5E6E8">Description</div><div style="padding:13px 16px">Last updated</div>
+                </div>
+                <sc-for list="{{ vPolicies }}" as="p">
+                  <div style="display:grid;grid-template-columns:30% 1fr 22%;font-size:14px;border-top:1px solid #E5E6E8;background:{{ p.bg }}">
+                    <div style="padding:13px 16px;border-right:1px solid #E5E6E8">{{ p.name }}</div><div style="padding:13px 16px;border-right:1px solid #E5E6E8">{{ p.desc }}</div><div style="padding:13px 16px">{{ p.updated }}</div>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ vPoliciesEmpty }}"><div style="padding:13px 16px;font-size:14px;color:#656A76;border-top:1px solid #E5E6E8">No policies in this set</div></sc-if>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:13px">
+                <span>{{ vPoliciesCount }}</span>
+                <div style="display:flex;gap:22px;align-items:center;color:#656A76"><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="640.54 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M649.795 885.235C650.08 885.536 650.066 886.011 649.765 886.295L645.842 890L649.765 893.705C650.066 893.989 650.08 894.464 649.795 894.765C649.511 895.066 649.036 895.08 648.735 894.795L644.235 890.545C644.085 890.404 644 890.206 644 890C644 889.794 644.085 889.596 644.235 889.455L648.735 885.205C649.036 884.92 649.511 884.934 649.795 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span><span style="color:#1060FF;border-bottom:2px solid #1060FF;padding:4px 6px">1</span><span style="display:flex;color:#8C909C"><svg width="13" height="13" viewBox="711.46 883.50 13 13" fill="none" style="flex:none;display:block"><path d="M715.205 885.235C714.92 885.536 714.934 886.011 715.235 886.295L719.158 890L715.235 893.705C714.934 893.989 714.92 894.464 715.205 894.765C715.489 895.066 715.964 895.08 716.265 894.795L720.765 890.545C720.915 890.404 721 890.206 721 890C721 889.794 720.915 889.596 720.765 889.455L716.265 885.205C715.964 884.92 715.489 884.934 715.205 885.235Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span></div>
+                <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px">Items per page<span style="border:1px solid #8C909C;border-radius:5px;padding:4px 6px 4px 8px;display:flex;align-items:center;gap:4px">10<span style="display:flex;color:#656A76"><svg width="14" height="14" viewBox="1014.00 883.00 14 14" fill="none" style="flex:none;display:block"><path d="M1021.55 884.24C1021.41 884.087 1021.21 884 1021 884C1020.79 884 1020.59 884.087 1020.45 884.24L1017.2 887.74C1016.92 888.043 1016.94 888.518 1017.24 888.8C1017.54 889.081 1018.02 889.064 1018.3 888.76L1021 885.852L1023.7 888.76C1023.98 889.064 1024.46 889.081 1024.76 888.8C1025.06 888.518 1025.08 888.043 1024.8 887.74L1021.55 884.24Z" fill="currentColor"></path><path d="M1020.45 895.76C1020.59 895.913 1020.79 896 1021 896C1021.21 896 1021.41 895.913 1021.55 895.76L1024.8 892.26C1025.08 891.957 1025.06 891.482 1024.76 891.2C1024.46 890.919 1023.98 890.936 1023.7 891.24L1021 894.148L1018.3 891.24C1018.02 890.936 1017.54 890.919 1017.24 891.2C1016.94 891.482 1016.92 891.957 1017.2 892.26L1020.45 895.76Z" fill="currentColor"></path></svg></span></span></div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isEdit }}">
+          <div style="margin-top:40px;display:flex;flex-direction:column;gap:28px;max-width:1064px">
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:14px;font-weight:600">Policy framework</div>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,383px));gap:14px">
+                <sc-for list="{{ fwCards }}" as="c">
+                  <div title="Framework can't be changed after creation" style="border:1px solid #E5E6E8;border-radius:6px;background:#FAFAFA;cursor:not-allowed;display:flex;flex-direction:column">
+                    <div style="padding:24px 24px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px">
+                      <sc-if value="{{ c.isSentinel }}"><div style="height:22px;display:grid;place-items:center"><svg viewBox="508.5 285 21 22" width="21" height="22"><path d="M517.336 285.5L509 290.268V301.724L512.131 303.517V292.061L517.336 289.082V285.5Z" fill="#000001"></path><path d="M520.664 285.5V294.623H517.336V291.219L514.203 293.012V304.699L517.336 306.496V297.399H520.664V300.781L523.795 298.988V287.293L520.664 285.5Z" fill="#000001"></path><path d="M529 301.732L520.664 306.5V302.918L525.867 299.939V288.483L529 290.276V301.732Z" fill="#000001"></path></svg></div></sc-if><sc-if value="{{ c.isOpa }}"><div style="height:22px;display:grid;place-items:center"><svg viewBox="905 284 24 24" width="24" height="24"><path d="M910.571 295.916C910.907 294.642 911.509 293.526 912.294 292.633C912.029 292.423 910.979 291.555 910.93 290.872C910.854 289.756 911.904 286 911.904 286C911.904 286 908.731 290.109 908.511 291.769C908.336 293.072 910.342 295.659 910.553 295.921V295.916H910.571ZM923.483 295.85V295.859C923.483 295.864 923.488 295.869 923.488 295.874C923.838 295.425 925.655 293.015 925.489 291.769C925.269 290.109 922.096 286 922.096 286C922.096 286 923.147 289.756 923.07 290.872C923.025 291.526 922.069 292.342 921.751 292.6C922.536 293.478 923.142 294.585 923.483 295.85Z" fill="#000001"></path><path d="M923.483 295.854V295.845C923.142 294.585 922.536 293.478 921.751 292.595C920.517 291.211 918.838 290.381 917.029 290.381V294.819H917.034C917.478 294.824 917.837 295.21 917.837 295.683C917.837 295.74 917.833 295.792 917.824 295.845C917.752 296.241 917.429 296.542 917.034 296.546H917.02V298.193L917.011 305.99H917.169C917.169 305.99 918.874 303.366 919.794 302.616C920.871 301.738 923.483 300.65 923.483 300.65V295.907L923.497 295.902C923.492 295.893 923.492 295.878 923.488 295.869C923.488 295.864 923.488 295.859 923.483 295.854Z" fill="#000001"></path><path d="M917.02 296.551C916.648 296.546 916.338 296.279 916.244 295.916C916.226 295.845 916.212 295.769 916.212 295.687C916.212 295.21 916.576 294.824 917.025 294.824H917.029V290.4C915.212 290.4 913.529 291.235 912.294 292.633C911.509 293.521 910.907 294.642 910.571 295.916L910.557 295.916V300.722C910.557 300.722 913.169 301.81 914.247 302.688C915.14 303.418 916.863 306 916.863 306H917.025V305.995H917.016L917.02 296.551Z" fill="#000001"></path></svg></div></sc-if>
+                      <div style="font-size:17px;font-weight:600;color:#8C909C">{{ c.title }}</div>
+                      <div style="font-size:13px;line-height:18px;color:#8C909C;text-wrap:pretty">{{ c.desc }}</div>
+                    </div>
+                    <div style="border-top:1px solid #E5E6E8;padding:8px;display:flex;justify-content:center">
+                      <div style="width:16px;height:16px;border-radius:50%;border:1px solid #C2C5CB;background:#fff;display:grid;place-items:center">
+                        <sc-if value="{{ c.on }}"><div style="width:5px;height:5px;border-radius:50%;background:#8C909C"></div></sc-if>
+                      </div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:6px;max-width:683px">
+              <label style="font-size:14px;font-weight:600">Policy set name</label>
+              <div style="font-size:13px;color:#656A76;margin-bottom:6px">You can use letters, numbers, dashes (-) and underscores (_) in your policy set name.</div>
+              <input value="{{ draft.name }}" onInput="{{ onName }}" style="height:36px;border:1px solid {{ nameBorder }};border-radius:5px;padding:0 8px;font-size:14px;outline-color:#1060FF"></input>
+              <sc-if value="{{ nameError }}"><div style="font-size:13px;color:#C00005;margin-top:2px">{{ nameError }}</div></sc-if>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;max-width:683px">
+              <label style="font-size:14px;font-weight:600">Description <span style="font-weight:400;color:#656A76">(Optional)</span></label>
+              <input value="{{ draft.desc }}" onInput="{{ onDesc }}" style="height:36px;border:1px solid #8C909C;border-radius:5px;padding:0 8px;font-size:14px;outline-color:#1060FF"></input>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;max-width:683px">
+              <label style="font-size:14px;font-weight:600">Scope of policies</label>
+              <div style="font-size:13px;color:#656A76;margin-bottom:6px">{{ scopeHelp }}</div>
+              <div style="position:relative;display:flex;flex-direction:column;"><select value="{{ draft.scope }}" onChange="{{ onScope }}" style="height:36px;border:1px solid #8C909C;border-radius:5px;padding:0 8px;font-size:14px;appearance:none;-webkit-appearance:none;padding-right:32px;background:#fff;outline-color:#1060FF">
+                <option value="global">Policies enforced globally</option>
+                <option value="selected">Policies enforced on selected projects and workspaces</option>
+              </select><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex"><svg width="14" height="14" viewBox="987.00 731.00 14 14" fill="none"><path d="M996.7 739.239C996.982 738.938 997.458 738.919 997.761 739.2C998.061 739.482 998.078 739.958 997.8 740.261L994.55 743.761C994.409 743.912 994.207 743.999 994 744C993.793 744 993.592 743.912 993.45 743.761L990.2 740.261C989.918 739.957 989.937 739.482 990.24 739.2C990.544 738.921 991.019 738.937 991.3 739.239L994 742.147L996.7 739.239ZM994 732C994.207 732.001 994.409 732.088 994.55 732.239L997.8 735.739C998.078 736.042 998.061 736.518 997.761 736.8C997.458 737.081 996.982 737.062 996.7 736.761L994 733.853L991.3 736.761C991.019 737.063 990.544 737.079 990.24 736.8C989.937 736.518 989.918 736.043 990.2 735.739L993.45 732.239C993.592 732.088 993.793 732 994 732Z" fill="#656A76"></path></svg></span></div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:16px;margin-top:-4px">
+              <sc-if value="{{ scopeSelected }}" hint-placeholder-val="{{ true }}">
+                <div style="border:1px solid #E5E6E8;border-radius:8px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px 36px">
+                  <div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600"><span style="display:flex;color:#1868F2"><svg width="16" height="16" viewBox="351.75 807.75 16 16" fill="none" style="flex:none;display:block"><path d="M359.75 812C360.164 812 360.5 812.336 360.5 812.75V815H362.75C363.164 815 363.5 815.336 363.5 815.75C363.5 816.164 363.164 816.5 362.75 816.5H360.5V818.75C360.5 819.164 360.164 819.5 359.75 819.5C359.336 819.5 359 819.164 359 818.75V816.5H356.75C356.336 816.5 356 816.164 356 815.75C356 815.336 356.336 815 356.75 815H359V812.75C359 812.336 359.336 812 359.75 812Z" fill="currentColor"></path><path d="M353 811.25C353 810.007 354.007 809 355.25 809H364.25C365.493 809 366.5 810.007 366.5 811.25V820.25C366.5 821.493 365.493 822.5 364.25 822.5H355.25C354.007 822.5 353 821.493 353 820.25V811.25ZM355.25 810.5C354.836 810.5 354.5 810.836 354.5 811.25V820.25C354.5 820.664 354.836 821 355.25 821H364.25C364.664 821 365 820.664 365 820.25V811.25C365 810.836 364.664 810.5 364.25 810.5H355.25Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>Enforce on</div>
+                    <div style="font-size:13px;line-height:18px;color:#656A76;margin-top:8px">Enforce this policy set on any selected project's current and future workspaces and on any selected workspaces.</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:22px">
+                    <div style="display:flex;flex-direction:column;gap:6px">
+                      <div style="font-size:14px;font-weight:600">Projects</div>
+                      <div style="font-size:13px;line-height:18px;color:#656A76;margin-bottom:4px">Filtering by project will limit the available workspaces to ensure your selections remain compatible.</div>
+                      <div data-dd="1" style="position:relative">
+                        <div style="min-height:36px;border:1px solid #8C909C;border-radius:5px;display:flex;align-items:center;padding:3px 0 3px 10px">
+                          <div style="flex:1;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
+                            <sc-for list="{{ msP.chips }}" as="ch">
+                              <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid #8C909C;border-radius:999px;padding:2px 6px 2px 10px;font-size:13px">{{ ch.label }}<button onClick="{{ ch.remove }}" style="border:0;background:transparent;cursor:pointer;color:#656A76;padding:1px;border-radius:50%;display:flex" style-hover="color:#0C0C0E;background:#F1F2F3"><svg width="11" height="11" viewBox="329.50 291.50 13 13" fill="none" style="flex:none;display:block"><path d="M339.72 293.219C340.012 292.927 340.487 292.927 340.78 293.219C341.071 293.512 341.072 293.988 340.78 294.28L337.06 298L340.78 301.719C341.071 302.012 341.072 302.488 340.78 302.78C340.488 303.072 340.013 303.071 339.72 302.78L336 299.06L332.28 302.78C331.988 303.072 331.513 303.071 331.22 302.78C330.927 302.487 330.927 302.012 331.22 301.719L334.939 298L331.22 294.28C330.927 293.987 330.927 293.512 331.22 293.219C331.512 292.927 331.987 292.927 332.28 293.219L336 296.939L339.72 293.219Z" fill="currentColor"></path></svg></button></span>
+                            </sc-for>
+                            <sc-if value="{{ msP.empty }}"><span style="font-size:13px;color:#656A76">Select projects</span></sc-if>
+                          </div>
+                          <button onClick="{{ msP.toggle }}" style="flex:none;align-self:stretch;border:0;border-left:1px solid #E5E6E8;background:transparent;padding:0 10px;font-size:13px;color:#3B3D45;cursor:pointer;margin-left:6px;display:flex;align-items:center;gap:6px">{{ msP.countText }}<span style="display:flex;color:#656A76"><svg width="14" height="14" viewBox="1014.00 883.00 14 14" fill="none" style="flex:none;display:block"><path d="M1021.55 884.24C1021.41 884.087 1021.21 884 1021 884C1020.79 884 1020.59 884.087 1020.45 884.24L1017.2 887.74C1016.92 888.043 1016.94 888.518 1017.24 888.8C1017.54 889.081 1018.02 889.064 1018.3 888.76L1021 885.852L1023.7 888.76C1023.98 889.064 1024.46 889.081 1024.76 888.8C1025.06 888.518 1025.08 888.043 1024.8 887.74L1021.55 884.24Z" fill="currentColor"></path><path d="M1020.45 895.76C1020.59 895.913 1020.79 896 1021 896C1021.21 896 1021.41 895.913 1021.55 895.76L1024.8 892.26C1025.08 891.957 1025.06 891.482 1024.76 891.2C1024.46 890.919 1023.98 890.936 1023.7 891.24L1021 894.148L1018.3 891.24C1018.02 890.936 1017.54 890.919 1017.24 891.2C1016.94 891.482 1016.92 891.957 1017.2 892.26L1020.45 895.76Z" fill="currentColor"></path></svg></span></button>
+                        </div>
+                        <sc-if value="{{ msP.open }}">
+                          <div style="position:absolute;z-index:20;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #E5E6E8;border-radius:6px;box-shadow:0 8px 24px rgba(12,12,14,.12);padding:6px">
+                            <sc-for list="{{ msP.options }}" as="o">
+                              <div onClick="{{ o.toggle }}" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:4px;font-size:14px;cursor:pointer" style-hover="background:#F1F2F3">
+                                <span style="width:16px;height:16px;border-radius:3px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#fff;display:grid;place-items:center"><sc-if value="{{ o.mark }}"><svg width="12" height="12" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if></span>{{ o.label }}
+                              </div>
+                            </sc-for>
+                          </div>
+                        </sc-if>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                      <div style="font-size:14px;font-weight:600">Workspaces</div>
+                      <div data-dd="1" style="position:relative">
+                        <div style="min-height:36px;border:1px solid #8C909C;border-radius:5px;display:flex;align-items:center;padding:3px 0 3px 10px">
+                          <div style="flex:1;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
+                            <sc-for list="{{ msW.chips }}" as="ch">
+                              <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid #8C909C;border-radius:999px;padding:2px 6px 2px 10px;font-size:13px">{{ ch.label }}<button onClick="{{ ch.remove }}" style="border:0;background:transparent;cursor:pointer;color:#656A76;padding:1px;border-radius:50%;display:flex" style-hover="color:#0C0C0E;background:#F1F2F3"><svg width="11" height="11" viewBox="329.50 291.50 13 13" fill="none" style="flex:none;display:block"><path d="M339.72 293.219C340.012 292.927 340.487 292.927 340.78 293.219C341.071 293.512 341.072 293.988 340.78 294.28L337.06 298L340.78 301.719C341.071 302.012 341.072 302.488 340.78 302.78C340.488 303.072 340.013 303.071 339.72 302.78L336 299.06L332.28 302.78C331.988 303.072 331.513 303.071 331.22 302.78C330.927 302.487 330.927 302.012 331.22 301.719L334.939 298L331.22 294.28C330.927 293.987 330.927 293.512 331.22 293.219C331.512 292.927 331.987 292.927 332.28 293.219L336 296.939L339.72 293.219Z" fill="currentColor"></path></svg></button></span>
+                            </sc-for>
+                            <sc-if value="{{ msW.empty }}"><span style="font-size:13px;color:#656A76">Select workspaces</span></sc-if>
+                          </div>
+                          <button onClick="{{ msW.toggle }}" style="flex:none;align-self:stretch;border:0;border-left:1px solid #E5E6E8;background:transparent;padding:0 10px;font-size:13px;color:#3B3D45;cursor:pointer;margin-left:6px;display:flex;align-items:center;gap:6px">{{ msW.countText }}<span style="display:flex;color:#656A76"><svg width="14" height="14" viewBox="1014.00 883.00 14 14" fill="none" style="flex:none;display:block"><path d="M1021.55 884.24C1021.41 884.087 1021.21 884 1021 884C1020.79 884 1020.59 884.087 1020.45 884.24L1017.2 887.74C1016.92 888.043 1016.94 888.518 1017.24 888.8C1017.54 889.081 1018.02 889.064 1018.3 888.76L1021 885.852L1023.7 888.76C1023.98 889.064 1024.46 889.081 1024.76 888.8C1025.06 888.518 1025.08 888.043 1024.8 887.74L1021.55 884.24Z" fill="currentColor"></path><path d="M1020.45 895.76C1020.59 895.913 1020.79 896 1021 896C1021.21 896 1021.41 895.913 1021.55 895.76L1024.8 892.26C1025.08 891.957 1025.06 891.482 1024.76 891.2C1024.46 890.919 1023.98 890.936 1023.7 891.24L1021 894.148L1018.3 891.24C1018.02 890.936 1017.54 890.919 1017.24 891.2C1016.94 891.482 1016.92 891.957 1017.2 892.26L1020.45 895.76Z" fill="currentColor"></path></svg></span></button>
+                        </div>
+                        <sc-if value="{{ msW.open }}">
+                          <div style="position:absolute;z-index:20;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #E5E6E8;border-radius:6px;box-shadow:0 8px 24px rgba(12,12,14,.12);padding:6px">
+                            <sc-for list="{{ msW.options }}" as="o">
+                              <div onClick="{{ o.toggle }}" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:4px;font-size:14px;cursor:pointer" style-hover="background:#F1F2F3">
+                                <span style="width:16px;height:16px;border-radius:3px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#fff;display:grid;place-items:center"><sc-if value="{{ o.mark }}"><svg width="12" height="12" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if></span>{{ o.label }}
+                              </div>
+                            </sc-for>
+                          </div>
+                        </sc-if>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <div style="border:1px solid #E5E6E8;border-radius:8px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px 36px">
+                <div>
+                  <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600"><span style="display:flex;color:#E62228"><svg width="16" height="16" viewBox="352.00 1056.00 16 16" fill="none" style="flex:none;display:block"><path d="M357.25 1063C356.836 1063 356.5 1063.34 356.5 1063.75C356.5 1064.16 356.836 1064.5 357.25 1064.5H362.75C363.164 1064.5 363.5 1064.16 363.5 1063.75C363.5 1063.34 363.164 1063 362.75 1063H357.25Z" fill="currentColor"></path><path d="M355.25 1057C354.007 1057 353 1058.01 353 1059.25V1068.75C353 1069.99 354.007 1071 355.25 1071H364.75C365.993 1071 367 1069.99 367 1068.75V1059.25C367 1058.01 365.993 1057 364.75 1057H355.25ZM354.5 1059.25C354.5 1058.84 354.836 1058.5 355.25 1058.5H364.75C365.164 1058.5 365.5 1058.84 365.5 1059.25V1068.75C365.5 1069.16 365.164 1069.5 364.75 1069.5H355.25C354.836 1069.5 354.5 1069.16 354.5 1068.75V1059.25Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>Exclude from</div>
+                  <div style="font-size:13px;line-height:18px;color:#656A76;margin-top:8px">Exclusions are removing policy sets from selected projects and workspaces.</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div style="font-size:14px;font-weight:600">Workspaces</div>
+                  <div data-dd="1" style="position:relative">
+                    <div style="min-height:36px;border:1px solid #8C909C;border-radius:5px;display:flex;align-items:center;padding:3px 0 3px 10px">
+                      <div style="flex:1;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
+                        <sc-for list="{{ msX.chips }}" as="ch">
+                          <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid #8C909C;border-radius:999px;padding:2px 6px 2px 10px;font-size:13px">{{ ch.label }}<button onClick="{{ ch.remove }}" style="border:0;background:transparent;cursor:pointer;color:#656A76;padding:1px;border-radius:50%;display:flex" style-hover="color:#0C0C0E;background:#F1F2F3"><svg width="11" height="11" viewBox="329.50 291.50 13 13" fill="none" style="flex:none;display:block"><path d="M339.72 293.219C340.012 292.927 340.487 292.927 340.78 293.219C341.071 293.512 341.072 293.988 340.78 294.28L337.06 298L340.78 301.719C341.071 302.012 341.072 302.488 340.78 302.78C340.488 303.072 340.013 303.071 339.72 302.78L336 299.06L332.28 302.78C331.988 303.072 331.513 303.071 331.22 302.78C330.927 302.487 330.927 302.012 331.22 301.719L334.939 298L331.22 294.28C330.927 293.987 330.927 293.512 331.22 293.219C331.512 292.927 331.987 292.927 332.28 293.219L336 296.939L339.72 293.219Z" fill="currentColor"></path></svg></button></span>
+                        </sc-for>
+                        <sc-if value="{{ msX.empty }}"><span style="font-size:13px;color:#656A76">Select workspaces</span></sc-if>
+                      </div>
+                      <button onClick="{{ msX.toggle }}" style="flex:none;align-self:stretch;border:0;border-left:1px solid #E5E6E8;background:transparent;padding:0 10px;font-size:13px;color:#3B3D45;cursor:pointer;margin-left:6px;display:flex;align-items:center;gap:6px">{{ msX.countText }}<span style="display:flex;color:#656A76"><svg width="14" height="14" viewBox="1014.00 883.00 14 14" fill="none" style="flex:none;display:block"><path d="M1021.55 884.24C1021.41 884.087 1021.21 884 1021 884C1020.79 884 1020.59 884.087 1020.45 884.24L1017.2 887.74C1016.92 888.043 1016.94 888.518 1017.24 888.8C1017.54 889.081 1018.02 889.064 1018.3 888.76L1021 885.852L1023.7 888.76C1023.98 889.064 1024.46 889.081 1024.76 888.8C1025.06 888.518 1025.08 888.043 1024.8 887.74L1021.55 884.24Z" fill="currentColor"></path><path d="M1020.45 895.76C1020.59 895.913 1020.79 896 1021 896C1021.21 896 1021.41 895.913 1021.55 895.76L1024.8 892.26C1025.08 891.957 1025.06 891.482 1024.76 891.2C1024.46 890.919 1023.98 890.936 1023.7 891.24L1021 894.148L1018.3 891.24C1018.02 890.936 1017.54 890.919 1017.24 891.2C1016.94 891.482 1016.92 891.957 1017.2 892.26L1020.45 895.76Z" fill="currentColor"></path></svg></span></button>
+                    </div>
+                    <sc-if value="{{ msX.open }}">
+                      <div style="position:absolute;z-index:20;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #E5E6E8;border-radius:6px;box-shadow:0 8px 24px rgba(12,12,14,.12);padding:6px">
+                        <sc-for list="{{ msX.options }}" as="o">
+                          <div onClick="{{ o.toggle }}" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:4px;font-size:14px;cursor:pointer" style-hover="background:#F1F2F3">
+                            <span style="width:16px;height:16px;border-radius:3px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#fff;display:grid;place-items:center"><sc-if value="{{ o.mark }}"><svg width="12" height="12" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if></span>{{ o.label }}
+                          </div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
+              <div style="font-size:14px;font-weight:600">Execution mode</div>
+              <div style="font-size:13px;color:#656A76">The execution mode determines the environment that runs your policy set.</div>
+              <a href="#" style="font-size:13px;margin-top:4px">Learn about policy set execution modes<span style="display:inline-block;vertical-align:-3px;margin-left:6px"><svg width="16" height="16" viewBox="553.00 1427.00 16 16" fill="none" style="flex:none;display:block"><path d="M556.5 1430.25C556.5 1429.84 556.836 1429.5 557.25 1429.5H561C561.414 1429.5 561.75 1429.16 561.75 1428.75C561.75 1428.34 561.414 1428 561 1428H557.25C556.007 1428 555 1429.01 555 1430.25V1439.75C555 1440.99 556.007 1442 557.25 1442H565.75C566.44 1442 567 1441.44 567 1440.75V1434C567 1433.59 566.664 1433.25 566.25 1433.25C565.836 1433.25 565.5 1433.59 565.5 1434V1437H557.25C556.987 1437 556.735 1437.05 556.5 1437.13V1430.25ZM556.5 1439.25V1439.75C556.5 1440.16 556.836 1440.5 557.25 1440.5H565.5V1438.5H557.25C556.836 1438.5 556.5 1438.84 556.5 1439.25Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M565.5 1430.56V1431.25C565.5 1431.66 565.836 1432 566.25 1432C566.664 1432 567 1431.66 567 1431.25V1428.75C567 1428.55 566.921 1428.36 566.78 1428.22C566.64 1428.08 566.449 1428 566.25 1428H563.75C563.336 1428 563 1428.34 563 1428.75C563 1429.16 563.336 1429.5 563.75 1429.5H564.439L562.47 1431.47C562.177 1431.76 562.177 1432.24 562.47 1432.53C562.763 1432.82 563.237 1432.82 563.53 1432.53L565.5 1430.56Z" fill="currentColor"></path></svg></span></a>
+              <div style="display:flex;flex-direction:column;gap:22px;margin-top:18px">
+                <div onClick="{{ setPlatform }}" style="display:grid;grid-template-columns:16px 1fr;gap:8px 8px;cursor:pointer">
+                  <span style="width:16px;height:16px;margin-top:1px;border-radius:50%;border:{{ rPlatform.border }};background:#fff;box-sizing:border-box"></span>
+                  <div style="font-size:14px">Platform environment</div>
+                  <div></div>
+                  <div style="font-size:13px;line-height:18px;color:#656A76">Platform environment mode executes policies directly in HCP Terraform or Terraform Enterprise. This mode currently uses Sentinel 0.40.x. Use this mode if you have Sentinel policies that need access to cost estimation data and granular policy enforcement of soft and hard mandatory.</div>
+                </div>
+                <div style="display:grid;grid-template-columns:16px 1fr;gap:8px 8px">
+                  <span onClick="{{ setAgent }}" style="width:16px;height:16px;margin-top:1px;border-radius:50%;border:{{ rAgent.border }};background:#fff;box-sizing:border-box;cursor:pointer"></span>
+                  <div onClick="{{ setAgent }}" style="font-size:14px;cursor:pointer">HCP Terraform Agent</div>
+                  <div></div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <div style="font-size:13px;line-height:18px;color:#656A76">The HCP Terraform Agent runs policy sets in an isolated environment (private agent) and evaluates them with a pinned runtime version.</div>
+                    <div style="display:flex;gap:8px;font-size:13px;line-height:18px;color:#3B3D45"><span style="flex:none;margin-top:1px;display:flex;color:#656A76"><svg width="16" height="16" viewBox="351.00 1453.00 16 16" fill="none" style="flex:none;display:block"><path d="M359 1468C362.866 1468 366 1464.87 366 1461C366 1457.13 362.866 1454 359 1454C355.134 1454 352 1457.13 352 1461C352 1464.87 355.134 1468 359 1468ZM359 1460.12C359.362 1460.12 359.656 1460.42 359.656 1460.78V1463.84C359.656 1464.21 359.362 1464.5 359 1464.5C358.638 1464.5 358.344 1464.21 358.344 1463.84V1460.78C358.344 1460.42 358.638 1460.12 359 1460.12ZM359 1457.5C358.517 1457.5 358.125 1457.89 358.125 1458.38C358.125 1458.86 358.517 1459.25 359 1459.25H359.006C359.489 1459.25 359.881 1458.86 359.881 1458.38C359.881 1457.89 359.489 1457.5 359.006 1457.5H359Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>HCP Terraform Agent based policy set evaluations don't have access to cost estimation data.</div>
+                  </div>
+                </div>
+              </div>
+              <div style="padding-left:24px;display:flex;flex-direction:column;gap:22px;margin-top:22px;opacity:{{ agentOpacity }};transition:opacity .2s">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div style="font-size:14px;font-weight:600">Runtime version</div>
+                  <div style="font-size:13px;line-height:18px;color:#656A76;margin-bottom:6px">This policy set uses the latest Sentinel version and does not upgrade automatically. To upgrade, select a newer version.</div>
+                  <div style="position:relative;display:flex;flex-direction:column;"><select value="{{ draft.runtime }}" onChange="{{ onRuntime }}" disabled="{{ agentDisabled }}" style="height:36px;border:1px solid #8C909C;border-radius:5px;padding:0 8px;font-size:14px;appearance:none;-webkit-appearance:none;padding-right:32px;background:#fff;outline-color:#1060FF">
+                    <option value="latest">Latest</option><option value="0.40.0">0.40.0</option><option value="0.39.2">0.39.2</option><option value="0.38.0">0.38.0</option>
+                  </select><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex"><svg width="14" height="14" viewBox="987.00 731.00 14 14" fill="none"><path d="M996.7 739.239C996.982 738.938 997.458 738.919 997.761 739.2C998.061 739.482 998.078 739.958 997.8 740.261L994.55 743.761C994.409 743.912 994.207 743.999 994 744C993.793 744 993.592 743.912 993.45 743.761L990.2 740.261C989.918 739.957 989.937 739.482 990.24 739.2C990.544 738.921 991.019 738.937 991.3 739.239L994 742.147L996.7 739.239ZM994 732C994.207 732.001 994.409 732.088 994.55 732.239L997.8 735.739C998.078 736.042 998.061 736.518 997.761 736.8C997.458 737.081 996.982 737.062 996.7 736.761L994 733.853L991.3 736.761C991.019 737.063 990.544 737.079 990.24 736.8C989.937 736.518 989.918 736.043 990.2 735.739L993.45 732.239C993.592 732.088 993.793 732 994 732Z" fill="#656A76"></path></svg></span></div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div style="font-size:14px;font-weight:600">Overrides</div>
+                  <div style="display:grid;grid-template-columns:32px 1fr;gap:6px 8px;align-items:start">
+                    <button onClick="{{ toggleOverride }}" disabled="{{ agentDisabled }}" aria-pressed="{{ draft.override }}" style="width:32px;height:16px;margin-top:1px;padding:0;border-radius:999px;border:1px solid {{ toggle.border }};background:{{ toggle.bg }};position:relative;cursor:pointer;transition:background .15s">
+                      <span style="position:absolute;top:1px;left:{{ toggle.left }};width:12px;height:12px;border-radius:50%;background:{{ toggle.knob }};border:1px solid {{ toggle.border }};box-sizing:border-box;transition:left .15s"></span>
+                    </button>
+                    <div onClick="{{ toggleOverride }}" style="font-size:14px;font-weight:600;cursor:pointer">Allow overriding mandatory policy failures</div>
+                    <div></div>
+                    <div style="font-size:13px;line-height:18px;color:#656A76">HCP Terraform Agent mode treats hard and soft mandatory policies as the same enforcement. Enable this setting to let users with <b style="color:#3B3D45">Manage policy overrides permissions</b> override mandatory policies.<div style="margin-top:6px"><a href="#">Learn about enforcement levels<span style="display:inline-block;vertical-align:-3px;margin-left:6px"><svg width="16" height="16" viewBox="553.00 1427.00 16 16" fill="none" style="flex:none;display:block"><path d="M556.5 1430.25C556.5 1429.84 556.836 1429.5 557.25 1429.5H561C561.414 1429.5 561.75 1429.16 561.75 1428.75C561.75 1428.34 561.414 1428 561 1428H557.25C556.007 1428 555 1429.01 555 1430.25V1439.75C555 1440.99 556.007 1442 557.25 1442H565.75C566.44 1442 567 1441.44 567 1440.75V1434C567 1433.59 566.664 1433.25 566.25 1433.25C565.836 1433.25 565.5 1433.59 565.5 1434V1437H557.25C556.987 1437 556.735 1437.05 556.5 1437.13V1430.25ZM556.5 1439.25V1439.75C556.5 1440.16 556.836 1440.5 557.25 1440.5H565.5V1438.5H557.25C556.836 1438.5 556.5 1438.84 556.5 1439.25Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M565.5 1430.56V1431.25C565.5 1431.66 565.836 1432 566.25 1432C566.664 1432 567 1431.66 567 1431.25V1428.75C567 1428.55 566.921 1428.36 566.78 1428.22C566.64 1428.08 566.449 1428 566.25 1428H563.75C563.336 1428 563 1428.34 563 1428.75C563 1429.16 563.336 1429.5 563.75 1429.5H564.439L562.47 1431.47C562.177 1431.76 562.177 1432.24 562.47 1432.53C562.763 1432.82 563.237 1432.82 563.53 1432.53L565.5 1430.56Z" fill="currentColor"></path></svg></span></a></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="font-size:14px;font-weight:600">Policies</div>
+              <div style="font-size:13px;color:#656A76;margin-bottom:6px">Select which policy sets you want to add this policy to. Versioned policy sets do not appear in this list.</div>
+              <div style="position:relative;display:flex;flex-direction:column;max-width:700px;"><select value="" onChange="{{ onAddPolicy }}" style="height:36px;border:1px solid #8C909C;border-radius:5px;padding:0 10px;font-size:14px;appearance:none;-webkit-appearance:none;padding-right:32px;background:#fff;outline-color:#1060FF">
+                <option value="">Select policy</option>
+                <sc-for list="{{ policyOptions }}" as="o"><option value="{{ o.name }}">{{ o.name }}</option></sc-for>
+              </select><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex"><svg width="14" height="14" viewBox="987.00 731.00 14 14" fill="none"><path d="M996.7 739.239C996.982 738.938 997.458 738.919 997.761 739.2C998.061 739.482 998.078 739.958 997.8 740.261L994.55 743.761C994.409 743.912 994.207 743.999 994 744C993.793 744 993.592 743.912 993.45 743.761L990.2 740.261C989.918 739.957 989.937 739.482 990.24 739.2C990.544 738.921 991.019 738.937 991.3 739.239L994 742.147L996.7 739.239ZM994 732C994.207 732.001 994.409 732.088 994.55 732.239L997.8 735.739C998.078 736.042 998.061 736.518 997.761 736.8C997.458 737.081 996.982 737.062 996.7 736.761L994 733.853L991.3 736.761C991.019 737.063 990.544 737.079 990.24 736.8C989.937 736.518 989.918 736.043 990.2 735.739L993.45 732.239C993.592 732.088 993.793 732 994 732Z" fill="#656A76"></path></svg></span></div>
+              <sc-if value="{{ hasChecked }}">
+                <div style="display:flex;align-items:center;gap:12px;margin-top:10px;font-size:13px">
+                  <span>{{ checkedText }}</span>
+                  <button onClick="{{ removeChecked }}" style="height:28px;padding:0 10px;border:1px solid #E52228;color:#C00005;background:#fff;border-radius:5px;font-size:13px;cursor:pointer" style-hover="background:#FFF5F5">Remove from set</button>
+                </div>
+              </sc-if>
+              <div style="border:1px solid #E5E6E8;border-radius:6px;margin-top:10px">
+                <div style="display:grid;grid-template-columns:48px minmax(140px,1.2fr) minmax(160px,2fr) minmax(110px,150px) 56px;background:#F1F2F3;font-size:14px;font-weight:600;border-radius:6px 6px 0 0">
+                  <div style="padding:12px 16px;border-right:1px solid #E5E6E8;display:flex;align-items:center"><span onClick="{{ toggleAll }}" style="width:16px;height:16px;border-radius:3px;border:1px solid {{ allBox.border }};background:{{ allBox.bg }};color:#fff;display:grid;place-items:center;cursor:pointer"><sc-if value="{{ allBox.mark }}"><svg width="12" height="12" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if></span></div>
+                  <div style="padding:13px 16px;border-right:1px solid #E5E6E8">Name</div><div style="padding:13px 16px;border-right:1px solid #E5E6E8">Description</div><div style="padding:13px 16px;border-right:1px solid #E5E6E8">Last updated</div><div></div>
+                </div>
+                <sc-for list="{{ ePolicies }}" as="p">
+                  <div style="display:grid;grid-template-columns:48px minmax(140px,1.2fr) minmax(160px,2fr) minmax(110px,150px) 56px;font-size:14px;border-top:1px solid #E5E6E8;background:{{ p.rowBg }}">
+                    <div style="padding:12px 16px;border-right:1px solid #E5E6E8;display:flex;align-items:center"><span onClick="{{ p.toggle }}" style="width:16px;height:16px;border-radius:3px;border:1px solid {{ p.border }};background:{{ p.bg }};color:#fff;display:grid;place-items:center;cursor:pointer"><sc-if value="{{ p.mark }}"><svg width="12" height="12" viewBox="327.50 257.50 17 17" fill="none" style="flex:none;display:block"><path d="M341.719 261.219C342.012 260.927 342.487 260.927 342.78 261.219C343.071 261.512 343.072 261.988 342.78 262.28L334.28 270.78C333.988 271.072 333.512 271.071 333.219 270.78L329.219 266.78C328.927 266.487 328.927 266.012 329.219 265.719C329.512 265.427 329.987 265.427 330.28 265.719L333.75 269.189L341.719 261.219Z" fill="currentColor"></path></svg></sc-if></span></div>
+                    <div style="padding:14px 16px;border-right:1px solid #E5E6E8">{{ p.name }}</div>
+                    <div style="padding:14px 16px;border-right:1px solid #E5E6E8">{{ p.desc }}</div>
+                    <div style="padding:14px 16px;border-right:1px solid #E5E6E8">{{ p.updated }}</div>
+                    <div data-dd="1" style="position:relative;display:flex;align-items:center;justify-content:center">
+                      <button onClick="{{ p.toggleMenu }}" style="width:28px;height:28px;border:0;border-radius:5px;background:#F1F2F3;cursor:pointer;display:grid;place-items:center;color:#3B3D45" style-hover="background:#E5E6E8"><svg width="11" height="11" viewBox="1324.50 1940.50 11 11" fill="none" style="flex:none;display:block"><path d="M1326.5 1945C1327.05 1945 1327.5 1945.45 1327.5 1946C1327.5 1946.55 1327.05 1947 1326.5 1947C1325.95 1947 1325.5 1946.55 1325.5 1946C1325.5 1945.45 1325.95 1945 1326.5 1945ZM1330 1945C1330.55 1945 1331 1945.45 1331 1946C1331 1946.55 1330.55 1947 1330 1947C1329.45 1947 1329 1946.55 1329 1946C1329 1945.45 1329.45 1945 1330 1945ZM1333.5 1945C1334.05 1945 1334.5 1945.45 1334.5 1946C1334.5 1946.55 1334.05 1947 1333.5 1947C1332.95 1947 1332.5 1946.55 1332.5 1946C1332.5 1945.45 1332.95 1945 1333.5 1945Z" fill="currentColor"></path></svg></button>
+                      <sc-if value="{{ p.menuOpen }}">
+                        <div style="position:absolute;z-index:20;top:40px;right:8px;width:180px;background:#fff;border:1px solid #E5E6E8;border-radius:6px;box-shadow:0 8px 24px rgba(12,12,14,.12);padding:6px">
+                          <div style="padding:8px 10px;border-radius:4px;font-size:14px;cursor:pointer" style-hover="background:#F1F2F3">View policy</div>
+                          <div onClick="{{ p.remove }}" style="padding:8px 10px;border-radius:4px;font-size:14px;color:#C00005;cursor:pointer" style-hover="background:#FFF5F5">Remove from set</div>
+                        </div>
+                      </sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ ePoliciesEmpty }}"><div style="padding:14px 16px;font-size:14px;color:#656A76;border-top:1px solid #E5E6E8">No policies selected. Add one above.</div></sc-if>
+              </div>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
+              <div style="display:flex;gap:16px">
+                <button onClick="{{ save }}" style="height:36px;padding:0 16px;background:#1060FF;color:#fff;border:1px solid #0C56E9;border-radius:5px;font-size:14px;font-weight:500;cursor:pointer" style-hover="background:#0C56E9">Update Policy Set</button>
+                <button onClick="{{ cancel }}" style="height:36px;padding:0 16px;background:#F9F9FA;color:#0C0C0E;border:1px solid #8C909C;border-radius:5px;font-size:14px;font-weight:500;cursor:pointer" style-hover="background:#F1F2F3">Cancel</button>
+              </div>
+              <button onClick="{{ askDelete }}" style="height:36px;padding:0 16px;background:#fff;color:#C00005;border:1px solid #E52228;border-radius:5px;font-size:14px;font-weight:500;cursor:pointer" style-hover="background:#FFF5F5">Delete policy set</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <footer style="border-top:1px solid #E5E6E8;padding:26px 48px;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:26px;font-size:13px;color:#656A76">
+        <span style="display:flex;align-items:center;gap:6px"><span style="display:flex;color:#008A22"><svg width="18" height="18" viewBox="389.00 2155.00 18 18" fill="none" style="flex:none;display:block"><path d="M401.78 2161.22C402.073 2161.51 402.073 2161.99 401.78 2162.28L397.28 2166.78C396.987 2167.07 396.513 2167.07 396.22 2166.78L394.22 2164.78C393.927 2164.49 393.927 2164.01 394.22 2163.72C394.513 2163.43 394.987 2163.43 395.28 2163.72L396.75 2165.19L400.72 2161.22C401.013 2160.93 401.487 2160.93 401.78 2161.22Z" fill="currentColor"></path><path d="M390 2164C390 2159.58 393.582 2156 398 2156C402.418 2156 406 2159.58 406 2164C406 2168.42 402.418 2172 398 2172C393.582 2172 390 2168.42 390 2164ZM398 2157.5C394.41 2157.5 391.5 2160.41 391.5 2164C391.5 2167.59 394.41 2170.5 398 2170.5C401.59 2170.5 404.5 2167.59 404.5 2164C404.5 2160.41 401.59 2157.5 398 2157.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span><a href="#" style="color:#3B3D45;text-decoration:underline">Platform operational</a></span>
+        <a href="#" style="color:#3B3D45;text-decoration:underline">Terms</a><a href="#" style="color:#3B3D45;text-decoration:underline">Privacy</a><a href="#" style="color:#3B3D45;text-decoration:underline">Security</a><a href="#" style="color:#3B3D45;text-decoration:underline">Accessibility</a><a href="#" style="color:#3B3D45;text-decoration:underline">Support</a><a href="#" style="color:#3B3D45;text-decoration:underline">Changelog<span style="display:inline-block;vertical-align:-3px;margin-left:6px"><svg width="16" height="16" viewBox="553.00 1427.00 16 16" fill="none" style="flex:none;display:block"><path d="M556.5 1430.25C556.5 1429.84 556.836 1429.5 557.25 1429.5H561C561.414 1429.5 561.75 1429.16 561.75 1428.75C561.75 1428.34 561.414 1428 561 1428H557.25C556.007 1428 555 1429.01 555 1430.25V1439.75C555 1440.99 556.007 1442 557.25 1442H565.75C566.44 1442 567 1441.44 567 1440.75V1434C567 1433.59 566.664 1433.25 566.25 1433.25C565.836 1433.25 565.5 1433.59 565.5 1434V1437H557.25C556.987 1437 556.735 1437.05 556.5 1437.13V1430.25ZM556.5 1439.25V1439.75C556.5 1440.16 556.836 1440.5 557.25 1440.5H565.5V1438.5H557.25C556.836 1438.5 556.5 1438.84 556.5 1439.25Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M565.5 1430.56V1431.25C565.5 1431.66 565.836 1432 566.25 1432C566.664 1432 567 1431.66 567 1431.25V1428.75C567 1428.55 566.921 1428.36 566.78 1428.22C566.64 1428.08 566.449 1428 566.25 1428H563.75C563.336 1428 563 1428.34 563 1428.75C563 1429.16 563.336 1429.5 563.75 1429.5H564.439L562.47 1431.47C562.177 1431.76 562.177 1432.24 562.47 1432.53C562.763 1432.82 563.237 1432.82 563.53 1432.53L565.5 1430.56Z" fill="currentColor"></path></svg></span></a>
+        <span style="display:flex;align-items:center;gap:6px"><svg viewBox="1083 2244.4 14 15.2" width="14" height="15"><path d="M1088.84 2244.6L1083 2247.96V2256.04L1085.19 2257.3V2249.23L1088.84 2247.13V2244.6Z" fill="black"></path><path d="M1091.16 2244.6V2251.03H1088.84V2248.63L1086.64 2249.9V2258.13L1088.84 2259.4V2252.99H1091.16V2255.37L1093.36 2254.11V2245.87L1091.16 2244.6Z" fill="black"></path><path d="M1091.16 2259.4L1097 2256.04V2247.97L1094.81 2246.7V2254.78L1091.16 2256.88V2259.4Z" fill="black"></path></svg>© 2026 HashiCorp, an IBM Company</span>
+      </footer>
+    </main>
+  </div>
+
+  <div style="position:fixed;right:36px;bottom:36px;z-index:50;width:360px;background:#F2FBF6;border:1px solid #86D6A6;border-radius:6px;box-shadow:0 4px 16px rgba(12,12,14,.12);padding:16px;display:flex;gap:12px;opacity:{{ toastOpacity }};transform:{{ toastTransform }};pointer-events:{{ toastPE }};transition:opacity .25s,transform .25s">
+    <span style="flex:none;display:flex;color:#008A22"><svg width="20" height="20" viewBox="389.00 2155.00 18 18" fill="none" style="flex:none;display:block"><path d="M401.78 2161.22C402.073 2161.51 402.073 2161.99 401.78 2162.28L397.28 2166.78C396.987 2167.07 396.513 2167.07 396.22 2166.78L394.22 2164.78C393.927 2164.49 393.927 2164.01 394.22 2163.72C394.513 2163.43 394.987 2163.43 395.28 2163.72L396.75 2165.19L400.72 2161.22C401.013 2160.93 401.487 2160.93 401.78 2161.22Z" fill="currentColor"></path><path d="M390 2164C390 2159.58 393.582 2156 398 2156C402.418 2156 406 2159.58 406 2164C406 2168.42 402.418 2172 398 2172C393.582 2172 390 2168.42 390 2164ZM398 2157.5C394.41 2157.5 391.5 2160.41 391.5 2164C391.5 2167.59 394.41 2170.5 398 2170.5C401.59 2170.5 404.5 2167.59 404.5 2164C404.5 2160.41 401.59 2157.5 398 2157.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
+    <div style="flex:1">
+      <div style="font-size:14px;font-weight:600;color:#006619">{{ toastTitle }}</div>
+      <div style="font-size:14px;line-height:20px;color:#3B3D45;margin-top:6px">{{ toastMsg }}</div>
+    </div>
+    <button onClick="{{ closeToast }}" style="flex:none;align-self:flex-start;border:0;background:transparent;cursor:pointer;color:#3B3D45;display:flex;padding:2px"><svg width="16" height="16" viewBox="329.50 291.50 13 13" fill="none" style="flex:none;display:block"><path d="M339.72 293.219C340.012 292.927 340.487 292.927 340.78 293.219C341.071 293.512 341.072 293.988 340.78 294.28L337.06 298L340.78 301.719C341.071 302.012 341.072 302.488 340.78 302.78C340.488 303.072 340.013 303.071 339.72 302.78L336 299.06L332.28 302.78C331.988 303.072 331.513 303.071 331.22 302.78C330.927 302.487 330.927 302.012 331.22 301.719L334.939 298L331.22 294.28C330.927 293.987 330.927 293.512 331.22 293.219C331.512 292.927 331.987 292.927 332.28 293.219L336 296.939L339.72 293.219Z" fill="currentColor"></path></svg></button>
+  </div>
+
+  <sc-if value="{{ showDelete }}">
+    <div style="position:fixed;inset:0;z-index:60;background:rgba(12,12,14,.5);display:grid;place-items:center" onClick="{{ closeDelete }}">
+      <div onClick="{{ stop }}" style="width:480px;max-width:calc(100vw - 32px);background:#fff;border-radius:8px;box-shadow:0 16px 48px rgba(0,0,0,.25);overflow:hidden">
+        <div style="padding:20px 24px;border-bottom:1px solid #E5E6E8;font-size:17px;font-weight:600">Delete policy set</div>
+        <div style="padding:20px 24px;font-size:14px;line-height:21px;color:#3B3D45">Are you sure you want to delete <b>workspace_tag_test</b>? Its policies will stop being enforced on all projects and workspaces in scope. This can't be undone.</div>
+        <div style="padding:16px 24px;background:#FAFAFA;border-top:1px solid #E5E6E8;display:flex;gap:12px">
+          <button onClick="{{ confirmDelete }}" style="height:36px;padding:0 16px;background:#E52228;color:#fff;border:1px solid #C00005;border-radius:5px;font-size:14px;font-weight:500;cursor:pointer" style-hover="background:#C00005">Delete policy set</button>
+          <button onClick="{{ closeDelete }}" style="height:36px;padding:0 16px;background:#fff;border:1px solid #8C909C;border-radius:5px;font-size:14px;font-weight:500;cursor:pointer" style-hover="background:#F1F2F3">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const POLICIES = [
+  { name: 'allowed-terraform-version', desc: 'Validates that an TF allowed version is used.', updated: '3 years ago' },
+  { name: 'ec2-instance-check', desc: 'Validates that a EC2 instance is right.', updated: '3 years ago' },
+  { name: 'db-check', desc: 'Validates that a database has enough storage.', updated: '3 years ago' },
+  { name: 'policy-test', desc: 'No description available.', updated: '5 years ago' },
+];
+const EXTRA_POLICIES = [
+  { name: 'require-tags', desc: 'Requires cost-center and env tags on all resources.', updated: '2 months ago' },
+  { name: 's3-no-public-acl', desc: 'Blocks public ACLs on S3 buckets.', updated: '1 year ago' },
+  { name: 'restrict-regions', desc: 'Limits deployments to approved regions.', updated: '8 months ago' },
+];
+const ALL_PROJECTS = ['aws-123', 'projecttest', 'testing-123', 'policy-project', 'sandbox', 'platform-core'];
+const ALL_WORKSPACES = ['testing-workspace', 'workspace-prod', 'staging-workspace', 'dev-workspace', 'networking'];
+const INITIAL = {
+  framework: 'sentinel', name: 'policy-set_name123', desc: 'Ensures all resources have environment tags for cost tracking',
+  scope: 'selected', projects: ['aws-123', 'projecttest', 'testing-123', 'policy-project'], workspaces: ['testing-workspace'],
+  excluded: ['workspace-prod', 'staging-workspace'], exec: 'platform', runtime: 'latest', override: false, policies: POLICIES,
+};
+const clone = o => JSON.parse(JSON.stringify(o));
+function fmtDate(d) {
+  const m = d.toLocaleString('en-US', { month: 'long' });
+  const n = d.getDate(); const s = [1, 21, 31].includes(n) ? 'st' : [2, 22].includes(n) ? 'nd' : [3, 23].includes(n) ? 'rd' : 'th';
+  let h = d.getHours(); const ap = h >= 12 ? 'pm' : 'am'; h = h % 12 || 12;
+  const p = x => String(x).padStart(2, '0');
+  return `${m} ${n}${s} ${d.getFullYear()}, ${h}:${p(d.getMinutes())}:${p(d.getSeconds())} ${ap}`;
+}
+
+class Component extends DCLogic {
+  state = { mode: 'view', saved: clone(INITIAL), draft: null, open: null, enfSearch: '', excSearch: '', checked: [], toast: false, toastTitle: 'Success', toastMsg: '', showDelete: false, deleted: false, lastUpdated: 'February 5th 2026, 11:21:05 pm', nameTouched: false };
+
+  postStep(step) {
+    if (!step || window.parent === window) return;
+    window.parent.postMessage({ psStep: step }, window.location.origin);
+  }
+
+  componentDidMount() {
+    this._onDoc = e => { if (this.state.open && !e.target.closest('[data-dd]')) this.setState({ open: null }); };
+    document.addEventListener('mousedown', this._onDoc);
+    this.postStep('view');
+  }
+  componentWillUnmount() { document.removeEventListener('mousedown', this._onDoc); clearTimeout(this._t); }
+
+  setDraft(patch) { this.setState(s => ({ draft: { ...s.draft, ...patch } })); }
+  showToast(title, msg) {
+    clearTimeout(this._t);
+    this.setState({ toast: true, toastTitle: title, toastMsg: msg });
+    this._t = setTimeout(() => this.setState({ toast: false }), 6000);
+  }
+  top() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+  multi(key, all, openKey) {
+    const d = this.state.draft; const sel = d[key]; const open = this.state.open === openKey;
+    const toggleItem = v => this.setDraft({ [key]: sel.includes(v) ? sel.filter(x => x !== v) : [...sel, v] });
+    return {
+      chips: sel.map(v => ({ label: v, remove: () => toggleItem(v) })),
+      empty: sel.length === 0,
+      countText: `${sel.length} selected`,
+      open,
+      toggle: () => this.setState({ open: open ? null : openKey }),
+      options: all.map(v => { const c = sel.includes(v); return { label: v, toggle: () => toggleItem(v), mark: c ? '✓' : '', bg: c ? '#1060FF' : '#fff', border: c ? '#1060FF' : '#8C909C' }; }),
+    };
+  }
+
+  renderVals() {
+    const s = this.state; const sv = s.saved; const d = s.draft;
+    const isEdit = s.mode === 'edit' && !s.deleted; const isView = s.mode === 'view' && !s.deleted;
+    const mark0 = on => on ? { on: true, off: false, color: '#008A22', weight: 600 } : { on: false, off: true, color: '#656A76', weight: 400 };
+    const TIPS = {
+      'Sentinel': 'Policies written in Sentinel, a policy-as-code language for attribute-based access control.',
+      'Open Policy Agent (OPA)': 'Policies written in Rego and evaluated by the open-source Open Policy Agent engine.',
+      'Platform environment': 'Runs policies directly in HCP Terraform. Supports cost estimation data and soft/hard mandatory enforcement.',
+      'HCP Terraform Agent': 'Runs policies in an isolated agent environment with a pinned runtime version. No access to cost estimation data.',
+      'override': 'Lets users with Manage policy overrides permissions override mandatory policy failures.',
+    };
+    const mark = (on, key) => ({ ...mark0(on), tip: TIPS[key], tipOpen: s.tip === key,
+      enter: () => this.setState({ tip: key }), leave: () => this.setState(st => st.tip === key ? { tip: null } : null) });
+    const rows = (list, q) => list.filter(x => x.toLowerCase().includes(q.toLowerCase())).map((label, i) => ({ label, bg: i % 2 ? '#FAFAFA' : '#fff', bt: i ? '1px solid #E5E6E8' : '0' }));
+    const count = (n, per) => n ? `1-${per ? 10 : n} of ${n}` : '0 of 0';
+    const vProjects = rows(sv.projects, s.enfSearch), vWorkspaces = rows(sv.workspaces, s.enfSearch), vExcluded = rows(sv.excluded, s.excSearch);
+
+    const nav = [
+      { title: 'Organization Settings', items: ['General', 'Plan & Billing', 'Tags', 'Teams', 'Users', 'Variable sets', 'Health', 'Runs'] },
+      { title: 'Integrations', items: ['Cost estimation', 'Policies', 'Policy sets', 'Run tasks'] },
+      { title: 'Security', items: ['API tokens', 'Agents', 'Authentication', 'SSH Keys', 'SSO'] },
+      { title: 'Version Control', items: [] },
+    ].map(sec => ({ title: sec.title, items: sec.items.map(l => ({ label: l, active: l === 'Policy sets', color: l === 'Policy sets' ? '#1060FF' : '#0C0C0E', bg: l === 'Policy sets' ? '#F1F2F3' : 'transparent' })) }));
+
+    const out = {
+      sidebarOpen: !s.sidebarClosed, collapseRot: s.sidebarClosed ? 'rotate(180deg)' : 'none',
+      toggleSidebar: () => this.setState(st => ({ sidebarClosed: !st.sidebarClosed })),
+      navSections: nav, isView, isEdit, deleted: s.deleted, showEditBtn: isView, lastUpdated: s.lastUpdated, saved: sv,
+      startEdit: () => { this.setState({ mode: 'edit', draft: clone(sv), checked: [], open: null, nameTouched: false }); this.postStep('edit'); this.top(); },
+      restore: () => { this._verified = false; this.setState({ deleted: false, mode: 'view', saved: clone(INITIAL), lastUpdated: 'February 5th 2026, 11:21:05 pm' }); this.postStep('view'); },
+      vFramework: [{ label: 'Sentinel', ...mark(sv.framework === 'sentinel', 'Sentinel') }, { label: 'Open Policy Agent (OPA)', ...mark(sv.framework === 'opa', 'Open Policy Agent (OPA)') }],
+      vRuntimeHelp: sv.runtime === 'latest' ? 'This policy set uses the latest Sentinel version and does not upgrade automatically.' : `This policy set is pinned to Sentinel ${sv.runtime}.`,
+      vDesc: sv.desc || '—',
+      vScope: sv.scope === 'global' ? 'Policies enforced globally' : 'Policies enforced on selected projects and workspaces',
+      vShowEnf: sv.scope === 'selected',
+      enfSearch: s.enfSearch, excSearch: s.excSearch,
+      onEnfSearch: e => this.setState({ enfSearch: e.target.value }), onExcSearch: e => this.setState({ excSearch: e.target.value }),
+      vProjects, vWorkspaces, vExcluded,
+      vProjectsEmpty: !vProjects.length, vWorkspacesEmpty: !vWorkspaces.length, vExcludedEmpty: !vExcluded.length,
+      vProjectsCount: count(vProjects.length), vWorkspacesCount: count(vWorkspaces.length, true), vExcludedCount: count(vExcluded.length, true),
+      vExec: [{ label: 'Platform environment', ...mark(sv.exec === 'platform', 'Platform environment') }, { label: 'HCP Terraform Agent', ...mark(sv.exec === 'agent', 'HCP Terraform Agent') }],
+      vRuntime: sv.runtime, vOverride: mark(sv.override, 'override'),
+      vPolicies: sv.policies.map((p, i) => ({ ...p, bg: i % 2 ? '#FAFAFA' : '#fff' })), vPoliciesEmpty: !sv.policies.length, vPoliciesCount: count(sv.policies.length),
+      toastOpacity: s.toast ? 1 : 0, toastTransform: s.toast ? 'translateY(0)' : 'translateY(12px)', toastPE: s.toast ? 'auto' : 'none',
+      toastTitle: s.toastTitle, toastMsg: s.toastMsg, closeToast: () => this.setState({ toast: false }),
+      showDelete: s.showDelete, closeDelete: () => this.setState({ showDelete: false }), stop: e => e.stopPropagation(),
+      confirmDelete: () => { this.setState({ showDelete: false, deleted: true, mode: 'view' }); this.showToast('Policy set deleted', 'workspace_tag_test was deleted.'); this.top(); },
+    };
+    if (!isEdit || !d) return out;
+
+    const nameValid = /^[A-Za-z0-9_-]+$/.test(d.name);
+    const nameError = s.nameTouched && !nameValid ? (d.name ? 'Only letters, numbers, dashes and underscores are allowed.' : 'Policy set name is required.') : '';
+    const inSet = d.policies.map(p => p.name);
+    const allPols = [...POLICIES, ...EXTRA_POLICIES];
+    const checked = s.checked.filter(n => inSet.includes(n));
+    const allOn = checked.length > 0 && checked.length === inSet.length;
+    const box = on => ({ mark: on ? '✓' : '', bg: on ? '#1060FF' : '#fff', border: on ? '#1060FF' : '#8C909C' });
+    const agent = d.exec === 'agent';
+    const radio = on => ({ border: on ? '5px solid #1060FF' : '1px solid #8C909C' });
+
+    return {
+      ...out, draft: d,
+      fwCards: [
+        { title: 'Sentinel', desc: 'Write policies imperatively for attribute-based access control to enforce compliance and security requirements.', on: d.framework === 'sentinel', isSentinel: true, isOpa: false },
+        { title: 'Open Policy Agent (OPA)', desc: 'Open-source, general-purpose policy engine that allows you to enforce fine-grained access control and decision-making across cloud-native environments.', on: d.framework === 'opa', isSentinel: false, isOpa: true },
+      ],
+      onName: e => { this.setDraft({ name: e.target.value }); if (!s.nameTouched) this.setState({ nameTouched: true }); },
+      nameError, nameBorder: nameError ? '#E52228' : '#8C909C',
+      onDesc: e => this.setDraft({ desc: e.target.value }),
+      onScope: e => this.setDraft({ scope: e.target.value }),
+      scopeSelected: d.scope === 'selected',
+      scopeHelp: d.scope === 'global' ? 'All current and future workspaces in this organization will check against the policy set.' : 'Only the projects and workspaces you select below will check against the policy set.',
+      msP: this.multi('projects', ALL_PROJECTS, 'p'), msW: this.multi('workspaces', ALL_WORKSPACES, 'w'), msX: this.multi('excluded', ALL_WORKSPACES, 'x'),
+      rPlatform: radio(!agent), rAgent: radio(agent),
+      setPlatform: () => this.setDraft({ exec: 'platform' }), setAgent: () => this.setDraft({ exec: 'agent' }),
+      agentOpacity: agent ? 1 : 0.5, agentDisabled: !agent,
+      onRuntime: e => this.setDraft({ runtime: e.target.value }),
+      toggleOverride: () => { if (agent) this.setDraft({ override: !d.override }); },
+      toggle: d.override ? { bg: '#1060FF', border: '#1060FF', knob: '#fff', left: '17px' } : { bg: '#fff', border: '#656A76', knob: '#fff', left: '1px' },
+      policyOptions: allPols.filter(p => !inSet.includes(p.name)),
+      onAddPolicy: e => { const p = allPols.find(x => x.name === e.target.value); if (p) this.setDraft({ policies: [...d.policies, p] }); e.target.value = ''; },
+      allBox: box(allOn),
+      toggleAll: () => this.setState({ checked: allOn ? [] : inSet }),
+      hasChecked: checked.length > 0, checkedText: `${checked.length} selected`,
+      removeChecked: () => { this.setDraft({ policies: d.policies.filter(p => !checked.includes(p.name)) }); this.setState({ checked: [] }); },
+      ePolicies: d.policies.map(p => {
+        const c = checked.includes(p.name); const mk = 'm:' + p.name;
+        return { ...p, ...box(c), rowBg: c ? '#F2F8FF' : '#fff',
+          toggle: () => this.setState(st => ({ checked: c ? st.checked.filter(n => n !== p.name) : [...st.checked, p.name] })),
+          menuOpen: s.open === mk, toggleMenu: () => this.setState({ open: s.open === mk ? null : mk }),
+          remove: () => { this.setDraft({ policies: d.policies.filter(x => x.name !== p.name) }); this.setState({ open: null }); } };
+      }),
+      ePoliciesEmpty: !d.policies.length,
+      save: () => {
+        if (!nameValid) { this.setState({ nameTouched: true }); window.scrollTo({ top: 300, behavior: 'smooth' }); return; }
+        this._verified = true;
+        this.setState({ saved: clone(d), draft: null, mode: 'view', lastUpdated: fmtDate(new Date()), enfSearch: '', excSearch: '', open: null });
+        this.postStep('verify');
+        this.showToast('Success', 'HCP Terraform updated your policy set.'); this.top();
+      },
+      cancel: () => { this.setState({ mode: 'view', draft: null, open: null }); this.postStep(this._verified ? 'verify' : 'view'); this.top(); },
+      askDelete: () => this.setState({ showDelete: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>

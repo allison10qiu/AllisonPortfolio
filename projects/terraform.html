@@ -1,265 +1,361 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <meta name="description" content="Terraform Read-Only Governance Experiences — case study by Allison Qiu">
-  <meta name="robots" content="noindex">
-  <title>Terraform · Allison Qiu</title>
-  <link rel="stylesheet" href="../styles/main.css?v=headerContexts1">
-  <link rel="stylesheet" href="../styles/brilliant.css?v=headerCompactAbout1">
-  <link rel="stylesheet" href="../styles/terraform.css?v=drag2">
+<script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/assets/shared/favicon-aq.svg?v=aqheart" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="Terraform read-only access — case study by Allison Qiu." name="description"/>
+<meta content="noindex" name="robots"/>
+<title>Terraform · Allison Qiu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/main.css?v=headerContexts1" rel="stylesheet"/>
+<link href="../styles/brilliant.css?v=specimen1" rel="stylesheet"/>
+<link href="../styles/editorial.css?v=editorial8" rel="stylesheet"/>
+<link href="../styles/case-shell.css?v=railgap4" rel="stylesheet"/>
+<link href="../styles/terraform.css?v=scale2" rel="stylesheet"/>
+<link href="../styles/motion.css?v=motion6" rel="stylesheet"/>
+<link href="../styles/page-transitions.css?v=tx8" rel="stylesheet"/>
 </head>
-<body class="bc-page terraform-page">
-  <div class="bc-canvas-wrapper">
-    <div class="bc-canvas">
-  <header class="bc-header">
-    <div class="bc-header__inner">
-      <nav class="bc-header__nav" aria-label="Primary">
-        <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="Work">
-          <img src="../assets/terraform/nav-work.png" alt="" width="164" height="363">
-        </a>
-        <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me">
-          <img src="../assets/terraform/nav-about.png?v=aboutShadow1" alt="" width="367" height="149">
-        </a>
-        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-          <img src="../assets/terraform/nav-resume.png" alt="" width="384" height="166">
-        </a>
-      </nav>
-      <a class="bc-header__name" href="/">allison qiu</a>
-    </div>
-  </header>
+<body class="bc-page terraform-page case-final" data-tx-project="terraform">
+<div id="tx-cover" aria-hidden="true"></div>
+<script src="../scripts/tx-cover.js?v=tx6"></script>
+<div class="bc-canvas-wrapper">
+<div class="bc-canvas">
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
+  <img class="site-header__mark" src="../assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+  <span class="site-header__aq" aria-hidden="true">AQ</span>
+</a>
+<nav class="site-header__nav" aria-label="Primary">
+<a class="site-header__link" href="/" data-scroll-to="my-work" aria-current="page">Work <img class="site-header__marklet" src="../assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+<a class="site-header__link" href="/about">About</a>
+<a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+</nav>
+</div>
+</header>
+<main class="bf-main">
+<div class="bf-layout">
+<div class="bf-rail-col">
+<div class="bf-rail">
+<a class="bf-rail__back" href="/#my-work"><span aria-hidden="true">←</span> Back to Projects</a>
+<div class="bf-rail__head">
+<p class="bf-rail__eyebrow">Case study</p>
+<p class="bf-rail__title">Terraform</p>
+</div>
+<nav aria-label="Case study sections" class="bf-rail__nav">
+<span aria-hidden="true" class="bf-rail__fill"></span>
+<ul class="bf-rail__list">
+<li class="bf-rail__item is-active">
+<a class="bf-rail__link" data-bf-scroll="overview" href="#overview">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Overview</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="users" href="#users">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Who we designed for</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="terraform-gate" href="#terraform-gate">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Password protected</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="mapping" href="#mapping">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Mapping the system</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="pattern" href="#pattern">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Defining the pattern</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="research" href="#research">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Research</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="explorations" href="#explorations">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Early explorations</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="testing" href="#testing">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Testing</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="combining" href="#combining">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Combining</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="refining" href="#refining">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Refining</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="workflow" href="#workflow">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Workflow</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="scaling" href="#scaling">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Scaling</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="outcome" href="#outcome">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Outcome</span>
+</a>
+</li>
+<li class="bf-rail__item is-locked">
+<a class="bf-rail__link" data-bf-scroll="learned" href="#learned">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>What I learned</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="bf-content">
+<div class="cs-body" data-screen-label="Terraform case study">
+<div data-part="public" style="padding:8px 0 0">
+<p class="case-project-kicker">terraform at ibm</p>
+<div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.9fr);gap:44px;align-items:center">
+<div>
+<h1 style="margin:0 0 26px;font:400 70px/104% 'Instrument Serif',serif;letter-spacing:-.01em">Making read-only access clearer in Terraform</h1>
+<p style="margin:0 0 28px;max-width:600px;font:400 19px/158% 'Satoshi',sans-serif">During my Product Design internship at IBM, I worked on Terraform's role-based access control experience. My project focused on how people could review configuration information without automatically having permission to change it.</p>
+<div style="display:flex;align-items:center;gap:26px">
+<a href="#terraform-gate" style="display:inline-block;padding:19px 34px;border-radius:999px;background:#14243B;color:#fff;font:500 16px/1 'Satoshi',sans-serif">Unlock the full case study</a>
+<span style="font:400 15px/1 'Satoshi',sans-serif;opacity:.7">3 min read · 8 min unlocked</span>
+</div>
+</div>
+<img alt="Terraform Organizations settings on a laptop" src="../assets/home/terraform.png?v=nomat" style="display:block;width:100%;height:auto;filter:drop-shadow(0 18px 28px rgba(20,36,59,.16))"></div>
+</div>
+<div data-part="public" style="padding:56px 0 0">
+<section class="bf-meta" aria-label="Project details">
+<div class="bf-meta__item">
+<p class="bf-meta__label">Timeline</p>
+<p class="bf-meta__value">May – Aug 2026</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Role</p>
+<p class="bf-meta__value">Product Design Intern</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Team</p>
+<ul class="bf-meta__list">
+<li>IBM</li>
+<li>Terraform</li>
+</ul>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Focus</p>
+<ul class="bf-meta__list">
+<li>RBAC + permissions</li>
+<li>Design systems</li>
+</ul>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Tools</p>
+<ul class="bf-meta__list">
+<li>Figma</li>
+<li>Jira</li>
+<li>Terraform Cloud</li>
+<li>User Testing</li>
+</ul>
+</div>
+</section>
+</div>
+<div class="tf-bleed" data-part="public" id="overview">
+<div style="display:grid;grid-template-columns:minmax(0,0.36fr) minmax(0,1fr);gap:48px;align-items:start">
+<div>
+<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+<span data-sec="01" style="font:700 32px/1 'Satoshi',sans-serif;color:#fff">01</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Internship overview</span>
+</div>
+<h2 style="margin:0;font:400 40px/122% 'Instrument Serif',serif;color:#fff">Read-only turned out to be more than removing the edit button.</h2>
+</div>
+<div>
+<p style="margin:0;font:400 19px/158% 'Satoshi',sans-serif;color:#fff">Different Terraform users need different levels of access depending on what they're trying to do. I worked on making those boundaries clearer, so someone reviewing a configuration could understand what they were seeing, what they could change, and what was intentionally unavailable.</p>
+</div>
+</div>
+<div style="margin-top:52px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0">
+<div style="padding:30px 34px 6px;border-top:1px solid rgba(255,255,255,.34);border-left:none">
+<span style="display:block;font:400 54px/1 'Instrument Serif',serif;color:#fff;margin-bottom:16px">41</span>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:14px">Routes</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif;color:#fff">I audited and designed around 41 settings and configuration routes to understand how a read-only pattern could work consistently across Terraform.</p>
+</div>
+<div style="padding:30px 34px 6px;border-top:1px solid rgba(255,255,255,.34);border-left:1px solid rgba(255,255,255,.34)">
+<span style="display:block;font:400 54px/1 'Instrument Serif',serif;color:#fff;margin-bottom:16px">10+</span>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:14px">Research participants</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif;color:#fff">I worked on research across auditors, support engineers, and platform engineers to understand how different users review and investigate configurations.</p>
+</div>
+<div style="padding:30px 34px 6px;border-top:1px solid rgba(255,255,255,.34);border-left:1px solid rgba(255,255,255,.34)">
+<span style="display:block;font:400 54px/1 'Instrument Serif',serif;color:#fff;margin-bottom:16px">3</span>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:14px">Workflows</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif;color:#fff">The work covered three different workflows: auditing configurations, troubleshooting issues, and reviewing settings before making changes.</p>
+</div>
+</div>
+</div>
+<div data-part="public" id="users" style="padding:76px 0 0">
+<div style="display:grid;grid-template-columns:minmax(0,0.36fr) minmax(0,1fr);gap:48px;align-items:start">
+<div>
+<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+<span data-sec="02" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">02</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Who we designed for</span>
+</div>
+<h2 style="margin:0;font:400 36px/124% 'Instrument Serif',serif">The same read-only experience had to support three different jobs.</h2>
+</div>
+<div>
+<div style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:40px;padding:24px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="font:400 26px/126% 'Instrument Serif',serif">Auditors</span>
+<p style="margin:0;font:400 17px/156% 'Satoshi',sans-serif">Need to review settings and policies without needing permission to change them.</p>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:40px;padding:24px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="font:400 26px/126% 'Instrument Serif',serif">Support engineers</span>
+<p style="margin:0;font:400 17px/156% 'Satoshi',sans-serif">Need enough configuration context to investigate why something isn't working, even when they aren't the person who can make the fix.</p>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:40px;padding:24px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="font:400 26px/126% 'Instrument Serif',serif">Platform engineers</span>
+<p style="margin:0;font:400 17px/156% 'Satoshi',sans-serif">Move between reviewing and changing configurations, so the difference between read and edit needs to stay clear.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="terraform-gate" data-part="gate" id="terraform-gate">
+<div class="tf-gate__kicker">
+<span data-sec="03">03</span>
+<span>Password protected</span>
+</div>
+<div class="tf-gate__grid">
+<div class="tf-gate__main">
+<h2>The case study continues below this point.</h2>
+<p>The rest of this project includes research, design explorations, usability testing, and concepts I can't share publicly. Enter the password to keep reading, or email me and I'll send you access.</p>
+<div class="terraform-gate__form" id="terraform-gate-form">
+<label class="terraform-gate__label" for="terraform-password">Password</label>
+<form action="#" class="terraform-gate__row" id="terraform-password-form" method="post">
+<div class="tf-gate__control">
+<div class="password" id="terraform-password-widget">
+<div class="password-wrapper">
+<input aria-describedby="terraform-gate-error" autocapitalize="off" autocomplete="off" autocorrect="off" class="password-input" id="terraform-password" name="password" placeholder="Enter password" spellcheck="false" type="password"/>
+<span aria-hidden="true" class="password-text"></span>
+<span aria-hidden="true" class="password-dots"></span>
+<i aria-hidden="true" class="password-selection" hidden=""></i>
+<i aria-hidden="true" class="password-caret" hidden=""></i>
+</div>
+<div aria-hidden="true" class="monkey-hands">
+<svg height="35" viewBox="0 0 64 64" width="35" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.4,32.5L2.1,61.9H14c-1.6-7.7,4-21,4-21L9.4,32.5z" fill="#89664C"></path>
+<path d="M15.8,24.8c0,0,4.9-4.5,9.5-3.9c2.3,0.3-7.1,7.6-7.1,7.6s9.7-8.2,11.7-5.6c1.8,2.3-8.9,9.8-8.9,9.8s10-8.1,9.6-4.6c-0.3,3.8-7.9,12.8-12.5,13.8C11.5,43.2,6.3,39,9.8,24.4C11.6,17,13.3,25.2,15.8,24.8" fill="#FFD6BB"></path>
+<path d="M54.8,32.5l7.3,29.4H50.2c1.6-7.7-4-21-4-21L54.8,32.5z" fill="#89664C"></path>
+<path d="M48.4,24.8c0,0-4.9-4.5-9.5-3.9c-2.3,0.3,7.1,7.6,7.1,7.6s-9.7-8.2-11.7-5.6c-1.8,2.3,8.9,9.8,8.9,9.8s-10-8.1-9.7-4.6c0.4,3.8,8,12.8,12.6,13.8c6.6,1.3,11.8-2.9,8.3-17.5C52.6,17,50.9,25.2,48.4,24.8" fill="#FFD6BB"></path>
+</svg>
+</div>
+<div aria-label="Show password" aria-pressed="false" class="monkey" id="terraform-password-toggle" role="button" tabindex="0">
+<svg height="35" viewBox="0 0 64 64" width="35" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="53.7" cy="33" fill="#89664c" rx="8.3" ry="8.2"></ellipse>
+<ellipse cx="53.7" cy="33" fill="#ffc5d3" rx="5.4" ry="5.4"></ellipse>
+<ellipse cx="10.2" cy="33" fill="#89664c" rx="8.2" ry="8.2"></ellipse>
+<ellipse cx="10.2" cy="33" fill="#ffc5d3" rx="5.4" ry="5.4"></ellipse>
+<g fill="#89664c">
+<path d="m43.4 10.8c1.1-.6 1.9-.9 1.9-.9-3.2-1.1-6-1.8-8.5-2.1 1.3-1 2.1-1.3 2.1-1.3-20.4-2.9-30.1 9-30.1 19.5h46.4c-.7-7.4-4.8-12.4-11.8-15.2"></path>
+<path d="m55.3 27.6c0-9.7-10.4-17.6-23.3-17.6s-23.3 7.9-23.3 17.6c0 2.3.6 4.4 1.6 6.4-1 2-1.6 4.2-1.6 6.4 0 9.7 10.4 17.6 23.3 17.6s23.3-7.9 23.3-17.6c0-2.3-.6-4.4-1.6-6.4 1-2 1.6-4.2 1.6-6.4"></path>
+</g>
+<path d="m52 28.2c0-16.9-20-6.1-20-6.1s-20-10.8-20 6.1c0 4.7 2.9 9 7.5 11.7-1.3 1.7-2.1 3.6-2.1 5.7 0 6.1 6.6 11 14.7 11s14.7-4.9 14.7-11c0-2.1-.8-4-2.1-5.7 4.4-2.7 7.3-7 7.3-11.7" fill="#e0ac7e"></path>
+<g fill="#3b302a">
+<path d="m35.1 38.7c0 1.1-.4 2.1-1 2.1-.6 0-1-.9-1-2.1 0-1.1.4-2.1 1-2.1.6.1 1 1 1 2.1"></path>
+<path d="m30.9 38.7c0 1.1-.4 2.1-1 2.1-.6 0-1-.9-1-2.1 0-1.1.4-2.1 1-2.1.5.1 1 1 1 2.1"></path>
+<ellipse cx="40.7" cy="31.7" rx="3.5" ry="4.5"></ellipse>
+<ellipse cx="23.3" cy="31.7" rx="3.5" ry="4.5"></ellipse>
+</g>
+</svg>
+</div>
+</div>
+<button class="terraform-gate__submit" id="terraform-gate-submit" type="submit">Unlock</button>
+</div>
+</form>
+<div class="tf-gate__error-slot">
+<p class="terraform-gate__error" hidden="" id="terraform-gate-error" role="alert"></p>
+</div>
+</div>
+<div class="tf-gate__success">
+<p class="tf-gate__success-title">✓ Case study unlocked</p>
+<p class="tf-gate__success-copy">You now have access to the full case study below.</p>
+</div>
+<div class="tf-gate__request">
+<p class="tf-gate__request-title">Don't have the password?</p>
+<p class="tf-gate__request-copy">Email me and I'll send it over, usually the same day.</p>
+<a class="tf-gate__request-btn" href="mailto:allisonqiu10@gmail.com">Request access <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<div class="tf-gate__aside">
+<p class="tf-gate__aside-label">Eleven sections below</p>
+<ul class="tf-gate__list">
+<li><span>The 41-route audit</span><span>Locked</span></li>
+<li><span>Research findings</span><span>Locked</span></li>
+<li><span>Design explorations and testing</span><span>Locked</span></li>
+<li><span>Final concepts and the scaled pattern</span><span>Locked</span></li>
+</ul>
+<div aria-hidden="true" class="tf-gate__ghost"></div>
+</div>
+</div>
+</div><div aria-hidden="true" class="terraform-locked" hidden="" id="terraform-locked"><div class="terraform-locked__inner"></div></div>
+</div>
+<p class="bf-cta">
+<a class="bf-btn" data-scroll-to="my-work" href="/">Check out my other work!</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<img class="site-footer__lace" src="../assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+<div class="site-footer__body">
+<div class="site-footer__top">
+<div>
+<p class="site-footer__hello">Say hi</p>
+<a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+</div>
+<nav class="site-footer__nav" aria-label="Footer">
+<a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+<a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+<a href="/about">About</a>
+</nav>
+</div>
 
-  <main class="bc-main">
-    <section class="bc-intro">
-      <h1 class="bc-title terraform-title">Terraform Read-Only Governance Experiences</h1>
-      <div class="bc-intro__stack">
-        <p class="bc-lede">
-          During my Product Design internship at IBM, I worked on Terraform’s role-based access control experience, exploring how complex system behavior could be translated into clear, predictable experiences for enterprise users. My work spanned product design, user research, interaction design, prototyping, usability testing, and cross-functional collaboration within a highly technical product environment.
-        </p>
-      </div>
-    </section>
-
-    <section class="terraform-hero" aria-label="Product preview">
-      <img
-        class="terraform-hero__img"
-        src="../assets/terraform/hero.png?v=tf4"
-        alt="Terraform Organizations settings on a laptop"
-        width="2048"
-        height="1034"
-      >
-    </section>
-
-    <section class="bc-meta terraform-meta" aria-label="Project details">
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TIMELINE</p>
-        <p class="bc-meta__value">May 2026 - Aug 2026</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TOOLS</p>
-        <ul class="bc-meta__list">
-          <li>Figma</li>
-          <li>User Testing</li>
-          <li>Jira</li>
-          <li>Terraform Cloud</li>
-        </ul>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">ROLE</p>
-        <p class="bc-meta__value">Product Design Intern</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">SKILLS</p>
-        <ul class="bc-meta__list">
-          <li>UX Research</li>
-          <li>Enterprise Product Design</li>
-          <li>Design Systems</li>
-          <li>RBAC + Permissions Design</li>
-          <li>Usability Testing</li>
-          <li>Systems Thinking</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="bc-section terraform-overview" id="overview">
-      <div class="bc-heading">
-        <h2>Internship Overview</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <div class="terraform-overview__intro">
-        <p class="terraform-overview__tagline">
-          I designed for the space between having access and having control.
-        </p>
-        <p class="bc-body">
-          Enterprise products aren’t always as simple as whether someone can or can’t access something. Different users need different levels of visibility and control depending on their responsibilities. My work focused on understanding those differences and designing experiences that make what users can see, what they can change, and why easier to understand.
-        </p>
-      </div>
-      <div class="terraform-overview__cards">
-        <article class="terraform-overview__card">
-          <h3>Scaled a read-only pattern across 41 routes</h3>
-          <p>Designed a reusable permission experience across 41 Terraform settings and configuration routes, creating a consistent way for users to understand what they could view versus modify.</p>
-        </article>
-        <article class="terraform-overview__card">
-          <h3>Validated designs with 10+ users</h3>
-          <p>Developed a multi-segment research plan and tested concepts with 10+ recruited participants, internal and external, to understand how users review, investigate, and navigate complex enterprise systems.</p>
-        </article>
-        <article class="terraform-overview__card">
-          <h3>Designed across 3 distinct enterprise workflows</h3>
-          <p>Translated complex authorization behavior into reusable UX patterns informed by the needs of auditors, support engineers, and platform engineers, balancing usability with security and technical constraints.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="bc-section terraform-gate" id="terraform-gate" aria-labelledby="terraform-gate-title">
-      <div class="terraform-gate__heading">
-        <span class="terraform-gate__rule" aria-hidden="true"></span>
-        <h2 id="terraform-gate-title">Password Protected</h2>
-        <span class="terraform-gate__rule" aria-hidden="true"></span>
-      </div>
-      <p class="bc-body terraform-gate__copy">
-        Due to the confidential nature of this work, detailed
-        <strong>research findings, design explorations, usability testing,</strong>
-        and <strong>final product designs</strong> are password protected. Please
-        <a class="terraform-gate__contact" href="mailto:allisonqiu10@gmail.com">contact me</a>
-        for access to this information!
-      </p>
-      <div class="terraform-gate__form" id="terraform-gate-form">
-        <label class="terraform-gate__label" for="terraform-password">ENTER PASSWORD:</label>
-        <form class="terraform-gate__row" id="terraform-password-form" action="#" method="post">
-          <div class="password" id="terraform-password-widget">
-            <div class="monkey-hands" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 64 64">
-                <path fill="#89664C" d="M9.4,32.5L2.1,61.9H14c-1.6-7.7,4-21,4-21L9.4,32.5z"/>
-                <path fill="#FFD6BB" d="M15.8,24.8c0,0,4.9-4.5,9.5-3.9c2.3,0.3-7.1,7.6-7.1,7.6s9.7-8.2,11.7-5.6c1.8,2.3-8.9,9.8-8.9,9.8s10-8.1,9.6-4.6c-0.3,3.8-7.9,12.8-12.5,13.8C11.5,43.2,6.3,39,9.8,24.4C11.6,17,13.3,25.2,15.8,24.8"/>
-                <path fill="#89664C" d="M54.8,32.5l7.3,29.4H50.2c1.6-7.7-4-21-4-21L54.8,32.5z"/>
-                <path fill="#FFD6BB" d="M48.4,24.8c0,0-4.9-4.5-9.5-3.9c-2.3,0.3,7.1,7.6,7.1,7.6s-9.7-8.2-11.7-5.6c-1.8,2.3,8.9,9.8,8.9,9.8s-10-8.1-9.7-4.6c0.4,3.8,8,12.8,12.6,13.8c6.6,1.3,11.8-2.9,8.3-17.5C52.6,17,50.9,25.2,48.4,24.8"/>
-              </svg>
-            </div>
-            <div
-              class="monkey"
-              id="terraform-password-toggle"
-              role="button"
-              tabindex="0"
-              aria-label="Show password"
-              aria-pressed="false"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 64 64">
-                <ellipse cx="53.7" cy="33" rx="8.3" ry="8.2" fill="#89664c"/>
-                <ellipse cx="53.7" cy="33" rx="5.4" ry="5.4" fill="#ffc5d3"/>
-                <ellipse cx="10.2" cy="33" rx="8.2" ry="8.2" fill="#89664c"/>
-                <ellipse cx="10.2" cy="33" rx="5.4" ry="5.4" fill="#ffc5d3"/>
-                <g fill="#89664c">
-                  <path d="m43.4 10.8c1.1-.6 1.9-.9 1.9-.9-3.2-1.1-6-1.8-8.5-2.1 1.3-1 2.1-1.3 2.1-1.3-20.4-2.9-30.1 9-30.1 19.5h46.4c-.7-7.4-4.8-12.4-11.8-15.2"/>
-                  <path d="m55.3 27.6c0-9.7-10.4-17.6-23.3-17.6s-23.3 7.9-23.3 17.6c0 2.3.6 4.4 1.6 6.4-1 2-1.6 4.2-1.6 6.4 0 9.7 10.4 17.6 23.3 17.6s23.3-7.9 23.3-17.6c0-2.3-.6-4.4-1.6-6.4 1-2 1.6-4.2 1.6-6.4"/>
-                </g>
-                <path d="m52 28.2c0-16.9-20-6.1-20-6.1s-20-10.8-20 6.1c0 4.7 2.9 9 7.5 11.7-1.3 1.7-2.1 3.6-2.1 5.7 0 6.1 6.6 11 14.7 11s14.7-4.9 14.7-11c0-2.1-.8-4-2.1-5.7 4.4-2.7 7.3-7 7.3-11.7" fill="#e0ac7e"/>
-                <g fill="#3b302a">
-                  <path d="m35.1 38.7c0 1.1-.4 2.1-1 2.1-.6 0-1-.9-1-2.1 0-1.1.4-2.1 1-2.1.6.1 1 1 1 2.1"/>
-                  <path d="m30.9 38.7c0 1.1-.4 2.1-1 2.1-.6 0-1-.9-1-2.1 0-1.1.4-2.1 1-2.1.5.1 1 1 1 2.1"/>
-                  <ellipse cx="40.7" cy="31.7" rx="3.5" ry="4.5"/>
-                  <ellipse cx="23.3" cy="31.7" rx="3.5" ry="4.5"/>
-                </g>
-              </svg>
-            </div>
-            <div class="password-wrapper">
-              <input
-                type="password"
-                class="password-input"
-                id="terraform-password"
-                name="password"
-                spellcheck="false"
-                autocomplete="off"
-                autocapitalize="off"
-                autocorrect="off"
-                placeholder=""
-                aria-describedby="terraform-gate-error"
-              >
-              <span class="password-text" aria-hidden="true"></span>
-              <span class="password-dots" aria-hidden="true"></span>
-              <i class="password-selection" hidden aria-hidden="true"></i>
-              <i class="password-caret" hidden aria-hidden="true"></i>
-            </div>
-          </div>
-          <button
-            type="submit"
-            class="terraform-gate__submit"
-            id="terraform-gate-submit"
-          >
-            Unlock
-          </button>
-        </form>
-        <p class="terraform-gate__error" id="terraform-gate-error" hidden role="alert"></p>
-        <p class="terraform-gate__unlocked-msg">Content unlocked for this session.</p>
-      </div>
-    </section>
-
-    <div
-      id="terraform-locked"
-      class="terraform-locked"
-      hidden
-      aria-hidden="true"
-    >
-      <div class="terraform-locked__inner"></div>
-    </div>
-
-    <p class="bc-cta-wrap">
-      <a class="bc-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
-    </p>
-  </main>
-
-    <footer class="bc-footer">
-      <img
-        class="bc-footer__lace"
-        src="../assets/shared/footer-lace.png?v=flex3"
-        alt=""
-        width="2880"
-        height="69"
-        aria-hidden="true"
-      >
-      <div class="bc-footer__inner">
-        <a class="bc-footer__brand" href="/" aria-label="Home">
-          <img
-            src="../assets/shared/footer-aq.png?v=flex3"
-            alt=""
-            width="257"
-            height="101"
-            aria-hidden="true"
-          >
-        </a>
-        <nav class="bc-footer__contact" aria-label="Contact">
-          <a
-            class="bc-footer__link"
-            href="https://www.linkedin.com/in/allisonqiu/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="../assets/shared/icon-linkedin.svg?v=flex1" alt="" width="20" height="17" aria-hidden="true">
-            <span>https://www.linkedin.com/in/allisonqiu/</span>
-          </a>
-          <a class="bc-footer__link" href="mailto:allisonqiu10@gmail.com">
-            <img src="../assets/shared/icon-mail.svg?v=flex1" alt="" width="20" height="20" aria-hidden="true">
-            <span>allisonqiu10@gmail.com</span>
-          </a>
-        </nav>
-      </div>
-    </footer>
-    </div>
-  </div>
-
-  <script src="../scripts/case-scale.js?v=tf-scroll2"></script>
-  <script src="../scripts/case-videos.js"></script>
-  <script src="../scripts/case-snap.js"></script>
-  <script src="../scripts/cross-scroll.js"></script>
-  <script src="../scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="../scripts/page-transition.js?v=wipe6"></script>
-  <script src="../scripts/mailto.js"></script>
-  <script type="module" src="../scripts/terraform-locked.js?v=tf-audit-drag2"></script>
-  <script src="../scripts/terraform-gate.js?v=tf-locked1"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
+</div>
+</footer>
+</div>
+</div>
+<script src="../scripts/case-final.js?v=case1"></script>
+<script src="../scripts/cross-scroll.js"></script>
+<script src="../scripts/custom-cursor.js?v=cursorHover1"></script>
+<script src="../scripts/page-transition.js?v=tx10"></script>
+<script src="../scripts/mailto.js"></script>
+<script src="../scripts/terraform-locked.js?v=workflow1" type="module"></script>
+<script src="../scripts/motion.js?v=motion8"></script>
+<script src="../scripts/terraform-gate.js?v=gate3"></script>
 </body>
 </html>

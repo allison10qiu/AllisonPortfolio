@@ -1,442 +1,624 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="description" content="ANDA Driver Performance Model + Management Dashboard — case study by Allison Qiu">
-  <title>ANDA · Allison Qiu</title>
-  <link rel="stylesheet" href="../styles/main.css?v=headerContexts1">
-  <link rel="stylesheet" href="../styles/brilliant.css?v=headerCompactAbout1">
-  <link rel="stylesheet" href="../styles/anda.css?v=width1">
+<script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/assets/shared/favicon-aq.svg?v=aqheart" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="ANDA — deciding what the team should build first. Case study by Allison Qiu." name="description"/>
+<title>ANDA · Allison Qiu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/main.css?v=headerContexts1" rel="stylesheet"/>
+<link href="../styles/brilliant.css?v=specimen1" rel="stylesheet"/>
+<link href="../styles/editorial.css?v=editorial8" rel="stylesheet"/>
+<link href="../styles/case-shell.css?v=railgap4" rel="stylesheet"/>
+<link href="../styles/motion.css?v=motion6" rel="stylesheet"/>
+<link href="../styles/page-transitions.css?v=tx8" rel="stylesheet"/>
+<style>
+  .anda-page.case-final .cs-body .anda-score {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  .anda-page.case-final .cs-body .anda-score img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    object-position: center 42%;
+  }
+  .anda-page .anda-score__notes {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 36px;
+  }
+  @media (max-width: 720px) {
+    .anda-page.case-final .cs-body .anda-score {
+      aspect-ratio: auto;
+      height: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .anda-page.case-final .cs-body .anda-score img {
+      position: static;
+      width: 760px;
+      height: auto !important;
+      max-width: none !important;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+</style>
 </head>
-<body class="bc-page anda-page">
-  <div class="bc-canvas-wrapper">
-    <div class="bc-canvas">
-  <header class="bc-header">
-    <div class="bc-header__inner">
-      <nav class="bc-header__nav" aria-label="Primary">
-        <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="Work">
-          <img src="../assets/anda/nav-work.png?v=lace1" alt="" width="164" height="363">
-        </a>
-        <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me">
-          <img src="../assets/anda/nav-about.png?v=lace1" alt="" width="370" height="150">
-        </a>
-        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-          <img src="../assets/anda/nav-resume.png?v=lace1" alt="" width="384" height="166">
-        </a>
-      </nav>
-      <a class="bc-header__name" href="/">allison qiu</a>
-    </div>
-  </header>
+<body class="bc-page anda-page case-final" data-tx-project="anda">
+<div id="tx-cover" aria-hidden="true"></div>
+<script src="../scripts/tx-cover.js?v=tx6"></script>
+<div class="bc-canvas-wrapper">
+<div class="bc-canvas">
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
+  <img class="site-header__mark" src="../assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+  <span class="site-header__aq" aria-hidden="true">AQ</span>
+</a>
+<nav class="site-header__nav" aria-label="Primary">
+<a class="site-header__link" href="/" data-scroll-to="my-work" aria-current="page">Work <img class="site-header__marklet" src="../assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+<a class="site-header__link" href="/about">About</a>
+<a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+</nav>
+</div>
+</header>
+<main class="bf-main">
+<div class="bf-layout">
+<div class="bf-rail-col">
+<div class="bf-rail">
+<a class="bf-rail__back" href="/#my-work"><span aria-hidden="true">←</span> Back to Projects</a>
+<div class="bf-rail__head">
+<p class="bf-rail__eyebrow">Case study</p>
+<p class="bf-rail__title">Anda</p>
+<p class="bf-rail__kicker">Product management</p>
+</div>
+<nav aria-label="Case study sections" class="bf-rail__nav">
+<span aria-hidden="true" class="bf-rail__fill"></span>
+<ul class="bf-rail__list">
+<li class="bf-rail__item is-active">
+<a class="bf-rail__link" data-bf-scroll="problem" href="#problem">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Problem</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="users" href="#users">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Who we designed for</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="role" href="#role">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>My role</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="data" href="#data">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Data problem</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="roadmap" href="#roadmap">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Roadmap</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="explainability" href="#explainability">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Explainability</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="predictive" href="#predictive">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Predictive scoring</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="synthetic" href="#synthetic">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Synthetic data</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="solution" href="#solution">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Team output</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="outcome" href="#outcome">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Outcome &amp; reflection</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="bf-content">
+<div class="cs-body" data-screen-label="Anda case study">
+<div style="padding:8px var(--cs-x) 0">
+<p class="case-project-kicker">anda</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:end">
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:18px">Product Manager · driver-data platform, Angola</span>
+<h1 style="margin:0;font:400 68px/104% 'Instrument Serif',serif;letter-spacing:-.01em">Deciding what Anda's team should build first</h1>
+</div>
+<div style="align-self:end;padding:24px 26px;border-radius:22px;background:#EDF2F5;box-sizing:border-box">
+<p style="margin:0 0 18px;font:400 17px/154% 'Satoshi',sans-serif">Anda helps drivers in Angola earn a living while working toward owning their vehicle. Their driver data was scattered across Odoo, spreadsheets, and GPS and Yango APIs.</p>
+<div style="display:grid;gap:14px">
+<div style="padding-top:14px;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:8px">Product management</span>
+<span style="font:400 17px/1.4 'Satoshi',sans-serif">Allison Qiu — me</span>
+</div>
+<div style="padding-top:14px;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:8px">Product design</span>
+<span style="font:400 17px/1.4 'Satoshi',sans-serif">Tiffany Liu · Isabella Raffo</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="padding:46px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:16px">
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">The build order I set</span>
+<a href="#roadmap" style="font:400 15px/1 'Satoshi',sans-serif;opacity:.7">See the full roadmap →</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1.5px solid #14243B">
+<div style="padding:26px 30px 30px;border-left:none;background:#14243B;color:#FFFFFF;box-sizing:border-box">
+<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
+<span style="font:400 44px/1 'Instrument Serif',serif;color:#FFFFFF">P0</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;opacity:.75">Ship first</span>
+</div>
+<span style="display:block;font:400 19px/144% 'Satoshi',sans-serif;color:#FFFFFF">Trustworthy driver data, and a score that can explain itself.</span>
+</div>
+<div style="padding:26px 30px 30px;border-left:1px solid rgba(20,36,59,.18);background:#FFFFFF;color:#14243B;box-sizing:border-box">
+<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
+<span style="font:400 44px/1 'Instrument Serif',serif;color:#14243B">P1</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;opacity:.75">Once the data held up</span>
+</div>
+<span style="display:block;font:400 19px/144% 'Satoshi',sans-serif;color:#14243B">Priority Queue and risk scoring for Customer Success Managers.</span>
+</div>
+<div style="padding:26px 30px 30px;border-left:1px solid rgba(20,36,59,.18);background:#FFFFFF;color:#14243B;box-sizing:border-box">
+<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
+<span style="font:400 44px/1 'Instrument Serif',serif;color:#14243B">P2</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;opacity:.75">Deferred</span>
+</div>
+<span style="display:block;font:400 19px/144% 'Satoshi',sans-serif;color:#14243B">Driver-facing app, rewards, and CSM messaging.</span>
+</div>
+</div>
+</div>
+<div style="padding:34px var(--cs-x) 0">
+<section class="bf-meta" aria-label="Project details">
+<div class="bf-meta__item">
+<p class="bf-meta__label">Timeline</p>
+<p class="bf-meta__value">Feb – May 2026</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Role</p>
+<p class="bf-meta__value">Product Manager</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Focus</p>
+<ul class="bf-meta__list">
+<li>Requirements</li>
+<li>Roadmapping</li>
+<li>Data model</li>
+</ul>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Team</p>
+<ul class="bf-meta__list">
+<li>2 designers</li>
+<li>Tech lead</li>
+<li>Developers</li>
+</ul>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Client</p>
+<p class="bf-meta__value">Anda, Angola</p>
+</div>
+</section>
+</div>
+<div style="padding:40px var(--cs-x) 0">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:14px">A look at what the team worked on throughout the semester.</span>
+<div class="cs-strip">
+<div data-preview-track="1" style="display:flex;align-items:center;gap:32px;width:max-content;">
+<img alt="Customer Success Manager dashboard" src="../assets/anda/feature-csm.png?v=alpha1" style="flex:0 0 auto;width:477px;height:auto;display:block;border-radius:6px">
+<img alt="Driver performance score" src="../assets/anda/feature-score.png?v=alpha1" style="flex:0 0 auto;width:477px;height:auto;display:block;border-radius:6px">
+<img alt="Vehicle activity" src="../assets/anda/feature-vehicle.png?v=alpha1" style="flex:0 0 auto;width:477px;height:auto;display:block;border-radius:6px">
+<img alt="Revenue and default rate" src="../assets/anda/feature-revenue.png?v=alpha1" style="flex:0 0 auto;width:477px;height:auto;display:block;border-radius:6px"/>
+<img alt="Manage users" src="../assets/anda/feature-users.png?v=alpha1" style="flex:0 0 auto;width:477px;height:auto;display:block;border-radius:6px"/>
+</div>
+</div>
+<span style="display:block;margin-top:14px;font:400 15px/1.5 'Satoshi',sans-serif;color:rgba(20,36,59,.6)">Product design: Tiffany Liu · Isabella Raffo</span>
+</div>
+<div id="problem" style="padding:66px var(--cs-x) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start">
+<div>
+<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+<span data-sec="01" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">01</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">The problem</span>
+</div>
+<h2 style="margin:0 0 18px;font:400 40px/122% 'Instrument Serif',serif">No one could tell when a driver actually needed support.</h2>
+<p style="margin:0;max-width:52ch;font:400 18px/156% 'Satoshi',sans-serif">Activity and payment data lived across Odoo, manual spreadsheets, and GPS and Yango APIs that didn't talk to each other. So a quiet driver could be underperforming, dealing with a broken bike, or unwilling to pay — and admins couldn't tell which.</p>
+</div>
+<div>
+<div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="font:400 34px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45)">01</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">Admins and CSMs had no easy way to see how a driver was doing — driving regularly, offline for stretches, keeping up with payments, or falling behind.</p>
+</div>
+<div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="font:400 34px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45)">02</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">Checking on one driver meant opening several disconnected systems.</p>
+</div>
+<div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="font:400 34px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45)">03</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">There was no clear way to decide which drivers needed help most urgently.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="users" style="padding:70px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:14px">
+<span data-sec="02" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">02</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Who we designed for</span>
+</div>
+<h2 style="margin:0 0 32px;max-width:760px;font:400 40px/124% 'Instrument Serif',serif">The Customer Success Managers who had to decide who needed help first.</h2>
+<div style="display:grid;grid-template-columns:265px minmax(0,1fr);align-items:stretch;background:#FFFFFF;border-radius:24px;overflow:hidden;box-sizing:border-box;box-shadow:0 10px 30px rgba(20,36,59,.1),0 1px 3px rgba(20,36,59,.06)">
+<div style="position:relative;background:#EDF2F5;align-self:stretch;justify-self:center;width:100%;max-width:477px;max-height:586px;overflow:hidden">
+<img alt="Portrait of persona Afonso Ndalu" src="../assets/anda/persona.png?v=alpha1" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:52px 22px 18px;background:linear-gradient(to top,rgba(20,36,59,.92) 0%,rgba(20,36,59,.7) 48%,rgba(20,36,59,0) 100%)">
+<span style="display:block;font:700 20px/1.2 'Satoshi',sans-serif;color:#fff">Afonso Ndalu</span>
+<span style="display:block;margin-top:4px;font:400 13px/1.3 'Satoshi',sans-serif;color:#fff">Customer Success Manager</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;padding:30px 34px;box-sizing:border-box">
+<div>
+<span style="font:400 21px/142% 'Instrument Serif',serif;color:#14243B">“I don't want to guess whether someone's struggling or just having a bad week, I need to know before I reach out.”</span>
+</div>
+<div style="height:1px;background:rgba(20,36,59,.18)"></div>
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:8px">What he needs</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">A <strong style="font-weight:700">ranked view of his drivers</strong> built on real activity and payment signals, showing who needs help most urgently and why — with reasoning clear enough that he can repeat it back to a driver who asks.</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(20,36,59,.18);border-bottom:1px solid rgba(20,36,59,.18)">
+<div style="padding:20px 20px 20px 0;border-right:1px solid rgba(20,36,59,.18);box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Role</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">Customer Success Manager</span>
+</div>
+<div style="padding:20px;border-right:1px solid rgba(20,36,59,.18);border-top:none;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Systems he checks</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">Odoo, GPS, Yango, spreadsheets</span>
+</div>
+<div style="padding:20px 0 20px 20px;border-top:none;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Decision he makes</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">Who to check on first</span>
+</div>
+</div>
+<div style="margin-top:auto">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:8px">What that meant for the roadmap</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#14243B">Two things had to be true before anything else: the activity and payment data had to be reliable, and a flagged driver had to come with a reason. That's why explainability went into P0 and the ranked Priority Queue into P1.</span>
+</div>
+</div>
+</div>
+</div>
+<div id="role" style="margin-top:76px;background:#14243B;color:#fff;padding:70px var(--cs-x) 76px">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:18px">
+<span data-sec="03" style="font:700 32px/1 'Satoshi',sans-serif;color:#fff">03</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">My role</span>
+</div>
+<h2 style="margin:0 0 40px;max-width:900px;font:400 40px/124% 'Instrument Serif',serif;color:#fff">I was the Product Manager, so I wrote the requirements, set the priorities, and kept design and engineering working from the same list. Tiffany Liu and Isabella Raffo led the product design.</h2>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.4);margin-bottom:46px">
+<div style="padding:26px 30px 26px 0">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:.72;margin-bottom:12px">Product management</span>
+<span style="display:block;font:400 30px/1.2 'Instrument Serif',serif;color:#fff">Allison Qiu</span>
+</div>
+<div style="padding:26px 30px;border-left:1px solid rgba(255,255,255,.3)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:.72;margin-bottom:12px">Product design</span>
+<span style="display:block;font:400 30px/1.2 'Instrument Serif',serif;color:#fff">Tiffany Liu</span>
+<span style="display:block;font:400 30px/1.2 'Instrument Serif',serif;color:#fff">Isabella Raffo</span>
+</div>
+<div style="padding:26px 0 26px 30px;border-left:1px solid rgba(255,255,255,.3)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:.72;margin-bottom:12px">Engineering</span>
+<span style="display:block;font:400 30px/1.2 'Instrument Serif',serif;color:#fff">Tech lead · developers</span>
+</div>
+</div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:.72;margin-bottom:6px">What I owned</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 36px">
+<div style="padding:18px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="display:block;font:500 15px/1.3 'Satoshi',sans-serif;color:#fff;margin-bottom:8px">Requirements</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#fff;opacity:.86">Wrote the PRD and the requirements the designers and developers built from.</span>
+</div>
+<div style="padding:18px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="display:block;font:500 15px/1.3 'Satoshi',sans-serif;color:#fff;margin-bottom:8px">Prioritization</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#fff;opacity:.86">Set P0, P1, and P2, including what we chose not to build this semester.</span>
+</div>
+<div style="padding:18px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="display:block;font:500 15px/1.3 'Satoshi',sans-serif;color:#fff;margin-bottom:8px">Data model</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#fff;opacity:.86">Worked with the tech lead to define the activity and payment data the product needed.</span>
+</div>
+<div style="padding:18px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="display:block;font:500 15px/1.3 'Satoshi',sans-serif;color:#fff;margin-bottom:8px">Product decisions</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#fff;opacity:.86">Made the calls on explainability, on holding risk scoring, and on using synthetic data.</span>
+</div>
+<div style="padding:18px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="display:block;font:500 15px/1.3 'Satoshi',sans-serif;color:#fff;margin-bottom:8px">Dependencies</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#fff;opacity:.86">Tracked what we were waiting on and what the team could do meanwhile.</span>
+</div>
+<div style="padding:18px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="display:block;font:500 15px/1.3 'Satoshi',sans-serif;color:#fff;margin-bottom:8px">Coordination</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#fff;opacity:.86">Kept design and engineering working from the same priorities week to week.</span>
+</div>
+</div>
+</div>
+<div id="data" style="padding:76px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:16px">
+<span data-sec="04" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">04</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">The data problem</span>
+</div>
+<h2 style="margin:0 0 12px;max-width:820px;font:400 40px/124% 'Instrument Serif',serif">Before we could design the dashboards, we had to know which data we could rely on.</h2>
+<p style="margin:0 0 36px;max-width:60ch;font:400 18px/156% 'Satoshi',sans-serif">Driver activity and payment data came from four places. How reliable each one was, and when, set the order of the roadmap.</p>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(20,36,59,.2);border:1px solid rgba(20,36,59,.2);border-radius:18px;overflow:hidden">
+<div style="background:#FFFFFF;padding:24px 24px 26px">
+<span style="display:block;font:400 26px/1.15 'Instrument Serif',serif;margin-bottom:10px">Odoo</span>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:14px">System of record</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">Where driver and payment records lived.</span>
+</div>
+<div style="background:#FFFFFF;padding:24px 24px 26px">
+<span style="display:block;font:400 26px/1.15 'Instrument Serif',serif;margin-bottom:10px">Spreadsheets</span>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:14px">Manual</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">Filled in by hand, so gaps and errors were possible.</span>
+</div>
+<div style="background:#FFFFFF;padding:24px 24px 26px">
+<span style="display:block;font:400 26px/1.15 'Instrument Serif',serif;margin-bottom:10px">GPS API</span>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:14px">Activity</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">Vehicle movement, speed, and engine status.</span>
+</div>
+<div style="background:#FFFFFF;padding:24px 24px 26px">
+<span style="display:block;font:400 26px/1.15 'Instrument Serif',serif;margin-bottom:10px">Yango API</span>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:14px">Activity</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">Trip and earnings activity from the ride-hailing side.</span>
+</div>
+</div>
+<div style="margin-top:22px;padding:30px 34px;border-radius:18px;background:#EDF2F5;box-sizing:border-box;display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px 40px;align-items:start">
+<span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Why this set the order</span>
+<p style="margin:0;max-width:62ch;font:400 18px/154% 'Satoshi',sans-serif">The screens were only going to be useful if the activity and payment data behind them held up, so I worked with our tech lead on the data model before we scoped any views. The data and the performance logic came first.</p>
+</div>
+</div>
+<div id="roadmap" style="margin-top:80px;background:#EDF2F5;padding:74px var(--cs-x) 80px">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:16px">
+<span data-sec="05" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">05</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Roadmap</span>
+</div>
+<h2 style="margin:0 0 12px;max-width:820px;font:400 44px/120% 'Instrument Serif',serif">I wrote the PRD, then split the product into what we'd build first, next, and not yet.</h2>
+<p style="margin:0 0 42px;max-width:62ch;font:400 18px/156% 'Satoshi',sans-serif">I worked with our tech lead to define the data we needed, then set priorities around it. Each tier below has the reasoning, and the trade-off where we left something out.</p>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#FFFFFF;border-radius:22px;overflow:hidden">
+<div style="padding:34px 34px 38px;border-left:none;box-sizing:border-box">
+<div style="display:flex;align-items:baseline;gap:14px;padding-bottom:18px;border-bottom:1.5px solid #14243B;margin-bottom:24px">
+<span style="font:400 54px/1 'Instrument Serif',serif;color:#14243B">P0</span>
+<span style="font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.6)">Ship first</span>
+</div>
+<p style="margin:0 0 20px;font:400 17px/154% 'Satoshi',sans-serif">Authentication and the core Driver Performance Overview — nothing else mattered if admins couldn't trust the data.</p>
+<p style="margin:0 0 20px;font:400 17px/154% 'Satoshi',sans-serif">If the platform flagged a driver, admins needed to see which activity or payment signals contributed. We treated explainability as a requirement from the start.</p>
+<p style="margin:0 0 20px;font:400 17px/154% 'Satoshi',sans-serif">Admin and CSM dashboards focused on the same two things: real activity and payment status.</p>
+</div>
+<div style="padding:34px 34px 38px;border-left:1px solid rgba(20,36,59,.18);box-sizing:border-box">
+<div style="display:flex;align-items:baseline;gap:14px;padding-bottom:18px;border-bottom:1.5px solid #14243B;margin-bottom:24px">
+<span style="font:400 54px/1 'Instrument Serif',serif;color:#14243B">P1</span>
+<span style="font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.6)">Once the data held up</span>
+</div>
+<p style="margin:0 0 20px;font:400 17px/154% 'Satoshi',sans-serif">The Priority Queue view and risk scoring, giving CSMs a clear read on who to check on first.</p>
+<div style="margin:0 0 20px;padding:20px 22px;border-radius:18px;background:#EDF2F5;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Trade-off</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">Held predictive risk scoring until the system could explain itself — flagging a driver without a reason wasn't good enough.</span>
+</div>
+</div>
+<div style="padding:34px 34px 38px;border-left:1px solid rgba(20,36,59,.18);box-sizing:border-box">
+<div style="display:flex;align-items:baseline;gap:14px;padding-bottom:18px;border-bottom:1.5px solid #14243B;margin-bottom:24px">
+<span style="font:400 54px/1 'Instrument Serif',serif;color:#14243B">P2</span>
+<span style="font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.6)">Deferred</span>
+</div>
+<div style="margin:0 0 20px;padding:20px 22px;border-radius:18px;background:#EDF2F5;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Trade-off</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">The driver-facing mobile dashboard and rewards, since admins and CSMs needed visibility first.</span>
+</div>
+<div style="margin:0 0 20px;padding:20px 22px;border-radius:18px;background:#EDF2F5;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Trade-off</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">CSM messaging and CSM performance scoring, so CSMs had support tools before messaging tools.</span>
+</div>
+</div>
+</div>
+</div>
+<div id="explainability" style="padding:80px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:16px">
+<span data-sec="06" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">06</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Decision — explainability as P0</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 40px;margin-bottom:34px">
+<div style="padding:22px 0;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:12px">Product question</span>
+<p style="margin:0;font:400 22px/144% 'Instrument Serif',serif">What does someone need to see to understand a driver's score?</p>
+</div>
+<div style="padding:22px 0;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:12px">My decision</span>
+<p style="margin:0;font:400 22px/144% 'Instrument Serif',serif">I put explainability in the P0 requirements, so an admin could see which activity and payment signals went into a driver's score.</p>
+</div>
+</div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:14px">Team output — designed by Tiffany Liu and Isabella Raffo</span>
+<div class="anda-score">
+<img alt="Driver performance score, with the breakdown of contributing factors" src="../assets/anda/feature-score.png?v=alpha1" width="1076" height="700"/>
+</div>
+<div class="anda-score__notes">
+<div style="padding:18px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">The breakdown shows the weight behind each factor: payment timeliness, hours worked, collection rate, portfolio risk.</div>
+<div style="padding:18px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">Collection Rate and % Portfolio at Risk are shown as ratios, so an admin can check the math.</div>
+<div style="padding:18px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">An admin can point to the reason a driver was flagged, which is what the requirements asked for.</div>
+</div>
+</div>
+<div id="predictive" style="padding:76px var(--cs-x) 0">
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num" data-sec="07">07</span>
+<span class="cs-decision__kicker">Decision — holding predictive scoring</span>
+</div>
+<h2 class="cs-decision__title">Predictive scoring stayed in P1 until we could explain the results.</h2>
+<div class="cs-decision__row">
+<div>
+<img class="cs-decision__shot" alt="Customer Success Manager dashboard with driver scores in the list" src="../assets/anda/feature-csm.png?v=hq1" width="1076" height="700"/>
+<span style="display:block;margin-top:12px;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(20,36,59,.55)">Designed by Tiffany Liu and Isabella Raffo</span>
+</div>
+<div>
+<div style="padding:22px 0;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Why it was valuable</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">Risk scoring would give CSMs a clear read on who to check on first, instead of working through their drivers one by one.</p>
+</div>
+<div style="padding:22px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Why it wasn't P0</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">I kept predictive scoring in P1 because we couldn't show a driver as high risk without being able to explain why.</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div id="synthetic" style="margin-top:76px;background:#EDF2F5;padding:70px var(--cs-x) 74px">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:16px">
+<span data-sec="08" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">08</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Decision — working with synthetic data</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 36px;align-items:start">
+<div style="padding:24px 0;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:12px">The dependency</span>
+<p style="margin:0;font:400 18px/152% 'Satoshi',sans-serif">Access to real driver data took longer than expected, and the timeline wasn't ours to set.</p>
+</div>
+<div style="padding:24px 0;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:12px">My decision</span>
+<p style="margin:0;font:400 18px/152% 'Satoshi',sans-serif">We used synthetic activity and payment patterns so design and development could keep moving while we waited.</p>
+</div>
+<div style="padding:24px 0;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:12px">What it didn't fix</span>
+<p style="margin:0;font:400 18px/152% 'Satoshi',sans-serif">Synthetic patterns kept design and development moving, but they didn't prove the scoring would work correctly with real drivers.</p>
+</div>
+</div>
+</div>
+<div id="solution" style="padding:80px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:16px">
+<span data-sec="09" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">09</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">The team's output</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:36px;align-items:end;margin-bottom:40px">
+<h2 style="margin:0;font:400 42px/122% 'Instrument Serif',serif">What the team built from those requirements.</h2>
+<div style="padding-top:18px;border-top:1.5px solid #14243B">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:8px">Credit</span>
+<span style="display:block;font:400 17px/1.5 'Satoshi',sans-serif">Product design: Tiffany Liu · Isabella Raffo</span>
+<span style="display:block;font:400 17px/1.5 'Satoshi',sans-serif">Product management: Allison Qiu</span>
+</div>
+</div>
+<div class="cs-decisions">
+<article class="cs-decision">
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Customer Success Manager dashboard" src="../assets/anda/feature-csm.png?v=alpha1" width="1076" height="700"/>
+<div>
+<h3 style="margin:0 0 16px;font:400 28px/126% 'Instrument Serif',serif">Customer Success Manager dashboard</h3>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:10px">Traces back to</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">The Priority Queue I scoped as P1 — a ranked view of a CSM's drivers, with the score in the list so risk is visible before opening anyone.</p>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Vehicle activity" src="../assets/anda/feature-vehicle.png?v=alpha1" width="1076" height="700"/>
+<div>
+<h3 style="margin:0 0 16px;font:400 28px/126% 'Instrument Serif',serif">Vehicle activity</h3>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:10px">Traces back to</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">The P0 requirement that inactivity carry context: whether a vehicle is moving, parked, or has been offline for a longer stretch.</p>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Revenue and default rate" src="../assets/anda/feature-revenue.png?v=alpha1" width="1076" height="700"/>
+<div>
+<h3 style="margin:0 0 16px;font:400 28px/126% 'Instrument Serif',serif">Revenue and default rate</h3>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.6);margin-bottom:10px">Traces back to</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">The payment half of the P0 data set, shown as trends rather than a single current balance.</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div id="outcome" style="padding:80px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:16px">
+<span data-sec="10" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">10</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Outcome &amp; reflection</span>
+</div>
+<h2 style="margin:0 0 32px;max-width:760px;font:400 40px/124% 'Instrument Serif',serif">This was my first time owning the product roadmap instead of contributing to one part of a project.</h2>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 48px;align-items:start">
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">What the team got done</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">By the end of the semester the team had designed the P0 work — authentication, the driver performance overview with its score breakdown, and the admin and CSM dashboards — plus the P1 Priority Queue. The driver-facing app, rewards, and CSM messaging stayed out of scope on purpose. The interfaces were designed by Tiffany Liu and Isabella Raffo from the requirements I wrote.</p>
+</div>
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">What I learned</span>
+<p style="margin:0 0 14px;font:400 17px/154% 'Satoshi',sans-serif">How much the product decisions depended on the data. The screens only worked if the data and the model behind them held up, so most of my time went into whether that part was on track. I also got more comfortable asking our tech lead questions until I actually understood what we were building, instead of nodding along.</p>
+<p style="margin:0 0 14px;font:400 17px/154% 'Satoshi',sans-serif">Prioritizing meant deciding what we wouldn't build. Putting the core driver data first meant the driver-facing app and CSM messaging waited, and planning around data access I couldn't control is a big part of what I took from the semester.</p>
+</div>
+</div>
+<div style="margin-top:26px;padding:22px 24px;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(20,36,59,.16);box-sizing:border-box;max-width:820px">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">What still needed validation</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">Synthetic data kept design and development moving while access to real driver data was delayed, but it never showed that the scoring would behave correctly on real drivers. That was still open when the semester ended.</span>
+</div>
+</div>
+</div>
+<p class="bf-cta">
+<a class="bf-btn" data-scroll-to="my-work" href="/">Check out my other work!</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<img class="site-footer__lace" src="../assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+<div class="site-footer__body">
+<div class="site-footer__top">
+<div>
+<p class="site-footer__hello">Say hi</p>
+<a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+</div>
+<nav class="site-footer__nav" aria-label="Footer">
+<a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+<a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+<a href="/about">About</a>
+</nav>
+</div>
 
-  <main class="bc-main">
-    <section class="bc-intro">
-      <h1 class="bc-title anda-title">ANDA<br>Driver Performance Model + Management Dashboard</h1>
-      <div class="bc-intro__stack">
-        <p class="bc-lede">
-          Anda is transforming transportation in Angola by helping drivers own their vehicles through asset financing, alongside ride-hailing and delivery services. I <strong>led the development</strong> of a platform that <strong>centralized their internal operations</strong>, taking Odoo, manual spreadsheets, and disconnected GPS and Yango data and turning them into <strong>one transparent system</strong> for admins and Customer Success Managers to track <strong>how active drivers are day to day</strong>, whether <strong>payments</strong> are coming in <strong>on time</strong>, and who actually needs support.
-        </p>
-        <div class="bc-jump">
-          <p class="bc-jump__label">SHORT ON TIME?</p>
-          <button type="button" class="bc-btn" data-scroll-to="solution">Jump to Final Product</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-hero anda-hero" aria-label="Product preview">
-      <div class="anda-hero__slot">
-        <div class="anda-hero__media">
-          <img
-            src="../assets/anda/hero.png?v=heroCrop1"
-            alt="ANDA dashboard laptop mockups — driver performance, CSM queue, and admin tools"
-            width="2312"
-            height="1092"
-          >
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-meta" aria-label="Project details">
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TIMELINE</p>
-        <p class="bc-meta__value">Feb 2026 - May 2026</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TOOLS</p>
-        <p class="bc-meta__value">Figma</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">ROLE</p>
-        <p class="bc-meta__value">Product Manager</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">SKILLS</p>
-        <ul class="bc-meta__list">
-          <li>Product Management</li>
-          <li>Requirements + Roadmapping</li>
-          <li>Cross-Functional Collaboration</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="bc-section" id="problem">
-      <div class="bc-heading">
-        <h2>Problem</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <p class="bc-body">
-        Anda helps people in Angola work, earn, and build a better future by combining ride-hailing and delivery work with a path to owning their own vehicle. But behind the scenes, admins and Customer Success Managers had <strong>no easy way to see how a driver was actually doing</strong>, were they driving regularly, going offline for long stretches, keeping up with payments, or falling behind. That data lived across <strong>Odoo, manual spreadsheets</strong>, and <strong>GPS</strong> and <strong>Yango APIs</strong> that didn't talk to each other, so admins couldn't tell whether a quiet driver was underperforming, dealing with a broken bike, or unwilling to pay. <strong>My goal</strong> was to <strong>guide</strong> the team <strong>to develop one system</strong> <strong>that pulled daily activity and payment data into a single, trustworthy view</strong>, so admins and CSMs could act <strong>fast and fairly</strong>.
-      </p>
-    </section>
-
-    <aside class="bc-callout" aria-label="Problem statement">
-      <p class="bc-callout__label">PROBLEM STATEMENT</p>
-      <p class="bc-callout__text">
-        Anda's driver data was scattered across disconnected systems, making it hard for admins and CSMs to know who needed support, and why.
-      </p>
-    </aside>
-
-    <section class="bc-section" id="users">
-      <div class="bc-heading">
-        <h2>Understanding the Users</h2>
-      </div>
-      <div class="bc-persona anda-persona">
-        <div class="bc-persona__left">
-          <p class="bc-persona__eyebrow">PERSONA</p>
-          <p class="bc-persona__name">Afonso Ndalu</p>
-          <img
-            class="bc-persona__photo"
-            src="../assets/anda/persona.png?v=anda1"
-            alt="Portrait of persona Afonso Ndalu"
-            width="477"
-            height="586"
-          >
-        </div>
-        <div class="bc-persona__right">
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">ABOUT</p>
-            <p class="bc-persona__row">
-              <img src="../assets/anda/icon-user.svg" alt="" width="16" height="16">
-              <span>Customer Success manager</span>
-            </p>
-            <p class="bc-persona__row">
-              <img src="../assets/anda/icon-sad.svg" alt="" width="16" height="16">
-              <span>Struggles to know which drivers need help most, since the data he needs is scattered across Odoo, GPS, and Yango</span>
-            </p>
-            <p class="bc-persona__row bc-persona__row--quote">
-              <img src="../assets/anda/icon-quote.svg" alt="" width="16" height="16">
-              <span>"I don't want to guess whether someone's struggling or just having a bad week, I need to know before I reach out."</span>
-            </p>
-          </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">PAIN POINTS</p>
-            <ul class="bc-bullets">
-              <li>Has to check multiple disconnected systems just to see how active a driver has been or whether their payments are current</li>
-              <li>Can't easily tell the difference between poor performance, vehicle downtime, or a driver who simply can't pay</li>
-              <li>Has no clear way to prioritize which drivers need help most urgently</li>
-              <li>Wants to support drivers fairly, without decisions feeling arbitrary or biased</li>
-            </ul>
-          </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">NEEDS:</p>
-            <p class="bc-body bc-body--tight">
-              Afonso needs a <strong>ranked view</strong> of her drivers, built on real signals like <strong>daily activity</strong> and <strong>payment status</strong>, that shows who needs help most urgently and why, backed by reasoning that's <strong>explainable</strong> enough for her to <strong>trust</strong> it and repeat it back to a driver if they ask.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-section bc-section--stack" id="roadmap">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Defining the Roadmap</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          I wrote the PRD for this project and <strong>framed the P0, P1, and P2 priorities</strong>, deciding what needed to ship first and help align the team around those priorities.
-        </p>
-      </div>
-      <div class="anda-prio">
-        <article class="anda-prio__card">
-          <p class="anda-prio__label">P0</p>
-          <ul class="bc-bullets">
-            <li>Prioritized authentication and the core Driver Performance Overview System first, since nothing else on the platform mattered if admins couldn't trust the underlying data</li>
-            <li>Made sure explainability and fairness, like showing why a driver got flagged and checking for bias, implemented from the beginning instead of adding it later, to ensure the data was trustworthy</li>
-            <li>Focused the Admin and CSM dashboards on the same two things: how active a driver actually is (km driven, offline time, last active) and whether they're keeping up on payments, to keep everyone on the same page</li>
-          </ul>
-        </article>
-        <article class="anda-prio__card">
-          <p class="anda-prio__label">P1</p>
-          <ul class="bc-bullets">
-            <li>Scoped in the Priority Queue View and risk scoring once the core data was solid, giving CSMs a clear way to see who to check on first</li>
-            <li>Held off on predictive risk scoring until the system could actually explain itself, since flagging a driver as "at risk" without a reason wasn't good enough</li>
-          </ul>
-        </article>
-        <article class="anda-prio__card">
-          <p class="anda-prio__label">P2</p>
-          <ul class="bc-bullets">
-            <li>Pushed the driver-facing mobile dashboard and reward system further down the roadmap, since the priority was giving admins and CSMs visibility first, before building tools for drivers</li>
-            <li>Deferred CSM messaging and CSM performance scoring, to make sure CSMs had the tools to support drivers before adding ways to message them directly</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="bc-section" id="considerations">
-      <div class="bc-heading">
-        <h2>Project Considerations</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <ol class="bc-numbered">
-        <li>This project was about the data, not just what showed up on screen. Getting the data model right mattered, since admins and CSMs were going to base real decisions about someone's livelihood on what the platform said about their activity and payment history.</li>
-        <li>Explainability had to be built in from the start, not added on later. Admins and drivers needed to see the actual reasoning behind a risk score, like which specific activity or payment pattern drove it, so internal decisions could hold up if a driver pushed back.</li>
-        <li>We were working under a tight timeline, which meant prioritization couldn't just be about what mattered most, it also had to account for what we could realistically design, build, and test in the time we had.</li>
-        <li>We were relying on Anda to provide real driver data, and delays on their end became a recurring setback. When data didn't arrive on schedule, it held up testing and validation on our side, so I had to build that risk into the roadmap instead of assuming data would show up when we needed it. We created synthetic data ourselves, generating realistic driver activity and payment patterns to train and test the model, so we weren't held back waiting on data to test from Anda.</li>
-      </ol>
-    </section>
-
-    <section class="bc-section bc-section--stack" id="solution">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Solution</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          The platform gives Anda's admins and Customer Success Managers one transparent system to track driver activity and payments, prioritize who needs support, and act on data they can trust and explain.
-        </p>
-      </div>
-
-      <article class="anda-feature">
-        <div class="anda-feature__media-col">
-          <video
-            class="anda-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/anda/feature-score.png?v=anda3"
-            aria-label="Driver Performance Overview — Score on a laptop"
-          >
-            <source src="../assets/videos/anda-score.mp4?v=anda1" type="video/mp4">
-          </video>
-          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
-        </div>
-        <div class="anda-feature__copy">
-          <h3>Driver Performance Overview - Score</h3>
-          <p>This came out of a P0 requirement I wrote for a fully explainable performance model, admins needed to see exactly which factors made up a driver's score, not just the number itself.</p>
-          <ul class="bc-bullets">
-            <li>Score breakdown shows the weight behind each factor: payment timeliness, hours worked, collection rate, and portfolio risk</li>
-            <li>Collection Rate and % Portfolio at Risk are shown as simple ratios (received vs. expected), so the math is never a mystery</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="anda-feature anda-feature--flip">
-        <div class="anda-feature__copy">
-          <h3>Driver Performance Overview — Vehicle</h3>
-          <p>This ties directly to the activity data requirement, giving admins a way to tell an inactive driver from one whose bike is simply parked mid-shift.</p>
-          <ul class="bc-bullets">
-            <li>Real-time speed and engine status show what's happening right now, not just historical averages</li>
-            <li>Driving History timestamps each location, so admins can trace exactly where and when a driver was active</li>
-          </ul>
-        </div>
-        <div class="anda-feature__media-col">
-          <video
-            class="anda-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/anda/feature-vehicle.png?v=anda3"
-            aria-label="Driver Performance Overview — Vehicle on a laptop"
-          >
-            <source src="../assets/videos/anda-vehicle.mp4?v=anda1" type="video/mp4">
-          </video>
-          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
-        </div>
-      </article>
-
-      <article class="anda-feature">
-        <div class="anda-feature__media-col">
-          <video
-            class="anda-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/anda/feature-revenue.png?v=anda3"
-            aria-label="Driver Performance Overview — Revenue on a laptop"
-          >
-            <source src="../assets/videos/anda-revenue.mp4?v=anda1" type="video/mp4">
-          </video>
-          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
-        </div>
-        <div class="anda-feature__copy">
-          <h3>Driver Performance Overview — Revenue</h3>
-          <p>This covers the payment side of the requirement, tracking revenue and default rate over time instead of just a current balance.</p>
-          <ul class="bc-bullets">
-            <li>Revenue Summary and Default Rate charts make patterns visible at a glance instead of buried in a spreadsheet</li>
-            <li>Revenue Per Trip breaks earnings down trip by trip, so a balance issue can be traced back to its source</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="anda-feature anda-feature--flip">
-        <div class="anda-feature__copy">
-          <h3>Customer Success Manager Dashboard</h3>
-          <p>This is the Priority Queue view I scoped as P1, giving CSMs a ranked list of their drivers instead of digging through separate systems.</p>
-          <ul class="bc-bullets">
-            <li>Tabs for All, Active, New, and Churn let a CSM focus on the group that matters right now</li>
-            <li>Score column surfaces risk immediately, without needing to open each driver individually</li>
-          </ul>
-        </div>
-        <div class="anda-feature__media-col">
-          <img
-            class="anda-feature__media"
-            src="../assets/anda/feature-csm.png?v=anda3"
-            alt="Customer Success Manager Dashboard on a laptop"
-            width="1388"
-            height="902"
-          >
-          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
-        </div>
-      </article>
-
-      <article class="anda-feature">
-        <div class="anda-feature__media-col">
-          <video
-            class="anda-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/anda/feature-admin.png?v=anda3"
-            aria-label="Admin Dashboard on a laptop"
-          >
-            <source src="../assets/videos/anda-dashboard.mp4?v=anda2" type="video/mp4">
-          </video>
-          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
-        </div>
-        <div class="anda-feature__copy">
-          <h3>Admin Dashboard</h3>
-          <p>This expands on the CSM dashboard with the full filter set I wrote into the P0 requirements, so admins can slice the whole driver base by exactly the signals that matter.</p>
-          <ul class="bc-bullets">
-            <li>Filters for payment status, offline duration, vehicle type, and location narrow the list down in seconds</li>
-            <li>A wider column set (Payment Status, Last Active, Offline Duration) gives admins more context than a CSM needs day to day</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="anda-feature anda-feature--flip">
-        <div class="anda-feature__copy">
-          <h3>Manage Users</h3>
-          <p>This covers the user verification and role assignment requirement, letting admins control who has access and to what.</p>
-          <ul class="bc-bullets">
-            <li>Role tags (Admin, CSM) make each user's access level clear at a glance</li>
-            <li>Drivers Assigned column shows CSM workload, so admins can rebalance if one person is overloaded</li>
-          </ul>
-        </div>
-        <div class="anda-feature__media-col">
-          <img
-            class="anda-feature__media"
-            src="../assets/anda/feature-users.png?v=anda3"
-            alt="Manage Users screen on a laptop"
-            width="1388"
-            height="902"
-          >
-          <p class="anda-feature__note">Designed by our product designers <span class="anda-credit-name">Tiffany Liu</span> and <span class="anda-credit-name">Isabella Raffo</span></p>
-        </div>
-      </article>
-    </section>
-
-    <section class="bc-section bc-section--reflect" id="reflections">
-      <div class="bc-heading">
-        <h2>Takeaways</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="1">
-          <li>Managing a project that was development-driven, not design-driven</li>
-        </ol>
-        <p>The UI only worked if we could actually get the data and build a model that reflected it accurately, so managing this meant staying closely tied to whether the technical side was on track, since a design without a working model behind it wouldn't function at all.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="2">
-          <li>Working with a tech lead despite my own technical gaps</li>
-        </ol>
-        <p>Working alongside a tech lead taught me how to make up for what I didn't know technically by communicating clearly and leaning on him for what I couldn't answer myself. I learned to ask better questions instead of trying to have all the answers.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="3">
-          <li>Owning a project instead of just executing on one</li>
-        </ol>
-        <p>As a designer, I'm usually the one following direction, not setting it. Being responsible for the decisions and actually owning this project was a new experience, and honestly a little scary at first, but it taught me a lot about how to guide and support the rest of the team instead of just contributing to someone else's plan.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="4">
-          <li>Learning to stay flexible when things didn't go as planned</li>
-        </ol>
-        <p>Relying on Anda for real data taught me not to just move forward assuming it would show up on time. It pushed me to get better at brainstorming backup plans early, like generating synthetic data ourselves, so the team always had somewhere to go instead of stalling every time we hit a setback.</p>
-      </article>
-    </section>
-
-    <p class="bc-cta-wrap">
-      <a class="bc-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
-    </p>
-  </main>
-
-    <footer class="bc-footer">
-      <img
-        class="bc-footer__lace"
-        src="../assets/shared/footer-lace.png?v=flex3"
-        alt=""
-        width="2880"
-        height="69"
-        aria-hidden="true"
-      >
-      <div class="bc-footer__inner">
-        <a class="bc-footer__brand" href="/" aria-label="Home">
-          <img
-            src="../assets/shared/footer-aq.png?v=flex3"
-            alt=""
-            width="257"
-            height="101"
-            aria-hidden="true"
-          >
-        </a>
-        <nav class="bc-footer__contact" aria-label="Contact">
-          <a
-            class="bc-footer__link"
-            href="https://www.linkedin.com/in/allisonqiu/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="../assets/shared/icon-linkedin.svg?v=flex1" alt="" width="20" height="17" aria-hidden="true">
-            <span>https://www.linkedin.com/in/allisonqiu/</span>
-          </a>
-          <a class="bc-footer__link" href="mailto:allisonqiu10@gmail.com">
-            <img src="../assets/shared/icon-mail.svg?v=flex1" alt="" width="20" height="20" aria-hidden="true">
-            <span>allisonqiu10@gmail.com</span>
-          </a>
-        </nav>
-      </div>
-    </footer>
-    </div>
-  </div>
-
-  <script src="../scripts/case-scale.js"></script>
-  <script src="../scripts/case-videos.js"></script>
-  <script src="../scripts/case-snap.js"></script>
-  <script src="../scripts/cross-scroll.js"></script>
-  <script src="../scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="../scripts/page-transition.js?v=wipe6"></script>
-  <script src="../scripts/mailto.js"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
+</div>
+</footer>
+</div>
+</div>
+<script src="../scripts/case-final.js?v=alpha1"></script>
+<script src="../scripts/cross-scroll.js"></script>
+<script src="../scripts/custom-cursor.js?v=cursorHover1"></script>
+<script src="../scripts/page-transition.js?v=tx10"></script>
+<script src="../scripts/mailto.js"></script>
+<script src="../scripts/motion.js?v=motion8"></script>
 </body>
 </html>

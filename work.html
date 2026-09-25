@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
+  <script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/assets/shared/favicon-aq.svg?v=aqheart" type="image/svg+xml">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="description" content="Selected work — Allison Qiu">
   <title>Work · Allison Qiu</title>
   <link rel="stylesheet" href="styles/main.css?v=headerContexts1">
+  <link rel="stylesheet" href="styles/page-transitions.css?v=tx8">
 </head>
 <body>
+  <div id="tx-cover" aria-hidden="true"></div>
+  <script src="scripts/tx-cover.js?v=tx6"></script>
   <main class="work" aria-label="My Work">
     <!-- Figma frame Work · 9:26 · 1512×1524 · 2× export -->
     <img
@@ -75,9 +76,8 @@
       <span class="visually-hidden">allisonqiu10@gmail.com</span>
     </a>
   </main>
-  <script src="scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="scripts/page-transition.js?v=wipe6"></script>
+  <script src="scripts/custom-cursor.js?v=cursorHover1"></script>
+  <script src="scripts/page-transition.js?v=tx10"></script>
   <script src="scripts/mailto.js"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
 </body>
 </html>

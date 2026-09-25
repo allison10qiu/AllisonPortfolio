@@ -8,7 +8,6 @@
   var EXPAND_MS = 720;
   var UNLOCK_URL = "/api/terraform-unlock";
   var CONTENT_URL = "/api/terraform-content";
-  var LOGOUT_URL = "/api/terraform-logout";
 
   var gate = document.getElementById("terraform-gate");
   var locked = document.getElementById("terraform-locked");
@@ -289,6 +288,9 @@
     refreshScale();
     requestAnimationFrame(function () {
       refreshScale();
+      if (inner && window.aqMotion && typeof window.aqMotion.scan === "function") {
+        window.aqMotion.scan(inner);
+      }
       setTimeout(refreshScale, 50);
       setTimeout(refreshScale, 250);
     });
@@ -453,15 +455,17 @@
       });
   }
 
-  // Always start locked on a fresh page load / refresh.
-  // Clear any prior session cookie, then keep the form visible.
-  fetch(LOGOUT_URL, {
-    method: "POST",
-    credentials: "same-origin",
-    headers: { Accept: "application/json" },
-  }).catch(function () {
-    /* stay locked even if logout endpoint is unavailable */
-  });
+  // Session cookie is httpOnly. Ask the existing content endpoint whether
+  // this browser is already authenticated, then match the gate to that result.
+  fetchContent()
+    .then(function (html) {
+      if (contentLoaded) return;
+      injectContent(html);
+      showUnlocked({ animate: false });
+    })
+    .catch(function (err) {
+      if (err && err.code === 401) return;
+    });
 
   if (form) {
     form.addEventListener("submit", function (event) {

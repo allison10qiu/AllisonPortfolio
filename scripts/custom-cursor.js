@@ -122,7 +122,7 @@
   function labelForTarget(node) {
     if (!node || !node.closest) return "";
     if (node.closest(".home-card--soon, .work-card--soon")) return "COMING SOON";
-    if (node.closest("a.home-card, a.work-card")) return "VIEW PROJECT";
+    if (node.closest("a.home-card, a.work-card, a.project")) return "VIEW PROJECT";
     return "";
   }
 

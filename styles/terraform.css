@@ -10,7 +10,6 @@
   --case-body-lh: 1.5;
   --hero-pad-y: 44px;
   --hero-pad-y-end: 36px;
-  --page-gutter: 160px; /* content ~1120 · keep extra side room */
 }
 
 .terraform-page .bc-main {
@@ -319,6 +318,7 @@
   padding: 0;
   background: none;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   caret-color: transparent;
   font: inherit;
 }
@@ -420,6 +420,11 @@
   visibility: hidden;
 }
 
+.password .password-input:placeholder-shown ~ .password-dots,
+.password .password-input:placeholder-shown ~ .password-text {
+  visibility: hidden;
+}
+
 @keyframes terraform-pw-bounce {
   0% {
     opacity: 0;
@@ -477,22 +482,343 @@
   color: #b42318;
 }
 
-.terraform-gate__unlocked-msg {
+.terraform-gate--unlocked .terraform-gate__form,
+.terraform-gate--unlocked .tf-gate__request {
   display: none;
-  margin: 0;
-  font-size: 14px;
-  line-height: normal;
+}
+
+.tf-gate__success {
+  display: none;
+}
+
+/* Password gate presentation. Monkey animation rules above are unchanged. */
+.terraform-page .terraform-gate {
+  margin-top: 76px;
+  padding: 8px 0 8px;
+  background: transparent;
+}
+
+.terraform-page .tf-gate__kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.terraform-page .tf-gate__kicker span:first-child {
+  font: 700 32px/1 "Satoshi", sans-serif;
   color: #14243b;
 }
 
-.terraform-gate--unlocked .terraform-gate__label,
-.terraform-gate--unlocked .terraform-gate__row,
-.terraform-gate--unlocked .terraform-gate__error {
+.terraform-page .tf-gate__kicker span:last-child {
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #14243b;
+}
+
+.terraform-page .tf-gate__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.terraform-page .tf-gate__main h2 {
+  margin: 0 0 16px;
+  max-width: 16em;
+  font: 400 40px/122% "Instrument Serif", serif;
+  color: #14243b;
+}
+
+.terraform-page .tf-gate__main > p {
+  margin: 0 0 32px;
+  max-width: 520px;
+  font: 400 18px/158% "Satoshi", sans-serif;
+  color: #14243b;
+}
+
+.terraform-page .terraform-gate__form {
+  width: 100%;
+  max-width: 520px;
+  gap: 10px;
+}
+
+.terraform-page .terraform-gate__label {
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(20, 36, 59, 0.72);
+}
+
+.terraform-page .terraform-gate__row {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.terraform-page .tf-gate__control {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 55px;
+  border: 1px solid #d5dde4;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.terraform-page .tf-gate__control:focus-within {
+  border-color: #14243b;
+  outline: 2px solid #14243b;
+  outline-offset: 2px;
+}
+
+.terraform-page .terraform-gate__form:has(.terraform-gate__error:not([hidden])) .tf-gate__control,
+.terraform-page .terraform-gate__form:has(.terraform-gate__error:not([hidden])) .tf-gate__control:focus-within {
+  border-color: #b42318;
+  outline-color: #b42318;
+}
+
+.terraform-page .tf-gate__control .password {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  height: 100%;
+  padding: 0 0 0 20px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.terraform-page .tf-gate__control .password .password-wrapper {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+}
+
+.terraform-page .tf-gate__control .password .monkey {
+  position: relative;
+  right: auto;
+  top: auto;
+  flex: 0 0 55px;
+  width: 55px;
+}
+
+.terraform-page .tf-gate__control .password .monkey-hands {
+  right: 0;
+  width: 55px;
+}
+
+.terraform-page .tf-gate__control .password:focus-within {
+  outline: none;
+}
+
+.terraform-page .tf-gate__control .password-input::placeholder {
+  color: rgba(20, 36, 59, 0.42);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.terraform-page .tf-gate__control .terraform-gate__submit {
+  flex: 0 0 auto;
+  align-self: stretch;
+  height: auto;
+  margin: -1px -1px -1px 0;
+  padding: 0 22px;
+  border: 1px solid #14243b;
+  border-radius: 0 10px 10px 0;
+  background: #14243b;
+  color: #ffffff;
+  font-family: "Satoshi", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.terraform-page .tf-gate__control .terraform-gate__submit::after {
+  content: "\00a0\2192";
+}
+
+.terraform-page .tf-gate__control .terraform-gate__submit:disabled::after {
+  content: none;
+}
+
+.terraform-page .tf-gate__control .terraform-gate__submit:hover,
+.terraform-page .tf-gate__control .terraform-gate__submit:focus-visible {
+  opacity: 0.9;
+}
+
+.terraform-page .tf-gate__error-slot {
+  min-height: 20px;
+}
+
+.terraform-page .terraform-gate__error {
+  color: #b42318;
+}
+
+.terraform-page .tf-gate__success-title {
+  margin: 4px 0 6px;
+  font: 500 17px/1.3 "Satoshi", sans-serif;
+  color: #14243b;
+}
+
+.terraform-page .tf-gate__success-copy {
+  margin: 0;
+  max-width: 36em;
+  font: 400 16px/1.5 "Satoshi", sans-serif;
+  color: rgba(20, 36, 59, 0.78);
+}
+
+.terraform-page .terraform-gate--unlocked .tf-gate__success {
+  display: block;
+}
+
+.terraform-page .terraform-gate--unlocked .tf-gate__list li span:last-child,
+.terraform-page .terraform-gate--unlocked .tf-gate__ghost {
   display: none;
 }
 
-.terraform-gate--unlocked .terraform-gate__unlocked-msg {
-  display: block;
+.terraform-page .tf-gate__request {
+  max-width: 520px;
+  margin-top: 22px;
+  padding-top: 26px;
+  background-image: linear-gradient(
+    to right,
+    rgba(20, 36, 59, 0.28) 0 3px,
+    transparent 3px 7px
+  );
+  background-size: 7px 1px;
+  background-repeat: repeat-x;
+  background-position: left top;
+}
+
+.terraform-page .tf-gate__request-title {
+  margin: 0 0 8px;
+  font: 500 17px/1.3 "Satoshi", sans-serif;
+  color: #14243b;
+}
+
+.terraform-page .tf-gate__request-copy {
+  margin: 0 0 18px;
+  font: 400 15px/1.5 "Satoshi", sans-serif;
+  color: rgba(20, 36, 59, 0.72);
+}
+
+.terraform-page .tf-gate__request-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(20, 36, 59, 0.28);
+  border-radius: 8px;
+  background: transparent;
+  color: #14243b;
+  font: 500 15px/1 "Satoshi", sans-serif;
+  text-decoration: none;
+}
+
+.terraform-page .tf-gate__request-btn:hover,
+.terraform-page .tf-gate__request-btn:focus-visible {
+  border-color: #14243b;
+  background: #ffffff;
+}
+
+.terraform-page .tf-gate__request-btn:focus-visible {
+  outline: 2px solid #14243b;
+  outline-offset: 3px;
+}
+
+/* Terraform sections are flush to the content column. The shared case-study
+   CTA adds --cs-x, which pushed "Check out my other work!" off the password
+   column. Keep it in the same left edge as the request block. */
+.terraform-page .bf-cta {
+  margin: 56px 0 0;
+  padding: 0;
+}
+
+.terraform-page .tf-gate__aside-label {
+  margin: 0 0 4px;
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(20, 36, 59, 0.55);
+}
+
+.terraform-page .tf-gate__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.terraform-page .tf-gate__list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(20, 36, 59, 0.16);
+  font: 400 16px/1.4 "Satoshi", sans-serif;
+  color: #14243b;
+}
+
+.terraform-page .tf-gate__list li span:last-child {
+  flex: 0 0 auto;
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(20, 36, 59, 0.45);
+}
+
+.terraform-page .tf-gate__ghost {
+  height: 210px;
+  margin-top: 22px;
+  border-radius: 16px;
+  background: linear-gradient(to bottom, rgba(20, 36, 59, 0.08), rgba(20, 36, 59, 0));
+}
+
+@media (max-width: 900px) {
+  .terraform-page .tf-gate__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .terraform-page .terraform-gate__form,
+  .terraform-page .tf-gate__request,
+  .terraform-page .tf-gate__main > p {
+    max-width: none;
+  }
+
+  .terraform-page .tf-gate__control .terraform-gate__submit {
+    min-height: 55px;
+    padding: 0 18px;
+  }
+
+  /* Locked ending: the aside was stacking between Request access and the
+     other-work link. Keep the password form first, then the locked list,
+     then the request block so it groups with the link below. */
+  .terraform-page .terraform-gate:not(.terraform-gate--unlocked) .tf-gate__grid {
+    gap: 0;
+  }
+
+  .terraform-page .terraform-gate:not(.terraform-gate--unlocked) .tf-gate__main {
+    display: contents;
+  }
+
+  .terraform-page .terraform-gate:not(.terraform-gate--unlocked) .tf-gate__aside {
+    order: 1;
+    margin-top: 40px;
+  }
+
+  .terraform-page .terraform-gate:not(.terraform-gate--unlocked) .tf-gate__request {
+    order: 2;
+    margin-top: 48px;
+  }
 }
 
 .terraform-locked {
@@ -1084,6 +1410,8 @@
   display: block;
   width: auto;
   height: auto;
+  /* The viewer sets an explicit bitmap size. A percentage max-width
+     collapses that size to 0 inside the absolute stage. */
   max-width: none;
   border: 0;
   pointer-events: none;
@@ -1214,6 +1542,86 @@
   }
 }
 
+.tf-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  outline: 1px solid rgba(20, 36, 59, 0.18);
+  box-shadow: 0 8px 22px rgba(20, 36, 59, 0.12);
+  background: #fff;
+}
+
+.tf-shot-scroll {
+  height: 480px;
+  overflow: auto;
+  border-radius: 18px;
+  outline: 1px solid rgba(20, 36, 59, 0.18);
+  box-shadow: 0 8px 22px rgba(20, 36, 59, 0.12);
+  background: #fff;
+}
+
+.tf-shot-scroll img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Inner copy stays in the shared 1160px column, left-aligned.
+   The main region and colored bands still run to the viewport edge.
+   --tf-pad-end is the right breathing room before that cap is reached. */
+.terraform-page {
+  --tf-pad-end: clamp(24px, 5vw, 80px);
+}
+
+.terraform-page .cs-body > :not(.tf-bleed):not(#terraform-locked),
+.terraform-page .terraform-locked__inner > :not(.tf-bleed),
+.terraform-page .bf-content > .bf-cta,
+.terraform-page .cs-body .tf-bleed > * {
+  box-sizing: border-box;
+  width: min(var(--page-content-width), calc(100% - var(--tf-pad-end)));
+  max-width: var(--page-content-width);
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Full-bleed section band inside the main column.
+   Background runs from the sidebar divider to the viewport's right edge.
+   Horizontal padding only cancels that pull, so the text lines up with
+   the uncapped column. The inner width rule above does the rest.
+   Public and injected protected sections share this class. */
+.terraform-page .cs-body .tf-bleed {
+  box-sizing: border-box;
+  max-width: none;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: calc(max(var(--page-gutter), (100vw - var(--page-max)) / 2) * -1);
+  padding-left: 0;
+  padding-right: max(var(--page-gutter), calc((100vw - var(--page-max)) / 2));
+}
+
+.terraform-page .cs-body > .tf-bleed {
+  margin-top: 72px;
+  padding-top: 78px;
+  padding-bottom: 86px;
+  background: #14243b;
+  color: #fff;
+}
+
+@media (min-width: 1025px) {
+  .terraform-page .cs-body .tf-bleed {
+    margin-left: calc(-1 * var(--bf-rail-gap));
+    padding-left: var(--bf-rail-gap);
+  }
+}
+
+@media (min-width: 1200px) {
+  .terraform-page .cs-body .tf-bleed {
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
 /* Coming Soon shell (kept for restore if needed) */
 .terraform-page--soon .bc-canvas {
   min-height: 100vh;
@@ -1249,7 +1657,7 @@
 
 .terraform-soon__title {
   margin: 0;
-  font-family: "Cross Stitch Cursive", cursive;
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
   font-weight: 400;
   font-size: 64px;
   line-height: normal;
@@ -1264,4 +1672,342 @@
   font-size: 18px;
   line-height: normal;
   color: #14243b;
+}
+
+.tf-workflow {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tf-workflow__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 28px;
+  margin-bottom: 28px;
+}
+
+.tf-workflow__step {
+  min-width: 0;
+  padding-top: 16px;
+  border-top: 2px solid rgba(20, 36, 59, 0.16);
+  color: rgba(20, 36, 59, 0.55);
+  transition: border-color 220ms ease, color 220ms ease;
+}
+
+.tf-workflow__step.is-active {
+  border-top-color: #14243b;
+  color: #14243b;
+}
+
+.tf-workflow__kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.tf-workflow__kicker > span:first-child {
+  font: 400 italic 22px/1 "Instrument Serif", serif;
+  color: #14243b;
+}
+
+.tf-workflow__label {
+  font: 500 13px/1.3 "Satoshi", sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: inherit;
+  transition: color 220ms ease;
+}
+
+.tf-workflow__step p {
+  margin: 10px 0 0;
+  font: 400 15px/150% "Satoshi", sans-serif;
+  color: inherit;
+  transition: color 220ms ease;
+}
+
+.tf-workflow__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.tf-workflow__frame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 760px;
+  border: 1px solid #d5dce3;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(20, 36, 59, 0.05), 0 14px 36px rgba(20, 36, 59, 0.08);
+}
+
+.tf-workflow__frame iframe {
+  display: block;
+  border: 0;
+  width: 1000px;
+  height: 760px;
+  transform-origin: 0 0;
+  background: #fff;
+}
+
+.tf-workflow__notes {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 12px;
+  font: 500 11px/1.4 "Satoshi", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(20, 36, 59, 0.6);
+}
+
+.tf-workflow__notes span:last-child {
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tf-workflow__takeaway {
+  margin: 36px 0 0;
+  max-width: 720px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(20, 36, 59, 0.22);
+  font: 400 italic 24px/136% "Instrument Serif", serif;
+  color: #14243b;
+}
+
+@media (max-width: 640px) {
+  .tf-workflow__steps {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tf-workflow__step,
+  .tf-workflow__label,
+  .tf-workflow__step p {
+    transition: none;
+  }
+}
+
+.terraform-page .tf-scale {
+  padding: 64px 0 0;
+  container-type: inline-size;
+}
+
+.terraform-page .tf-scale__kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.terraform-page .tf-scale__kicker [data-sec] {
+  font: 700 30px/1 "Satoshi", sans-serif;
+  color: #14243b;
+}
+
+.terraform-page .tf-scale__kicker span:last-child {
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #14243b;
+}
+
+.terraform-page .tf-scale__intro {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.terraform-page .tf-scale__intro p {
+  margin: 0;
+  max-width: 640px;
+  font: 400 18px/156% "Satoshi", sans-serif;
+  color: #14243b;
+}
+
+.terraform-page .tf-scale__pull {
+  flex: none;
+  max-width: 320px;
+  font: 400 24px/134% "Instrument Serif", serif;
+  text-align: right;
+}
+
+.terraform-page .tf-scale__lede {
+  margin: 0 0 28px;
+  max-width: 640px;
+  font: 400 17px/156% "Satoshi", sans-serif;
+  color: rgba(20, 36, 59, 0.8);
+  text-wrap: pretty;
+}
+
+.terraform-page .tf-scale__table {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(20, 36, 59, 0.18);
+}
+
+.terraform-page .tf-scale__head,
+.terraform-page .tf-scale__row {
+  display: grid;
+  grid-template-columns: 170px repeat(3, minmax(0, 1fr));
+}
+
+.terraform-page .tf-scale__head {
+  align-items: end;
+}
+
+.terraform-page .tf-scale__col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 22px;
+}
+
+.terraform-page .tf-scale__col--ro {
+  border-top: 2px solid #14243b;
+}
+
+.terraform-page .tf-scale__ht {
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(20, 36, 59, 0.65);
+}
+
+.terraform-page .tf-scale__col--ro .tf-scale__ht {
+  font-weight: 700;
+  color: #14243b;
+}
+
+.terraform-page .tf-scale__hs {
+  font: 400 13px/1.3 "Satoshi", sans-serif;
+  color: rgba(20, 36, 59, 0.55);
+}
+
+.terraform-page .tf-scale__col--ro .tf-scale__hs {
+  color: rgba(20, 36, 59, 0.7);
+}
+
+.terraform-page .tf-scale__row {
+  align-items: start;
+  border-top: 1px solid rgba(20, 36, 59, 0.18);
+}
+
+.terraform-page .tf-scale__name {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
+  padding: 24px 16px 20px 0;
+  min-width: 0;
+}
+
+.terraform-page .tf-scale__n {
+  font: italic 400 15px/1 "Instrument Serif", serif;
+  color: rgba(20, 36, 59, 0.55);
+}
+
+.terraform-page .tf-scale__dash {
+  display: none;
+}
+
+.terraform-page .tf-scale__title {
+  font: 400 22px/1.15 "Instrument Serif", serif;
+  color: #14243b;
+}
+
+.terraform-page .tf-scale__cell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 24px 22px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.terraform-page .tf-scale__state {
+  display: none;
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(20, 36, 59, 0.6);
+}
+
+.terraform-page .tf-scale__cell--ro .tf-scale__state {
+  color: #14243b;
+}
+
+.terraform-page .tf-scale__shot {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #d5dce3;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(20, 36, 59, 0.05), 0 6px 16px rgba(20, 36, 59, 0.07);
+}
+
+@media (max-width: 1199px) {
+  .terraform-page .tf-scale__head {
+    display: none;
+  }
+
+  .terraform-page .tf-scale__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .terraform-page .tf-scale__cell {
+    padding: 0 0 20px;
+  }
+
+  .terraform-page .tf-scale__state {
+    display: block;
+  }
+
+  .terraform-page .tf-scale__cell--empty {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .terraform-page .tf-scale__pull {
+    text-align: left;
+  }
+}
+
+/* Section 10 screenshots share one height. Shorter frames stay fully visible. */
+.terraform-page #refining .tf-refine__shot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1274 / 654;
+}
+
+.terraform-page #refining .tf-refine__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }

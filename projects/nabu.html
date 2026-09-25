@@ -1,385 +1,458 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <script>(function(){try{if(sessionStorage.getItem("aq-wipe-active")==="1"){var c=sessionStorage.getItem("aq-wipe-color")||"#ffffff";document.documentElement.classList.add("aq-wipe-cover");document.documentElement.style.setProperty("--aq-wipe-color",c);}}catch(e){}})();</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="description" content="NABU Internal Management Dashboard — case study by Allison Qiu">
-  <title>NABU · Allison Qiu</title>
-  <link rel="stylesheet" href="../styles/main.css?v=headerContexts1">
-  <link rel="stylesheet" href="../styles/brilliant.css?v=headerCompactAbout1">
-  <link rel="stylesheet" href="../styles/nabu.css?v=width1">
+<script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/assets/shared/favicon-aq.svg?v=aqheart" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="NABU — making data easier to manage and use. Case study by Allison Qiu." name="description"/>
+<title>NABU · Allison Qiu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/main.css?v=headerContexts1" rel="stylesheet"/>
+<link href="../styles/brilliant.css?v=specimen1" rel="stylesheet"/>
+<link href="../styles/editorial.css?v=editorial8" rel="stylesheet"/>
+<link href="../styles/case-shell.css?v=railgap4" rel="stylesheet"/>
+<link href="../styles/motion.css?v=motion6" rel="stylesheet"/>
+<link href="../styles/page-transitions.css?v=tx8" rel="stylesheet"/>
+<style>
+  .nabu-page.case-final .cs-body img.nabu-output {
+    display: block;
+    width: min(100%, 1027px);
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(20, 36, 59, 0.16);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(20, 36, 59, 0.06), 0 16px 36px rgba(20, 36, 59, 0.1);
+    background: #fff;
+  }
+</style>
 </head>
-<body class="bc-page nabu-page">
-  <div class="bc-canvas-wrapper">
-    <div class="bc-canvas">
-  <header class="bc-header">
-    <div class="bc-header__inner">
-      <nav class="bc-header__nav" aria-label="Primary">
-        <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="Work">
-          <img src="../assets/nabu/nav-work.png?v=lace1" alt="" width="164" height="363">
-        </a>
-        <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me">
-          <img src="../assets/nabu/nav-about.png?v=lace1" alt="" width="370" height="150">
-        </a>
-        <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-          <img src="../assets/nabu/nav-resume.png?v=lace1" alt="" width="384" height="166">
-        </a>
-      </nav>
-      <a class="bc-header__name" href="/">allison qiu</a>
-    </div>
-  </header>
+<body class="bc-page nabu-page case-final" data-tx-project="nabu">
+<div id="tx-cover" aria-hidden="true"></div>
+<script src="../scripts/tx-cover.js?v=tx6"></script>
+<div class="bc-canvas-wrapper">
+<div class="bc-canvas">
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
+  <img class="site-header__mark" src="../assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+  <span class="site-header__aq" aria-hidden="true">AQ</span>
+</a>
+<nav class="site-header__nav" aria-label="Primary">
+<a class="site-header__link" href="/" data-scroll-to="my-work" aria-current="page">Work <img class="site-header__marklet" src="../assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+<a class="site-header__link" href="/about">About</a>
+<a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+</nav>
+</div>
+</header>
+<main class="bf-main">
+<div class="bf-layout">
+<div class="bf-rail-col">
+<div class="bf-rail">
+<a class="bf-rail__back" href="/#my-work"><span aria-hidden="true">←</span> Back to Projects</a>
+<div class="bf-rail__head">
+<p class="bf-rail__eyebrow">Case study</p>
+<p class="bf-rail__title">NABU</p>
+</div>
+<nav aria-label="Case study sections" class="bf-rail__nav">
+<span aria-hidden="true" class="bf-rail__fill"></span>
+<ul class="bf-rail__list">
+<li class="bf-rail__item is-active">
+<a class="bf-rail__link" data-bf-scroll="problem" href="#problem">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Problem</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="users" href="#users">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Who we designed for</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="considerations" href="#considerations">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Considerations</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="design-system" href="#design-system">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Design system</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="decisions" href="#decisions">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Final product</span>
+</a>
+</li>
+<li class="bf-rail__item">
+<a class="bf-rail__link" data-bf-scroll="takeaways" href="#takeaways">
+<span aria-hidden="true" class="bf-rail__dot"></span>
+<span>Takeaways</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="bf-content">
+<div class="cs-body" data-screen-label="NABU case study">
+<div style="padding:8px var(--cs-x) 0">
+<p class="case-project-kicker">nabu</p>
+<div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,0.85fr);gap:44px;align-items:center">
+<div>
+<h1 style="margin:0 0 26px;font:400 74px/104% 'Instrument Serif',serif;letter-spacing:-.01em">Making NABU's data easier to manage and use</h1>
+<p style="margin:0 0 24px;max-width:600px;font:400 19px/158% 'Satoshi',sans-serif">NABU publishes storybooks in children's native languages and reaches more than 12 million learners worldwide. As a product designer, I worked on part of the internal platform their team uses to manage partners and turn data from MySQL, spreadsheets, and Google Analytics into visualizations.</p>
+<div style="display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+<a href="#decisions" style="display:inline-block;padding:19px 34px;border-radius:999px;background:#14243B;color:#fff;font:500 16px/1 'Satoshi',sans-serif">Jump to the final product</a>
+<span style="font:400 15px/1 'Satoshi',sans-serif;opacity:.7">5 min read</span>
+</div>
+</div>
+<div style="position:relative;min-width:0;aspect-ratio:400/308">
+<img alt="Role builder table" src="../assets/nabu/feature-role-clear.png?v=hq1" style="position:absolute;left:0;top:0;width:86%;height:auto;filter:drop-shadow(0 16px 30px rgba(20,36,59,.18))">
+<img alt="Visualization builder" src="../assets/nabu/feature-viz-builder.png?v=clear2" style="position:absolute;right:0;bottom:0;width:86%;height:auto;z-index:2;filter:drop-shadow(0 20px 36px rgba(20,36,59,.22))">
+</img></img></div>
+</div>
+</div>
+<div style="padding:56px var(--cs-x) 0">
+<section class="bf-meta" aria-label="Project details">
+<div class="bf-meta__item">
+<p class="bf-meta__label">Timeline</p>
+<p class="bf-meta__value">Feb – May 2025</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Role</p>
+<p class="bf-meta__value">Product Designer</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Scope</p>
+<p class="bf-meta__value">Designed part of the platform</p>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Focus</p>
+<ul class="bf-meta__list">
+<li>Data visualization</li>
+<li>Design systems</li>
+</ul>
+</div>
+<div class="bf-meta__item">
+<p class="bf-meta__label">Client</p>
+<p class="bf-meta__value">NABU</p>
+</div>
+</section>
+</div>
+<div style="padding:56px var(--cs-x) 0">
+<div class="cs-strip">
+<div data-showcase="1" style="display:flex;align-items:center;gap:32px;width:max-content;">
+<img alt="Role builder table" src="../assets/nabu/feature-role-clear.png?v=hq1" style="flex:0 0 auto;width:420px;height:auto;display:block">
+<img alt="Visualization builder filters" src="../assets/nabu/feature-viz-builder.png?v=clear2" style="flex:0 0 auto;width:420px;height:auto;display:block"/>
+<img alt="Visualization preview" src="../assets/nabu/feature-viz-1-clear.png?v=hq1" style="flex:0 0 auto;width:420px;height:auto;display:block"/>
+<img alt="Add partner flow" src="../assets/nabu/feature-partner.png?v=case1" style="flex:0 0 auto;width:420px;height:auto;display:block"/>
+</img></div>
+</div>
+</div>
+<div id="problem" style="margin-top:72px;background:#14243B;color:#fff;padding:70px var(--cs-x) 74px">
+<div style="display:grid;grid-template-columns:minmax(320px,0.4fr) minmax(0,1fr);gap:48px;align-items:start">
+<div>
+<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+<span data-sec="01" style="font:700 32px/1 'Satoshi',sans-serif;color:#fff">01</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Problem</span>
+</div>
+<h2 style="margin:0 0 16px;font:400 40px/122% 'Instrument Serif',serif;color:#fff">NABU's data lived in a few different places.</h2>
+<p style="margin:0;font:400 16px/158% 'Satoshi',sans-serif;color:#fff">Admins needed one place to manage partners, organize that data, and turn it into visualizations.</p>
+</div>
+<div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="font:400 40px/1 'Instrument Serif',serif;color:#fff">01</span>
+<p style="margin:0;font:400 18px/158% 'Satoshi',sans-serif;color:#fff">Data was split between MySQL, spreadsheets, and Google Analytics, with no single place for admins to work with it.</p>
+</div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="font:400 40px/1 'Instrument Serif',serif;color:#fff">02</span>
+<p style="margin:0;font:400 18px/158% 'Satoshi',sans-serif;color:#fff">When a new partner joined, admins set up dashboards by hand and collected data from country managers.</p>
+</div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid rgba(255,255,255,.28)">
+<span style="font:400 40px/1 'Instrument Serif',serif;color:#fff">03</span>
+<p style="margin:0;font:400 18px/158% 'Satoshi',sans-serif;color:#fff">Doing that partner by partner took time and made it harder to keep anything consistent.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="users" style="padding:70px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:24px">
+<span data-sec="02" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">02</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Who we designed for</span>
+</div>
+<div style="display:grid;grid-template-columns:265px minmax(0,1fr);align-items:stretch;background:#FFFFFF;border-radius:24px;overflow:hidden;box-sizing:border-box;box-shadow:0 10px 30px rgba(20,36,59,.1),0 1px 3px rgba(20,36,59,.06)">
+<div style="position:relative;background:#EDF2F5;align-self:stretch;justify-self:center;width:100%;max-width:477px;max-height:586px;overflow:hidden">
+<img alt="Portrait of persona Leila Mwangi" src="../assets/nabu/persona.png?v=case1" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:52px 22px 18px;background:linear-gradient(to top,rgba(20,36,59,.92) 0%,rgba(20,36,59,.7) 48%,rgba(20,36,59,0) 100%)">
+<span style="display:block;font:700 20px/1.2 'Satoshi',sans-serif;color:#fff">Leila Mwangi</span>
+<span style="display:block;margin-top:4px;font:400 13px/1.3 'Satoshi',sans-serif;color:#fff">NABU admin</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;padding:30px 34px;box-sizing:border-box">
+<div style="display:flex;gap:16px;align-items:flex-start">
+<span style="font:400 21px/142% 'Instrument Serif',serif;color:#14243B">Leila approves partners, manages their roles, and builds the visualizations NABU shares — across a few hundred records at a time.</span>
+</div>
+<div style="height:1px;background:rgba(20,36,59,.18)"></div>
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:8px">What she needs</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">One place to approve partners, manage what each role can reach, and build visualizations, instead of <strong style="font-weight:700">switching between MySQL, spreadsheets, and Google Analytics</strong> and rebuilding a dashboard for every partner.</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(20,36,59,.18);border-bottom:1px solid rgba(20,36,59,.18)">
+<div style="padding:20px 20px 20px 0;border-right:1px solid rgba(20,36,59,.18);box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Role</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">NABU admin, partner side</span>
+</div>
+<div style="padding:20px;border-right:1px solid rgba(20,36,59,.18);border-top:none;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Data sources</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">MySQL, spreadsheets, Google Analytics</span>
+</div>
+<div style="padding:20px 0 20px 20px;border-top:none;box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:6px">Scale</span>
+<span style="display:block;font:500 15px/138% 'Satoshi',sans-serif;color:#14243B">Around 200 partner roles</span>
+</div>
+</div>
+<div style="margin-top:auto">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#14243B;margin-bottom:8px">Where she came from</span>
+<span style="display:block;font:400 15px/150% 'Satoshi',sans-serif;color:#14243B">Leila stands in for the NABU admins the platform was built for. I don’t have interview notes from this project, so she represents the workflows we were given rather than a specific person I spoke to.</span>
+</div>
+</div>
+</div>
+</div>
+<div id="considerations" style="margin-top:76px;background:#EDF2F5;padding:70px var(--cs-x) 76px">
+<div style="display:grid;grid-template-columns:minmax(320px,0.4fr) minmax(0,1fr);gap:48px;align-items:start">
+<div>
+<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+<span data-sec="03" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">03</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Considerations</span>
+</div>
+<h2 style="margin:0;font:400 36px/124% 'Instrument Serif',serif">Most of the challenge was figuring out how the data should work.</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px">
+<div style="padding:22px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">Organizing the data first</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif">Before designing the visualization flow, I spent time understanding how NABU's data was organized and how an admin would need to move through it.</p>
+</div>
+<div style="padding:22px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">Designing around tables</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif">A lot of this product is tables rather than typical consumer UI, so I had to know which fields mattered to an admin before deciding how a row should be laid out.</p>
+</div>
+<div style="padding:22px 0;border-top:1px solid rgba(20,36,59,.22)">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">Three months to production</span>
+<p style="margin:0;font:400 16px/156% 'Satoshi',sans-serif">We had one semester to design and ship, so we focused on the workflows NABU needed most instead of trying to solve everything.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="design-system" style="padding:76px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:14px">
+<span data-sec="04" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">04</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Design system</span>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:20px 48px;align-items:start;margin-bottom:30px">
+<h2 style="margin:0;font:400 36px/124% 'Instrument Serif',serif">NABU's system came with the project. We added what the platform needed.</h2>
+<p style="margin:0;font:400 17px/155% 'Satoshi',sans-serif">NABU gave us colors, typography, and branding guidelines, so I didn't build the system from scratch. What we added were the table, form, and button patterns the platform needed, which kept more of our time on the data and workflow problems.</p>
+</div>
+<div class="cs-specimens">
+<div class="cs-specimens__row cs-specimens__row--lead">
+<article class="cs-specimen">
+<span class="cs-specimen__label">Colors</span>
+<div class="cs-specimen__media">
+<img alt="NABU color palette, provided by NABU" src="../assets/nabu/ds-colours.png?v=dsHq1" width="997" height="503">
+</div>
+</article>
+<article class="cs-specimen">
+<span class="cs-specimen__label">Typography</span>
+<div class="cs-specimen__media">
+<img alt="NABU typography: Oswald, Noto Serif, and Noto Sans" src="../assets/nabu/ds-typography.png?v=dsHq1" width="997" height="341">
+</div>
+</article>
+<article class="cs-specimen cs-specimen--icons">
+<span class="cs-specimen__label">Icons</span>
+<div class="cs-specimen__media">
+<img alt="Icons, contact fields, and selection controls" src="../assets/nabu/ds-icons.png?v=dsHq1" width="572" height="1524">
+</div>
+</article>
+</div>
+<article class="cs-specimen cs-specimen--forms">
+<span class="cs-specimen__label">Form fields</span>
+<div class="cs-specimen__media">
+<img alt="Form components added for the platform" src="../assets/nabu/ds-forms.png?v=dsHq1" width="2385" height="613">
+</div>
+</article>
+<article class="cs-specimen">
+<span class="cs-specimen__label">Buttons + states</span>
+<div class="cs-specimen__media">
+<img alt="Button styles and approve, reject, and selected actions" src="../assets/nabu/ds-buttons.png?v=dsHq1" width="1338" height="314">
+</div>
+</article>
+</div>
+</div>
+<div id="decisions" style="padding:74px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:14px">
+<span data-sec="05" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">05</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Final product</span>
+</div>
+<h2 style="margin:0 0 12px;max-width:860px;font:400 40px/124% 'Instrument Serif',serif">A lot of this project came down to tables: how much to put in a row, and what happens when there are two hundred of them.</h2>
+<p style="margin:0 0 44px;max-width:680px;font:400 18px/155% 'Satoshi',sans-serif">These are the three decisions I'd talk through first. The screens are unframed so the tables are actually readable.</p>
+<div class="cs-decisions">
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">01</span>
+<span class="cs-decision__kicker">Decision 01</span>
+</div>
+<h3 class="cs-decision__title">Put the assigned visualizations inside the table row</h3>
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Role Builder table with an expanded assigned-visualizations dropdown" src="../assets/nabu/feature-role-clear.png?v=hq1"/>
+<div>
+<p style="margin:0 0 16px;font:400 17px/156% 'Satoshi',sans-serif">A role decides which data a partner can see, so the table doesn’t help much if you can’t tell what each role gives access to. There are 200 roles, and the descriptions run long.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">A dropdown inside the row expands the assigned visualizations, so several can be read without widening the table</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Edit and delete sit at the end of each row, next to Create New Role above the table</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Search and pagination bracket the table, since scanning all 200 was never realistic</div>
+<div style="margin-top:18px;padding:18px 20px;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(20,36,59,.16);box-sizing:border-box">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Trade-off</span>
+<span style="display:block;font:400 16px/152% 'Satoshi',sans-serif">An open dropdown covers the rows beneath it, so only one role can be expanded at a time. Comparing two roles side by side came up less often than checking one, so we kept it.</span>
+</div>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">02</span>
+<span class="cs-decision__kicker">Decision 02</span>
+</div>
+<h3 class="cs-decision__title">Kept adding a partner in a modal instead of a separate page</h3>
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Add partner modal over the partner access table" src="../assets/nabu/feature-partner.png?v=case1"/>
+<div>
+<p style="margin:0 0 16px;font:400 17px/156% 'Satoshi',sans-serif">Partner requests used to be handled one at a time in different places. Putting them in one table only helps if acting on one doesn’t send the admin off somewhere else.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">The modal shows the roles that already exist, so nobody has to open another tab to look them up</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Multi-select lets an admin approve or reject several requests at once</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Search finds one requester in a longer list</div>
+</div>
+</div>
+</article>
+<article class="cs-decision">
+<div class="cs-decision__head">
+<span class="cs-decision__num">03</span>
+<span class="cs-decision__kicker">Decision 03</span>
+</div>
+<h3 class="cs-decision__title">Made a role the single place access is decided</h3>
+<div class="cs-decision__row">
+<img class="cs-decision__shot" alt="Create role modal with name, description, and assigned visualizations" src="../assets/nabu/feature-create-role.png?v=laptop1" width="643" height="373"/>
+<div>
+<p style="margin:0 0 16px;font:400 17px/156% 'Satoshi',sans-serif">Creating a role means naming it, describing it, and picking the visualizations it can reach. That chain is the whole access model: the role decides the assigned visualizations, and those decide what a partner sees. It made sense to keep all of it in one form.</p>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Creating, editing, and deleting all happen where the roles are listed</div>
+<div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">An admin can give a partner what they need without exposing the rest of the data</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div style="padding:76px var(--cs-x) 0">
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:14px">Workflow — visualization builder</span>
+<h3 style="margin:0 0 14px;max-width:820px;font:400 36px/124% 'Instrument Serif',serif">Nobody has to rebuild a dashboard for every partner.</h3>
+<p style="margin:0 0 30px;max-width:64ch;font:400 17px/155% 'Satoshi',sans-serif">The final steps let admins narrow the data they need, then preview the visualization before publishing.</p>
+<div style="display:grid;grid-template-columns:minmax(300px,0.72fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:44px">
+<div>
+<span style="display:block;font:400 44px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:10px">Step 4</span>
+<h4 style="margin:0 0 14px;font:400 28px/126% 'Instrument Serif',serif">Filters</h4>
+<p style="margin:0 0 18px;font:400 17px/154% 'Satoshi',sans-serif">This is where the admin picks the country, date range, and data they want the chart to cover.</p>
+<div style="display:flex;flex-direction:column">
+<div style="padding:11px 0;border-top:1px solid rgba(20,36,59,.22);font:400 15px/150% 'Satoshi',sans-serif"><span style="font-weight:500">01</span>  Country and date range</div>
+<div style="padding:11px 0;border-top:1px solid rgba(20,36,59,.22);font:400 15px/150% 'Satoshi',sans-serif"><span style="font-weight:500">02</span>  Data section, pre-filled from the organized data</div>
+<div style="padding:11px 0;border-top:1px solid rgba(20,36,59,.22);font:400 15px/150% 'Satoshi',sans-serif"><span style="font-weight:500">03</span>  Progress markers for all five steps</div>
+</div>
+</div>
+<img alt="Visualization builder step four, filters for country, date range, and data section" src="../assets/nabu/feature-viz-builder.png?v=clear2" width="1076" height="700" style="display:block;width:100%;max-width:100%;height:auto"/>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin:36px 0">
+<span style="width:1px;height:34px;background:rgba(20,36,59,.3)"></span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.72)">Filters → Preview</span>
+<span style="width:1px;height:34px;background:rgba(20,36,59,.3)"></span>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,0.72fr);gap:40px;align-items:center">
+<img alt="Visualization builder step five, previewing the underlying data before publishing" src="../assets/nabu/feature-viz-1-clear.png?v=hq1" width="1076" height="700" style="display:block;width:100%;max-width:100%;height:auto;grid-row:1;grid-column:1"/>
+<div style="grid-row:1;grid-column:2">
+<span style="display:block;font:400 44px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:10px">Step 5</span>
+<h4 style="margin:0 0 14px;font:400 28px/126% 'Instrument Serif',serif">Preview</h4>
+<p style="margin:0 0 18px;font:400 17px/154% 'Satoshi',sans-serif">Before publishing, the admin sees the actual data behind the chart, so they can check the numbers instead of taking the chart's word for it.</p>
+<div style="display:flex;flex-direction:column">
+<div style="padding:11px 0;border-top:1px solid rgba(20,36,59,.22);font:400 15px/150% 'Satoshi',sans-serif"><span style="font-weight:500">01</span>  The underlying data table</div>
+<div style="padding:11px 0;border-top:1px solid rgba(20,36,59,.22);font:400 15px/150% 'Satoshi',sans-serif"><span style="font-weight:500">02</span>  Back, to change a filter</div>
+<div style="padding:11px 0;border-top:1px solid rgba(20,36,59,.22);font:400 15px/150% 'Satoshi',sans-serif"><span style="font-weight:500">03</span>  Publish visualization</div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin:36px 0">
+<span style="width:1px;height:34px;background:rgba(20,36,59,.3)"></span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,59,.72)">Publish</span>
+<span style="width:1px;height:34px;background:rgba(20,36,59,.3)"></span>
+</div>
+<div>
+<div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1.5px solid #14243B;margin-bottom:24px">
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Output</span>
+<span style="font:400 24px/134% 'Instrument Serif',serif">From organized data to a chart NABU can send to a partner or funder.</span>
+</div>
+<img class="nabu-output" alt="Data table published from the visualization builder, with a row open on Leisha Garg" src="../assets/nabu/output-data.png?v=out2" width="1027" height="568"/>
+</div>
+</div>
+<div id="takeaways" style="padding:76px var(--cs-x) 0">
+<div style="display:flex;align-items:baseline;gap:18px;margin-bottom:14px">
+<span data-sec="06" style="font:700 32px/1 'Satoshi',sans-serif;color:#14243B">06</span>
+<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Takeaways</span>
+</div>
+<h2 style="margin:0 0 32px;max-width:780px;font:400 40px/124% 'Instrument Serif',serif">Where it landed, and what it changed about how I design.</h2>
+<div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:20px 48px;align-items:start">
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">Where it landed</span>
+<p style="margin:0;font:400 17px/154% 'Satoshi',sans-serif">The part of the platform we designed put four jobs in one place: approving partners, managing roles and what each one can reach, organizing the data behind them, and building the visualizations NABU shares. I don't have usage data from after handoff, so I can't say how their week looks now.</p>
+</div>
+<div>
+<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">What changed how I design</span>
+<div style="padding:16px 0;border-top:1px solid rgba(20,36,59,.22);font:400 17px/154% 'Satoshi',sans-serif">I couldn't organize the interface until I understood how the data itself was organized: what the fields meant and how an admin moved through them.</div>
+<div style="padding:16px 0;border-top:1px solid rgba(20,36,59,.22);font:400 17px/154% 'Satoshi',sans-serif">Working on an internal tool changed what I pay attention to. A search field and bulk actions aren't much to look at, but they take repetitive work out of something admins do every day.</div>
+</div>
+</div>
+</div>
+</div>
+<p class="bf-cta">
+<a class="bf-btn" data-scroll-to="my-work" href="/">Check out my other work!</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<img class="site-footer__lace" src="../assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+<div class="site-footer__body">
+<div class="site-footer__top">
+<div>
+<p class="site-footer__hello">Say hi</p>
+<a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+</div>
+<nav class="site-footer__nav" aria-label="Footer">
+<a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+<a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+<a href="/about">About</a>
+</nav>
+</div>
 
-  <main class="bc-main">
-    <section class="bc-intro">
-      <h1 class="bc-title">NABU Internal Management Dashboard</h1>
-      <div class="bc-intro__stack">
-        <p class="bc-lede">
-          NABU works to <strong>end illiteracy</strong> by publishing storybooks in kids' <strong>native languages</strong>, and they're reaching <strong>over 12 million learners worldwide</strong>. We <strong>designed</strong> the platform behind all that data, taking <strong>three disconnected</strong> systems (MySQL, spreadsheets, and Google Analytics) and consolidating them onto <strong>one centralized platform</strong> for admins to manage partners, organize data, and build visualizations that actually show NABU's impact.
-        </p>
-        <div class="bc-jump">
-          <p class="bc-jump__label">SHORT ON TIME?</p>
-          <button type="button" class="bc-btn" data-scroll-to="solution">Jump to Final Product</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-hero nabu-hero" aria-label="Product preview">
-      <div class="nabu-hero__slot">
-        <div class="nabu-hero__media">
-          <img
-            src="../assets/nabu/hero.png?v=heroCrop1"
-            alt="NABU dashboard laptop mockups — partner access, roles, visualizations, and admin tools"
-            width="2000"
-            height="2000"
-          >
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-meta" aria-label="Project details">
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TIMELINE</p>
-        <p class="bc-meta__value">Feb 2025 - May 2025</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">TOOLS</p>
-        <p class="bc-meta__value">Figma</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">ROLE</p>
-        <p class="bc-meta__value">Product Designer</p>
-      </div>
-      <div class="bc-meta__item">
-        <p class="bc-meta__label">SKILLS</p>
-        <ul class="bc-meta__list">
-          <li>Product Design</li>
-          <li>Data Visualization</li>
-          <li>Design Systems</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="bc-section" id="problem">
-      <div class="bc-heading">
-        <h2>Problem</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <p class="bc-body">
-        NABU helps kids around the world learn to read in their native languages through fun, digital storybooks. But behind the scenes, their <strong>data</strong> was all over the place, <strong>split</strong> between MySQL, spreadsheets, and Google Analytics. Every time a new partner joined, admins had to <strong>manually</strong> set up dashboards and chase down data from country managers. It was <strong>messy, time-consuming</strong>, and hard to keep everything consistent. Our <strong>goal</strong> was to <strong>design</strong> one simple, <strong>centralized platform</strong> that made it easy to <strong>manage</strong> data, track impact, and keep NABU's mission running smoothly.
-      </p>
-    </section>
-
-    <aside class="bc-callout" aria-label="Problem statement">
-      <p class="bc-callout__label">PROBLEM STATEMENT</p>
-      <p class="bc-callout__text">
-        NABU's data was scattered across three disconnected systems, making it slow and error-prone for admins to manage partners and turn raw data into usable insights.
-      </p>
-    </aside>
-
-    <section class="bc-section" id="users">
-      <div class="bc-heading">
-        <h2>Understanding the Users</h2>
-      </div>
-      <div class="bc-persona nabu-persona">
-        <div class="bc-persona__left">
-          <p class="bc-persona__eyebrow">PERSONA</p>
-          <p class="bc-persona__name">Leila Mwangi</p>
-          <img
-            class="bc-persona__photo"
-            src="../assets/nabu/persona.png?v=nabu1"
-            alt="Portrait of persona Leila Mwangi"
-            width="2000"
-            height="2000"
-          >
-        </div>
-        <div class="bc-persona__right">
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">ABOUT</p>
-            <p class="bc-persona__row">
-              <img src="../assets/nabu/icon-user.svg" alt="" width="16" height="16">
-              <span>NABU Admin</span>
-            </p>
-            <p class="bc-persona__row">
-              <img src="../assets/nabu/icon-sad.svg" alt="" width="16" height="16">
-              <span>Struggles with sorting and filtering through disorganized datasets across multiple systems</span>
-            </p>
-            <p class="bc-persona__row bc-persona__row--quote">
-              <img src="../assets/nabu/icon-quote.svg" alt="" width="16" height="16">
-              <span>“I spend more time cleaning data and setting up dashboards than actually analyzing our impact. I just want everything in one place.”</span>
-            </p>
-          </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">PAIN POINTS</p>
-            <ul class="bc-bullets">
-              <li>Juggling multiple data sources (MySQL, spreadsheets, Google Analytics) is time-consuming and confusing</li>
-              <li>Creating new Looker Studio dashboards for every partner leads to redundancy and clutter</li>
-              <li>Manual data submissions often have errors or missing values</li>
-              <li>No centralized system to view, approve, or manage partner accounts and roles</li>
-            </ul>
-          </div>
-          <div class="bc-persona__block">
-            <p class="bc-persona__eyebrow">NEEDS:</p>
-            <p class="bc-body bc-body--tight">
-              Leila needs a single platform that brings all of NABU’s <strong>data</strong> together, so she no longer has to juggle spreadsheets, databases, and analytics tools. She wants an easy way to <strong>approve partners, manage roles,</strong> and <strong>assign dashboards</strong>, all while keeping NABU’s branding consistent.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bc-section bc-section--stack" id="design-system">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Creating a Design System</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          NABU gave us a very thorough design system and clear branding guidelines, which meant we could focus our time on solving the actual data problem instead of rebuilding the basics. Since we already had so many great resources, we only had to design a few extra components, letting us move faster toward something NABU could actually put to use.
-        </p>
-      </div>
-      <div class="nabu-ds" aria-label="Design system samples">
-        <div class="nabu-ds__col nabu-ds__col--left">
-          <img class="nabu-ds__tile nabu-ds__tile--colours" src="../assets/nabu/ds-colours.png?v=nabu3" alt="NABU color palette" width="682" height="344">
-          <img class="nabu-ds__tile nabu-ds__tile--type" src="../assets/nabu/ds-typography.png?v=nabu3" alt="NABU typography samples" width="682" height="233">
-        </div>
-        <div class="nabu-ds__col nabu-ds__col--mid">
-          <img class="nabu-ds__tile nabu-ds__tile--forms" src="../assets/nabu/ds-forms.png?v=nabu3" alt="NABU form components" width="1338" height="446">
-          <img class="nabu-ds__tile nabu-ds__tile--buttons" src="../assets/nabu/ds-buttons.png?v=nabu3" alt="NABU button components" width="1338" height="314">
-        </div>
-        <img class="nabu-ds__tile nabu-ds__tile--icons" src="../assets/nabu/ds-icons.png?v=nabu3" alt="NABU icon and status components" width="572" height="1524">
-      </div>
-    </section>
-
-    <section class="bc-section" id="considerations">
-      <div class="bc-heading">
-        <h2>Project Considerations</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <ol class="bc-numbered">
-        <li>Our project deals with a lot of data, so I spent a lot of time researching how to best organize it to optimize the workflow for creating visualizations.</li>
-        <li>We were on a tight timeline, with only three months to design and put our application into production. With this in mind, I made sure to prioritize efficiency without sacrificing design quality, so NABU would have a solid foundation to build on going forward.</li>
-        <li>This project was mostly about turning NABU's data into well-organized tables, which is different from the typical UI/UX projects I usually work on. That meant a lot of learning, not just to understand the data itself, but how admins and partners actually interact with it, so I could design something that held up under how it would be used.</li>
-      </ol>
-    </section>
-
-    <section class="bc-section bc-section--stack" id="solution">
-      <div class="bc-block">
-        <div class="bc-heading">
-          <h2>Solution</h2>
-          <span class="bc-heading__rule" aria-hidden="true"></span>
-        </div>
-        <p class="bc-body">
-          The NABU dashboard we built is a centralized web platform that lets admins manage partner access, organize data from multiple sources, and build custom visualizations, giving NABU one reliable place to make decisions and support their partners.
-        </p>
-      </div>
-
-      <article class="nabu-feature">
-        <div class="nabu-feature__media-wrap">
-          <video
-            class="nabu-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/nabu/feature-review.png?v=nabu4"
-            aria-label="Review Partner Access Table on a laptop"
-          >
-            <source src="../assets/videos/nabu-partner-access-table.mp4?v=nabu4" type="video/mp4">
-          </video>
-        </div>
-        <div class="nabu-feature__copy">
-          <h3>Review Partner Access Table</h3>
-          <p>NABU wanted a platform that better organized and centralized their data, so one of the solutions we proposed was using tables. We designed the Review Partner Access table, which lets NABU administrators approve, reject, and view details on each requestor.</p>
-          <ul class="bc-bullets">
-            <li>Multi-select checkbox lets admins approve or reject requestors in bulk instead of one at a time</li>
-            <li>Search bar helps admins quickly find a specific requestor instead of scrolling through the full list</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="nabu-feature nabu-feature--flip">
-        <div class="nabu-feature__copy">
-          <h3>Role Builder Table</h3>
-          <p>This table helps organize the different roles partners and volunteers can have. Roles control access to data and visualizations, so volunteers only see what’s relevant to them, keeping sensitive data protected while still letting NABU share the right insights with the right people.</p>
-          <ul class="bc-bullets">
-            <li>Expanding visualizations within a dropdown lets users view several at once without cluttering the table</li>
-            <li>Edit, delete, and create role buttons put all the key admin actions in one place, so managing access takes minutes instead of back-and-forth</li>
-          </ul>
-        </div>
-        <img
-          class="nabu-feature__media"
-          src="../assets/nabu/feature-role.png?v=nabu4"
-          alt="Role Builder Table on a laptop"
-          width="1076"
-          height="700"
-        >
-      </article>
-
-      <article class="nabu-feature">
-        <div class="nabu-feature__media-wrap">
-          <video
-            class="nabu-feature__video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="../assets/nabu/feature-partner.png?v=nabu4"
-            aria-label="Add Partner Flow modal on a laptop"
-          >
-            <source src="../assets/videos/nabu-add-partner.mp4?v=nabu4" type="video/mp4">
-          </video>
-        </div>
-        <div class="nabu-feature__copy">
-          <h3>Add Partner Flow</h3>
-          <ul class="bc-bullets">
-            <li>The pop-up modal design cuts down on the number of tabs a user needs open, and lets them see existing roles they’ve already created, so onboarding a new partner takes a few minutes instead of turning into its own task</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="nabu-feature nabu-feature--flip">
-        <div class="nabu-feature__copy">
-          <h3>Visualization Builder</h3>
-          <p>This breaks down the process of turning data into a visualization step by step, simplifying the process for admins who lack technical experience.</p>
-          <ul class="bc-bullets">
-            <li>Splits the process into 5 steps, keeping it organized and easy to follow</li>
-            <li>Pre-filled dropdown menus simplify the process and cut down on room for error</li>
-          </ul>
-        </div>
-        <img
-          class="nabu-feature__media"
-          src="../assets/nabu/feature-viz-builder.png?v=nabu4"
-          alt="Visualization Builder on a laptop"
-          width="1076"
-          height="700"
-        >
-      </article>
-
-      <article class="nabu-feature nabu-feature--stack">
-        <div class="nabu-feature__stack">
-          <img
-            class="nabu-feature__media"
-            src="../assets/nabu/feature-viz-1.png?v=nabu4"
-            alt="Data visualization example — bar chart dashboard"
-            width="1076"
-            height="700"
-          >
-          <img
-            class="nabu-feature__media"
-            src="../assets/nabu/feature-viz-2.png?v=nabu4"
-            alt="Data visualization example — line chart dashboard"
-            width="1076"
-            height="700"
-          >
-        </div>
-        <div class="nabu-feature__copy">
-          <h3>Data Visualization Examples</h3>
-          <p>The Visualization Builder was one of the most important parts of our design, since it’s what lets admins turn scattered data into something partners and funders can actually read and trust. Here are a few examples of what that data could look like once it’s organized.</p>
-        </div>
-      </article>
-    </section>
-
-    <section class="bc-section bc-section--reflect" id="reflections">
-      <div class="bc-heading">
-        <h2>Takeaways</h2>
-        <span class="bc-heading__rule" aria-hidden="true"></span>
-      </div>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="1">
-          <li>Designing for a data-heavy, internal application</li>
-        </ol>
-        <p>This was my first time designing an internal application built around this much data, and it changed how I think about data organization and just how much of an impact it can have on workflow efficiency at scale.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="2">
-          <li>Designing for internal efficiency</li>
-        </ol>
-        <p>Every screen I designed had to make an admin’s day-to-day easier, not just look good. Things like bulk partner approval and role-based dashboard access weren’t just features, they were direct fixes to the manual, error-prone workflow NABU was stuck in. I learned to prioritize that kind of efficiency first and then focus on visual appeal.</p>
-      </article>
-      <article class="bc-reflect__card">
-        <ol class="bc-reflect__title" start="3">
-          <li>Building technical fluency to support creativity</li>
-        </ol>
-        <p>Understanding how the data is aggregated and filtered gave me more room to be creative, since I could focus on designing a visualization builder that let admins go from raw, scattered data to something a partner or funder could actually understand.</p>
-      </article>
-    </section>
-
-    <p class="bc-cta-wrap">
-      <a class="bc-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
-    </p>
-  </main>
-
-    <footer class="bc-footer">
-      <img
-        class="bc-footer__lace"
-        src="../assets/shared/footer-lace.png?v=flex3"
-        alt=""
-        width="2880"
-        height="69"
-        aria-hidden="true"
-      >
-      <div class="bc-footer__inner">
-        <a class="bc-footer__brand" href="/" aria-label="Home">
-          <img
-            src="../assets/shared/footer-aq.png?v=flex3"
-            alt=""
-            width="257"
-            height="101"
-            aria-hidden="true"
-          >
-        </a>
-        <nav class="bc-footer__contact" aria-label="Contact">
-          <a
-            class="bc-footer__link"
-            href="https://www.linkedin.com/in/allisonqiu/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="../assets/shared/icon-linkedin.svg?v=flex1" alt="" width="20" height="17" aria-hidden="true">
-            <span>https://www.linkedin.com/in/allisonqiu/</span>
-          </a>
-          <a class="bc-footer__link" href="mailto:allisonqiu10@gmail.com">
-            <img src="../assets/shared/icon-mail.svg?v=flex1" alt="" width="20" height="20" aria-hidden="true">
-            <span>allisonqiu10@gmail.com</span>
-          </a>
-        </nav>
-      </div>
-    </footer>
-    </div>
-  </div>
-
-  <script src="../scripts/case-scale.js"></script>
-  <script src="../scripts/case-videos.js"></script>
-  <script src="../scripts/case-snap.js"></script>
-  <script src="../scripts/cross-scroll.js"></script>
-  <script src="../scripts/custom-cursor.js?v=cursorNav1"></script>
-  <script src="../scripts/page-transition.js?v=wipe6"></script>
-  <script src="../scripts/mailto.js"></script>
-  <div class="vt-wipe" aria-hidden="true"></div>
+</div>
+</footer>
+</div>
+</div>
+<script src="../scripts/case-final.js?v=case1"></script>
+<script src="../scripts/cross-scroll.js"></script>
+<script src="../scripts/custom-cursor.js?v=cursorHover1"></script>
+<script src="../scripts/page-transition.js?v=tx10"></script>
+<script src="../scripts/mailto.js"></script>
+<script src="../scripts/motion.js?v=motion8"></script>
 </body>
 </html>
