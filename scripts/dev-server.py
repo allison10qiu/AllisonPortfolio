@@ -290,6 +290,83 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
             self.wfile.write(body)
             return
 
+        if path == "/api/terraform-audit":
+            secret = os.environ.get("TERRAFORM_CASE_SECRET")
+            if not secret:
+                self._json(
+                    500,
+                    {
+                        "ok": False,
+                        "error": "Server configuration error. Password gate is not ready.",
+                    },
+                )
+                return
+            token = self._cookie_token()
+            expected = sign_token(secret)
+            if not token or not hmac.compare_digest(token, expected):
+                self._json(401, {"ok": False, "error": "Unauthorized"})
+                return
+            file_path = (
+                ROOT / "api" / "terraform-private" / "audit-flythrough.mp4"
+            ).resolve()
+            private_dir = (ROOT / "api" / "terraform-private").resolve()
+            if file_path.parent != private_dir or not file_path.is_file():
+                self._json(404, {"ok": False, "error": "Not found"})
+                return
+            size = file_path.stat().st_size
+            start, end, status = 0, size - 1, 200
+            range_header = self.headers.get("Range")
+            if range_header and range_header.startswith("bytes="):
+                spec = range_header[6:].split(",", 1)[0].strip()
+                if "-" not in spec:
+                    self.send_response(416)
+                    self.send_header("Content-Range", f"bytes */{size}")
+                    self.end_headers()
+                    return
+                left, right = spec.split("-", 1)
+                try:
+                    if left == "":
+                        suffix = int(right)
+                        start = max(0, size - suffix)
+                        end = size - 1
+                    else:
+                        start = int(left)
+                        end = int(right) if right else size - 1
+                except ValueError:
+                    self.send_response(416)
+                    self.send_header("Content-Range", f"bytes */{size}")
+                    self.end_headers()
+                    return
+                if start < 0 or start >= size or end < start:
+                    self.send_response(416)
+                    self.send_header("Content-Range", f"bytes */{size}")
+                    self.end_headers()
+                    return
+                end = min(end, size - 1)
+                status = 206
+            length = end - start + 1
+            self.send_response(status)
+            self.send_header("Content-Type", "video/mp4")
+            self.send_header("Accept-Ranges", "bytes")
+            self.send_header("Content-Length", str(length))
+            self.send_header("Cache-Control", "private, no-store")
+            self.send_header("X-Content-Type-Options", "nosniff")
+            if status == 206:
+                self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+            self.end_headers()
+            if self.command == "HEAD":
+                return
+            with file_path.open("rb") as handle:
+                handle.seek(start)
+                remaining = length
+                while remaining > 0:
+                    chunk = handle.read(min(262144, remaining))
+                    if not chunk:
+                        break
+                    self.wfile.write(chunk)
+                    remaining -= len(chunk)
+            return
+
         # Block accidental static access to auth helpers / fragment / prototype
         if path in (
             "/api/terraform-locked.fragment.html",

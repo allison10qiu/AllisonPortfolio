@@ -11,6 +11,7 @@
   :root {
     --m-gutter: clamp(16px, 5.13vw, 24px);
     --m-section: clamp(48px, 16.41vw, 64px);
+    --m-case: clamp(48px, 12.82vw, 56px);
   }
 
   .home-page,
@@ -584,6 +585,11 @@
     min-width: 0;
     max-width: 100%;
     padding-top: 0;
+    padding-bottom: 64px;
+  }
+
+  .brilliant-final .bf-content {
+    gap: 0;
   }
 
   .m-casebar {
@@ -787,7 +793,8 @@
     grid-column: 1 / -1;
     width: calc(100% + (var(--m-gutter) * 2)) !important;
     max-width: none !important;
-    height: 260px !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10;
     margin: 0 calc(var(--m-gutter) * -1) 0 !important;
     object-fit: contain !important;
     object-position: center;
@@ -807,10 +814,10 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
-    aspect-ratio: auto !important;
+    aspect-ratio: 16 / 10 !important;
     width: calc(100% + (var(--m-gutter) * 2));
     max-width: none;
-    height: 260px;
+    height: auto;
     margin: 40px calc(var(--m-gutter) * -1) 0;
     overflow: hidden;
     background: linear-gradient(180deg, #f1f4f7, #e9edf1);
@@ -851,13 +858,14 @@
   .brilliant-final .bf-hero__phones {
     width: 100%;
     max-width: none;
-    height: 260px;
+    height: auto;
     margin: 20px 0 0;
+    padding: 12px 0 0;
     aspect-ratio: auto;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 14px;
+    gap: clamp(10px, 3vw, 18px);
     overflow: hidden;
     background: linear-gradient(180deg, #f1f4f7, #e9edf1);
     box-shadow: inset 0 0 0 1px rgba(20, 36, 59, 0.05);
@@ -870,7 +878,7 @@
     left: auto;
     top: auto;
     width: auto;
-    height: 84%;
+    height: clamp(200px, 58vw, 320px);
     max-width: 46%;
     transform: none;
   }
@@ -1122,8 +1130,8 @@
   .bc-page .bf-cta {
     display: flex;
     justify-content: center;
-    margin: 48px 0 8px;
-    padding: 0 20px 8px;
+    margin: 20px 0 0;
+    padding: 0 var(--m-gutter);
   }
 
   .bc-page .bf-cta .bf-btn {
@@ -1210,8 +1218,24 @@
     min-width: 0;
   }
 
-  .terraform-page .tf-audit,
-  .terraform-page .tf-audit__viewport,
+  .terraform-page .tf-audit {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 24px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .terraform-page .tf-scale__intro {
+    flex-wrap: wrap;
+  }
+
+  .terraform-page .tf-scale__pull {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .terraform-page .tf-workflow__frame {
     max-width: 100%;
   }
@@ -1242,11 +1266,33 @@
     background: transparent !important;
   }
 
-  .case-final .cs-body > div[id],
+  .case-final .cs-body > div:not(:first-child):not(#terraform-locked),
   .case-final .cs-body > section[id] {
     margin-top: 0 !important;
-    padding-top: var(--m-section) !important;
+    padding-top: var(--m-case) !important;
+    padding-bottom: 0 !important;
     scroll-margin-top: 76px;
+  }
+
+  .case-final .cs-body [id] [style*="align-items:baseline"] {
+    margin-bottom: 14px !important;
+  }
+
+  .case-final .cs-body h2 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .case-final #design-system h2 {
+    margin-bottom: 0 !important;
+  }
+
+  .case-final #design-system [style*="flex-direction:column"] {
+    gap: 20px !important;
+  }
+
+  .brilliant-final .bf-ds__lead + .bf-ds__text {
+    margin-top: 20px;
   }
 
   .case-final .cs-body [data-sec] {
@@ -1279,48 +1325,56 @@
   }
 
   .case-final .cs-strip {
+    width: 100%;
+    max-width: 100%;
     margin-inline: calc(var(--m-gutter) * -1);
     margin-top: 0 !important;
-    padding: 14px 0 0 !important;
+    padding: 12px 0 4px !important;
     border-radius: 0;
-    overflow: visible;
+    overflow: hidden;
     background: transparent;
-    mask-image: none;
-    -webkit-mask-image: none;
+    touch-action: pan-y;
   }
 
   .case-final .cs-strip [data-preview-track],
-  .case-final .cs-device-row,
-  .case-final [data-preview-track].is-ready,
-  .case-final [data-showcase].is-ready {
+  .case-final .cs-strip .cs-device-row,
+  .case-final .cs-strip [data-preview-track].is-ready,
+  .case-final .cs-strip [data-showcase].is-ready {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    gap: 28px !important;
-    animation: none !important;
-    transform: none !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: max-content !important;
+    max-width: none !important;
+    gap: clamp(16px, 4vw, 28px) !important;
+    animation: cs-marquee 48s linear infinite;
   }
 
-  .case-final .cs-strip [aria-hidden="true"],
-  .case-final .cs-device-row [aria-hidden="true"] {
-    display: none !important;
+  .case-final .cs-body .cs-strip img,
+  .case-final .cs-body .cs-device-row img {
+    flex: 0 0 auto;
+    width: min(78vw, 480px) !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none;
+    object-fit: contain;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 0;
+    background: none;
+    filter: none;
   }
 
-  .case-final .cs-body .cs-device-row img,
-  .case-final .cs-strip img,
+  .case-final .cs-body .cs-strip img.is-phone,
+  .case-final .cs-body .cs-device-row img.is-phone {
+    width: auto !important;
+    height: clamp(180px, 46vw, 240px) !important;
+  }
+
   .case-final .cs-decision__shot {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: 420px;
     object-fit: contain;
-    border-radius: 0 !important;
-    box-sizing: border-box;
-    padding: 12px 16px;
-    background: linear-gradient(180deg, #f1f4f7, #e9edf1);
-    filter: drop-shadow(0 10px 18px rgba(20, 36, 59, 0.14));
   }
 
   .case-final .cs-body > [id] > .cs-decision {
@@ -1399,11 +1453,8 @@
   .case-final .cs-body [style*="grid-template-columns:265px"] [style*="grid-template-columns:repeat(3"] {
     display: flex !important;
     flex-direction: column !important;
+    gap: 0 !important;
     border: 0 !important;
-  }
-
-  .case-final .cs-body [style*="grid-template-columns:265px"] [style*="grid-template-columns:repeat(3"] {
-    gap: 12px !important;
   }
 
   .case-final .cs-body [style*="grid-template-columns:265px"] [style*="grid-template-columns:repeat(3"] > div {
@@ -1411,13 +1462,24 @@
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
-    gap: 12px !important;
+    gap: 9px !important;
     height: auto !important;
     min-height: 0 !important;
-    padding: 16px 0 !important;
+    padding: 22px 0 !important;
     border: 0 !important;
-    border-top: 1px solid rgba(20, 36, 59, 0.14) !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.16) !important;
     background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .case-final .cs-body [style*="grid-template-columns:265px"] [style*="grid-template-columns:repeat(3"] > div:last-child {
+    border-bottom: 0 !important;
+    padding-bottom: 2px !important;
+  }
+
+  .case-final .cs-body [style*="grid-template-columns:265px"] [style*="grid-template-columns:repeat(3"] > div > span:first-child {
+    margin: 0 !important;
   }
 
   .case-final .cs-body [style*="grid-template-columns:265px"] [style*="margin-top:auto"] {
@@ -1429,12 +1491,12 @@
   .brilliant-final .bf-decisions,
   .brilliant-final .bf-ds,
   .brilliant-final .bf-takeaways {
-    padding: var(--m-section) var(--m-gutter) 0;
+    padding: var(--m-case) var(--m-gutter) 0;
   }
 
   .brilliant-final .bf-problem {
-    margin: 28px 0 0;
-    padding: var(--m-section) var(--m-gutter) 28px;
+    margin: 20px 0 0;
+    padding: var(--m-case) var(--m-gutter) 16px;
     background: #fff;
     color: #14243b;
   }
@@ -1562,7 +1624,7 @@
     margin-top: 0 !important;
     margin-left: calc(var(--m-gutter) * -1) !important;
     margin-right: calc(var(--m-gutter) * -1) !important;
-    padding: var(--m-section) var(--m-gutter) 0 !important;
+    padding: var(--m-case) var(--m-gutter) 0 !important;
   }
 
   .terraform-page #overview.tf-bleed h2,
@@ -1724,6 +1786,41 @@
     font: 500 12px/1 "Satoshi", sans-serif !important;
   }
 
+  /* The callout and #roadmap are the same gray. Section margin is cleared
+     globally, so they were flush. This margin is the white break. */
+  body.anda-page.case-final .cs-body > div#roadmap {
+    margin-top: 52px !important;
+  }
+
+  .anda-page .anda-order {
+    margin-top: 28px !important;
+  }
+
+  .anda-page.case-final .cs-body .anda-tradeoff {
+    margin: 0 0 20px !important;
+    padding: 22px !important;
+    border: 1.5px solid #14243b !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .anda-page.case-final .cs-body .anda-tradeoff > span:first-child {
+    display: block !important;
+    align-self: auto;
+    width: auto !important;
+    margin: 0 0 16px !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #14243b !important;
+    font: 500 11px/1 "Satoshi", sans-serif !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+  }
+
   /* Terraform phone page, from the unlocked mobile handoff. */
 
   .terraform-page .cs-body h1 {
@@ -1731,16 +1828,31 @@
   }
 
   .terraform-page .cs-body h2 {
-    margin-top: 18px !important;
+    margin-top: 0 !important;
     font-size: 30px !important;
     line-height: 1.08 !important;
     letter-spacing: 0 !important;
   }
 
+  .terraform-page .terraform-locked__inner {
+    gap: 0;
+  }
+
+  .terraform-page #terraform-locked {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .terraform-page .cs-body > div[id],
   .terraform-page .cs-body > section[id],
   .terraform-page .terraform-locked__inner > div[id] {
-    padding-top: var(--m-section) !important;
+    margin-top: 0 !important;
+    padding-top: var(--m-case) !important;
+    padding-bottom: 0 !important;
+  }
+
+  .terraform-page .bf-cta {
+    margin-top: 36px;
   }
 
   .terraform-page .bf-meta {
@@ -1892,9 +2004,20 @@
   .terraform-page #explorations .tf-shot-scroll,
   .terraform-page #combining .tf-shot-scroll,
   .terraform-page #refining .tf-refine__shot {
+    display: flex !important;
+    flex: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% + (var(--m-gutter) * 2)) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
     margin-left: calc(var(--m-gutter) * -1) !important;
     margin-right: calc(var(--m-gutter) * -1) !important;
-    padding: 20px !important;
+    padding: 12px !important;
     border: 0 !important;
     border-radius: 0 !important;
     background: linear-gradient(180deg, #f1f4f7, #e9edf1) !important;
@@ -1905,14 +2028,24 @@
   .terraform-page #combining .tf-shot-scroll img,
   .terraform-page #refining .tf-refine__shot img {
     display: block;
-    width: auto !important;
-    max-width: 100%;
-    max-height: 300px;
-    height: auto;
+    flex: 0 1 auto;
+    min-width: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none;
+    height: auto !important;
     margin: 0 auto;
+    object-fit: contain;
     border-radius: 6px;
     background: #fff;
     box-shadow: 0 0 0 1px rgba(20, 36, 59, 0.08), 0 10px 18px -8px rgba(20, 36, 59, 0.18);
+  }
+
+  .terraform-page .tf-workflow__frame {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    contain: inline-size;
   }
 
   .terraform-page #testing [style*="gap:1px"] {
@@ -1940,10 +2073,30 @@
   .terraform-page #refining [style*="flex-wrap:wrap"] {
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
-    margin-top: 32px !important;
-    padding-top: 16px !important;
-    border-top: 1.5px solid #14243b !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+    margin-top: 28px !important;
+    padding-top: 0 !important;
+    border-top: 0 !important;
+  }
+
+  .terraform-page #refining [style*="flex-wrap:wrap"] + [style*="flex-wrap:wrap"] {
+    margin-top: 36px !important;
+    padding-top: 28px !important;
+    border-top: 1px solid rgba(20, 36, 59, 0.18) !important;
+  }
+
+  .terraform-page #refining [style*="flex-wrap:wrap"] > .tf-refine__shot {
+    order: 2;
+  }
+
+  .terraform-page #refining [style*="flex-wrap:wrap"] > div:not(.tf-refine__shot) {
+    order: 1;
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    padding-top: 0 !important;
+    border-top: 0 !important;
   }
 
   .terraform-page #refining h3 {
@@ -2007,70 +2160,11 @@
     color: #14243b !important;
   }
 
-  .terraform-page .tf-scale__row {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 20px 0 28px;
-  }
-
-  .terraform-page .tf-scale__name {
-    padding: 0;
-  }
-
-  .terraform-page .tf-scale__n {
-    font: italic 400 17px/1 "Instrument Serif", serif;
-  }
-
-  .terraform-page .tf-scale__title {
-    font: 400 24px/1.1 "Instrument Serif", serif;
-  }
-
-  .terraform-page .tf-scale__tabs {
-    display: flex;
-    gap: 4px;
-    align-self: flex-start;
-    padding: 3px;
-    border-radius: 999px;
-    background: #eef1f4;
-  }
-
-  .terraform-page .tf-scale__tab {
-    min-height: 40px;
-    padding: 0 16px;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
-    color: #14243b;
-    font: 500 14px/1 "Satoshi", sans-serif;
-    cursor: pointer;
-  }
-
-  .terraform-page .tf-scale__tab.is-on {
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(20, 36, 59, 0.18);
-  }
-
-  .terraform-page .tf-scale.is-scale-tabs .tf-scale__cell {
-    display: none;
-  }
-
-  .terraform-page .tf-scale.is-scale-tabs .tf-scale__cell.is-mobile-on {
-    display: flex;
-    width: 100%;
-    margin: 0 calc(var(--m-gutter) * -1);
-    padding: var(--m-gutter);
-    background: linear-gradient(180deg, #f1f4f7, #e9edf1);
-  }
-
-  .terraform-page .tf-scale.is-scale-tabs .tf-scale__cell.is-mobile-on .tf-scale__state {
-    display: none;
-  }
-
-  .terraform-page .tf-scale.is-scale-tabs .tf-scale__shot {
-    width: 100% !important;
-    max-width: 100%;
-    border-radius: 6px;
+  .terraform-page .tf-scale.is-scale-tabs .tf-scale__stage {
+    width: calc(100% + (var(--m-gutter) * 2));
+    max-width: none;
+    margin-inline: calc(var(--m-gutter) * -1);
+    border-radius: 0;
   }
 }
 
@@ -2081,5 +2175,15 @@
   .project__screen,
   .project__phones {
     transition: none !important;
+  }
+
+  .case-final .cs-strip {
+    overflow-x: auto;
+    touch-action: pan-x pan-y;
+  }
+
+  .case-final .cs-strip [data-preview-track],
+  .case-final .cs-strip [data-showcase] {
+    animation: none !important;
   }
 }

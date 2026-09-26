@@ -12,6 +12,9 @@
     },
     "api/terraform-scaling.js": {
       "includeFiles": "api/terraform-private/scaling/**"
+    },
+    "api/terraform-audit.js": {
+      "includeFiles": "api/terraform-private/audit-flythrough.mp4"
     }
   },
   "redirects": [

@@ -26,7 +26,29 @@
     });
     track.dataset.ready = "1";
     track.classList.add("is-ready");
+    startMobileStrip(track);
   });
+
+  function startMobileStrip(track) {
+    var strip = track.closest(".cs-strip");
+    if (!strip || strip.dataset.stripPause === "1") return;
+    strip.dataset.stripPause = "1";
+    var pointers = 0;
+    function hold(on) {
+      if (!window.matchMedia("(max-width: 640px)").matches || reduced()) return;
+      track.style.animationPlayState = on ? "paused" : "running";
+    }
+    strip.addEventListener("pointerdown", function () {
+      pointers += 1;
+      hold(true);
+    });
+    function release() {
+      pointers = Math.max(0, pointers - 1);
+      if (!pointers) hold(false);
+    }
+    strip.addEventListener("pointerup", release);
+    strip.addEventListener("pointercancel", release);
+  }
 
   function scrollToId(id) {
     var target = document.getElementById(id);

@@ -348,7 +348,7 @@ html:has(.case-final) {
   max-width: 100%;
 }
 
-.case-final .cs-body img:not(.tf-audit__svg) {
+.case-final .cs-body img {
   max-width: 100%;
   height: auto;
 }
@@ -831,7 +831,7 @@ html:has(.case-final) {
 }
 
 @media (max-width: 900px) {
-  .case-final .cs-body img:not(.tf-audit__svg) {
+  .case-final .cs-body img {
     max-width: 100% !important;
     height: auto !important;
   }

@@ -99,3 +99,19 @@
     transition: none;
   }
 }
+
+/* Shared 16:9 flythrough. The video is the frame. */
+.case-study-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 32px 0 0;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  border-radius: 18px;
+  outline: 1px solid #e1f1fd;
+  box-shadow: none;
+}

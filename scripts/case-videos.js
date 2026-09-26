@@ -64,4 +64,32 @@
       ".bc-phone__video, .bf-phone__video, .ose-feature__video, .ose-feature__phone-video, .nabu-feature__video, .anda-feature__video"
     )
     .forEach(setupVideo);
+
+  document.querySelectorAll(".case-study-video").forEach(function (video) {
+    video.muted = true;
+    video.defaultMuted = true;
+    if (REDUCE) {
+      video.removeAttribute("loop");
+      video.pause();
+      return;
+    }
+    function play() {
+      var pending = video.play();
+      if (pending && typeof pending.catch === "function") pending.catch(function () {});
+    }
+    if (!("IntersectionObserver" in window)) {
+      play();
+      return;
+    }
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) play();
+          else video.pause();
+        });
+      },
+      { rootMargin: "240px 0px", threshold: 0.2 }
+    );
+    observer.observe(video);
+  });
 })();
