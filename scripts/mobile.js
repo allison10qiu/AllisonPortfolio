@@ -100,7 +100,7 @@
     setOpen(false);
     if (!target) return;
     event.preventDefault();
-    var top = target.getBoundingClientRect().top + window.scrollY - 64;
+    var top = target.getBoundingClientRect().top + window.scrollY - 76;
     window.scrollTo({ top: Math.max(0, top), behavior: reduced ? "auto" : "smooth" });
     button.focus({ preventScroll: true });
   });

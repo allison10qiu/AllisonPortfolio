@@ -379,6 +379,7 @@
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
 
       if (pointers.size === 2) {
+        scheduleFullAsset();
         dragging = false;
         dragPointerId = null;
         pinchStartDist = pointerDist();
@@ -510,6 +511,14 @@
     }
 
     function observeFullLoad() {
+      // The full audit is a 38MB SVG. On a phone, keep the preview until
+      // the reader zooms so unlocking the case study stays usable.
+      if (
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(max-width: 640px)").matches
+      ) {
+        return;
+      }
       if (!("IntersectionObserver" in window)) {
         setTimeout(scheduleFullAsset, 600);
         return;
