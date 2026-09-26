@@ -1012,7 +1012,14 @@
   }
 
   .terraform-page .cs-body > div:first-child > div[style*="display:grid"] {
-    row-gap: 44px !important;
+    row-gap: 20px !important;
+  }
+
+  .terraform-page .cs-body > div:first-child [style*="gap:26px"] > span {
+    font-size: 13px !important;
+    line-height: 1 !important;
+    color: rgba(20, 36, 59, 0.65) !important;
+    opacity: 1 !important;
   }
 
   /* Stacked editorial project details. One list, not a card grid. */
@@ -1186,13 +1193,12 @@
 
   .terraform-page .tf-scale {
     max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
   }
 
   .terraform-page .tf-scale__head,
   .terraform-page .tf-scale__row {
-    min-width: 680px;
+    min-width: 0;
   }
 
   .terraform-page .tf-audit,
@@ -1547,47 +1553,51 @@
   .terraform-page #overview.tf-bleed [style*="repeat(3"] {
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
-    margin-top: 28px !important;
+    gap: 0 !important;
+    margin-top: 20px !important;
     margin-bottom: 0 !important;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.14) !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div {
-    display: grid !important;
-    grid-template-columns: 88px minmax(0, 1fr) !important;
-    column-gap: 12px !important;
-    row-gap: 4px !important;
-    align-items: start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
     min-height: 0 !important;
     height: auto !important;
-    padding: 16px !important;
-    border: 1px solid rgba(20, 36, 59, 0.14) !important;
-    border-radius: 8px !important;
-    background: #fff !important;
+    padding: 22px 0 24px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-top: 1px solid rgba(20, 36, 59, 0.14) !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div > span:first-child {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
+    display: block !important;
     margin: 0 !important;
-    font-size: 44px !important;
-    line-height: 0.9 !important;
+    font: 400 64px/0.8 "Instrument Serif", serif !important;
+    letter-spacing: -0.02em !important;
+    text-transform: none !important;
+    color: #14243b !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div > span:nth-child(2) {
-    grid-column: 2 !important;
-    margin: 6px 0 0 !important;
-    font-size: 10.5px !important;
-    letter-spacing: 0.16em !important;
+    display: block !important;
+    margin: 14px 0 0 !important;
+    font: 500 17px/1.2 "Satoshi", sans-serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #14243b !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div > p {
-    grid-column: 1 / -1 !important;
-    grid-row: 2 !important;
-    margin: 8px 0 0 !important;
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-    color: rgba(20, 36, 59, 0.8) !important;
+    margin: 6px 0 0 !important;
+    max-width: none !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    color: rgba(20, 36, 59, 0.75) !important;
   }
 
   .case-final .cs-body [style*="minmax(0,200px)"] {
@@ -1684,6 +1694,354 @@
     background: #14243b !important;
     color: #fff !important;
     font: 500 12px/1 "Satoshi", sans-serif !important;
+  }
+
+  /* Terraform phone page, from the unlocked mobile handoff. */
+
+  .terraform-page .cs-body h1 {
+    letter-spacing: -0.015em !important;
+  }
+
+  .terraform-page .cs-body h2 {
+    margin-top: 14px !important;
+    font-size: 30px !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .terraform-page .cs-body > div[id],
+  .terraform-page .cs-body > section[id],
+  .terraform-page .terraform-locked__inner > div[id] {
+    padding-top: 52px !important;
+  }
+
+  .terraform-page .bf-meta {
+    margin-top: 24px;
+    border-top: 1px solid #14243b;
+  }
+
+  .terraform-page .bf-meta__item {
+    column-gap: 12px;
+    padding: 14px 0;
+    border-bottom-color: rgba(20, 36, 59, 0.12);
+  }
+
+  .terraform-page .bf-meta__label {
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: rgba(20, 36, 59, 0.62);
+  }
+
+  .terraform-page .bf-meta__value,
+  .terraform-page .bf-meta__list {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .terraform-page #users [style*="minmax(0,200px)"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    padding: 16px 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-top: 1px solid rgba(20, 36, 59, 0.14) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .terraform-page #users [style*="minmax(0,200px)"]:last-child {
+    border-bottom: 1px solid rgba(20, 36, 59, 0.14) !important;
+  }
+
+  .terraform-page #users [style*="minmax(0,200px)"] > span {
+    font: 400 24px/1.1 "Instrument Serif", serif !important;
+    color: #14243b !important;
+  }
+
+  .terraform-page #users [style*="minmax(0,200px)"] > p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    color: rgba(20, 36, 59, 0.85) !important;
+  }
+
+  .terraform-page #mapping.tf-bleed,
+  .terraform-page #research.tf-bleed,
+  .terraform-page #combining.tf-bleed {
+    background: #fff !important;
+    color: #14243b !important;
+  }
+
+  .terraform-page #mapping [data-sec],
+  .terraform-page #mapping span,
+  .terraform-page #mapping p,
+  .terraform-page #research span,
+  .terraform-page #research p,
+  .terraform-page #combining span,
+  .terraform-page #combining p {
+    color: #14243b !important;
+  }
+
+  .terraform-page #pattern [style*="repeat(5"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    margin-top: 20px !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.14) !important;
+  }
+
+  .terraform-page #pattern [style*="repeat(5"] > div {
+    display: grid !important;
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+    column-gap: 6px !important;
+    row-gap: 4px !important;
+    align-items: start !important;
+    padding: 14px 0 !important;
+    background: transparent !important;
+    border-top: 1px solid rgba(20, 36, 59, 0.14) !important;
+  }
+
+  .terraform-page #pattern [style*="repeat(5"] > div > span:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin: 0 !important;
+    font: 400 18px/1.25 "Instrument Serif", serif !important;
+    color: #14243b !important;
+  }
+
+  .terraform-page #pattern [style*="repeat(5"] > div > p {
+    grid-column: 2;
+    margin: 0 !important;
+    font: 500 15px/1.35 "Satoshi", sans-serif !important;
+    color: #14243b !important;
+  }
+
+  .terraform-page #pattern [style*="repeat(5"] > div > span:last-child {
+    grid-column: 2;
+    font: 400 14px/1.5 "Satoshi", sans-serif !important;
+    color: rgba(20, 36, 59, 0.7) !important;
+  }
+
+  .terraform-page #research [style*="minmax(0,1fr) minmax(0,1fr)"] > div:last-child {
+    margin-top: 20px;
+    padding: 18px 18px 20px;
+    border-radius: 8px;
+    background: #14243b;
+  }
+
+  .terraform-page #research [style*="minmax(0,1fr) minmax(0,1fr)"] > div:last-child > span {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font: 700 10.5px/1 "Satoshi", sans-serif !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .terraform-page #research [style*="border-radius:18px"] {
+    margin-top: 10px !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .terraform-page #research [style*="border-radius:18px"] p {
+    margin: 0 !important;
+    font: 400 20px/1.35 "Instrument Serif", serif !important;
+    color: #fff !important;
+  }
+
+  .terraform-page #explorations [style*="repeat(2"],
+  .terraform-page #testing [style*="gap:0"],
+  .terraform-page #combining [style*="300px"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+
+  .terraform-page #explorations .tf-shot-scroll,
+  .terraform-page #combining .tf-shot-scroll,
+  .terraform-page #refining .tf-refine__shot {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding: 20px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, #f1f4f7, #e9edf1) !important;
+    box-shadow: none !important;
+  }
+
+  .terraform-page #explorations .tf-shot-scroll img,
+  .terraform-page #combining .tf-shot-scroll img,
+  .terraform-page #refining .tf-refine__shot img {
+    display: block;
+    width: auto !important;
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(20, 36, 59, 0.08), 0 10px 18px -8px rgba(20, 36, 59, 0.18);
+  }
+
+  .terraform-page #testing [style*="gap:1px"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    margin-top: 20px !important;
+    padding: 18px 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(20, 36, 59, 0.14) !important;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.14) !important;
+    background: transparent !important;
+  }
+
+  .terraform-page #testing [style*="gap:1px"] > div {
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .terraform-page #testing [style*="gap:1px"] > div > span:first-child {
+    font: 400 40px/0.85 "Instrument Serif", serif !important;
+    margin: 0 0 8px !important;
+  }
+
+  .terraform-page #refining [style*="flex-wrap:wrap"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 32px !important;
+    padding-top: 16px !important;
+    border-top: 1.5px solid #14243b !important;
+  }
+
+  .terraform-page #refining h3 {
+    font-size: 34px !important;
+    line-height: 1.02 !important;
+  }
+
+  .terraform-page #refining [style*="letter-spacing:.2em"] {
+    font: 400 24px/1.1 "Instrument Serif", serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+
+  .terraform-page #refining [style*="letter-spacing:.2em"] > span {
+    font: italic 400 17px/1 "Instrument Serif", serif !important;
+    color: rgba(20, 36, 59, 0.55) !important;
+  }
+
+  .terraform-page #outcome [style*="repeat(4"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    margin: 24px 0 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .terraform-page #outcome [style*="repeat(4"] > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 22px 0 24px !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+  }
+
+  .terraform-page #outcome [style*="repeat(4"] > div > span:first-child {
+    margin: 0 !important;
+    font: 400 64px/0.8 "Instrument Serif", serif !important;
+    letter-spacing: -0.02em !important;
+    color: #fff !important;
+  }
+
+  .terraform-page #outcome [style*="repeat(4"] > div > span:nth-child(2) {
+    margin: 14px 0 0 !important;
+    font: 500 17px/1.2 "Satoshi", sans-serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #fff !important;
+  }
+
+  .terraform-page #outcome [style*="repeat(4"] > div > p {
+    margin: 6px 0 0 !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  .terraform-page #learned p {
+    font: 400 22px/1.35 "Instrument Serif", serif !important;
+    color: #14243b !important;
+  }
+
+  .terraform-page .tf-scale__row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 0 28px;
+  }
+
+  .terraform-page .tf-scale__name {
+    padding: 0;
+  }
+
+  .terraform-page .tf-scale__n {
+    font: italic 400 17px/1 "Instrument Serif", serif;
+  }
+
+  .terraform-page .tf-scale__title {
+    font: 400 24px/1.1 "Instrument Serif", serif;
+  }
+
+  .terraform-page .tf-scale__tabs {
+    display: flex;
+    gap: 4px;
+    align-self: flex-start;
+    padding: 3px;
+    border-radius: 999px;
+    background: #eef1f4;
+  }
+
+  .terraform-page .tf-scale__tab {
+    min-height: 40px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #14243b;
+    font: 500 14px/1 "Satoshi", sans-serif;
+    cursor: pointer;
+  }
+
+  .terraform-page .tf-scale__tab.is-on {
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(20, 36, 59, 0.18);
+  }
+
+  .terraform-page .tf-scale.is-scale-tabs .tf-scale__cell {
+    display: none;
+  }
+
+  .terraform-page .tf-scale.is-scale-tabs .tf-scale__cell.is-mobile-on {
+    display: flex;
+    width: 100%;
+    margin: 0 -20px;
+    padding: 20px;
+    background: linear-gradient(180deg, #f1f4f7, #e9edf1);
+  }
+
+  .terraform-page .tf-scale.is-scale-tabs .tf-scale__cell.is-mobile-on .tf-scale__state {
+    display: none;
+  }
+
+  .terraform-page .tf-scale.is-scale-tabs .tf-scale__shot {
+    width: 100% !important;
+    max-width: 100%;
+    border-radius: 6px;
   }
 }
 

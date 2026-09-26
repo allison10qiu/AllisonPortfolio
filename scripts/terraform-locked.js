@@ -747,10 +747,48 @@
     return cleanup;
   }
 
+  function initMobileScale(root) {
+    if (!window.matchMedia || !window.matchMedia("(max-width: 640px)").matches) return;
+    var table = root.querySelector(".tf-scale");
+    if (!table || table.classList.contains("is-scale-tabs")) return;
+    var rows = table.querySelectorAll(".tf-scale__row");
+    if (!rows.length) return;
+    table.classList.add("is-scale-tabs");
+    rows.forEach(function (row) {
+      var cells = Array.prototype.filter.call(row.querySelectorAll(".tf-scale__cell"), function (cell) {
+        return !cell.classList.contains("tf-scale__cell--empty");
+      });
+      if (!cells.length) return;
+      var tabs = document.createElement("div");
+      tabs.className = "tf-scale__tabs";
+      cells.forEach(function (cell, index) {
+        var state = cell.querySelector(".tf-scale__state");
+        var button = document.createElement("button");
+        button.type = "button";
+        button.className = "tf-scale__tab" + (index === 0 ? " is-on" : "");
+        button.textContent = state ? state.textContent.trim() : "State";
+        button.addEventListener("click", function () {
+          cells.forEach(function (item, itemIndex) {
+            item.classList.toggle("is-mobile-on", itemIndex === index);
+          });
+          Array.prototype.forEach.call(tabs.children, function (tab, tabIndex) {
+            tab.classList.toggle("is-on", tabIndex === index);
+          });
+        });
+        tabs.appendChild(button);
+        cell.classList.toggle("is-mobile-on", index === 0);
+      });
+      var name = row.querySelector(".tf-scale__name");
+      if (name) name.insertAdjacentElement("afterend", tabs);
+      else row.appendChild(tabs);
+    });
+  }
+
   window.initTerraformLocked = function (root) {
     if (!root) return;
     if (workflowCleanup) workflowCleanup();
     initAuditViewer(root);
     workflowCleanup = initWorkflow(root);
+    initMobileScale(root);
   };
 })();
