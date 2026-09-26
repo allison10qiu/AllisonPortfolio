@@ -713,7 +713,8 @@
     background: #f7f8fa;
   }
 
-  .case-final {
+  .case-final,
+  .case-final:not(.terraform-page) {
     --cs-x: 20px;
   }
 
@@ -974,28 +975,92 @@
     text-decoration-color: rgba(20, 36, 59, 0.35);
   }
 
+  /* Stacked editorial project details. One list, not a card grid. */
   .bc-page .bf-meta {
-    width: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     max-width: none;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 18px;
-    row-gap: 16px;
-    margin: 0 20px;
-    padding-top: 22px;
-    padding-bottom: 22px;
-    border-top: 0;
-    border-bottom: 1px solid #14243b;
+    margin: 28px 0 0;
+    padding: 0;
+    border: 0;
+    border-top: 1.5px solid #14243b;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .brilliant-final.bc-page .bf-meta {
+    box-sizing: border-box;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .case-final .bf-meta {
+    width: 100%;
+    margin-top: 28px;
+    margin-bottom: 36px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .bc-page .bf-meta__item {
+    display: grid;
+    grid-template-columns: 124px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
+    min-width: 0;
+    margin: 0;
+    padding: 17px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.14);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
   .bc-page .bf-meta__label {
-    font-size: 10.5px;
+    margin: 2px 0 0;
+    padding: 0;
+    min-width: 0;
+    font-family: "Satoshi", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.35;
     letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(20, 36, 59, 0.65);
   }
 
   .bc-page .bf-meta__value,
   .bc-page .bf-meta__list {
-    font-size: 14px;
-    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    font-family: "Satoshi", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #14243b;
+    list-style: none;
+  }
+
+  .bc-page .bf-meta__list li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bc-page .bf-meta__list li::before {
+    content: none;
+  }
+
+  .bc-page .bf-meta__list li:not(:last-child)::after {
+    content: ", ";
   }
 
   .bc-page .bf-cta {
@@ -1376,15 +1441,17 @@
   /* Claude mobile block grammar. Inline desktop colors lose here. */
 
   .terraform-page .bf-meta {
+    margin-top: 0;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 8px;
     width: 100%;
   }
 
   .terraform-page #overview.tf-bleed {
     background: #fff !important;
     color: #14243b !important;
-    margin-top: 28px !important;
+    margin-top: 8px !important;
     margin-left: -20px !important;
     margin-right: -20px !important;
     padding: 52px 20px 8px !important;
