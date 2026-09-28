@@ -57,7 +57,6 @@
     section.dataset.ready = "1";
     var PW = 1000;
     var PH = 760;
-    var READABLE = 640;
     var reduce =
       typeof window.matchMedia === "function" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -83,21 +82,13 @@
     function fit() {
       var width = frame.clientWidth;
       if (!width) return;
-      if (width < READABLE) {
-        frame.style.height = PH + "px";
-        frame.style.overflowX = "auto";
-        frame.style.overflowY = "hidden";
-        iframe.style.width = PW + "px";
-        iframe.style.height = PH + "px";
-        iframe.style.transform = "none";
-        return;
-      }
       var scale = width < PW ? width / PW : 1;
       frame.style.height = Math.round(PH * scale) + "px";
       frame.style.overflow = "hidden";
       iframe.style.width = scale < 1 ? PW + "px" : "100%";
       iframe.style.height = PH + "px";
       iframe.style.transform = scale < 1 ? "scale(" + scale + ")" : "none";
+      iframe.style.transformOrigin = "0 0";
     }
 
     function onMessage(event) {
@@ -131,18 +122,18 @@
     return cleanup;
   }
 
-  function fitScaleStage(stage) {
-    var pad = 32;
-    var inner = Math.max(160, stage.clientWidth - pad);
-    var max = 0;
-    stage.querySelectorAll(".tf-scale__shot").forEach(function (img) {
-      var nw = img.naturalWidth || parseFloat(img.getAttribute("width")) || 0;
-      var nh = img.naturalHeight || parseFloat(img.getAttribute("height")) || 0;
-      if (!nw || !nh) return;
-      var displayW = Math.min(inner, nw);
-      max = Math.max(max, Math.round(displayW * (nh / nw)));
-    });
-    if (max > 0) stage.style.minHeight = max + pad + "px";
+  function fitScaleStage(stage, cell) {
+    var active = cell || stage.querySelector(".tf-scale__cell.is-on");
+    var img = active ? active.querySelector(".tf-scale__shot") : null;
+    if (!img) return;
+    var nw = img.naturalWidth || parseFloat(img.getAttribute("width")) || 0;
+    var nh = img.naturalHeight || parseFloat(img.getAttribute("height")) || 0;
+    if (!nw || !nh) return;
+    var width = img.getBoundingClientRect().width;
+    if (width < 2) width = Math.max(0, stage.clientWidth - 32);
+    if (width < 2) return;
+    var next = Math.round(width * nh / nw + 32) + "px";
+    if (stage.style.height !== next) stage.style.height = next;
   }
 
   function initMobileScale(root) {
@@ -170,19 +161,58 @@
       tabs.setAttribute("role", "tablist");
       var title = row.querySelector(".tf-scale__title");
       tabs.setAttribute("aria-label", title ? title.textContent.trim() : "Component states");
+      var thumb = document.createElement("span");
+      thumb.className = "tf-scale__thumb";
+      thumb.setAttribute("aria-hidden", "true");
+      tabs.appendChild(thumb);
+
+      function placeThumb() {
+        var on = tabs.querySelector(".tf-scale__tab.is-on");
+        if (!on) return;
+        thumb.style.width = on.offsetWidth + "px";
+        thumb.style.transform = "translateX(" + on.offsetLeft + "px)";
+      }
 
       function select(index) {
+        var current = -1;
+        cells.forEach(function (item, itemIndex) {
+          if (item.classList.contains("is-on")) current = itemIndex;
+        });
+        var forward = current < 0 || index > current;
+        var changing = current >= 0 && current !== index;
+        stage.classList.toggle("is-back", changing && !forward);
         cells.forEach(function (item, itemIndex) {
           var on = itemIndex === index;
+          if (on) {
+            item.classList.remove("is-leave");
+            if (changing) {
+              item.style.transition = "none";
+              item.style.opacity = "0";
+              item.style.transform = "translateX(" + (forward ? "36px" : "-36px") + ")";
+            }
+          } else if (itemIndex === current) {
+            item.classList.add("is-leave");
+          } else {
+            item.classList.remove("is-leave");
+          }
           item.classList.toggle("is-on", on);
           item.setAttribute("aria-hidden", on ? "false" : "true");
         });
-        Array.prototype.forEach.call(tabs.children, function (tab, tabIndex) {
+        if (changing) {
+          var incoming = cells[index];
+          void incoming.offsetWidth;
+          incoming.style.transition = "";
+          incoming.style.opacity = "";
+          incoming.style.transform = "";
+        }
+        Array.prototype.forEach.call(tabs.querySelectorAll(".tf-scale__tab"), function (tab, tabIndex) {
           var on = tabIndex === index;
           tab.classList.toggle("is-on", on);
           tab.setAttribute("aria-selected", on ? "true" : "false");
           tab.tabIndex = on ? 0 : -1;
         });
+        fitScaleStage(stage, cells[index]);
+        placeThumb();
       }
 
       cells.forEach(function (cell, index) {
@@ -204,7 +234,8 @@
           else return;
           event.preventDefault();
           select(next);
-          tabs.children[next].focus();
+          var nextTab = tabs.querySelectorAll(".tf-scale__tab")[next];
+          if (nextTab) nextTab.focus();
         });
         tabs.appendChild(button);
       });
@@ -213,19 +244,34 @@
       if (name) name.insertAdjacentElement("afterend", tabs);
       else row.insertBefore(tabs, stage);
       fitScaleStage(stage);
+      placeThumb();
+      requestAnimationFrame(function () {
+        placeThumb();
+        stage.classList.add("is-measured");
+        tabs.classList.add("is-ready");
+      });
       stage.querySelectorAll(".tf-scale__shot").forEach(function (img) {
         if (!img.complete) img.addEventListener("load", function () { fitScaleStage(stage); }, { once: true });
       });
     });
-    if (typeof ResizeObserver === "function") {
-      var observer = new ResizeObserver(function () {
-        table.querySelectorAll(".tf-scale__stage").forEach(fitScaleStage);
+    function refitScale() {
+      table.querySelectorAll(".tf-scale__stage").forEach(fitScaleStage);
+      table.querySelectorAll(".tf-scale__tabs").forEach(function (tabsEl) {
+        var on = tabsEl.querySelector(".tf-scale__tab.is-on");
+        var thumbEl = tabsEl.querySelector(".tf-scale__thumb");
+        if (!on || !thumbEl) return;
+        var nextWidth = on.offsetWidth + "px";
+        var nextX = "translateX(" + on.offsetLeft + "px)";
+        if (thumbEl.style.width === nextWidth && thumbEl.style.transform === nextX) return;
+        thumbEl.style.width = nextWidth;
+        thumbEl.style.transform = nextX;
       });
+    }
+    if (typeof ResizeObserver === "function") {
+      var observer = new ResizeObserver(refitScale);
       observer.observe(table);
     } else {
-      window.addEventListener("resize", function () {
-        table.querySelectorAll(".tf-scale__stage").forEach(fitScaleStage);
-      });
+      window.addEventListener("resize", refitScale);
     }
   }
 

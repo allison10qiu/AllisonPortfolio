@@ -785,7 +785,7 @@
 
 .carousel {
   position: relative;
-  aspect-ratio: 100 / 60;
+  aspect-ratio: 2 / 1;
   outline: none;
   touch-action: pan-y;
 }
@@ -817,7 +817,7 @@
   align-items: center;
   justify-content: center;
   gap: 18px;
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 .carousel__nav button {
@@ -950,11 +950,9 @@
   width: 1040px;
   height: 660px;
   transform-origin: 0 0;
-  background-color: #f4f0e8;
-  background-image: radial-gradient(rgba(20, 36, 59, 0.055) 0.8px, transparent 1px);
-  background-size: 7px 7px;
-  border: 1px solid #e5ded1;
-  border-radius: 16px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   overflow: hidden;
   touch-action: none;
 }
