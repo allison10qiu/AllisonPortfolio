@@ -41,8 +41,7 @@ class AllisonGPT {
       </div>
 
       <button class="alison-gpt-peek" id="ag-peek" aria-label="Open Alli chat" hidden>
-        <img class="alison-gpt-peek-static-img" src="/assets/alli/alli-peek.webp" alt="Alli peeking around the edge">
-        <div class="alison-gpt-peek-wave-img" aria-hidden="true"></div>
+        <img src="/assets/alli/alli-peek.webp" alt="Alli peeking around the edge">
         <span>Ask Alli <span class="alison-gpt-arrow">&#8599;</span></span>
       </button>
 
