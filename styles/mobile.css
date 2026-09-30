@@ -687,6 +687,47 @@
     transform-origin: left center;
   }
 
+  .m-casebar.is-tf-public .m-casebar__row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    height: auto;
+    min-height: 56px;
+    padding: 12px 20px;
+    gap: 12px;
+  }
+
+  .m-casebar.is-tf-public .m-casebar__back {
+    min-width: 0;
+    gap: 8px;
+    font: 500 11px/1 "Satoshi", sans-serif;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(20, 36, 59, 0.65);
+  }
+
+  .m-casebar.is-tf-public .m-casebar__progress {
+    text-align: center;
+    font: 500 11px/1 "Satoshi", sans-serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(20, 36, 59, 0.55);
+  }
+
+  .m-casebar.is-tf-public .m-casebar__unlock {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: #14243b;
+    color: #fff;
+    font: 500 13px/1 "Satoshi", sans-serif;
+    text-decoration: none;
+  }
+
+  .m-casebar.is-tf-public .m-casebar__track {
+    display: none;
+  }
+
   .m-casebar__menu {
     position: absolute;
     left: 0;
@@ -793,7 +834,7 @@
   }
 
   .case-final .cs-body > div:first-child > div[style*="display:grid"] > img,
-  .terraform-page .cs-body > div:first-child img {
+  .terraform-page .cs-body > div:first-child img:not(.tf-public-hero__shot) {
     display: block;
     grid-column: 1 / -1;
     width: calc(100% + (var(--m-gutter) * 2)) !important;
@@ -993,28 +1034,65 @@
     text-decoration-color: rgba(20, 36, 59, 0.35);
   }
 
-  .terraform-page .cs-body > div:first-child [style*="gap:26px"] {
+  .terraform-page .tf-public-hero {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .terraform-page .tf-public-hero__copy {
+    order: 1;
+  }
+
+  .terraform-page .tf-public-hero__shot {
+    order: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 0 22px !important;
+    aspect-ratio: auto;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    filter: none;
+  }
+
+  .terraform-page .tf-public-hero__actions {
+    order: 3;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
     justify-content: flex-start !important;
     width: 100%;
     margin: 0;
-    gap: 8px !important;
+    gap: 12px !important;
   }
 
   .terraform-page.case-final .cs-body a[href="#terraform-gate"] {
-    align-self: flex-start !important;
+    align-self: stretch !important;
     justify-content: center;
-    width: auto !important;
+    width: 100% !important;
     max-width: 100%;
     margin: 0 !important;
-    min-height: 44px;
+    min-height: 54px;
     padding: 0 18px !important;
     border-radius: 999px !important;
     background: #14243b !important;
     color: #fff !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
     text-decoration: none !important;
+    box-sizing: border-box;
+  }
+
+  .terraform-page .tf-public-hero__actions span {
+    display: block;
+    text-align: center;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    color: rgba(20, 36, 59, 0.7) !important;
+    opacity: 1 !important;
   }
 
   .terraform-page .cs-body > div:first-child .case-project-kicker {
@@ -1022,26 +1100,52 @@
   }
 
   .terraform-page .cs-body > div:first-child h1 {
-    margin: 0 0 26px !important;
+    margin: 0 0 18px !important;
+    font-size: 44px !important;
+    line-height: 1.04 !important;
   }
 
-  .terraform-page .cs-body > div:first-child > div[style*="display:grid"] > div > p {
+  .terraform-page .tf-public-hero__copy p {
     margin: 0 0 24px !important;
+    font-size: 17px !important;
+    line-height: 1.58 !important;
   }
 
   .terraform-page .cs-body > div[data-part="public"]:not([id]) + div[data-part="public"]:not([id]) {
     padding-top: 36px !important;
   }
 
-  .terraform-page .cs-body > div:first-child > div[style*="display:grid"] {
-    row-gap: 20px !important;
+  .terraform-page .bf-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 22px;
+    margin: 36px 0 0;
+    padding: 22px 0;
+    border-top: 1.5px solid #14243b;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.2);
   }
 
-  .terraform-page .cs-body > div:first-child [style*="gap:26px"] > span {
-    font-size: 13px !important;
-    line-height: 1 !important;
-    color: rgba(20, 36, 59, 0.65) !important;
-    opacity: 1 !important;
+  .terraform-page .bf-meta__item {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+
+  .terraform-page .bf-meta__item:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .terraform-page .bf-meta__label {
+    display: block;
+    margin: 0 0 8px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: #14243b;
+  }
+
+  .terraform-page .bf-meta__list li:not(:last-child)::after {
+    content: " · ";
   }
 
   /* Stacked editorial project details. One list, not a card grid. */
@@ -1630,25 +1734,37 @@
   }
 
   .terraform-page #overview.tf-bleed {
-    background: #fff !important;
-    color: #14243b !important;
-    margin-top: 0 !important;
+    background: #14243b !important;
+    color: #fff !important;
+    margin-top: 44px !important;
     margin-left: calc(var(--m-gutter) * -1) !important;
     margin-right: calc(var(--m-gutter) * -1) !important;
-    padding: var(--m-case) var(--m-gutter) 0 !important;
+    padding: 48px var(--m-gutter) 40px !important;
   }
 
   .terraform-page #overview.tf-bleed h2,
   .terraform-page #overview.tf-bleed p,
   .terraform-page #overview.tf-bleed span {
-    color: #14243b !important;
+    color: #fff !important;
+  }
+
+  .terraform-page #overview.tf-bleed h2 {
+    margin: 0 0 18px !important;
+    font-size: 32px !important;
+    line-height: 1.18 !important;
+  }
+
+  .terraform-page #overview.tf-bleed [data-sec],
+  .terraform-page #users [data-sec] {
+    font-size: 26px !important;
+    line-height: 1 !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] {
     display: flex !important;
     flex-direction: column !important;
-    gap: 14px !important;
-    margin-top: 28px !important;
+    gap: 0 !important;
+    margin-top: 34px !important;
     margin-bottom: 0 !important;
     border-bottom: 0 !important;
   }
@@ -1656,27 +1772,28 @@
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div {
     display: grid !important;
     grid-template-columns: 72px minmax(0, 1fr) !important;
-    column-gap: 12px !important;
-    row-gap: 8px !important;
+    column-gap: 16px !important;
+    row-gap: 10px !important;
     align-items: start !important;
     min-height: 0 !important;
     height: auto !important;
-    padding: 16px !important;
-    border: 1px solid rgba(20, 36, 59, 0.14) !important;
-    border-radius: 8px !important;
-    background: #fff !important;
+    padding: 22px 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.34) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
     box-shadow: none !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div > span:first-child {
     grid-column: 1 !important;
-    grid-row: 1 !important;
+    grid-row: 1 / span 2 !important;
     display: block !important;
     margin: 0 !important;
-    font: 400 48px/0.9 "Instrument Serif", serif !important;
-    letter-spacing: -0.02em !important;
+    font: 400 42px/1 "Instrument Serif", serif !important;
+    letter-spacing: 0 !important;
     text-transform: none !important;
-    color: #14243b !important;
+    color: #fff !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div > span:nth-child(2) {
@@ -1684,21 +1801,21 @@
     grid-row: 1 !important;
     align-self: start !important;
     display: block !important;
-    margin: 8px 0 0 !important;
-    font: 500 11px/1.3 "Satoshi", sans-serif !important;
-    letter-spacing: 0.14em !important;
+    margin: 0 0 10px !important;
+    font: 500 11px/1 "Satoshi", sans-serif !important;
+    letter-spacing: 0.18em !important;
     text-transform: uppercase !important;
-    color: rgba(20, 36, 59, 0.62) !important;
+    color: #fff !important;
   }
 
   .terraform-page #overview.tf-bleed [style*="repeat(3"] > div > p {
-    grid-column: 1 / -1 !important;
+    grid-column: 2 !important;
     grid-row: 2 !important;
     margin: 0 !important;
     max-width: none !important;
-    font-size: 16px !important;
-    line-height: 1.55 !important;
-    color: rgba(20, 36, 59, 0.78) !important;
+    font-size: 15px !important;
+    line-height: 1.56 !important;
+    color: #fff !important;
   }
 
   .case-final .cs-body [style*="minmax(0,200px)"] {
@@ -1867,15 +1984,16 @@
   }
 
   .terraform-page .bf-meta {
-    margin-top: 0;
+    margin-top: 36px;
     margin-bottom: 0;
-    border-top: 1px solid #14243b;
+    border-top: 1.5px solid #14243b;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.2);
   }
 
   .terraform-page .bf-meta__item {
-    column-gap: 12px;
-    padding: 14px 0;
-    border-bottom-color: rgba(20, 36, 59, 0.12);
+    column-gap: 0;
+    padding: 0;
+    border-bottom: 0;
   }
 
   .terraform-page .bf-meta__label {
@@ -1890,33 +2008,43 @@
     line-height: 1.45;
   }
 
+  .terraform-page #users {
+    padding-top: 48px !important;
+  }
+
+  .terraform-page #users h2 {
+    margin: 0 0 22px !important;
+    font-size: 30px !important;
+    line-height: 1.2 !important;
+  }
+
   .terraform-page #users [style*="minmax(0,200px)"] {
     display: flex !important;
     flex-direction: column !important;
-    gap: 6px !important;
+    gap: 8px !important;
     margin: 0 !important;
-    padding: 16px 0 !important;
+    padding: 20px 0 !important;
     border: 0 !important;
     border-radius: 0 !important;
-    border-top: 1px solid rgba(20, 36, 59, 0.14) !important;
+    border-top: 1px solid rgba(20, 36, 59, 0.22) !important;
     background: transparent !important;
     box-shadow: none !important;
   }
 
   .terraform-page #users [style*="minmax(0,200px)"]:last-child {
-    border-bottom: 1px solid rgba(20, 36, 59, 0.14) !important;
+    border-bottom: 0 !important;
   }
 
   .terraform-page #users [style*="minmax(0,200px)"] > span {
-    font: 400 24px/1.1 "Instrument Serif", serif !important;
+    font: 400 23px/1.22 "Instrument Serif", serif !important;
     color: #14243b !important;
   }
 
   .terraform-page #users [style*="minmax(0,200px)"] > p {
     margin: 0 !important;
-    font-size: 15px !important;
-    line-height: 1.55 !important;
-    color: rgba(20, 36, 59, 0.85) !important;
+    font-size: 16px !important;
+    line-height: 1.56 !important;
+    color: #14243b !important;
   }
 
   .terraform-page #mapping.tf-bleed,

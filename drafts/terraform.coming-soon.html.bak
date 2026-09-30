@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="description" content="Terraform case study — coming soon · Allison Qiu">
+  <meta name="robots" content="noindex">
+  <title>Coming Soon · Terraform · Allison Qiu</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/brilliant.css">
+  <link rel="stylesheet" href="../styles/terraform.css">
+</head>
+<body class="bc-page terraform-page terraform-page--soon">
+  <div class="bc-canvas-wrapper">
+    <div class="bc-canvas">
+      <header class="bc-header">
+        <div class="bc-header__inner">
+          <nav class="bc-header__nav" aria-label="Primary">
+            <a class="bc-stamp bc-stamp--work" href="/" data-scroll-to="my-work" aria-label="Work">
+              <img src="../assets/terraform/nav-work.png" alt="" width="164" height="363">
+            </a>
+            <a class="bc-stamp bc-stamp--about" href="/about" aria-label="About me">
+              <img src="../assets/terraform/nav-about.png" alt="" width="349" height="138">
+            </a>
+            <a class="bc-stamp bc-stamp--resume" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+              <img src="../assets/terraform/nav-resume.png" alt="" width="384" height="166">
+            </a>
+          </nav>
+          <a class="bc-header__name" href="/">allison qiu</a>
+        </div>
+      </header>
+
+      <main class="bc-main terraform-soon">
+        <section class="terraform-soon__panel" aria-labelledby="terraform-soon-title">
+          <p class="terraform-soon__eyebrow">Terraform</p>
+          <h1 id="terraform-soon-title" class="terraform-soon__title">Coming Soon</h1>
+          <p class="terraform-soon__body">This case study isn’t public yet. Check back soon!</p>
+          <a class="bc-btn" href="/" data-scroll-to="my-work">Back to my work</a>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../scripts/case-scale.js"></script>
+  <script src="../scripts/cross-scroll.js"></script>
+  <script src="../scripts/custom-cursor.js"></script>
+  <script src="../scripts/mailto.js"></script>
+</body>
+</html>

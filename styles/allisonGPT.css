@@ -1,0 +1,390 @@
+/**
+ * AllisonGPT Widget Styles
+ * Styling for the AI assistant widget with avatar and chat interface
+ */
+
+/* CSS Variables */
+:root {
+  --alison-gpt-primary: #1a3a52;
+  --alison-gpt-secondary: #7eb3d4;
+  --alison-gpt-light: #e8f1f6;
+  --alison-gpt-text: #1a1a1a;
+  --alison-gpt-text-light: #ffffff;
+  --alison-gpt-border: #d0dce6;
+  --alison-gpt-shadow: rgba(26, 58, 82, 0.15);
+  --alison-gpt-transition: 300ms ease;
+}
+
+/* Container */
+#alison-gpt-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  z-index: 9999;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Launcher Button */
+.alison-gpt-launcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--alison-gpt-primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px var(--alison-gpt-shadow);
+  transition: all var(--alison-gpt-transition);
+  pointer-events: auto;
+  z-index: 10000;
+  padding: 0;
+  overflow: visible;
+}
+
+.alison-gpt-launcher:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px var(--alison-gpt-shadow);
+}
+
+.alison-gpt-launcher:active {
+  transform: scale(0.98);
+}
+
+.alison-gpt-launcher--minimized {
+  bottom: 20px;
+  right: 20px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Avatar */
+.alison-gpt-avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scaleX(-1);
+}
+
+.alison-gpt-avatar-svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Chat Panel */
+.alison-gpt-panel {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 400px;
+  height: 500px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 40px var(--alison-gpt-shadow);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all var(--alison-gpt-transition);
+  pointer-events: none;
+  z-index: 10001;
+  border: 1px solid var(--alison-gpt-border);
+}
+
+.alison-gpt-panel--open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Header */
+.alison-gpt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--alison-gpt-border);
+  background: var(--alison-gpt-primary);
+  border-radius: 16px 16px 0 0;
+  color: white;
+}
+
+.alison-gpt-header-content {
+  flex: 1;
+}
+
+.alison-gpt-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.alison-gpt-subtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  opacity: 0.9;
+  color: white;
+}
+
+.alison-gpt-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background var(--alison-gpt-transition);
+}
+
+.alison-gpt-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Messages Container */
+.alison-gpt-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Welcome State */
+.alison-gpt-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.alison-gpt-avatar-large {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.alison-gpt-avatar-large svg {
+  width: 100%;
+  height: 100%;
+}
+
+.alison-gpt-welcome-text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--alison-gpt-text);
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+/* Messages */
+.alison-gpt-message {
+  display: flex;
+  gap: 8px;
+  animation: slideUp 300ms ease;
+}
+
+.alison-gpt-message--user {
+  justify-content: flex-end;
+}
+
+.alison-gpt-message--assistant {
+  justify-content: flex-start;
+}
+
+.alison-gpt-message-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--alison-gpt-secondary);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.alison-gpt-message-content {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.alison-gpt-message--user .alison-gpt-message-content {
+  background: var(--alison-gpt-primary);
+  color: white;
+}
+
+.alison-gpt-message--assistant .alison-gpt-message-content {
+  background: var(--alison-gpt-light);
+  color: var(--alison-gpt-text);
+}
+
+/* Input Area */
+.alison-gpt-input-area {
+  padding: 12px 16px;
+  border-top: 1px solid var(--alison-gpt-border);
+  background: white;
+  border-radius: 0 0 16px 16px;
+}
+
+.alison-gpt-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.alison-gpt-input {
+  flex: 1;
+  border: 1px solid var(--alison-gpt-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color var(--alison-gpt-transition);
+}
+
+.alison-gpt-input:focus {
+  outline: none;
+  border-color: var(--alison-gpt-secondary);
+  box-shadow: 0 0 0 3px rgba(126, 179, 212, 0.1);
+}
+
+.alison-gpt-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.alison-gpt-send {
+  background: var(--alison-gpt-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--alison-gpt-transition);
+  white-space: nowrap;
+}
+
+.alison-gpt-send:hover:not(:disabled) {
+  background: #0f2635;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--alison-gpt-shadow);
+}
+
+.alison-gpt-send:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.alison-gpt-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Avatar States */
+.alison-gpt-avatar--thinking .alison-gpt-avatar-svg {
+  animation: thinking 1.5s ease-in-out infinite;
+}
+
+@keyframes thinking {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.95); }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .alison-gpt-panel {
+    width: calc(100vw - 32px);
+    height: calc(100vh - 120px);
+    bottom: 80px;
+    right: 16px;
+  }
+
+  .alison-gpt-launcher {
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .alison-gpt-launcher--minimized {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .alison-gpt-message-content {
+    max-width: 90%;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .alison-gpt-launcher,
+  .alison-gpt-panel,
+  .alison-gpt-message,
+  .alison-gpt-avatar--thinking {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --alison-gpt-primary: #2d5a7f;
+    --alison-gpt-light: #1e3a50;
+    --alison-gpt-text: #e8e8e8;
+    --alison-gpt-border: #3a4d5f;
+  }
+
+  .alison-gpt-panel {
+    background: #1a1a1a;
+  }
+
+  .alison-gpt-input {
+    background: #2a2a2a;
+    color: white;
+  }
+
+  .alison-gpt-message--assistant .alison-gpt-message-content {
+    background: #2a2a2a;
+    color: #e8e8e8;
+  }
+}

@@ -62,12 +62,33 @@
     menu.appendChild(item);
   });
 
-  row.appendChild(back);
-  row.appendChild(id);
-  row.appendChild(button);
-  bar.appendChild(row);
-  bar.appendChild(track);
-  bar.appendChild(menu);
+  var terraform = document.body.classList.contains("terraform-page");
+  var progressLabel = null;
+  if (terraform) {
+    bar.classList.add("is-tf-public");
+    back.textContent = "‹ Projects";
+    back.setAttribute("aria-label", "Back to projects");
+    id.className = "m-casebar__progress";
+    id.textContent = "";
+    progressLabel = document.createElement("span");
+    progressLabel.textContent = "01 / 14";
+    id.appendChild(progressLabel);
+    var unlock = document.createElement("a");
+    unlock.className = "m-casebar__unlock";
+    unlock.href = "#terraform-gate";
+    unlock.textContent = "Unlock";
+    row.appendChild(back);
+    row.appendChild(id);
+    row.appendChild(unlock);
+    bar.appendChild(row);
+  } else {
+    row.appendChild(back);
+    row.appendChild(id);
+    row.appendChild(button);
+    bar.appendChild(row);
+    bar.appendChild(track);
+    bar.appendChild(menu);
+  }
   layout.insertBefore(bar, layout.firstChild);
 
   function setOpen(open) {
@@ -124,6 +145,16 @@
     var max = doc.scrollHeight - doc.clientHeight;
     var ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
     fill.style.transform = "scaleX(" + ratio + ")";
+    if (!progressLabel) return;
+    var marks = document.querySelectorAll("[data-sec]");
+    var current = 1;
+    marks.forEach(function (mark) {
+      if (mark.getBoundingClientRect().top < window.innerHeight * 0.4) {
+        var value = parseInt(mark.getAttribute("data-sec"), 10);
+        if (value) current = value;
+      }
+    });
+    progressLabel.textContent = String(current).padStart(2, "0") + " / " + String(links.length || 14).padStart(2, "0");
   }
 
   progress();
