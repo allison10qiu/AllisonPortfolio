@@ -17,10 +17,15 @@ class AllisonGPT {
     this.createWidget();
     this.attachListeners();
 
+    // The welcome greeting only ever plays on the homepage, and only once per
+    // browser session there (sessionStorage remembers it was dismissed).
+    // Every other page just shows Alli peeking on the edge, ready to open on click.
+    const isHomePage = document.body.classList.contains('home-page');
+
     let welcomed = false;
     try { welcomed = sessionStorage.getItem('allisongpt-welcomed') === 'yes'; } catch (e) {}
 
-    this.show(welcomed ? 'peek' : 'welcome', false);
+    this.show(isHomePage && !welcomed ? 'welcome' : 'peek', false);
   }
 
   createWidget() {
