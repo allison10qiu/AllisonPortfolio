@@ -41,7 +41,8 @@ class AllisonGPT {
       </div>
 
       <button class="alison-gpt-peek" id="ag-peek" aria-label="Open Alli chat" hidden>
-        <img src="/assets/alli/alli-peek.webp" alt="Alli peeking around the edge">
+        <img class="alison-gpt-peek-static-img" src="/assets/alli/alli-peek.webp" alt="Alli peeking around the edge">
+        <div class="alison-gpt-peek-wave-img" aria-hidden="true"></div>
         <span>Ask Alli &#8599;</span>
       </button>
 
@@ -58,6 +59,11 @@ class AllisonGPT {
           <button class="alison-gpt-close" id="ag-closechat" aria-label="Minimize chat">&times;</button>
         </div>
         <div class="alison-gpt-messages" id="ag-messages" role="log" aria-live="polite"></div>
+        <div class="alison-gpt-suggestions" id="ag-suggestions">
+          <button type="button">What did you do at IBM?</button>
+          <button type="button">How do you approach design?</button>
+          <button type="button">Tell me about yourself</button>
+        </div>
         <div class="alison-gpt-input-area">
           <form class="alison-gpt-form" id="ag-form">
             <input class="alison-gpt-input" id="ag-question" aria-label="Your question" placeholder="Ask about Allison…" maxlength="500" autocomplete="off">
@@ -86,6 +92,10 @@ class AllisonGPT {
     this.$('ag-closechat').addEventListener('click', () => this.show('peek'));
     this.$('ag-form').addEventListener('submit', (e) => this.handleSubmit(e));
 
+    this.$('ag-suggestions').querySelectorAll('button').forEach((btn) => {
+      btn.addEventListener('click', () => this.sendSuggestion(btn.textContent));
+    });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.state !== 'peek' && this.state !== 'welcome') {
         this.show('peek');
@@ -108,6 +118,21 @@ class AllisonGPT {
     if (focus) {
       if (next === 'peek') this.$('ag-peek').focus();
       if (next === 'chat') setTimeout(() => this.$('ag-question').focus(), 300);
+    }
+  }
+
+  async sendSuggestion(text) {
+    if (this.isLoading) return;
+    this.addMessage('user', text);
+    this.setLoading(true);
+    try {
+      const response = await this.sendMessage(text);
+      this.addMessage('assistant', response);
+    } catch (error) {
+      this.addMessage('assistant', 'Sorry, I had trouble responding. Please try again, or email Allison directly at allisonqiu10@gmail.com.');
+      console.error('Alli error:', error);
+    } finally {
+      this.setLoading(false);
     }
   }
 
@@ -175,6 +200,7 @@ class AllisonGPT {
 
     button.disabled = loading;
     input.disabled = loading;
+    this.$('ag-suggestions').querySelectorAll('button').forEach((b) => { b.disabled = loading; });
 
     if (loading) {
       avatar.classList.add('thinking');
