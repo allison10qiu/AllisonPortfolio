@@ -20,10 +20,9 @@
 .alison-gpt-arrow{font-size:0.7em;display:inline-block;vertical-align:middle}
 
 /* Peek launcher (avatar peeking from the right edge of the screen) */
-.alison-gpt-peek{position:fixed;right:-20px;bottom:65px;width:110px;height:168px;border:0;background:none;padding:0;transition:transform .25s;animation:agEnter .45s ease-out}
-.alison-gpt-peek:hover,.alison-gpt-peek:focus-visible{transform:translateX(-10px)}
-.alison-gpt-peek img{width:145px;height:168px;object-fit:contain;position:absolute;right:-6px;top:0}
-.alison-gpt-peek span{position:absolute;right:28px;top:-32px;font-size:12px;background:#edf4f9;white-space:nowrap;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
+.alison-gpt-peek{position:fixed;right:-20px;bottom:65px;width:110px;height:168px;border:0;background:none;padding:0;animation:agEnter .45s ease-out}
+.alison-gpt-peek-wave{width:126px;height:168px;object-fit:contain;position:absolute;right:-6px;top:0}
+.alison-gpt-peek-label{position:absolute;right:28px;top:-32px;font-size:12px;background:#edf4f9;white-space:nowrap;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
 
 /* Avatar shown beside the open chat panel (peeking around its left edge) */
 .alison-gpt-chat-avatar{position:fixed;right:370px;bottom:92px;width:125px;height:205px;overflow:visible;z-index:9999;pointer-events:none;animation:agEnter .4s ease-out}
@@ -80,8 +79,8 @@
   .alison-gpt-bubble strong{font-size:22px}
   .alison-gpt-panel{right:12px;bottom:12px;width:calc(100% - 24px);height:min(480px,68dvh)}
   .alison-gpt-peek{width:82px;height:132px;bottom:35px}
-  .alison-gpt-peek img{height:132px;width:115px}
-  .alison-gpt-peek span{right:20px}
+  .alison-gpt-peek-wave{height:126px;width:95px}
+  .alison-gpt-peek-label{right:20px}
   .alison-gpt-chat-avatar{right:calc(100% - 79px);bottom:calc(min(480px,68dvh) + 8px + 95px);width:70px;height:125px}
   .alison-gpt-chat-peek,.alison-gpt-chat-think{height:125px;width:125px;right:-24px}
   .alison-gpt-thought{left:0;top:-15px;padding:8px 10px}
@@ -94,7 +93,7 @@
 @media(prefers-color-scheme:dark){
   .alison-gpt-panel{background:#1a1a1a;color:#e8e8e8}
   .alison-gpt-bubble{background:#232323;border-color:#3a3a3a;color:#e8e8e8}
-  .alison-gpt-peek span{background:#232323;color:#e8e8e8}
+  .alison-gpt-peek-label{background:#232323;color:#e8e8e8}
   .alison-gpt-message-content{background:#2a2a2a;color:#e8e8e8}
   .alison-gpt-input{background:#1a1a1a;color:#e8e8e8}
 }

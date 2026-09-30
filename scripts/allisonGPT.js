@@ -9,13 +9,11 @@ class AllisonGPT {
     this.isLoading = false;
     this.conversationHistory = [];
     this.apiEndpoint = '/api/allisonGPT';
-    this.storageKey = 'allisonGPT_conversation';
 
     this.init();
   }
 
   init() {
-    this.loadConversation();
     this.createWidget();
     this.attachListeners();
 
@@ -41,8 +39,8 @@ class AllisonGPT {
       </div>
 
       <button class="alison-gpt-peek" id="ag-peek" aria-label="Open Alli chat" hidden>
-        <img src="/assets/alli/alli-peek.webp" alt="Alli peeking around the edge">
-        <span>Ask Alli <span class="alison-gpt-arrow">&#8599;</span></span>
+        <img class="alison-gpt-peek-wave" id="ag-peek-img" src="/assets/alli/alli-peek-rest.webp" alt="Alli peeking around the edge">
+        <span class="alison-gpt-peek-label">Ask Alli <span class="alison-gpt-arrow">&#8599;</span></span>
       </button>
 
       <div id="ag-chat-avatar" class="alison-gpt-chat-avatar" hidden>
@@ -100,6 +98,25 @@ class AllisonGPT {
         this.show('peek');
       }
     });
+
+    this.attachPeekWaveListeners();
+  }
+
+  attachPeekWaveListeners() {
+    const peek = this.$('ag-peek');
+    const img = this.$('ag-peek-img');
+    const REST = '/assets/alli/alli-peek-rest.webp';
+    const WAVE = '/assets/alli/alli-peek-wave.gif';
+    let reduceMotion = false;
+    try { reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+    const playWave = () => { if (!reduceMotion) img.src = WAVE; };
+    const stopWave = () => { img.src = REST; };
+
+    peek.addEventListener('mouseenter', playWave);
+    peek.addEventListener('mouseleave', stopWave);
+    peek.addEventListener('focus', playWave);
+    peek.addEventListener('blur', stopWave);
   }
 
   show(next, focus = true) {
@@ -175,7 +192,6 @@ class AllisonGPT {
 
     const data = await response.json();
     this.conversationHistory = data.conversationHistory;
-    this.saveConversation();
 
     return data.message;
   }
@@ -217,22 +233,6 @@ class AllisonGPT {
     }
   }
 
-  saveConversation() {
-    try {
-      sessionStorage.setItem(this.storageKey, JSON.stringify(this.conversationHistory));
-    } catch (e) {
-      console.warn('Could not save conversation:', e);
-    }
-  }
-
-  loadConversation() {
-    try {
-      const saved = sessionStorage.getItem(this.storageKey);
-      if (saved) this.conversationHistory = JSON.parse(saved);
-    } catch (e) {
-      console.warn('Could not load conversation:', e);
-    }
-  }
 }
 
 function initAllisonGPT() {
