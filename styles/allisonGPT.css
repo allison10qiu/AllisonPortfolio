@@ -23,7 +23,7 @@
 .alison-gpt-peek{position:fixed;right:-20px;bottom:65px;width:110px;height:168px;border:0;background:none;padding:0;transition:transform .25s;animation:agEnter .45s ease-out}
 .alison-gpt-peek:hover,.alison-gpt-peek:focus-visible{transform:translateX(-10px)}
 .alison-gpt-peek img{width:145px;height:168px;object-fit:contain;position:absolute;right:-6px;top:0}
-.alison-gpt-peek span{position:absolute;right:28px;top:-32px;font-size:12px;background:#edf4f9;white-space:nowrap;padding:4px 10px;border-radius:20px}
+.alison-gpt-peek span{position:absolute;right:28px;top:-32px;font-size:12px;background:#edf4f9;white-space:nowrap;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
 
 /* Avatar shown beside the open chat panel (peeking around its left edge) */
 .alison-gpt-chat-avatar{position:fixed;right:370px;bottom:92px;width:125px;height:205px;overflow:visible;z-index:9999;pointer-events:none;animation:agEnter .4s ease-out}
