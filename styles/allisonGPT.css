@@ -67,12 +67,16 @@
 
 /* Avatar */
 .alison-gpt-avatar {
-  width: 100%;
-  height: 100%;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scaleX(-1);
+  position: absolute;
+  left: -32px;
+  top: 50%;
+  transform: translateY(-50%) scaleX(-1);
+  z-index: 10001;
 }
 
 .alison-gpt-avatar-svg {
