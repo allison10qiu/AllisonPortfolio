@@ -35,7 +35,7 @@ class AllisonGPT {
           <button class="alison-gpt-bubble-close" id="ag-dismiss" aria-label="Minimize Alli">&times;</button>
           <strong>Hi, I'm Alli!</strong>
           <p>Allison's online persona. Ask me any questions you have!</p>
-          <button class="alison-gpt-primary" id="ag-start">Let's chat &#8599;</button>
+          <button class="alison-gpt-primary" id="ag-start">Let's chat <span class="alison-gpt-arrow">&#8599;</span></button>
         </div>
         <div class="alison-gpt-wave" role="img" aria-label="Alli waving"></div>
       </div>
@@ -43,7 +43,7 @@ class AllisonGPT {
       <button class="alison-gpt-peek" id="ag-peek" aria-label="Open Alli chat" hidden>
         <img class="alison-gpt-peek-static-img" src="/assets/alli/alli-peek.webp" alt="Alli peeking around the edge">
         <div class="alison-gpt-peek-wave-img" aria-hidden="true"></div>
-        <span>Ask Alli &#8599;</span>
+        <span>Ask Alli <span class="alison-gpt-arrow">&#8599;</span></span>
       </button>
 
       <div id="ag-chat-avatar" class="alison-gpt-chat-avatar" hidden>
