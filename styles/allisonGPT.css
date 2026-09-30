@@ -29,6 +29,7 @@
 
 /* Launcher Button */
 .alison-gpt-launcher {
+  display: none;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -67,6 +68,12 @@
 
 /* Avatar */
 .alison-gpt-avatar {
+  position: absolute;
+  left: -70px;
+  top: 50%;
+  transform: translateY(-50%) scaleX(-1);
+  width: 100px;
+  height: 100px;
   width: 64px;
   height: 64px;
   display: flex;
@@ -86,6 +93,7 @@
 
 /* Chat Panel */
 .alison-gpt-panel {
+  position: relative;
   position: fixed;
   bottom: 100px;
   right: 20px;
@@ -335,6 +343,7 @@
 /* Mobile Responsive */
 @media (max-width: 480px) {
   .alison-gpt-panel {
+  position: relative;
     width: calc(100vw - 32px);
     height: calc(100vh - 120px);
     bottom: 80px;
@@ -342,6 +351,7 @@
   }
 
   .alison-gpt-launcher {
+  display: none;
     bottom: 16px;
     right: 16px;
     width: 56px;
@@ -379,6 +389,7 @@
   }
 
   .alison-gpt-panel {
+  position: relative;
     background: #1a1a1a;
   }
 
