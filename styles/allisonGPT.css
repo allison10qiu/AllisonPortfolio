@@ -3,7 +3,7 @@
  * Faithful rebuild of the approved AllisonGPT-preview design
  */
 
-#alison-gpt-container{position:fixed;right:24px;bottom:0;z-index:9999;font:16px/1.6 Arial,sans-serif;color:#14243b}
+#alison-gpt-container{position:fixed;right:24px;bottom:20px;z-index:9999;font:16px/1.6 Arial,sans-serif;color:#14243b}
 #alison-gpt-container button,#alison-gpt-container input{font:inherit}
 #alison-gpt-container button{cursor:pointer;color:inherit}
 #alison-gpt-container button:focus-visible,#alison-gpt-container input:focus-visible{outline:3px solid #779bb9;outline-offset:4px}
@@ -15,8 +15,8 @@
 .alison-gpt-bubble strong{font:25px Georgia,serif;display:block}
 .alison-gpt-bubble p{font-size:14px;margin:8px 0 15px}
 .alison-gpt-bubble-close{position:absolute;right:9px;top:6px;border:0;background:transparent;font-size:24px;width:34px;height:34px}
-.alison-gpt-wave{width:210px;height:210px;background-image:url(/assets/alli/alli-wave.webp);background-size:200% 200%;background-position:0 0;animation:agWave 1.8s steps(1) 2;align-self:flex-end}
-.alison-gpt-primary{border:0;background:#14243b;color:white;border-radius:22px;padding:9px 18px}
+.alison-gpt-wave{width:210px;height:210px;background-image:url(/assets/alli/alli-wave.webp);background-size:200% 200%;background-position:0 0;animation:agWave 1.8s steps(1) infinite;align-self:flex-end}
+#alison-gpt-container .alison-gpt-primary{border:0;background:#14243b;color:#ffffff;border-radius:22px;padding:9px 18px}
 
 /* Peek launcher (avatar peeking from the right edge of the screen) */
 .alison-gpt-peek{position:fixed;right:-20px;bottom:65px;width:110px;height:168px;border:0;background:none;padding:0;transition:transform .25s;animation:agEnter .45s ease-out}
@@ -44,7 +44,7 @@
 .alison-gpt-header{position:relative;padding:18px 22px;background:#14243b;color:#fff}
 .alison-gpt-title{margin:0;font:25px Georgia,serif}
 .alison-gpt-subtitle{margin:2px 0 0;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:#fff;opacity:.85}
-.alison-gpt-close{position:absolute;right:9px;top:10px;border:0;background:transparent;color:#fff;font-size:24px;width:34px;height:34px}
+#alison-gpt-container .alison-gpt-close{position:absolute;right:9px;top:10px;border:0;background:transparent;color:#ffffff;font-size:24px;width:34px;height:34px}
 
 .alison-gpt-messages{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
 .alison-gpt-message-content{background:#edf4f9;padding:12px 15px;border-radius:15px;font-size:14px;max-width:91%;white-space:pre-wrap}
@@ -58,7 +58,7 @@
 .alison-gpt-input-area{border-top:1px solid #e2eaf1}
 .alison-gpt-form{display:flex;padding:12px;gap:8px}
 .alison-gpt-input{min-width:0;flex:1;border:0;padding:8px;font-size:14px}
-.alison-gpt-send{border:0;border-radius:50%;background:#14243b;color:white;width:40px;height:40px;flex-shrink:0}
+#alison-gpt-container .alison-gpt-send{border:0;border-radius:50%;background:#14243b;color:#ffffff;width:40px;height:40px;flex-shrink:0}
 .alison-gpt-notice{font-size:10px;text-align:center;padding:0 10px 10px;color:#617186}
 
 @keyframes agEnter{from{opacity:0;transform:translateX(90px)}to{opacity:1;transform:translateX(0)}}
