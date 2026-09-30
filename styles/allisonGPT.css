@@ -21,7 +21,7 @@
 
 /* Peek launcher (avatar peeking from the right edge of the screen) */
 .alison-gpt-peek{position:fixed;right:-20px;bottom:65px;width:110px;height:168px;border:0;background:none;padding:0;animation:agEnter .45s ease-out}
-.alison-gpt-peek-wave{width:126px;height:168px;object-fit:contain;position:absolute;right:-6px;top:0}
+.alison-gpt-peek-wave{display:block;width:126px;height:168px;position:absolute;right:-6px;top:0;pointer-events:none}
 .alison-gpt-peek-label{position:absolute;right:28px;top:-32px;font-size:12px;background:#edf4f9;white-space:nowrap;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
 
 /* Avatar shown beside the open chat panel (peeking around its left edge) */

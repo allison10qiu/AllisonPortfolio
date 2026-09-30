@@ -39,7 +39,7 @@ class AllisonGPT {
       </div>
 
       <button class="alison-gpt-peek" id="ag-peek" aria-label="Open Alli chat" hidden>
-        <img class="alison-gpt-peek-wave" id="ag-peek-img" src="/assets/alli/alli-peek-rest.webp" alt="Alli peeking around the edge">
+        <canvas class="alison-gpt-peek-wave" id="ag-peek-canvas" width="288" height="384" role="img" aria-label="Alli peeking around the edge"></canvas>
         <span class="alison-gpt-peek-label">Ask Alli <span class="alison-gpt-arrow">&#8599;</span></span>
       </button>
 
@@ -99,24 +99,105 @@ class AllisonGPT {
       }
     });
 
-    this.attachPeekWaveListeners();
+    this.attachPeekAnimationListeners();
   }
 
-  attachPeekWaveListeners() {
-    const peek = this.$('ag-peek');
-    const img = this.$('ag-peek-img');
-    const REST = '/assets/alli/alli-peek-rest.webp';
-    const WAVE = '/assets/alli/alli-peek-wave.gif';
-    let reduceMotion = false;
-    try { reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  // Idle-peek → raise → wave-loop → return animation, driven by an 8-frame
+  // sprite sheet drawn to a single fixed canvas (no swapping between
+  // separate image assets, so there's nothing to visually "slide").
+  attachPeekAnimationListeners() {
+    const button = this.$('ag-peek');
+    const canvas = this.$('ag-peek-canvas');
+    const ctx = canvas.getContext('2d');
+    const sheet = new Image();
+    const frameW = 288;
+    const frameH = 384;
+    const loop = [4, 5, 6, 7, 6, 5];
 
-    const playWave = () => { if (!reduceMotion) img.src = WAVE; };
-    const stopWave = () => { img.src = REST; };
+    let loopPosition = 0;
+    let hovered = false;
+    let focused = false;
+    let wanted = false;
+    let loaded = false;
+    let frame = 0;
+    let last = 0;
+    let raf = 0;
+    let reducedQuery = null;
+    let reduced = false;
 
-    peek.addEventListener('mouseenter', playWave);
-    peek.addEventListener('mouseleave', stopWave);
-    peek.addEventListener('focus', playWave);
-    peek.addEventListener('blur', stopWave);
+    try {
+      reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      reduced = reducedQuery.matches;
+    } catch (e) {}
+
+    const paint = () => {
+      if (!loaded) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(sheet, frame * frameW, 0, frameW, frameH, 0, 0, canvas.width, canvas.height);
+    };
+
+    const tick = (t) => {
+      raf = 0;
+      const duration = frame < 4 ? 85 : 125;
+      if (!last) last = t;
+      if (t - last >= duration) {
+        last = t;
+        if (wanted) {
+          if (frame < 4) {
+            frame++;
+            loopPosition = 0;
+          } else {
+            loopPosition = (loopPosition + 1) % loop.length;
+            frame = loop[loopPosition];
+          }
+        } else if (frame > 0) {
+          frame--;
+          loopPosition = 0;
+        }
+        paint();
+      }
+      if (wanted || frame > 0) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        last = 0;
+      }
+    };
+
+    const update = () => {
+      wanted = hovered || focused;
+
+      if (reduced) {
+        if (raf) cancelAnimationFrame(raf);
+        raf = 0;
+        frame = wanted ? 4 : 0;
+        paint();
+        return;
+      }
+
+      if (loaded && !raf && (wanted || frame > 0)) {
+        last = 0;
+        raf = requestAnimationFrame(tick);
+      }
+    };
+
+    sheet.onload = () => { loaded = true; paint(); };
+    sheet.src = '/assets/alli/alli-peek-sprite.webp';
+
+    button.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'touch') { hovered = true; update(); }
+    });
+    button.addEventListener('pointerleave', () => { hovered = false; update(); });
+    button.addEventListener('focus', () => {
+      if (button.matches(':focus-visible')) { focused = true; update(); }
+    });
+    button.addEventListener('blur', () => { focused = false; update(); });
+    // Touch is intentionally left out of `wanted`: pointerenter is skipped for
+    // touch above, and we don't wire touchstart either, so tapping just opens
+    // the chat via the existing click handler with no lingering hover state.
+
+    if (reducedQuery) {
+      reducedQuery.addEventListener('change', () => { reduced = reducedQuery.matches; update(); });
+    }
   }
 
   show(next, focus = true) {
