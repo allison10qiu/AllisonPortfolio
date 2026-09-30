@@ -1,0 +1,93 @@
+/**
+ * Alli Widget Styles
+ * Faithful rebuild of the approved AllisonGPT-preview design
+ */
+
+#alison-gpt-container{position:fixed;right:24px;bottom:0;z-index:9999;font:16px/1.6 Arial,sans-serif;color:#14243b}
+#alison-gpt-container button,#alison-gpt-container input{font:inherit}
+#alison-gpt-container button{cursor:pointer;color:inherit}
+#alison-gpt-container button:focus-visible,#alison-gpt-container input:focus-visible{outline:3px solid #779bb9;outline-offset:4px}
+#alison-gpt-container [hidden]{display:none!important}
+
+/* Welcome bubble */
+.alison-gpt-welcome-wrap{display:flex;align-items:center;animation:agEnter .65s ease-out}
+.alison-gpt-bubble{position:relative;width:260px;background:#f5f9fc;border:1px solid #d1dee8;padding:26px;border-radius:20px 20px 0 20px;box-shadow:0 8px 25px #14243b0c;align-self:flex-start;margin-top:40px}
+.alison-gpt-bubble strong{font:25px Georgia,serif;display:block}
+.alison-gpt-bubble p{font-size:14px;margin:8px 0 15px}
+.alison-gpt-bubble-close{position:absolute;right:9px;top:6px;border:0;background:transparent;font-size:24px;width:34px;height:34px}
+.alison-gpt-wave{width:210px;height:210px;background-image:url(/assets/alli/alli-wave.webp);background-size:200% 200%;background-position:0 0;animation:agWave 1.8s steps(1) 2;align-self:flex-end}
+.alison-gpt-primary{border:0;background:#14243b;color:white;border-radius:22px;padding:9px 18px}
+
+/* Peek launcher (avatar peeking from the right edge of the screen) */
+.alison-gpt-peek{position:fixed;right:-20px;bottom:65px;width:110px;height:168px;border:0;background:none;padding:0;transition:transform .25s;animation:agEnter .45s ease-out}
+.alison-gpt-peek:hover,.alison-gpt-peek:focus-visible{transform:translateX(-10px)}
+.alison-gpt-peek img{width:145px;height:168px;object-fit:contain;position:absolute;right:-6px;top:0}
+.alison-gpt-peek span{position:absolute;right:28px;top:-32px;font-size:12px;background:#edf4f9;white-space:nowrap;padding:4px 10px;border-radius:20px}
+
+/* Avatar shown beside the open chat panel (peeking around its left edge) */
+.alison-gpt-chat-avatar{position:fixed;right:370px;bottom:92px;width:125px;height:205px;overflow:visible;z-index:9999;pointer-events:none;animation:agEnter .4s ease-out}
+.alison-gpt-chat-peek,.alison-gpt-chat-think{position:absolute;height:205px;width:205px;max-width:none;object-fit:contain;right:-37px;top:0}
+.alison-gpt-chat-think{display:none}
+.alison-gpt-chat-avatar.thinking .alison-gpt-chat-peek{display:none}
+.alison-gpt-chat-avatar.thinking .alison-gpt-chat-think{display:block}
+.alison-gpt-chat-avatar.thinking .alison-gpt-chat-peek{animation:agPonder 2s ease-in-out infinite;transform-origin:85% 65%}
+
+.alison-gpt-thought{display:none;position:absolute;top:-12px;left:22px;padding:11px 13px;background:#edf4f9;border:1px solid #cbdbe7;border-radius:22px;z-index:3;gap:5px}
+.alison-gpt-thought:after{content:"";position:absolute;width:7px;height:7px;background:#edf4f9;border:1px solid #cbdbe7;border-radius:50%;bottom:-10px;right:15px}
+.alison-gpt-thought i,.alison-gpt-typing i{display:inline-block;width:5px;height:5px;border-radius:50%;background:#14243b;animation:agThinkDots 1.2s ease-in-out infinite}
+.alison-gpt-thought i:nth-child(2),.alison-gpt-typing i:nth-child(2){animation-delay:.16s}
+.alison-gpt-thought i:nth-child(3),.alison-gpt-typing i:nth-child(3){animation-delay:.32s}
+.alison-gpt-chat-avatar.thinking .alison-gpt-thought{display:flex}
+
+/* Chat panel */
+.alison-gpt-panel{position:fixed;right:28px;bottom:28px;width:360px;height:min(530px,80dvh);border:1px solid #d1dee8;border-radius:20px;background:white;box-shadow:0 12px 55px #14243b22;display:flex;flex-direction:column;animation:agEnter .4s ease-out;overflow:hidden;z-index:10000}
+.alison-gpt-header{position:relative;padding:18px 22px;background:#14243b;color:#fff}
+.alison-gpt-title{margin:0;font:25px Georgia,serif}
+.alison-gpt-subtitle{margin:2px 0 0;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:#fff;opacity:.85}
+.alison-gpt-close{position:absolute;right:9px;top:10px;border:0;background:transparent;color:#fff;font-size:24px;width:34px;height:34px}
+
+.alison-gpt-messages{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.alison-gpt-message-content{background:#edf4f9;padding:12px 15px;border-radius:15px;font-size:14px;max-width:91%;white-space:pre-wrap}
+.alison-gpt-message--user .alison-gpt-message-content{align-self:flex-end;background:#14243b;color:white}
+.alison-gpt-message--assistant{align-self:flex-start}
+.alison-gpt-message--user{display:flex;justify-content:flex-end}
+
+.alison-gpt-typing{display:flex;align-items:center;gap:5px;background:#edf4f9;padding:12px 15px;border-radius:15px;align-self:flex-start}
+.alison-gpt-typing span{margin-right:5px;font-size:12px;color:#617186}
+
+.alison-gpt-input-area{border-top:1px solid #e2eaf1}
+.alison-gpt-form{display:flex;padding:12px;gap:8px}
+.alison-gpt-input{min-width:0;flex:1;border:0;padding:8px;font-size:14px}
+.alison-gpt-send{border:0;border-radius:50%;background:#14243b;color:white;width:40px;height:40px;flex-shrink:0}
+.alison-gpt-notice{font-size:10px;text-align:center;padding:0 10px 10px;color:#617186}
+
+@keyframes agEnter{from{opacity:0;transform:translateX(90px)}to{opacity:1;transform:translateX(0)}}
+@keyframes agWave{0%,100%{background-position:0 0}20%,65%{background-position:100% 0}40%{background-position:0 100%}80%{background-position:100% 100%}}
+@keyframes agThinkDots{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-4px);opacity:1}}
+@keyframes agPonder{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-2deg)}}
+
+@media(max-width:600px){
+  #alison-gpt-container{right:8px}
+  .alison-gpt-wave{width:135px;height:135px}
+  .alison-gpt-bubble{width:210px;margin-top:0;padding:22px}
+  .alison-gpt-bubble strong{font-size:22px}
+  .alison-gpt-panel{right:12px;bottom:12px;width:calc(100% - 24px);height:min(480px,68dvh)}
+  .alison-gpt-peek{width:82px;height:132px;bottom:35px}
+  .alison-gpt-peek img{height:132px;width:115px}
+  .alison-gpt-peek span{right:20px}
+  .alison-gpt-chat-avatar{right:calc(100% - 79px);bottom:calc(min(480px,68dvh) + 8px + 95px);width:70px;height:125px}
+  .alison-gpt-chat-peek,.alison-gpt-chat-think{height:125px;width:125px;right:-24px}
+  .alison-gpt-thought{left:0;top:-15px;padding:8px 10px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #alison-gpt-container *,#alison-gpt-container *::before,#alison-gpt-container *::after{animation:none!important;transition:none!important}
+}
+
+@media(prefers-color-scheme:dark){
+  .alison-gpt-panel{background:#1a1a1a;color:#e8e8e8}
+  .alison-gpt-bubble{background:#232323;border-color:#3a3a3a;color:#e8e8e8}
+  .alison-gpt-peek span{background:#232323;color:#e8e8e8}
+  .alison-gpt-message-content{background:#2a2a2a;color:#e8e8e8}
+  .alison-gpt-input{background:#1a1a1a;color:#e8e8e8}
+}
