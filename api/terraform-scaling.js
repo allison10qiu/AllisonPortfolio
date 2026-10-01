@@ -26,6 +26,7 @@ const ALLOWED = new Set([
   "textarea-edit.png",
   "radiocard-ro.png",
   "radiocard-edit.png",
+  "refine-helper-text.png",
 ]);
 
 module.exports = async function handler(req, res) {

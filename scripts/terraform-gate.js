@@ -1,13 +1,14 @@
 /**
  * Terraform case study gate — server-backed unlock.
- * Password never lives in this file; auth is via /api/terraform-unlock
- * and protected HTML is served only from /api/terraform-content with a
- * valid httpOnly session cookie.
+ * Password never lives in this file. A full page load always starts locked:
+ * any previous httpOnly cookie is cleared before the form can submit, and
+ * protected HTML is requested only after a successful unlock in this view.
  */
 (function () {
-  var EXPAND_MS = 720;
+  var EXPAND_MS = 1080;
   var UNLOCK_URL = "/api/terraform-unlock";
   var CONTENT_URL = "/api/terraform-content";
+  var LOGOUT_URL = "/api/terraform-logout";
 
   var gate = document.getElementById("terraform-gate");
   var locked = document.getElementById("terraform-locked");
@@ -23,10 +24,14 @@
 
   var inner = locked.querySelector(".terraform-locked__inner");
   var settling = false;
+  var unlockTimers = [];
   var loading = false;
   var contentLoaded = false;
+  var armed = false;
+  var reduced =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Minimal charming.js: wrap each character in a <span> for bounce delays.
   var prevPasswordLen = 0;
 
   function charming(el, text, animateFromIndex) {
@@ -131,9 +136,7 @@
         : value.length;
 
     if (textEl) charming(textEl, value, animateFrom);
-    if (dotsEl) {
-      charming(dotsEl, value.replace(/[\s\S]/g, "•"), animateFrom);
-    }
+    if (dotsEl) charming(dotsEl, value.replace(/[\s\S]/g, "•"), animateFrom);
     prevPasswordLen = value.length;
 
     if (selStart != null && selEnd != null) {
@@ -151,10 +154,7 @@
     widget.classList.toggle("show", !!visible);
     if (toggle) {
       toggle.setAttribute("aria-pressed", visible ? "true" : "false");
-      toggle.setAttribute(
-        "aria-label",
-        visible ? "Hide password" : "Show password"
-      );
+      toggle.setAttribute("aria-label", visible ? "Hide password" : "Show password");
     }
     syncPasswordDisplay({ animateAll: true });
   }
@@ -176,7 +176,6 @@
     syncPasswordDisplay();
   });
   input.addEventListener("click", function (event) {
-    // detail > 1 is part of a double/triple click — don’t collapse selection
     if (event.detail > 1) return;
     var idx = caretIndexFromClientX(event.clientX);
     input.setSelectionRange(idx, idx);
@@ -200,21 +199,25 @@
     if (caret) caret.hidden = true;
     if (selection) selection.hidden = true;
   });
-  window.addEventListener("load", function () {
-    syncPasswordDisplay();
-  });
   syncPasswordDisplay();
 
   function setError(message) {
     if (!error) return;
     error.textContent = message || "";
     error.hidden = !message;
+    input.classList.toggle("is-invalid", !!message);
+    if (widget) widget.classList.toggle("is-invalid", !!message);
+    input.setAttribute("aria-invalid", message ? "true" : "false");
+  }
+
+  function setArmed(next) {
+    armed = next;
+    input.disabled = !next || loading || contentLoaded;
+    if (submit) submit.disabled = !next || loading || contentLoaded;
   }
 
   function refreshScale() {
-    if (typeof window.refreshCaseScale === "function") {
-      window.refreshCaseScale();
-    }
+    if (typeof window.refreshCaseScale === "function") window.refreshCaseScale();
   }
 
   function measureOpenHeight() {
@@ -240,7 +243,6 @@
     locked.style.visibility = prevVisibility || "";
     void locked.offsetHeight;
     locked.style.transition = prevTransition || "";
-
     return target;
   }
 
@@ -250,11 +252,8 @@
       img.addEventListener(
         "load",
         function () {
-          if (locked.classList.contains("is-settled")) {
-            locked.style.height = "auto";
-          } else if (locked.classList.contains("is-open") && !settling) {
-            locked.style.height = measureOpenHeight() + "px";
-          } else if (locked.classList.contains("is-open")) {
+          if (locked.classList.contains("is-settled")) locked.style.height = "auto";
+          else if (locked.classList.contains("is-open")) {
             locked.style.height = measureOpenHeight() + "px";
           }
           refreshScale();
@@ -264,17 +263,39 @@
     });
   }
 
-  function pulseScale(durationMs) {
-    var start = performance.now();
-    function frame(now) {
-      refreshScale();
-      if (now - start < durationMs) {
-        requestAnimationFrame(frame);
-      } else {
-        refreshScale();
-      }
+  function later(fn, ms) {
+    var id = window.setTimeout(fn, ms);
+    unlockTimers.push(id);
+    return id;
+  }
+
+  function clearUnlockTimers() {
+    unlockTimers.forEach(function (id) { window.clearTimeout(id); });
+    unlockTimers = [];
+  }
+
+  function clearGateMotion() {
+    var panel = gate.querySelector(".tf-lockbox__locked");
+    var done = gate.querySelector(".tf-lockbox__done");
+    gate.style.boxSizing = "";
+    gate.style.height = "";
+    gate.style.overflow = "";
+    gate.style.transition = "";
+    if (panel) {
+      panel.style.transition = "";
+      panel.style.opacity = "";
+      panel.style.transform = "";
     }
-    requestAnimationFrame(frame);
+    if (done) {
+      done.style.transition = "";
+      done.style.opacity = "";
+      done.style.transform = "";
+    }
+    if (inner) {
+      inner.style.transition = "";
+      inner.style.opacity = "";
+      inner.style.transform = "";
+    }
   }
 
   function settleOpen() {
@@ -284,6 +305,11 @@
     locked.style.opacity = "1";
     locked.classList.add("is-settled");
     settling = false;
+    if (inner) {
+      inner.style.transition = "none";
+      inner.style.opacity = "";
+      inner.style.transform = "";
+    }
     void locked.offsetHeight;
     refreshScale();
     requestAnimationFrame(function () {
@@ -291,45 +317,77 @@
       if (inner && window.aqMotion && typeof window.aqMotion.scan === "function") {
         window.aqMotion.scan(inner);
       }
-      setTimeout(refreshScale, 50);
-      setTimeout(refreshScale, 250);
     });
   }
 
-  function showUnlocked(opts) {
-    var animate = !opts || opts.animate !== false;
+  function focusPassword() {
+    if (!input || input.disabled) return;
+    try {
+      input.focus({ preventScroll: true });
+    } catch (err) {
+      input.focus();
+    }
+  }
 
-    if (locked.classList.contains("is-open") && locked.classList.contains("is-settled")) {
-      refreshScale();
+  function scrollToPassword(event) {
+    var trigger = event.target && event.target.closest
+      ? event.target.closest("#tf-unlock-jump, .m-casebar__unlock")
+      : null;
+    if (!trigger || trigger.classList.contains("is-done")) return;
+    if (event.button && event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+
+    var rect = gate.getBoundingClientRect();
+    var offset = Math.max(32, (window.innerHeight - rect.height) / 2);
+    var top = Math.max(0, window.scrollY + rect.top - offset);
+    var start = window.scrollY;
+    var distance = top - start;
+    if (reduced || Math.abs(distance) < 4) {
+      window.scrollTo(0, top);
+      focusPassword();
       return;
     }
 
-    locked.hidden = false;
-    locked.removeAttribute("aria-hidden");
-    gate.classList.add("terraform-gate--unlocked");
-    input.value = "";
-    input.blur();
-    setError("");
-    watchLockedMedia();
-
-    locked.classList.add("is-open");
-
-    if (!animate) {
-      locked.classList.add("is-open--instant");
-      settleOpen();
-      return;
+    var duration = Math.min(880, Math.max(520, Math.abs(distance) * 0.42));
+    var t0 = performance.now();
+    var active = true;
+    function stop() { active = false; }
+    window.addEventListener("wheel", stop, { passive: true, once: true });
+    window.addEventListener("touchstart", stop, { passive: true, once: true });
+    function step(now) {
+      if (!active) return;
+      var p = Math.min(1, (now - t0) / duration);
+      var eased = 1 - Math.pow(1 - p, 3);
+      window.scrollTo(0, start + distance * eased);
+      if (p < 1) requestAnimationFrame(step);
+      else focusPassword();
     }
+    requestAnimationFrame(step);
+  }
 
-    locked.classList.remove("is-open--instant");
-    locked.classList.remove("is-settled");
-    settling = true;
+  document.addEventListener("click", scrollToPassword);
 
-    locked.style.transition = "none";
-    locked.style.overflow = "hidden";
-    locked.style.opacity = "0";
-    locked.style.height = "0px";
-    void locked.offsetHeight;
+  function setUnlockLabel(done) {
+    var jump = document.getElementById("tf-unlock-jump");
+    var bar = document.querySelector(".m-casebar__unlock");
+    [jump, bar].forEach(function (el) {
+      if (!el) return;
+      if (done) {
+        el.textContent = "Case study unlocked";
+        el.classList.add("is-done");
+        el.setAttribute("aria-disabled", "true");
+        el.removeAttribute("href");
+      } else {
+        el.textContent = el === bar ? "Unlock" : "Unlock the full case study";
+        el.classList.remove("is-done");
+        el.removeAttribute("aria-disabled");
+        el.setAttribute("href", "#terraform-gate");
+      }
+    });
+  }
 
+  function revealStory() {
     var target = measureOpenHeight();
     if (!target || target < 40) {
       settleOpen();
@@ -338,25 +396,129 @@
 
     requestAnimationFrame(function () {
       locked.style.transition =
-        "height " +
-        EXPAND_MS +
-        "ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms ease";
+        "height " + EXPAND_MS + "ms cubic-bezier(0.33, 0.02, 0.18, 1), opacity 680ms ease";
       locked.style.height = target + "px";
       locked.style.opacity = "1";
-      pulseScale(EXPAND_MS + 160);
+      if (inner) {
+        inner.style.transition =
+          "opacity 760ms ease 80ms, transform 980ms cubic-bezier(0.22, 1, 0.36, 1)";
+        inner.style.opacity = "1";
+        inner.style.transform = "none";
+      }
     });
 
     function onEnd(event) {
-      if (event.target !== locked) return;
-      if (event.propertyName !== "height") return;
+      if (event.target !== locked || event.propertyName !== "height") return;
       locked.removeEventListener("transitionend", onEnd);
-      if (!settling) return;
-      settleOpen();
+      if (settling) settleOpen();
     }
     locked.addEventListener("transitionend", onEnd);
-    setTimeout(function () {
+    later(function () {
       if (settling) settleOpen();
-    }, EXPAND_MS + 250);
+    }, EXPAND_MS + 280);
+  }
+
+  function showUnlocked() {
+    locked.hidden = false;
+    locked.removeAttribute("aria-hidden");
+    input.value = "";
+    input.blur();
+    setError("");
+    watchLockedMedia();
+    locked.classList.add("is-open");
+
+    if (reduced) {
+      gate.classList.add("is-unlocked");
+      setUnlockLabel(true);
+      locked.classList.add("is-open--instant");
+      settleOpen();
+      return;
+    }
+
+    var panel = gate.querySelector(".tf-lockbox__locked");
+    var done = gate.querySelector(".tf-lockbox__done");
+    locked.classList.remove("is-open--instant", "is-settled");
+    settling = true;
+    locked.style.transition = "none";
+    locked.style.overflow = "hidden";
+    locked.style.opacity = "0";
+    locked.style.height = "0px";
+    if (inner) {
+      inner.style.transition = "none";
+      inner.style.opacity = "0";
+      inner.style.transform = "translateY(22px)";
+    }
+    void locked.offsetHeight;
+
+    var from = gate.offsetHeight;
+    gate.style.boxSizing = "border-box";
+    gate.style.overflow = "hidden";
+    gate.style.transition = "none";
+    gate.style.height = from + "px";
+    if (panel) {
+      panel.style.transition = "opacity 280ms ease, transform 280ms ease";
+      panel.style.opacity = "0";
+      panel.style.transform = "translateY(-8px)";
+    }
+
+    later(function () {
+      gate.classList.add("is-unlocked");
+      setUnlockLabel(true);
+      if (done) {
+        done.style.opacity = "0";
+        done.style.transform = "translateY(8px)";
+      }
+      var borders = gate.offsetHeight - gate.clientHeight;
+      var to = (done ? done.offsetHeight : 0) + borders;
+      void gate.offsetHeight;
+      gate.style.transition = "height 560ms cubic-bezier(0.22, 1, 0.36, 1)";
+      gate.style.height = Math.max(to, 0) + "px";
+      requestAnimationFrame(function () {
+        if (!done) return;
+        done.style.transition = "opacity 420ms ease, transform 480ms cubic-bezier(0.22, 1, 0.36, 1)";
+        done.style.opacity = "1";
+        done.style.transform = "none";
+      });
+      later(function () {
+        gate.style.transition = "none";
+        gate.style.height = "";
+        gate.style.overflow = "";
+      }, 640);
+      revealStory();
+    }, 240);
+  }
+
+  function resetLocked() {
+    contentLoaded = false;
+    loading = false;
+    settling = false;
+    clearUnlockTimers();
+    clearGateMotion();
+    if (inner) inner.innerHTML = "";
+    locked.hidden = true;
+    locked.setAttribute("aria-hidden", "true");
+    locked.classList.remove("is-open", "is-settled", "is-open--instant");
+    locked.style.height = "";
+    locked.style.opacity = "";
+    locked.style.overflow = "";
+    locked.style.transition = "";
+    gate.classList.remove("is-unlocked");
+    input.value = "";
+    setError("");
+    if (submit) submit.textContent = "Unlock";
+    setUnlockLabel(false);
+  }
+
+  function clearPreviousUnlock() {
+    setArmed(false);
+    return fetch(LOGOUT_URL, {
+      method: "POST",
+      credentials: "same-origin",
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+    }).catch(function () {}).then(function () {
+      setArmed(true);
+    });
   }
 
   function injectContent(html) {
@@ -372,6 +534,7 @@
     return fetch(CONTENT_URL, {
       method: "GET",
       credentials: "same-origin",
+      cache: "no-store",
       headers: { Accept: "text/html" },
     }).then(function (res) {
       if (res.status === 401) {
@@ -380,9 +543,7 @@
         throw err;
       }
       if (!res.ok) {
-        return res.json().catch(function () {
-          return {};
-        }).then(function (data) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
           throw new Error((data && data.error) || "Could not load protected content.");
         });
       }
@@ -390,105 +551,122 @@
     });
   }
 
-  function setLoading(isLoading) {
-    loading = isLoading;
-    input.disabled = isLoading || contentLoaded;
-    if (submit) {
-      submit.disabled = isLoading || contentLoaded;
-      submit.textContent = isLoading ? "Unlocking…" : "Unlock";
-    }
-  }
-
   function unlockWithPassword() {
-    if (loading || contentLoaded) return;
+    if (!armed || loading || contentLoaded) return;
     var value = input.value || "";
-    if (!value) {
-      setError("Enter a password.");
+    if (!value.trim()) {
+      setError("Enter the password to continue.");
       input.focus();
       return;
     }
 
-    setLoading(true);
+    loading = true;
+    setArmed(false);
+    if (submit) submit.textContent = "Unlocking…";
     setError("");
 
     fetch(UNLOCK_URL, {
       method: "POST",
       credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+      cache: "no-store",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({ password: value }),
     })
       .then(function (res) {
-        return res
-          .json()
-          .catch(function () {
-            return {};
-          })
-          .then(function (data) {
-            if (!res.ok) {
-              throw new Error(
-                (data && data.error) || "Incorrect password. Try again."
-              );
-            }
-            return fetchContent();
-          });
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          if (!res.ok) {
+            throw new Error((data && data.error) || "Incorrect password. Try again.");
+          }
+          return fetchContent();
+        });
       })
       .then(function (html) {
         injectContent(html);
-        showUnlocked({ animate: true });
-        setLoading(false);
+        showUnlocked();
+        loading = false;
+        setArmed(true);
+        if (submit) submit.textContent = "Unlock";
       })
       .catch(function (err) {
         var message = err && err.message ? err.message : "";
-        if (
-          err instanceof TypeError ||
-          /Failed to fetch|NetworkError|Load failed/i.test(message)
-        ) {
-          message =
-            "Unlock isn’t available on this server. Restart with scripts/dev-server.py (uses .env.local) or deploy to Vercel.";
+        if (err instanceof TypeError || /Failed to fetch|NetworkError|Load failed/i.test(message)) {
+          message = "Unlock isn’t available on this server. Restart with scripts/dev-server.py (uses .env.local) or deploy to Vercel.";
         }
         setError(message || "Incorrect password. Try again.");
-        setLoading(false);
+        loading = false;
+        setArmed(true);
+        if (submit) submit.textContent = "Unlock";
+        input.focus();
         input.select();
       });
   }
 
-  // Session cookie is httpOnly. Ask the existing content endpoint whether
-  // this browser is already authenticated, then match the gate to that result.
-  fetchContent()
-    .then(function (html) {
-      if (contentLoaded) return;
-      injectContent(html);
-      showUnlocked({ animate: false });
-    })
-    .catch(function (err) {
-      if (err && err.code === 401) return;
-    });
+  function initDiagram() {
+    var demo = document.querySelector("[data-ro-demo]");
+    if (!demo) return;
+    var timers = [];
+    function clearTimers() {
+      timers.forEach(clearTimeout);
+      timers = [];
+    }
+    function setStep(step) {
+      demo.classList.remove("is-step-0", "is-step-1", "is-step-2");
+      demo.classList.add("is-step-" + step);
+    }
+    var running = false;
+    function play() {
+      clearTimers();
+      running = true;
+      if (reduced) {
+        setStep(2);
+        running = false;
+        return;
+      }
+      setStep(0);
+      timers.push(setTimeout(function () { setStep(1); }, 1100));
+      timers.push(setTimeout(function () { setStep(2); }, 2000));
+      timers.push(setTimeout(play, 4800));
+    }
+    function stop() {
+      running = false;
+      clearTimers();
+    }
+    if (typeof IntersectionObserver !== "function") {
+      play();
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          if (!running) play();
+        } else {
+          stop();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(demo);
+  }
 
   if (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       unlockWithPassword();
     });
-  } else {
-    input.addEventListener("keydown", function (event) {
-      if (event.key !== "Enter") return;
-      event.preventDefault();
-      unlockWithPassword();
-    });
   }
+
+  window.addEventListener("pageshow", function (event) {
+    if (!event.persisted) return;
+    resetLocked();
+    clearPreviousUnlock();
+  });
+
+  initDiagram();
+  clearPreviousUnlock();
 
   if (typeof ResizeObserver === "function") {
-    var ro = new ResizeObserver(function () {
-      refreshScale();
-    });
+    var ro = new ResizeObserver(refreshScale);
     ro.observe(locked);
     if (inner) ro.observe(inner);
-    var canvas = document.querySelector(".bc-canvas");
-    if (canvas) ro.observe(canvas);
   }
-
   window.addEventListener("load", refreshScale);
 })();

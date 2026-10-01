@@ -1,327 +1,374 @@
-<div class="tf-bleed" data-part="protected" id="mapping" style="margin-top:56px;background:#14243B;color:#fff;padding-top:64px;padding-bottom:60px">
-<div style="display:grid;grid-template-columns:minmax(0,0.4fr) minmax(0,1fr);gap:44px;align-items:start;margin-bottom:34px">
-<div>
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="04" style="font:700 30px/1 'Satoshi',sans-serif;color:#fff">04</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Mapping the system</span>
+<div class="tf-section" data-part="protected" id="workflow">
+<span data-sec="02" class="tf-kicker">Workflow</span>
+<h2>Different users needed different things from the same configuration.</h2>
+<div class="tf-needs">
+<div class="tf-needs__head" aria-hidden="true"><span>Workflow</span><span>Need</span><span>Design implication</span></div>
+<div class="tf-needs__row">
+<div class="tf-needs__who"><span class="tf-needs__lab">Workflow</span><strong>Audit configuration</strong><span>Auditors</span></div>
+<p><span class="tf-needs__lab">Need</span>Review exactly what is configured.</p>
+<p><span class="tf-needs__lab">Design implication</span>Make the current state unmistakable.</p>
 </div>
-<span style="display:block;font:400 54px/1 'Instrument Serif',serif;color:#fff">41</span>
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:10px">Configuration routes reviewed</span>
+<div class="tf-needs__row">
+<div class="tf-needs__who"><span class="tf-needs__lab">Workflow</span><strong>Troubleshoot issue</strong><span>Support engineers</span></div>
+<p><span class="tf-needs__lab">Need</span>Understand enough context to investigate why something isn’t working.</p>
+<p><span class="tf-needs__lab">Design implication</span>Don’t remove useful information just because it isn’t editable.</p>
 </div>
-<p style="margin:0;font:400 19px/158% 'Satoshi',sans-serif;color:#fff">I reviewed 41 configuration routes across Terraform to identify recurring read-only states and determine where a consistent interaction pattern could scale across the product. The audit is what turned this from a page-level question into a product-level one.</p>
+<div class="tf-needs__row">
+<div class="tf-needs__who"><span class="tf-needs__lab">Workflow</span><strong>Review before editing</strong><span>Platform engineers</span></div>
+<p><span class="tf-needs__lab">Need</span>Move between reviewing settings and changing them.</p>
+<p><span class="tf-needs__lab">Design implication</span>Make the boundary between viewing and editing clear.</p>
+</div>
+</div>
+<p class="tf-section__close">Whatever read-only looked like, it had to work for all three workflows across 41 configuration routes.</p>
 </div>
 
-<video class="tf-audit" data-tf-audit="" width="1920" height="1080" muted="" loop="" playsinline="" preload="metadata" poster="/assets/terraform/tf-audit-preview.webp?v=preview1">
-<source src="/api/terraform-audit" type="video/mp4"/>
+<div class="tf-section" data-part="protected" id="audit">
+<div class="tf-audit-lead">
+<div class="tf-audit-lead__count"><span>41</span><span>configuration routes</span></div>
+<div>
+<span data-sec="03" class="tf-kicker">System audit</span>
+<h2>I audited all 41 configuration routes.</h2>
+<p>I went through every route looking at how editing worked: recurring controls, dependencies, empty states, descriptions, and anything else that would need consistent read-only behavior.</p>
+<p>The same questions kept coming up on very different screens. That pushed me toward defining shared read-only behaviors instead of solving each screen separately.</p>
+</div>
+</div>
+<video class="tf-audit" data-tf-audit width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/terraform/tf-audit-preview.webp?v=preview1">
+<source src="/api/terraform-audit" type="video/mp4">
 </video>
-</div><div data-part="protected" id="pattern" style="padding:64px 0 0">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="05" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">05</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Defining the pattern</span>
-</div>
-<p style="margin:0 0 28px;max-width:740px;font:400 18px/156% 'Satoshi',sans-serif">Across the 41 routes, the same few questions came up again and again. Grouping them turned a long list of pages into a short list of decisions I could design once and reuse.</p>
-<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:rgba(20,36,59,.2);border-top:1.5px solid #14243B;border-bottom:1px solid rgba(20,36,59,.2)">
-<div style="background:#FFFFFF;padding:22px 20px 26px">
-<span style="display:block;font:400 28px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:14px">01</span>
-<p style="margin:0 0 10px;font:400 17px/146% 'Satoshi',sans-serif">What happens to the selected value?</p>
-<span style="display:block;font:400 14px/150% 'Satoshi',sans-serif;color:rgba(20,36,59,.65)">It has to stay the clearest thing on the page.</span>
-</div>
-<div style="background:#FFFFFF;padding:22px 20px 26px">
-<span style="display:block;font:400 28px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:14px">02</span>
-<p style="margin:0 0 10px;font:400 17px/146% 'Satoshi',sans-serif">Should unselected options remain visible?</p>
-<span style="display:block;font:400 14px/150% 'Satoshi',sans-serif;color:rgba(20,36,59,.65)">They explain the range a setting can take.</span>
-</div>
-<div style="background:#FFFFFF;padding:22px 20px 26px">
-<span style="display:block;font:400 28px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:14px">03</span>
-<p style="margin:0 0 10px;font:400 17px/146% 'Satoshi',sans-serif">When should helper text remain?</p>
-<span style="display:block;font:400 14px/150% 'Satoshi',sans-serif;color:rgba(20,36,59,.65)">Useful when the concept is unfamiliar or changing.</span>
-</div>
-<div style="background:#FFFFFF;padding:22px 20px 26px">
-<span style="display:block;font:400 28px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:14px">04</span>
-<p style="margin:0 0 10px;font:400 17px/146% 'Satoshi',sans-serif">How should unavailable actions appear?</p>
-<span style="display:block;font:400 14px/150% 'Satoshi',sans-serif;color:rgba(20,36,59,.65)">Present enough to be understood, not clickable.</span>
-</div>
-<div style="background:#FFFFFF;padding:22px 20px 26px">
-<span style="display:block;font:400 28px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:14px">05</span>
-<p style="margin:0 0 10px;font:400 17px/146% 'Satoshi',sans-serif">How should dependent settings behave?</p>
-<span style="display:block;font:400 14px/150% 'Satoshi',sans-serif;color:rgba(20,36,59,.65)">A read-only value can still be driven by another.</span>
+<div class="tf-questions">
+<span class="tf-questions__label">What kept coming up across the routes</span>
+<ol>
+<li><span>01</span><strong>What happens to the selected value?</strong><span>It has to stay the clearest thing on the page.</span></li>
+<li><span>02</span><strong>Should unselected options remain visible?</strong><span>They explain the range a setting can take.</span></li>
+<li><span>03</span><strong>When should helper text remain?</strong><span>Useful when the concept is unfamiliar or changing.</span></li>
+<li><span>04</span><strong>How should dependent settings behave?</strong><span>A read-only value can still be driven by another.</span></li>
+</ol>
 </div>
 </div>
-</div><div class="tf-bleed" data-part="protected" id="research" style="margin-top:72px;background:#EDF2F5;padding-top:64px;padding-bottom:60px">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="06" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">06</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Research</span>
+
+<div class="tf-section" data-part="protected" id="research">
+<span data-sec="04" class="tf-kicker">Research</span>
+<h2>Read-only still needed context.</h2>
+<p class="tf-lede">Before picking a direction, we ran research on what people needed from a configuration they couldn’t change. I helped prepare the questions, co-facilitated sessions and synthesized the findings.</p>
+<p class="tf-note">Multi-segment research · 10+ participants, internal and external</p>
+<div class="tf-findings">
+<article><span>01</span><h3>Current values weren’t always enough</h3><p>Showing only the saved value could make unfamiliar settings difficult to interpret. Users sometimes needed the surrounding context to understand what they were looking at.</p></article>
+<article><span>02</span><h3>Descriptions still mattered</h3><p>Helper text and descriptions were useful when a setting wasn’t self-explanatory. Removing them made some read-only states cleaner visually, but harder to understand.</p></article>
+<article><span>03</span><h3>Dependencies had to stay visible</h3><p>Some settings were driven by or related to other settings. Those relationships still mattered in read-only mode because they explained why a configuration looked the way it did.</p></article>
 </div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start">
+</div>
+<div class="tf-bleed tf-shift">
+<div class="tf-shift__grid">
+<div><span class="tf-kicker">The question I started with</span><p class="tf-shift__old">“What can I remove?”</p></div>
+<span class="tf-shift__arrow" aria-hidden="true">→</span>
+<div><span class="tf-kicker">The question I ended up asking</span><p class="tf-shift__new">“What context does someone need to understand this without editing it?”</p></div>
+</div>
+</div>
+
+<div class="tf-section" data-part="protected" id="directions" data-tf-mh>
+<span data-sec="05" class="tf-kicker">Early explorations</span>
+<h2>Two directions emerged.</h2>
+<p class="tf-lede">Based on what I learned from research, I explored two approaches to read-only configurations. Version M kept the page minimal and focused on the current configuration, while Version H kept helper text visible to provide more context.</p>
+<div class="tf-mh__bar">
+<div class="tf-mh__switch" role="group" aria-label="Version M and Version H">
+<button type="button" data-tf-mh-go="m" aria-pressed="true">M · Minimal</button>
+<button type="button" data-tf-mh-go="h" aria-pressed="false">H · Helper text</button>
+</div>
+<span>Scroll inside the frame · switching keeps your place</span>
+</div>
+<div class="tf-mh__scroll" data-tf-mh-scroll tabindex="0">
+<div class="tf-mh__stack">
+<img data-tf-mh-img="m" class="is-on" alt="Version M, the minimal read-only policy set screen" src="/assets/terraform/version-m.png?v=figma1" width="1440" height="2200">
+<img data-tf-mh-img="h" alt="Version H, the read-only policy set screen with helper text" src="/assets/terraform/version-h.png?v=figma1" width="1440" height="2600">
+</div>
+</div>
+<div class="tf-mh__notes">
+<button type="button" data-tf-mh-go="m">
+<span>M · Minimal</span>
+<span>Focused on the current configuration with less supporting information on the page.</span>
+<span><b>Strength</b> Made the current configuration easier to scan.</span>
+<span><b>Trade-off</b> Could remove context someone needed to interpret an unfamiliar setting.</span>
+</button>
+<button type="button" data-tf-mh-go="h">
+<span>H · Helper text</span>
+<span>Kept descriptions visible so the setting came with additional context.</span>
+<span><b>Strength</b> Preserved more context for unfamiliar settings.</span>
+<span><b>Trade-off</b> Added more information to scan.</span>
+</button>
+</div>
+</div>
+
+<div class="tf-section" data-part="protected" id="testing">
+<span data-sec="06" class="tf-kicker">Testing</span>
+<h2>I tested M and H with Terraform users.</h2>
+<p class="tf-lede">This round reused the structure and questions from an earlier usability test. What changed was who took part: Terraform users who work in the product directly. The sessions looked at whether people could understand the configuration, find what they needed, and make sense of the read-only state.</p>
+<div class="tf-test">
+<article><span>Version M</span><p>Made the current configuration easier to scan.</p></article>
+<span aria-hidden="true">→</span>
+<article><span>Version H</span><p>Kept context that helped people read unfamiliar settings.</p></article>
+<span aria-hidden="true">→</span>
+<article><span>Testing showed</span><p>Neither one solved the problem on its own.</p></article>
+<span aria-hidden="true">→</span>
+<article class="is-next"><span>So next</span><p>Take what worked from each.</p></article>
+</div>
+<div class="tf-rating"><span>4/5</span><span>Usability rating · Terraform-user study</span><span>A usability-study rating, not a production metric.</span></div>
+</div>
+
+<div class="tf-bleed" data-part="protected" id="combined">
 <div>
-<p style="margin:0 0 26px;font:400 18px/158% 'Satoshi',sans-serif">Before choosing a direction, I worked with the team on research into what people actually need from a configuration they can't change. I helped prepare the questions, co-facilitated sessions, and synthesized what came back.</p>
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">What we asked</span>
-<div style="padding:13px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">What information do users need beyond the current value?</div>
-<div style="padding:13px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">Are descriptions and helper text useful in read-only views?</div>
-<div style="padding:13px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">Does seeing other available options help explain a configuration?</div>
-<div style="padding:13px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">Can users complete review and troubleshooting work without edit access?</div>
-<div style="padding:13px 0;border-top:1px solid rgba(20,36,59,.22);font:400 16px/152% 'Satoshi',sans-serif">How does read-only fit into workflows people already have?</div>
+<div class="tf-combined__head">
+<h2>The answer wasn’t M or H.</h2>
+<span>Exploration · not released during my internship</span>
 </div>
-<div>
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">What we learned</span>
-<div style="padding:24px;background:#FFFFFF;border-radius:18px">
-<p style="margin:0;font:400 22px/144% 'Instrument Serif',serif">Explanatory context mattered when people ran into unfamiliar or changing concepts. Some of the supporting information I assumed a read-only view could drop was doing work.</p>
+<p class="tf-combined__sub">I combined what worked from both.</p>
+<p class="tf-lede">Testing showed a trade-off. M made the saved configuration easier to find, while H kept context that helped people understand unfamiliar settings. Based on that, I ideated a combined direction that pulls from both. It was an exploration and wasn’t released during my internship.</p>
+<div class="tf-combined__grid">
+<div class="tf-combined__frame" data-fs>
+<img alt="Policy set in read-only, with the saved execution mode checked and the other option crossed out" src="/assets/terraform/policy-set-view.png?v=policy2" width="671" height="1024">
+<span class="tf-pin" style="left:26%;top:66.9%">1</span>
+<span class="tf-pin" style="left:48%;top:64.3%">2</span>
+<span class="tf-pin" style="left:26%;top:70.3%">3</span>
+<span class="tf-pin" style="left:38%;top:68.4%">4</span>
 </div>
+<ol class="tf-principles">
+<li><span>1</span><div><strong>Make the current state visually dominant.</strong><span>The saved framework gets a check and full weight.</span></div></li>
+<li><span>2</span><div><strong>Keep descriptions when they add useful context.</strong><span>Execution mode keeps its explanation and link.</span></div></li>
+<li><span>3</span><div><strong>Preserve relationships between dependent settings.</strong><span>Runtime version still says it follows the Sentinel framework above.</span></div></li>
+<li><span>4</span><div><strong>Make the boundary between viewing and editing explicit.</strong><span>Checks and crosses replace radios and checkboxes, so nothing looks clickable.</span></div></li>
+</ol>
 </div>
-</div>
-</div><div data-part="protected" id="explorations" style="padding:64px 0 0">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="07" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">07</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Early explorations</span>
-</div>
-<p style="margin:0 0 30px;max-width:760px;font:400 18px/156% 'Satoshi',sans-serif">Based on what I learned from research, I explored two approaches to read-only configurations. Version M kept the page minimal and focused on the current configuration, while Version H kept helper text visible to provide more context.</p>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px">
-<div>
-<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
-<span style="font:700 22px/1 'Satoshi',sans-serif;color:#14243B">M</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Minimal</span>
-</div>
-<div class="tf-shot-scroll">
-<img alt="Version M, the minimal read-only policy set screen" src="/assets/terraform/version-m.png?v=figma1">
-</div>
-<p style="margin:16px 0 0;font:400 16px/154% 'Satoshi',sans-serif">Focused on the current configuration with less supporting information on the page.</p>
-</div>
-<div>
-<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px">
-<span style="font:700 22px/1 'Satoshi',sans-serif;color:#14243B">H</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Helper text</span>
-</div>
-<div class="tf-shot-scroll">
-<img alt="Version H, the read-only policy set screen with helper text" src="/assets/terraform/version-h.png?v=figma1">
-</div>
-<p style="margin:16px 0 0;font:400 16px/154% 'Satoshi',sans-serif">Kept descriptions visible so the setting came with additional context.</p>
+<p class="tf-combined__note">Numbers on the screen show where each principle lands.</p>
+<span data-sec="07" class="tf-sr">Combined</span>
 </div>
 </div>
-</div><div data-part="protected" id="testing" style="padding:64px 0 0">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="08" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">08</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Testing the directions</span>
-</div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.75fr);gap:48px;align-items:start">
-<p style="margin:0;font:400 18px/158% 'Satoshi',sans-serif">I tested both directions to see whether removing supporting information made configurations easier to review or took away context users needed. Rather than looking only at preference, I focused on whether users could understand the settings, find enough information to complete their review, and feel confident in their assessment.</p>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(20,36,59,.2);border:1px solid rgba(20,36,59,.2)">
-<div style="background:#FFFFFF;padding:20px">
-<span style="display:block;font:400 40px/1 'Instrument Serif',serif;margin-bottom:8px">9</span>
-<span style="font:400 14px/144% 'Satoshi',sans-serif;color:rgba(20,36,59,.72)">Participants in the M / H comparison</span>
-</div>
-<div style="background:#FFFFFF;padding:20px">
-<span style="display:block;font:400 40px/1 'Instrument Serif',serif;margin-bottom:8px">4</span>
-<span style="font:400 14px/144% 'Satoshi',sans-serif;color:rgba(20,36,59,.72)">Areas measured: comprehension, information sufficiency, confidence, workflow impact</span>
-</div>
+
+<div class="tf-section" data-part="protected" id="details">
+<span data-sec="08" class="tf-kicker">Up close</span>
+<h2>How principles 1–3 played out in specific controls.</h2>
+<p class="tf-lede">Principle 4 gets its own section after this.</p>
+
+<article class="tf-decision tf-decision--focus">
+<div class="tf-decision__label"><span>Decision 01</span><span>Principle 1</span></div>
+<h3>Selected values carry the weight. Alternatives stay quiet.</h3>
+<div class="tf-decision__layout">
+<div class="tf-decision__board">
+<div class="tf-decision__frame">
+<div class="tf-decision__shot">
+<img src="/assets/terraform/policy-set-view.png?v=policy1" alt="Policy set in read-only, with the selected framework marked and the alternative still visible" width="671" height="1024">
 </div>
 </div>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:34px">
-<div style="padding:22px 28px 10px;border-top:1.5px solid #14243B;border-left:none">
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">M · Minimal</span>
-<p style="margin:0;font:400 17px/152% 'Satoshi',sans-serif">The current configuration received more visual focus.</p>
-</div>
-<div style="padding:22px 28px 10px;border-top:1.5px solid #14243B;border-left:1px solid rgba(20,36,59,.22)">
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:12px">H · Helper text</span>
-<p style="margin:0;font:400 17px/152% 'Satoshi',sans-serif">Descriptions provided additional context for understanding unfamiliar settings.</p>
+<div class="tf-decision__legend">
+<p class="tf-decision__mark is-solid"><span>1</span>Current value carries the weight</p>
+<p class="tf-decision__mark"><span>2</span>Alternatives remain as context</p>
 </div>
 </div>
-<div style="margin-top:28px;padding:18px 22px;background:#EDF2F5;border-radius:14px;display:flex;align-items:center;gap:14px">
-<span style="font:400 18px/1 'Satoshi',sans-serif;color:#14243B">↓</span>
-<span style="font:400 17px/150% 'Satoshi',sans-serif">Neither version was carried forward as-is. What I learned from those sessions led to a third exploration.</span>
-</div>
-</div><div class="tf-bleed" data-part="protected" id="combining" style="margin-top:72px;background:#EDF2F5;padding-top:64px;padding-bottom:60px">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="09" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">09</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Combining what worked</span>
-</div>
-<p style="margin:0 0 30px;max-width:760px;font:400 18px/156% 'Satoshi',sans-serif">Testing gave me a clearer idea of what each direction was doing well. I explored a combined approach that kept the current configuration easy to find while preserving context where it helped users understand the setting. This exploration was not released.</p>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:stretch">
-<div class="tf-shot-scroll">
-<img alt="Combined read-only policy set, with the current configuration shown first and helper text where it adds context" src="/assets/terraform/section-09.png?v=figma2">
-</div>
-<div style="display:flex;flex-direction:column;justify-content:center;gap:0">
-<div style="padding:20px 0;border-top:1px solid rgba(20,36,59,.24)">
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Current state first</span>
-<p style="margin:0;font:400 15px/152% 'Satoshi',sans-serif">The saved configuration gets the strongest visual emphasis.</p>
-</div>
-<div style="padding:20px 0;border-top:1px solid rgba(20,36,59,.24)">
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Context when it helps</span>
-<p style="margin:0;font:400 15px/152% 'Satoshi',sans-serif">Descriptions remain when they add useful information.</p>
-</div>
-<div style="padding:20px 0;border-top:1px solid rgba(20,36,59,.24)">
-<span style="display:block;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B;margin-bottom:10px">Less visual competition</span>
-<p style="margin:0;font:400 15px/152% 'Satoshi',sans-serif">Supporting content stays available without competing with the current state.</p>
+<div class="tf-decision__notes">
+<p><b>Evidence</b> Showing only the saved value made some settings harder to interpret. Showing every option at equal weight made the current configuration harder to scan.</p>
+<p><b>Design response</b> The selected value became the strongest visual anchor. Unselected options stayed visible when they helped explain the range of possible values, but moved into the background.</p>
+<p><b>What I gave up</b> A shorter values-only summary. The read-only page stays closer to the length of the editable one.</p>
 </div>
 </div>
-</div>
-</div><div data-part="protected" id="refining" style="padding:64px 0 0">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="10" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">10</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Refining the details</span>
-</div>
-<h3 style="margin:0;font:400 44px/1.05 'Instrument Serif',serif;letter-spacing:-.01em;color:#14243B">Small changes, <span style="font-style:italic">big clarity.</span></h3>
-<p style="margin:18px 0 0;max-width:720px;font:400 18px/156% 'Satoshi',sans-serif">Once the larger read-only pattern was established, I refined smaller details that helped users understand what they were seeing without adding unnecessary controls.</p>
-<div style="margin-top:56px;display:flex;flex-wrap:wrap;align-items:center;gap:32px 48px">
-<div class="tf-refine__shot" style="flex:2.4 1 480px;min-width:0;background:#FFFFFF;border:1px solid #D5DCE3;border-radius:18px;box-shadow:0 1px 2px rgba(20,36,59,.05),0 10px 28px rgba(20,36,59,.07);padding:clamp(20px,4.5%,40px);overflow:hidden">
-<img src="/assets/terraform/refine-unselected-options.png?v=sec10" alt="Organization Access in read-only mode: under Project permissions, None is selected while View all projects and Manage all projects stay visible as unselected; under Workspace permissions, View all workspaces is selected" width="1274" height="654" style="display:block">
-</div>
-<div style="flex:1 1 220px;padding-top:26px;border-top:1px solid rgba(20,36,59,.22)">
-<span style="display:flex;align-items:baseline;gap:10px;font:500 13px/1.3 'Satoshi',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#14243B"><span style="font:400 italic 22px/1 'Instrument Serif',serif;letter-spacing:0;text-transform:none">01</span>Unselected options</span>
-<p style="margin:16px 0 0;font:400 17px/158% 'Satoshi',sans-serif;color:#14243B">Keep options visible even when they aren’t selected, so someone reviewing the configuration can understand what alternatives exist.</p>
+</article>
+
+<article class="tf-decision tf-decision--later">
+<div class="tf-decision__label"><span>Decision 02</span><span>Principle 3</span></div>
+<h3>Dependent settings stay attached to what controls them.</h3>
+<div class="tf-decision__layout">
+<div class="tf-decision__board">
+<div class="tf-decision__frame tf-decision__frame--depend">
+<div class="tf-decision__shot">
+<img src="/assets/terraform/refine-dependent-settings.png?v=sec10" alt="Dependent settings in read-only" width="1274" height="394">
+<span class="tf-decision__brace" aria-hidden="true"></span>
+<span class="tf-decision__pin tf-decision__pin--1">1</span>
+<span class="tf-decision__pin tf-decision__pin--2">2</span>
 </div>
 </div>
-<div style="margin-top:72px;display:flex;flex-wrap:wrap;align-items:center;gap:32px 48px">
-<div class="tf-refine__shot" style="flex:2.4 1 480px;min-width:0;background:#FFFFFF;border:1px solid #D5DCE3;border-radius:18px;box-shadow:0 1px 2px rgba(20,36,59,.05),0 10px 28px rgba(20,36,59,.07);padding:clamp(20px,4.5%,40px);overflow:hidden">
-<img src="/assets/terraform/refine-helper-text.png?v=sec10" alt="Execution mode in read-only mode with its description and a tooltip explaining that the HCP Terraform Agent runs policy sets in an isolated environment with a pinned runtime version" width="1274" height="574" style="display:block">
-</div>
-<div style="flex:1 1 220px;padding-top:26px;border-top:1px solid rgba(20,36,59,.22)">
-<span style="display:flex;align-items:baseline;gap:10px;font:500 13px/1.3 'Satoshi',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#14243B"><span style="font:400 italic 22px/1 'Instrument Serif',serif;letter-spacing:0;text-transform:none">02</span>Helper text</span>
-<p style="margin:16px 0 0;font:400 17px/158% 'Satoshi',sans-serif;color:#14243B">Keep supporting explanations and contextual information available in the read-only experience.</p>
+<div class="tf-decision__legend">
+<p class="tf-decision__mark is-solid"><span>1</span>Controlling setting</p>
+<p class="tf-decision__mark"><span>2</span>Settings that depend on it, indented beneath</p>
 </div>
 </div>
-<div style="margin-top:72px;display:flex;flex-wrap:wrap;align-items:center;gap:32px 48px">
-<div class="tf-refine__shot" style="flex:2.4 1 480px;min-width:0;background:#FFFFFF;border:1px solid #D5DCE3;border-radius:18px;box-shadow:0 1px 2px rgba(20,36,59,.05),0 10px 28px rgba(20,36,59,.07);padding:clamp(20px,4.5%,40px);overflow:hidden">
-<img src="/assets/terraform/refine-dependent-settings.png?v=sec10" alt="Private registry permissions in read-only mode: Manage private registry is unselected, with its five dependent permissions nested beneath it, each also unselected" width="1274" height="394" style="display:block">
-</div>
-<div style="flex:1 1 220px;padding-top:26px;border-top:1px solid rgba(20,36,59,.22)">
-<span style="display:flex;align-items:baseline;gap:10px;font:500 13px/1.3 'Satoshi',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#14243B"><span style="font:400 italic 22px/1 'Instrument Serif',serif;letter-spacing:0;text-transform:none">03</span>Dependent settings</span>
-<p style="margin:16px 0 0;font:400 17px/158% 'Satoshi',sans-serif;color:#14243B">Preserve relationships between settings so unavailable dependent options still make sense in context.</p>
+<div class="tf-decision__notes">
+<p><b>Evidence</b> Some values only make sense because of a setting above them. Without that link, the read-only page was accurate but hard to follow.</p>
+<p><b>Design response</b> I kept dependent settings grouped under the setting that drives them, so a reviewer can see why a value exists even without edit access.</p>
 </div>
 </div>
-</div><div class="tf-workflow" data-part="protected" data-tf-workflow id="workflow" style="padding:64px 0 0">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="11" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">11</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Workflow</span>
+</article>
+
+<article class="tf-decision tf-decision--later">
+<div class="tf-decision__label"><span>Decision 03</span><span>Principle 2</span></div>
+<div class="tf-decision__split tf-decision__split--keep">
+<div class="tf-decision__copy">
+<h3>Descriptions stay when they answer a question.</h3>
+<p>I didn’t want every description to survive just because it was on the editable page. I kept one when the setting was unfamiliar or the value couldn’t explain itself.</p>
+<div class="tf-keep">
+<span>Keep</span><span>The description explains something the value alone cannot.</span>
+<span>Remove</span><span>The value already communicates enough on its own.</span>
 </div>
-<h2 style="margin:0 0 14px;max-width:760px;font:400 36px/118% 'Instrument Serif',serif;color:#14243B">Making the move from reviewing to editing explicit.</h2>
-<p style="margin:0 0 36px;max-width:680px;font:400 18px/156% 'Satoshi',sans-serif">Read-only wasn't always the end of the workflow. Someone reviewing a policy set sometimes needed to make a permitted change, then come back and confirm the result.</p>
-<div class="tf-workflow__steps" role="list" aria-label="Policy set workflow">
+</div>
+<figure class="tf-decision__kept">
+<img src="/assets/terraform/refine-helper-text.png?v=tip1" alt="Helper text kept in read-only" width="1274" height="574">
+<span>Kept</span>
+</figure>
+</div>
+</article>
+</div>
+
+<div class="tf-section tf-workflow" data-part="protected" data-tf-workflow id="view-edit">
+<span data-sec="09" class="tf-kicker">View → Edit → Verify <span class="tf-pill">Principle 4</span></span>
+<h2>Read-only also needed a clear way out.</h2>
+<p class="tf-lede">For people who can make changes, I explored how the same page moves between reviewing and editing, so editing is always a deliberate step.</p>
+<div class="tf-workflow__steps" role="list" aria-label="View, edit, verify">
 <div class="tf-workflow__step is-active" role="listitem" data-ps-step="view" aria-current="step">
 <div class="tf-workflow__kicker"><span>01</span><span class="tf-workflow__label">View</span></div>
-<p>Inspect the current configuration, with no editable controls.</p>
+<p>Understand what’s configured.</p>
 </div>
 <div class="tf-workflow__step" role="listitem" data-ps-step="edit" aria-current="false">
 <div class="tf-workflow__kicker"><span>02</span><span class="tf-workflow__label">Edit</span></div>
-<p>Choosing Edit deliberately exposes the controls needed to make a change.</p>
+<p>Explicitly enter an editable state.</p>
 </div>
 <div class="tf-workflow__step" role="listitem" data-ps-step="verify" aria-current="false">
 <div class="tf-workflow__kicker"><span>03</span><span class="tf-workflow__label">Verify</span></div>
-<p>After saving, return to the view to review the resulting state.</p>
+<p>Return to read-only after saving.</p>
 </div>
 </div>
-<p class="tf-workflow__status" aria-live="polite">View. Inspect the current configuration, with no editable controls.</p>
+<p class="tf-workflow__status" aria-live="polite">View. Understand what’s configured.</p>
 <div class="tf-workflow__frame" data-tf-proto-frame>
-<iframe data-tf-proto title="Interactive Terraform policy set prototype" src="/api/terraform-prototype"></iframe>
+<iframe data-tf-proto title="Read, edit, verify prototype" src="/api/terraform-prototype"></iframe>
 </div>
 <div class="tf-workflow__notes">
-<span>Try it — select Edit to move through the workflow</span>
-<span>Live prototype · scroll inside the frame</span>
+<span>Live prototype · try Edit, then Save</span>
+<button type="button" data-tf-proto-open>Open in full screen</button>
 </div>
-<p class="tf-workflow__takeaway">The workflow keeps reviewing and editing visually distinct, then returns the user to the updated configuration after changes are saved.</p>
-</div><div class="tf-scale" data-part="protected" id="scaling">
-<div class="tf-scale__kicker">
-<span data-sec="12">12</span>
-<span>Scaling the pattern</span>
+<dialog class="tf-proto-modal" data-tf-proto-modal>
+<button type="button" class="tf-proto-modal__close" data-tf-proto-close>Close</button>
+<iframe data-tf-proto-full title="Read, edit, verify prototype"></iframe>
+</dialog>
 </div>
-<div class="tf-scale__intro">
-<p>The decisions had to hold up past the pages used in testing. I checked the pattern against the configuration types that came up most often in the audit.</p>
-<p class="tf-scale__pull">One set of read-only rules, applied across 41 configuration routes.</p>
+
+<div class="tf-section" data-part="protected" id="system" data-tf-comps>
+<span data-sec="10" class="tf-kicker">Component system</span>
+<h2>The pattern had to work beyond one screen.</h2>
+<p class="tf-lede">Once the interaction direction was clearer, I applied the same behavior across the nine recurring component types from the audit. Each one got a defined read-only state, plus an empty state where it needed one.</p>
+<div class="tf-levels">
+<div><span>Detail level</span><p>How should this control behave when someone can’t edit it?</p></div>
+<div><span>System level</span><p>What rule should every recurring component follow in read-only?</p></div>
 </div>
-<p class="tf-scale__lede">Each form component was documented in the states a configuration page can be in: read-only, empty, and editable. Teams building a new page pick the component, and the read-only rules come with it.</p>
-<div class="tf-scale__table">
-<div class="tf-scale__head">
-<div></div>
-<div class="tf-scale__col tf-scale__col--ro"><span class="tf-scale__ht">Read-only</span><span class="tf-scale__hs">The pattern</span></div>
-<div class="tf-scale__col"><span class="tf-scale__ht">Empty</span><span class="tf-scale__hs">No value set</span></div>
-<div class="tf-scale__col"><span class="tf-scale__ht">Editable</span><span class="tf-scale__hs">For comparison</span></div>
+<div class="tf-comps">
+<div class="tf-comps__nav" role="tablist" aria-label="Component types">
+<button type="button" role="tab" data-comp="checkbox">Checkbox</button>
+<button type="button" role="tab" data-comp="masked">Masked input</button>
+<button type="button" role="tab" data-comp="radio">Radio</button>
+<button type="button" role="tab" data-comp="radiocard">Radio card</button>
+<button type="button" role="tab" data-comp="select">Select</button>
+<button type="button" role="tab" data-comp="superselect">Super select</button>
+<button type="button" role="tab" data-comp="textarea">Text area</button>
+<button type="button" role="tab" data-comp="textinput">Text input</button>
+<button type="button" role="tab" data-comp="toggle">Toggle</button>
 </div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">01</span><span class="tf-scale__title">Super select</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Super select, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=superselect-ro.png" style="width:459px" width="918" height="658"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Empty</span><img alt="Super select, empty state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=superselect-empty.png" style="width:457px" width="914" height="128"/></div>
-<div class="tf-scale__cell tf-scale__cell--empty"></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">02</span><span class="tf-scale__title">Select</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Select, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=select-ro.png" style="width:234px" width="468" height="76"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Empty</span><img alt="Select, empty state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=select-empty.png" style="width:269px" width="538" height="76"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Select, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=select-edit.png" style="width:171px" width="342" height="92"/></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">03</span><span class="tf-scale__title">Toggle</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Toggle, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=toggle-ro.png" style="width:239px" width="478" height="118"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Empty</span><img alt="Toggle, empty state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=toggle-empty.png" style="width:272px" width="544" height="78"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Toggle, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=toggle-edit.png" style="width:174px" width="348" height="172"/></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">04</span><span class="tf-scale__title">Checkboxes</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Checkboxes, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=checkbox-ro.png" style="width:239px" width="478" height="96"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Empty</span><img alt="Checkboxes, empty state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=checkbox-empty.png" style="width:274px" width="548" height="72"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Checkboxes, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=checkbox-edit.png" style="width:159px" width="318" height="222"/></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">05</span><span class="tf-scale__title">Radios</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Radios, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=radio-ro.png" style="width:239px" width="478" height="64"/></div>
-<div class="tf-scale__cell tf-scale__cell--empty"></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Radios, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=radio-edit.png" style="width:124px" width="248" height="212"/></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">06</span><span class="tf-scale__title">Masked input</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Masked input, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=masked-ro.png" style="width:239px" width="478" height="68"/></div>
-<div class="tf-scale__cell tf-scale__cell--empty"></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Masked input, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=masked-edit.png" style="width:174px" width="348" height="222"/></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">07</span><span class="tf-scale__title">Text input</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Text input, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=textinput-ro.png" style="width:239px" width="478" height="60"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Empty</span><img alt="Text input, empty state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=textinput-empty.png" style="width:246px" width="492" height="94"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Text input, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=textinput-edit.png" style="width:190px" width="380" height="108"/></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">08</span><span class="tf-scale__title">Text area</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Text area, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=textarea-ro.png" style="width:239px" width="478" height="92"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Empty</span><img alt="Text area, empty state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=textarea-empty.png" style="width:246px" width="492" height="98"/></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Text area, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=textarea-edit.png" style="width:194px" width="388" height="162"/></div>
-</div>
-<div class="tf-scale__row">
-<div class="tf-scale__name"><span class="tf-scale__n">09</span><span class="tf-scale__title">Radio card</span></div>
-<div class="tf-scale__cell tf-scale__cell--ro"><span class="tf-scale__state">Read-only</span><img alt="Radio card, read-only state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=radiocard-ro.png" style="width:239px" width="478" height="328"/></div>
-<div class="tf-scale__cell tf-scale__cell--empty"></div>
-<div class="tf-scale__cell"><span class="tf-scale__state">Editable</span><img alt="Radio card, editable state" class="tf-scale__shot" loading="lazy" decoding="async" src="/api/terraform-scaling?name=radiocard-edit.png" style="width:402px" width="804" height="294"/></div>
-</div>
-</div>
-</div><div class="tf-bleed" data-part="protected" id="outcome" style="margin-top:72px;background:#14243B;color:#fff;padding-top:64px;padding-bottom:60px">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:30px">
-<span data-sec="13" style="font:700 30px/1 'Satoshi',sans-serif;color:#fff">13</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Outcome</span>
-</div>
-<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-bottom:34px">
-<div style="padding:26px 28px 6px;border-top:1px solid rgba(255,255,255,.34);border-left:none">
-<span style="display:block;font:400 52px/1 'Instrument Serif',serif;color:#fff;margin-bottom:14px">41</span>
-<span style="display:block;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:12px">Configuration routes reviewed</span>
-<p style="margin:0;font:400 15px/154% 'Satoshi',sans-serif;color:rgba(255,255,255,.82)">The audit set the scope for where the pattern had to work.</p>
-</div>
-<div style="padding:26px 28px 6px;border-top:1px solid rgba(255,255,255,.34);border-left:1px solid rgba(255,255,255,.34)">
-<span style="display:block;font:400 52px/1 'Instrument Serif',serif;color:#fff;margin-bottom:14px">3</span>
-<span style="display:block;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:12px">User workflows studied</span>
-<p style="margin:0;font:400 15px/154% 'Satoshi',sans-serif;color:rgba(255,255,255,.82)">Auditing, support investigation, and platform review.</p>
-</div>
-<div style="padding:26px 28px 6px;border-top:1px solid rgba(255,255,255,.34);border-left:1px solid rgba(255,255,255,.34)">
-<span style="display:block;font:400 52px/1 'Instrument Serif',serif;color:#fff;margin-bottom:14px">10+</span>
-<span style="display:block;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:12px">Users across research</span>
-<p style="margin:0;font:400 15px/154% 'Satoshi',sans-serif;color:rgba(255,255,255,.82)">Across the research sessions I helped prepare and facilitate.</p>
-</div>
-<div style="padding:26px 28px 6px;border-top:1px solid rgba(255,255,255,.34);border-left:1px solid rgba(255,255,255,.34)">
-<span style="display:block;font:400 52px/1 'Instrument Serif',serif;color:#fff;margin-bottom:14px">4/5</span>
-<span style="display:block;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:12px">Usability validation</span>
-<p style="margin:0;font:400 15px/154% 'Satoshi',sans-serif;color:rgba(255,255,255,.82)">Average across measured dimensions in a separate later test, not the M / H comparison.</p>
+<div class="tf-comps__stage">
+<section data-comp-panel="checkbox">
+<div class="tf-comps__title"><span>01</span><h3>Checkbox</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Checkbox states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Checkbox, editable" src="/api/terraform-scaling?name=checkbox-edit.png" width="318" height="222"><img data-state-img="ro" alt="Checkbox, read-only" src="/api/terraform-scaling?name=checkbox-ro.png" width="478" height="96" hidden><img data-state-img="empty" alt="Checkbox, empty" src="/api/terraform-scaling?name=checkbox-empty.png" width="548" height="72" hidden></div>
+</section>
+<section data-comp-panel="masked" hidden>
+<div class="tf-comps__title"><span>02</span><h3>Masked input</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Masked input states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Masked input, editable" src="/api/terraform-scaling?name=masked-edit.png" width="348" height="222"><img data-state-img="ro" alt="Masked input, read-only" src="/api/terraform-scaling?name=masked-ro.png" width="478" height="68" hidden></div>
+</section>
+<section data-comp-panel="radio" hidden>
+<div class="tf-comps__title"><span>03</span><h3>Radio</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Radio states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Radio, editable" src="/api/terraform-scaling?name=radio-edit.png" width="248" height="212"><img data-state-img="ro" alt="Radio, read-only" src="/api/terraform-scaling?name=radio-ro.png" width="478" height="64" hidden></div>
+</section>
+<section data-comp-panel="radiocard" hidden>
+<div class="tf-comps__title"><span>04</span><h3>Radio card</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Radio card states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Radio card, editable" src="/api/terraform-scaling?name=radiocard-edit.png" width="804" height="294"><img data-state-img="ro" alt="Radio card, read-only" src="/api/terraform-scaling?name=radiocard-ro.png" width="478" height="328" hidden></div>
+</section>
+<section data-comp-panel="select" hidden>
+<div class="tf-comps__title"><span>05</span><h3>Select</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Select states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Select, editable" src="/api/terraform-scaling?name=select-edit.png" width="342" height="92"><img data-state-img="ro" alt="Select, read-only" src="/api/terraform-scaling?name=select-ro.png" width="468" height="76" hidden><img data-state-img="empty" alt="Select, empty" src="/api/terraform-scaling?name=select-empty.png" width="538" height="76" hidden></div>
+</section>
+<section data-comp-panel="superselect" hidden>
+<div class="tf-comps__title"><span>06</span><h3>Super select</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Super select states"><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
+<div class="tf-comps__frame"><img data-state-img="ro" alt="Super select, read-only" src="/api/terraform-scaling?name=superselect-ro.png" width="918" height="658"><img data-state-img="empty" alt="Super select, empty" src="/api/terraform-scaling?name=superselect-empty.png" width="914" height="128" hidden></div>
+</section>
+<section data-comp-panel="textarea" hidden>
+<div class="tf-comps__title"><span>07</span><h3>Text area</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Text area states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Text area, editable" src="/api/terraform-scaling?name=textarea-edit.png" width="388" height="162"><img data-state-img="ro" alt="Text area, read-only" src="/api/terraform-scaling?name=textarea-ro.png" width="478" height="92" hidden><img data-state-img="empty" alt="Text area, empty" src="/api/terraform-scaling?name=textarea-empty.png" width="492" height="98" hidden></div>
+</section>
+<section data-comp-panel="textinput" hidden>
+<div class="tf-comps__title"><span>08</span><h3>Text input</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Text input states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Text input, editable" src="/api/terraform-scaling?name=textinput-edit.png" width="380" height="108"><img data-state-img="ro" alt="Text input, read-only" src="/api/terraform-scaling?name=textinput-ro.png" width="478" height="60" hidden><img data-state-img="empty" alt="Text input, empty" src="/api/terraform-scaling?name=textinput-empty.png" width="492" height="94" hidden></div>
+</section>
+<section data-comp-panel="toggle" hidden>
+<div class="tf-comps__title"><span>09</span><h3>Toggle</h3></div>
+<div class="tf-comps__states" role="group" aria-label="Toggle states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
+<div class="tf-comps__frame"><img data-state-img="edit" alt="Toggle, editable" src="/api/terraform-scaling?name=toggle-edit.png" width="348" height="172"><img data-state-img="ro" alt="Toggle, read-only" src="/api/terraform-scaling?name=toggle-ro.png" width="478" height="118" hidden><img data-state-img="empty" alt="Toggle, empty" src="/api/terraform-scaling?name=toggle-empty.png" width="544" height="78" hidden></div>
+</section>
 </div>
 </div>
-<p style="margin:0;max-width:820px;font:400 18px/158% 'Satoshi',sans-serif;color:#fff">By the end of my internship, we had a reusable approach to read-only configurations: one set of rules checked across 41 routes and three enterprise workflows. The combined direction remained an exploration and didn't ship during my internship.</p>
-</div><div data-part="protected" id="learned" style="padding:64px 0 0">
-<div style="display:flex;align-items:baseline;gap:16px;margin-bottom:14px">
-<span data-sec="14" style="font:700 30px/1 'Satoshi',sans-serif;color:#14243B">14</span>
-<span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">What I learned</span>
 </div>
-<p style="margin:0;max-width:860px;font:400 22px/152% 'Instrument Serif',serif">This project changed how I think about designing for complex products. I started out thinking a clearer read-only experience might mean showing less, but research showed me that some of the information I wanted to remove was helping users understand what they were looking at. Working across 41 routes also pushed me to stop thinking about individual screens and start thinking about the rules that needed to hold up across the product.</p>
+
+<div class="tf-section" data-part="protected" id="rules">
+<h3>Those behaviors came down to five rules.</h3>
+<p class="tf-lede">The right column shows where each one came from.</p>
+<ol class="tf-rules">
+<li><span>01</span><strong>Current state first</strong><span>Someone should be able to tell what is configured without hunting.</span><span>Decision 01</span></li>
+<li><span>02</span><strong>Relationships stay intact</strong><span>Read-only shouldn’t hide why settings depend on one another.</span><span>Decision 02</span></li>
+<li><span>03</span><strong>Context earns its place</strong><span>Descriptions and alternatives stay when they explain the current state.</span><span>Decisions 01 + 03</span></li>
+<li><span>04</span><strong>Context without competition</strong><span>Supporting information stays available without competing with the current state.</span><span>M vs H · combined</span></li>
+<li><span>05</span><strong>Editing is intentional</strong><span>Viewing and changing configuration should feel like distinct modes.</span><span>Read → Edit → Verify</span></li>
+</ol>
+</div>
+
+<div class="tf-bleed" data-part="protected" id="handoff">
+<div>
+<span data-sec="11" class="tf-kicker">Handoff</span>
+<div class="tf-handoff__head">
+<h2>What I handed off</h2>
+<p>At the end of the internship, I handed off the proposed interface along with the reasoning and rules behind it, so the team could keep applying read-only behavior across Terraform.</p>
+</div>
+<div class="tf-handoff__grid">
+<article><figure><img src="/assets/terraform/section-09.png?v=figma2" alt="Proposed read-only policy set screen"></figure><h3>Figma designs</h3><p>Interface explorations and final proposed states.</p></article>
+<article><figure><img src="/assets/terraform/refine-helper-text.png?v=tip1" alt="Helper text kept in read-only"></figure><h3>Design recommendations</h3><p>When context should stay visible.</p></article>
+<article><figure class="tf-handoff__states"><img src="/api/terraform-scaling?name=toggle-edit.png" alt="Toggle, editable"><img src="/api/terraform-scaling?name=toggle-ro.png" alt="Toggle, read-only"><img src="/api/terraform-scaling?name=toggle-empty.png" alt="Toggle, empty"></figure><h3>Component behavior specs</h3><p>Behavior for each recurring component type and state.</p></article>
+<article><figure class="tf-handoff__notes"><span>01 Current values weren’t enough</span><span>02 Descriptions mattered</span><span>03 Dependencies stay visible</span></figure><h3>Research findings</h3><p>The observations behind each decision.</p></article>
+</div>
+</div>
+</div>
+
+<div class="tf-bleed tf-outcome" data-part="protected" id="outcome">
+<div>
+<div class="tf-outcome__head">
+<div><span data-sec="12" class="tf-kicker">Outcome</span><h2>From individual screens to reusable behavior.</h2></div>
+<div>
+<p>By the end of the internship, I had moved from designing individual read-only states to documenting behaviors that could work across recurring Terraform components.</p>
+<p>The handoff included the interface designs, design recommendations, component behavior specs and the research behind them.</p>
+</div>
+</div>
+<div class="tf-outcome__stats">
+<div><span>41</span><strong>Configuration routes audited</strong><span>Every route in scope</span></div>
+<div><span>10+</span><strong>Research participants</strong><span>Broader research, internal and external</span></div>
+<div><span>9</span><strong>Component types explored</strong><span>Editable, read-only, empty</span></div>
+<div><span>4/5</span><strong>Usability rating</strong><span>Terraform-user M vs. H study only</span></div>
+</div>
+<p class="tf-outcome__note">The combined direction was an exploration and wasn’t released during my internship.</p>
+</div>
+</div>
+
+<div class="tf-section" data-part="protected" id="reflection">
+<div class="tf-reflect">
+<div><span data-sec="13" class="tf-kicker">Reflection</span><h2>This project changed how I think about designing for complex products.</h2></div>
+<div>
+<article><span>01</span><div><h3>Context matters</h3><p>I started the project thinking a clearer read-only experience might mean showing less. Research showed me that some of the information I wanted to remove was exactly what helped people understand what they were looking at.</p></div></article>
+<article><span>02</span><div><h3>Think in rules, not pages</h3><p>Working across 41 routes also pushed me to stop thinking about individual screens and start thinking about the rules that needed to hold up across the product.</p></div></article>
+</div>
+</div>
 </div>

@@ -71,7 +71,7 @@
     id.className = "m-casebar__progress";
     id.textContent = "";
     progressLabel = document.createElement("span");
-    progressLabel.textContent = "01 / 14";
+    progressLabel.textContent = "01 / 13";
     id.appendChild(progressLabel);
     var unlock = document.createElement("a");
     unlock.className = "m-casebar__unlock";
@@ -154,7 +154,7 @@
         if (value) current = value;
       }
     });
-    progressLabel.textContent = String(current).padStart(2, "0") + " / " + String(links.length || 14).padStart(2, "0");
+    progressLabel.textContent = String(current).padStart(2, "0") + " / " + String(links.length || 13).padStart(2, "0");
   }
 
   progress();

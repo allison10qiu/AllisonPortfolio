@@ -310,8 +310,8 @@ html:has(.brilliant-final) {
 
 .bf-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 334px;
-  column-gap: 44px;
+  grid-template-columns: minmax(0, 1fr) 268px;
+  column-gap: 36px;
   align-items: center;
   padding: 0;
 }
@@ -323,9 +323,9 @@ html:has(.brilliant-final) {
 .bf-hero__title {
   margin: 12.9px 0 0;
   font-family: var(--bf-serif);
-  font-size: 62px;
+  font-size: clamp(40px, 4.2vw, 64px);
   font-weight: 400;
-  line-height: 65.72px;
+  line-height: 1.04;
   letter-spacing: -0.93px;
   color: var(--bf-navy);
 }
@@ -336,12 +336,12 @@ html:has(.brilliant-final) {
 }
 
 .bf-hero__lede {
-  margin: 20px 0 0;
-  max-width: 560px;
+  margin: 16px 0 0;
+  max-width: 38em;
   font-family: var(--bf-sans);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 31px;
+  line-height: 1.58;
   color: var(--bf-navy);
 }
 
@@ -421,6 +421,14 @@ html:has(.brilliant-final) {
   position: relative;
   aspect-ratio: 334 / 359;
   min-width: 0;
+  /* The rotated phones hang below this frame. The margin keeps them off the meta rule. */
+  margin-bottom: 56px;
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .bf-hero__phones {
+    margin-bottom: 96px;
+  }
 }
 
 /* The front phone is rotated past the slot. On a narrow screen that
@@ -500,7 +508,7 @@ html:has(.brilliant-final) {
 .bf-marquee {
   margin-inline: 0;
   position: relative;
-  padding: 52px 0;
+  padding: 36px 0;
   border-radius: 20px;
   background: #fff;
   overflow: hidden;
@@ -548,7 +556,7 @@ html:has(.brilliant-final) {
 
 .bf-marquee__item {
   flex: 0 0 auto;
-  width: 240px;
+  width: 188px;
   aspect-ratio: 240 / 486.484;
 }
 
@@ -573,7 +581,7 @@ html:has(.brilliant-final) {
 /* ---------- 01 Problem (navy band) ---------- */
 
 .bf-problem {
-  padding: 64px var(--bf-pad) 86px;
+  padding: 56px var(--bf-pad) 64px;
   background: var(--bf-navy);
   color: var(--bf-white);
 }
@@ -609,18 +617,18 @@ html:has(.brilliant-final) {
   display: flex;
   gap: 28px;
   align-items: flex-start;
-  padding: 30px 0;
+  padding: 16px 0;
   border-top: 1px solid color-mix(in srgb, var(--bf-white) 18%, transparent);
 }
 
 .bf-challenge__num {
   margin: 0;
-  flex: 0 0 76px;
-  width: 76px;
+  flex: 0 0 48px;
+  width: 48px;
   font-family: var(--bf-serif);
-  font-size: 46px;
+  font-size: 32px;
   font-weight: 400;
-  line-height: 46px;
+  line-height: 1.1;
   color: color-mix(in srgb, var(--bf-white) 45%, transparent);
 }
 
@@ -646,20 +654,20 @@ html:has(.brilliant-final) {
 .bf-challenge__title {
   margin: 0;
   font-family: var(--bf-sans);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 29.76px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
   letter-spacing: -0.24px;
   color: var(--bf-white);
 }
 
 .bf-challenge__text {
   margin: 0;
-  max-width: 650px;
+  max-width: 62ch;
   font-family: var(--bf-sans);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 25.84px;
+  line-height: 1.55;
   color: var(--bf-white);
 }
 
@@ -677,8 +685,8 @@ html:has(.brilliant-final) {
 }
 
 .bf-problem__card {
-  margin-top: 56px;
-  padding: 24px 64px;
+  margin-top: 36px;
+  padding: 20px 40px;
   border-radius: 24px;
   background: var(--bf-white);
   color: var(--bf-navy);
@@ -692,9 +700,9 @@ html:has(.brilliant-final) {
 .bf-problem__quote {
   margin: 17px 0 0;
   font-family: var(--bf-serif);
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
-  line-height: 45.56px;
+  line-height: 1.28;
   color: var(--bf-navy);
 }
 
@@ -720,8 +728,8 @@ html:has(.brilliant-final) {
 
 .bf-persona {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  border-radius: 30px;
+  grid-template-columns: 265px minmax(0, 1fr);
+  border-radius: 24px;
   background: var(--bf-white);
   box-shadow: 0 1px 3px color-mix(in srgb, var(--bf-navy) 5%, transparent), 0 12px 28px color-mix(in srgb, var(--bf-navy) 5%, transparent);
   overflow: hidden;
@@ -737,7 +745,7 @@ html:has(.brilliant-final) {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 480px;
+  min-height: 440px;
   object-fit: cover;
   object-position: center top;
 }
@@ -745,7 +753,7 @@ html:has(.brilliant-final) {
 .bf-persona__caption {
   position: absolute;
   inset: auto 0 0;
-  padding: 72px 28px 24px;
+  padding: 48px 20px 16px;
   background: linear-gradient(
     to top,
     color-mix(in srgb, var(--bf-navy) 94%, transparent) 0%,
@@ -758,9 +766,9 @@ html:has(.brilliant-final) {
 .bf-persona__name {
   margin: 0;
   font-family: var(--bf-sans);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 28.8px;
+  line-height: 1.2;
 }
 
 .bf-persona__role {
@@ -775,17 +783,17 @@ html:has(.brilliant-final) {
 .bf-persona__body {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 16px;
   min-width: 0;
-  padding: 40px 44px;
+  padding: 28px 32px;
 }
 
 .bf-persona__quote {
   margin: 0;
   font-family: var(--bf-serif);
-  font-size: 26px;
+  font-size: 21px;
   font-weight: 400;
-  line-height: 36.4px;
+  line-height: 1.4;
   color: var(--bf-navy);
 }
 
@@ -810,9 +818,9 @@ html:has(.brilliant-final) {
 .bf-persona__text {
   margin: 0;
   font-family: var(--bf-sans);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 26.35px;
+  line-height: 1.55;
   color: var(--bf-navy);
 }
 
@@ -866,7 +874,7 @@ html:has(.brilliant-final) {
 /* ---------- 03 Constraints (mist band) ---------- */
 
 .bf-constraints {
-  padding: 64px var(--bf-pad) 76px;
+  padding: 56px var(--bf-pad) 60px;
   background: var(--bf-mist);
   color: var(--bf-navy);
 }
@@ -880,7 +888,7 @@ html:has(.brilliant-final) {
   grid-template-columns: minmax(0, 233px) minmax(0, 1fr);
   column-gap: 48px;
   align-items: end;
-  margin-bottom: 44px;
+  margin-bottom: 28px;
 }
 
 .bf-constraints__lead {
@@ -895,16 +903,16 @@ html:has(.brilliant-final) {
 .bf-constraints__aside {
   margin: 0;
   font-family: var(--bf-sans);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 21px;
+  line-height: 1.5;
   color: var(--bf-navy);
 }
 
 .bf-constraints__grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 36px;
+  gap: 24px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -925,11 +933,11 @@ html:has(.brilliant-final) {
 }
 
 .bf-constraint__title {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   font-family: var(--bf-sans);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 23.12px;
+  line-height: 1.4;
   color: var(--bf-navy);
 }
 
@@ -963,18 +971,18 @@ html:has(.brilliant-final) {
 }
 
 .bf-decisions__intro {
-  margin: 0 0 26px;
+  margin: 0 0 20px;
   font-family: var(--bf-sans);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 27.9px;
+  line-height: 1.55;
   color: var(--bf-navy);
 }
 
 .bf-decisions__list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -982,19 +990,19 @@ html:has(.brilliant-final) {
 
 .bf-decision {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
-  column-gap: 56px;
+  grid-template-columns: 210px minmax(0, 1fr);
+  column-gap: 40px;
   align-items: center;
 }
 
 .bf-decision--flip {
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: minmax(0, 1fr) 210px;
 }
 
 .bf-decision__phone {
   position: relative;
   margin: 0;
-  width: 240px;
+  width: 210px;
   aspect-ratio: 240 / 476;
   overflow: hidden;
 }
@@ -1038,9 +1046,9 @@ html:has(.brilliant-final) {
 .bf-decision__title {
   margin: 20px 0 0;
   font-family: var(--bf-serif);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 400;
-  line-height: 39px;
+  line-height: 1.25;
   color: var(--bf-navy);
 }
 
@@ -1088,7 +1096,7 @@ html:has(.brilliant-final) {
 /* ---------- 05 Design system ---------- */
 
 .bf-ds {
-  padding: 64px var(--bf-pad) 0;
+  padding: 56px var(--bf-pad) 0;
   color: var(--bf-navy);
 }
 
@@ -1107,11 +1115,11 @@ html:has(.brilliant-final) {
 }
 
 .bf-ds__text {
-  margin: 16px 0 0;
+  margin: 14px 0 0;
   font-family: var(--bf-sans);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 26.35px;
+  line-height: 1.55;
   color: var(--bf-navy);
 }
 
@@ -1120,13 +1128,13 @@ html:has(.brilliant-final) {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   align-items: start;
-  margin: 44px 0 0;
+  margin: 28px 0 0;
 }
 
 /* ---------- 06 Takeaways ---------- */
 
 .bf-takeaways {
-  padding: 64px var(--bf-pad) 0;
+  padding: 56px var(--bf-pad) 0;
   color: var(--bf-navy);
 }
 
@@ -1154,34 +1162,34 @@ html:has(.brilliant-final) {
   grid-template-columns: 48px minmax(0, 274px) minmax(0, 550px);
   column-gap: 28px;
   align-items: start;
-  padding: 23px 0 28px;
+  padding: 16px 0 18px;
   border-top: 1px solid color-mix(in srgb, var(--bf-navy) 22%, transparent);
 }
 
 .bf-takeaway__num {
   margin: 0;
   font-family: var(--bf-serif);
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 400;
-  line-height: 52px;
+  line-height: 1.1;
   color: var(--bf-navy);
 }
 
 .bf-takeaway__title {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   font-family: var(--bf-serif);
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 33.28px;
+  line-height: 1.28;
   color: var(--bf-navy);
 }
 
 .bf-takeaway__text {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   font-family: var(--bf-sans);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 26.52px;
+  line-height: 1.55;
   color: var(--bf-navy);
 }
 
@@ -1633,29 +1641,33 @@ html:has(.brilliant-final) {
   }
 }
 
+.brilliant-final {
+  --cs-content: 900px;
+  --cs-gutter: 0px;
+  --cs-balance: 0px;
+}
+
 .brilliant-final .bf-hero,
 .brilliant-final .bf-meta,
 .brilliant-final .bf-marquee,
 .brilliant-final .bf-persona-section,
-.brilliant-final .bf-cta {
-  box-sizing: border-box;
-  width: min(var(--page-content-width), calc(100% - 2 * var(--bf-pad)));
-  margin-left: var(--bf-pad);
-  margin-right: auto;
-}
-
 .brilliant-final .bf-decisions,
 .brilliant-final .bf-ds,
-.brilliant-final .bf-takeaways {
+.brilliant-final .bf-takeaways,
+.brilliant-final .bf-cta {
   box-sizing: border-box;
-  width: min(100%, calc(var(--page-content-width) + 2 * var(--bf-pad)));
+  width: min(var(--cs-content), calc(100% - 2 * var(--bf-pad)));
+  max-width: var(--cs-content);
+  margin-left: auto;
   margin-right: auto;
 }
 
 .brilliant-final .bf-problem > *,
 .brilliant-final .bf-constraints > * {
   box-sizing: border-box;
-  max-width: var(--page-content-width);
+  width: min(var(--cs-content), 100%);
+  max-width: var(--cs-content);
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -1733,6 +1745,81 @@ html:has(.brilliant-final) {
   .brilliant-final .bf-rail-col {
     margin-inline: 0;
     padding-inline: 0;
+  }
+}
+
+/* Terraform scale: 210px rail, 900px column, full-bleed color bands. */
+@media (min-width: 1200px) {
+  .brilliant-final {
+    --bf-rail-gap: 40px;
+    --cs-gutter: 80px;
+    --cs-balance: 20px;
+    --bf-pad: 0px;
+  }
+
+  .brilliant-final .bf-layout {
+    grid-template-columns: 210px minmax(0, 1fr);
+    column-gap: var(--bf-rail-gap);
+    padding-inline: 0;
+  }
+
+  .brilliant-final .bf-rail-col {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .brilliant-final .bf-rail {
+    width: 100%;
+  }
+
+  .brilliant-final .bf-hero,
+  .brilliant-final .bf-meta,
+  .brilliant-final .bf-marquee,
+  .brilliant-final .bf-persona-section,
+  .brilliant-final .bf-decisions,
+  .brilliant-final .bf-ds,
+  .brilliant-final .bf-takeaways,
+  .brilliant-final .bf-cta,
+  .brilliant-final .bf-problem > *,
+  .brilliant-final .bf-constraints > * {
+    width: min(var(--cs-content), calc(100% - 2 * var(--cs-gutter)));
+    max-width: var(--cs-content);
+    margin-left: calc((100% - min(var(--cs-content), 100% - 2 * var(--cs-gutter))) / 2 - var(--cs-balance));
+    margin-right: auto;
+  }
+
+  .brilliant-final .bf-problem,
+  .brilliant-final .bf-constraints {
+    box-sizing: border-box;
+    width: calc(100% + var(--bf-rail-gap));
+    max-width: none;
+    margin-left: calc(-1 * var(--bf-rail-gap));
+    margin-right: 0;
+    padding-left: var(--bf-rail-gap);
+  }
+}
+
+@media (min-width: 1280px) {
+  .brilliant-final { --cs-gutter: 64px; }
+}
+
+@media (min-width: 1440px) {
+  .brilliant-final { --cs-gutter: 144px; }
+}
+
+@media (min-width: 1600px) {
+  .brilliant-final { --cs-gutter: 160px; }
+}
+
+@media (min-width: 901px) {
+  .brilliant-final .bf-problem__statement,
+  .brilliant-final .bf-section__lead,
+  .brilliant-final .bf-constraints__lead,
+  .brilliant-final .bf-decisions__lead,
+  .brilliant-final .bf-ds__lead,
+  .brilliant-final .bf-takeaways__lead {
+    font-size: clamp(32px, 2.85vw, 40px);
+    line-height: 1.12;
   }
 }
 

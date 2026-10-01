@@ -63,9 +63,9 @@
     if (reduce) section.classList.add("is-reduced");
 
     var copy = {
-      view: "View. Inspect the current configuration, with no editable controls.",
-      edit: "Edit. Choosing Edit deliberately exposes the controls needed to make a change.",
-      verify: "Verify. After saving, return to the view to review the resulting state.",
+      view: "View. Understand what’s configured.",
+      edit: "Edit. Explicitly enter an editable state.",
+      verify: "Verify. Return to read-only after saving.",
     };
 
     function setStep(step) {
@@ -112,9 +112,54 @@
     window.addEventListener("message", onMessage);
     fit();
 
+    var openBtn = section.querySelector("[data-tf-proto-open]");
+    var modal = section.querySelector("[data-tf-proto-modal]");
+    var full = section.querySelector("[data-tf-proto-full]");
+    var closeBtn = section.querySelector("[data-tf-proto-close]");
+    var protoSrc = iframe.getAttribute("src") || "/api/terraform-prototype";
+
+    function closeModal() {
+      if (!modal || !modal.open) return;
+      modal.close();
+    }
+
+    function openModal() {
+      if (!modal || !full) return;
+      if (!full.getAttribute("src")) full.setAttribute("src", protoSrc);
+      if (typeof modal.showModal === "function") modal.showModal();
+      else modal.setAttribute("open", "");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function onOpenClick(event) {
+      event.preventDefault();
+      openModal();
+    }
+
+    function onModalClick(event) {
+      if (event.target === modal) closeModal();
+    }
+
+    function onModalMessage(event) {
+      if (!full || !full.isConnected) return;
+      if (event.origin !== window.location.origin) return;
+      if (event.source !== full.contentWindow) return;
+      var step = event.data && event.data.psStep;
+      if (step === "view" || step === "edit" || step === "verify") setStep(step);
+    }
+
+    if (openBtn) openBtn.addEventListener("click", onOpenClick);
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (modal) modal.addEventListener("click", onModalClick);
+    window.addEventListener("message", onModalMessage);
+
     function cleanup() {
       window.removeEventListener("message", onMessage);
+      window.removeEventListener("message", onModalMessage);
       window.removeEventListener("resize", fit);
+      if (openBtn) openBtn.removeEventListener("click", onOpenClick);
+      if (closeBtn) closeBtn.removeEventListener("click", closeModal);
+      if (modal) modal.removeEventListener("click", onModalClick);
       if (ro) ro.disconnect();
       if (workflowCleanup === cleanup) workflowCleanup = null;
     }
@@ -275,11 +320,99 @@
     }
   }
 
+  function initDirections(root) {
+    var box = root.querySelector("[data-tf-mh]");
+    if (!box || box.dataset.ready === "1") return;
+    box.dataset.ready = "1";
+    var scroller = box.querySelector("[data-tf-mh-scroll]");
+    var shots = box.querySelectorAll("[data-tf-mh-img]");
+    var buttons = box.querySelectorAll("[data-tf-mh-go]");
+
+    function show(which) {
+      var top = scroller ? scroller.scrollTop : 0;
+      Array.prototype.forEach.call(shots, function (shot) {
+        shot.classList.toggle("is-on", shot.getAttribute("data-tf-mh-img") === which);
+      });
+      Array.prototype.forEach.call(buttons, function (button) {
+        var on = button.getAttribute("data-tf-mh-go") === which;
+        button.classList.toggle("is-on", on);
+        button.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (scroller) scroller.scrollTop = top;
+    }
+
+    Array.prototype.forEach.call(buttons, function (button) {
+      button.addEventListener("click", function () {
+        show(button.getAttribute("data-tf-mh-go"));
+      });
+    });
+    show("m");
+  }
+
+  function initComponents(root) {
+    var box = root.querySelector("[data-tf-comps]");
+    if (!box || box.dataset.ready === "1") return;
+    box.dataset.ready = "1";
+    var compButtons = box.querySelectorAll("[data-comp]");
+    var panels = box.querySelectorAll("[data-comp-panel]");
+
+    function showComp(key) {
+      Array.prototype.forEach.call(compButtons, function (button) {
+        var on = button.getAttribute("data-comp") === key;
+        button.classList.toggle("is-on", on);
+        button.setAttribute("aria-selected", on ? "true" : "false");
+        button.tabIndex = on ? 0 : -1;
+      });
+      Array.prototype.forEach.call(panels, function (panel) {
+        var on = panel.getAttribute("data-comp-panel") === key;
+        panel.hidden = !on;
+      });
+    }
+
+    Array.prototype.forEach.call(compButtons, function (button, index) {
+      button.addEventListener("click", function () { showComp(button.getAttribute("data-comp")); });
+      button.addEventListener("keydown", function (event) {
+        var next = index;
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") next = (index + 1) % compButtons.length;
+        else if (event.key === "ArrowUp" || event.key === "ArrowLeft") next = (index - 1 + compButtons.length) % compButtons.length;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = compButtons.length - 1;
+        else return;
+        event.preventDefault();
+        compButtons[next].focus();
+        showComp(compButtons[next].getAttribute("data-comp"));
+      });
+    });
+
+    Array.prototype.forEach.call(panels, function (panel) {
+      var stateButtons = panel.querySelectorAll("[data-state]");
+      var shots = panel.querySelectorAll("[data-state-img]");
+      function showState(state) {
+        Array.prototype.forEach.call(stateButtons, function (button) {
+          var on = button.getAttribute("data-state") === state;
+          button.classList.toggle("is-on", on);
+          button.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        Array.prototype.forEach.call(shots, function (shot) {
+          shot.hidden = shot.getAttribute("data-state-img") !== state;
+        });
+      }
+      Array.prototype.forEach.call(stateButtons, function (button) {
+        button.addEventListener("click", function () { showState(button.getAttribute("data-state")); });
+      });
+      showState("ro");
+    });
+
+    if (compButtons.length) showComp(compButtons[0].getAttribute("data-comp"));
+  }
+
   window.initTerraformLocked = function (root) {
     if (!root) return;
     if (workflowCleanup) workflowCleanup();
     initAuditViewer(root);
     workflowCleanup = initWorkflow(root);
+    initDirections(root);
+    initComponents(root);
     initMobileScale(root);
   };
 })();

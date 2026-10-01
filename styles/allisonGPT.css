@@ -19,10 +19,13 @@
 #alison-gpt-container .alison-gpt-primary{border:0;background:#14243b;color:#ffffff;border-radius:22px;padding:9px 18px}
 .alison-gpt-arrow{font-size:0.7em;display:inline-block;vertical-align:middle}
 
-/* Peek launcher (avatar peeking from the right edge of the screen) */
-.alison-gpt-peek{position:fixed;right:-15px;bottom:65px;width:132px;height:202px;border:0;background:none;padding:0;animation:agEnter .45s ease-out}
-.alison-gpt-peek-wave{display:block;width:151px;height:202px;position:absolute;right:0;top:0;pointer-events:none}
-.alison-gpt-peek-label{position:absolute;right:32px;top:-32px;font-size:12px;background:#14243b;color:#fff;white-space:nowrap;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
+/* Peek launcher. Size stays fixed while she waves.
+   Frame 0's white outline sits 24px inside the 408px cell and 36px above
+   the cell bottom, so the fixed offsets cancel that transparent padding.
+   The 4px terms are the visible gap from that outline to the viewport. */
+.alison-gpt-peek{--alli-h:202;position:fixed;right:calc(4px - 24px * var(--alli-h) / 528);bottom:calc(24px - 36px * var(--alli-h) / 528);width:calc(var(--alli-h) * 408px / 528);height:calc(var(--alli-h) * 1px);border:0;background:none;padding:0;z-index:9999;animation:agPeekIn .45s ease-out}
+.alison-gpt-peek-wave{display:block;width:100%;height:100%;position:absolute;inset:0;pointer-events:none}
+.alison-gpt-peek-label{position:absolute;right:16px;top:-34px;font-size:12px;background:#14243b;color:#fff;white-space:nowrap;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
 
 /* Avatar shown beside the open chat panel (peeking around its left edge) */
 .alison-gpt-chat-avatar{position:fixed;right:370px;bottom:92px;width:125px;height:205px;overflow:visible;z-index:9999;pointer-events:none;animation:agEnter .4s ease-out}
@@ -68,6 +71,7 @@
 
 
 @keyframes agEnter{from{opacity:0;transform:translateX(90px)}to{opacity:1;transform:translateX(0)}}
+@keyframes agPeekIn{from{opacity:0}to{opacity:1}}
 @keyframes agWave{0%,100%{background-position:0 0}20%,65%{background-position:100% 0}40%{background-position:0 100%}80%{background-position:100% 100%}}
 @keyframes agThinkDots{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-4px);opacity:1}}
 @keyframes agPonder{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-2deg)}}
@@ -78,9 +82,8 @@
   .alison-gpt-bubble{width:210px;margin-top:0;padding:22px}
   .alison-gpt-bubble strong{font-size:22px}
   .alison-gpt-panel{right:12px;bottom:12px;width:calc(100% - 24px);height:min(480px,68dvh)}
-  .alison-gpt-peek{width:82px;height:132px;bottom:35px}
-  .alison-gpt-peek-wave{height:126px;width:95px}
-  .alison-gpt-peek-label{right:20px}
+  .alison-gpt-peek{--alli-h:156;right:calc(4px + env(safe-area-inset-right, 0px) - 24px * var(--alli-h) / 528);bottom:calc(16px + env(safe-area-inset-bottom, 0px) - 36px * var(--alli-h) / 528)}
+  .alison-gpt-peek-label{right:8px;top:-32px}
   .alison-gpt-chat-avatar{right:calc(100% - 79px);bottom:calc(min(480px,68dvh) + 8px + 95px);width:70px;height:125px}
   .alison-gpt-chat-peek,.alison-gpt-chat-think{height:125px;width:125px;right:-24px}
   .alison-gpt-thought{left:0;top:-15px;padding:8px 10px}

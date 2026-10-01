@@ -62,6 +62,11 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
             "Cache-Control", "no-store, no-cache, must-revalidate, max-age=0"
         )
         self.send_header("Pragma", "no-cache")
+        if getattr(self, "_expire_terraform_cookie", False):
+            self.send_header(
+                "Set-Cookie",
+                f"{COOKIE_NAME}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0",
+            )
         super().end_headers()
 
     def _json(self, status: int, body: dict, set_cookie: str | None = None):
@@ -254,6 +259,7 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
                 "textarea-edit.png",
                 "radiocard-ro.png",
                 "radiocard-edit.png",
+                "refine-helper-text.png",
             }
             qs = parse_qs(parsed.query)
             name = (qs.get("name") or [""])[0]
@@ -399,7 +405,10 @@ class CleanUrlHandler(SimpleHTTPRequestHandler):
             candidate = ROOT / path.lstrip("/")
             html = Path(str(candidate) + ".html")
             if html.is_file():
-                self.path = "/" + html.relative_to(ROOT).as_posix() + query
+                rel = html.relative_to(ROOT).as_posix()
+                if rel == "projects/terraform.html":
+                    self._expire_terraform_cookie = True
+                self.path = "/" + rel + query
                 return super().do_GET()
 
         return super().do_GET()

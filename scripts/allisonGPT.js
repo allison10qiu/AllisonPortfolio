@@ -14,11 +14,6 @@ class AllisonGPT {
   }
 
   init() {
-    if (window.matchMedia('(max-width: 600px)').matches) {
-      this.createMobileNotice();
-      return;
-    }
-
     this.createWidget();
     this.attachListeners();
 
@@ -49,7 +44,7 @@ class AllisonGPT {
       </div>
 
       <button class="alison-gpt-peek" id="ag-peek" aria-label="Open Alli chat" hidden>
-        <canvas class="alison-gpt-peek-wave" id="ag-peek-canvas" width="288" height="384" role="img" aria-label="Alli peeking around the edge"></canvas>
+        <canvas class="alison-gpt-peek-wave" id="ag-peek-canvas" width="408" height="528" role="img" aria-label="Alli peeking around the edge"></canvas>
         <span class="alison-gpt-peek-label">Ask Alli <span class="alison-gpt-arrow">&#8599;</span></span>
       </button>
 
@@ -163,15 +158,16 @@ class AllisonGPT {
     const canvas = this.$('ag-peek-canvas');
     const ctx = canvas.getContext('2d');
     const sheet = new Image();
-    const frameW = 288;
-    const frameH = 384;
-    const loop = [4, 5, 6, 7, 6, 5];
+    const frameW = 408;
+    const frameH = 528;
+    const loop = [4, 5, 4, 7, 6, 7];
 
     let loopPosition = 0;
     let hovered = false;
     let focused = false;
     let wanted = false;
     let loaded = false;
+    let waving = false;
     let frame = 0;
     let last = 0;
     let raf = 0;
@@ -191,7 +187,9 @@ class AllisonGPT {
 
     const tick = (t) => {
       raf = 0;
-      const duration = frame < 4 ? 85 : 125;
+      // Frames 1–4 are the lift (85ms). The wrist-wave loop starts after that
+      // raised pose has been shown, including when a wave frame snaps back to it.
+      const duration = waving ? 125 : 85;
       if (!last) last = t;
       if (t - last >= duration) {
         last = t;
@@ -199,13 +197,20 @@ class AllisonGPT {
           if (frame < 4) {
             frame++;
             loopPosition = 0;
+            waving = false;
           } else {
+            waving = true;
             loopPosition = (loopPosition + 1) % loop.length;
             frame = loop[loopPosition];
           }
+        } else if (frame > 4) {
+          frame = 4;
+          loopPosition = 0;
+          waving = false;
         } else if (frame > 0) {
           frame--;
           loopPosition = 0;
+          waving = false;
         }
         paint();
       }
@@ -234,7 +239,7 @@ class AllisonGPT {
     };
 
     sheet.onload = () => { loaded = true; paint(); };
-    sheet.src = '/assets/alli/alli-peek-sprite.webp';
+    sheet.src = '/assets/alli/alli-peek-sprite.webp?v=wave1';
 
     button.addEventListener('pointerenter', (e) => {
       if (e.pointerType !== 'touch') { hovered = true; update(); }

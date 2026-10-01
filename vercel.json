@@ -15,8 +15,17 @@
     },
     "api/terraform-audit.js": {
       "includeFiles": "api/terraform-private/audit-flythrough.mp4"
+    },
+    "api/terraform-page.js": {
+      "includeFiles": "projects/terraform.html"
     }
   },
+  "rewrites": [
+    {
+      "source": "/projects/terraform",
+      "destination": "/api/terraform-page"
+    }
+  ],
   "redirects": [
     {
       "source": "/index.html",

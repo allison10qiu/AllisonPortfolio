@@ -20,6 +20,11 @@
     --page-gutter: var(--m-gutter);
   }
 
+  .home-page {
+    --m-gutter: clamp(20px, 5.6vw, 24px);
+    --page-gutter: var(--m-gutter);
+  }
+
   /* ---------- Header: Home and About ---------- */
 
   .home-page .site-header,
@@ -771,13 +776,19 @@
   }
 
   .case-final,
-  .case-final:not(.terraform-page) {
+  .case-final:not(.terraform-page),
+  .brilliant-final {
+    --m-gutter: clamp(20px, 5.6vw, 24px);
     --cs-x: var(--m-gutter);
   }
 
   .brilliant-final {
     --bf-gutter: 0px;
     --bf-pad: var(--m-gutter);
+  }
+
+  .terraform-page {
+    --m-gutter: clamp(20px, 5.6vw, 24px);
   }
 
   .terraform-page .cs-body {
@@ -1069,7 +1080,24 @@
     gap: 12px !important;
   }
 
-  .terraform-page.case-final .cs-body a[href="#terraform-gate"] {
+  .terraform-page .tf-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .terraform-page .tf-hero__read {
+    text-align: center;
+  }
+
+  .m-casebar.is-tf-public .m-casebar__unlock.is-done {
+    background: #d5dbe3;
+    color: rgba(20, 36, 59, 0.55);
+    pointer-events: none;
+  }
+
+  .terraform-page .tf-hero__unlock {
     align-self: stretch !important;
     justify-content: center;
     width: 100% !important;
@@ -1084,6 +1112,12 @@
     font-weight: 500 !important;
     text-decoration: none !important;
     box-sizing: border-box;
+  }
+
+  .terraform-page .tf-hero__unlock.is-done {
+    background: #d5dbe3 !important;
+    color: rgba(20, 36, 59, 0.55) !important;
+    pointer-events: none;
   }
 
   .terraform-page .tf-public-hero__actions span {
@@ -1971,12 +2005,60 @@
     padding: 0 !important;
   }
 
-  .terraform-page .cs-body > div[id],
-  .terraform-page .cs-body > section[id],
-  .terraform-page .terraform-locked__inner > div[id] {
-    margin-top: 0 !important;
-    padding-top: var(--m-case) !important;
+  .terraform-page .cs-body > .tf-problem {
+    margin-top: var(--tf-s-128) !important;
+    padding-top: 0 !important;
+  }
+
+  .terraform-page.case-final .cs-body > div#terraform-gate:not(:first-child) {
+    margin-top: var(--tf-s-104) !important;
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #workflow,
+  .terraform-page .terraform-locked__inner > #audit {
+    margin-top: var(--tf-s-96) !important;
+    padding-top: 0 !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #research,
+  .terraform-page .terraform-locked__inner > #testing,
+  .terraform-page .terraform-locked__inner > #details {
+    margin-top: var(--tf-s-136) !important;
+    padding-top: 0 !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #directions {
+    margin-top: var(--tf-s-72) !important;
+    padding-top: 0 !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #view-edit,
+  .terraform-page .terraform-locked__inner > #system,
+  .terraform-page .terraform-locked__inner > #rules {
+    margin-top: var(--tf-s-144) !important;
+    padding-top: 0 !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #combined {
+    margin-top: var(--tf-s-144) !important;
+    padding-top: var(--tf-s-80) !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #handoff {
+    margin-top: var(--tf-s-144) !important;
+    padding-top: var(--tf-s-64) !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #outcome {
+    margin-top: 0 !important;
+    padding-top: var(--tf-s-80) !important;
+  }
+
+  .terraform-page .terraform-locked__inner > #reflection {
+    margin-top: var(--tf-s-120) !important;
+    padding-top: 0 !important;
   }
 
   .terraform-page .bf-cta {

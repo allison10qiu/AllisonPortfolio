@@ -773,24 +773,49 @@ html:has(.case-final) {
   }
 }
 
-/* Full-width main, constrained inner column.
-   Scoped away from Terraform. The main cell already starts at the
-   sidebar divider (no column gap), so a section at width 100% fills
-   that region. Content inside stops at the shared page column. */
+/* Full-width main, Terraform content column.
+   Navy and mist bands stay full-bleed. Their inner blocks, and every
+   other section's inner blocks, use the same 900px column. */
 @media (min-width: 1200px) {
   .case-final:not(.terraform-page) {
-    --cs-x: 64px;
+    --cs-content: 900px;
+    --cs-gutter: 80px;
+    --cs-balance: calc(var(--bf-rail-gap) / 2);
+    --cs-x: 0px;
+    --bf-rail-gap: 40px;
   }
 
   .case-final:not(.terraform-page) .bf-layout {
-    column-gap: 0;
+    grid-template-columns: 210px minmax(0, 1fr);
+    column-gap: var(--bf-rail-gap);
+  }
+
+  .case-final:not(.terraform-page) .bf-rail-col {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .case-final:not(.terraform-page) .bf-rail {
+    width: 100%;
   }
 
   .case-final:not(.terraform-page) .cs-body > * > * {
     box-sizing: border-box;
-    max-width: var(--page-content-width);
-    margin-left: 0;
+    width: min(var(--cs-content), calc(100% - 2 * var(--cs-gutter)));
+    max-width: var(--cs-content);
+    margin-left: calc((100% - min(var(--cs-content), 100% - 2 * var(--cs-gutter))) / 2 - var(--cs-balance));
     margin-right: auto;
+  }
+
+  .case-final:not(.terraform-page) .cs-body > [style*="background:#14243"],
+  .case-final:not(.terraform-page) .cs-body > [style*="background:#EDF2F5"],
+  .case-final:not(.terraform-page) .cs-body > [style*="background:#edf2f5"] {
+    box-sizing: border-box;
+    width: calc(100% + var(--bf-rail-gap));
+    max-width: none;
+    margin-left: calc(-1 * var(--bf-rail-gap));
+    margin-right: 0;
+    padding-left: var(--bf-rail-gap) !important;
   }
 }
 
@@ -810,8 +835,9 @@ html:has(.case-final) {
 
   .case-final:not(.terraform-page) .cs-body > * > * {
     box-sizing: border-box;
-    max-width: var(--page-content-width);
-    margin-left: 0;
+    width: min(900px, 100%);
+    max-width: 900px;
+    margin-left: auto;
     margin-right: auto;
   }
 }
@@ -1052,4 +1078,58 @@ html:has(.case-final) {
     margin-inline: 0;
     padding-inline: 0;
   }
+}
+
+/* Same content cap between the desktop rail and the collapsed rail. */
+@media (min-width: 641px) and (max-width: 1199px) {
+  .case-final:not(.terraform-page) .cs-body > * > * {
+    box-sizing: border-box;
+    width: min(900px, 100%);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .case-final:not(.terraform-page) { --cs-gutter: 64px; }
+}
+
+@media (min-width: 1440px) {
+  .case-final:not(.terraform-page) { --cs-gutter: 144px; }
+}
+
+@media (min-width: 1600px) {
+  .case-final:not(.terraform-page) { --cs-gutter: 160px; }
+}
+
+@media (min-width: 901px) {
+  .case-final:not(.terraform-page) .cs-body h1 {
+    font-size: clamp(40px, 4.2vw, 64px) !important;
+    line-height: 1.04 !important;
+  }
+
+  .case-final:not(.terraform-page) .cs-body h2 {
+    font-size: clamp(32px, 2.85vw, 45px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .case-final:not(.terraform-page) .cs-body [style*="font:400 54px"] {
+    font-size: 46px !important;
+  }
+
+  .case-final:not(.terraform-page) .cs-body [style*="font:400 44px"] {
+    font-size: 40px !important;
+  }
+}
+
+.case-final:not(.terraform-page) .cs-body img,
+.case-final:not(.terraform-page) .cs-body video {
+  max-width: 100%;
+  height: auto;
+}
+
+.case-final:not(.terraform-page) .cs-body [data-preview-track] img,
+.case-final:not(.terraform-page) .cs-body [data-showcase] img {
+  max-width: none;
 }

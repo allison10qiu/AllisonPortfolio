@@ -257,6 +257,19 @@
   font-weight: 400;
 }
 
+/* Homepage frame. Wider than a case study, narrower than the old 1360 column.
+   About keeps the shared page width. */
+.home-page {
+  --home-wide: 1080px;
+}
+
+.home-page .site-header__inner,
+.home-page .site-main,
+.home-page .site-footer__body {
+  width: min(calc(100% - 2 * var(--page-gutter)), var(--home-wide));
+  max-width: var(--home-wide);
+}
+
 /* ---------- Home ---------- */
 
 .home-page .home-hero {
@@ -276,9 +289,9 @@
 .home-hero__title {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(68px, 7.6vw, 112px);
+  font-size: clamp(56px, 6vw, 92px);
   font-weight: 400;
-  line-height: 0.88;
+  line-height: 0.9;
   letter-spacing: -0.02em;
 }
 
