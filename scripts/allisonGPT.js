@@ -14,6 +14,11 @@ class AllisonGPT {
   }
 
   init() {
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      this.createMobileNotice();
+      return;
+    }
+
     this.createWidget();
     this.attachListeners();
 
@@ -83,6 +88,49 @@ class AllisonGPT {
     } else {
       this.conversationHistory.forEach(m => this.addMessage(m.role, m.content));
     }
+  }
+
+  createMobileNotice() {
+    const notice = document.createElement('div');
+    notice.id = 'ag-mobile';
+    notice.className = 'alison-gpt-mobile';
+    notice.innerHTML = `
+      <div class="alison-gpt-mobile-avatar"></div>
+      <span class="alison-gpt-mobile-label">Chat with Alli on your computer!</span>
+    `;
+    document.body.appendChild(notice);
+
+    let startX = 0;
+    let delta = 0;
+
+    notice.addEventListener('touchstart', (e) => {
+      if (!e.touches.length) return;
+      startX = e.touches[0].clientX;
+      delta = 0;
+      notice.style.transition = 'none';
+    }, { passive: true });
+
+    notice.addEventListener('touchmove', (e) => {
+      if (!e.touches.length) return;
+      delta = e.touches[0].clientX - startX;
+      notice.style.transform = `translateX(${delta}px)`;
+    }, { passive: true });
+
+    notice.addEventListener('touchend', () => {
+      notice.style.transition = '';
+      void notice.offsetWidth;
+      if (Math.abs(delta) > 60) {
+        notice.style.transform = `translateX(${delta > 0 ? '150%' : '-150%'})`;
+        notice.classList.add('alison-gpt-mobile--dismissed');
+        const remove = () => {
+          notice.removeEventListener('transitionend', remove);
+          if (notice.parentNode) notice.remove();
+        };
+        notice.addEventListener('transitionend', remove);
+      } else {
+        notice.style.transform = '';
+      }
+    });
   }
 
   $(id) { return document.getElementById(id); }

@@ -86,8 +86,14 @@
   .alison-gpt-thought{left:0;top:-15px;padding:8px 10px}
 }
 
+.alison-gpt-mobile{position:fixed;right:8px;bottom:24px;width:90px;height:90px;z-index:9999;animation:agEnter .45s ease-out;transition:transform .3s ease,opacity .3s ease;touch-action:pan-y}
+.alison-gpt-mobile-avatar{width:100%;height:100%;background-image:url(/assets/alli/alli-wave.webp);background-size:200% 200%;background-position:0 0;animation:agWave 1.8s steps(1) infinite;border-radius:50%;box-shadow:0 6px 20px #14243b26}
+.alison-gpt-mobile-label{position:absolute;right:14px;top:-52px;font-size:12px;background:#14243b;color:#fff;white-space:normal;text-align:center;padding:8px 12px;border-radius:16px;width:128px;line-height:1.35;box-shadow:0 4px 14px #14243b22}
+.alison-gpt-mobile--dismissed{opacity:0}
+
 @media(prefers-reduced-motion:reduce){
   #alison-gpt-container *,#alison-gpt-container *::before,#alison-gpt-container *::after{animation:none!important;transition:none!important}
+  .alison-gpt-mobile-avatar{animation:none!important}
 }
 
 @media(prefers-color-scheme:dark){
