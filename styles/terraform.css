@@ -2622,7 +2622,7 @@
 .terraform-page .tf-lockbox__done strong + span { font: 400 14px/1.3 "Satoshi", sans-serif; color: rgba(20, 36, 59, 0.7); }
 
 .terraform-page .tf-section { margin-top: var(--tf-s-136); }
-.terraform-page #directions.tf-section { margin-top: var(--tf-s-72); }
+.terraform-page #directions.tf-section { margin-top: var(--tf-s-136); }
 .terraform-page #workflow.tf-section,
 .terraform-page #audit.tf-section { margin-top: var(--tf-s-96); }
 .terraform-page #view-edit.tf-section,
@@ -2718,7 +2718,7 @@
 .terraform-page .tf-findings span { font: italic 400 26px/1 "Instrument Serif", serif; }
 .terraform-page .tf-findings h3 { margin: 0; font: 500 17px/1.3 "Satoshi", sans-serif; }
 .terraform-page .tf-findings p { margin: 0; font: 400 15px/1.55 "Satoshi", sans-serif; color: rgba(20, 36, 59, 0.82); }
-.terraform-page .tf-shift { background: #f4f7f9; margin-top: var(--tf-s-72); padding-top: var(--tf-s-64); padding-bottom: var(--tf-s-68); }
+.terraform-page .tf-shift { background: #f4f7f9; margin-top: var(--tf-s-136); padding-top: var(--tf-s-64); padding-bottom: var(--tf-s-68); }
 .terraform-page .tf-shift__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) 48px minmax(0, 1.3fr); align-items: center; }
 .terraform-page .tf-shift__old { margin: var(--tf-s-12) 0 0; font: 400 33px/1.1 "Instrument Serif", serif; color: rgba(20, 36, 59, 0.4); text-decoration: line-through; text-decoration-thickness: 2px; }
 .terraform-page .tf-shift__new { margin: var(--tf-s-12) 0 0; font: 400 clamp(26px, 2.7vw, 40px)/1.08 "Instrument Serif", serif; text-wrap: balance; }

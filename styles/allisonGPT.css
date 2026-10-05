@@ -3,7 +3,7 @@
  * Faithful rebuild of the approved AllisonGPT-preview design
  */
 
-#alison-gpt-container{position:fixed;right:24px;bottom:20px;z-index:9999;font:16px/1.6 "Satoshi",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#14243b}
+#alison-gpt-container{position:fixed;right:24px;bottom:20px;z-index:9999;font:16px/1.6 "Satoshi",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#14243b;color-scheme:light}
 #alison-gpt-container button,#alison-gpt-container input{font:inherit}
 #alison-gpt-container button{cursor:pointer;color:inherit}
 #alison-gpt-container button:focus-visible,#alison-gpt-container input:focus-visible{outline:3px solid #779bb9;outline-offset:4px}
@@ -60,7 +60,7 @@
 
 .alison-gpt-input-area{border-top:1px solid #e2eaf1;padding:12px}
 .alison-gpt-form{display:flex;gap:8px;align-items:center}
-#alison-gpt-container .alison-gpt-input{min-width:0;flex:1;border:1px solid #14243b;border-radius:16px;padding:10px 14px;font-size:14px;background:#fff;font-family:inherit}
+#alison-gpt-container .alison-gpt-input{min-width:0;flex:1;border:1px solid #14243b;border-radius:16px;padding:10px 14px;font-size:14px;background:#fff;color:#14243b;font-family:inherit;color-scheme:light}
 #alison-gpt-container .alison-gpt-input:focus{outline:none;border-width:2px;padding:9px 13px}
 #alison-gpt-container .alison-gpt-send{border:0;border-radius:50%;background:transparent center/cover no-repeat url(/assets/alli/alli-profile-icon.webp);color:#ffffff;width:40px;height:40px;flex-shrink:0;font-size:0}
 .alison-gpt-notice{font-size:10px;text-align:center;padding:8px 10px 0;color:#617186}
@@ -97,11 +97,4 @@
 @media(prefers-reduced-motion:reduce){
   #alison-gpt-container *,#alison-gpt-container *::before,#alison-gpt-container *::after{animation:none!important;transition:none!important}
   .alison-gpt-mobile-avatar{animation:none!important}
-}
-
-@media(prefers-color-scheme:dark){
-  .alison-gpt-panel{background:#1a1a1a;color:#e8e8e8}
-  .alison-gpt-bubble{background:#232323;border-color:#3a3a3a;color:#e8e8e8}
-  .alison-gpt-message-content{background:#2a2a2a;color:#e8e8e8}
-  .alison-gpt-input{background:#1a1a1a;color:#e8e8e8}
 }
