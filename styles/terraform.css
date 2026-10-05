@@ -1406,12 +1406,12 @@
 @media (min-width: 1200px) {
   .terraform-page {
     --bf-rail-gap: 40px;
-    --tf-gutter: 80px;
+    --tf-gutter: 63px;
     --tf-balance: calc(var(--bf-rail-gap) / 2);
   }
 
   .terraform-page .bf-layout {
-    grid-template-columns: 210px minmax(0, 1fr);
+    grid-template-columns: 244px minmax(0, 1fr);
     column-gap: var(--bf-rail-gap);
   }
 
@@ -1432,14 +1432,14 @@
 
 @media (min-width: 1280px) {
   .terraform-page {
-    --tf-gutter: 64px;
+    --tf-gutter: 47px;
     --tf-rhythm: 1;
   }
 }
 
 @media (min-width: 1440px) {
   .terraform-page {
-    --tf-gutter: 144px;
+    --tf-gutter: 127px;
   }
 }
 

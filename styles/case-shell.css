@@ -135,6 +135,7 @@ html:has(.case-final) {
   font-size: 26px;
   font-weight: 400;
   line-height: 1.12;
+  text-wrap: balance;
   color: var(--bf-navy);
 }
 
@@ -186,8 +187,9 @@ html:has(.case-final) {
 .case-final .bf-rail__link {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   padding: 9px 0;
+  white-space: nowrap;
   border: 0;
   background: none;
   font-family: var(--bf-sans);
@@ -779,14 +781,14 @@ html:has(.case-final) {
 @media (min-width: 1200px) {
   .case-final:not(.terraform-page) {
     --cs-content: 900px;
-    --cs-gutter: 80px;
+    --cs-gutter: 63px;
     --cs-balance: calc(var(--bf-rail-gap) / 2);
     --cs-x: 0px;
     --bf-rail-gap: 40px;
   }
 
   .case-final:not(.terraform-page) .bf-layout {
-    grid-template-columns: 210px minmax(0, 1fr);
+    grid-template-columns: 244px minmax(0, 1fr);
     column-gap: var(--bf-rail-gap);
   }
 
@@ -803,8 +805,8 @@ html:has(.case-final) {
     box-sizing: border-box;
     width: min(var(--cs-content), calc(100% - 2 * var(--cs-gutter)));
     max-width: var(--cs-content);
-    margin-left: calc((100% - min(var(--cs-content), 100% - 2 * var(--cs-gutter))) / 2 - var(--cs-balance));
-    margin-right: auto;
+    margin-left: calc((100% - min(var(--cs-content), 100% - 2 * var(--cs-gutter))) / 2 - var(--cs-balance)) !important;
+    margin-right: auto !important;
   }
 
   .case-final:not(.terraform-page) .cs-body > [style*="background:#14243"],
@@ -837,8 +839,8 @@ html:has(.case-final) {
     box-sizing: border-box;
     width: min(900px, 100%);
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
@@ -1086,17 +1088,17 @@ html:has(.case-final) {
     box-sizing: border-box;
     width: min(900px, 100%);
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
 @media (min-width: 1280px) {
-  .case-final:not(.terraform-page) { --cs-gutter: 64px; }
+  .case-final:not(.terraform-page) { --cs-gutter: 47px; }
 }
 
 @media (min-width: 1440px) {
-  .case-final:not(.terraform-page) { --cs-gutter: 144px; }
+  .case-final:not(.terraform-page) { --cs-gutter: 127px; }
 }
 
 @media (min-width: 1600px) {

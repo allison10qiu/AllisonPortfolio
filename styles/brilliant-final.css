@@ -163,7 +163,8 @@ html:has(.brilliant-final) {
   font-family: var(--bf-serif);
   font-size: 26px;
   font-weight: 400;
-  line-height: 33.5px;
+  line-height: 1.12;
+  text-wrap: balance;
   color: var(--bf-navy);
 }
 
@@ -176,6 +177,17 @@ html:has(.brilliant-final) {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.bf-rail__list::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: color-mix(in srgb, var(--bf-navy) 18%, transparent);
+  z-index: 0;
 }
 
 /* Progress fill runs between the first and last dot centres.
@@ -196,20 +208,21 @@ html:has(.brilliant-final) {
 .brilliant-final .bf-rail__link {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 9px 0 9.8px;
+  gap: 10px;
+  padding: 9px 0;
   border: 0;
   background: none;
   font-family: var(--bf-sans);
   font-size: 11px;
   font-weight: 500;
-  line-height: 13.5px;
-  letter-spacing: 1.54px;
+  line-height: 1.3;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-align: left;
+  white-space: nowrap;
   color: color-mix(in srgb, var(--bf-navy) 45%, transparent);
   cursor: pointer;
-  transition: color 180ms ease;
+  transition: color 200ms ease, opacity 200ms ease;
 }
 
 .bf-rail__dot {
@@ -1752,13 +1765,13 @@ html:has(.brilliant-final) {
 @media (min-width: 1200px) {
   .brilliant-final {
     --bf-rail-gap: 40px;
-    --cs-gutter: 80px;
+    --cs-gutter: 63px;
     --cs-balance: 20px;
     --bf-pad: 0px;
   }
 
   .brilliant-final .bf-layout {
-    grid-template-columns: 210px minmax(0, 1fr);
+    grid-template-columns: 244px minmax(0, 1fr);
     column-gap: var(--bf-rail-gap);
     padding-inline: 0;
   }
@@ -1800,11 +1813,11 @@ html:has(.brilliant-final) {
 }
 
 @media (min-width: 1280px) {
-  .brilliant-final { --cs-gutter: 64px; }
+  .brilliant-final { --cs-gutter: 47px; }
 }
 
 @media (min-width: 1440px) {
-  .brilliant-final { --cs-gutter: 144px; }
+  .brilliant-final { --cs-gutter: 127px; }
 }
 
 @media (min-width: 1600px) {
