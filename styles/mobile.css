@@ -20,7 +20,8 @@
     --page-gutter: var(--m-gutter);
   }
 
-  .home-page {
+  .home-page,
+  .about-page {
     --m-gutter: clamp(20px, 5.6vw, 24px);
     --page-gutter: var(--m-gutter);
   }
@@ -1270,11 +1271,19 @@
     content: ", ";
   }
 
-  .bc-page .bf-cta {
+  .bc-page:not(.brilliant-final) .bf-cta {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 20px 0 0;
     padding: 0 var(--m-gutter);
+  }
+
+  .brilliant-final .bf-cta {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding-left: var(--bf-pad);
+    padding-right: var(--bf-pad);
   }
 
   .bc-page .bf-cta .bf-btn {

@@ -20,18 +20,7 @@
 <link href="../styles/page-transitions.css?v=tx8" rel="stylesheet"/>
 <link href="../styles/mobile.css?v=scale2" rel="stylesheet"/>
 <link href="../styles/allisonGPT.css?v=light1" rel="stylesheet"/>
-<style>
-  .nabu-page.case-final .cs-body img.nabu-output {
-    display: block;
-    width: min(100%, 1027px);
-    max-width: 100%;
-    height: auto;
-    border: 1px solid rgba(20, 36, 59, 0.16);
-    border-radius: 12px;
-    box-shadow: 0 1px 2px rgba(20, 36, 59, 0.06), 0 16px 36px rgba(20, 36, 59, 0.1);
-    background: #fff;
-  }
-</style>
+<link href="../styles/mockups.css?v=mk3" rel="stylesheet"/>
 </head>
 <body class="bc-page nabu-page case-final" data-tx-project="nabu">
 <div id="tx-cover" aria-hidden="true"></div>
@@ -116,10 +105,16 @@
 <span style="font:400 15px/1 'Satoshi',sans-serif;opacity:.7">5 min read</span>
 </div>
 </div>
-<div style="position:relative;min-width:0;aspect-ratio:400/308">
-<img alt="Role builder table" src="../assets/nabu/feature-role-clear.png?v=hq1" style="position:absolute;left:0;top:0;width:86%;height:auto;filter:drop-shadow(0 16px 30px rgba(20,36,59,.18))">
-<img alt="Visualization builder" src="../assets/nabu/feature-viz-builder.png?v=clear2" style="position:absolute;right:0;bottom:0;width:86%;height:auto;z-index:2;filter:drop-shadow(0 20px 36px rgba(20,36,59,.22))">
-</img></img></div>
+<div class="mk-pair" aria-label="Role Builder and Visualization Builder">
+<div class="mk-browser mk-pair__back" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Role builder table" src="../assets/mockups/nabu/s33.svg" width="1868" height="982" decoding="async"></div>
+</div>
+<div class="mk-browser mk-pair__front" style="--mk-view:1512/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Visualization builder" src="../assets/mockups/nabu/step4.svg" width="1512" height="982" decoding="async"></div>
+</div>
+</div>
 </div>
 </div>
 <div style="padding:56px var(--cs-x) 0">
@@ -152,11 +147,23 @@
 <div style="padding:56px var(--cs-x) 0">
 <div class="cs-strip">
 <div data-showcase="1" style="display:flex;align-items:center;gap:32px;width:max-content;">
-<img alt="Role builder table" src="../assets/nabu/feature-role-clear.png?v=hq1" style="flex:0 0 auto;width:420px;height:auto;display:block">
-<img alt="Visualization builder filters" src="../assets/nabu/feature-viz-builder.png?v=clear2" style="flex:0 0 auto;width:420px;height:auto;display:block"/>
-<img alt="Visualization preview" src="../assets/nabu/feature-viz-1-clear.png?v=hq1" style="flex:0 0 auto;width:420px;height:auto;display:block"/>
-<img alt="Add partner flow" src="../assets/nabu/feature-partner.png?v=case1" style="flex:0 0 auto;width:420px;height:auto;display:block"/>
-</img></div>
+<div class="mk-browser mk-browser--nabu" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Role builder table" src="../assets/mockups/nabu/s33.svg" width="1868" height="982" decoding="async"></div>
+</div>
+<div class="mk-browser mk-browser--nabu" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view mk-browser__view--y" tabindex="0"><img alt="Visualization builder filters" src="../assets/mockups/nabu/step4.svg" width="1512" height="982" decoding="async"></div>
+</div>
+<div class="mk-browser mk-browser--nabu" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view mk-browser__view--y" tabindex="0"><img alt="Visualization preview" src="../assets/mockups/nabu/step5.svg" width="1512" height="982" decoding="async"></div>
+</div>
+<div class="mk-browser mk-browser--nabu" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view mk-browser__view--x" tabindex="0"><img alt="Add partner flow" src="../assets/mockups/nabu/s64.svg" width="2705" height="982" decoding="async"></div>
+</div>
+</div>
 </div>
 </div>
 <div id="problem" style="margin-top:72px;background:#14243B;color:#fff;padding:70px var(--cs-x) 74px">
@@ -272,7 +279,7 @@
 <span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Final product</span>
 </div>
 <h2 style="margin:0 0 12px;max-width:860px;font:400 40px/124% 'Instrument Serif',serif">A lot of this project came down to tables: how much to put in a row, and what happens when there are two hundred of them.</h2>
-<p style="margin:0 0 44px;max-width:680px;font:400 18px/155% 'Satoshi',sans-serif">These are the three decisions I'd talk through first. The screens are unframed so the tables are actually readable.</p>
+<p style="margin:0 0 44px;max-width:680px;font:400 18px/155% 'Satoshi',sans-serif">These are the three decisions I'd talk through first.</p>
 <div class="cs-decisions">
 <article class="cs-decision">
 <div class="cs-decision__head">
@@ -281,7 +288,10 @@
 </div>
 <h3 class="cs-decision__title">Put the assigned visualizations inside the table row</h3>
 <div class="cs-decision__row">
-<img class="cs-decision__shot" alt="Role Builder table with an expanded assigned-visualizations dropdown" src="../assets/nabu/feature-role-clear.png?v=hq1"/>
+<div class="mk-browser cs-decision__shot" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Role Builder table with an expanded assigned-visualizations dropdown" src="../assets/mockups/nabu/s33.svg" width="1868" height="982" loading="lazy" decoding="async"></div>
+</div>
 <div>
 <p style="margin:0 0 16px;font:400 17px/156% 'Satoshi',sans-serif">A role decides which data a partner can see, so the table doesn’t help much if you can’t tell what each role gives access to. There are 200 roles, and the descriptions run long.</p>
 <div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">A dropdown inside the row expands the assigned visualizations, so several can be read without widening the table</div>
@@ -301,7 +311,10 @@
 </div>
 <h3 class="cs-decision__title">Kept adding a partner in a modal instead of a separate page</h3>
 <div class="cs-decision__row">
-<img class="cs-decision__shot" alt="Add partner modal over the partner access table" src="../assets/nabu/feature-partner.png?v=case1"/>
+<div class="mk-browser cs-decision__shot" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view mk-browser__view--x" tabindex="0"><img alt="Add partner modal over the partner access table" src="../assets/mockups/nabu/s64.svg" width="2705" height="982" loading="lazy" decoding="async"></div>
+</div>
 <div>
 <p style="margin:0 0 16px;font:400 17px/156% 'Satoshi',sans-serif">Partner requests used to be handled one at a time in different places. Putting them in one table only helps if acting on one doesn’t send the admin off somewhere else.</p>
 <div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">The modal shows the roles that already exist, so nobody has to open another tab to look them up</div>
@@ -317,7 +330,10 @@
 </div>
 <h3 class="cs-decision__title">Made a role the single place access is decided</h3>
 <div class="cs-decision__row">
-<img class="cs-decision__shot" alt="Create role modal with name, description, and assigned visualizations" src="../assets/nabu/feature-create-role.png?v=laptop1" width="643" height="373"/>
+<div class="mk-browser cs-decision__shot" style="--mk-view:1868/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Create role modal with name, description, and assigned visualizations" src="../assets/mockups/nabu/s35.svg" width="1868" height="982" loading="lazy" decoding="async"></div>
+</div>
 <div>
 <p style="margin:0 0 16px;font:400 17px/156% 'Satoshi',sans-serif">Creating a role means naming it, describing it, and picking the visualizations it can reach. That chain is the whole access model: the role decides the assigned visualizations, and those decide what a partner sees. It made sense to keep all of it in one form.</p>
 <div style="padding:12px 0;border-top:1px solid rgba(20,36,59,.18);font:400 16px/152% 'Satoshi',sans-serif">Creating, editing, and deleting all happen where the roles are listed</div>
@@ -342,7 +358,10 @@
 <div style="padding:11px 0;border-top:1px solid rgba(20,36,59,.22);font:400 15px/150% 'Satoshi',sans-serif"><span style="font-weight:500">03</span>  Progress markers for all five steps</div>
 </div>
 </div>
-<img alt="Visualization builder step four, filters for country, date range, and data section" src="../assets/nabu/feature-viz-builder.png?v=clear2" width="1076" height="700" style="display:block;width:100%;max-width:100%;height:auto"/>
+<div class="mk-browser" style="--mk-view:1512/982">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Visualization builder step four, filters for country, date range, and data section" src="../assets/mockups/nabu/step4.svg" width="1512" height="982" loading="lazy" decoding="async"></div>
+</div>
 </div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin:36px 0">
 <span style="width:1px;height:34px;background:rgba(20,36,59,.3)"></span>
@@ -350,7 +369,10 @@
 <span style="width:1px;height:34px;background:rgba(20,36,59,.3)"></span>
 </div>
 <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,0.72fr);gap:40px;align-items:center">
-<img alt="Visualization builder step five, previewing the underlying data before publishing" src="../assets/nabu/feature-viz-1-clear.png?v=hq1" width="1076" height="700" style="display:block;width:100%;max-width:100%;height:auto;grid-row:1;grid-column:1"/>
+<div class="mk-browser" style="--mk-view:1512/982;grid-row:1;grid-column:1">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Visualization builder step five, previewing the underlying data before publishing" src="../assets/mockups/nabu/step5.svg" width="1512" height="982" loading="lazy" decoding="async"></div>
+</div>
 <div style="grid-row:1;grid-column:2">
 <span style="display:block;font:400 44px/1 'Instrument Serif',serif;color:rgba(20,36,59,.45);margin-bottom:10px">Step 5</span>
 <h4 style="margin:0 0 14px;font:400 28px/126% 'Instrument Serif',serif">Preview</h4>
@@ -372,7 +394,10 @@
 <span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#14243B">Output</span>
 <span style="font:400 24px/134% 'Instrument Serif',serif">From organized data to a chart NABU can send to a partner or funder.</span>
 </div>
-<img class="nabu-output" alt="Data table published from the visualization builder, with a row open on Leisha Garg" src="../assets/nabu/output-data.png?v=out2" width="1027" height="568"/>
+<div class="mk-browser" style="--mk-view:1027/568">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">NABU</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Data table published from the visualization builder, with a row open on Leisha Garg" src="../assets/mockups/nabu/published-table.png" width="1027" height="568" loading="lazy" decoding="async"></div>
+</div>
 </div>
 </div>
 <div id="takeaways" style="padding:76px var(--cs-x) 0">
@@ -419,10 +444,10 @@
 </footer>
 </div>
 </div>
-<script src="../scripts/case-final.js?v=case3"></script>
+<script src="../scripts/case-final.js?v=case4"></script>
 <script src="../scripts/cross-scroll.js"></script>
 <script src="../scripts/custom-cursor.js?v=cursorHover1"></script>
-<script src="../scripts/page-transition.js?v=tx10"></script>
+<script src="../scripts/page-transition.js?v=tx11"></script>
 <script src="../scripts/mailto.js"></script>
 <script src="../scripts/case-videos.js?v=flythrough1"></script>
 <script src="../scripts/motion.js?v=motion8"></script>

@@ -257,15 +257,19 @@
   font-weight: 400;
 }
 
-/* Homepage frame. Wider than a case study, narrower than the old 1360 column.
-   About keeps the shared page width. */
-.home-page {
+/* Homepage and About share one content frame: 1080px, centered, with the
+   page gutter as the minimum side margin. */
+.home-page,
+.about-page {
   --home-wide: 1080px;
 }
 
 .home-page .site-header__inner,
 .home-page .site-main,
-.home-page .site-footer__body {
+.home-page .site-footer__body,
+.about-page .site-header__inner,
+.about-page .site-main,
+.about-page .site-footer__body {
   width: min(calc(100% - 2 * var(--page-gutter)), var(--home-wide));
   max-width: var(--home-wide);
 }
@@ -874,6 +878,13 @@
   border-top: 0;
 }
 
+.about-page .belief {
+  margin-left: calc(max(var(--page-gutter), (100vw - var(--home-wide)) / 2) * -1);
+  margin-right: calc(max(var(--page-gutter), (100vw - var(--home-wide)) / 2) * -1);
+  padding-left: max(var(--page-gutter), calc((100vw - var(--home-wide)) / 2));
+  padding-right: max(var(--page-gutter), calc((100vw - var(--home-wide)) / 2));
+}
+
 .belief .site-kicker {
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.4;
@@ -963,9 +974,9 @@
   width: 1040px;
   height: 660px;
   transform-origin: 0 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
+  background: #edf2f5;
+  border: 1px solid rgba(20, 36, 59, 0.08);
+  border-radius: 18px;
   overflow: hidden;
   touch-action: none;
 }
@@ -1399,6 +1410,9 @@
     overflow: visible;
     transform: none !important;
     touch-action: pan-y;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
   }
 
   .polaroid {

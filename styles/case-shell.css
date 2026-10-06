@@ -801,12 +801,18 @@ html:has(.case-final) {
     width: 100%;
   }
 
-  .case-final:not(.terraform-page) .cs-body > * > * {
+  .case-final:not(.terraform-page) .cs-body > * > *,
+  .case-final:not(.terraform-page) .bf-content > .bf-cta {
     box-sizing: border-box;
     width: min(var(--cs-content), calc(100% - 2 * var(--cs-gutter)));
     max-width: var(--cs-content);
     margin-left: calc((100% - min(var(--cs-content), 100% - 2 * var(--cs-gutter))) / 2 - var(--cs-balance)) !important;
     margin-right: auto !important;
+  }
+
+  .case-final:not(.terraform-page) .bf-content > .bf-cta {
+    margin-top: 48px;
+    padding: 0;
   }
 
   .case-final:not(.terraform-page) .cs-body > [style*="background:#14243"],

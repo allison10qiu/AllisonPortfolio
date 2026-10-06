@@ -1,8 +1,7 @@
 /**
  * One page-transition system.
- * A home project card's image travels to the case-study hero. It does not grow to the viewport.
- * "Check out my other work" shrinks back toward that card when it can be targeted.
- * Home ↔ About uses one incoming fade. Everything else falls back to that fade.
+ * Home, About, project cards, and "Check out my other work" use the incoming fade.
+ * The shrink back into a project card is retired.
  * The old curtain wipe is gone.
  * sessionStorage only holds a slug or a one-shot flag, never protected content.
  */
@@ -337,8 +336,6 @@
       if (reduce) return;
 
       var card = link.closest("a.project[data-tx-project]");
-      var otherWork = link.classList.contains("bf-btn") && scrollId === "my-work";
-      var project = document.body.getAttribute("data-tx-project");
 
       if (card) {
         e.preventDefault();
@@ -346,17 +343,6 @@
         pauseVideos();
         window.__txSkipVT = true;
         remember("tx-fade", "1");
-        go(url.pathname + url.search);
-        return;
-      }
-
-      if (otherWork && project) {
-        e.preventDefault();
-        e.stopPropagation();
-        pauseVideos();
-        window.__txSkipVT = true;
-        remember("aq-scroll-to", "my-work");
-        remember("tx-back", project);
         go(url.pathname + url.search);
         return;
       }

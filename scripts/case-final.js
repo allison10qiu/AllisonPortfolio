@@ -22,6 +22,9 @@
       clone.querySelectorAll("img").forEach(function (img) {
         img.setAttribute("alt", "");
       });
+      clone.querySelectorAll("[tabindex]").forEach(function (el) {
+        el.removeAttribute("tabindex");
+      });
       track.appendChild(clone);
     });
     track.dataset.ready = "1";
