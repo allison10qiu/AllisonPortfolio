@@ -12,7 +12,7 @@
 /* Welcome bubble */
 .alison-gpt-welcome-wrap{display:flex;align-items:center;animation:agEnter .65s ease-out}
 .alison-gpt-bubble{position:relative;width:260px;background:#f5f9fc;border:1px solid #d1dee8;padding:26px;border-radius:20px 20px 0 20px;box-shadow:0 8px 25px #14243b0c;align-self:flex-start;margin-top:40px}
-.alison-gpt-bubble strong{font:400 28px "Instrument Serif","Iowan Old Style",Georgia,serif;display:block}
+.alison-gpt-bubble strong{font:500 28px "Satoshi",sans-serif;display:block}
 .alison-gpt-bubble p{font-size:14px;margin:8px 0 15px}
 .alison-gpt-bubble-close{position:absolute;right:9px;top:6px;border:0;background:transparent;font-size:24px;width:34px;height:34px}
 .alison-gpt-wave{width:210px;height:210px;background-image:url(/assets/alli/alli-wave.webp);background-size:200% 200%;background-position:0 0;animation:agWave 1.8s steps(1) infinite;align-self:flex-end;position:relative;bottom:-20px}
@@ -45,7 +45,7 @@
 /* Chat panel */
 .alison-gpt-panel{position:fixed;right:28px;bottom:28px;width:360px;height:min(530px,80dvh);border:1px solid #d1dee8;border-radius:20px;background:white;box-shadow:0 12px 55px #14243b22;display:flex;flex-direction:column;animation:agEnter .4s ease-out;overflow:hidden;z-index:10000}
 .alison-gpt-header{position:relative;padding:18px 22px;background:#14243b;color:#fff}
-.alison-gpt-title{margin:0;font:400 28px "Instrument Serif","Iowan Old Style",Georgia,serif}
+.alison-gpt-title{margin:0;font:500 28px "Satoshi",sans-serif}
 .alison-gpt-subtitle{margin:2px 0 0;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:#fff;opacity:.85}
 #alison-gpt-container .alison-gpt-close{position:absolute;right:9px;top:10px;border:0;background:transparent;color:#ffffff;font-size:24px;width:34px;height:34px}
 

@@ -672,9 +672,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-family: "Instrument Serif", serif;
+    font-family: "Satoshi", sans-serif;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1;
     color: #14243b;
   }
@@ -766,8 +766,8 @@
   .m-casebar__menu a::before {
     counter-increment: sec;
     content: counter(sec, decimal-leading-zero);
-    font-family: "Instrument Serif", serif;
-    font-weight: 400;
+    font-family: "Satoshi", sans-serif;
+    font-weight: 500;
     font-size: 16px;
   }
 
@@ -1457,7 +1457,7 @@
   }
 
   .case-final .cs-body [data-sec] {
-    font: 400 18px/1 "Instrument Serif", serif !important;
+    font: 500 18px/1 "Satoshi", sans-serif !important;
     letter-spacing: 0 !important;
     color: #14243b !important;
   }
@@ -1608,7 +1608,7 @@
   }
 
   .case-final .cs-body [style*="grid-template-columns:265px"] > div:first-child span:first-child {
-    font: 400 24px/1 "Instrument Serif", serif !important;
+    font: 500 24px/1 "Satoshi", sans-serif !important;
   }
 
   .case-final .cs-body [style*="grid-template-columns:265px"] [style*="grid-template-columns:repeat(3"] {
@@ -1684,7 +1684,7 @@
   }
 
   .brilliant-final .bf-head__num {
-    font: 400 18px/1 "Instrument Serif", serif;
+    font: 500 18px/1 "Satoshi", sans-serif;
   }
 
   .brilliant-final .bf-section__lead,
@@ -1730,9 +1730,9 @@
   }
 
   .brilliant-final .bf-persona__name {
-    font-family: "Instrument Serif", serif;
+    font-family: "Satoshi", sans-serif;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 500;
     color: #14243b;
   }
 
@@ -1833,7 +1833,7 @@
     grid-row: 1 / span 2 !important;
     display: block !important;
     margin: 0 !important;
-    font: 400 42px/1 "Instrument Serif", serif !important;
+    font: 500 42px/1 "Satoshi", sans-serif !important;
     letter-spacing: 0 !important;
     text-transform: none !important;
     color: #fff !important;
@@ -2127,7 +2127,7 @@
   }
 
   .terraform-page #users [style*="minmax(0,200px)"] > span {
-    font: 400 23px/1.22 "Instrument Serif", serif !important;
+    font: 500 23px/1.22 "Satoshi", sans-serif !important;
     color: #14243b !important;
   }
 
@@ -2180,7 +2180,7 @@
     grid-column: 1;
     grid-row: 1 / span 2;
     margin: 0 !important;
-    font: 400 18px/1.25 "Instrument Serif", serif !important;
+    font: 500 18px/1.25 "Satoshi", sans-serif !important;
     color: #14243b !important;
   }
 
@@ -2223,7 +2223,7 @@
 
   .terraform-page #research [style*="border-radius:18px"] p {
     margin: 0 !important;
-    font: 400 20px/1.35 "Instrument Serif", serif !important;
+    font: 500 20px/1.35 "Satoshi", sans-serif !important;
     color: #fff !important;
   }
 
@@ -2342,7 +2342,7 @@
   }
 
   .terraform-page #testing [style*="gap:1px"] > div > span:first-child {
-    font: 400 40px/1 "Instrument Serif", serif !important;
+    font: 500 40px/1 "Satoshi", sans-serif !important;
     margin: 0 0 6px !important;
   }
 
@@ -2381,13 +2381,13 @@
   }
 
   .terraform-page #refining [style*="letter-spacing:.2em"] {
-    font: 400 24px/1.1 "Instrument Serif", serif !important;
+    font: 500 24px/1.1 "Satoshi", sans-serif !important;
     letter-spacing: 0 !important;
     text-transform: none !important;
   }
 
   .terraform-page #refining [style*="letter-spacing:.2em"] > span {
-    font: italic 400 17px/1 "Instrument Serif", serif !important;
+    font: italic 400 17px/1 "Satoshi", sans-serif !important;
     color: rgba(20, 36, 59, 0.55) !important;
   }
 
@@ -2419,7 +2419,7 @@
 
   .terraform-page #outcome [style*="repeat(4"] > div > span:first-child {
     margin: 0 !important;
-    font: 400 64px/0.8 "Instrument Serif", serif !important;
+    font: 500 64px/0.92 "Satoshi", sans-serif !important;
     letter-spacing: -0.02em !important;
     color: #fff !important;
   }
@@ -2440,7 +2440,7 @@
   }
 
   .terraform-page #learned p {
-    font: 400 22px/1.35 "Instrument Serif", serif !important;
+    font: 500 22px/1.35 "Satoshi", sans-serif !important;
     color: #14243b !important;
   }
 

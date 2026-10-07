@@ -65,7 +65,7 @@
   text-align: center;
   font-family: var(--font-serif);
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: 0.01em;
   color: #ffffff;
@@ -184,6 +184,7 @@
   display: inline-block;
   margin-top: 16px;
   font-family: var(--font-serif);
+  font-weight: 500;
   font-size: clamp(32px, 4vw, 48px);
   line-height: 1.05;
   color: var(--white);
@@ -254,7 +255,7 @@
 .site-footer__id strong {
   font-family: var(--font-serif);
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* Homepage and About share one content frame: 1080px, centered, with the
@@ -294,7 +295,7 @@
   margin: 0;
   font-family: var(--font-serif);
   font-size: clamp(56px, 6vw, 92px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 0.9;
   letter-spacing: -0.02em;
 }
@@ -380,6 +381,7 @@
 
 .home-index__num {
   font-family: var(--font-serif);
+  font-weight: 500;
   font-size: 18px;
 }
 
@@ -552,7 +554,7 @@
   margin: 0;
   font-family: var(--font-serif);
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: 0;
 }
@@ -619,13 +621,14 @@
   margin: 18px 0 0;
   font-family: var(--font-serif);
   font-size: clamp(56px, 6vw, 84px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 0.92;
   letter-spacing: -0.015em;
 }
 
 .about-hero h1 em {
   font-style: italic;
+  font-weight: 400;
 }
 
 .about-hero__lede {
@@ -661,6 +664,7 @@
 .about-list li span {
   font-family: var(--font-serif);
   font-style: italic;
+  font-weight: 400;
   color: rgba(20, 36, 59, 0.55);
 }
 
@@ -725,7 +729,7 @@
   margin: 16px 0 0;
   font-family: var(--font-serif);
   font-size: clamp(36px, 4vw, 52px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.01em;
 }
@@ -741,6 +745,7 @@
 
 .job__org {
   font-family: var(--font-serif);
+  font-weight: 500;
   font-size: 26px;
   line-height: 1.1;
 }
@@ -783,12 +788,13 @@
   margin: 12px 0 0;
   font-family: var(--font-serif);
   font-size: clamp(32px, 3vw, 42px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.08;
 }
 
 .community h3 em {
   font-style: italic;
+  font-weight: 400;
   color: rgba(20, 36, 59, 0.6);
 }
 
@@ -907,7 +913,7 @@
   overflow-wrap: break-word;
   font-family: var(--font-serif);
   font-size: 88px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 0.98;
   letter-spacing: -0.015em;
   color: #fff;
@@ -916,6 +922,7 @@
 .belief h2 em,
 .closing h2 em {
   font-style: italic;
+  font-weight: 400;
 }
 
 .belief__cols {
@@ -940,6 +947,7 @@
   font-family: var(--font-serif);
   font-size: 34px;
   font-style: italic;
+  font-weight: 400;
   line-height: 1.28;
   color: #fff;
 }
@@ -1078,7 +1086,7 @@
   max-width: 9em;
   font-family: var(--font-serif);
   font-size: clamp(40px, 4.2vw, 56px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
@@ -1098,6 +1106,7 @@
   padding: 22px 0;
   border-bottom: 1px solid rgba(20, 36, 59, 0.16);
   font-family: var(--font-serif);
+  font-weight: 500;
   font-size: 28px;
   line-height: 1.2;
   text-decoration: none;
