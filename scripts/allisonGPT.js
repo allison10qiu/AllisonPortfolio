@@ -14,6 +14,12 @@ class AllisonGPT {
   }
 
   init() {
+    // Phones only get the swipe-away note. Chat stays on a computer.
+    if (window.matchMedia('(max-width: 640px)').matches) {
+      this.createMobileNotice();
+      return;
+    }
+
     this.createWidget();
     this.attachListeners();
 
@@ -90,41 +96,61 @@ class AllisonGPT {
     notice.id = 'ag-mobile';
     notice.className = 'alison-gpt-mobile';
     notice.innerHTML = `
-      <div class="alison-gpt-mobile-avatar"></div>
-      <span class="alison-gpt-mobile-label">Chat with Alli on your computer!</span>
+      <p class="alison-gpt-mobile-label">Hi! I'm Alli, chat with me on the computer! <em>(swipe right to hide me)</em></p>
+      <canvas class="alison-gpt-mobile-avatar" width="408" height="528" aria-label="Alli"></canvas>
     `;
     document.body.appendChild(notice);
 
+    const canvas = notice.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const sheet = new Image();
+    sheet.onload = () => {
+      ctx.drawImage(sheet, 0, 0, 408, 528, 0, 0, canvas.width, canvas.height);
+    };
+    sheet.src = '/assets/alli/alli-peek-sprite.webp?v=wave1';
+
     let startX = 0;
     let delta = 0;
+    let dragging = false;
 
-    notice.addEventListener('touchstart', (e) => {
-      if (!e.touches.length) return;
-      startX = e.touches[0].clientX;
+    notice.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true;
+      startX = e.clientX;
       delta = 0;
       notice.style.transition = 'none';
-    }, { passive: true });
+      notice.setPointerCapture(e.pointerId);
+    });
 
-    notice.addEventListener('touchmove', (e) => {
-      if (!e.touches.length) return;
-      delta = e.touches[0].clientX - startX;
-      notice.style.transform = `translateX(${delta}px)`;
-    }, { passive: true });
+    notice.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      delta = e.clientX - startX;
+      notice.style.transform = delta > 0 ? `translateX(${delta}px)` : '';
+    });
 
-    notice.addEventListener('touchend', () => {
+    notice.addEventListener('pointerup', () => {
+      if (!dragging) return;
+      dragging = false;
       notice.style.transition = '';
       void notice.offsetWidth;
-      if (Math.abs(delta) > 60) {
-        notice.style.transform = `translateX(${delta > 0 ? '150%' : '-150%'})`;
+      if (delta > 60) {
+        notice.style.transform = 'translateX(150%)';
         notice.classList.add('alison-gpt-mobile--dismissed');
         const remove = () => {
           notice.removeEventListener('transitionend', remove);
           if (notice.parentNode) notice.remove();
         };
         notice.addEventListener('transitionend', remove);
+        setTimeout(remove, 400);
       } else {
         notice.style.transform = '';
       }
+    });
+
+    notice.addEventListener('pointercancel', () => {
+      dragging = false;
+      notice.style.transition = '';
+      notice.style.transform = '';
     });
   }
 
