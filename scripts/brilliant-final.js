@@ -25,6 +25,7 @@
     var track = marquee.querySelector(".bf-marquee__track");
     var group = marquee.querySelector(".bf-marquee__group");
     if (!track || !group) return;
+    if (document.documentElement.classList.contains("figma-capture")) return;
 
     var clone = group.cloneNode(true);
     clone.setAttribute("aria-hidden", "true");

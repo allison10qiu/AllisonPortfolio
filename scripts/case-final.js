@@ -14,6 +14,7 @@
   }
 
   root.querySelectorAll("[data-preview-track], [data-showcase]").forEach(function (track) {
+    if (document.documentElement.classList.contains("figma-capture")) return;
     if (track.dataset.ready === "1") return;
     var kids = Array.prototype.slice.call(track.children);
     kids.forEach(function (kid) {

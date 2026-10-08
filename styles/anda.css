@@ -86,7 +86,7 @@
   background: #edf2f5;
   border: 1px solid #dcdcdc;
   border-radius: 20px;
-  color: #14243b;
+  color: #2B2E36;
 }
 
 .anda-prio__label {
@@ -145,7 +145,7 @@
   font-weight: 400;
   line-height: 1.35;
   text-align: center;
-  color: #14243b;
+  color: #2B2E36;
 }
 
 .anda-credit-name {
@@ -158,14 +158,14 @@
   font-size: var(--case-subhead-size);
   font-weight: 700;
   line-height: 1.3;
-  color: #14243b;
+  color: #2B2E36;
 }
 
 .anda-feature__copy p {
   margin: 0 0 8px;
   font-size: 16px;
   line-height: 1.35;
-  color: #14243b;
+  color: #2B2E36;
 }
 
 .anda-feature__copy .bc-bullets {

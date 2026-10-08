@@ -1,6 +1,6 @@
 /**
  * Custom cursor — Figma colors:
- *   navy #14243B · white #FFFFFF · light #EDF2F5
+ *   navy #2B2E36 · white #FFFFFF · light #EDF2F5
  * Circle: white on navy/dark, navy on white/light.
  * Project pills: navy fill, white text.
  *
@@ -12,13 +12,13 @@
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
   if (!finePointer.matches) return;
 
-  var NAVY = "#14243b";
+  var NAVY = "#2B2E36";
   var WHITE = "#ffffff";
 
   document.documentElement.classList.add("has-custom-cursor");
 
   var el = document.createElement("div");
-  el.className = "custom-cursor is-dot is-dark";
+  el.className = "custom-cursor is-dot is-light";
   el.setAttribute("aria-hidden", "true");
   el.innerHTML =
     '<span class="custom-cursor__dot"></span>' +
@@ -53,6 +53,42 @@
     return (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
   }
 
+  var imageSamples = typeof WeakMap === "function" ? new WeakMap() : null;
+
+  function sampleImagePixel(img, x, y) {
+    if (!img || img.tagName !== "IMG" || !img.complete || !img.naturalWidth) return null;
+    var rect = img.getBoundingClientRect();
+    if (rect.width < 2 || rect.height < 2) return null;
+    var nx = (x - rect.left) / rect.width;
+    var ny = (y - rect.top) / rect.height;
+    if (nx < 0 || ny < 0 || nx > 1 || ny > 1) return null;
+    var canvas = imageSamples && imageSamples.get(img);
+    if (!canvas) {
+      var w = img.naturalWidth;
+      var h = img.naturalHeight;
+      var scale = Math.min(1, 720 / Math.max(w, h));
+      canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(w * scale));
+      canvas.height = Math.max(1, Math.round(h * scale));
+      try {
+        canvas.getContext("2d", { willReadFrequently: true }).drawImage(img, 0, 0, canvas.width, canvas.height);
+      } catch (err) {
+        return null;
+      }
+      if (imageSamples) imageSamples.set(img, canvas);
+    }
+    var px = Math.min(canvas.width - 1, Math.max(0, Math.floor(nx * canvas.width)));
+    var py = Math.min(canvas.height - 1, Math.max(0, Math.floor(ny * canvas.height)));
+    var data;
+    try {
+      data = canvas.getContext("2d", { willReadFrequently: true }).getImageData(px, py, 1, 1).data;
+    } catch (err) {
+      return null;
+    }
+    if (data[3] < 20) return null;
+    return { r: data[0], g: data[1], b: data[2] };
+  }
+
   function sampleBackground(x, y) {
     var node = document.elementFromPoint(x, y);
     while (node && node !== document.documentElement) {
@@ -60,24 +96,19 @@
         node = node.parentElement;
         continue;
       }
+      if (node.tagName === "IMG") {
+        var pixel = sampleImagePixel(node, x, y);
+        if (pixel) return pixel;
+      }
       var style = window.getComputedStyle(node);
       var rgb = parseRgb(style.backgroundColor);
       if (rgb) return rgb;
-
-      if (node.tagName === "IMG" || node.tagName === "VIDEO") {
-        var parent = node.parentElement;
-        while (parent && parent !== document.documentElement) {
-          var parentRgb = parseRgb(window.getComputedStyle(parent).backgroundColor);
-          if (parentRgb) return parentRgb;
-          parent = parent.parentElement;
-        }
-      }
       node = node.parentElement;
     }
     return parseRgb(window.getComputedStyle(document.body).backgroundColor) || {
-      r: 20,
-      g: 36,
-      b: 59,
+      r: 255,
+      g: 255,
+      b: 255,
     };
   }
 
@@ -171,6 +202,7 @@
     el.style.transform =
       "translate3d(" + lastX + "px, " + lastY + "px, 0) translate(-50%, -50%)";
     el.classList.add("is-on");
+    document.documentElement.classList.add("is-cursor-live");
     // While scrolling, still allow card labels so moving onto a card feels instant.
     if (isScrolling) {
       var text = labelForTarget(e.target);
@@ -189,9 +221,11 @@
   document.addEventListener("mousemove", move, { passive: true });
   document.addEventListener("mouseleave", function () {
     el.classList.remove("is-on");
+    document.documentElement.classList.remove("is-cursor-live");
   });
   window.addEventListener("blur", function () {
     el.classList.remove("is-on");
+    document.documentElement.classList.remove("is-cursor-live");
     showDot();
   });
   window.addEventListener("scroll", onScrollActivity, { passive: true, capture: true });

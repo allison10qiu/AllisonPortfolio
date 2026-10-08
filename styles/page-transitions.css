@@ -71,7 +71,7 @@ html.tx-leaving main {
   display: none;
   overflow: hidden;
   background: linear-gradient(180deg, #f1f4f7 0%, #e9edf1 100%);
-  box-shadow: inset 0 0 0 1px rgba(20, 36, 59, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(43, 46, 54, 0.05);
 }
 
 html.tx-in .site-header,

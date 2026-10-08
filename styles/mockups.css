@@ -125,7 +125,7 @@
 .mk-browser__view:focus-visible,
 .mk-phone__view:focus-visible,
 .mk-plain:focus-visible {
-  outline: 2px solid #14243b;
+  outline: 2px solid #2B2E36;
   outline-offset: -2px;
 }
 

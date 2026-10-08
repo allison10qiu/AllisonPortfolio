@@ -155,14 +155,14 @@ body {
   --case-label-size: var(--type-label-size);
 
   /* Editorial system · Home, About, shared chrome */
-  --navy: #14243b;
+  --navy: #2B2E36;
   --white: #ffffff;
   --off-white: #f7f8fa;
   --blue-gray: #eef1f4;
-  --text-primary: #14243b;
-  --text-secondary: rgba(20, 36, 59, 0.72);
-  --rule: rgba(20, 36, 59, 0.16);
-  --shadow-soft: 0 12px 32px rgba(20, 36, 59, 0.1);
+  --text-primary: #2B2E36;
+  --text-secondary: rgba(43, 46, 54, 0.72);
+  --rule: rgba(43, 46, 54, 0.16);
+  --shadow-soft: 0 12px 32px rgba(43, 46, 54, 0.1);
   --font-serif: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-sans: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -193,7 +193,7 @@ body:has(.canvas-wrapper) {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #14243b;
+  background: #2B2E36;
 }
 
 .canvas-wrapper {
@@ -201,7 +201,7 @@ body:has(.canvas-wrapper) {
   width: 100vw;
   /* height set in JS to scaled canvas height */
   overflow: visible;
-  background: #14243b;
+  background: #2B2E36;
 }
 
 .design-canvas {
@@ -211,7 +211,7 @@ body:has(.canvas-wrapper) {
   width: 1440px;
   height: 2968.32px; /* Figma page incl. new footer */
   margin-left: 0;
-  background: #14243b;
+  background: #2B2E36;
   overflow: visible; /* allow sticker hover scale to peek out */
 
   /* My Work title + card grid · same outer gutter as case studies */
@@ -228,7 +228,7 @@ body:has(.canvas-wrapper) {
   width: 1440px;
   height: 812px;
   z-index: 6;
-  background: #14243b;
+  background: #2B2E36;
   /* Clip lace at the hero/work seam so scaled/subpixel edges never peek into My Work */
   overflow: hidden;
 }
@@ -268,7 +268,7 @@ body:has(.canvas-wrapper) {
   gap: 16px;
   margin: 0;
   padding: 0;
-  background: #14243b; /* cover baked PNG text */
+  background: #2B2E36; /* cover baked PNG text */
   color: #ffffff;
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
@@ -420,7 +420,7 @@ body:has(.canvas-wrapper) {
   top: 812px;
   width: 400px;
   height: 24px;
-  background: #14243b;
+  background: #2B2E36;
   z-index: 5;
   pointer-events: none;
 }
@@ -589,7 +589,7 @@ body:has(.canvas-wrapper) {
 }
 
 body:has(.canvas-wrapper) {
-  --vt-wipe-bg: #14243b;
+  --vt-wipe-bg: #2B2E36;
 }
 
 /* Instant full-screen cover before body paints (set by head script) */
@@ -669,7 +669,7 @@ html.aq-wipe-cover::before {
   font-weight: 700;
   font-size: var(--type-card-title-size);
   line-height: normal;
-  color: #14243b;
+  color: #2B2E36;
 }
 
 .home-card__desc {
@@ -679,7 +679,7 @@ html.aq-wipe-cover::before {
   font-style: italic;
   font-size: var(--type-body-size);
   line-height: var(--type-body-lh);
-  color: #14243b;
+  color: #2B2E36;
 }
 
 .home-card__tags {
@@ -696,14 +696,14 @@ html.aq-wipe-cover::before {
   justify-content: center;
   box-sizing: border-box;
   padding: 8px;
-  border: 1px solid #14243b;
+  border: 1px solid #2B2E36;
   border-radius: 16px;
   background: #fff;
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 500;
   font-size: var(--type-meta-size);
   line-height: normal;
-  color: #14243b;
+  color: #2B2E36;
   white-space: nowrap;
 }
 
@@ -765,11 +765,11 @@ html.aq-wipe-cover::before {
   height: 546.14px;
 }
 
-/* ---------- Custom cursor · Figma #14243B / #FFFFFF / #EDF2F5 ---------- */
+/* ---------- Custom cursor · Figma #2B2E36 / #FFFFFF / #EDF2F5 ---------- */
 
 @media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor,
-  html.has-custom-cursor * {
+  html.has-custom-cursor.is-cursor-live,
+  html.has-custom-cursor.is-cursor-live * {
     cursor: none !important;
   }
 }
@@ -803,7 +803,7 @@ html.aq-wipe-cover::before {
 }
 
 .custom-cursor.is-light .custom-cursor__dot {
-  background: #14243b; /* on white / light (#EDF2F5, etc.) */
+  background: #2B2E36; /* on white / light (#EDF2F5, etc.) */
 }
 
 .custom-cursor.is-dot .custom-cursor__dot {
@@ -815,7 +815,7 @@ html.aq-wipe-cover::before {
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 999px;
-  background: #14243b;
+  background: #2B2E36;
   color: #ffffff;
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
@@ -933,7 +933,7 @@ body:has(.work) {
 }
 
 .work-card:focus-visible {
-  outline: 2px solid #14243b;
+  outline: 2px solid #2B2E36;
   outline-offset: 4px;
   transform: scale(1.035);
 }
@@ -1010,7 +1010,7 @@ body:has(.work) {
 }
 
 .work-hotspot:focus-visible {
-  outline: 2px solid #14243b;
+  outline: 2px solid #2B2E36;
   outline-offset: 2px;
 }
 

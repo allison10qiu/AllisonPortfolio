@@ -1,0 +1,31 @@
+/* Applied only when html.figma-capture is set by ?figma=1. */
+html.figma-capture #alison-gpt-container,
+html.figma-capture #ag-mobile,
+html.figma-capture .custom-cursor,
+html.figma-capture .pw-cursor,
+html.figma-capture .pw-tap,
+html.figma-capture .pw-press,
+html.figma-capture #tx-cover {
+  display: none !important;
+}
+
+html.figma-capture,
+html.figma-capture body {
+  animation: none !important;
+}
+
+html.figma-capture .bf-marquee__track,
+html.figma-capture [data-preview-track],
+html.figma-capture [data-showcase],
+html.figma-capture .cs-strip [data-preview-track],
+html.figma-capture .cs-strip .cs-device-row {
+  animation: none !important;
+  transform: none !important;
+}
+
+html.figma-capture .project:hover .pw-desk,
+html.figma-capture .project:focus-visible .pw-desk,
+html.figma-capture .project:hover .pw-phone,
+html.figma-capture .project:focus-visible .pw-phone {
+  transform: none !important;
+}

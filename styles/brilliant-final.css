@@ -3,7 +3,7 @@
 
 .brilliant-final {
   /* Local Figma paint styles · navy blue, light blue, light grey, white */
-  --bf-navy: #14243b;
+  --bf-navy: #2B2E36;
   --bf-mist: #edf2f5;
   --bf-grey: #dcdcdc;
   --bf-white: #ffffff;
@@ -121,7 +121,7 @@ html:has(.brilliant-final) {
   font-size: 13px;
   font-weight: 500;
   line-height: 1;
-  color: rgba(20, 36, 59, 0.62);
+  color: rgba(43, 46, 54, 0.62);
   text-decoration: none;
   cursor: pointer;
   transition: color 200ms ease;
@@ -133,7 +133,7 @@ html:has(.brilliant-final) {
 }
 
 .bf-rail__back:hover {
-  color: rgba(20, 36, 59, 0.45);
+  color: rgba(43, 46, 54, 0.45);
   text-decoration: none;
 }
 
@@ -142,7 +142,7 @@ html:has(.brilliant-final) {
 }
 
 .bf-rail__back:focus-visible {
-  outline: 1px solid rgba(20, 36, 59, 0.45);
+  outline: 1px solid rgba(43, 46, 54, 0.45);
   outline-offset: 4px;
   text-decoration: none;
 }
@@ -1302,7 +1302,7 @@ html:has(.brilliant-final) {
     padding-bottom: 18px;
     background-image: linear-gradient(
       to right,
-      rgba(20, 36, 59, 0.28) 0 3px,
+      rgba(43, 46, 54, 0.28) 0 3px,
       transparent 3px 7px
     );
     background-size: 7px 1px;

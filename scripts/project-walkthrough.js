@@ -128,8 +128,9 @@ function paint(w, T) {
 export function initWalkthroughs(configs, { base = '', root = document } = {}) {
   const canHoverMQ = matchMedia('(hover: hover) and (pointer: fine)');
   const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+  const capture = document.documentElement.classList.contains('figma-capture');
   let canHover = canHoverMQ.matches;
-  let still = reduceMQ.matches || !canHover;
+  let still = capture || reduceMQ.matches || !canHover;
 
   const cards = [];
   root.querySelectorAll('[data-walkthrough]').forEach((card) => {
@@ -163,6 +164,7 @@ export function initWalkthroughs(configs, { base = '', root = document } = {}) {
   cards.forEach((w) => io.observe(w.card));
 
   const onChange = () => {
+    if (capture) return;
     canHover = canHoverMQ.matches;
     still = reduceMQ.matches || !canHover;
     if (still) cards.forEach((w) => paint(w, 0));
@@ -183,6 +185,6 @@ export function initWalkthroughs(configs, { base = '', root = document } = {}) {
     }
     raf = requestAnimationFrame(tick);
   };
-  raf = requestAnimationFrame(tick);
+  if (!capture) raf = requestAnimationFrame(tick);
   return () => { cancelAnimationFrame(raf); io.disconnect(); };
 }

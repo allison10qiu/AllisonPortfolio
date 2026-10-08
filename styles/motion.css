@@ -29,7 +29,7 @@
   .home-page .project:hover .project__stage,
   .home-page .project:focus-visible .project__stage {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(20, 36, 59, 0.08);
+    box-shadow: 0 12px 28px rgba(43, 46, 54, 0.08);
   }
 
   .home-page .project:hover .project__screen,

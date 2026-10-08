@@ -1,7 +1,10 @@
 /**
  * Alli Widget
  * Faithful rebuild of the approved AllisonGPT-preview design, wired to the real Claude API.
+ *
+ * Temporary hide. Set this to true to restore the peek, welcome, chat, and mobile note.
  */
+const ALLI_BOT_VISIBLE = false;
 
 class AllisonGPT {
   constructor() {
@@ -14,6 +17,9 @@ class AllisonGPT {
   }
 
   init() {
+    if (!ALLI_BOT_VISIBLE) return;
+    if (document.documentElement.classList.contains('figma-capture')) return;
+
     // Phones only get the swipe-away note. Chat stays on a computer.
     if (window.matchMedia('(max-width: 640px)').matches) {
       this.createMobileNotice();

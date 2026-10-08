@@ -28,7 +28,7 @@
     node.style.width = width;
     node.style.height = height;
     node.style.zIndex = "1";
-    node.style.filter = "drop-shadow(0 18px 28px rgba(20, 36, 59, 0.16))";
+    node.style.filter = "drop-shadow(0 18px 28px rgba(43, 46, 54, 0.16))";
     cover.appendChild(node);
   }
 
@@ -69,7 +69,7 @@
       panel.style.height = (+stage.h / boxH) * 100 + "%";
       panel.style.borderRadius = "14px";
       panel.style.background = "linear-gradient(180deg, #f1f4f7 0%, #e9edf1 100%)";
-      panel.style.boxShadow = "inset 0 0 0 1px rgba(20, 36, 59, 0.05)";
+      panel.style.boxShadow = "inset 0 0 0 1px rgba(43, 46, 54, 0.05)";
       cover.appendChild(panel);
     }
     images.forEach(function (img) {
