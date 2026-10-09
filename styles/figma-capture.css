@@ -1,7 +1,7 @@
 /* Applied only when html.figma-capture is set by ?figma=1. */
 html.figma-capture #alison-gpt-container,
 html.figma-capture #ag-mobile,
-html.figma-capture .custom-cursor,
+html.figma-capture .project-cursor,
 html.figma-capture .pw-cursor,
 html.figma-capture .pw-tap,
 html.figma-capture .pw-press,

@@ -5,7 +5,7 @@
 
 #alison-gpt-container{position:fixed;right:24px;bottom:20px;z-index:9999;font:16px/1.6 "Satoshi",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#2B2E36;color-scheme:light}
 #alison-gpt-container button,#alison-gpt-container input{font:inherit}
-#alison-gpt-container button{cursor:pointer;color:inherit}
+#alison-gpt-container button{cursor: var(--cursor-link, pointer);color:inherit}
 #alison-gpt-container button:focus-visible,#alison-gpt-container input:focus-visible{outline:3px solid #779bb9;outline-offset:4px}
 #alison-gpt-container [hidden]{display:none!important}
 

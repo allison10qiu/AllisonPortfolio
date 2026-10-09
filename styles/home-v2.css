@@ -7,26 +7,6 @@
   color: var(--home-ink);
   letter-spacing: -0.05em;
   background: #fff;
-  cursor: auto;
-}
-
-.home-page a,
-.home-page button {
-  cursor: pointer;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor.is-cursor-live .home-page,
-  html.has-custom-cursor.is-cursor-live .home-page * {
-    cursor: auto !important;
-  }
-
-  html.has-custom-cursor.is-cursor-live .home-page a,
-  html.has-custom-cursor.is-cursor-live .home-page a *,
-  html.has-custom-cursor.is-cursor-live .home-page button,
-  html.has-custom-cursor.is-cursor-live .home-page button * {
-    cursor: pointer !important;
-  }
 }
 
 .home-page .site-header {
@@ -98,10 +78,11 @@
 .home-page .home-hero {
   position: relative;
   isolation: isolate;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
   gap: 40px;
-  align-items: end;
   padding: 8px 0 0;
   background: none;
   overflow: visible;
@@ -116,7 +97,7 @@
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  cursor: auto;
+  cursor: var(--cursor-normal, auto);
   z-index: 0;
 }
 
@@ -129,7 +110,12 @@
 .home-hero__copy {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  /* Single source of vertical rhythm. Each child also carries its own padding
+     (title 10px below, lede 6px, links 8px), so the visible gaps are
+     name→lede 10+10+6 = 26px and lede→links 6+10+8 = 24px. */
+  gap: 10px;
+  flex: 1 1 260px;
+  min-width: 0;
   padding-bottom: 0;
 }
 
@@ -387,19 +373,439 @@
   outline-offset: 4px;
 }
 
+.home-cluster {
+  --k: 1;
+  display: flex;
+  align-items: flex-end;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.home-objects {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: calc(200px * var(--k));
+  flex: 0 0 auto;
+}
+
+.home-objects__fit {
+  width: 200px;
+  padding-bottom: 62px;
+  transform: scale(var(--k));
+  transform-origin: top left;
+  margin-bottom: calc((var(--k) - 1) * var(--obj-h, 500px));
+}
+
+.home-goals {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 190 / 241;
+  margin-bottom: 14px;
+  transform-origin: 70% 60%;
+  transition: transform 0.6s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+/* Hero object wrappers are layout boxes only. They overlap the spilled bag
+   items, so they must never capture the pointer. Only the artwork buttons do. */
+.home-objects,
+.home-objects__fit,
+.home-goals,
+.home-goals__tilt,
+.home-mems,
+.home-mems__tilt,
+.home-mems__title {
+  pointer-events: none;
+}
+
+.home-goals__card,
+.home-mems__cam {
+  pointer-events: auto;
+}
+
+.home-goals__tilt,
+.home-mems__tilt {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.home-goals:hover .home-goals__tilt,
+.home-goals:focus-within .home-goals__tilt {
+  transform: translate(-6px, -6px) rotate(-4deg);
+  transition-duration: 0.45s;
+}
+
+.home-goals__cluster {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 69.6%;
+  height: auto;
+  pointer-events: none;
+}
+
+.home-goals__card {
+  position: absolute;
+  left: 28.45%;
+  top: 25.38%;
+  width: 69.06%;
+  height: 72.06%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 8px 10px 7px;
+  border: 0.5px solid #ececec;
+  border-radius: 2px;
+  background: #fcfcfc;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  color: #14243b;
+  cursor: var(--cursor-link, pointer);
+  letter-spacing: -0.02em;
+  text-align: left;
+  transform: rotate(-3.5deg);
+  transform-origin: 50% 55%;
+}
+
+.home-goals__head {
+  position: relative;
+  flex: 0 0 auto;
+  height: 42px;
+  border-bottom: 1px solid rgba(20, 36, 59, 0.85);
+}
+
+.home-goals__name {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+}
+
+.home-goals__years {
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+}
+
+.home-goals__row {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border-bottom: 1px solid rgba(20, 36, 59, 0.85);
+  font-family: "Satoshi", sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.home-goals__row:last-child {
+  border-bottom: 0;
+}
+
+.home-goals__row img {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.home-mems {
+  width: 100%;
+  transform-origin: 50% 50%;
+  transition: transform 0.6s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.home-mems__tilt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: auto;
+}
+
+.home-mems:hover .home-mems__tilt,
+.home-mems:focus-within .home-mems__tilt {
+  transform: translate(-6px, -4px) rotate(3deg);
+  transition-duration: 0.45s;
+}
+
+.home-mems__title {
+  margin: 0;
+  padding: 0 6px;
+  font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: calc(43px * 0.775);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+  color: var(--home-ink);
+}
+
+.home-mems__cam {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 900 / 514;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: var(--cursor-link, pointer);
+}
+
+.home-mems__screen {
+  position: absolute;
+  left: 9%;
+  top: 12.6%;
+  width: 60.2%;
+  height: 79.8%;
+  overflow: hidden;
+  background: #14243b;
+}
+
+.home-mems__screen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.home-mems__screen img.is-on {
+  opacity: 1;
+}
+
+.home-mems__flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home-mems__count {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  color: #fff;
+  font-family: "Satoshi", sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+.home-mems__cam--popup .home-mems__count {
+  top: 10px;
+  right: 12px;
+  font-size: 14px;
+}
+
+.home-mems__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 .home-bag {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  width: auto;
+  max-width: none;
+  flex: 0 0 auto;
+  margin: 0 calc(-40px * var(--k) * var(--edge, 1)) 0 calc(-110px * var(--k));
   min-width: 0;
 }
+
+.home-page [data-trail-avoid] {
+  text-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 18px #fff;
+}
+
+.home-hero__lede {
+  transition: max-width 0.6s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.home-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(20, 36, 59, 0.28);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.home-scrim.is-in {
+  opacity: 1;
+}
+
+.home-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 101;
+  opacity: 0;
+}
+
+.home-modal--goals {
+  width: min(760px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  padding: 48px 56px 40px;
+  border-radius: 16px;
+  background: #f5f5f5;
+  box-shadow: 0 24px 60px rgba(20, 36, 59, 0.22);
+  color: #14243b;
+}
+
+.home-modal__x {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #14243b;
+  font-size: 28px;
+  line-height: 1;
+  cursor: var(--cursor-link, pointer);
+}
+
+.home-modal__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #14243b;
+  padding-bottom: 8px;
+}
+
+.home-modal__title {
+  margin: 0;
+  font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.home-modal__years {
+  margin: 0 36px 6px 0;
+  font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 30px;
+  font-style: italic;
+  letter-spacing: -0.04em;
+}
+
+.home-goal {
+  border-bottom: 1px solid #14243b;
+}
+
+.home-goal__btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+  padding: 14px 4px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: "Satoshi", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-align: left;
+  cursor: var(--cursor-link, pointer);
+}
+
+.home-goal__btn img {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.home-goal__plus {
+  margin-left: auto;
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.35s ease;
+}
+
+.home-goal.is-open .home-goal__plus {
+  transform: rotate(45deg);
+}
+
+.home-goal__note {
+  display: none;
+  margin: 0;
+  padding: 0 4px 16px 44px;
+  font-family: "Satoshi", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.home-goal.is-open .home-goal__note {
+  display: block;
+}
+
+.home-modal--mems {
+  width: min(820px, calc(100vw - 32px), calc((100vh - 32px) * 900 / 514));
+  background: none;
+  box-shadow: none;
+}
+
+.home-modal__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 
 .home-bag__stage {
   position: relative;
   z-index: 5;
-  width: 100%;
-  max-width: 520px;
+  width: calc(520px * var(--k));
+  max-width: none;
   aspect-ratio: 520 / 537;
   transform: none;
   transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -407,6 +813,97 @@
 
 .home-bag.is-open .home-bag__stage {
   transform: translateY(calc(58px + 4.1%));
+}
+
+@media (max-width: 767px) {
+  .home-page .home-hero {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .home-cluster {
+    --m: 0.6;
+    display: block;
+    position: relative;
+    width: calc(520px * var(--m) + 36px);
+    max-width: 100%;
+    height: calc(537px * var(--m) + 104px);
+    margin: 0 auto;
+  }
+
+  .home-objects {
+    display: block;
+    position: absolute;
+    z-index: 6;
+    left: 0;
+    top: 0;
+    width: calc(200px * var(--m));
+    padding: 0;
+    gap: 0;
+  }
+
+  .home-objects__fit {
+    width: 200px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    transform: scale(var(--m));
+    transform-origin: top left;
+  }
+
+  .home-mems {
+    margin-top: -8px;
+  }
+
+  .home-mems__title {
+    font-size: 27px;
+    letter-spacing: -0.07em;
+  }
+
+  .home-bag {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: calc(520px * var(--m));
+    max-width: calc(100% - 12px);
+    margin: 0;
+  }
+
+  .home-bag__stage {
+    zoom: 1;
+    width: 100%;
+    max-width: none;
+  }
+
+  .home-bag.is-open .bag-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+  }
+
+  .home-modal--goals {
+    width: calc(100vw - 32px);
+    max-height: 86vh;
+    padding: 52px 20px 28px;
+  }
+
+  .home-modal__head {
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+
+  .home-modal__years {
+    margin-right: 8px;
+  }
+
+  .home-modal--mems {
+    width: min(calc(100vw - 32px), calc(86vh * 900 / 514));
+  }
 }
 
 .bag-item {
@@ -421,7 +918,7 @@
   padding: 0;
   border: 0;
   background: none;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%) rotate(calc((var(--r) + var(--spin)) * 1deg)) scale(0.35);
@@ -444,6 +941,7 @@
 .home-bag.is-open .bag-item {
   left: calc(var(--cx) / 520 * 100%);
   top: calc(var(--cy) / 537 * 100%);
+  z-index: calc(6 + var(--i));
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) rotate(calc(var(--r) * 1deg)) scale(1);
@@ -452,6 +950,12 @@
     top 0.6s cubic-bezier(0.35, -0.55, 0.4, 1) var(--d-open),
     transform 0.6s cubic-bezier(0.25, 0.9, 0.3, 1) var(--d-open),
     opacity 0.2s ease var(--d-open);
+}
+
+/* The laptop is a spilled item, not something emerging from the bag: it sits
+   behind the bag body so the handles and bag stay in front of it. */
+.home-bag.is-open .bag-item[aria-label="Laptop"] {
+  z-index: 3;
 }
 
 .home-bag__body {
@@ -464,7 +968,7 @@
   padding: 0;
   border: 0;
   background: none;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   transform: translate(-50%, -50%);
   transform-origin: 50% 100%;
   transition: transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1);
@@ -495,7 +999,7 @@
   padding: 0;
   border: 0;
   background: none;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
 }
 
 .home-bag.is-open .home-bag__hotspot {
@@ -510,7 +1014,7 @@
   padding: 4px 12px;
   border: 0;
   background: #fff;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   color: var(--home-ink);
   font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
   font-size: 43px;
@@ -531,7 +1035,7 @@
 
 .bag-tip {
   position: absolute;
-  z-index: 10;
+  z-index: 30;
   left: 0;
   top: 0;
   transform: translate(0, -100%) scale(0.85);
@@ -539,17 +1043,17 @@
   opacity: 0;
   pointer-events: none;
   white-space: nowrap;
-  padding: 8px 14px;
-  background: #14243b;
-  color: #fff;
-  border-radius: 18px 18px 18px 4px;
+  padding: var(--tip-pad);
+  background: var(--tip-bg);
+  color: var(--tip-fg);
+  border-radius: var(--tip-radius) var(--tip-radius) var(--tip-radius) var(--tip-radius-tail);
   font-family: "Satoshi", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.2;
-  letter-spacing: -0.03em;
-  box-shadow: 0 6px 16px -6px rgba(20, 36, 59, 0.45);
-  transition: opacity 0.15s ease, transform 0.2s cubic-bezier(0.3, 1.4, 0.5, 1);
+  letter-spacing: var(--tip-letter-spacing);
+  box-shadow: var(--tip-shadow);
+  transition: opacity var(--tip-fade), transform 0.2s cubic-bezier(0.3, 1.4, 0.5, 1);
 }
 
 .bag-tip.is-on {
@@ -935,14 +1439,13 @@
 }
 
 .home-footer__pit {
+  /* Whole footer is the physics container (Claude: inset 0, z-index 2). */
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 84px;
-  z-index: 0;
+  inset: 0;
+  z-index: 2;
   overflow: hidden;
   pointer-events: none;
+  filter: drop-shadow(0 3px 4px rgba(20, 36, 59, 0.18));
 }
 
 .home-footer__pit canvas {

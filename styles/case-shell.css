@@ -94,7 +94,7 @@ html:has(.case-final) {
   line-height: 1;
   color: rgba(43, 46, 54, 0.62);
   text-decoration: none;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   transition: color 200ms ease;
 }
 
@@ -200,7 +200,7 @@ html:has(.case-final) {
   text-transform: uppercase;
   text-align: left;
   color: color-mix(in srgb, var(--bf-navy) 45%, transparent);
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   transition: color 200ms ease, opacity 200ms ease;
 }
 
@@ -250,7 +250,7 @@ html:has(.case-final) {
 }
 
 .case-final .bf-rail__item.is-locked .bf-rail__link {
-  cursor: default;
+  cursor: var(--cursor-normal, default);
 }
 
 .case-final .bf-rail__item.is-locked .bf-rail__link:hover {
@@ -600,7 +600,7 @@ html:has(.case-final) {
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   appearance: none;
   transition: transform 180ms ease, background 180ms ease;
 }

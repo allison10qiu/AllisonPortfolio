@@ -293,7 +293,7 @@ html:has(.bc-page) {
   font-size: 16px;
   font-weight: 400;
   line-height: normal; /* Figma leading-[normal] */
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   appearance: none;
   -webkit-appearance: none;
   transition: transform 180ms ease, background 180ms ease;

@@ -453,7 +453,7 @@ body:has(.canvas-wrapper) {
   position: absolute;
   display: block;
   pointer-events: auto;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   background: transparent;
   border: none;
   line-height: 0;
@@ -531,7 +531,7 @@ body:has(.canvas-wrapper) {
   display: block;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   background: transparent;
   border: none;
   outline: none;
@@ -708,7 +708,7 @@ html.aq-wipe-cover::before {
 }
 
 .home-card--soon {
-  cursor: default;
+  cursor: var(--cursor-normal, default);
 }
 
 .home-card:hover {
@@ -765,68 +765,134 @@ html.aq-wipe-cover::before {
   height: 546.14px;
 }
 
-/* ---------- Custom cursor · Figma #2B2E36 / #FFFFFF / #EDF2F5 ---------- */
-
+/* ---------- White Wing cursor set (desktop / fine pointers only) ----------
+   Native CSS cursors (.cur) — no JS overlay, no `cursor: none`.
+   Tokens are defined ONLY for hover-capable fine pointers; everywhere else the
+   var(--cursor-*, keyword) fallbacks below resolve to the normal browser cursors,
+   so touch devices are untouched. Set by NaLexnu — see assets/cursors/white-wing/readme.txt
+   `.ani` files are kept in the folder but browsers cannot render them, so the
+   link cursor uses link-select-static.cur (frame 2 of Link Select.ani). */
 @media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor.is-cursor-live,
-  html.has-custom-cursor.is-cursor-live * {
-    cursor: none !important;
+  :root {
+    --cursor-normal: url("/assets/cursors/white-wing/Normal.cur"), auto;
+    --cursor-link: url("/assets/cursors/white-wing/link-select-static.cur"), pointer;
+    --cursor-text: url("/assets/cursors/white-wing/Text%20Select.cur"), text;
+    --cursor-move: url("/assets/cursors/white-wing/move.cur"), move;
+  }
+
+  html,
+  body {
+    cursor: var(--cursor-normal, auto);
+  }
+
+  a[href],
+  button:not(:disabled),
+  summary,
+  select,
+  label[for],
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: var(--cursor-link, pointer);
+  }
+
+  input:not([type]),
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="number"],
+  textarea,
+  [contenteditable=""],
+  [contenteditable="true"] {
+    cursor: var(--cursor-text, text);
   }
 }
 
-.custom-cursor {
+/* ---------- Shared tooltip tokens (bag-spill tip + project-card label) ---------- */
+:root {
+  --tip-bg: #14243b;
+  --tip-fg: #ffffff;
+  --tip-pad: 8px 14px;
+  --tip-radius: 18px;
+  --tip-radius-tail: 4px;
+  --tip-font: 400 14px/1.2 "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --tip-letter-spacing: -0.03em;
+  --tip-shadow: 0 6px 16px -6px rgba(20, 36, 59, 0.45);
+  --tip-fade: 0.15s ease;
+  --tip-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ---------- Project-card hover label (scripts/project-cursor.js) ----------
+   A small contextual layer that rides next to the native White Wing cursor.
+   It never replaces the cursor, never takes pointer events, and only appears
+   over project cards. */
+.project-cursor {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 0;
   padding: 0;
   pointer-events: none;
   opacity: 0;
-  transform: translate(-50%, -50%);
-  transition: opacity 120ms ease;
+  transition: opacity var(--tip-fade);
+  will-change: transform, opacity;
 }
 
-.custom-cursor.is-on {
+.project-cursor.is-on {
   opacity: 1;
 }
 
-.custom-cursor__dot {
-  display: none;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #ffffff; /* on navy / dark */
-}
-
-.custom-cursor.is-light .custom-cursor__dot {
-  background: #2B2E36; /* on white / light (#EDF2F5, etc.) */
-}
-
-.custom-cursor.is-dot .custom-cursor__dot {
+.project-cursor__label {
   display: block;
-}
-
-.custom-cursor__label {
-  display: none;
   box-sizing: border-box;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: #2B2E36;
-  color: #ffffff;
-  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  padding: var(--tip-pad);
+  border-radius: var(--tip-radius-tail) var(--tip-radius) var(--tip-radius) var(--tip-radius);
+  background: var(--tip-bg);
+  color: var(--tip-fg);
+  font: var(--tip-font);
+  letter-spacing: var(--tip-letter-spacing);
   white-space: nowrap;
+  box-shadow: var(--tip-shadow);
+  transform: scale(0.94);
+  transform-origin: 0 0;
+  transition: transform 0.16s var(--tip-ease-out);
 }
 
-.custom-cursor.is-label .custom-cursor__label {
-  display: block;
+.project-cursor.is-on .project-cursor__label {
+  transform: scale(1);
+}
+
+/* flip near viewport edges — the small "tail" corner always faces the pointer */
+.project-cursor.is-flip-x .project-cursor__label {
+  border-radius: var(--tip-radius) var(--tip-radius-tail) var(--tip-radius) var(--tip-radius);
+  transform-origin: 100% 0;
+}
+
+.project-cursor.is-flip-y .project-cursor__label {
+  border-radius: var(--tip-radius) var(--tip-radius) var(--tip-radius) var(--tip-radius-tail);
+  transform-origin: 0 100%;
+}
+
+.project-cursor.is-flip-x.is-flip-y .project-cursor__label {
+  border-radius: var(--tip-radius) var(--tip-radius) var(--tip-radius-tail) var(--tip-radius);
+  transform-origin: 100% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-cursor,
+  .project-cursor__label {
+    transition: none;
+  }
+
+  .project-cursor__label {
+    transform: none;
+  }
 }
 
 /* Footer contact links — invisible hotspots over the baked footer art */
@@ -834,7 +900,7 @@ html.aq-wipe-cover::before {
   position: absolute;
   display: block;
   z-index: 4;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   background: transparent;
 }
 
@@ -907,7 +973,7 @@ body:has(.work) {
   line-height: 0;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   background: transparent;
   border: none;
   outline: none;
@@ -976,7 +1042,7 @@ body:has(.work) {
   position: absolute;
   display: block;
   pointer-events: auto;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   background: transparent;
   border: none;
   z-index: 2;

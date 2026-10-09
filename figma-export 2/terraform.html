@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en" class="figma-static">
+<head>
+
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../assets/shared/favicon-aq.svg?v=aqheart" rel="icon" type="image/svg+xml"/>
+<link href="../apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="Terraform read-only access — case study by Allison Qiu." name="description"/>
+<meta content="noindex" name="robots"/>
+<title>Terraform · Allison Qiu</title>
+<link href="../styles/main.css?v=fonts1" rel="stylesheet"/>
+<link href="../styles/brilliant.css?v=fonts1" rel="stylesheet"/>
+<link href="../styles/editorial.css?v=editorial8" rel="stylesheet"/>
+<link href="../styles/case-shell.css?v=align1" rel="stylesheet"/>
+<link href="../styles/terraform.css?v=rail1" rel="stylesheet"/>
+<link href="../styles/motion.css?v=motion6" rel="stylesheet"/>
+<link href="../styles/page-transitions.css?v=tx8" rel="stylesheet"/>
+<link href="../styles/mobile.css?v=tfshift2" rel="stylesheet"/>
+<link href="../styles/allisonGPT.css?v=outline2" rel="stylesheet"/>
+<link href="../styles/mockups.css?v=mk2" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/static.css">
+</head>
+<body class="bc-page terraform-page case-final" data-tx-project="terraform">
+
+
+<div class="bc-canvas-wrapper">
+<div class="bc-canvas">
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-header__brand" href="index.html" aria-label="Allison Qiu, home">
+  <img class="site-header__mark" src="../assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
+  <span class="site-header__aq" aria-hidden="true">AQ</span>
+</a>
+<nav class="site-header__nav" aria-label="Primary">
+<a class="site-header__link" href="index.html" data-scroll-to="my-work" aria-current="page">Work <img class="site-header__marklet" src="../assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+<a class="site-header__link" href="about.html">About</a>
+<a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+</nav>
+</div>
+</header>
+<main class="bf-main">
+<div class="bf-layout">
+<div class="bf-rail-col">
+<div class="bf-rail">
+<a class="bf-rail__back" href="/#my-work"><span aria-hidden="true">←</span> Back to Projects</a>
+<div class="bf-rail__head">
+<p class="bf-rail__eyebrow">Case study</p>
+<p class="bf-rail__title">Terraform</p>
+</div>
+<nav aria-label="Case study sections" class="bf-rail__nav">
+<span aria-hidden="true" class="bf-rail__fill"></span>
+<ul class="bf-rail__list">
+<li class="bf-rail__item is-active"><a class="bf-rail__link" data-bf-scroll="problem" href="#problem"><span aria-hidden="true" class="bf-rail__dot"></span><span>The problem</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="workflow" href="#workflow"><span aria-hidden="true" class="bf-rail__dot"></span><span>Workflow</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="audit" href="#audit"><span aria-hidden="true" class="bf-rail__dot"></span><span>Audit</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="research" href="#research"><span aria-hidden="true" class="bf-rail__dot"></span><span>Research</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="directions" href="#directions"><span aria-hidden="true" class="bf-rail__dot"></span><span>M vs H</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="testing" href="#testing"><span aria-hidden="true" class="bf-rail__dot"></span><span>Testing</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="combined" href="#combined"><span aria-hidden="true" class="bf-rail__dot"></span><span>Combined</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="details" href="#details"><span aria-hidden="true" class="bf-rail__dot"></span><span>Details</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="view-edit" href="#view-edit"><span aria-hidden="true" class="bf-rail__dot"></span><span>View → Edit</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="system" href="#system"><span aria-hidden="true" class="bf-rail__dot"></span><span>System</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="handoff" href="#handoff"><span aria-hidden="true" class="bf-rail__dot"></span><span>Handoff</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="outcome" href="#outcome"><span aria-hidden="true" class="bf-rail__dot"></span><span>Outcome</span></a></li>
+<li class="bf-rail__item is-locked"><a class="bf-rail__link" data-bf-scroll="reflection" href="#reflection"><span aria-hidden="true" class="bf-rail__dot"></span><span>Reflection</span></a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="bf-content">
+<div class="cs-body" data-screen-label="Terraform case study">
+<section class="tf-hero" data-part="public" id="problem">
+<p class="tf-kicker">IBM · Terraform</p>
+<h1>Making read-only access clearer in Terraform</h1>
+<div class="tf-hero__copy">
+<p>During my Product Design internship at IBM, I worked on Terraform’s read-only experience for users who could review configurations but didn’t have permission to change them.</p>
+<p>Removing the Edit button was the easy part. Across the product, that also removed context people needed to understand what was configured.</p>
+</div>
+<div class="tf-hero__actions">
+<a class="tf-hero__unlock" id="tf-unlock-jump" href="#terraform-gate">Unlock the full case study</a>
+<span class="tf-hero__read">3 min read · 8 min unlocked</span>
+</div>
+<div class="mk-browser tf-hero__shot" style="--mk-view:2043/1184">
+<div class="mk-browser__bar" aria-hidden="true"><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-url-wrap"><span class="mk-url">Terraform</span></span><span class="mk-bar-spacer"></span></div>
+<div class="mk-browser__view"><img alt="Terraform Organizations settings on a laptop" src="../assets/home/walkthroughs/terraform/organizations.png" width="2043" height="1184" decoding="async"></div>
+</div>
+<div class="tf-meta" aria-label="Project details">
+<div><span>Timeline</span><span>May–Aug 2026</span></div>
+<div><span>Role</span><span>Product Design Intern</span></div>
+<div><span>Scope</span><span>41 configuration routes</span></div>
+<div><span>Tools</span><ul><li>Figma</li><li>UserTesting</li><li>Jira</li><li>Terraform</li></ul></div>
+<div><span>Focus</span><ul><li>Enterprise product design</li><li>UX research + testing</li><li>Interaction design</li><li>Systems thinking</li></ul></div>
+<div class="tf-meta__mine"><span>My contribution</span><span>I owned the workflow audit, interaction design, concept exploration, and usability testing for this work. Research was a team effort; my part is noted in that section.</span></div>
+</div>
+</section>
+
+<section class="tf-problem" data-part="public">
+<div class="tf-problem__copy">
+<span data-sec="01" class="tf-kicker">The problem</span>
+<h2>Read-only turned out to be more than removing the edit button.</h2>
+<p>Terraform’s role-based access control decides who can view a setting and who can change it. Making a setting read-only raised a harder question: what should stay visible once the controls are gone?</p>
+</div>
+<div class="tf-ro is-step-0" data-ro-demo>
+<div class="tf-ro__card" aria-hidden="true">
+<div class="tf-ro__bar">
+<span class="tf-ro__title"></span>
+<span class="tf-ro__actions">
+<span class="tf-ro__edit"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M8.5 1.5l2 2L4 10H2V8z"></path></svg>Edit</span>
+<span class="tf-ro__chip"><svg width="10" height="11" viewBox="0 0 10 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1" y="5" width="8" height="6" rx="1"></rect><path d="M3 5V3.5a2 2 0 014 0V5"></path></svg>Read-only</span>
+</span>
+</div>
+<div class="tf-ro__grid">
+<span>Value</span>
+<span class="tf-ro__value"><span>Current configuration</span><span class="tf-ro__selected"><span class="tf-ro__mark"></span>Selected value</span></span>
+<span>Context</span>
+<span class="tf-ro__ctx">
+<span><i></i><b></b></span>
+<span><i></i><b></b></span>
+<span class="tf-ro__info"><i>i</i><b></b></span>
+<span class="tf-ro__dep"><i></i><b></b><em>depends on the value above</em></span>
+</span>
+<span class="tf-ro__edit-label">Editing</span>
+<span class="tf-ro__edit-slot">
+<span class="tf-ro__buttons"><span>Save</span><span>Cancel</span></span>
+<span class="tf-ro__removed">Removed in read-only</span>
+</span>
+</div>
+</div>
+<div class="tf-ro__legend">
+<span class="tf-ro__leg-edit">Editable</span><span class="tf-ro__leg-edit">Current value + Context + Editing controls</span>
+<span class="tf-ro__leg-ro">Read-only</span><span class="tf-ro__leg-ro">Current value + Necessary context − Editing controls</span>
+</div>
+<div class="tf-ro__foot">
+<p>Removing editing controls was straightforward. Deciding what information still helped someone understand the configuration was the harder part.</p>
+</div>
+</div>
+</section>
+
+<div class="tf-lockbox" data-part="gate" id="terraform-gate">
+<div class="tf-lockbox__locked">
+<div class="tf-lockbox__intro">
+<span class="tf-lockbox__kicker"><img src="../assets/shared/aq-lace-mark.svg" alt="" width="16" height="16">Full case study · Password protected</span>
+<h2>Go deeper into the work.</h2>
+<p>The full case study includes the 41-route audit, research findings, design explorations, Terraform-user testing, and the recommendations I handed off to the team.</p>
+</div>
+<div class="tf-lockbox__inside">
+<span>Inside the full case study</span>
+<ol>
+<li><span>01</span>41-route audit</li>
+<li><span>02</span>Research findings</li>
+<li><span>03</span>Design explorations</li>
+<li><span>04</span>Terraform-user testing</li>
+<li><span>05</span>Combined direction</li>
+<li><span>06</span>Recommendations + handoff</li>
+</ol>
+</div>
+<form class="tf-lockbox__form" id="terraform-password-form" action="#" method="post">
+<div class="tf-lockbox__field">
+<div class="tf-lockbox__row">
+<label class="tf-sr" for="terraform-password">Password</label>
+<div class="password" id="terraform-password-widget">
+<div class="password-wrapper">
+<input aria-describedby="terraform-gate-error" aria-invalid="false" aria-label="Password" autocapitalize="off" autocomplete="off" autocorrect="off" class="password-input" id="terraform-password" name="password" placeholder="Password" spellcheck="false" type="password">
+<span aria-hidden="true" class="password-text"></span>
+<span aria-hidden="true" class="password-dots"></span>
+<i aria-hidden="true" class="password-selection" hidden></i>
+<i aria-hidden="true" class="password-caret" hidden></i>
+</div>
+<div aria-hidden="true" class="monkey-hands">
+<svg height="35" viewBox="0 0 64 64" width="35" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.4,32.5L2.1,61.9H14c-1.6-7.7,4-21,4-21L9.4,32.5z" fill="#89664C"></path>
+<path d="M15.8,24.8c0,0,4.9-4.5,9.5-3.9c2.3,0.3-7.1,7.6-7.1,7.6s9.7-8.2,11.7-5.6c1.8,2.3-8.9,9.8-8.9,9.8s10-8.1,9.6-4.6c-0.3,3.8-7.9,12.8-12.5,13.8C11.5,43.2,6.3,39,9.8,24.4C11.6,17,13.3,25.2,15.8,24.8" fill="#FFD6BB"></path>
+<path d="M54.8,32.5l7.3,29.4H50.2c1.6-7.7-4-21-4-21L54.8,32.5z" fill="#89664C"></path>
+<path d="M48.4,24.8c0,0-4.9-4.5-9.5-3.9c-2.3,0.3,7.1,7.6,7.1,7.6s-9.7-8.2-11.7-5.6c-1.8,2.3,8.9,9.8,8.9,9.8s-10-8.1-9.7-4.6c0.4,3.8,8,12.8,12.6,13.8c6.6,1.3,11.8-2.9,8.3-17.5C52.6,17,50.9,25.2,48.4,24.8" fill="#FFD6BB"></path>
+</svg>
+</div>
+<div aria-label="Show password" aria-pressed="false" class="monkey" id="terraform-password-toggle" role="button" tabindex="0">
+<svg height="35" viewBox="0 0 64 64" width="35" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="53.7" cy="33" fill="#89664c" rx="8.3" ry="8.2"></ellipse>
+<ellipse cx="53.7" cy="33" fill="#ffc5d3" rx="5.4" ry="5.4"></ellipse>
+<ellipse cx="10.2" cy="33" fill="#89664c" rx="8.2" ry="8.2"></ellipse>
+<ellipse cx="10.2" cy="33" fill="#ffc5d3" rx="5.4" ry="5.4"></ellipse>
+<g fill="#89664c">
+<path d="m43.4 10.8c1.1-.6 1.9-.9 1.9-.9-3.2-1.1-6-1.8-8.5-2.1 1.3-1 2.1-1.3 2.1-1.3-20.4-2.9-30.1 9-30.1 19.5h46.4c-.7-7.4-4.8-12.4-11.8-15.2"></path>
+<path d="m55.3 27.6c0-9.7-10.4-17.6-23.3-17.6s-23.3 7.9-23.3 17.6c0 2.3.6 4.4 1.6 6.4-1 2-1.6 4.2-1.6 6.4 0 9.7 10.4 17.6 23.3 17.6s23.3-7.9 23.3-17.6c0-2.3-.6-4.4-1.6-6.4 1-2 1.6-4.2 1.6-6.4"></path>
+</g>
+<path d="m52 28.2c0-16.9-20-6.1-20-6.1s-20-10.8-20 6.1c0 4.7 2.9 9 7.5 11.7-1.3 1.7-2.1 3.6-2.1 5.7 0 6.1 6.6 11 14.7 11s14.7-4.9 14.7-11c0-2.1-.8-4-2.1-5.7 4.4-2.7 7.3-7 7.3-11.7" fill="#e0ac7e"></path>
+<g fill="#3b302a">
+<path d="m35.1 38.7c0 1.1-.4 2.1-1 2.1-.6 0-1-.9-1-2.1 0-1.1.4-2.1 1-2.1.6.1 1 1 1 2.1"></path>
+<path d="m30.9 38.7c0 1.1-.4 2.1-1 2.1-.6 0-1-.9-1-2.1 0-1.1.4-2.1 1-2.1.5.1 1 1 1 2.1"></path>
+<ellipse cx="40.7" cy="31.7" rx="3.5" ry="4.5"></ellipse>
+<ellipse cx="23.3" cy="31.7" rx="3.5" ry="4.5"></ellipse>
+</g>
+</svg>
+</div>
+</div>
+<button class="tf-lockbox__submit" id="terraform-gate-submit" type="submit">Unlock</button>
+</div>
+<p class="tf-lockbox__error" id="terraform-gate-error" role="alert" hidden></p>
+</div>
+<p class="tf-lockbox__ask">Don’t have the password? <a href="mailto:allisonqiu10@gmail.com">Contact me for access.</a></p>
+</form>
+</div>
+<div class="tf-lockbox__done">
+<span aria-hidden="true"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 7.5l3 3 6-7"></path></svg></span>
+<span><strong>Case study unlocked</strong><span>You’re viewing the full project.</span></span>
+</div>
+</div>
+<div aria-hidden="true" class="terraform-locked" hidden id="terraform-locked"><div class="terraform-locked__inner"></div></div>
+</div>
+
+<p class="bf-cta">
+<a class="bf-btn" data-scroll-to="my-work" href="index.html">Check out my other work!</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<img class="site-footer__lace" src="../assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
+<div class="site-footer__body">
+<div class="site-footer__top">
+<div>
+<p class="site-footer__hello">Say hi</p>
+<a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+</div>
+<nav class="site-footer__nav" aria-label="Footer">
+<a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+<a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+<a href="about.html">About</a>
+</nav>
+</div>
+
+</div>
+</footer>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

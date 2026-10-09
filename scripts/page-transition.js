@@ -340,6 +340,16 @@
       if (card) {
         e.preventDefault();
         e.stopPropagation();
+        if (document.body.classList.contains("home-page") && e.detail !== 0 && window.__aqSprinkle) {
+          window.__aqSprinkle(e, card);
+          window.setTimeout(function () {
+            pauseVideos();
+            window.__txSkipVT = true;
+            remember("tx-fade", "1");
+            go(url.pathname + url.search);
+          }, 520);
+          return;
+        }
         pauseVideos();
         window.__txSkipVT = true;
         remember("tx-fade", "1");

@@ -15,10 +15,10 @@
   } catch (err) {}
 
   var carouselRoles = {
-    front: { left: "19%", top: "3%", width: "62%", rot: "0deg", z: 3, op: "1", shadow: "0 22px 40px -18px rgba(43,46,54,.45)", cursor: "default" },
-    left: { left: "0%", top: "15%", width: "46%", rot: "-6deg", z: 1, op: "1", shadow: "0 10px 22px -12px rgba(43,46,54,.35)", cursor: "pointer" },
-    right: { left: "54%", top: "15%", width: "46%", rot: "6deg", z: 1, op: "1", shadow: "0 10px 22px -12px rgba(43,46,54,.35)", cursor: "pointer" },
-    back: { left: "27%", top: "12%", width: "46%", rot: "0deg", z: 0, op: "0", shadow: "none", cursor: "pointer" }
+    front: { left: "19%", top: "3%", width: "62%", rot: "0deg", z: 3, op: "1", shadow: "0 22px 40px -18px rgba(43,46,54,.45)", cursor: "var(--cursor-normal, default)" },
+    left: { left: "0%", top: "15%", width: "46%", rot: "-6deg", z: 1, op: "1", shadow: "0 10px 22px -12px rgba(43,46,54,.35)", cursor: "var(--cursor-link, pointer)" },
+    right: { left: "54%", top: "15%", width: "46%", rot: "6deg", z: 1, op: "1", shadow: "0 10px 22px -12px rgba(43,46,54,.35)", cursor: "var(--cursor-link, pointer)" },
+    back: { left: "27%", top: "12%", width: "46%", rot: "0deg", z: 0, op: "0", shadow: "none", cursor: "var(--cursor-link, pointer)" }
   };
 
   function carouselRole(index, slideIndex, count) {

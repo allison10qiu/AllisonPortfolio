@@ -1,0 +1,31 @@
+White Wing cursor audit — saved locally, not implemented site-wide.
+Source: Downloads/white-wing-s-by-mei.zip (no white-wing-s-by-mei(1).zip on disk).
+License: Creative Commons Attribution + Noncommercial. Author: NaLexnu.
+Readme must stay. Attribution link required before production:
+http://www.rw-designer.com/cursor-set/white-wing-s-by-mei
+
+Preview sheets in this folder. The red dot is the hotspot.
+
+USE
+Normal.cur                 static    hotspot 0,0     default cursor
+Link Select 3.ani          4×167ms   hotspot 15,0    links, nav, buttons. Not project rows.
+Text Select.cur            static    hotspot 9,21    inputs and selectable copy
+move.cur                   static    hotspot 16,15   About polaroid drag
+horizontal.ani             2×167ms   hotspot 16,15   only during an active carousel swipe
+unavailable.cur            static    hotspot 0,0     disabled controls
+busy.ani                   14×133ms  hotspot 15,15   only while the Terraform password check is in flight
+
+SKIP
+Link Select.ani            frame 1 matches Normal.cur; official Hand, but it does not read as a link
+vertical.ani, diagonal resize 1.ani, diagonal resize 2.ani   no resize controls
+Precision Select.cur, Handwriting.cur, help.cur, working.ani
+Person Select.cur, Location Select.cur, alternate.cur
+
+Project rows (Terraform, Anda, OSE, NABU, Brilliant Cities) keep the wing
+"View project" treatment, ahead of the generic link cursor. That treatment is
+not what is currently live; the live label is the dark "View project" pill.
+
+.ani files do not work as CSS cursors. Static .cur files do. Animated states
+need an extracted frame unless a pointer-following overlay is approved.
+
+Waiting for approval before implementing this mapping.
