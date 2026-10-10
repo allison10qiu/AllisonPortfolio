@@ -15,6 +15,8 @@
   var input = document.getElementById("terraform-password");
   var form = document.getElementById("terraform-password-form");
   var submit = document.getElementById("terraform-gate-submit");
+  // The button holds a label and an arrow; only the label text changes while unlocking.
+  var submitLabel = submit ? submit.querySelector("[data-gate-label]") || submit : null;
   var toggle = document.getElementById("terraform-password-toggle");
   var widget = document.getElementById("terraform-password-widget");
   var dotsEl = widget ? widget.querySelector(".password-dots") : null;
@@ -172,10 +174,29 @@
     });
   }
 
+  // Show / Hide: a text button that switches the field between masked and plain text.
+  var showButton = document.getElementById("terraform-password-show");
+  function setRevealed(reveal) {
+    input.type = reveal ? "text" : "password";
+    if (!showButton) return;
+    showButton.textContent = reveal ? "Hide" : "Show";
+    showButton.setAttribute("aria-label", reveal ? "Hide password" : "Show password");
+    showButton.setAttribute("aria-pressed", reveal ? "true" : "false");
+  }
+  if (showButton) {
+    showButton.addEventListener("click", function (event) {
+      setRevealed(input.type === "password");
+      // A mouse or touch click returns to the field; a keyboard press stays on the button.
+      if (event.detail > 0 && !input.disabled) input.focus();
+    });
+  }
+
   input.addEventListener("input", function () {
     syncPasswordDisplay();
+    if (error && !error.hidden) setError(""); // typing clears the error state
   });
   input.addEventListener("click", function (event) {
+    if (!widget) return; // plain field: the browser places the caret
     if (event.detail > 1) return;
     var idx = caretIndexFromClientX(event.clientX);
     input.setSelectionRange(idx, idx);
@@ -203,7 +224,7 @@
 
   function setError(message) {
     if (!error) return;
-    error.textContent = message || "";
+    (error.querySelector("[data-gate-msg]") || error).textContent = message || "";
     error.hidden = !message;
     input.classList.toggle("is-invalid", !!message);
     if (widget) widget.classList.toggle("is-invalid", !!message);
@@ -275,7 +296,7 @@
   }
 
   function clearGateMotion() {
-    var panel = gate.querySelector(".tf-lockbox__locked");
+    var panel = gate.querySelector("[data-gate-panel]");
     var done = gate.querySelector(".tf-lockbox__done");
     gate.style.boxSizing = "";
     gate.style.height = "";
@@ -421,6 +442,7 @@
   function showUnlocked() {
     locked.hidden = false;
     locked.removeAttribute("aria-hidden");
+    setRevealed(false);
     input.value = "";
     input.blur();
     setError("");
@@ -435,7 +457,7 @@
       return;
     }
 
-    var panel = gate.querySelector(".tf-lockbox__locked");
+    var panel = gate.querySelector("[data-gate-panel]");
     var done = gate.querySelector(".tf-lockbox__done");
     locked.classList.remove("is-open--instant", "is-settled");
     settling = true;
@@ -495,6 +517,7 @@
     clearUnlockTimers();
     clearGateMotion();
     if (inner) inner.innerHTML = "";
+    if (typeof window.csSyncIndex === "function") window.csSyncIndex();
     locked.hidden = true;
     locked.setAttribute("aria-hidden", "true");
     locked.classList.remove("is-open", "is-settled", "is-open--instant");
@@ -503,9 +526,10 @@
     locked.style.overflow = "";
     locked.style.transition = "";
     gate.classList.remove("is-unlocked");
+    setRevealed(false);
     input.value = "";
     setError("");
-    if (submit) submit.textContent = "Unlock";
+    if (submitLabel) submitLabel.textContent = "Unlock";
     setUnlockLabel(false);
   }
 
@@ -525,6 +549,8 @@
     if (!inner) return;
     inner.innerHTML = html;
     contentLoaded = true;
+    // The sidebar lists only sections that are in the page; add the protected ones now.
+    if (typeof window.csSyncIndex === "function") window.csSyncIndex();
     if (typeof window.initTerraformLocked === "function") {
       window.initTerraformLocked(inner);
     }
@@ -556,13 +582,19 @@
     var value = input.value || "";
     if (!value.trim()) {
       setError("Enter the password to continue.");
+      if (!reduced && form && typeof form.animate === "function") {
+        form.animate(
+          [{ transform: "translateX(0)" }, { transform: "translateX(-4px)" }, { transform: "translateX(4px)" }, { transform: "translateX(-3px)" }, { transform: "translateX(0)" }],
+          { duration: 320, easing: "ease-out" }
+        );
+      }
       input.focus();
       return;
     }
 
     loading = true;
     setArmed(false);
-    if (submit) submit.textContent = "Unlocking…";
+    if (submitLabel) submitLabel.textContent = "Unlocking…";
     setError("");
 
     fetch(UNLOCK_URL, {
@@ -585,7 +617,7 @@
         showUnlocked();
         loading = false;
         setArmed(true);
-        if (submit) submit.textContent = "Unlock";
+        if (submitLabel) submitLabel.textContent = "Unlock";
       })
       .catch(function (err) {
         var message = err && err.message ? err.message : "";
@@ -595,7 +627,7 @@
         setError(message || "Incorrect password. Try again.");
         loading = false;
         setArmed(true);
-        if (submit) submit.textContent = "Unlock";
+        if (submitLabel) submitLabel.textContent = "Unlock";
         input.focus();
         input.select();
       });

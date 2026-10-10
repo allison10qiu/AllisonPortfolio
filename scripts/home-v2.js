@@ -315,12 +315,12 @@
 
   (function heroObjects() {
     var GOALS = [
-      ["Learn Adobe suite", "Getting comfortable past the basics in Illustrator, After Effects and InDesign."],
-      ["Create a passion project", "Something made just for me — no brief, no deadline, no stakeholders."],
-      ["Be more creative!", "More sketching, more weird ideas, fewer safe first drafts."],
-      ["Live in the moment!", "Phone down, camera out (the little Sony counts)."],
-      ["Explore Europe", "Trains, pastries, and as many cities as I can fit in."],
-      ["NYC Summer (hopefully)", "Fingers crossed for a summer in the city."]
+      ["Learn Adobe suite", "Seeing how powerful AI can be in bringing my ideas to life makes me want to explore more unique forms of design expression, especially through graphic design."],
+      ["Create a passion project", "I want to make more fun projects, not just impactful ones, so I can express my creativity more freely."],
+      ["Be more creative!", "I want to expand my creativity beyond just designing in Figma and get more into physical drawing, watercolors, and other hands-on mediums."],
+      ["Live in the moment!", "I sometimes get caught up planning for the future, so I want to make sure I’m enjoying the present with my friends. College is only four years of my life, and I really want to treasure it."],
+      ["Explore Europe", "I’m studying abroad in Greece this upcoming spring, which feels like a dream. I’m so excited to experience Europe and really immerse myself in it."],
+      ["NYC Summer (hopefully)", "College made me realize how much I enjoy being in a walkable city. As someone who grew up in a Texas suburb, I really want to experience what it’s like to live in a bigger city where my friends are just a quick subway ride or walk away."]
     ];
     var MEMS = [
       ["assets/home/mems/1.jpg", "center 40%", "Friends at a house party"],

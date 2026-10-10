@@ -1,6 +1,8 @@
 /* Homepage v2. Scoped to .home-page so About and case studies stay as they are. */
 
 .home-page {
+  /* Side padding shared by the header bar and the footer content. Same value as .cs-page in cs.css. */
+  --site-gutter: clamp(24px, 3.4vw, 48px);
   --home-ink: #14243b;
   --home-ink-soft: rgba(20, 36, 59, 0.72);
   --home-rule: rgba(20, 36, 59, 0.14);
@@ -25,11 +27,13 @@
   box-sizing: border-box;
 }
 
+/* One full-width bar. Keep these values in step with .cs-page .site-header in cs.css. */
 .home-page .site-header__inner {
   gap: 44px;
+  width: 100%;
+  max-width: none;
   height: auto;
-  padding-top: 22px;
-  padding-bottom: 22px;
+  padding: 22px var(--site-gutter);
 }
 
 .home-page .site-header__brand {
@@ -286,8 +290,7 @@
 }
 
 .home-page .site-header__nav .gem-link:hover .gem-link__arrow,
-.home-page .site-header__nav .gem-link:focus-visible .gem-link__arrow,
-.home-page .site-header__nav .gem-link.is-on .gem-link__arrow {
+.home-page .site-header__nav .gem-link:focus-visible .gem-link__arrow {
   transform: translateX(14px);
 }
 
@@ -316,7 +319,6 @@
 
 .home-page .site-header__nav .gem-link:hover .gem-wing--l,
 .home-page .site-header__nav .gem-link:focus-visible .gem-wing--l,
-.home-page .site-header__nav .gem-link.is-on .gem-wing--l,
 .home-page .home-hero__links .gem-link:hover .gem-wing--l,
 .home-page .home-hero__links .gem-link:focus-visible .gem-wing--l,
 .home-page .home-hero__links .gem-link.is-on .gem-wing--l {
@@ -326,12 +328,21 @@
 
 .home-page .site-header__nav .gem-link:hover .gem-wing--r,
 .home-page .site-header__nav .gem-link:focus-visible .gem-wing--r,
-.home-page .site-header__nav .gem-link.is-on .gem-wing--r,
 .home-page .home-hero__links .gem-link:hover .gem-wing--r,
 .home-page .home-hero__links .gem-link:focus-visible .gem-wing--r,
 .home-page .home-hero__links .gem-link.is-on .gem-wing--r {
   opacity: 1;
   transform: translateY(-50%) translateX(0) scaleX(-1);
+}
+
+/* The current page in the header is bold only; wings stay a hover and focus detail. */
+.home-page .site-header__nav .gem-link.is-on .gem-link__label,
+.home-page .site-header__nav .gem-link[aria-current="page"] .gem-link__label {
+  font-weight: 700;
+}
+
+.home-page .site-header__nav .gem-link.is-on:not(:hover):not(:focus-visible) .gem-wing {
+  opacity: 0;
 }
 
 .gem-link--mail .gem-wing {
@@ -1459,7 +1470,9 @@
 .home-page .site-footer__body {
   position: relative;
   z-index: 1;
-  padding: 40px 24px 92px;
+  width: 100%;
+  max-width: none;
+  padding: 40px var(--site-gutter) 92px;
 }
 
 .home-page .site-footer__lace {

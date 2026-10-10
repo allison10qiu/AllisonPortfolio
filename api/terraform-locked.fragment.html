@@ -1,374 +1,265 @@
-<div class="tf-section" data-part="protected" id="workflow">
-<span data-sec="02" class="tf-kicker">Workflow</span>
-<h2>Different users needed different things from the same configuration.</h2>
-<div class="tf-needs">
-<div class="tf-needs__head" aria-hidden="true"><span>Workflow</span><span>Need</span><span>Design implication</span></div>
-<div class="tf-needs__row">
-<div class="tf-needs__who"><span class="tf-needs__lab">Workflow</span><strong>Audit configuration</strong><span>Auditors</span></div>
-<p><span class="tf-needs__lab">Need</span>Review exactly what is configured.</p>
-<p><span class="tf-needs__lab">Design implication</span>Make the current state unmistakable.</p>
-</div>
-<div class="tf-needs__row">
-<div class="tf-needs__who"><span class="tf-needs__lab">Workflow</span><strong>Troubleshoot issue</strong><span>Support engineers</span></div>
-<p><span class="tf-needs__lab">Need</span>Understand enough context to investigate why something isn’t working.</p>
-<p><span class="tf-needs__lab">Design implication</span>Don’t remove useful information just because it isn’t editable.</p>
-</div>
-<div class="tf-needs__row">
-<div class="tf-needs__who"><span class="tf-needs__lab">Workflow</span><strong>Review before editing</strong><span>Platform engineers</span></div>
-<p><span class="tf-needs__lab">Need</span>Move between reviewing settings and changing them.</p>
-<p><span class="tf-needs__lab">Design implication</span>Make the boundary between viewing and editing clear.</p>
-</div>
-</div>
-<p class="tf-section__close">Whatever read-only looked like, it had to work for all three workflows across 41 configuration routes.</p>
-</div>
+<div style="margin-top:var(--cs-media-gap)">
+        <h3 style="margin:0 0 20px;font:400 clamp(28px,2.6vw,38px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">Different users needed different things from the same configuration.</h3>
+        <div role="table" aria-label="Workflows" data-wf style="display:flex;flex-direction:column;border-top:1px solid #181818">
+          <div role="row" style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr) minmax(0,1fr);column-gap:40px"><span role="columnheader" style="padding:14px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Workflow</span><span role="columnheader" style="padding:14px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Need</span><span role="columnheader" style="padding:14px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Design implication</span></div>
+          <div role="row" style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr) minmax(0,1fr);gap:10px 40px;padding:22px 0;border-top:1px solid #DCDCDC;align-items:baseline"><span role="cell" style="display:flex;flex-direction:column;gap:6px"><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Audit configuration</span><span style="font:500 13.5px/1.3 'Satoshi',sans-serif;color:#707070">Auditors</span></span><span role="cell" style="font:400 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Review exactly what is configured.</span><span role="cell" style="font:500 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">Make the current state unmistakable.</span></div>
+          <div role="row" style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr) minmax(0,1fr);gap:10px 40px;padding:22px 0;border-top:1px solid #DCDCDC;align-items:baseline"><span role="cell" style="display:flex;flex-direction:column;gap:6px"><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Troubleshoot issue</span><span style="font:500 13.5px/1.3 'Satoshi',sans-serif;color:#707070">Support engineers</span></span><span role="cell" style="font:400 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Understand enough context to investigate why something isn’t working.</span><span role="cell" style="font:500 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">Don’t remove useful information just because it isn’t editable.</span></div>
+          <div role="row" style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr) minmax(0,1fr);gap:10px 40px;padding:22px 0;border-top:1px solid #DCDCDC;align-items:baseline;border-bottom:1px solid #DCDCDC"><span role="cell" style="display:flex;flex-direction:column;gap:6px"><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Review before editing</span><span style="font:500 13.5px/1.3 'Satoshi',sans-serif;color:#707070">Platform engineers</span></span><span role="cell" style="font:400 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Move between reviewing settings and changing them.</span><span role="cell" style="font:500 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">Make the boundary between viewing and editing clear.</span></div>
+        </div>
+        <div style="margin:var(--space-lg) 0 0 auto;max-width:48ch;display:flex;gap:10px;align-items:flex-start"><span aria-hidden="true" style="flex:none;position:relative;width:28px;height:30px;margin-top:-17px"><span style="position:absolute;left:-4.25px;top:0;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:8px solid #181818"></span><span style="position:absolute;left:0;top:7px;right:0;bottom:0;border-left:1.5px solid #181818;border-bottom:1.5px solid #181818"></span></span><p style="margin:0;font:500 16.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">Whatever read-only looked like, it had to work for all three workflows across 41 configuration routes.</p></div>
+      </div>
 
-<div class="tf-section" data-part="protected" id="audit">
-<div class="tf-audit-lead">
-<div class="tf-audit-lead__count"><span>41</span><span>configuration routes</span></div>
-<div>
-<span data-sec="03" class="tf-kicker">System audit</span>
-<h2>I audited all 41 configuration routes.</h2>
-<p>I went through every route looking at how editing worked: recurring controls, dependencies, empty states, descriptions, and anything else that would need consistent read-only behavior.</p>
-<p>The same questions kept coming up on very different screens. That pushed me toward defining shared read-only behaviors instead of solving each screen separately.</p>
-</div>
-</div>
-<video class="tf-audit" data-tf-audit width="1920" height="1080" autoplay muted loop playsinline preload="metadata" poster="/assets/terraform/tf-audit-preview.webp?v=preview1">
-<source src="/api/terraform-audit" type="video/mp4">
-</video>
-<div class="tf-questions">
-<span class="tf-questions__label">What kept coming up across the routes</span>
-<ol>
-<li><span>01</span><strong>What happens to the selected value?</strong><span>It has to stay the clearest thing on the page.</span></li>
-<li><span>02</span><strong>Should unselected options remain visible?</strong><span>They explain the range a setting can take.</span></li>
-<li><span>03</span><strong>When should helper text remain?</strong><span>Useful when the concept is unfamiliar or changing.</span></li>
-<li><span>04</span><strong>How should dependent settings behave?</strong><span>A read-only value can still be driven by another.</span></li>
-</ol>
-</div>
-</div>
+    <section id="s02" data-sec="" data-screen-label="02 Audit" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">02</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>System audit</span></div>
+      <div style="margin-top:var(--space-md);display:flex;flex-wrap:wrap;gap:28px clamp(32px,4vw,56px);align-items:flex-start">
+        <div style="flex:none;width:max-content;display:flex;flex-direction:column;gap:14px"><span style="font:400 clamp(96px,10vw,148px)/.8 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.06em">41</span><span style="padding-top:10px;border-top:1px solid #181818;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Configuration routes</span></div>
+        <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px">
+          <h2 style="margin:0;font:400 clamp(30px,3vw,42px)/1.06 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">I audited all 41 configuration routes.</h2>
+          <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I went through every route looking at how editing worked: recurring controls, dependencies, empty states, descriptions, and anything else that would need consistent read-only behavior.</p>
+          <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The same questions kept coming up on very different screens. That pushed me toward defining shared read-only behaviors instead of solving each screen separately.</p>
+        </div>
+      </div>
+      <figure style="margin:var(--space-lg) 0 0;display:flex;flex-direction:column;gap:14px">
+        <video data-tf-audit muted playsinline loop preload="metadata" poster="/assets/terraform/tf-audit-preview.webp" aria-label="Audit flythrough preview across Terraform configuration routes" style="display:block;width:100%;aspect-ratio:16/8;object-fit:cover;object-position:top;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><source src="/api/terraform-audit" type="video/mp4"></video>
+        <figcaption style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding-top:12px;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">Audit flythrough</span><span>Plays in the protected section</span></figcaption>
+      </figure>
+      <div style="margin-top:var(--space-xl)"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">What kept coming up across the routes</span>
+        <div style="margin-top:var(--space-sm);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:0 28px">
+          <span style="display:flex;flex-direction:column;gap:10px;padding:18px 0 8px;border-top:1px solid #181818"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:500 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">What happens to the selected value?</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">It has to stay the clearest thing on the page.</span></span>
+          <span style="display:flex;flex-direction:column;gap:10px;padding:18px 0 8px;border-top:1px solid #181818"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:500 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Should unselected options remain visible?</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">They explain the range a setting can take.</span></span>
+          <span style="display:flex;flex-direction:column;gap:10px;padding:18px 0 8px;border-top:1px solid #181818"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:500 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">When should helper text remain?</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Useful when the concept is unfamiliar or changing.</span></span>
+          <span style="display:flex;flex-direction:column;gap:10px;padding:18px 0 8px;border-top:1px solid #181818"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="font:500 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">How should dependent settings behave?</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">A read-only value can still be driven by another.</span></span>
+        </div>
+      </div>
+    </section>
 
-<div class="tf-section" data-part="protected" id="research">
-<span data-sec="04" class="tf-kicker">Research</span>
-<h2>Read-only still needed context.</h2>
-<p class="tf-lede">Before picking a direction, we ran research on what people needed from a configuration they couldn’t change. I helped prepare the questions, co-facilitated the sessions, and wrote up the findings.</p>
-<p class="tf-note">Multi-segment research · 10+ participants, internal and external</p>
-<div class="tf-findings">
-<article><span>01</span><h3>Current values weren’t always enough</h3><p>Showing only the saved value could make unfamiliar settings difficult to interpret. Users sometimes needed the surrounding context to understand what they were looking at.</p></article>
-<article><span>02</span><h3>Descriptions still mattered</h3><p>Helper text and descriptions were useful when a setting wasn’t self-explanatory. Removing them made some read-only states cleaner visually, but harder to understand.</p></article>
-<article><span>03</span><h3>Dependencies had to stay visible</h3><p>Some settings were driven by or related to other settings. Those relationships still mattered in read-only mode because they explained why a configuration looked the way it did.</p></article>
-</div>
-</div>
-<div class="tf-bleed tf-shift">
-<div class="tf-shift__grid">
-<div><span class="tf-kicker">The question I started with</span><p class="tf-shift__old">“What can I remove?”</p></div>
-<span class="tf-shift__arrow" aria-hidden="true">→</span>
-<div><span class="tf-kicker">The question I ended up asking</span><p class="tf-shift__new">“What context does someone need to understand this without editing it?”</p></div>
-</div>
-</div>
+    <section id="s03" data-sec="" data-screen-label="03 Research" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">03</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Research</span></div>
+      <div style="margin-top:24px;display:flex;flex-direction:column;gap:clamp(20px,2vw,28px)">
+        <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Read-only still needed context.</h2>
+        <div style="padding-top:14px;border-top:1px solid #181818;display:flex;flex-wrap:wrap;gap:16px clamp(32px,4vw,56px);align-items:flex-start">
+          <span style="flex:0 1 220px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Research</span><span style="font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Multi-segment · 10+ participants, internal and external</span></span>
+          <p style="flex:1 1 360px;min-width:0;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">We researched what people still needed from configurations they couldn’t change. I helped prepare the questions, co-facilitated sessions, and synthesized the findings.</p>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:40px 40px">
+        <span style="display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:400 italic 30px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif">01</span><span style="font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Current values weren’t always enough</span><span style="font:400 15px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Showing only the saved value could make unfamiliar settings difficult to interpret. Users sometimes needed the surrounding context to understand what they were looking at.</span></span>
+        <span style="display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:400 italic 30px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif">02</span><span style="font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Descriptions still mattered</span><span style="font:400 15px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Helper text and descriptions were useful when a setting wasn’t self-explanatory. Removing them made some read-only states cleaner visually, but harder to understand.</span></span>
+        <span style="display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:400 italic 30px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif">03</span><span style="font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Dependencies had to stay visible</span><span style="font:400 15px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Some settings were driven by or related to other settings. Those relationships still mattered in read-only mode because they explained why a configuration looked the way it did.</span></span>
+      </div>
+      <div style="margin-top:var(--space-2xl);padding:clamp(24px,2.6vw,36px) 0 0;border-top:1px solid #DCDCDC;display:flex;flex-wrap:nowrap;gap:20px clamp(24px,3vw,48px);align-items:flex-start">
+        <span style="flex:0 1 240px;display:flex;flex-direction:column;gap:12px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">The question I started with</span><span style="font:400 clamp(22px,2vw,30px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;color:#707070;text-decoration:line-through;text-decoration-thickness:2px">“What can I remove?”</span></span>
+        <span aria-hidden="true" style="flex:none;display:flex;align-items:center;gap:0;padding-top:34px"><span style="display:block;width:clamp(32px,4vw,64px);height:1.5px;background:#181818"></span><span style="display:block;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid #181818"></span></span>
+        <span style="flex:1 1 0;min-width:min(100%,280px);display:flex;flex-direction:column;gap:12px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase">The question I ended up asking</span><span style="font:400 clamp(26px,2.6vw,38px)/1.08 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;text-wrap:pretty">“What context does someone need to understand this without editing it?”</span></span>
+      </div>
+    </section>
 
-<div class="tf-section" data-part="protected" id="directions" data-tf-mh>
-<span data-sec="05" class="tf-kicker">Early explorations</span>
-<h2>Two directions emerged.</h2>
-<p class="tf-lede">Based on what I learned from research, I explored two approaches to read-only configurations. Version M kept the page minimal and focused on the current configuration, while Version H kept helper text visible to provide more context.</p>
-<div class="tf-mh__bar">
-<div class="tf-mh__switch" role="group" aria-label="Version M and Version H">
-<button type="button" data-tf-mh-go="m" aria-pressed="true">M · Minimal</button>
-<button type="button" data-tf-mh-go="h" aria-pressed="false">H · Helper text</button>
-</div>
-<span>Scroll inside the frame · switching keeps your place</span>
-</div>
-<div class="tf-mh__scroll" data-tf-mh-scroll tabindex="0">
-<div class="tf-mh__stack">
-<img data-tf-mh-img="m" class="is-on" alt="Version M, the minimal read-only policy set screen" src="/assets/terraform/version-m.png?v=figma1" width="1440" height="2200">
-<img data-tf-mh-img="h" alt="Version H, the read-only policy set screen with helper text" src="/assets/terraform/version-h.png?v=figma1" width="1440" height="2600">
-</div>
-</div>
-<div class="tf-mh__notes">
-<button type="button" data-tf-mh-go="m">
-<span>M · Minimal</span>
-<span>Focused on the current configuration with less supporting information on the page.</span>
-<span><b>Strength</b> Made the current configuration easier to scan.</span>
-<span><b>Trade-off</b> Could remove context someone needed to interpret an unfamiliar setting.</span>
-</button>
-<button type="button" data-tf-mh-go="h">
-<span>H · Helper text</span>
-<span>Kept descriptions visible so the setting came with additional context.</span>
-<span><b>Strength</b> Preserved more context for unfamiliar settings.</span>
-<span><b>Trade-off</b> Added more information to scan.</span>
-</button>
-</div>
-</div>
+    <section id="s04" data-sec="" data-screen-label="04 Explorations" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">04</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Early explorations</span></div>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px 72px;align-items:flex-end">
+        <h2 style="flex:1 1 340px;margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Three early ways to show read-only.</h2>
+        <p style="flex:1 1 340px;margin:0;max-width:52ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Each one fixed part of the problem and made another part obvious. Looking at them side by side narrowed down what I was actually trying to answer.</p>
+      </div>
+      <div style="margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px 32px">
+        <button aria-pressed="false" style="display:flex;flex-direction:column;gap:10px;padding:16px 0 0;border:0;border-top:2px solid rgba(24,24,24,.2);background:transparent;color:#181818;text-align:left;cursor:pointer;opacity:1;transition:opacity .25s ease,border-color .25s ease;letter-spacing:-.02em"><span style="font:500 16px/1.3 'Satoshi',sans-serif">A · Disabled controls</span><span style="font:400 14.5px/1.55 'Satoshi',sans-serif;color:#393939">Preserved the editable layout.</span><span style="font:400 14.5px/1.55 'Satoshi',sans-serif"><strong style="font-weight:500">Problem:</strong> Made the interface feel unavailable rather than intentionally read-only.</span></button><button aria-pressed="false" style="display:flex;flex-direction:column;gap:10px;padding:16px 0 0;border:0;border-top:2px solid rgba(24,24,24,.2);background:transparent;color:#181818;text-align:left;cursor:pointer;opacity:1;transition:opacity .25s ease,border-color .25s ease;letter-spacing:-.02em"><span style="font:500 16px/1.3 'Satoshi',sans-serif">B · Current values only</span><span style="font:400 14.5px/1.55 'Satoshi',sans-serif;color:#393939">Made the state visually clear.</span><span style="font:400 14.5px/1.55 'Satoshi',sans-serif"><strong style="font-weight:500">Problem:</strong> Removed context that users sometimes needed.</span></button><button aria-pressed="false" style="display:flex;flex-direction:column;gap:10px;padding:16px 0 0;border:0;border-top:2px solid rgba(24,24,24,.2);background:transparent;color:#181818;text-align:left;cursor:pointer;opacity:1;transition:opacity .25s ease,border-color .25s ease;letter-spacing:-.02em"><span style="font:500 16px/1.3 'Satoshi',sans-serif">C · Full configuration</span><span style="font:400 14.5px/1.55 'Satoshi',sans-serif;color:#393939">Preserved context.</span><span style="font:400 14.5px/1.55 'Satoshi',sans-serif"><strong style="font-weight:500">Problem:</strong> Didn’t create enough distinction between reviewing and editing.</span></button>
+      </div>
+      <div style="margin-top:var(--cs-media-gap);display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-start">
+        <span style="flex:0 1 220px;padding-top:6px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase">The question that came out of it</span>
+        <span style="flex:1 1 420px;min-width:0;font:400 clamp(24px,2.4vw,34px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;text-wrap:pretty">How much context should remain visible when someone can’t make changes?</span>
+      </div>
+    </section>
 
-<div class="tf-section" data-part="protected" id="testing">
-<span data-sec="06" class="tf-kicker">Testing</span>
-<h2>I tested M and H with Terraform users.</h2>
-<p class="tf-lede">This round reused the structure and questions from an earlier usability test. What changed was who took part: Terraform users who work in the product directly. The sessions looked at whether people could understand the configuration, find what they needed, and make sense of the read-only state.</p>
-<div class="tf-test">
-<article><span>Version M</span><p>Made the current configuration easier to scan.</p></article>
-<span aria-hidden="true">→</span>
-<article><span>Version H</span><p>Kept context that helped people read unfamiliar settings.</p></article>
-<span aria-hidden="true">→</span>
-<article><span>Testing showed</span><p>Neither one solved the problem on its own.</p></article>
-<span aria-hidden="true">→</span>
-<article class="is-next"><span>So next</span><p>Take what worked from each.</p></article>
-</div>
-<div class="tf-rating"><span>4/5</span><span>Usability rating · Terraform-user study</span><span>A usability-study rating, not a production metric.</span></div>
-</div>
+    <section id="s05" data-tf-mh data-sec="" data-screen-label="05 M vs H" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Two directions</span></div>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:40px 64px;align-items:flex-start">
+        <div style="flex:1 1 300px;max-width:440px;display:flex;flex-direction:column;gap:22px">
+          <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Two directions emerged.</h2>
+          <p style="margin:0;font:400 16px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Version M and Version H were the strongest two. They’re the same read-only policy set page, so you can switch between them and compare.</p>
+          <div role="tablist" aria-label="Compare versions" style="display:flex;gap:24px;border-bottom:1px solid #DCDCDC"><button type="button" data-tf-mh-go="m" role="tab" aria-selected="true" aria-controls="mh-panel" style="min-height:44px;padding:10px 0;margin-bottom:-1px;border:0;border-bottom:2px solid #181818;background:transparent;color:#181818;font:500 14.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em;cursor:pointer;transition:color .2s ease,border-color .2s ease">Version M · Minimal</button><button type="button" data-tf-mh-go="h" role="tab" aria-selected="false" aria-controls="mh-panel" style="min-height:44px;padding:10px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#707070;font:400 14.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em;cursor:pointer;transition:color .2s ease,border-color .2s ease">Version H · Contextual</button></div>
+          <div id="mh-panel" role="tabpanel" style="display:grid">
+            <div data-tf-mh-copy="m" aria-hidden="false" style="grid-area:1/1;display:flex;flex-direction:column;gap:14px;letter-spacing:-.02em;opacity:1;transform:translateY(0px);visibility:visible;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility .3s"><span style="font:400 14.5px/1.55 'Satoshi',sans-serif;color:#393939">Prioritized the current configuration. Reduced secondary information and made the saved state easy to scan.</span><span style="display:flex;flex-direction:column;border-top:1px solid #181818"><span style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid #ECECEC;font:500 14.5px/1.45 'Satoshi',sans-serif"><span style="font:500 11px/1.9 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Strength</span><span>Clear and lightweight.</span></span><span style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;padding:12px 0;font:400 14.5px/1.45 'Satoshi',sans-serif"><span style="font:500 11px/1.9 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><span>Could remove context someone needed to understand an unfamiliar setting.</span></span></span></div><div hidden data-tf-mh-copy="h" aria-hidden="true" style="grid-area:1/1;display:flex;flex-direction:column;gap:14px;letter-spacing:-.02em;opacity:0;transform:translateY(6px);visibility:hidden;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility .3s"><span style="font:400 14.5px/1.55 'Satoshi',sans-serif;color:#393939">Kept descriptions and supporting information visible.</span><span style="display:flex;flex-direction:column;border-top:1px solid #181818"><span style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid #ECECEC;font:500 14.5px/1.45 'Satoshi',sans-serif"><span style="font:500 11px/1.9 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Strength</span><span>Provided more explanation without requiring edit access.</span></span><span style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;padding:12px 0;font:400 14.5px/1.45 'Satoshi',sans-serif"><span style="font:500 11px/1.9 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><span>Added more information to scan.</span></span></span></div>
+          </div>
+        </div>
+        <div style="flex:1.6 1 420px;min-width:0;display:flex;flex-direction:column;gap:12px">
+          <div data-fs="" tabindex="0" aria-label="Version M and Version H, press Enter for full screen" style="position:relative;height:min(600px,70vh);overflow-y:auto;border-radius:3px;background:#fff;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);outline:1px solid #ECECEC"><div style="display:grid">
+            <img data-asset-source="cursor-verify" data-tf-mh-img="m" class="is-on" src="/assets/terraform/version-m.png" alt="Version M, the minimal read-only policy set screen" style="grid-area:1/1;display:block;width:100%;height:auto;opacity:1;transition:opacity .35s ease">
+            <img data-asset-source="cursor-verify" data-tf-mh-img="h" src="/assets/terraform/version-h.png" alt="Version H, the read-only policy set screen with helper text" style="grid-area:1/1;display:block;width:100%;height:auto;opacity:0;transition:opacity .35s ease">
+          </div></div>
+          <span style="font:400 13.5px/1.3 'Satoshi',sans-serif;color:#707070">Scroll inside the frame · switching keeps your place</span>
+        </div>
+      </div>
+    </section>
 
-<div class="tf-bleed" data-part="protected" id="combined">
-<div>
-<div class="tf-combined__head">
-<h2>M and H each solved half of it.</h2>
-<span>Exploration · not released during my internship</span>
-</div>
-<p class="tf-combined__sub">I combined what worked from both.</p>
-<p class="tf-lede">Testing showed a trade-off. M made the saved configuration easier to find, while H kept context that helped people understand unfamiliar settings. Based on that, I tried a combined direction that pulls from both. It was an exploration and wasn’t released during my internship.</p>
-<div class="tf-combined__grid">
-<div class="tf-combined__frame" data-fs>
-<img alt="Policy set in read-only, with the saved execution mode checked and the other option crossed out" src="/assets/terraform/policy-set-view.png?v=policy2" width="671" height="1024">
-<span class="tf-pin" style="left:26%;top:66.9%">1</span>
-<span class="tf-pin" style="left:48%;top:64.3%">2</span>
-<span class="tf-pin" style="left:26%;top:70.3%">3</span>
-<span class="tf-pin" style="left:38%;top:68.4%">4</span>
-</div>
-<ol class="tf-principles">
-<li><span>1</span><div><strong>Make the current state visually dominant.</strong><span>The saved framework gets a check and full weight.</span></div></li>
-<li><span>2</span><div><strong>Keep descriptions when they add useful context.</strong><span>Execution mode keeps its explanation and link.</span></div></li>
-<li><span>3</span><div><strong>Preserve relationships between dependent settings.</strong><span>Runtime version still says it follows the Sentinel framework above.</span></div></li>
-<li><span>4</span><div><strong>Make the boundary between viewing and editing explicit.</strong><span>Checks and crosses replace radios and checkboxes, so nothing looks clickable.</span></div></li>
-</ol>
-</div>
-<p class="tf-combined__note">Numbers on the screen show where each principle lands.</p>
-<span data-sec="07" class="tf-sr">Combined</span>
-</div>
-</div>
+    <section id="s06" data-sec="" data-screen-label="06 Testing" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">06</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Testing</span></div>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px clamp(32px,4vw,64px);align-items:flex-start">
+      <h2 style="flex:1 1 300px;margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">I tested M and H with Terraform users.</h2>
+      <p style="flex:1.3 1 360px;min-width:0;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">This round reused the structure of an earlier usability test, but with Terraform users who worked directly in the product. We looked at whether they could understand the configuration, find what they needed, and recognize the read-only state.</p>
+      </div>
+      <ol style="margin:var(--space-xl) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:20px">
+        <li style="display:flex;flex-direction:column;gap:14px;padding:18px 0 0;border-top:1px solid #181818"><span style="display:flex;justify-content:space-between;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Version M<span aria-hidden="true" style="letter-spacing:0">→</span></span><span style="font:400 clamp(19px,1.6vw,23px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Made the current configuration easier to scan.</span></li>
+        <li style="display:flex;flex-direction:column;gap:14px;padding:18px 0 0;border-top:1px solid #181818"><span style="display:flex;justify-content:space-between;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Version H<span aria-hidden="true" style="letter-spacing:0">→</span></span><span style="font:400 clamp(19px,1.6vw,23px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Kept context that helped people read unfamiliar settings.</span></li>
+        <li style="display:flex;flex-direction:column;gap:14px;padding:18px 0 0;border-top:1px solid #181818"><span style="display:flex;justify-content:space-between;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Testing showed<span aria-hidden="true" style="letter-spacing:0">→</span></span><span style="font:400 clamp(19px,1.6vw,23px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Neither one solved the problem on its own.</span></li>
+        <li style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 28px;margin-top:8px;padding:20px 0 0;border-top:2px solid #181818;background:transparent;color:#181818"><span style="flex:none;min-width:120px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">So next</span><span style="flex:1 1 300px;font:italic 400 clamp(26px,2.4vw,34px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Take what worked from each.</span><span aria-hidden="true" style="font:500 14px/1 'Satoshi',sans-serif;color:#707070">↓</span></li>
+      </ol>
+      <div style="margin-top:var(--space-lg);display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;padding-top:18px;border-top:1px solid #DCDCDC"><span style="font:400 34px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">4/5</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase">Usability rating · Terraform-user study</span><span style="font:400 13.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">A usability-study rating, not a production metric.</span></div>
+    </section>
 
-<div class="tf-section" data-part="protected" id="details">
-<span data-sec="08" class="tf-kicker">Up close</span>
-<h2>How principles 1–3 played out in specific controls.</h2>
-<p class="tf-lede">Principle 4 gets its own section after this.</p>
+    <section id="s07" data-sec="" data-screen-label="07 Combined" style="margin-top:var(--space-section)">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:16px;border-top:1px solid #181818;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="display:flex;align-items:center;gap:10px"><img data-spin="" src="/assets/home/gems/gem-5.png" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">07</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Combined</span></span><span style="display:flex;align-items:center;gap:8px;font:500 10.5px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span aria-hidden="true" style="width:5px;height:5px;flex:none;background:#707070"></span>Exploration · not released during my internship</span></div>
+      <h2 style="margin:var(--space-lg) 0 0;font:400 clamp(42px,5.2vw,74px)/.96 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em;text-wrap:pretty">The answer wasn’t M or H.</h2>
+      <div style="margin-top:var(--space-md);max-width:64ch;display:flex;flex-direction:column;gap:12px">
+        <p style="margin:0;font:400 italic clamp(22px,2vw,28px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">I combined what worked from both.</p>
+        <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Testing exposed a trade-off: M made the saved configuration easier to find, while H preserved context for unfamiliar settings. I used those findings to explore a combined direction that pulled from both. This direction remained exploratory and was not released during my internship.</p>
+      </div>
+      <div style="margin-top:var(--space-2xl);display:flex;flex-direction:column;gap:var(--space-lg)">
+        <div data-fs="" style="position:relative;padding-left:44px;box-sizing:border-box"><div style="position:relative"><div style="position:relative;aspect-ratio:790/118;overflow:hidden;border-radius:3px;background:#fff;box-shadow:0 28px 50px -18px rgba(24,24,24,.24),0 2px 6px rgba(24,24,24,.08);outline:1px solid #ECECEC"><img data-asset-source="cursor-verify" src="/assets/terraform/section-09.png" alt="Combined read-only policy set, with the current configuration shown first and helper text where it adds context (detail: policy framework)" style="position:absolute;left:-43.04%;top:-196.61%;width:197.47%;max-width:none;height:auto"></div><span aria-hidden="true" style="position:absolute;left:0;top:47.5%;display:flex;align-items:center;gap:6px;transform:translate(-100%,-50%)"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">01</span><span style="width:14px;height:1.5px;background:#181818"></span></span><span aria-hidden="true" style="position:absolute;left:0;top:76.3%;display:flex;align-items:center;gap:6px;transform:translate(-100%,-50%)"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">04</span><span style="width:14px;height:1.5px;background:#181818"></span></span></div></div>
+        <div data-fs="" style="position:relative;padding-left:44px;box-sizing:border-box"><div style="position:relative"><div style="position:relative;aspect-ratio:790/255;overflow:hidden;border-radius:3px;background:#fff;box-shadow:0 28px 50px -18px rgba(24,24,24,.24),0 2px 6px rgba(24,24,24,.08);outline:1px solid #ECECEC"><img data-asset-source="cursor-verify" src="/assets/terraform/section-09.png" alt="Combined read-only policy set, with the current configuration shown first and helper text where it adds context (detail: execution mode and runtime version)" style="position:absolute;left:-43.04%;top:-584.31%;width:197.47%;max-width:none;height:auto"></div><span aria-hidden="true" style="position:absolute;left:0;top:20.4%;display:flex;align-items:center;gap:6px;transform:translate(-100%,-50%)"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">02</span><span style="width:14px;height:1.5px;background:#181818"></span></span><span aria-hidden="true" style="position:absolute;left:0;top:82.0%;display:flex;align-items:center;gap:6px;transform:translate(-100%,-50%)"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">03</span><span style="width:14px;height:1.5px;background:#181818"></span></span></div></div>
+      </div>
+      <div style="margin:var(--space-xl) 0 0 44px;display:flex;flex-direction:column;border-top:1px solid #181818">
+        <div style="display:grid;grid-template-columns:36px minmax(0,1fr) minmax(0,1fr);gap:6px 32px;align-items:baseline;padding:18px 0;border-bottom:1px solid #DCDCDC"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">01</span><span style="font:500 16.5px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Make the current state visually dominant.</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">The saved framework gets a check and full weight.</span></div>
+        <div style="display:grid;grid-template-columns:36px minmax(0,1fr) minmax(0,1fr);gap:6px 32px;align-items:baseline;padding:18px 0;border-bottom:1px solid #DCDCDC"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">02</span><span style="font:500 16.5px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Keep descriptions when they add useful context.</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Execution mode keeps its explanation and link.</span></div>
+        <div style="display:grid;grid-template-columns:36px minmax(0,1fr) minmax(0,1fr);gap:6px 32px;align-items:baseline;padding:18px 0;border-bottom:1px solid #DCDCDC"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">03</span><span style="font:500 16.5px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Preserve relationships between dependent settings.</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Runtime version still says it follows the Sentinel framework above.</span></div>
+        <div style="display:grid;grid-template-columns:36px minmax(0,1fr) minmax(0,1fr);gap:6px 32px;align-items:baseline;padding:18px 0;border-bottom:1px solid #DCDCDC"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">04</span><span style="font:500 16.5px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Make the boundary between viewing and editing explicit.</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Checks and crosses replace radios and checkboxes, so nothing looks clickable.</span></div>
+      </div>
+    </section>
 
-<article class="tf-decision tf-decision--focus">
-<div class="tf-decision__label"><span>Decision 01</span><span>Principle 1</span></div>
-<h3>Selected values carry the weight. Alternatives stay quiet.</h3>
-<div class="tf-decision__layout">
-<div class="tf-decision__board">
-<div class="tf-decision__frame">
-<div class="tf-decision__shot">
-<img src="/assets/terraform/policy-set-view.png?v=policy1" alt="Policy set in read-only, with the selected framework marked and the alternative still visible" width="671" height="1024">
-</div>
-</div>
-<div class="tf-decision__legend">
-<p class="tf-decision__mark is-solid"><span>1</span>Current value carries the weight</p>
-<p class="tf-decision__mark"><span>2</span>Alternatives remain as context</p>
-</div>
-</div>
-<div class="tf-decision__notes">
-<p><b>Evidence</b> Showing only the saved value made some settings harder to interpret. Showing every option at equal weight made the current configuration harder to scan.</p>
-<p><b>Design response</b> The selected value became the strongest visual anchor. Unselected options stayed visible when they helped explain the range of possible values, but moved into the background.</p>
-<p><b>What I gave up</b> A shorter values-only summary. The read-only page stays closer to the length of the editable one.</p>
-</div>
-</div>
-</article>
+    <section id="s08" data-sec="" data-screen-label="08 Details" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">08</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Up close</span></div>
+      <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+        <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;text-wrap:pretty">How the principles translated into specific controls.</h2>
+      </div>
 
-<article class="tf-decision tf-decision--later">
-<div class="tf-decision__label"><span>Decision 02</span><span>Principle 3</span></div>
-<h3>Dependent settings stay attached to what controls them.</h3>
-<div class="tf-decision__layout">
-<div class="tf-decision__board">
-<div class="tf-decision__frame tf-decision__frame--depend">
-<div class="tf-decision__shot">
-<img src="/assets/terraform/refine-dependent-settings.png?v=sec10" alt="Dependent settings in read-only" width="1274" height="394">
-<span class="tf-decision__brace" aria-hidden="true"></span>
-<span class="tf-decision__pin tf-decision__pin--1">1</span>
-<span class="tf-decision__pin tf-decision__pin--2">2</span>
-</div>
-</div>
-<div class="tf-decision__legend">
-<p class="tf-decision__mark is-solid"><span>1</span>Controlling setting</p>
-<p class="tf-decision__mark"><span>2</span>Settings that depend on it, indented beneath</p>
-</div>
-</div>
-<div class="tf-decision__notes">
-<p><b>Evidence</b> Some values only make sense because of a setting above them. Without that link, the read-only page was accurate but hard to follow.</p>
-<p><b>Design response</b> I kept dependent settings grouped under the setting that drives them, so a reviewer can see why a value exists even without edit access.</p>
-</div>
-</div>
-</article>
+      <article style="margin-top:var(--space-xl)">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Decision 01</span><span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Principle 1</span><span style="flex:1;height:1px;background:#DCDCDC;align-self:center"></span></div>
+        <h3 style="margin:0;font:400 clamp(24px,2.1vw,30px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Selected values carry the weight. Alternatives stay quiet.</h3>
+        <div style="margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:40px 64px;align-items:flex-start">
+          <div style="flex:1.1 1 360px;max-width:560px;min-width:0;display:flex;flex-direction:column;gap:16px;padding-left:20px;box-sizing:border-box">
+            <div data-fs="" style="position:relative"><img data-asset-source="cursor-verify" src="/assets/terraform/refine-unselected-options.png" alt="Selected and unselected options in read-only" style="display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;left:-4px;top:83.7%;transform:translate(-100%,-50%);display:flex;align-items:center;gap:6px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818">01</span><span style="width:14px;height:1.5px;background:#181818"></span></span><span aria-hidden="true" style="position:absolute;left:-4px;top:39.7%;transform:translate(-100%,-50%);display:flex;align-items:center;gap:6px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818">02</span><span style="width:14px;height:1.5px;background:#181818"></span></span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px 24px;font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em"><span style="display:flex;align-items:center;gap:8px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">01</span>Current value carries the weight</span><span style="display:flex;align-items:center;gap:8px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">02</span>Alternatives remain as context</span></div>
+          </div>
+          <dl style="flex:1 1 300px;margin:0;display:flex;flex-direction:column">
+            <div style="display:flex;flex-direction:column;gap:8px;padding:18px 0;border-top:1px solid #181818"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Evidence</dt><dd style="margin:0;font:400 15px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em">Showing only the saved value made some settings harder to interpret. Showing every option at equal weight made the current configuration harder to scan.</dd></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:18px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase">Design response</dt><dd style="margin:0;font:500 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">The selected value became the strongest visual anchor. Unselected options stayed visible when they helped explain the range of possible values, but moved into the background.</dd></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:18px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">What I gave up</dt><dd style="margin:0;font:400 15px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A shorter values-only summary. The read-only page stays closer to the length of the editable one.</dd></div>
+          </dl>
+        </div>
+      </article>
 
-<article class="tf-decision tf-decision--later">
-<div class="tf-decision__label"><span>Decision 03</span><span>Principle 2</span></div>
-<div class="tf-decision__split tf-decision__split--keep">
-<div class="tf-decision__copy">
-<h3>Descriptions stay when they answer a question.</h3>
-<p>I didn’t want every description to survive just because it was on the editable page. I kept one when the setting was unfamiliar or the value couldn’t explain itself.</p>
-<div class="tf-keep">
-<span>Keep</span><span>The description explains something the value alone cannot.</span>
-<span>Remove</span><span>The value already communicates enough on its own.</span>
-</div>
-</div>
-<figure class="tf-decision__kept">
-<img src="/assets/terraform/refine-helper-text.png?v=tip1" alt="Helper text kept in read-only" width="1274" height="574">
-<span>Kept</span>
-</figure>
-</div>
-</article>
-</div>
+      <article style="margin-top:var(--space-2xl)">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Decision 02</span><span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Principle 3</span><span style="flex:1;height:1px;background:#DCDCDC;align-self:center"></span></div>
+        <h3 style="margin:0 0 0 auto;font:400 clamp(24px,2.1vw,30px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;text-align:left">Dependent settings stay attached to what controls them.</h3>
+        <div style="margin-top:var(--space-lg);display:flex;flex-wrap:wrap;flex-direction:row-reverse;gap:40px 64px;align-items:flex-start">
+          <div style="flex:1.1 1 360px;max-width:560px;min-width:0;display:flex;flex-direction:column;gap:16px;padding-left:40px;box-sizing:border-box">
+            <div data-fs="" style="position:relative"><img data-asset-source="cursor-verify" src="/assets/terraform/refine-dependent-settings.png" alt="Dependent settings in read-only" style="display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;left:-14px;top:33.5%;height:58.5%;width:7px;box-sizing:border-box;border:1.5px solid #181818;border-right:0;border-radius:5px 0 0 5px"></span><span aria-hidden="true" style="position:absolute;left:-20px;top:22.6%;transform:translate(-100%,-50%);display:flex;align-items:center;gap:6px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818">01</span><span style="width:14px;height:1.5px;background:#181818"></span></span><span aria-hidden="true" style="position:absolute;left:-16px;top:62.8%;transform:translate(-100%,-50%);display:flex;align-items:center;gap:6px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818">02</span><span style="width:14px;height:1.5px;background:#181818"></span></span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px 24px;font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em"><span style="display:flex;align-items:center;gap:8px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">01</span>Controlling setting</span><span style="display:flex;align-items:center;gap:8px"><span style="font:500 11.5px/1 'Satoshi',sans-serif;letter-spacing:.08em;color:#181818;white-space:nowrap">02</span>Settings that depend on it, indented beneath</span></div>
+          </div>
+          <dl style="flex:1 1 300px;margin:0;display:flex;flex-direction:column">
+            <div style="display:flex;flex-direction:column;gap:8px;padding:18px 0;border-top:1px solid #181818"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Evidence</dt><dd style="margin:0;font:400 15px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em">Some values only make sense because of a setting above them. Without that link, the read-only page was accurate but hard to follow.</dd></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:18px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase">Design response</dt><dd style="margin:0;font:500 16px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">I kept dependent settings grouped under the setting that drives them, so a reviewer can see why a value exists even without edit access.</dd></div>
+          </dl>
+        </div>
+      </article>
 
-<div class="tf-section tf-workflow" data-part="protected" data-tf-workflow id="view-edit">
-<span data-sec="09" class="tf-kicker">View → Edit → Verify <span class="tf-pill">Principle 4</span></span>
-<h2>Read-only also needed a clear way out.</h2>
-<p class="tf-lede">For people who can make changes, I explored how the same page moves between reviewing and editing, so editing is always a deliberate step.</p>
-<div class="tf-workflow__steps" role="list" aria-label="View, edit, verify">
-<div class="tf-workflow__step is-active" role="listitem" data-ps-step="view" aria-current="step">
-<div class="tf-workflow__kicker"><span>01</span><span class="tf-workflow__label">View</span></div>
-<p>Understand what’s configured.</p>
-</div>
-<div class="tf-workflow__step" role="listitem" data-ps-step="edit" aria-current="false">
-<div class="tf-workflow__kicker"><span>02</span><span class="tf-workflow__label">Edit</span></div>
-<p>Explicitly enter an editable state.</p>
-</div>
-<div class="tf-workflow__step" role="listitem" data-ps-step="verify" aria-current="false">
-<div class="tf-workflow__kicker"><span>03</span><span class="tf-workflow__label">Verify</span></div>
-<p>Return to read-only after saving.</p>
-</div>
-</div>
-<p class="tf-workflow__status" aria-live="polite">View. Understand what’s configured.</p>
-<div class="tf-workflow__frame" data-tf-proto-frame>
-<iframe data-tf-proto title="Read, edit, verify prototype" src="/api/terraform-prototype"></iframe>
-</div>
-<div class="tf-workflow__notes">
-<span>Live prototype · try Edit, then Save</span>
-<button type="button" data-tf-proto-open>Open in full screen</button>
-</div>
-<dialog class="tf-proto-modal" data-tf-proto-modal>
-<button type="button" class="tf-proto-modal__close" data-tf-proto-close>Close</button>
-<iframe data-tf-proto-full title="Read, edit, verify prototype"></iframe>
-</dialog>
-</div>
+      <article style="margin-top:var(--space-2xl)">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Decision 03</span><span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Principle 2</span><span style="flex:1;height:1px;background:#DCDCDC;align-self:center"></span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:40px 72px;align-items:center">
+          <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:22px">
+            <h3 style="margin:0;font:400 clamp(24px,2.1vw,30px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Descriptions stay when they answer a question.</h3>
+            <p style="margin:0;max-width:52ch;font:400 16px/1.6 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I didn’t want every description to survive just because it was on the editable page. I kept one when the setting was unfamiliar or the value couldn’t explain itself.</p>
+            <div style="margin-top:8px;display:grid;grid-template-columns:96px minmax(0,1fr);border-top:1px solid #181818">
+              <span style="padding:16px 0;font:700 12px/1.4 'Satoshi',sans-serif;letter-spacing:.16em">KEEP</span><span style="padding:16px 0;font:500 15px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">The description explains something the value alone cannot.</span>
+              <span style="padding:16px 0;border-top:1px solid #DCDCDC;font:700 12px/1.4 'Satoshi',sans-serif;letter-spacing:.16em;color:#707070">REMOVE</span><span style="padding:16px 0;border-top:1px solid #DCDCDC;font:400 15px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">The value already communicates enough on its own.</span>
+            </div>
+          </div>
+          <div style="flex:1 1 320px;display:flex;justify-content:center">
+            <span style="position:relative;display:block;max-width:380px;width:100%"><img data-asset-source="cursor-verify" src="/assets/terraform/refine-helper-text.png" alt="Helper text kept in read-only" style="display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);transform:rotate(1.4deg)"><span style="position:absolute;left:-10px;top:-12px;padding:7px 10px;background:#181818;color:#fff;font:700 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em">KEPT</span></span>
+          </div>
+        </div>
+      </article>
+    </section>
 
-<div class="tf-section" data-part="protected" id="system" data-tf-comps>
-<span data-sec="10" class="tf-kicker">Component system</span>
-<h2>The pattern had to work beyond one screen.</h2>
-<p class="tf-lede">Once the interaction direction was clearer, I applied the same behavior across the nine recurring component types from the audit. Each one got a defined read-only state, plus an empty state where it needed one.</p>
-<div class="tf-levels">
-<div><span>Detail level</span><p>How should this control behave when someone can’t edit it?</p></div>
-<div><span>System level</span><p>What rule should every recurring component follow in read-only?</p></div>
-</div>
-<div class="tf-comps">
-<div class="tf-comps__nav" role="tablist" aria-label="Component types">
-<button type="button" role="tab" data-comp="checkbox">Checkbox</button>
-<button type="button" role="tab" data-comp="masked">Masked input</button>
-<button type="button" role="tab" data-comp="radio">Radio</button>
-<button type="button" role="tab" data-comp="radiocard">Radio card</button>
-<button type="button" role="tab" data-comp="select">Select</button>
-<button type="button" role="tab" data-comp="superselect">Super select</button>
-<button type="button" role="tab" data-comp="textarea">Text area</button>
-<button type="button" role="tab" data-comp="textinput">Text input</button>
-<button type="button" role="tab" data-comp="toggle">Toggle</button>
-</div>
-<div class="tf-comps__stage">
-<section data-comp-panel="checkbox">
-<div class="tf-comps__title"><span>01</span><h3>Checkbox</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Checkbox states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Checkbox, editable" src="/api/terraform-scaling?name=checkbox-edit.png" width="318" height="222"><img data-state-img="ro" alt="Checkbox, read-only" src="/api/terraform-scaling?name=checkbox-ro.png" width="478" height="96" hidden><img data-state-img="empty" alt="Checkbox, empty" src="/api/terraform-scaling?name=checkbox-empty.png" width="548" height="72" hidden></div>
-</section>
-<section data-comp-panel="masked" hidden>
-<div class="tf-comps__title"><span>02</span><h3>Masked input</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Masked input states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Masked input, editable" src="/api/terraform-scaling?name=masked-edit.png" width="348" height="222"><img data-state-img="ro" alt="Masked input, read-only" src="/api/terraform-scaling?name=masked-ro.png" width="478" height="68" hidden></div>
-</section>
-<section data-comp-panel="radio" hidden>
-<div class="tf-comps__title"><span>03</span><h3>Radio</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Radio states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Radio, editable" src="/api/terraform-scaling?name=radio-edit.png" width="248" height="212"><img data-state-img="ro" alt="Radio, read-only" src="/api/terraform-scaling?name=radio-ro.png" width="478" height="64" hidden></div>
-</section>
-<section data-comp-panel="radiocard" hidden>
-<div class="tf-comps__title"><span>04</span><h3>Radio card</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Radio card states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Radio card, editable" src="/api/terraform-scaling?name=radiocard-edit.png" width="804" height="294"><img data-state-img="ro" alt="Radio card, read-only" src="/api/terraform-scaling?name=radiocard-ro.png" width="478" height="328" hidden></div>
-</section>
-<section data-comp-panel="select" hidden>
-<div class="tf-comps__title"><span>05</span><h3>Select</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Select states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Select, editable" src="/api/terraform-scaling?name=select-edit.png" width="342" height="92"><img data-state-img="ro" alt="Select, read-only" src="/api/terraform-scaling?name=select-ro.png" width="468" height="76" hidden><img data-state-img="empty" alt="Select, empty" src="/api/terraform-scaling?name=select-empty.png" width="538" height="76" hidden></div>
-</section>
-<section data-comp-panel="superselect" hidden>
-<div class="tf-comps__title"><span>06</span><h3>Super select</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Super select states"><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
-<div class="tf-comps__frame"><img data-state-img="ro" alt="Super select, read-only" src="/api/terraform-scaling?name=superselect-ro.png" width="918" height="658"><img data-state-img="empty" alt="Super select, empty" src="/api/terraform-scaling?name=superselect-empty.png" width="914" height="128" hidden></div>
-</section>
-<section data-comp-panel="textarea" hidden>
-<div class="tf-comps__title"><span>07</span><h3>Text area</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Text area states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Text area, editable" src="/api/terraform-scaling?name=textarea-edit.png" width="388" height="162"><img data-state-img="ro" alt="Text area, read-only" src="/api/terraform-scaling?name=textarea-ro.png" width="478" height="92" hidden><img data-state-img="empty" alt="Text area, empty" src="/api/terraform-scaling?name=textarea-empty.png" width="492" height="98" hidden></div>
-</section>
-<section data-comp-panel="textinput" hidden>
-<div class="tf-comps__title"><span>08</span><h3>Text input</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Text input states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Text input, editable" src="/api/terraform-scaling?name=textinput-edit.png" width="380" height="108"><img data-state-img="ro" alt="Text input, read-only" src="/api/terraform-scaling?name=textinput-ro.png" width="478" height="60" hidden><img data-state-img="empty" alt="Text input, empty" src="/api/terraform-scaling?name=textinput-empty.png" width="492" height="94" hidden></div>
-</section>
-<section data-comp-panel="toggle" hidden>
-<div class="tf-comps__title"><span>09</span><h3>Toggle</h3></div>
-<div class="tf-comps__states" role="group" aria-label="Toggle states"><button type="button" data-state="edit">Editable</button><button type="button" data-state="ro">Read-only</button><button type="button" data-state="empty">Empty</button></div>
-<div class="tf-comps__frame"><img data-state-img="edit" alt="Toggle, editable" src="/api/terraform-scaling?name=toggle-edit.png" width="348" height="172"><img data-state-img="ro" alt="Toggle, read-only" src="/api/terraform-scaling?name=toggle-ro.png" width="478" height="118" hidden><img data-state-img="empty" alt="Toggle, empty" src="/api/terraform-scaling?name=toggle-empty.png" width="544" height="78" hidden></div>
-</section>
-</div>
-</div>
-</div>
+    <section id="s09" data-tf-workflow data-sec="" data-screen-label="09 View → Edit" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">09</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>View → Edit → Verify</span><span style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;margin-left:6px">Principle 4</span></div>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px 72px;align-items:flex-end">
+        <h2 style="flex:1 1 380px;margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Read-only also needed a clear way out.</h2>
+        <p style="flex:1 1 340px;margin:0;max-width:52ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">For people who can make changes, I explored how the same page moves between reviewing and editing, so editing is always a deliberate step.</p>
+      </div>
+      <ol style="margin:var(--space-xl) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:20px 28px">
+        <li style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #181818"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:700 12px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase" data-ps-step="view">View</span><span aria-hidden="true" style="margin-left:auto;color:#707070">→</span></span><span style="font:400 15px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Understand what’s configured.</span></li>
+        <li style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #181818"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:700 12px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase" data-ps-step="edit">Edit</span><span aria-hidden="true" style="margin-left:auto;color:#707070">→</span></span><span style="font:400 15px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Explicitly enter an editable state.</span></li>
+        <li style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #181818"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:700 12px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase" data-ps-step="verify">Verify</span></span><span style="font:400 15px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Return to read-only after saving.</span></li>
+      </ol>
+      <div style="margin:var(--space-xl) 0 0">
+        <div data-tf-proto-frame style="position:relative;width:100%;aspect-ratio:1440/900;border-radius:3px;background:#fff;overflow:hidden;box-shadow:0 30px 60px -22px rgba(24,24,24,.32),0 2px 6px rgba(24,24,24,.08);outline:1px solid #ECECEC"><iframe data-tf-proto src="/api/terraform-prototype" title="Read, edit, verify prototype" loading="lazy" style="position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform:none;transform-origin:0 0"></iframe></div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;margin-top:var(--space-sm)"><span style="font:500 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Live prototype · try Edit, then Save</span><a href="/api/terraform-prototype" target="_blank" style="font:500 14px/1 'Satoshi',sans-serif;border-bottom:1px solid #181818;padding-bottom:3px">Open in a new tab ↗</a></div>
+      </div>
+    </section>
 
-<div class="tf-section" data-part="protected" id="rules">
-<h3>Those behaviors came down to five rules.</h3>
-<p class="tf-lede">The right column shows where each one came from.</p>
-<ol class="tf-rules">
-<li><span>01</span><strong>Current state first</strong><span>Someone should be able to tell what is configured without hunting.</span><span>Decision 01</span></li>
-<li><span>02</span><strong>Relationships stay intact</strong><span>Read-only shouldn’t hide why settings depend on one another.</span><span>Decision 02</span></li>
-<li><span>03</span><strong>Context earns its place</strong><span>Descriptions and alternatives stay when they explain the current state.</span><span>Decisions 01 + 03</span></li>
-<li><span>04</span><strong>Context without competition</strong><span>Supporting information stays available without competing with the current state.</span><span>M vs H · combined</span></li>
-<li><span>05</span><strong>Editing is intentional</strong><span>Viewing and changing configuration should feel like distinct modes.</span><span>Read → Edit → Verify</span></li>
-</ol>
-</div>
+    <section id="s10" data-tf-comps data-sec="" data-screen-label="10 System" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">10</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Component system</span></div>
+      <h2 style="margin:var(--space-md) 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">The pattern had to work beyond one screen.</h2>
+      <p style="margin:var(--space-md) 0 0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Once the interaction direction was clearer, I applied the same behavior across the nine recurring component types from the audit. Each one got a defined read-only state, plus an empty state where it needed one.</p>
+      <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 48px">
+        <span style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Detail level</span><span style="font:400 clamp(19px,1.6vw,23px)/1.22 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">How should this control behave when someone can’t edit it?</span></span>
+        <span style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">System level</span><span style="font:400 clamp(19px,1.6vw,23px)/1.22 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">What rule should every recurring component follow in read-only?</span></span>
+      </div>
+      <div style="margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:28px 56px;align-items:flex-start">
+        <div role="tablist" aria-label="Component types" style="flex:0 1 220px;display:flex;flex-direction:column"><button type="button" role="tab" data-comp="checkbox" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Checkbox</button><button type="button" role="tab" data-comp="masked" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Masked input</button><button type="button" role="tab" data-comp="radio" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Radio</button><button type="button" role="tab" data-comp="radiocard" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Radio card</button><button type="button" role="tab" data-comp="select" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Select</button><button type="button" role="tab" data-comp="superselect" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Super select</button><button type="button" role="tab" data-comp="textarea" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Text area</button><button type="button" role="tab" data-comp="textinput" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Text input</button><button type="button" role="tab" data-comp="toggle" style="display:flex;align-items:center;gap:10px;min-height:36px;padding:6px 0;border:0;background:transparent;color:#181818;font:400 14.5px/1.2 'Satoshi',sans-serif;letter-spacing:-.02em;text-align:left">Toggle</button></div><div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px"><section data-comp-panel="checkbox" style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Checkbox</span></span><span role="group" aria-label="Checkbox states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button><button type="button" data-state="empty" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Empty</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Checkbox, Editable" src="/api/terraform-scaling?name=checkbox-edit.png" width="318" height="222" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Checkbox, Read-only" src="/api/terraform-scaling?name=checkbox-ro.png" width="478" height="96" hidden style="display:block;max-width:100%;height:auto"><img data-state-img="empty" alt="Checkbox, Empty" src="/api/terraform-scaling?name=checkbox-empty.png" width="548" height="72" hidden style="display:block;max-width:100%;height:auto"></div><span style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:16px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em"><span style="font:500 11px/2 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Behavior</span><span>Show the selected configuration while preserving useful alternatives.</span></span></section><section data-comp-panel="masked" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Masked input</span></span><span role="group" aria-label="Masked input states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Masked input, Editable" src="/api/terraform-scaling?name=masked-edit.png" width="348" height="222" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Masked input, Read-only" src="/api/terraform-scaling?name=masked-ro.png" width="478" height="68" hidden style="display:block;max-width:100%;height:auto"></div></section><section data-comp-panel="radio" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Radio</span></span><span role="group" aria-label="Radio states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Radio, Editable" src="/api/terraform-scaling?name=radio-edit.png" width="248" height="212" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Radio, Read-only" src="/api/terraform-scaling?name=radio-ro.png" width="478" height="64" hidden style="display:block;max-width:100%;height:auto"></div><span style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:16px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em"><span style="font:500 11px/2 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Behavior</span><span>Current value gets priority; alternatives remain as context.</span></span></section><section data-comp-panel="radiocard" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Radio card</span></span><span role="group" aria-label="Radio card states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Radio card, Editable" src="/api/terraform-scaling?name=radiocard-edit.png" width="804" height="294" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Radio card, Read-only" src="/api/terraform-scaling?name=radiocard-ro.png" width="478" height="328" hidden style="display:block;max-width:100%;height:auto"></div></section><section data-comp-panel="select" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">05</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Select</span></span><span role="group" aria-label="Select states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button><button type="button" data-state="empty" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Empty</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Select, Editable" src="/api/terraform-scaling?name=select-edit.png" width="342" height="92" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Select, Read-only" src="/api/terraform-scaling?name=select-ro.png" width="468" height="76" hidden style="display:block;max-width:100%;height:auto"><img data-state-img="empty" alt="Select, Empty" src="/api/terraform-scaling?name=select-empty.png" width="538" height="76" hidden style="display:block;max-width:100%;height:auto"></div></section><section data-comp-panel="superselect" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">06</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Super select</span></span><span role="group" aria-label="Super select states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button><button type="button" data-state="empty" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Empty</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="ro" alt="Super select, Read-only" src="/api/terraform-scaling?name=superselect-ro.png" width="918" height="658" style="display:block;max-width:100%;height:auto"><img data-state-img="empty" alt="Super select, Empty" src="/api/terraform-scaling?name=superselect-empty.png" width="914" height="128" hidden style="display:block;max-width:100%;height:auto"></div></section><section data-comp-panel="textarea" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">07</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Text area</span></span><span role="group" aria-label="Text area states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button><button type="button" data-state="empty" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Empty</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Text area, Editable" src="/api/terraform-scaling?name=textarea-edit.png" width="388" height="162" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Text area, Read-only" src="/api/terraform-scaling?name=textarea-ro.png" width="478" height="92" hidden style="display:block;max-width:100%;height:auto"><img data-state-img="empty" alt="Text area, Empty" src="/api/terraform-scaling?name=textarea-empty.png" width="492" height="98" hidden style="display:block;max-width:100%;height:auto"></div></section><section data-comp-panel="textinput" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">08</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Text input</span></span><span role="group" aria-label="Text input states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button><button type="button" data-state="empty" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Empty</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Text input, Editable" src="/api/terraform-scaling?name=textinput-edit.png" width="380" height="108" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Text input, Read-only" src="/api/terraform-scaling?name=textinput-ro.png" width="478" height="60" hidden style="display:block;max-width:100%;height:auto"><img data-state-img="empty" alt="Text input, Empty" src="/api/terraform-scaling?name=textinput-empty.png" width="492" height="94" hidden style="display:block;max-width:100%;height:auto"></div></section><section data-comp-panel="toggle" hidden style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px 24px"><span style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">09</span><span style="font:400 clamp(24px,2.2vw,30px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Toggle</span></span><span role="group" aria-label="Toggle states" style="display:flex;gap:20px;border-bottom:1px solid #DCDCDC"><button type="button" data-state="edit" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Editable</button><button type="button" data-state="ro" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Read-only</button><button type="button" data-state="empty" style="min-height:40px;padding:8px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:#181818;font:400 13.5px/1 'Satoshi',sans-serif;letter-spacing:-.02em">Empty</button></span></div><div style="display:flex;align-items:center;justify-content:center;min-height:220px;padding:clamp(24px,4vw,56px);box-sizing:border-box;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC"><img data-state-img="edit" alt="Toggle, Editable" src="/api/terraform-scaling?name=toggle-edit.png" width="348" height="172" style="display:block;max-width:100%;height:auto"><img data-state-img="ro" alt="Toggle, Read-only" src="/api/terraform-scaling?name=toggle-ro.png" width="478" height="118" hidden style="display:block;max-width:100%;height:auto"><img data-state-img="empty" alt="Toggle, Empty" src="/api/terraform-scaling?name=toggle-empty.png" width="544" height="78" hidden style="display:block;max-width:100%;height:auto"></div><span style="display:grid;grid-template-columns:80px minmax(0,1fr);gap:16px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em"><span style="font:500 11px/2 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Behavior</span><span>Communicate the saved state without implying the switch can be changed.</span></span></section></div>
+        </div>
+      </div>
 
-<div class="tf-bleed" data-part="protected" id="handoff">
-<div>
-<span data-sec="11" class="tf-kicker">Handoff</span>
-<div class="tf-handoff__head">
-<h2>What I handed off</h2>
-<p>At the end of the internship, I handed off the proposed interface along with the reasoning and rules behind it, so the team could keep applying read-only behavior across Terraform.</p>
-</div>
-<div class="tf-handoff__grid">
-<article><figure><img src="/assets/terraform/section-09.png?v=figma2" alt="Proposed read-only policy set screen"></figure><h3>Figma designs</h3><p>Interface explorations and final proposed states.</p></article>
-<article><figure><img src="/assets/terraform/refine-helper-text.png?v=tip1" alt="Helper text kept in read-only"></figure><h3>Design recommendations</h3><p>When context should stay visible.</p></article>
-<article><figure class="tf-handoff__states"><img src="/api/terraform-scaling?name=toggle-edit.png" alt="Toggle, editable"><img src="/api/terraform-scaling?name=toggle-ro.png" alt="Toggle, read-only"><img src="/api/terraform-scaling?name=toggle-empty.png" alt="Toggle, empty"></figure><h3>Component behavior specs</h3><p>Behavior for each recurring component type and state.</p></article>
-<article><figure class="tf-handoff__notes"><span>01 Current values weren’t enough</span><span>02 Descriptions mattered</span><span>03 Dependencies stay visible</span></figure><h3>Research findings</h3><p>The observations behind each decision.</p></article>
-</div>
-</div>
-</div>
+      <div style="margin-top:var(--space-2xl)">
+        <div style="display:flex;flex-wrap:wrap;gap:12px 48px;align-items:baseline;justify-content:space-between"><h3 style="margin:0;font:400 clamp(26px,2.3vw,34px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Those behaviors came down to five rules.</h3><p style="margin:0;font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">The right column shows where each one came from.</p></div>
+        <div style="margin-top:var(--space-lg);display:flex;flex-direction:column;border-top:1px solid #181818">
+          <div style="display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;padding:22px 0;border-bottom:1px solid #DCDCDC"><span style="flex:0 0 44px;font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="flex:1 1 220px;font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Current state first</span><span style="flex:2 1 300px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Someone should be able to tell what is configured without hunting.</span><span style="flex:0 1 160px;font:500 12.5px/1.3 'Satoshi',sans-serif;color:#707070">Decision 01</span></div><div style="display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;padding:22px 0;border-bottom:1px solid #DCDCDC"><span style="flex:0 0 44px;font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="flex:1 1 220px;font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Relationships stay intact</span><span style="flex:2 1 300px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Read-only shouldn’t hide why settings depend on one another.</span><span style="flex:0 1 160px;font:500 12.5px/1.3 'Satoshi',sans-serif;color:#707070">Decision 02</span></div><div style="display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;padding:22px 0;border-bottom:1px solid #DCDCDC"><span style="flex:0 0 44px;font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="flex:1 1 220px;font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Context earns its place</span><span style="flex:2 1 300px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Descriptions and alternatives stay when they explain the current state.</span><span style="flex:0 1 160px;font:500 12.5px/1.3 'Satoshi',sans-serif;color:#707070">Decisions 01 + 03</span></div><div style="display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;padding:22px 0;border-bottom:1px solid #DCDCDC"><span style="flex:0 0 44px;font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="flex:1 1 220px;font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Context without competition</span><span style="flex:2 1 300px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Supporting information stays available without competing with the current state.</span><span style="flex:0 1 160px;font:500 12.5px/1.3 'Satoshi',sans-serif;color:#707070">M vs H · combined</span></div><div style="display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;padding:22px 0;border-bottom:1px solid #DCDCDC"><span style="flex:0 0 44px;font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">05</span><span style="flex:1 1 220px;font:500 17px/1.3 'Satoshi',sans-serif;letter-spacing:-.025em">Editing is intentional</span><span style="flex:2 1 300px;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Viewing and changing configuration should feel like distinct modes.</span><span style="flex:0 1 160px;font:500 12.5px/1.3 'Satoshi',sans-serif;color:#707070">Read → Edit → Verify</span></div>
+        </div>
+      </div>
+    </section>
 
-<div class="tf-bleed tf-outcome" data-part="protected" id="outcome">
-<div>
-<div class="tf-outcome__head">
-<div><span data-sec="12" class="tf-kicker">Outcome</span><h2>From individual screens to reusable behavior.</h2></div>
-<div>
-<p>By the end of the internship, I had moved from designing individual read-only states to documenting behaviors that could work across recurring Terraform components.</p>
-<p>The handoff included the interface designs, design recommendations, component behavior specs and the research behind them.</p>
-</div>
-</div>
-<div class="tf-outcome__stats">
-<div><span>41</span><strong>Configuration routes audited</strong><span>Every route in scope</span></div>
-<div><span>10+</span><strong>Research participants</strong><span>Broader research, internal and external</span></div>
-<div><span>9</span><strong>Component types explored</strong><span>Editable, read-only, empty</span></div>
-<div><span>4/5</span><strong>Usability rating</strong><span>Terraform-user M vs. H study only</span></div>
-</div>
-<p class="tf-outcome__note">The combined direction was an exploration and wasn’t released during my internship.</p>
-</div>
-</div>
+    <section id="s11" data-sec="" data-screen-label="11 Handoff" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">11</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Handoff</span></div>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px 72px;align-items:flex-end">
+        <h2 style="flex:1 1 300px;margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">What I handed off</h2>
+        <p style="flex:1.3 1 380px;margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">At the end of the internship, I handed off the proposed interface along with the reasoning and rules behind it, so the team could keep applying read-only behavior across Terraform.</p>
+      </div>
+      <div class="cs-handoff" style="margin-top:var(--cs-media-gap);display:grid;gap:var(--cs-heading-gap) 24px">
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="position:relative;display:block;aspect-ratio:4/3;margin-bottom:10px;box-sizing:border-box;overflow:clip;overflow-clip-margin:32px"><img data-asset-source="cursor-verify" src="/assets/terraform/section-09.png" alt="Proposed read-only policy set screen" style="position:absolute;left:6%;top:6%;width:88%;height:88%;object-fit:cover;object-position:top;border-radius:3px;box-shadow:0 22px 40px -16px rgba(24,24,24,.3),0 2px 6px rgba(24,24,24,.08);transform:rotate(-1.5deg)"></span><span style="font:500 16px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;padding-top:12px;border-top:1px solid #181818">Figma designs</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Interface explorations and final proposed states.</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;margin-bottom:10px;box-sizing:border-box;overflow:clip;overflow-clip-margin:32px"><img data-asset-source="cursor-verify" src="/assets/terraform/refine-helper-text.png" alt="Helper text kept in read-only" style="display:block;max-width:86%;max-height:80%;object-fit:contain;border-radius:3px;box-shadow:0 22px 40px -16px rgba(24,24,24,.3),0 2px 6px rgba(24,24,24,.08);transform:rotate(1.2deg)"></span><span style="font:500 16px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;padding-top:12px;border-top:1px solid #181818">Design recommendations</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">When context should stay visible.</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="position:relative;display:flex;flex-direction:column;justify-content:center;gap:10px;aspect-ratio:4/3;margin-bottom:10px;box-sizing:border-box;overflow:clip;overflow-clip-margin:32px;padding:0 6%"><img data-asset-source="cursor-verify" src="/api/terraform-scaling?name=toggle-edit.png" alt="Toggle, editable" style="display:block;max-width:72%;max-height:26%;object-fit:contain;object-position:left;opacity:.5"><img data-asset-source="cursor-verify" src="/api/terraform-scaling?name=toggle-ro.png" alt="Toggle, read-only" style="display:block;max-width:72%;max-height:26%;object-fit:contain;object-position:left;box-shadow:0 14px 26px -12px rgba(24,24,24,.32);border-radius:4px"><img data-asset-source="cursor-verify" src="/api/terraform-scaling?name=toggle-empty.png" alt="Toggle, empty" style="display:block;max-width:72%;max-height:26%;object-fit:contain;object-position:left;opacity:.5"></span><span style="font:500 16px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;padding-top:12px;border-top:1px solid #181818">Component behavior specs</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Behavior for each recurring component type and state.</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="position:relative;display:flex;flex-direction:column;justify-content:center;aspect-ratio:4/3;margin-bottom:10px;box-sizing:border-box;overflow:clip;overflow-clip-margin:32px;padding:0 6%"><span style="padding:10px 0;border-bottom:1px solid #ECECEC;font:500 13.5px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">01 Current values weren’t enough</span><span style="padding:10px 0;border-bottom:1px solid #ECECEC;font:500 13.5px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">02 Descriptions mattered</span><span style="padding:10px 0;font:500 13.5px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">03 Dependencies stay visible</span></span><span style="font:500 16px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;padding-top:12px;border-top:1px solid #181818">Research findings</span><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">The observations behind each decision.</span></div>
+      </div>
+    </section>
 
-<div class="tf-section" data-part="protected" id="reflection">
-<div class="tf-reflect">
-<div><span data-sec="13" class="tf-kicker">Reflection</span><h2>Showing less wasn’t always clearer.</h2></div>
-<div>
-<article><span>01</span><div><h3>Cutting context backfired</h3><p>I started the project thinking a clearer read-only experience might mean showing less. Research showed me that some of the information I wanted to remove was exactly what helped people understand what they were looking at.</p></div></article>
-<article><span>02</span><div><h3>Think in rules, not pages</h3><p>Working across 41 routes also pushed me to stop thinking about individual screens and start thinking about the rules that needed to hold up across the product.</p></div></article>
-</div>
-</div>
-</div>
+    <section id="s12" data-sec="" data-screen-label="12 Outcome" style="margin-top:var(--space-section-major)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #181818;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">12</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Outcome</span></div>
+      <div style="margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:32px 72px;align-items:flex-end">
+        <h2 style="flex:1.2 1 400px;margin:0;font:400 clamp(38px,4.6vw,64px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.055em;text-wrap:pretty">From individual screens to reusable behavior.</h2>
+        <div style="flex:1 1 320px;max-width:52ch;display:flex;flex-direction:column;gap:16px"><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">By the end of the internship, the work had shifted from designing individual read-only screens to defining reusable behavior across Terraform’s recurring components. The result was a clearer set of rules the team could carry forward beyond the screens I explored.</p></div>
+      </div>
+      <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:32px 28px">
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid #181818"><span style="font:400 clamp(42px,4vw,58px)/.9 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">41</span><span style="margin-top:8px;font:500 15px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Configuration routes audited</span><span style="font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Every route in scope</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid #181818"><span style="font:400 clamp(42px,4vw,58px)/.9 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">10+</span><span style="margin-top:8px;font:500 15px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Research participants</span><span style="font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Broader research, internal and external</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid #181818"><span style="font:400 clamp(42px,4vw,58px)/.9 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">9</span><span style="margin-top:8px;font:500 15px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Component types explored</span><span style="font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Editable, read-only, empty</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid #181818"><span style="font:400 clamp(42px,4vw,58px)/.9 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">4/5</span><span style="margin-top:8px;font:500 15px/1.35 'Satoshi',sans-serif;letter-spacing:-.02em">Usability rating</span><span style="font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Terraform-user M vs. H study only</span></div>
+      </div>
+      <p style="margin:var(--space-lg) 0 0;font:400 13.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">The combined direction was an exploration and wasn’t released during my internship.</p>
+    </section>
+
+    <section id="s13" data-sec="" data-screen-label="13 Reflection" style="margin-top:var(--cs-section-gap)">
+      <div style="display:flex;flex-wrap:wrap;gap:32px 72px;align-items:flex-start">
+        <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:24px">
+          <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">13</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Reflection</span></div>
+          <h2 style="margin:0;font:400 clamp(30px,3vw,42px)/1.06 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">This project changed how I think about designing for complex products.</h2>
+        </div>
+        <div style="flex:1.3 1 400px;display:flex;flex-direction:column;border-bottom:1px solid #DCDCDC">
+          <div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid #181818"><span style="font:400 italic 24px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><div style="display:flex;flex-direction:column;gap:14px"><span style="font:400 clamp(21px,1.8vw,25px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Designing less isn’t always simplifying.</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I started by assuming a cleaner read-only experience meant showing less. Research showed me that simplification has to preserve the information people need to make sense of a system, not just reduce what appears on the screen.</p></div></div>
+          <div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 24px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><div style="display:flex;flex-direction:column;gap:14px"><span style="font:400 clamp(21px,1.8vw,25px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Think in rules, not pages</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Working across 41 routes pushed me to stop treating each screen as a separate design problem and start defining behaviors that could hold up across the product.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  </div>
+
+  

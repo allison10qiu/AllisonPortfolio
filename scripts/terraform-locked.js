@@ -327,23 +327,44 @@
     var scroller = box.querySelector("[data-tf-mh-scroll]");
     var shots = box.querySelectorAll("[data-tf-mh-img]");
     var buttons = box.querySelectorAll("[data-tf-mh-go]");
+    var copies = box.querySelectorAll("[data-tf-mh-copy]");
 
     function show(which) {
       var top = scroller ? scroller.scrollTop : 0;
       Array.prototype.forEach.call(shots, function (shot) {
-        shot.classList.toggle("is-on", shot.getAttribute("data-tf-mh-img") === which);
+        var on = shot.getAttribute("data-tf-mh-img") === which;
+        shot.classList.toggle("is-on", on);
+        shot.setAttribute("aria-hidden", on ? "false" : "true");
       });
       Array.prototype.forEach.call(buttons, function (button) {
         var on = button.getAttribute("data-tf-mh-go") === which;
         button.classList.toggle("is-on", on);
-        button.setAttribute("aria-pressed", on ? "true" : "false");
+        button.setAttribute("aria-selected", on ? "true" : "false");
+        button.tabIndex = on ? 0 : -1;
+      });
+      Array.prototype.forEach.call(copies, function (copy) {
+        var on = copy.getAttribute("data-tf-mh-copy") === which;
+        copy.hidden = !on;
+        copy.setAttribute("aria-hidden", on ? "false" : "true");
       });
       if (scroller) scroller.scrollTop = top;
     }
 
-    Array.prototype.forEach.call(buttons, function (button) {
+    var list = Array.prototype.slice.call(buttons);
+    list.forEach(function (button, index) {
       button.addEventListener("click", function () {
         show(button.getAttribute("data-tf-mh-go"));
+      });
+      button.addEventListener("keydown", function (event) {
+        var next = index;
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % list.length;
+        else if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index - 1 + list.length) % list.length;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = list.length - 1;
+        else return;
+        event.preventDefault();
+        list[next].focus();
+        show(list[next].getAttribute("data-tf-mh-go"));
       });
     });
     show("m");
@@ -384,23 +405,30 @@
       });
     });
 
-    Array.prototype.forEach.call(panels, function (panel) {
+    var selectedState = "edit";
+    function applyState(panel, state) {
       var stateButtons = panel.querySelectorAll("[data-state]");
       var shots = panel.querySelectorAll("[data-state-img]");
-      function showState(state) {
-        Array.prototype.forEach.call(stateButtons, function (button) {
-          var on = button.getAttribute("data-state") === state;
-          button.classList.toggle("is-on", on);
-          button.setAttribute("aria-pressed", on ? "true" : "false");
-        });
-        Array.prototype.forEach.call(shots, function (shot) {
-          shot.hidden = shot.getAttribute("data-state-img") !== state;
-        });
-      }
       Array.prototype.forEach.call(stateButtons, function (button) {
-        button.addEventListener("click", function () { showState(button.getAttribute("data-state")); });
+        var on = button.getAttribute("data-state") === state;
+        button.classList.toggle("is-on", on);
+        button.setAttribute("aria-selected", on ? "true" : "false");
+        button.setAttribute("aria-pressed", on ? "true" : "false");
       });
-      showState("ro");
+      Array.prototype.forEach.call(shots, function (shot) {
+        var on = shot.getAttribute("data-state-img") === state;
+        shot.hidden = !on;
+        shot.classList.toggle("is-on", on);
+      });
+    }
+    Array.prototype.forEach.call(panels, function (panel) {
+      Array.prototype.forEach.call(panel.querySelectorAll("[data-state]"), function (button) {
+        button.addEventListener("click", function () {
+          selectedState = button.getAttribute("data-state");
+          Array.prototype.forEach.call(panels, function (item) { applyState(item, selectedState); });
+        });
+      });
+      applyState(panel, selectedState);
     });
 
     if (compButtons.length) showComp(compButtons[0].getAttribute("data-comp"));

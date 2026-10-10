@@ -1,582 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
+<script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
 <script src="/scripts/figma-capture-boot.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/assets/shared/favicon-chrome.png?v=chrome3" type="image/png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/assets/shared/favicon-chrome.png?v=chrome3" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<title>Brilliant Cities · Allison Qiu</title>
 <meta name="description" content="Brilliant Cities Habit Tracker — case study by Allison Qiu">
-  <title>Brilliant Cities · Allison Qiu</title>
-  <link rel="stylesheet" href="../styles/main.css?v=ww1">
-  <link rel="stylesheet" href="../styles/brilliant.css?v=ww1">
-  <link rel="stylesheet" href="../styles/editorial.css?v=ww1">
-  <link rel="stylesheet" href="../styles/brilliant-final.css?v=ww1">
-  <link rel="stylesheet" href="../styles/motion.css?v=motion9">
-  <link rel="stylesheet" href="../styles/page-transitions.css?v=tx8">
-  <link rel="stylesheet" href="../styles/mobile.css?v=ww1">
-  <link rel="stylesheet" href="../styles/allisonGPT.css?v=ww1">
-  <link rel="stylesheet" href="../styles/mockups.css?v=mk3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
+<link rel="stylesheet" href="/styles/main.css?v=ww1">
+<link rel="stylesheet" href="/styles/editorial.css?v=ww1">
+<link rel="stylesheet" href="/styles/cs.css?v=nav3">
+<link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
+<link rel="stylesheet" href="/styles/allisonGPT.css?v=ww1">
+<link rel="stylesheet" href="/styles/motion.css?v=motion6">
 </head>
-<body class="bc-page brilliant-page brilliant-final" data-tx-project="brilliant-cities">
-  <div id="tx-cover" aria-hidden="true"></div>
-  <script src="../scripts/tx-cover.js?v=tx6"></script>
-  <div class="bc-canvas-wrapper">
-    <div class="bc-canvas">
+<body class="cs-page">
+<div id="tx-cover" aria-hidden="true"></div>
+<script src="/scripts/tx-cover.js?v=tx6"></script>
+<div style="position:relative;min-height:100vh;overflow-x:clip;font-family:'Satoshi',sans-serif;color:#181818;letter-spacing:-.05em">
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
-        <img class="site-header__mark" src="../assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
-        <span class="site-header__aq" aria-hidden="true">AQ</span>
+        <img class="site-header__chrome" src="/assets/shared/aq-logo-full.png?v=full" alt="aq" height="48">
       </a>
       <nav class="site-header__nav" aria-label="Primary">
-        <a class="site-header__link" href="/" data-scroll-to="my-work" aria-current="page">Work <img class="site-header__marklet" src="../assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
-        <a class="site-header__link" href="/about">About</a>
-        <a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+        <a class="site-header__link gem-link is-on" href="/" data-scroll-to="my-work" aria-current="page">
+          <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">Work</span><span class="gem-link__label">Work</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
+        </a>
+        <a class="site-header__link gem-link" href="/about">
+          <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">About</span><span class="gem-link__label">About</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
+        </a>
+        <a class="site-header__link gem-link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">Resume</span><span class="gem-link__label">Resume</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
+          <span class="gem-link__arrow" aria-hidden="true">↗</span>
+        </a>
       </nav>
     </div>
   </header>
 
-  <main class="bf-main">
-    <div class="bf-layout">
+  <div style="display:flex;align-items:flex-start">
+    <aside class="cs-aside" style="display:flex;position:sticky;top:85px;flex:0 0 232px;height:calc(100vh - 85px);overflow-y:auto;box-sizing:border-box;background:#fff;border-right:1px solid #ECECEC;padding:36px 24px 40px 24px;letter-spacing:-.02em;flex-direction:column">
+      <a href="/" data-scroll-to="my-work" style="display:flex;align-items:center;gap:8px;min-height:32px;align-self:flex-start;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease"><span aria-hidden="true" style="letter-spacing:0">←</span>All work</a>
+      <div style="margin-top:20px;padding-top:14px;border-top:1.5px solid #181818;display:flex;flex-direction:column;gap:8px">
+        <span style="font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070">Case study</span>
+        <span style="font:400 30px/.95 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Brilliant Cities</span>
+        <span style="font:400 italic 15px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.02em;color:#393939">Hack4Impact · Fall 2024</span>
+      </div>
+      <div style="margin-top:28px;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #DCDCDC;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070"><span>Contents</span><span style="color:#181818;letter-spacing:.08em"><span data-idx-count>01 / 09</span></span></div>
+      <nav aria-label="Case study sections" style="margin-top:6px;display:flex;flex-direction:column">
+        <a class="cs-idx__link" href="#s01"><span class="cs-idx__n">01</span><span class="cs-idx__dot" aria-hidden="true"></span><span>The problem</span></a><a class="cs-idx__link" href="#s02"><span class="cs-idx__n">02</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Parent workflow</span></a><a class="cs-idx__link" href="#s03"><span class="cs-idx__n">03</span><span class="cs-idx__dot" aria-hidden="true"></span><span>My role</span></a><a class="cs-idx__link" href="#s04"><span class="cs-idx__n">04</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Design constraints</span></a><a class="cs-idx__link" href="#s05"><span class="cs-idx__n">05</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Design system</span></a><a class="cs-idx__link" href="#s06"><span class="cs-idx__n">06</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Filter-pill search</span></a><a class="cs-idx__link" href="#s07"><span class="cs-idx__n">07</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Core experience</span></a><a class="cs-idx__link" href="#s08"><span class="cs-idx__n">08</span><span class="cs-idx__dot" aria-hidden="true"></span><span>How the journey connects</span></a><a class="cs-idx__link" href="#s09"><span class="cs-idx__n">09</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Outcome & reflection</span></a>
+      </nav>
+    </aside>
+  <main data-screen-label="Brilliant Cities case study" style="flex:1 1 0;min-width:0;padding:0 clamp(24px,8.7vw,112px);box-sizing:border-box">
 
-      <div class="bf-rail-col">
-        <div class="bf-rail">
-          <a class="bf-rail__back" href="/#my-work"><span aria-hidden="true">←</span> Back to Projects</a>
-          <div class="bf-rail__head">
-            <p class="bf-rail__eyebrow">Case study</p>
-            <p class="bf-rail__title">Brilliant Cities</p>
-          </div>
-          <nav class="bf-rail__nav" aria-label="Case study sections">
-            <span class="bf-rail__fill" aria-hidden="true"></span>
-            <ul class="bf-rail__list">
-              <li class="bf-rail__item is-active">
-                <a class="bf-rail__link" href="#problem" data-bf-scroll="problem">
-                  <span class="bf-rail__dot" aria-hidden="true"></span>
-                  <span>Problem</span>
-                </a>
-              </li>
-              <li class="bf-rail__item">
-                <a class="bf-rail__link" href="#users" data-bf-scroll="users">
-                  <span class="bf-rail__dot" aria-hidden="true"></span>
-                  <span>Who we designed for</span>
-                </a>
-              </li>
-              <li class="bf-rail__item">
-                <a class="bf-rail__link" href="#constraints" data-bf-scroll="constraints">
-                  <span class="bf-rail__dot" aria-hidden="true"></span>
-                  <span>Constraints</span>
-                </a>
-              </li>
-              <li class="bf-rail__item">
-                <a class="bf-rail__link" href="#decisions" data-bf-scroll="decisions">
-                  <span class="bf-rail__dot" aria-hidden="true"></span>
-                  <span>Design decisions</span>
-                </a>
-              </li>
-              <li class="bf-rail__item">
-                <a class="bf-rail__link" href="#design-system" data-bf-scroll="design-system">
-                  <span class="bf-rail__dot" aria-hidden="true"></span>
-                  <span>Design system</span>
-                </a>
-              </li>
-              <li class="bf-rail__item">
-                <a class="bf-rail__link" href="#takeaways" data-bf-scroll="takeaways">
-                  <span class="bf-rail__dot" aria-hidden="true"></span>
-                  <span>Takeaways</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+    <header id="top" data-screen-label="Hero" style="padding-top:clamp(44px,4.6vw,72px)">
+      <div style="display:flex;align-items:center;gap:10px;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Brilliant Cities</span></div>
+      <h1 style="margin:var(--space-md) 0 0;font:400 clamp(44px,5.8vw,88px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">A habit tracker families can keep using at home</h1>
+      <div style="margin-top:var(--space-md);padding-top:20px;border-top:1px solid #181818"><p style="margin:0;font:400 clamp(17px,1.3vw,19px)/1.5 'Satoshi',sans-serif;letter-spacing:-.025em">I helped design a mobile habit tracker where parents can set goals for each of their kids and keep up with them at home. We worked with Brilliant Cities over three months to extend the support families get from their in-person programs.</p></div>
+      <div style="margin-top:var(--space-lg);padding-top:16px;border-top:1px solid #DCDCDC;display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline"><span style="flex:0 0 220px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">My contribution</span><span data-review="contribution wording — confirm" style="flex:1 1 320px;font:400 clamp(24px,2.2vw,32px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818;text-wrap:pretty">Designed the filter-pill search pattern, and co-designed the parent flows and component system with another product designer.</span></div>
+      <dl style="margin:var(--space-lg) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:0 24px"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Timeline</dt><dd style="margin:0;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Sept — Dec 2024</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Role</dt><dd style="margin:0;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Product Designer</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Focus</dt><dd style="margin:0"><ul style="margin:0;padding:0 0 0 16px;list-style:disc;display:flex;flex-direction:column;gap:4px;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em"><li>Product design</li><li>User research</li><li>Design systems</li></ul></dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Team</dt><dd style="margin:0"><ul style="margin:0;padding:0 0 0 16px;list-style:disc;display:flex;flex-direction:column;gap:4px;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em"><li>2 designers</li><li>PM</li><li>Developers</li></ul></dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Collaboration</dt><dd style="margin:0"><ul style="margin:0;padding:0 0 0 16px;list-style:disc;display:flex;flex-direction:column;gap:4px;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em"><li>Brilliant Cities</li><li>Child psychologist</li></ul></dd></div></dl>
+      <figure style="margin:var(--space-xl) 0 0;display:flex;flex-direction:column;gap:var(--space-md)">
+        <div class="cs-phones" style="padding:var(--space-lg) 0"><div data-fs="" tabindex="0" aria-label="Filter pills for habit categories — press Enter for full screen" style="min-width:0;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><img data-asset-source="current-live-portfolio" src="/assets/mockups/bc/find-goals-28.svg" alt="Filter pills for habit categories" loading="lazy" style="display:block;width:100%;aspect-ratio:323/640;height:auto;object-fit:cover;object-position:center top"></div><div data-fs="" tabindex="0" aria-label="Goal categories screen — press Enter for full screen" style="min-width:0;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><img data-asset-source="current-live-portfolio" src="/assets/mockups/bc/goal-expanded.svg" alt="Goal categories screen" loading="lazy" style="display:block;width:100%;aspect-ratio:323/640;height:auto;object-fit:cover;object-position:center top"></div><div data-fs="" tabindex="0" aria-label="Habit tips grouped by age — press Enter for full screen" style="min-width:0;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><img data-asset-source="current-live-portfolio" src="/assets/mockups/bc/goal-52.png" alt="Habit tips grouped by age" loading="lazy" style="display:block;width:100%;aspect-ratio:323/640;height:auto;object-fit:cover;object-position:center top"></div><div data-fs="" tabindex="0" aria-label="Family dashboard screen — press Enter for full screen" style="min-width:0;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><img data-asset-source="current-live-portfolio" src="/assets/mockups/bc/goal-60.png" alt="Family dashboard screen" loading="lazy" style="display:block;width:100%;aspect-ratio:323/640;height:auto;object-fit:cover;object-position:center top"></div></div>
+        <figcaption style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding-top:12px;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>Mobile web · goals and family dashboard</span><a href="#s07" style="color:#707070;transition:color .2s ease">Jump to the core experience →</a></figcaption>
+      </figure>
+    </header>
+
+    <section id="s01" data-sec="" data-screen-label="01 The problem" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">01</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>The problem</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Support tapered off once families went home.</h2>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start">
+        <p style="flex:1 1 340px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Brilliant Cities mostly connects with families during in-person programs.</p>
+        <ol style="flex:1 1 420px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-top:1px solid #181818"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="display:flex;flex-direction:column;gap:6px"><span style="font:400 clamp(20px,1.7vw,23px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Programs happen in person</span><span style="font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Brilliant Cities runs community dinners, fitness classes, computer lab hours, and other programs through neighborhood hubs.</span></span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="display:flex;flex-direction:column;gap:6px"><span style="font:400 clamp(20px,1.7vw,23px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">What happens after</span><span style="font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Staff told us they typically check in with families about twice a year, leaving a long stretch with little visibility into how things are going at home.</span></span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="display:flex;flex-direction:column;gap:6px"><span style="font:400 clamp(20px,1.7vw,23px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Different levels of tech comfort</span><span style="font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Brilliant Cities told us families had different levels of comfort with technology, so we tried to make the main actions understandable without much onboarding.</span></span></li></ol>
+      </div>
+      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline;padding-top:24px;border-top:1px solid #181818"><span style="flex:0 0 220px;font:400 clamp(26px,2.3vw,32px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Problem statement</span><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Families didn’t have an easy way to keep building healthy habits after a program ended, and Brilliant Cities didn’t have a way to see how they were doing in between.</p></div>
+    </section>
+
+    <section id="s02" data-sec="" data-screen-label="02 Parent workflow" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">02</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Parent workflow</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Parents wanted to help their kids but didn’t have much free time.</h2>
+      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:40px 64px;align-items:stretch">
+        <figure style="flex:0 1 300px;margin:0;display:flex;flex-direction:column;gap:12px"><img src="/assets/brilliant/persona-photo.png?v=bcFinal1" alt="Cynthia Grey, single mom of two (composite persona)" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center top;border-radius:3px"><figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font:400 22px/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Cynthia Grey</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Single mom of two · composite persona</span></figcaption></figure>
+        <div style="flex:1 1 380px;display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-lg)">
+          <p data-review="persona statement — not an interview quote" style="margin:0;font:400 clamp(24px,2.4vw,34px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;text-wrap:pretty">She wants her kids to develop healthy habits, but doesn’t have time to attend the programs.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">What she needs</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Simple things she can do at home, and a way to see whether they’re sticking.</p></div>
+          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:0 24px"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Household</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Two kids, ages 6 and 9</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Schedule</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Works full time</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Program attendance</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Rarely makes it in person</dd></div></dl>
         </div>
       </div>
+      <p style="margin:var(--space-lg) 0 0;padding-top:16px;border-top:1px solid #DCDCDC;font:400 14px/1.6 'Satoshi',sans-serif;letter-spacing:-.01em;color:#707070"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;margin-right:12px">Where she came from</span>Cynthia came from conversations with a Brilliant Cities program manager who works directly with families. She combines common patterns around why parents come to programs, what makes attendance difficult, and what support they need at home, rather than representing one person we interviewed.</p>
+    </section>
 
-      <div class="bf-content">
-
-        <section class="bf-hero" aria-label="Introduction">
-          <div class="bf-hero__copy">
-            <p class="case-project-kicker">brilliant cities</p>
-            <h1 class="bf-hero__title">A habit tracker families can keep using <em>at home</em></h1>
-            <p class="bf-hero__lede">
-              I helped design a mobile habit tracker where parents can set goals for each of their kids and keep up with them at home. We worked with Brilliant Cities over three months to extend the support families get from their in-person programs.
-            </p>
-            <div class="bf-jump">
-              <p class="bf-jump__label">SHORT ON TIME?</p>
-              <div class="bf-jump__row">
-                <button type="button" class="bf-btn" data-bf-scroll="decisions">Jump to Final Product</button>
-                <p class="bf-jump__read">5 min read</p>
-              </div>
-            </div>
-          </div>
-          <div class="bf-hero__phones">
-            <div class="bf-hero__phone bf-hero__phone--back">
-              <div class="mk-phone">
-                <div class="mk-phone__screen">
-                  <div class="mk-phone__view mk-phone__view--y" tabindex="0"><img alt="Goal categories screen listing Literacy, Math &amp; Science, Daily Routines, Movement, and Family" src="../assets/mockups/bc/goal-expanded.svg" width="390" height="1098" decoding="async"></div>
-                  <div class="mk-phone__home" aria-hidden="true"></div>
-                </div>
-              </div>
-            </div>
-            <div class="bf-hero__phone bf-hero__phone--front">
-              <div class="mk-phone">
-                <div class="mk-phone__screen">
-                  <div class="mk-phone__view mk-phone__view--y" tabindex="0"><img alt="Family dashboard screen showing each child's habits grouped by goal" src="../assets/mockups/bc/goal-60.png" width="390" height="1252" decoding="async"></div>
-                  <div class="mk-phone__home" aria-hidden="true"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="bf-meta" aria-label="Project details">
-          <div class="bf-meta__item">
-            <p class="bf-meta__label">Timeline</p>
-            <p class="bf-meta__value">Sept – Dec 2024</p>
-          </div>
-          <div class="bf-meta__item">
-            <p class="bf-meta__label">Role</p>
-            <p class="bf-meta__value">Product Designer</p>
-          </div>
-          <div class="bf-meta__item">
-            <p class="bf-meta__label">Focus</p>
-            <ul class="bf-meta__list">
-              <li>Product Design</li>
-              <li>User Research</li>
-              <li>Design Systems</li>
-            </ul>
-          </div>
-          <div class="bf-meta__item">
-            <p class="bf-meta__label">Team</p>
-            <ul class="bf-meta__list">
-              <li>2 designers</li>
-              <li>PM</li>
-              <li>Developers</li>
-            </ul>
-          </div>
-          <div class="bf-meta__item">
-            <p class="bf-meta__label">Collaboration</p>
-            <ul class="bf-meta__list">
-              <li>Brilliant Cities</li>
-              <li>Child psychologist</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="bf-marquee" aria-label="Product screens">
-          <div class="bf-marquee__viewport">
-            <div class="bf-marquee__track">
-              <div class="bf-marquee__group">
-                <div class="bf-marquee__item">
-                  <div class="mk-phone">
-                    <div class="mk-phone__screen">
-                      <div class="mk-phone__view"><img src="../assets/mockups/bc/login.svg" alt="Login screen with email and password fields" width="390" height="844" loading="lazy" decoding="async"></div>
-                      <div class="mk-phone__home" aria-hidden="true"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="bf-marquee__item">
-                  <div class="mk-phone">
-                    <div class="mk-phone__screen">
-                      <div class="mk-phone__view"><img src="../assets/mockups/bc/ws1.png" alt="Getting Started onboarding screen for parents" width="390" height="844" loading="lazy" decoding="async"></div>
-                      <div class="mk-phone__home" aria-hidden="true"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="bf-marquee__item">
-                  <div class="mk-phone">
-                    <div class="mk-phone__screen">
-                      <div class="mk-phone__view"><img src="../assets/mockups/bc/goal-expanded.svg" alt="Goal categories screen listing Literacy, Math &amp; Science, and more" width="390" height="1098" loading="lazy" decoding="async"></div>
-                      <div class="mk-phone__home" aria-hidden="true"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="bf-marquee__item">
-                  <div class="mk-phone">
-                    <div class="mk-phone__screen">
-                      <div class="mk-phone__view"><img src="../assets/mockups/bc/find-goals-28.svg" alt="Relevant goals screen with colour-coded filter pills" width="390" height="844" loading="lazy" decoding="async"></div>
-                      <div class="mk-phone__home" aria-hidden="true"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="bf-marquee__item">
-                  <div class="mk-phone">
-                    <div class="mk-phone__screen">
-                      <div class="mk-phone__view"><img src="../assets/mockups/bc/goal-52.png" alt="Number Sense habit detail screen with age group steps" width="390" height="1794" loading="lazy" decoding="async"></div>
-                      <div class="mk-phone__home" aria-hidden="true"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="bf-marquee__item">
-                  <div class="mk-phone">
-                    <div class="mk-phone__screen">
-                      <div class="mk-phone__view"><img src="../assets/mockups/bc/goal-60.png" alt="Family dashboard screen with a personalised welcome and habit cards" width="390" height="1252" loading="lazy" decoding="async"></div>
-                      <div class="mk-phone__home" aria-hidden="true"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="bf-section bf-problem" id="problem" aria-labelledby="bf-problem-label">
-          <div class="bf-problem__top">
-            <div>
-              <div class="bf-head">
-                <span class="bf-head__num">01</span>
-                <span class="bf-head__label" id="bf-problem-label">Problem</span>
-              </div>
-              <p class="bf-problem__statement">
-                Brilliant Cities mostly connects with families during in-person programs, so support tapered off once families went home.
-              </p>
-            </div>
-            <ol class="bf-challenges">
-              <li class="bf-challenge">
-                <p class="bf-challenge__num">01</p>
-                <div class="bf-challenge__body">
-                  <p class="bf-challenge__kicker">What they run</p>
-                  <h3 class="bf-challenge__title">In-person family programming</h3>
-                  <p class="bf-challenge__text">Brilliant Cities runs community dinners, fitness classes, computer lab hours, and other programs out of neighborhood hubs.</p>
-                  <p class="bf-challenge__pill">Dozens of program offerings</p>
-                </div>
-              </li>
-              <li class="bf-challenge">
-                <p class="bf-challenge__num">02</p>
-                <div class="bf-challenge__body">
-                  <p class="bf-challenge__kicker">What happens after</p>
-                  <h3 class="bf-challenge__title">Limited availability for follow-ups</h3>
-                  <p class="bf-challenge__text">Staff told us they typically check in with families about twice a year, leaving a long stretch with little visibility into how things are going at home.</p>
-                  <p class="bf-challenge__pill">Check-ins about twice a year</p>
-                </div>
-              </li>
-              <li class="bf-challenge">
-                <p class="bf-challenge__num">03</p>
-                <div class="bf-challenge__body">
-                  <p class="bf-challenge__kicker">What that means for us</p>
-                  <h3 class="bf-challenge__title">Different levels of tech comfort</h3>
-                  <p class="bf-challenge__text">Brilliant Cities told us families had different levels of comfort with technology, so we tried to make the main actions understandable without much onboarding.</p>
-                  <p class="bf-challenge__pill">Families vary a lot in tech comfort</p>
-                </div>
-              </li>
-            </ol>
-          </div>
-          <div class="bf-problem__card">
-            <p class="bf-eyebrow">Problem statement</p>
-            <p class="bf-problem__quote">
-              Families didn’t have an easy way to keep building healthy habits after a program ended, and Brilliant Cities didn’t have a way to see how they were doing in between.
-            </p>
-          </div>
-        </section>
-
-        <section class="bf-section bf-persona-section" id="users" aria-labelledby="bf-users-label">
-          <div class="bf-head">
-            <span class="bf-head__num">02</span>
-            <span class="bf-head__label" id="bf-users-label">Who we designed for</span>
-          </div>
-          <p class="bf-section__lead">
-            We designed for parents who want to help their kids but don’t have much free time.
-          </p>
-          <article class="bf-persona">
-            <figure class="bf-persona__figure">
-              <img
-                class="bf-persona__photo"
-                src="../assets/brilliant/persona-photo.png?v=bcFinal1"
-                alt="Portrait of persona Cynthia Grey"
-                width="804"
-                height="1260"
-              >
-              <figcaption class="bf-persona__caption">
-                <p class="bf-persona__name">Cynthia Grey</p>
-                <p class="bf-persona__role">Single mom of two</p>
-              </figcaption>
-            </figure>
-            <div class="bf-persona__body">
-              <blockquote class="bf-persona__quote">
-                “I want my kids to develop healthy habits, but I don’t have time to attend the programs.”
-              </blockquote>
-              <hr class="bf-persona__rule">
-              <div>
-                <p class="bf-persona__label">What she needs</p>
-                <p class="bf-persona__text">
-                  Cynthia wants her kids to eat better and stay active, but she can’t always make it to Brilliant Cities’ programs. She’s looking for <strong>simple things she can do at home</strong>, and for a way to see whether they’re sticking.
-                </p>
-              </div>
-              <dl class="bf-persona__stats">
-                <div class="bf-persona__stat">
-                  <dt class="bf-persona__label">Household</dt>
-                  <dd class="bf-persona__stat-value">Two kids, ages 6 and 9</dd>
-                </div>
-                <div class="bf-persona__stat">
-                  <dt class="bf-persona__label">Schedule</dt>
-                  <dd class="bf-persona__stat-value">Works full time</dd>
-                </div>
-                <div class="bf-persona__stat">
-                  <dt class="bf-persona__label">Program attendance</dt>
-                  <dd class="bf-persona__stat-value">Rarely makes it in person</dd>
-                </div>
-              </dl>
-              <div>
-                <p class="bf-persona__label">Where she came from</p>
-                <p class="bf-persona__note">
-                  Cynthia came from conversations with a Brilliant Cities program manager who works directly with families. She shared common patterns around why parents come to programs, what makes attendance difficult, and what support they need at home. Cynthia combines those patterns rather than representing one person we interviewed.
-                </p>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section class="bf-section bf-constraints" id="constraints" aria-labelledby="bf-constraints-label">
-          <div class="bf-constraints__top">
-            <div>
-              <div class="bf-head">
-                <span class="bf-head__num">03</span>
-                <span class="bf-head__label" id="bf-constraints-label">Constraints</span>
-              </div>
-              <p class="bf-constraints__lead">A few things we had to design around.</p>
-            </div>
-            <p class="bf-constraints__aside">Most of the decisions below come back to one of these.</p>
-          </div>
-          <ol class="bf-constraints__grid">
-            <li class="bf-constraint">
-              <p class="bf-constraint__num">01</p>
-              <h3 class="bf-constraint__title">Had to be clear on first use</h3>
-              <p class="bf-constraint__text">Most of our users were adults who may not use apps often, so I kept screens simple and obvious.</p>
-            </li>
-            <li class="bf-constraint">
-              <p class="bf-constraint__num">02</p>
-              <h3 class="bf-constraint__title">Deliverables kept changing</h3>
-              <p class="bf-constraint__text">Scope wasn’t clear at the start because of miscommunication inside Brilliant Cities, so I had to stay flexible.</p>
-            </li>
-            <li class="bf-constraint">
-              <p class="bf-constraint__num">03</p>
-              <h3 class="bf-constraint__title">Three months, start to finish</h3>
-              <p class="bf-constraint__text">We had to design and get to production in one semester, so I had to work efficiently without cutting corners.</p>
-            </li>
-            <li class="bf-constraint">
-              <p class="bf-constraint__num">04</p>
-              <h3 class="bf-constraint__title">Wording reviewed by a child psychologist</h3>
-              <p class="bf-constraint__text">Copy mattered as much as layout.</p>
-            </li>
-            <li class="bf-constraint">
-              <p class="bf-constraint__num">05</p>
-              <h3 class="bf-constraint__title">Mobile web, not an app</h3>
-              <p class="bf-constraint__text">The client wanted a mobile website, since families would mostly reach it through their site on a phone.</p>
-            </li>
-          </ol>
-        </section>
-
-        <section class="bf-section bf-decisions" id="decisions" aria-labelledby="bf-decisions-label">
-          <div class="bf-head">
-            <span class="bf-head__num">04</span>
-            <span class="bf-head__label" id="bf-decisions-label">Design decisions</span>
-          </div>
-          <p class="bf-decisions__lead">The five decisions I’d point to first.</p>
-          <p class="bf-decisions__intro">
-            The final product is a mobile web app where parents set habit goals for each child, get reminders to keep up with them, and stay connected to Brilliant Cities between programs.
-          </p>
-          <ol class="bf-decisions__list">
-            <li class="bf-decision">
-              <figure class="bf-decision__phone">
-                <div class="mk-phone">
-                  <div class="mk-phone__screen">
-                    <div class="mk-phone__view mk-phone__view--y" tabindex="0"><img src="../assets/mockups/bc/goal-expanded.svg" alt="Goal categories screen with a card and checkbox per category" width="390" height="1098" loading="lazy" decoding="async"></div>
-                    <div class="mk-phone__home" aria-hidden="true"></div>
-                  </div>
-                </div>
-              </figure>
-              <div class="bf-decision__copy">
-                <p class="bf-eyebrow">Decision 01</p>
-                <h3 class="bf-decision__title">Gave each goal category its own card instead of a plain list</h3>
-                <div class="bf-decision__cards">
-                  <div class="bf-card bf-card--why">
-                    <p class="bf-card__label">Why</p>
-                    <p class="bf-card__text">Brilliant Cities was specific about the categories they wanted, but the names alone didn’t tell a parent which habits were in each one. Cards let us show that.</p>
-                  </div>
-                  <div class="bf-card bf-card--tradeoff">
-                    <p class="bf-card__label">Trade-off</p>
-                    <p class="bf-card__text">Cards take up more room than a list on a phone. We added multi-select checkboxes so parents could pick a few categories at once instead of scrolling through all of them.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="bf-decision bf-decision--flip">
-              <figure class="bf-decision__phone">
-                <div class="mk-phone">
-                  <div class="mk-phone__screen">
-                    <div class="mk-phone__view"><img src="../assets/mockups/bc/find-goals-28.svg" alt="Relevant goals screen with colour-coded filter pills and checkboxes" width="390" height="844" loading="lazy" decoding="async"></div>
-                    <div class="mk-phone__home" aria-hidden="true"></div>
-                  </div>
-                </div>
-              </figure>
-              <div class="bf-decision__copy">
-                <p class="bf-eyebrow">Decision 02</p>
-                <h3 class="bf-decision__title">Used filter pills instead of a search bar</h3>
-                <div class="bf-decision__cards">
-                  <div class="bf-card bf-card--why">
-                    <p class="bf-card__label">Why</p>
-                    <p class="bf-card__text">We took inspiration from shopping site filters. Typing means remembering the exact category name, and the icons and colors on the pills let parents recognize categories instead.</p>
-                  </div>
-                  <div class="bf-card bf-card--tradeoff">
-                    <p class="bf-card__label">Trade-off</p>
-                    <p class="bf-card__text">Pills take up more space than a search bar. We thought that was worth it since parents don’t have to type or remember anything.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="bf-decision">
-              <figure class="bf-decision__phone">
-                <div class="mk-phone">
-                  <div class="mk-phone__screen">
-                    <div class="mk-phone__view"><img src="../assets/mockups/bc/find-goals-29.svg" alt="Search results screen with habits grouped under category headers" width="390" height="844" loading="lazy" decoding="async"></div>
-                    <div class="mk-phone__home" aria-hidden="true"></div>
-                  </div>
-                </div>
-              </figure>
-              <div class="bf-decision__copy">
-                <p class="bf-eyebrow">Decision 03</p>
-                <h3 class="bf-decision__title">Grouped search results by category so parents could swipe through them</h3>
-                <div class="bf-decision__cards">
-                  <div class="bf-card bf-card--why">
-                    <p class="bf-card__label">Why</p>
-                    <p class="bf-card__text">Splitting habits up by category lets a parent see all the options in one area before moving on, which made the most sense for a mobile site.</p>
-                  </div>
-                  <div class="bf-card bf-card--tradeoff">
-                    <p class="bf-card__label">Trade-off</p>
-                    <p class="bf-card__text">Unlike a typical search, parents can only browse the options Brilliant Cities set. Someone used to typing a query has to scan instead.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="bf-decision bf-decision--flip">
-              <figure class="bf-decision__phone">
-                <div class="mk-phone">
-                  <div class="mk-phone__screen">
-                    <div class="mk-phone__view mk-phone__view--y" tabindex="0"><img src="../assets/mockups/bc/goal-52.png" alt="Number Sense habit detail screen with tips laid out as steps by age group" width="390" height="1794" loading="lazy" decoding="async"></div>
-                    <div class="mk-phone__home" aria-hidden="true"></div>
-                  </div>
-                </div>
-              </figure>
-              <div class="bf-decision__copy">
-                <p class="bf-eyebrow">Decision 04</p>
-                <h3 class="bf-decision__title">Laid out the habit tips as steps, grouped by age</h3>
-                <div class="bf-decision__cards">
-                  <div class="bf-card bf-card--why">
-                    <p class="bf-card__label">Why</p>
-                    <p class="bf-card__text">We had wording the psychologist approved but no format for it. Steps help parents figure out the interface the first time, and grouping by age gets them to habits that fit their kid.</p>
-                  </div>
-                  <div class="bf-card bf-card--tradeoff">
-                    <p class="bf-card__label">Trade-off</p>
-                    <p class="bf-card__text">Grouping by age means a parent with kids in different age ranges has to look at more than one group.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="bf-decision">
-              <figure class="bf-decision__phone">
-                <div class="mk-phone">
-                  <div class="mk-phone__screen">
-                    <div class="mk-phone__view mk-phone__view--y" tabindex="0"><img src="../assets/mockups/bc/goal-60.png" alt="Family dashboard screen with a page per child and a floating add button" width="390" height="1252" loading="lazy" decoding="async"></div>
-                    <div class="mk-phone__home" aria-hidden="true"></div>
-                  </div>
-                </div>
-              </figure>
-              <div class="bf-decision__copy">
-                <p class="bf-eyebrow">Decision 05</p>
-                <h3 class="bf-decision__title">Gave each child their own page, with a floating button to add more</h3>
-                <div class="bf-decision__cards">
-                  <div class="bf-card bf-card--why">
-                    <p class="bf-card__label">Why</p>
-                    <p class="bf-card__text">Parents can add as many habits as they want, so a page per child keeps each list from getting crowded. Grouping by goal also makes it easier to see progress in one area.</p>
-                  </div>
-                  <div class="bf-card bf-card--tradeoff">
-                    <p class="bf-card__label">Trade-off</p>
-                    <p class="bf-card__text">Switching between kids takes an extra tap, but each list stays short, which matters more on a phone.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <section class="bf-section bf-ds" id="design-system" aria-labelledby="bf-ds-label">
-          <div class="bf-head">
-            <span class="bf-head__num">05</span>
-            <span class="bf-head__label" id="bf-ds-label">Design system</span>
-          </div>
-          <p class="bf-ds__lead">We built the design system before we designed screens.</p>
-          <p class="bf-ds__text">
-            Brilliant Cities gave us a branding kit — colors, fonts, and a few components like accordions — but not a full component library. I worked with another product designer to build the rest of what our screens needed: forms, tags, buttons, and more. Having it settled early meant our screens matched even though we were splitting them between us.
-          </p>
-          <p class="bf-ds__text">
-            We collaborated on most of the components. The filter pill search was mine — I designed the pills and how they behave, and that pattern ended up carrying the whole search flow.
-          </p>
-          <video class="case-study-video" width="1920" height="1080" muted loop playsinline preload="metadata" poster="../assets/brilliant/brilliant-design-system-poster.jpg">
-            <source src="../assets/brilliant/brilliant-design-system.mp4" type="video/mp4">
-          </video>
-        </section>
-
-        <section class="bf-section bf-takeaways" id="takeaways" aria-labelledby="bf-takeaways-label">
-          <div class="bf-head">
-            <span class="bf-head__num">06</span>
-            <span class="bf-head__label" id="bf-takeaways-label">Takeaways</span>
-          </div>
-          <p class="bf-takeaways__lead">What I took away from this project.</p>
-          <ol class="bf-takeaways__list">
-            <li class="bf-takeaway">
-              <p class="bf-takeaway__num">01</p>
-              <h3 class="bf-takeaway__title">Working with another designer takes real communication</h3>
-              <p class="bf-takeaway__text">This was my first time designing alongside another designer. We spent a lot of time agreeing on what we were making, and learning how the other person works. That mattered as much as the screens.</p>
-            </li>
-            <li class="bf-takeaway">
-              <p class="bf-takeaway__num">02</p>
-              <h3 class="bf-takeaway__title">Running a project end to end on a tight timeline</h3>
-              <p class="bf-takeaway__text">It was also my first time managing a project from start to finish with a real deadline. It pushed me to design faster and to be honest with myself about what actually mattered.</p>
-            </li>
-            <li class="bf-takeaway">
-              <p class="bf-takeaway__num">03</p>
-              <h3 class="bf-takeaway__title">What I wanted to design wasn’t always what we could ship</h3>
-              <p class="bf-takeaway__text">I’d only done solo projects before this. Working with a PM, developers, and a child psychologist meant weighing what I wanted to design against what we could actually build in the semester.</p>
-            </li>
-          </ol>
-        </section>
-
-        <p class="bf-cta">
-          <a class="bf-btn" href="/" data-scroll-to="my-work">Check out my other work!</a>
-        </p>
-
+    <section id="s03" data-sec="" data-screen-label="03 My role" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">03</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>My role</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">I co-designed the parent experience with another product designer.</h2>
+      <p style="margin:var(--space-md) 0 0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">We split screens between us and collaborated on most of the components. The filter-pill search was mine — I designed the pills and how they behave, and that pattern ended up carrying the whole search flow.</p>
+      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(40px,5vw,96px);align-items:flex-start">
+        <dl style="flex:0 1 240px;margin:0;display:flex;flex-direction:column;border-top:1px solid #181818"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Role</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Product Designer</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Came with the project</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Brilliant Cities’ branding kit — colors, fonts, and a few components like accordions</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Shared with the team</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Forms, tags, buttons, and the rest of the component system</dd></div></dl>
+        <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;border-top:1px solid #181818">
+          <span style="padding:14px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">The decisions in this case study</span>
+          <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="border-top:1px solid #DCDCDC"><a href="#f1" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Goal category cards</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#AAAAAA">Shared</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#s06" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Filter-pill search</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Mine</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#f2" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Search grouped by category</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#AAAAAA">Shared</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#f3" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Habit tips by age</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#AAAAAA">Shared</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#f4" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">05</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">A page per child</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#AAAAAA">Shared</span></a></li></ol>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section id="s04" data-sec="" data-screen-label="04 Design constraints" style="margin-top:var(--cs-section-gap)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">04</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Design constraints</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(42px,5.2vw,74px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;max-width:none">Every screen had to make sense the first time.</h2>
+      <div style="margin-top:var(--space-xl)"><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #181818"><div style="flex:0 0 300px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Clear on first use</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Most of our users were adults who may not use apps often, so I kept screens simple and obvious.</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #DCDCDC"><div style="flex:0 0 300px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Wording reviewed by a child psychologist</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The language around habits and age groups needed as much attention as the interface itself.</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #DCDCDC"><div style="flex:0 0 300px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Mobile web, not an app</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The client wanted a mobile website, since families would mostly reach it through their site on a phone.</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #DCDCDC"><div style="flex:0 0 300px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Changing scope, one semester to deliver</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Scope shifted during the project, so we had to stay flexible while still designing and getting the experience to production within one semester.</p></div></div>
+    </section>
+
+    <section id="s05" data-sec="" data-screen-label="05 Design system" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Design system</span></div>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:var(--space-md) 72px;align-items:flex-start">
+        <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;flex:1 1 100%">We built the design system before we designed screens.</h2>
+        <div style="display:flex;flex-direction:column;gap:16px;flex:1 1 100%;min-width:0">
+          <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Brilliant Cities gave us a branding kit — colors, fonts, and a few components like accordions — but not a full component library. I worked with another product designer to build the rest of what our screens needed: forms, tags, buttons, and more. Having it settled early meant our screens matched even though we were splitting them between us.</p>
+          <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">We collaborated on most of the components. The filter pill search was mine — I designed the pills and how they behave, and that pattern ended up carrying the whole search flow.</p>
+        </div>
+      </div>
+      <div data-asset-note="live design-system video — reuse repo asset" style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:12px">
+        <video data-asset-source="current-live-portfolio" src="/assets/brilliant/brilliant-design-system.mp4" poster="/assets/brilliant/brilliant-design-system-poster.jpg" aria-label="Brilliant Cities design system — typography, colours, buttons, form fields, cards and tags" muted="" loop="" playsinline="" preload="metadata" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#F4F4F4"></video>
+        <span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Typography · colours · buttons · form fields · cards and tags</span>
+      </div>
+    </section>
+
+    <section id="s06" data-sec="" data-screen-label="06 Filter-pill search" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">06</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Filter-pill search</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Filter pills let parents recognize a category instead of typing its name.</h2>
+      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(32px,4vw,64px);align-items:flex-start">
+        <dl style="flex:1 1 300px;margin:0;display:flex;flex-direction:column"><div style="display:flex;flex-direction:column;gap:10px;padding:0 0 22px"><dt style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Why</dt><dd style="margin:0"><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Typing means remembering the exact category name. We took inspiration from shopping-site filters, where icons and colors let people recognize an option instead.</p></dd></div><div style="display:flex;flex-direction:column;gap:10px;padding:18px 0 22px"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Design response</dt><dd style="margin:0"><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Filter pills with category icons and colors replace a search bar. I designed the pills and how they behave, and the pattern carried the whole search flow.</p></dd></div><div style="padding-top:4px"><div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Pills take up more space than a search bar. We thought that was worth it since parents don’t have to type or remember anything.</p></div></div></dl>
+        <figure style="flex:1.7 1 440px;min-width:0;margin:0"><div data-fs="" tabindex="0" aria-label="Filter pills for habit categories — press Enter for full screen" style="width:100%;max-width:320px;margin:0 auto;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><img data-asset-source="current-live-portfolio" src="/assets/mockups/bc/find-goals-28.svg" alt="Filter pills for habit categories" loading="lazy" style="display:block;width:100%;aspect-ratio:323/640;height:auto;object-fit:cover;object-position:center top"></div></figure>
+      </div>
+      <article id="f2" style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC;margin-top:var(--space-2xl)">
+          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Search results grouped by category — press Enter for full screen" style="width:100%;max-width:320px;margin:0 auto;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><img data-asset-source="current-live-portfolio" src="/assets/mockups/bc/find-goals-29.svg" alt="Search results grouped by category" loading="lazy" style="display:block;width:100%;aspect-ratio:325/640;height:auto;object-fit:cover;object-position:center top"></div></div>
+          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">After filtering</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Grouped search results by category</h3></div><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Splitting habits up by category lets a parent see all the options in one area before moving on, which made the most sense for a mobile site.</p><div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Unlike a typical search, parents can only browse set options, which may feel less intuitive to those used to searching freely.</p></div></div>
+        </article>
+    </section>
+
+    <section id="s07" data-sec="" data-screen-label="07 Core experience" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">07</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Core experience</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Parents set habit goals for each child and keep up with them between programs.</h2>
+      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-2xl)">
+        <article id="f1" style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #181818">
+          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Goal category cards — press Enter for full screen" style="width:100%;max-width:480px;margin:0 auto;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><div data-asset-source="current-live-portfolio" tabindex="0" aria-label="Goal category cards, scrollable" style="margin:0 auto;width:min(100%,320px);aspect-ratio:1/2;overflow:hidden auto;overscroll-behavior:contain;background:#fff;border:1px solid #DCDCDC;box-sizing:border-box"><img src="/assets/mockups/bc/goal-expanded.svg" alt="Goal category cards" loading="lazy" style="display:block;width:100%;height:auto"></div></div></div>
+          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Gave each goal category its own card</h3></div><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Brilliant Cities was specific about the categories they wanted, but the names alone didn’t tell a parent which habits were in each one. Cards let us show that.</p><div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Cards take up more room than a list on a phone. Multi-select lets parents choose several categories in one pass instead of repeating the selection flow.</p></div></div>
+        </article>
+                <article id="f3" style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
+          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Habit tips as steps grouped by age — press Enter for full screen" style="width:100%;max-width:480px;margin:0 auto;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><div data-asset-source="current-live-portfolio" tabindex="0" aria-label="Habit tips as steps grouped by age, scrollable" style="margin:0 auto;width:min(100%,320px);aspect-ratio:1/2;overflow:hidden auto;overscroll-behavior:contain;background:#fff;border:1px solid #DCDCDC;box-sizing:border-box"><img src="/assets/mockups/bc/goal-52.png" alt="Habit tips as steps grouped by age" loading="lazy" style="display:block;width:100%;height:auto"></div></div></div>
+          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Laid out the habit tips as steps, grouped by age</h3></div><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">We had wording the psychologist approved but no format for it. Steps help parents figure out the interface the first time, and grouping by age gets them to habits that fit their kid.</p><div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">A parent with kids in different age ranges has to look at more than one group.</p></div></div>
+        </article>
+        <article id="f4" style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
+          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Family dashboard with a page per child — press Enter for full screen" style="width:100%;max-width:480px;margin:0 auto;filter:drop-shadow(0 18px 28px rgba(24,24,24,.14))"><div data-asset-source="current-live-portfolio" tabindex="0" aria-label="Family dashboard with a page per child, scrollable" style="margin:0 auto;width:min(100%,320px);aspect-ratio:1/2;overflow:hidden auto;overscroll-behavior:contain;background:#fff;border:1px solid #DCDCDC;box-sizing:border-box"><img src="/assets/mockups/bc/goal-60.png" alt="Family dashboard with a page per child" loading="lazy" style="display:block;width:100%;height:auto"></div></div></div>
+          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Gave each child their own page</h3></div><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Parents can add as many habits as they want, so a page per child keeps each list from getting crowded. A floating button adds more, and grouping by goal makes progress in one area easier to see.</p><div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Switching between kids takes an extra tap, but each list stays short, which matters more on a phone.</p></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="s08" data-sec="" data-screen-label="08 How the journey connects" style="margin-top:var(--cs-section-gap)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">08</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>How the journey connects</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(42px,5.2vw,74px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;max-width:none">From picking a goal to keeping it going at home.</h2>
+      <p style="margin:var(--space-md) 0 0;max-width:56ch;font:400 clamp(17px,1.3vw,19px)/1.55 'Satoshi',sans-serif;letter-spacing:-.025em;color:#393939">Parents get reminders to keep up with each goal and stay connected to Brilliant Cities between programs.</p>
+      <ol aria-label="Parent journey" data-flow style="margin:var(--space-xl) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px"><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>01</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#f1" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Choose categories</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Cards show the habits inside each one</span></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>02</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#s06" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Find habits</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Filter pills and grouped results</span></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>03</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#f3" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Follow the steps</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Psychologist-approved tips, by age</span></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #181818"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>04</span></span><a href="#f4" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Keep up per child</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">One page per kid, reminders to continue</span></li></ol>
+    </section>
+
+    <section id="s09" data-sec="" data-screen-label="09 Outcome & reflection" style="margin-top:var(--space-section-major)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">09</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Outcome & reflection</span></div>
+      <h2 style="margin:24px 0 0;font:400 clamp(42px,5.2vw,74px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;max-width:none">A mobile web app families can return to between programs.</h2>
+      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(40px,5vw,96px);align-items:flex-start">
+        <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Delivered work</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The final product is a mobile web app where parents set habit goals for each child, get reminders to keep up with them, and stay connected to Brilliant Cities between programs. We established the shared component patterns before splitting up the screens, so work across both designers stayed consistent.</p></div>
+        <div style="flex:1 1 340px;display:flex;flex-direction:column"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;padding-top:18px;border-top:1px solid #181818;color:#181818">Reflection</span><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><div style="display:flex;flex-direction:column;gap:8px"><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Working with another designer takes real communication.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">This was my first time designing alongside another designer. We spent time getting to a shared vision and learning how each other works, and that turned out to matter as much as the design itself.</p></div></div><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><div style="display:flex;flex-direction:column;gap:8px"><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Constraints changed what was worth designing.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Working with a PM, developers, and a child psychologist on a one-semester timeline taught me to weigh what I wanted to design against what the team could realistically build and support.</p></div></div></div>
+      </div>
+    </section>
+
   </main>
-
-    <footer class="site-footer">
-<img class="site-footer__lace" src="../assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
-<div class="site-footer__body">
-<div class="site-footer__top">
-<div>
-<p class="site-footer__hello">Say hi</p>
-<a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
-</div>
-<nav class="site-footer__nav" aria-label="Footer">
-<a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-<a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
-<a href="/about">About</a>
-</nav>
-</div>
-
-</div>
-</footer>
-    </div>
   </div>
 
-  <script src="../scripts/cross-scroll.js"></script>
-  <script src="../scripts/page-transition.js?v=tx11"></script>
-  <script src="../scripts/mailto.js"></script>
-  <script src="../scripts/case-videos.js?v=flythrough1"></script>
-  <script src="../scripts/brilliant-final.js?v=bcFinal7"></script>
-  <script src="../scripts/motion.js?v=motion8"></script>
-  <script src="../scripts/mobile.js?v=mobile2"></script>
-  <script src="../scripts/allisonGPT.js?v=hidden1"></script>
-  <script src="/scripts/figma-capture.js"></script>
+  <section data-next="bc" class="cs-nw" aria-labelledby="cs-nw-title">
+    <div class="cs-nw__inner">
+      <header class="cs-nw__head">
+        <span class="cs-nw__eyebrow">Next work</span>
+        <h2 class="cs-nw__heading" id="cs-nw-title">Where to next?</h2>
+      </header>
+      <div class="cs-nw__rail" data-nw-rail>
+        <div class="cs-nw__track" data-nw-track>
+        <a class="cs-nw__card" href="/projects/terraform" data-nw="tf">
+          <span class="cs-nw__media"><span style="display:block;width:max-content;background:#fff;border:1px solid #DADADA;border-radius:3px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)">
+            <span style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;color:#555">Terraform</span></span>
+            <img src="/assets/home/walkthroughs/terraform/organizations.png" alt="Terraform Organizations screen" draggable="false" class="cs-nw__shot">
+          </span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">01</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Product Design Intern · Summer 2026</span></span>
+            <span class="cs-nw__name">Terraform</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Making read-only access clearer without removing the context people still needed.</span>
+          </span>
+        </a>
+        <a class="cs-nw__card" href="/projects/anda" data-nw="anda">
+          <span class="cs-nw__media"><span style="display:block;width:max-content;background:#fff;border:1px solid #DADADA;border-radius:3px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)">
+            <span style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;color:#555">Anda</span></span>
+            <img src="/assets/home/walkthroughs/anda/admin-4.png" alt="Anda driver information screen" draggable="false" class="cs-nw__shot">
+          </span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">02</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Product Manager · Spring 2026</span></span>
+            <span class="cs-nw__name">Anda</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Deciding which driver-support work to build first, before the real data was ready.</span>
+          </span>
+        </a>
+        <a class="cs-nw__card" href="/projects/operation-safe-escape" data-nw="ose">
+          <span class="cs-nw__media"><span style="display:block;width:max-content;background:#fff;border:1px solid #DADADA;border-radius:3px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)">
+            <span style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;color:#555">FLOW</span></span>
+            <img src="/assets/home/walkthroughs/ose/cases.png" alt="Operation Safe Escape cases screen" draggable="false" class="cs-nw__shot">
+          </span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">03</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer · Fall 2025</span></span>
+            <span class="cs-nw__name">Operation Safe Escape</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Making a case easier to pick up, so the history doesn’t have to be rebuilt from email and spreadsheets.</span>
+          </span>
+        </a>
+        <a class="cs-nw__card" href="/projects/nabu" data-nw="nabu">
+          <span class="cs-nw__media"><span style="display:block;width:max-content;background:#fff;border:1px solid #DADADA;border-radius:3px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)">
+            <span style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;color:#555">NABU</span></span>
+            <img src="/assets/home/walkthroughs/nabu/s86.png" alt="NABU visualization builder screen" draggable="false" class="cs-nw__shot">
+          </span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">04</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer · Spring 2025</span></span>
+            <span class="cs-nw__name">NABU</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Making partner access, roles, and shared charts workable when most of the product is tables.</span>
+          </span>
+        </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+</div>
+
+
+<footer class="cs-footer">
+  <div class="cs-footer__inner">
+    <div class="cs-footer__row">
+      <div class="cs-footer__intro">
+        <p class="cs-footer__hello"><img src="/assets/home/gems/gem-1.png?v=claude1" alt="" width="18" height="18" aria-hidden="true"><span>Say hi, I’d love to chat</span></p>
+        <a class="cs-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+        <p class="cs-footer__note">made with late night work sessions on figma + chats with claude</p>
+      </div>
+      <div class="cs-footer__brand">
+        <img src="/assets/shared/aq-logo-star.png?v=claude1" alt="aq" height="48">
+        <p class="cs-footer__copy">© 2026 Allison Qiu</p>
+      </div>
+    </div>
+  </div>
+  <div class="cs-footer__pit" data-gem-pit aria-hidden="true"></div>
+</footer>
+
+<script src="/scripts/cs.js?v=cs11"></script>
+<script src="/scripts/cross-scroll.js"></script>
+<script src="/scripts/page-transition.js?v=tx11"></script>
+<script src="/scripts/mailto.js"></script>
+<script src="/scripts/motion.js?v=motion9"></script>
+
+<script src="/scripts/allisonGPT.js?v=hidden1"></script>
+<script src="/scripts/figma-capture.js"></script>
 </body>
 </html>

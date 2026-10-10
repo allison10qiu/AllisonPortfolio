@@ -2604,22 +2604,153 @@
 .terraform-page .tf-lockbox__error { margin: 0; max-width: 240px; font: 400 13px/1.3 "Satoshi", sans-serif; color: #9a3f22; }
 .terraform-page .tf-lockbox__ask { margin: 0; font: 400 14px/1.4 "Satoshi", sans-serif; color: rgba(43, 46, 54, 0.7); }
 .terraform-page .tf-lockbox__ask a { border-bottom: 1px solid #2B2E36; }
-.terraform-page .tf-lockbox__done { display: none; align-items: center; gap: var(--tf-s-14); padding: var(--tf-s-18) var(--tf-s-24); }
-.terraform-page .tf-lockbox.is-unlocked .tf-lockbox__locked { display: none; }
-.terraform-page .tf-lockbox.is-unlocked .tf-lockbox__done { display: flex; }
-.terraform-page .tf-lockbox__done > span:first-child {
-  width: 26px;
-  height: 26px;
-  flex: none;
+.terraform-page .tf-lockbox__done { display: none; }
+.terraform-page .tf-lockbox.is-unlocked {
+  flex: 1 1 100%;
+  min-width: 0;
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+.terraform-page #gate:has(.tf-lockbox.is-unlocked) > div { padding: 0; }
+.terraform-page .tf-gate.is-unlocked .tf-gate__panel { display: none; }
+.terraform-page .tf-gate.is-unlocked .tf-lockbox__done {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 32px;
+  padding: 18px 0;
+  border-bottom: 1px solid #DCDCDC;
+  animation: tf-gate-in 0.3s ease both;
+}
+.terraform-page .tf-lockbox__done-label {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #2B2E36;
-  color: #fff;
+  gap: 8px;
+  font: 500 11px/1.4 "Satoshi", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #181818;
 }
-.terraform-page .tf-lockbox__done strong { display: block; font: 500 15px/1.2 "Satoshi", sans-serif; }
-.terraform-page .tf-lockbox__done strong + span { font: 400 14px/1.3 "Satoshi", sans-serif; color: rgba(43, 46, 54, 0.7); }
+.terraform-page .tf-lockbox__done-msg {
+  flex: 1 1 280px;
+  font: italic 400 19px/1.3 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -0.02em;
+  color: #393939;
+}
+.terraform-page .tf-lockbox__done-cue {
+  font: 500 11px/1.4 "Satoshi", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #707070;
+}
+/* Password gate, per the Claude Design handoff (terraform-password-gate-handoff). The static
+   type and layout values sit inline in terraform.html; only the states live here. */
+.terraform-page .tf-gate__pw { display: flex; flex-direction: column; gap: 12px; }
+.terraform-page .tf-gate__label {
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #707070;
+  transition: color 0.2s ease;
+}
+.terraform-page .tf-gate__pw:has(.tf-gate__input.is-invalid) .tf-gate__label { color: #181818; }
+.terraform-page .tf-gate__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 56px;
+  margin: 0;
+  box-sizing: border-box;
+  /* The underline is drawn as an inset shadow so it can thicken without moving anything. */
+  box-shadow: inset 0 -1px 0 #DCDCDC;
+  transition: box-shadow 0.2s ease;
+}
+.terraform-page .tf-gate__row:hover { box-shadow: inset 0 -1px 0 #707070; }
+.terraform-page .tf-gate__row:has(.tf-gate__input:not(:placeholder-shown)) { box-shadow: inset 0 -1.5px 0 #181818; }
+/* Focus is the underline only: darker and thicker. No ring, box or background on the field. */
+.terraform-page .tf-gate__row:has(.tf-gate__input:focus),
+.terraform-page .tf-gate__row:has(.tf-gate__input.is-invalid) { box-shadow: inset 0 -2px 0 #181818; }
+.terraform-page .tf-gate .tf-gate__input:focus,
+.terraform-page .tf-gate .tf-gate__input:focus-visible { outline: none; box-shadow: none; background: transparent; border-radius: 0; }
+.terraform-page .tf-gate__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font: 400 22px/1 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -0.01em;
+  color: #181818;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.terraform-page .tf-gate__input:disabled { opacity: 1; -webkit-text-fill-color: #181818; }
+.terraform-page .tf-gate__show {
+  flex: none;
+  height: 100%;
+  min-width: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #707070;
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: right;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.terraform-page .tf-gate__show:hover,
+.terraform-page .tf-gate__show:focus-visible { color: #181818; }
+.terraform-page .tf-gate__submit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #707070;
+  font: 500 12px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.terraform-page .tf-gate__submit:hover,
+.terraform-page .tf-gate__submit:focus-visible,
+.terraform-page .tf-gate__row:has(.tf-gate__input:not(:placeholder-shown)) .tf-gate__submit { color: #181818; }
+.terraform-page .tf-gate__submit:disabled { cursor: progress; }
+.terraform-page .tf-gate__arrow {
+  display: inline-block;
+  letter-spacing: 0;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.terraform-page .tf-gate__submit:hover .tf-gate__arrow,
+.terraform-page .tf-gate__submit:focus-visible .tf-gate__arrow { transform: translateX(4px); }
+.terraform-page .tf-gate__error {
+  font: italic 400 16px/1.2 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -0.02em;
+  color: #181818;
+}
+.terraform-page .tf-gate__error[hidden] { display: none; }
+@keyframes tf-gate-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .terraform-page .tf-gate.is-unlocked .tf-lockbox__done { animation: none; }
+}
 
 .terraform-page .tf-section { margin-top: var(--tf-s-136); }
 .terraform-page #directions.tf-section { margin-top: var(--tf-s-136); }

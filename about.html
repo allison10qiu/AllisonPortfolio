@@ -1,277 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
-  <script src="/scripts/figma-capture-boot.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/assets/shared/favicon-chrome.png?v=chrome3" type="image/png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <meta name="description" content="About me — Allison Qiu">
-  <title>About me · Allison Qiu</title>
-  <link rel="stylesheet" href="styles/main.css?v=ww1">
-  <link rel="stylesheet" href="styles/editorial.css?v=ww1">
-  <link rel="stylesheet" href="styles/motion.css?v=motion6">
-  <link rel="stylesheet" href="styles/page-transitions.css?v=tx8">
-  <link rel="stylesheet" href="styles/mobile.css?v=ww1">
-  <link rel="stylesheet" href="styles/allisonGPT.css?v=ww1">
+<script>(function(){try{if(history.scrollRestoration&&sessionStorage.getItem("aq-scroll-to")==="my-work")history.scrollRestoration="manual";var r=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=sessionStorage.getItem("tx-card");var b=sessionStorage.getItem("tx-back");var f=sessionStorage.getItem("tx-fade");sessionStorage.removeItem("tx-card");sessionStorage.removeItem("tx-back");sessionStorage.removeItem("tx-fade");if(r)return;var h=document.documentElement;if(c){h.classList.add("tx-in");h.dataset.txFrom="card";}else if(b){h.classList.add("tx-back");h.dataset.txBack=b;h.dataset.txFrom="back";}else if(f){h.classList.add("tx-fade");h.dataset.txFrom="fade";}}catch(e){}})();</script>
+<script src="/scripts/figma-capture-boot.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/assets/shared/favicon-chrome.png?v=chrome3" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<title>About me · Allison Qiu</title>
+<meta name="description" content="About me — Allison Qiu">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
+<link rel="stylesheet" href="/styles/main.css?v=ww1">
+<link rel="stylesheet" href="/styles/editorial.css?v=ww1">
+<link rel="stylesheet" href="/styles/cs.css?v=nav3">
+<link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
+<link rel="stylesheet" href="/styles/allisonGPT.css?v=ww1">
+<link rel="stylesheet" href="/styles/motion.css?v=motion6">
 </head>
-<body class="about-page">
-  <div id="tx-cover" aria-hidden="true"></div>
-  <script src="scripts/tx-cover.js?v=tx6"></script>
+<body class="cs-page">
+<div id="tx-cover" aria-hidden="true"></div>
+<script src="/scripts/tx-cover.js?v=tx6"></script>
+<div style="position:relative;min-height:100vh;overflow-x:clip;font-family:'Satoshi',sans-serif;color:#181818;letter-spacing:-.05em">
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__brand" href="/" aria-label="Allison Qiu, home">
-        <img class="site-header__mark" src="assets/shared/aq-lace-mark.svg" alt="" width="76" height="76">
-        <span class="site-header__aq" aria-hidden="true">AQ</span>
+        <img class="site-header__chrome" src="/assets/shared/aq-logo-full.png?v=full" alt="aq" height="48">
       </a>
       <nav class="site-header__nav" aria-label="Primary">
-        <a class="site-header__link" href="/" data-scroll-to="my-work">Work</a>
-        <a class="site-header__link" href="/about" aria-current="page">About <img class="site-header__marklet" src="assets/shared/aq-lace-mark.svg" alt="" aria-hidden="true" width="16" height="16"></a>
-        <a class="site-header__link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+        <a class="site-header__link gem-link" href="/" data-scroll-to="my-work">
+          <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">Work</span><span class="gem-link__label">Work</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
+        </a>
+        <a class="site-header__link gem-link is-on" href="/about" aria-current="page">
+          <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">About</span><span class="gem-link__label">About</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
+        </a>
+        <a class="site-header__link gem-link" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">Resume</span><span class="gem-link__label">Resume</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
+          <span class="gem-link__arrow" aria-hidden="true">↗</span>
+        </a>
       </nav>
     </div>
   </header>
 
-  <main class="site-main">
-    <section class="about-hero" aria-labelledby="about-hero">
-      <div>
-        <span class="site-kicker">About</span>
-        <h1 id="about-hero">Hello! I’m <em>Allison.</em></h1>
-        <p class="about-hero__lede">I’m currently a Junior at UIUC studying Information Sciences with a focus in UI/UX Design.</p>
-        <div class="about-list">
-          <span class="site-kicker">When I’m not figma-maxxing, you can find me</span>
-          <ul>
-            <li><span>a.</span>Crocheting gifts for friends</li>
-            <li><span>b.</span>Starting a new DIY project</li>
-            <li><span>c.</span>Planning my next trip</li>
-            <li><span>d.</span>Trying new restaurants and cafes</li>
-          </ul>
+  <main class="about-frame">
+<header id="top" data-screen-label="Hero" style="padding-top:clamp(48px,5vw,80px)">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(40px,6vw,104px);align-items:flex-start">
+        <div style="flex:2 1 460px;min-width:0;display:flex;flex-direction:column;gap:var(--space-lg)">
+          <div style="display:flex;align-items:center;gap:10px;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img src="/assets/home/gems/gem-1.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">About</span></div>
+          <h1 style="margin:0;font:400 clamp(52px,7vw,108px)/.96 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Hello! I’m <em style="font-style:italic">Allison.</em></h1>
+          <p style="margin:0;max-width:44ch;padding-top:20px;border-top:1px solid #181818;font:400 clamp(17px,1.3vw,19px)/1.55 'Satoshi',sans-serif;letter-spacing:-.025em;color:#393939">I’m currently a Junior at UIUC studying Information Sciences with a focus in UI/UX Design.</p>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818;padding-bottom:8px">When I’m not figma-maxxing, you can find me</span>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;max-width:520px;border-bottom:1px solid #DCDCDC"><li style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">a.</span><span style="font:400 clamp(20px,1.7vw,24px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;color:#181818">Crocheting gifts for friends</span></li><li style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">b.</span><span style="font:400 clamp(20px,1.7vw,24px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;color:#181818">Starting a new DIY project</span></li><li style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">c.</span><span style="font:400 clamp(20px,1.7vw,24px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;color:#181818">Planning my next trip</span></li><li style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">d.</span><span style="font:400 clamp(20px,1.7vw,24px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;color:#181818">Trying new restaurants and cafes</span></li></ul>
+          </div>
+          <a href="/" data-scroll-to="my-work" style="align-self:flex-start;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818;transition:opacity .2s ease">Check out my projects →</a>
         </div>
-        <a class="about-textlink" href="/" data-scroll-to="my-work">Check out my projects →</a>
+        <figure style="flex:1 1 280px;max-width:380px;margin:0;display:flex;flex-direction:column;gap:12px">
+          <div style="aspect-ratio:529/700;overflow:hidden"><img src="/assets/about/portrait.jpg?v=refcrop" alt="Portrait of Allison Qiu" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%;transform:scale(1.12);transform-origin:center 68%"></div>
+          <figcaption style="display:flex;justify-content:space-between;gap:12px;padding-top:10px;border-top:1px solid #DCDCDC"><span style="font:400 18px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em">Allison Qiu</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Information Sciences, UIUC</span></figcaption>
+        </figure>
       </div>
-      <figure class="about-portrait">
-        <img src="assets/about/portrait.jpg?v=refcrop" alt="Portrait of Allison Qiu" width="529" height="940">
-        <figcaption><span>Allison Qiu</span><span>Information Sciences, UIUC</span></figcaption>
-      </figure>
-    </section>
+    </header>
 
-    <section class="about-block" aria-labelledby="story-heading">
-      <div class="about-split">
-        <div>
-          <span class="site-kicker">How I got here</span>
-          <h2 id="story-heading">Four design internships and two student communities.</h2>
-          <a class="about-textlink" href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Full resume ↗</a>
-        </div>
-        <div>
-          <span class="site-kicker jobs-label">Work experience</span>
-          <article class="job">
-            <span class="job__org">IBM</span>
-            <span class="job__role">Product Design Intern</span>
-            <span class="job__dates">May 2026 – Aug 2026</span>
-          </article>
-          <article class="job">
-            <span class="job__org">COUNTRY Financial</span>
-            <span class="job__role">UI/UX Design Intern</span>
-            <span class="job__dates">May 2025 – Dec 2025</span>
-          </article>
-          <article class="job">
-            <span class="job__org">HEB</span>
-            <span class="job__role">High School UI/UX Design Intern</span>
-            <span class="job__dates">Jun 2024 – Aug 2024</span>
-          </article>
-          <article class="job">
-            <span class="job__org">HEB</span>
-            <span class="job__role">High School UI/UX Design Intern</span>
-            <span class="job__dates">Jun 2023 – Aug 2023</span>
-          </article>
-        </div>
+    <section id="s01" data-sec="" data-screen-label="01 How I got here" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">01</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>How I got here</span></div>
+      <div style="margin-top:var(--space-md);display:flex;flex-wrap:wrap;gap:var(--space-md) 64px;align-items:flex-end;justify-content:space-between">
+        <h2 style="flex:1 1 520px;margin:0;font:400 clamp(34px,3.8vw,56px)/1.04 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Where I’ve worked so far.</h2>
+        <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener" style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818;transition:opacity .2s ease">Full resume ↗</a>
+      </div>
+      <div style="margin-top:var(--space-xl)"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Work experience</span>
+        <ol style="margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:flex;flex-wrap:wrap;gap:6px 40px;align-items:baseline;padding:18px 0 20px;border-top:1px solid #181818"><span style="flex:1 1 240px;font:400 clamp(24px,2.2vw,32px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">IBM</span><span style="flex:1 1 260px;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Product Design Intern</span><span style="flex:0 1 200px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;text-align:right">May 2026 – Aug 2026</span></li><li style="display:flex;flex-wrap:wrap;gap:6px 40px;align-items:baseline;padding:18px 0 20px;border-top:1px solid #DCDCDC"><span style="flex:1 1 240px;font:400 clamp(24px,2.2vw,32px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">COUNTRY Financial</span><span style="flex:1 1 260px;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">UI/UX Design Intern</span><span style="flex:0 1 200px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;text-align:right">May 2025 – Dec 2025</span></li><li style="display:flex;flex-wrap:wrap;gap:6px 40px;align-items:baseline;padding:18px 0 20px;border-top:1px solid #DCDCDC"><span style="flex:1 1 240px;font:400 clamp(24px,2.2vw,32px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">HEB</span><span style="flex:1 1 260px;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">High School UI/UX Design Intern</span><span style="flex:0 1 200px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;text-align:right">Jun 2024 – Aug 2024</span></li><li style="display:flex;flex-wrap:wrap;gap:6px 40px;align-items:baseline;padding:18px 0 20px;border-top:1px solid #DCDCDC"><span style="flex:1 1 240px;font:400 clamp(24px,2.2vw,32px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">HEB</span><span style="flex:1 1 260px;font:400 16px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">High School UI/UX Design Intern</span><span style="flex:0 1 200px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;text-align:right">Jun 2023 – Aug 2023</span></li></ol>
       </div>
     </section>
 
-    <section class="about-block" aria-labelledby="community-heading">
-      <span class="site-kicker">Outside the classroom</span>
-      <h2 id="community-heading">The communities I’ve grown with.</h2>
-
-      <article class="community">
-        <div class="community__copy">
-          <span class="site-kicker">Psi Eta Mu · Information Sciences Professional Fraternity</span>
-          <h3 id="pem-title">PR Director</h3>
-          <p>I was PR Director for Psi Eta Mu, the nation’s first and only Information Sciences and Data Sciences professional fraternity. Most of the work was getting students from different corners of the major into the same room.</p>
-        </div>
-        <div>
-          <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Psi Eta Mu photos" tabindex="0">
-            <div class="carousel__slide" data-slide>
-              <img src="assets/about/pem-01.jpg" alt="Psi Eta Mu members together at a celebration under a Congrats balloon banner" style="object-position:50% 38%">
-            </div>
-            <div class="carousel__slide" data-slide>
-              <img src="assets/about/pem-02.jpg" alt="Psi Eta Mu members dressed up for a formal at Alto Vineyards" style="object-position:50% 40%">
-            </div>
-            <div class="carousel__slide" data-slide>
-              <img src="assets/about/pem-03.jpg" alt="Psi Eta Mu members together outdoors at night" style="object-position:50% 45%">
-            </div>
-            <div class="carousel__slide" data-slide>
-              <img src="assets/about/pem-04.jpg" alt="Psi Eta Mu members together at the Curtis Orchard pumpkin patch" style="object-position:50% 55%">
-            </div>
-          </div>
-          <div class="carousel__nav">
-            <button type="button" data-carousel-prev aria-label="Previous photo">←</button>
-            <span class="carousel__count" data-carousel-count aria-live="polite">01 / 04</span>
-            <button type="button" data-carousel-next aria-label="Next photo">→</button>
-          </div>
-        </div>
+    <section id="s02" data-sec="" data-screen-label="02 Outside the classroom" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">02</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Outside the classroom</span></div>
+      <h2 style="margin:var(--space-md) 0 0;font:400 clamp(34px,3.8vw,56px)/1.04 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">What I do outside of class.</h2>
+      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-2xl)">
+      <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,5vw,80px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #181818">
+        <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:14px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Psi Eta Mu · Information Sciences Professional Fraternity</span><h3 style="margin:0;font:400 clamp(28px,2.6vw,38px)/1.08 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">PR Director</h3><p style="margin:0;max-width:48ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I was PR Director for Psi Eta Mu, the nation’s first Information Sciences and Data Sciences professional fraternity. I worked on things like chapter events, social media, and our senior send-off scrapbooks.</p></div>
+        <div style="flex:1.5 1 380px;min-width:0"><div style="display:flex;flex-direction:column;gap:12px">
+          <div role="region" aria-roledescription="carousel" aria-label="Psi Eta Mu photos" data-carousel="pem" tabindex="0"  style="position:relative;aspect-ratio:2/1;touch-action:pan-y"><div   class="cs-fan__slide" data-i="0"><img src="/assets/about/pem-01.jpg" alt="Psi Eta Mu members together at a celebration under a Congrats balloon banner" loading="lazy" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;pointer-events:none"></div><div   class="cs-fan__slide" data-i="1"><img src="/assets/about/pem-02.jpg" alt="Psi Eta Mu members dressed up for a formal at Alto Vineyards" loading="lazy" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;pointer-events:none"></div><div   class="cs-fan__slide" data-i="2"><img src="/assets/about/pem-03.jpg" alt="Psi Eta Mu members together outdoors at night" loading="lazy" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;pointer-events:none"></div><div   class="cs-fan__slide" data-i="3"><img src="/assets/about/pem-04.jpg" alt="Psi Eta Mu members together at the Curtis Orchard pumpkin patch" loading="lazy" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;pointer-events:none"></div></div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-top:8px"><button type="button" data-fan-prev="pem" aria-label="Previous photo" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #DCDCDC;border-radius:0;color:#181818;font:400 16px/1 'Satoshi',sans-serif;cursor:pointer;transition:border-color .2s ease">←</button><span style="min-width:64px;text-align:center;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#707070"><span data-fan-count="pem">01 / 04</span></span><button type="button" data-fan-next="pem" aria-label="Next photo" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #DCDCDC;border-radius:0;color:#181818;font:400 16px/1 'Satoshi',sans-serif;cursor:pointer;transition:border-color .2s ease">→</button></div>
+        </div></div>
       </article>
-
-      <article class="community community--h4i">
-        <div class="community__media">
-          <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Hack4Impact photos" tabindex="0">
-            <div class="carousel__slide" data-slide>
-              <img src="assets/about/hack4impact.jpg" alt="Hack4Impact team members together" style="object-position:50% 50%">
-            </div>
-            <div class="carousel__slide" data-slide>
-              <img src="assets/about/h4i-02.jpg" alt="Hack4Impact members together indoors" style="object-position:50% 30%">
-            </div>
-          </div>
-          <div class="carousel__nav">
-            <button type="button" data-carousel-prev aria-label="Previous photo">←</button>
-            <span class="carousel__count" data-carousel-count aria-live="polite">01 / 02</span>
-            <button type="button" data-carousel-next aria-label="Next photo">→</button>
-          </div>
-        </div>
-        <div class="community__copy">
-          <span class="site-kicker">Hack4Impact · Technology for nonprofits</span>
-          <h3 id="h4i-title">Product Designer <em>→</em> Product Manager</h3>
-          <p>I started at Hack4Impact as a product designer and later became a product manager. We build software for nonprofits, so the job was turning how they already work into something a small team could ship.</p>
-        </div>
+      <article style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;gap:var(--space-lg) clamp(32px,5vw,80px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
+        <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:14px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Hack4Impact · Technology for nonprofits</span><h3 style="margin:0;font:400 clamp(28px,2.6vw,38px)/1.08 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Product Designer → Product Manager</h3><p style="margin:0;max-width:48ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I joined Hack4Impact as a product designer and later became a product manager. I’ve gotten to work directly with nonprofit partners, designers, and developers to figure out what we should build and keep the team moving toward it.</p></div>
+        <div style="flex:1.5 1 380px;min-width:0"><div style="display:flex;flex-direction:column;gap:12px">
+          <div role="region" aria-roledescription="carousel" aria-label="Hack4Impact photos" data-carousel="h4i" tabindex="0"  style="position:relative;aspect-ratio:2/1;touch-action:pan-y"><div   class="cs-fan__slide" data-i="0"><img src="/assets/about/hack4impact.jpg" alt="Hack4Impact team members together" loading="lazy" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;pointer-events:none"></div><div   class="cs-fan__slide" data-i="1"><img src="/assets/about/h4i-02.jpg" alt="Hack4Impact members together indoors" loading="lazy" draggable="false" style="display:block;width:100%;height:100%;object-fit:cover;pointer-events:none"></div></div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-top:8px"><button type="button" data-fan-prev="h4i" aria-label="Previous photo" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #DCDCDC;border-radius:0;color:#181818;font:400 16px/1 'Satoshi',sans-serif;cursor:pointer;transition:border-color .2s ease">←</button><span style="min-width:64px;text-align:center;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#707070"><span data-fan-count="h4i">01 / 02</span></span><button type="button" data-fan-next="h4i" aria-label="Next photo" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #DCDCDC;border-radius:0;color:#181818;font:400 16px/1 'Satoshi',sans-serif;cursor:pointer;transition:border-color .2s ease">→</button></div>
+        </div></div>
       </article>
-    </section>
-
-    <section class="belief" aria-labelledby="design-heading">
-      <div class="belief__top">
-        <div>
-          <span class="site-kicker">How I think about design</span>
-          <h2 id="design-heading">Figuring out how things work, <em>and how they could work better.</em></h2>
-        </div>
-        <p class="belief__quote">“For me, design is all about staying curious, trying something new, and hopefully making someone’s life a little easier in the process.”</p>
-      </div>
-      <div class="belief__cols">
-        <p>I’m curious about how products actually get used. The work I like is where someone’s task, the software, and what the organization needs don’t line up yet.</p>
-        <p>Lately I’ve been getting out of Figma too: trying new tools, learning to build, and breaking things along the way.</p>
       </div>
     </section>
 
-    <section class="life" aria-labelledby="life-heading">
-      <div class="life-copy">
-        <span class="site-kicker">Life outside Figma</span>
-        <h2 id="life-heading">When I’m not designing…</h2>
+    <section id="s03" data-sec="" data-screen-label="03 How I work" style="margin-top:var(--space-section-major)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">03</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>How I work</span></div>
+      <h2 style="margin:var(--space-md) 0 0;font:400 clamp(42px,5.2vw,74px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">I like figuring out why something feels harder than it should.</h2>
+      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(40px,6vw,104px);align-items:flex-start">
+        
+        <div style="width:100%;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,34ch),1fr));gap:16px clamp(32px,4vw,64px);padding-top:20px;border-top:1px solid #181818"><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I like the part of a project where things are still a little messy. Usually there’s something the user needs, something the organization needs, and something the product can realistically do, and they don’t line up perfectly at first.</p><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Lately I’ve also been getting out of Figma more, trying new tools, learning how to build things myself, and breaking a lot of stuff along the way.</p></div>
       </div>
-      <div class="board-frame" data-board-frame>
-        <div class="board" data-board>
-          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Traveling">
-            <div class="polaroid__photo">
-              <img src="assets/about/enjoy-travel.png?v=about1" alt="View from the IBM NYC office" style="object-position:50% 70%">
-              <div class="polaroid__cap"><strong>Traveling</strong><span>I got the chance to visit NYC IBM office this summer and this is the view from the building on the 28th floor!</span></div>
-            </div>
-            <div class="polaroid__label">Traveling</div>
+    </section>
+
+    <section id="s04" data-sec="" data-screen-label="04 Life outside Figma" style="margin-top:var(--space-section)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">04</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Life outside Figma</span></div>
+      <h2 style="margin:var(--space-md) 0 0;font:400 clamp(34px,3.8vw,56px)/1.04 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">When I’m not designing…</h2>
+      <div data-board="" class="cs-board" style="position:relative;margin-top:var(--space-xl);height:620px"><figure data-polaroid="" tabindex="0" aria-label="Traveling — drag to move" style="position:absolute;left:1%;top:29px;width:min(220px,22%);margin:0;padding:10px 10px 0;box-sizing:border-box;background:#fff;box-shadow:0 1px 2px rgba(24,24,24,.1),0 8px 18px -8px rgba(24,24,24,.22);transform:rotate(-4deg);cursor:grab;user-select:none;touch-action:none;z-index:1"><div style="position:relative;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-travel.png?v=about1" alt="View from the IBM NYC office" draggable="false" style="display:block;width:100%;aspect-ratio:11/9;height:auto;object-fit:cover;transform:scale(1.08);pointer-events:none"><div data-cap="" style="position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:rgba(255,255,255,.96);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .24s ease"><span style="display:block;font:400 13px/1.4 'Satoshi',sans-serif;color:#393939">I got the chance to visit NYC IBM office this summer and this is the view from the building on the 28th floor!</span></div></div><figcaption style="display:flex;align-items:center;gap:8px;height:36px;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="font:400 italic 13px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:0;text-transform:none;color:#AAAAAA">01</span>Traveling</figcaption></figure><figure data-polaroid="" tabindex="0" aria-label="Coloring — drag to move" style="position:absolute;left:26%;top:0px;width:min(220px,22%);margin:0;padding:10px 10px 0;box-sizing:border-box;background:#fff;box-shadow:0 1px 2px rgba(24,24,24,.1),0 8px 18px -8px rgba(24,24,24,.22);transform:rotate(3deg);cursor:grab;user-select:none;touch-action:none;z-index:2"><div style="position:relative;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-coloring.png?v=about1" alt="A coloring book page" draggable="false" style="display:block;width:100%;aspect-ratio:11/9;height:auto;object-fit:cover;transform:scale(1.08);pointer-events:none"><div data-cap="" style="position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:rgba(255,255,255,.96);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .24s ease"><span style="display:block;font:400 13px/1.4 'Satoshi',sans-serif;color:#393939">Over winter break this past year, I couldn't crochet at home, so I tried coloring! I'm not the best at art so it gave me more structure to practice art!</span></div></div><figcaption style="display:flex;align-items:center;gap:8px;height:36px;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="font:400 italic 13px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:0;text-transform:none;color:#AAAAAA">02</span>Coloring</figcaption></figure><figure data-polaroid="" tabindex="0" aria-label="Baking — drag to move" style="position:absolute;left:51%;top:43px;width:min(220px,22%);margin:0;padding:10px 10px 0;box-sizing:border-box;background:#fff;box-shadow:0 1px 2px rgba(24,24,24,.1),0 8px 18px -8px rgba(24,24,24,.22);transform:rotate(-2deg);cursor:grab;user-select:none;touch-action:none;z-index:3"><div style="position:relative;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-baking.png?v=about1" alt="Mini jellycat themed cakes" draggable="false" style="display:block;width:100%;aspect-ratio:11/9;height:auto;object-fit:cover;transform:scale(1.08);pointer-events:none"><div data-cap="" style="position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:rgba(255,255,255,.96);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .24s ease"><span style="display:block;font:400 13px/1.4 'Satoshi',sans-serif;color:#393939">My friends and I baked mini jellycat themed cakes! It's a goal of mine to try baking new pastries this year, like sourdough bread!</span></div></div><figcaption style="display:flex;align-items:center;gap:8px;height:36px;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="font:400 italic 13px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:0;text-transform:none;color:#AAAAAA">03</span>Baking</figcaption></figure><figure data-polaroid="" tabindex="0" aria-label="Blind boxes — drag to move" style="position:absolute;left:76%;top:14px;width:min(220px,22%);margin:0;padding:10px 10px 0;box-sizing:border-box;background:#fff;box-shadow:0 1px 2px rgba(24,24,24,.1),0 8px 18px -8px rgba(24,24,24,.22);transform:rotate(5deg);cursor:grab;user-select:none;touch-action:none;z-index:4"><div style="position:relative;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-blindbox.png?v=about1" alt="Blind box plush keychains" draggable="false" style="display:block;width:100%;aspect-ratio:11/9;height:auto;object-fit:cover;object-position:center 82%;transform:scale(1.08);pointer-events:none"><div data-cap="" style="position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:rgba(255,255,255,.96);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .24s ease"><span style="display:block;font:400 13px/1.4 'Satoshi',sans-serif;color:#393939">I love collecting mystery figurines and decorating my room with them! This was a unique blind box I found in LA with the cutest plush keychains!</span></div></div><figcaption style="display:flex;align-items:center;gap:8px;height:36px;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="font:400 italic 13px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:0;text-transform:none;color:#AAAAAA">04</span>Blind boxes</figcaption></figure><figure data-polaroid="" tabindex="0" aria-label="Foods — drag to move" style="position:absolute;left:13%;top:346px;width:min(220px,22%);margin:0;padding:10px 10px 0;box-sizing:border-box;background:#fff;box-shadow:0 1px 2px rgba(24,24,24,.1),0 8px 18px -8px rgba(24,24,24,.22);transform:rotate(3deg);cursor:grab;user-select:none;touch-action:none;z-index:5"><div style="position:relative;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-foods.png?v=about1" alt="Tarts from a local cafe" draggable="false" style="display:block;width:100%;aspect-ratio:11/9;height:auto;object-fit:cover;transform:scale(1.08);pointer-events:none"><div data-cap="" style="position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:rgba(255,255,255,.96);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .24s ease"><span style="display:block;font:400 13px/1.4 'Satoshi',sans-serif;color:#393939">My favorite tart place! It's local to my university, and it's the first place I ever tried tarts. Genuinely the best ever!</span></div></div><figcaption style="display:flex;align-items:center;gap:8px;height:36px;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="font:400 italic 13px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:0;text-transform:none;color:#AAAAAA">05</span>Foods</figcaption></figure><figure data-polaroid="" tabindex="0" aria-label="Shrinky Dinks — drag to move" style="position:absolute;left:38%;top:374px;width:min(220px,22%);margin:0;padding:10px 10px 0;box-sizing:border-box;background:#fff;box-shadow:0 1px 2px rgba(24,24,24,.1),0 8px 18px -8px rgba(24,24,24,.22);transform:rotate(-5deg);cursor:grab;user-select:none;touch-action:none;z-index:6"><div style="position:relative;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-shrinky-fill.png?v=about1" alt="Shrinky Dink crafts" draggable="false" style="display:block;width:100%;aspect-ratio:11/9;height:auto;object-fit:cover;transform:scale(1.08);pointer-events:none"><div data-cap="" style="position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:rgba(255,255,255,.96);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .24s ease"><span style="display:block;font:400 13px/1.4 'Satoshi',sans-serif;color:#393939">I love making gifts for friends and this was also something I discovered this past winter break! Really easy, cheap and thoughtful gifts for my friends!</span></div></div><figcaption style="display:flex;align-items:center;gap:8px;height:36px;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="font:400 italic 13px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:0;text-transform:none;color:#AAAAAA">06</span>Shrinky Dinks</figcaption></figure><figure data-polaroid="" tabindex="0" aria-label="Concerts — drag to move" style="position:absolute;left:63%;top:331px;width:min(220px,22%);margin:0;padding:10px 10px 0;box-sizing:border-box;background:#fff;box-shadow:0 1px 2px rgba(24,24,24,.1),0 8px 18px -8px rgba(24,24,24,.22);transform:rotate(2deg);cursor:grab;user-select:none;touch-action:none;z-index:7"><div style="position:relative;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-concerts.png?v=about1" alt="Laufey concert in Chicago" draggable="false" style="display:block;width:100%;aspect-ratio:11/9;height:auto;object-fit:cover;object-position:center 90%;transform:scale(1.08);pointer-events:none"><div data-cap="" style="position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:rgba(255,255,255,.96);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .24s ease"><span style="display:block;font:400 13px/1.4 'Satoshi',sans-serif;color:#393939">This is a picture from when I got to see Laufey in Chicago! The memories I make at concerts make the songs I got to hear live more meaningful!</span></div></div><figcaption style="display:flex;align-items:center;gap:8px;height:36px;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="font:400 italic 13px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:0;text-transform:none;color:#AAAAAA">07</span>Concerts</figcaption></figure></div>
+      <p class="cs-board-hint" style="margin:12px 0 0;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#AAAAAA">Drag the photos around · hover to read</p>
+      <div class="cs-board-mob" style="margin-top:var(--space-2xl);gap:var(--space-xl) clamp(24px,3vw,44px);align-items:start"><figure style="position:relative;margin:0;transform:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)"><div style="position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 32px -20px rgba(24,24,24,.35),0 1px 3px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;top:-10px;left:22px;width:64px;height:20px;background:rgba(232,228,218,.85);transform:rotate(-5deg);box-shadow:0 1px 2px rgba(24,24,24,.08)"></span><div style="aspect-ratio:552/594;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-travel.png?v=about1" alt="View from the IBM NYC office" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)"></div><figcaption style="display:flex;flex-direction:column;gap:6px;padding:14px 4px 16px"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 14px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">01</span><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Traveling</span></span><span style="font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#393939">I got the chance to visit NYC IBM office this summer and this is the view from the building on the 28th floor!</span></figcaption></div></figure><figure style="position:relative;margin:0;transform:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)"><div style="position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 32px -20px rgba(24,24,24,.35),0 1px 3px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;top:-10px;right:22px;width:64px;height:20px;background:rgba(232,228,218,.85);transform:rotate(5deg);box-shadow:0 1px 2px rgba(24,24,24,.08)"></span><div style="aspect-ratio:552/594;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-coloring.png?v=about1" alt="A coloring book page" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)"></div><figcaption style="display:flex;flex-direction:column;gap:6px;padding:14px 4px 16px"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 14px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">02</span><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Coloring</span></span><span style="font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#393939">Over winter break this past year, I couldn't crochet at home, so I tried coloring! I'm not the best at art so it gave me more structure to practice art!</span></figcaption></div></figure><figure style="position:relative;margin:0;transform:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)"><div style="position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 32px -20px rgba(24,24,24,.35),0 1px 3px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;top:-10px;left:22px;width:64px;height:20px;background:rgba(232,228,218,.85);transform:rotate(-5deg);box-shadow:0 1px 2px rgba(24,24,24,.08)"></span><div style="aspect-ratio:552/594;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-baking.png?v=about1" alt="Mini jellycat themed cakes" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)"></div><figcaption style="display:flex;flex-direction:column;gap:6px;padding:14px 4px 16px"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 14px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">03</span><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Baking</span></span><span style="font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#393939">My friends and I baked mini jellycat themed cakes! It's a goal of mine to try baking new pastries this year, like sourdough bread!</span></figcaption></div></figure><figure style="position:relative;margin:0;transform:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)"><div style="position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 32px -20px rgba(24,24,24,.35),0 1px 3px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;top:-10px;right:22px;width:64px;height:20px;background:rgba(232,228,218,.85);transform:rotate(5deg);box-shadow:0 1px 2px rgba(24,24,24,.08)"></span><div style="aspect-ratio:552/594;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-blindbox.png?v=about1" alt="Blind box plush keychains" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 82%;transform:scale(1.08)"></div><figcaption style="display:flex;flex-direction:column;gap:6px;padding:14px 4px 16px"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 14px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">04</span><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Blind boxes</span></span><span style="font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#393939">I love collecting mystery figurines and decorating my room with them! This was a unique blind box I found in LA with the cutest plush keychains!</span></figcaption></div></figure><figure style="position:relative;margin:0;transform:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)"><div style="position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 32px -20px rgba(24,24,24,.35),0 1px 3px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;top:-10px;left:22px;width:64px;height:20px;background:rgba(232,228,218,.85);transform:rotate(-5deg);box-shadow:0 1px 2px rgba(24,24,24,.08)"></span><div style="aspect-ratio:552/594;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-foods.png?v=about1" alt="Tarts from a local cafe" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)"></div><figcaption style="display:flex;flex-direction:column;gap:6px;padding:14px 4px 16px"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 14px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">05</span><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Foods</span></span><span style="font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#393939">My favorite tart place! It's local to my university, and it's the first place I ever tried tarts. Genuinely the best ever!</span></figcaption></div></figure><figure style="position:relative;margin:0;transform:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)"><div style="position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 32px -20px rgba(24,24,24,.35),0 1px 3px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;top:-10px;right:22px;width:64px;height:20px;background:rgba(232,228,218,.85);transform:rotate(5deg);box-shadow:0 1px 2px rgba(24,24,24,.08)"></span><div style="aspect-ratio:552/594;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-shrinky-fill.png?v=about1" alt="Shrinky Dink crafts" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)"></div><figcaption style="display:flex;flex-direction:column;gap:6px;padding:14px 4px 16px"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 14px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">06</span><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Shrinky Dinks</span></span><span style="font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#393939">I love making gifts for friends and this was also something I discovered this past winter break! Really easy, cheap and thoughtful gifts for my friends!</span></figcaption></div></figure><figure style="position:relative;margin:0;transform:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)"><div style="position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 32px -20px rgba(24,24,24,.35),0 1px 3px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:absolute;top:-10px;left:22px;width:64px;height:20px;background:rgba(232,228,218,.85);transform:rotate(-5deg);box-shadow:0 1px 2px rgba(24,24,24,.08)"></span><div style="aspect-ratio:552/594;overflow:hidden;background:#F4F4F4"><img src="/assets/about/enjoy-concerts.png?v=about1" alt="Laufey concert in Chicago" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 90%;transform:scale(1.08)"></div><figcaption style="display:flex;flex-direction:column;gap:6px;padding:14px 4px 16px"><span style="display:flex;align-items:baseline;gap:10px"><span style="font:400 italic 14px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA">07</span><span style="font:400 22px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818">Concerts</span></span><span style="font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#393939">This is a picture from when I got to see Laufey in Chicago! The memories I make at concerts make the songs I got to hear live more meaningful!</span></figcaption></div></figure></div>
+    </section>
+
+    <section id="s05" data-sec="" data-screen-label="05 Get in touch" style="margin-top:var(--space-2xl)">
+      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Get in touch</span></div>
+      <div style="margin-top:var(--space-md);display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(40px,6vw,104px);align-items:flex-end">
+        <h2 style="flex:1.4 1 460px;margin:0;font:400 clamp(34px,3.8vw,56px)/1.02 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Want to talk design, crochet, or a good <em style="font-style:italic">café?</em></h2>
+        <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:var(--space-md)">
+          <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #181818">
+            <span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Email</span>
+            <a href="mailto:allisonqiu10@gmail.com" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;font:400 clamp(24px,2.4vw,34px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;color:#181818;overflow-wrap:anywhere;transition:opacity .2s ease"><span>allisonqiu10@gmail.com</span><span aria-hidden="true" style="font:400 18px/1 'Satoshi',sans-serif">→</span></a>
           </div>
-          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Coloring books">
-            <div class="polaroid__photo">
-              <img src="assets/about/enjoy-coloring.png?v=about1" alt="A coloring book page" style="object-position:50% 45%">
-              <div class="polaroid__cap"><strong>Coloring books</strong><span>Over winter break this past year, I couldn't crochet at home, so I tried coloring! I'm not the best at art so it gave me more structure to practice art!</span></div>
-            </div>
-            <div class="polaroid__label">Coloring</div>
-          </div>
-          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Baking">
-            <div class="polaroid__photo">
-              <img src="assets/about/enjoy-baking.png?v=about1" alt="Mini jellycat themed cakes" style="object-position:50% 75%">
-              <div class="polaroid__cap"><strong>Baking</strong><span>My friends and I baked mini jellycat themed cakes! It's a goal of mine to try baking new pastries this year, like sourdough bread!</span></div>
-            </div>
-            <div class="polaroid__label">Baking</div>
-          </div>
-          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Blind boxes">
-            <div class="polaroid__photo">
-              <img src="assets/about/enjoy-blindbox.png?v=about1" alt="Blind box plush keychains" style="object-position:50% 30%">
-              <div class="polaroid__cap"><strong>Blind boxes</strong><span>I love collecting mystery figurines and decorating my room with them! This was a unique blind box I found in LA with the cutest plush keychains!</span></div>
-            </div>
-            <div class="polaroid__label">Blind boxes</div>
-          </div>
-          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Trying new foods">
-            <div class="polaroid__photo">
-              <img src="assets/about/enjoy-foods.png?v=about1" alt="Tarts from a local cafe" style="object-position:50% 60%">
-              <div class="polaroid__cap"><strong>Trying new foods</strong><span>My favorite tart place! It's local to my university, and it's the first place I ever tried tarts. Genuinely the best ever!</span></div>
-            </div>
-            <div class="polaroid__label">Foods</div>
-          </div>
-          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Shrinky Dinks">
-            <div class="polaroid__photo">
-              <img src="assets/about/enjoy-shrinky-fill.png?v=about1" alt="Shrinky Dink crafts" style="object-position:50% 40%">
-              <div class="polaroid__cap"><strong>Shrinky Dinks</strong><span>I love making gifts for friends and this was also something I discovered this past winter break! Really easy, cheap and thoughtful gifts for my friends!</span></div>
-            </div>
-            <div class="polaroid__label">Shrinky Dinks</div>
-          </div>
-          <div class="polaroid" data-polaroid role="group" tabindex="0" aria-label="Concerts">
-            <div class="polaroid__photo">
-              <img src="assets/about/enjoy-concerts.png?v=about1" alt="Laufey concert in Chicago" style="object-position:50% 40%">
-              <div class="polaroid__cap"><strong>Concerts</strong><span>This is a picture from when I got to see Laufey in Chicago! The memories I make at concerts make the songs I got to hear live more meaningful!</span></div>
-            </div>
-            <div class="polaroid__label">Concerts</div>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px">
+            <a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818;transition:opacity .2s ease"><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
+            <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818;transition:opacity .2s ease"><span>Resume</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="closing" aria-labelledby="closing-heading">
-      <div class="closing__intro">
-        <span class="site-kicker">Get in touch</span>
-        <h2 id="closing-heading">Want to talk design, crochet, <em>or a good café?</em></h2>
-      </div>
-      <ul class="closing__links">
-        <li>
-          <a href="mailto:allisonqiu10@gmail.com">
-            <span>allisonqiu10@gmail.com</span>
-            <span class="closing__meta">Email <span aria-hidden="true">→</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">
-            <span>LinkedIn</span>
-            <span class="closing__meta" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <span>Resume</span>
-            <span class="closing__meta" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ul>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <img class="site-footer__lace" src="assets/shared/footer-lace.png?v=flex3" alt="" width="2880" height="69">
-    <div class="site-footer__body">
-      <div class="site-footer__top">
-        <div>
-          <p class="site-footer__hello">Say hi</p>
-          <a class="site-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
-        </div>
-        <nav class="site-footer__nav" aria-label="Footer">
-          <a href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-          <a href="https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
-          <a href="/" data-scroll-to="my-work">Work</a>
-        </nav>
+  
+
+  
+</div>
+
+
+<footer class="cs-footer">
+  <div class="cs-footer__inner">
+    <div class="cs-footer__row">
+      <div class="cs-footer__intro">
+        <p class="cs-footer__hello"><img src="/assets/home/gems/gem-1.png?v=claude1" alt="" width="18" height="18" aria-hidden="true"><span>Say hi, I’d love to chat</span></p>
+        <a class="cs-footer__mail" href="mailto:allisonqiu10@gmail.com">allisonqiu10@gmail.com</a>
+        <p class="cs-footer__note">made with late night work sessions on figma + chats with claude</p>
       </div>
-
+      <div class="cs-footer__brand">
+        <img src="/assets/shared/aq-logo-star.png?v=claude1" alt="aq" height="48">
+        <p class="cs-footer__copy">© 2026 Allison Qiu</p>
+      </div>
     </div>
-  </footer>
+  </div>
+  <div class="cs-footer__pit" data-gem-pit aria-hidden="true"></div>
+</footer>
 
-  <script src="scripts/editorial.js?v=ww1"></script>
-  <script src="scripts/cross-scroll.js"></script>
-  <script src="scripts/page-transition.js?v=tx11"></script>
-  <script src="scripts/mailto.js"></script>
-  <script src="scripts/motion.js?v=motion9"></script>
-  <script src="scripts/allisonGPT.js?v=hidden1"></script>
-  <script src="/scripts/figma-capture.js"></script>
+<script src="/scripts/cs.js?v=cs11"></script>
+<script src="/scripts/cross-scroll.js"></script>
+<script src="/scripts/page-transition.js?v=tx11"></script>
+<script src="/scripts/mailto.js"></script>
+<script src="/scripts/motion.js?v=motion9"></script>
+
+<script src="/scripts/allisonGPT.js?v=hidden1"></script>
+<script src="/scripts/figma-capture.js"></script>
 </body>
 </html>
