@@ -9,7 +9,7 @@ Allison is a curious product designer driven by solving complex problems at the 
 ### Contact & Links
 - **Email**: allisonqiu10@gmail.com
 - **LinkedIn**: https://www.linkedin.com/in/allisonqiu/
-- **Resume**: https://drive.google.com/file/d/1y3O1REcmg2b0bxA-ayd65i2zbjlDtVtA/view?usp=sharing
+- **Resume**: https://drive.google.com/file/d/15JaTnXxijyQn6s9yQapEHfvgUc9NzX1e/view?usp=sharing
 - **Portfolio**: https://www.allisonqiu.com
 
 ---
