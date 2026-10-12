@@ -770,14 +770,15 @@ html.aq-wipe-cover::before {
    Tokens are defined ONLY for hover-capable fine pointers; everywhere else the
    var(--cursor-*, keyword) fallbacks below resolve to the normal browser cursors,
    so touch devices are untouched. Set by NaLexnu — see assets/cursors/white-wing/readme.txt
-   `.ani` files are kept in the folder but browsers cannot render them, so the
-   link cursor uses link-select-static.cur (frame 2 of Link Select.ani). */
+   ONE wing image only: Normal.cur. Links, buttons and draggable items use the same
+   image as the default state, so the wing never changes pose between components.
+   Text fields and selectable copy use the browser's own I-beam, not a wing variant. */
 @media (hover: hover) and (pointer: fine) {
   :root {
     --cursor-normal: url("/assets/cursors/white-wing/Normal.cur"), auto;
-    --cursor-link: url("/assets/cursors/white-wing/link-select-static.cur"), pointer;
-    --cursor-text: url("/assets/cursors/white-wing/Text%20Select.cur"), text;
-    --cursor-move: url("/assets/cursors/white-wing/move.cur"), move;
+    --cursor-link: url("/assets/cursors/white-wing/Normal.cur"), pointer;
+    --cursor-text: text;
+    --cursor-move: url("/assets/cursors/white-wing/Normal.cur"), move;
   }
 
   html,

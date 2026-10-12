@@ -23,11 +23,26 @@
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/allison-qiu-og-2026b.png" />
   <meta name="twitter:image:alt" content="The homepage of Allison Qiu’s product design portfolio, showing her name and tagline beside a goals list, a camera and a bag." />
   <title>Allison Qiu — Product Designer</title>
-  <link rel="stylesheet" href="styles/main.css?v=ww1">
+  <link rel="stylesheet" href="styles/main.css?v=ww2">
   <link rel="stylesheet" href="styles/editorial.css?v=ww1">
   <link rel="stylesheet" href="styles/project-walkthrough.css?v=walk5">
   <link rel="stylesheet" href="styles/motion.css?v=motion6">
   <link rel="stylesheet" href="styles/page-transitions.css?v=tx8">
+  <link rel="expect" href="#my-work" blocking="render">
+  <script>
+    /* Turn the Page: land a fresh /#my-work visit on Work before the incoming
+       page is snapshotted. Chrome's own fragment scroll arrives a few frames
+       late and shows the hero first. Back/Forward and reload keep their own scroll. */
+    addEventListener("pagereveal", function () {
+      if (location.hash !== "#my-work") return;
+      var type = window.navigation && navigation.activation ? navigation.activation.navigationType : "";
+      if (type === "traverse" || type === "reload") return;
+      var work = document.getElementById("my-work");
+      if (work) work.scrollIntoView({ block: "start", behavior: "instant" });
+    });
+  </script>
+  <style>@view-transition { navigation: auto; }</style>
+  <link rel="stylesheet" href="styles/turn-the-page.css?v=tp2">
   <link rel="stylesheet" href="styles/mobile.css?v=ww1">
   <link rel="stylesheet" href="styles/allisonGPT.css?v=ww1">
   <link rel="stylesheet" href="styles/home-v2.css?v=homev54">
@@ -250,7 +265,8 @@
   <script src="scripts/editorial.js?v=ww1"></script>
   <script type="module" src="scripts/walkthrough-init.js?v=photo1"></script>
   <script src="scripts/cross-scroll.js"></script>
-  <script src="scripts/page-transition.js?v=tx12"></script>
+  <script src="scripts/page-transition.js?v=tx13"></script>
+  <script src="scripts/turn-the-page.js?v=tp3" defer></script>
   <script src="scripts/mailto.js"></script>
   <script src="scripts/project-cursor.js?v=pc1"></script>
   <script src="scripts/motion.js?v=motion8"></script>

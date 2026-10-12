@@ -155,6 +155,12 @@
   opacity: 1;
   transform: translateY(-50%) translateX(0) scaleX(-1);
 }
+/* "← All work" in the case-study sidebar. Its default weight (500) comes from the
+   inline style, so hover/focus steps up to the nav's bold weight (700). Weight only. */
+.cs-page .cs-aside a[data-scroll-to="my-work"]:hover,
+.cs-page .cs-aside a[data-scroll-to="my-work"]:focus-visible {
+  font-weight: 700 !important;
+}
 .cs-page .site-header__link:focus-visible,
 .cs-page .site-header__brand:focus-visible {
   outline: 2px solid #14243b;
@@ -224,7 +230,7 @@
 
 /* Sidebar block shown under the contents list while a case study is locked. Informational only. */
 .toc-locked{display:flex;flex-direction:column;gap:14px;padding:14px 0 16px;
-  border-bottom:1px solid #F4F4F4;cursor:default;user-select:none}
+  border-bottom:1px solid #F4F4F4;cursor:var(--cursor-normal,default);user-select:none}
 .toc-locked[hidden]{display:none}
 .toc-locked__head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px;align-items:baseline}
 .toc-locked__range{font:400 italic 14px/15px 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA}

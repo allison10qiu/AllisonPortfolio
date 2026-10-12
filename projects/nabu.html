@@ -13,10 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
-<link rel="stylesheet" href="/styles/main.css?v=ww1">
+<link rel="stylesheet" href="/styles/main.css?v=ww2">
 <link rel="stylesheet" href="/styles/editorial.css?v=ww1">
-<link rel="stylesheet" href="/styles/cs.css?v=nav3">
+<link rel="stylesheet" href="/styles/cs.css?v=nav5">
 <link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="/styles/turn-the-page.css?v=tp2">
 <link rel="stylesheet" href="/styles/allisonGPT.css?v=ww1">
 <link rel="stylesheet" href="/styles/motion.css?v=motion6">
 </head>
@@ -31,7 +33,7 @@
         <img class="site-header__chrome" src="/assets/shared/aq-logo-full.png?v=full" alt="aq" height="48">
       </a>
       <nav class="site-header__nav" aria-label="Primary">
-        <a class="site-header__link gem-link is-on" href="/" data-scroll-to="my-work" aria-current="page">
+        <a class="site-header__link gem-link is-on" href="/#my-work" data-scroll-to="my-work" aria-current="page">
           <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">Work</span><span class="gem-link__label">Work</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
         </a>
         <a class="site-header__link gem-link" href="/about">
@@ -47,7 +49,7 @@
 
   <div style="display:flex;align-items:flex-start">
     <aside class="cs-aside" style="display:flex;position:sticky;top:85px;flex:0 0 232px;height:calc(100vh - 85px);overflow-y:auto;box-sizing:border-box;background:#fff;border-right:1px solid #ECECEC;padding:36px 24px 40px 24px;letter-spacing:-.02em;flex-direction:column">
-      <a href="/" data-scroll-to="my-work" style="display:flex;align-items:center;gap:8px;min-height:32px;align-self:flex-start;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease"><span aria-hidden="true" style="letter-spacing:0">←</span>All work</a>
+      <a href="/#my-work" data-scroll-to="my-work" style="display:flex;align-items:center;gap:8px;min-height:32px;align-self:flex-start;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease"><span aria-hidden="true" style="letter-spacing:0">←</span>All work</a>
       <div style="margin-top:20px;padding-top:14px;border-top:1.5px solid #181818;display:flex;flex-direction:column;gap:8px">
         <span style="font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070">Case study</span>
         <span style="font:400 30px/.95 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">NABU</span>
@@ -265,9 +267,10 @@
   <div class="cs-footer__pit" data-gem-pit aria-hidden="true"></div>
 </footer>
 
-<script src="/scripts/cs.js?v=cs11"></script>
+<script src="/scripts/cs.js?v=cs12"></script>
 <script src="/scripts/cross-scroll.js"></script>
-<script src="/scripts/page-transition.js?v=tx11"></script>
+<script src="/scripts/page-transition.js?v=tx13"></script>
+<script src="/scripts/turn-the-page.js?v=tp3" defer></script>
 <script src="/scripts/mailto.js"></script>
 <script src="/scripts/motion.js?v=motion9"></script>
 

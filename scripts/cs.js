@@ -331,7 +331,7 @@
           slide.style.zIndex = String(spec[4]);
           slide.style.opacity = String(spec[5]);
           slide.style.boxShadow = spec[6];
-          slide.style.cursor = role === "front" ? "default" : "";
+          slide.style.cursor = role === "front" ? "var(--cursor-normal, default)" : "";
           slide.style.transition = tr;
           if (role === "front") slide.removeAttribute("aria-hidden");
           else slide.setAttribute("aria-hidden", "true");

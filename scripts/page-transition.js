@@ -337,31 +337,19 @@
 
       var card = link.closest("a.project[data-tx-project]");
 
-      if (card) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (document.body.classList.contains("home-page") && e.detail !== 0 && window.__aqSprinkle) {
-          window.__aqSprinkle(e, card);
-          window.setTimeout(function () {
-            pauseVideos();
-            window.__txSkipVT = true;
-            remember("tx-fade", "1");
-            go(url.pathname + url.search);
-          }, 520);
-          return;
-        }
-        pauseVideos();
-        window.__txSkipVT = true;
-        remember("tx-fade", "1");
-        go(url.pathname + url.search);
-        return;
-      }
+      /* Turn the Page: every other same-origin link navigates natively so the
+         cross-document view transition can run. Project-card clicks still wait
+         for the gem sprinkle. Original delay was 520ms. */
+      if (!card) return;
+      if (!(document.body.classList.contains("home-page") && e.detail !== 0 && window.__aqSprinkle)) return;
 
       e.preventDefault();
       e.stopPropagation();
-      if (scrollId) remember("aq-scroll-to", scrollId);
-      remember("tx-fade", "1");
-      go(url.pathname + url.search + url.hash);
+      window.__aqSprinkle(e, card);
+      window.setTimeout(function () {
+        pauseVideos();
+        go(url.pathname + url.search);
+      }, 200);
     },
     true
   );

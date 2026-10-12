@@ -16,6 +16,12 @@
       // Target exists here — page snap script owns the scroll.
       if (document.getElementById(id)) return;
 
+      /* Turn the Page lands on /#my-work before the new snapshot is taken.
+         Don't also store a scroll handoff; that forces manual restoration and
+         flashes the hero before a second scroll. */
+      var href = link.getAttribute("href") || "";
+      if (href.indexOf("#" + id) !== -1) return;
+
       // Let the browser navigate so the cross-document fade can run.
       if (
         "onpagereveal" in window &&
@@ -32,9 +38,8 @@
         sessionStorage.setItem(KEY, id);
       } catch (err) {}
 
-      var href = link.getAttribute("href") || "/";
-      var clean = href.split("#")[0] || "/";
-      window.location.assign(clean);
+      var clean = (link.getAttribute("href") || "/").split("#")[0] || "/";
+      window.location.assign(clean + "#" + id);
     });
   });
 })();

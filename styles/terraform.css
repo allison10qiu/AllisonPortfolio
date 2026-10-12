@@ -2708,7 +2708,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-align: right;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   transition: color 0.2s ease;
 }
 .terraform-page .tf-gate__show:hover,
@@ -2727,7 +2727,7 @@
   font: 500 12px/1 "Satoshi", sans-serif;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  cursor: pointer;
+  cursor: var(--cursor-link, pointer);
   transition: color 0.2s ease;
 }
 .terraform-page .tf-gate__submit:hover,

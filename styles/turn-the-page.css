@@ -1,0 +1,58 @@
+/* Turn the Page prototype. Load on every same-origin portfolio page, after
+   page-transitions.css. Delete this file and its <link> to roll back.
+   The shared bar is .site-header. The white-wing cursor is a CSS cursor, not an element. */
+
+@view-transition { navigation: auto; }
+
+:root {
+  --tp-ease: cubic-bezier(.22, 1, .36, 1);
+  --tp-out: 340ms;
+  --tp-out-y: -5px;
+  --tp-in: 480ms;
+  --tp-in-delay: 30ms;
+  --tp-in-y: 10px;
+  --tp-in-from: 0;
+  --tp-rm: 120ms;
+}
+
+html { background: #fff; }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation-timing-function: var(--tp-ease);
+  animation-fill-mode: both;
+}
+::view-transition-old(root) {
+  animation-name: tp-out;
+  animation-duration: var(--tp-out);
+}
+::view-transition-new(root) {
+  animation-name: tp-in;
+  animation-duration: var(--tp-in);
+  animation-delay: var(--tp-in-delay);
+}
+@keyframes tp-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(var(--tp-out-y)); }
+}
+@keyframes tp-in {
+  from { opacity: var(--tp-in-from); transform: translateY(var(--tp-in-y)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* The bar is lifted out of the page turn and swapped in place: no fade, no move,
+   no old/new crossfade. The destination's active link shows from the first frame. */
+.site-header { view-transition-name: site-nav; }
+::view-transition-group(site-nav) { animation: none; z-index: 2; }
+::view-transition-old(site-nav) { display: none; }
+::view-transition-new(site-nav) { animation: none; }
+@keyframes tp-fade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root) { animation: tp-fade-out var(--tp-rm) linear both; }
+  ::view-transition-new(root) { animation: tp-fade var(--tp-rm) linear both; }
+}
+@keyframes tp-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+html:has(:target) { scroll-behavior: auto; }
