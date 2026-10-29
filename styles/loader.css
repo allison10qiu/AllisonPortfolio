@@ -1,0 +1,57 @@
+/* First-visit loader: the aq logo assembles (shooting star, then a, then q), the star twinkles,
+   and a shower of gems falls while the white sheet drains away top to bottom. Only shown when
+   the head script adds .aq-loading (see scripts/loader.js for when that is). */
+#aq-loader {
+  display: none;
+}
+
+.aq-loading #aq-loader {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: auto;
+  cursor: var(--cursor-normal, default);
+}
+
+.aq-loading body {
+  overflow: hidden;
+}
+
+#aq-loader .aql-sheet {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+}
+
+/* the logo's three layers share one 600 × 312 canvas */
+#aq-loader .aql-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(460px, 70vw);
+  aspect-ratio: 600 / 312;
+  transform: translate(-50%, -50%);
+}
+
+#aq-loader .aql-logo img,
+#aq-loader .aql-fx img {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+#aq-loader .aql-logo img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+#aq-loader .aql-fx {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}

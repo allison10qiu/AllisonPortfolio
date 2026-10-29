@@ -23,8 +23,24 @@
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/allison-qiu-og-2026b.png" />
   <meta name="twitter:image:alt" content="The homepage of Allison Qiu’s product design portfolio, showing her name and tagline beside a goals list, a camera and a bag." />
   <title>Allison Qiu — Product Designer</title>
+  <script>
+    /* First-visit loader gate (scripts/loader.js): once per session, direct landings only. */
+    (function () {
+      try {
+        var h = document.documentElement;
+        if (sessionStorage.getItem("aq-loaded")) return;
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (h.classList.contains("tx-in") || h.classList.contains("tx-back") || h.classList.contains("tx-fade")) return;
+        if (location.hash === "#my-work") return;
+        var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+        if (nav && (nav.type === "back_forward" || nav.type === "reload")) return;
+        h.classList.add("aq-loading");
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="styles/loader.css?v=l1">
   <link rel="stylesheet" href="styles/main.css?v=ww2">
-  <link rel="stylesheet" href="styles/editorial.css?v=ww1">
+  <link rel="stylesheet" href="styles/editorial.css?v=zt2">
   <link rel="stylesheet" href="styles/project-walkthrough.css?v=walk5">
   <link rel="stylesheet" href="styles/motion.css?v=motion6">
   <link rel="stylesheet" href="styles/page-transitions.css?v=tx8">
@@ -46,8 +62,22 @@
   <link rel="stylesheet" href="styles/mobile.css?v=ww1">
   <link rel="stylesheet" href="styles/allisonGPT.css?v=ww1">
   <link rel="stylesheet" href="styles/home-v2.css?v=homev54">
+  <link rel="stylesheet" href="styles/puzzle-hero.css?v=pz42">
+  <link rel="stylesheet" href="styles/board-puzzle.css?v=mb8">
+  <link rel="stylesheet" href="styles/word-puzzle.css?v=ws37">
+  <link rel="stylesheet" href="styles/font-preview-zt.css?v=zt2">
 </head>
 <body class="home-page">
+  <div id="aq-loader" aria-hidden="true">
+    <div class="aql-sheet"></div>
+    <div class="aql-logo">
+      <img class="aql-comet" src="assets/home/loader/lg-comet.png" alt="" draggable="false">
+      <img class="aql-a" src="assets/home/loader/lg-a.png" alt="" draggable="false">
+      <img class="aql-q" src="assets/home/loader/lg-q.png" alt="" draggable="false">
+    </div>
+    <div class="aql-fx"></div>
+  </div>
+  <script src="scripts/loader.js?v=l1"></script>
   <div id="tx-cover" aria-hidden="true"></div>
   <script src="scripts/tx-cover.js?v=tx6"></script>
   <header class="site-header">
@@ -71,93 +101,158 @@
   </header>
 
   <main class="site-main">
-    <section class="home-hero" aria-labelledby="home-title">
-      <div class="home-trail" data-gem-trail aria-hidden="true"></div>
-      <div class="home-hero__copy">
+    <section class="home-hero home-hero--puzzle home-hero--sidebar home-hero--board" aria-labelledby="home-title">
+      <aside class="home-hero__copy pz-side">
         <h1 class="home-hero__title" id="home-title" data-trail-avoid>Allison Qiu</h1>
         <p class="home-hero__lede" data-trail-avoid>A curious product designer who likes messy problems, <em>and occasionally convincing myself I can code them too.</em></p>
+        <dl class="sb-facts">
+          <div><dt><svg class="sb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 6 8 3l6.5 3L8 9z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M4.2 7.3v3.1c0 .9 1.7 1.8 3.8 1.8s3.8-.9 3.8-1.8V7.3M14.5 6v3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Currently</dt><dd>UIUC, Information Sciences</dd></div>
+          <div><dt><svg class="sb-ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="5" width="12" height="8.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5.8 5V3.6c0-.6.5-1.1 1.1-1.1h2.2c.6 0 1.1.5 1.1 1.1V5M2 8.6h12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Previously</dt><dd>IBM, Product Design Intern</dd></div>
+          <div><dt><svg class="sb-ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M2.5 5.5h3.1c-.4-.5-.6-1-.6-1.5a1.75 1.75 0 0 1 3.5 0c0 .5-.2 1-.6 1.5h3.1v3.1c.5-.4 1-.6 1.5-.6a1.75 1.75 0 0 1 0 3.5c-.5 0-1-.2-1.5-.6v3.1h-8.5z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>Lately</dt><dd>building my personal puzzles!</dd></div>
+        </dl>
         <div class="home-hero__links" data-trail-avoid>
-          <a class="gem-link gem-link--line" href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer">
+          <a class="gem-link gem-link--line" href="https://www.linkedin.com/in/allisonqiu/" target="_blank" rel="noopener noreferrer"><svg class="pz-ico" viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6.6 8.6v5M6.6 6.2v.1M9.4 13.6v-3c0-1.2.9-2 2-2s2 .8 2 2v3M9.4 8.6v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
             <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">LinkedIn</span><span class="gem-link__label">LinkedIn</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
           </a>
-          <a class="gem-link" href="mailto:allisonqiu10@gmail.com">
+          <a class="gem-link" href="mailto:allisonqiu10@gmail.com"><svg class="pz-ico" viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true"><span class="u-wide">allisonqiu10@gmail.com</span><span class="u-narrow">Email</span></span><span class="gem-link__label"><span class="u-wide">allisonqiu10@gmail.com</span><span class="u-narrow">Email</span></span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
           </a>
-          <a class="gem-link gem-link--line" href="https://drive.google.com/file/d/15JaTnXxijyQn6s9yQapEHfvgUc9NzX1e/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <a class="gem-link gem-link--line" href="https://drive.google.com/file/d/15JaTnXxijyQn6s9yQapEHfvgUc9NzX1e/view?usp=sharing" target="_blank" rel="noopener noreferrer"><svg class="pz-ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h6.5L15.5 6.5v11H5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M11.5 2.5v4h4M7.6 10.5h5M7.6 13.5h5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="gem-link__text"><span class="gem-wing gem-wing--l" aria-hidden="true"></span><span class="gem-link__sizer" aria-hidden="true">Resume</span><span class="gem-link__label">Resume</span><span class="gem-wing gem-wing--r" aria-hidden="true"></span></span>
           </a>
         </div>
-      </div>
-      <div class="home-cluster" data-cluster>
-        <div class="home-objects" data-objects>
-          <div class="home-objects__fit">
-          <div class="home-goals" data-goals-move>
-            <div class="home-goals__tilt">
-              <img class="home-goals__cluster" src="assets/home/goals/cluster.png" alt="" aria-hidden="true" draggable="false">
-              <button type="button" class="home-goals__card" data-goals-open aria-label="Open my goals" aria-haspopup="dialog">
-                <span class="home-goals__head">
-                  <span class="home-goals__name">My Goals</span>
-                  <span class="home-goals__years">2026-2027</span>
-                </span>
-                <span class="home-goals__row" data-goal-row="0"><img src="assets/home/goals/star.png" alt="" draggable="false"><span>Learn Adobe suite</span></span>
-                <span class="home-goals__row" data-goal-row="1"><img src="assets/home/goals/star.png" alt="" draggable="false"><span>Create a passion project</span></span>
-                <span class="home-goals__row" data-goal-row="2"><img src="assets/home/goals/star.png" alt="" draggable="false"><span>Be more creative!</span></span>
-                <span class="home-goals__row" data-goal-row="3"><img src="assets/home/goals/star.png" alt="" draggable="false"><span>Live in the moment!</span></span>
-                <span class="home-goals__row" data-goal-row="4"><img src="assets/home/goals/star.png" alt="" draggable="false"><span>Explore Europe</span></span>
-                <span class="home-goals__row" data-goal-row="5"><img src="assets/home/goals/star.png" alt="" draggable="false"><span>NYC Summer (hopefully)</span></span>
-              </button>
+      </aside>
+      <div class="pz-games">
+        <div class="home-trail" data-gem-trail aria-hidden="true"></div>
+        <div class="home-puzzle" data-puzzle data-pz-compact data-game="bag">
+          <div class="pz-bar">
+            <div class="pz-meter" data-trail-quiet data-pz-meter>
+              <span class="pz-meter__watch" aria-hidden="true"><img src="assets/home/decor/star/star-00.png" alt="" draggable="false"></span>
+              <span class="pz-meter__clock" data-pz-clock role="timer" aria-label="Time">0:00</span>
+              <span class="pz-meter__dots" data-pz-dots aria-hidden="true"></span>
+              <button type="button" class="pz-again pz-act" data-trail-quiet data-act="scramble" hidden><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M2.5 5h2.3c1.5 0 2.4.6 3.2 1.9l1.5 2.6c.8 1.3 1.7 1.9 3.2 1.9h1.8M2.5 12h2.3c1 0 1.8-.3 2.4-1M10 6c.6-.7 1.4-1 2.4-1h1.8M12.6 3l2 2-2 2M12.6 10l2 2-2 2" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">scramble again</span><span class="pz-tl__label" data-again-label>scramble again</span></span></button>
+            </div>
+            <div class="pz-bar__end">
+              <button type="button" class="pz-next pz-act" data-game-next><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M2.5 5.5h3.1c-.4-.5-.6-1-.6-1.5a1.75 1.75 0 0 1 3.5 0c0 .5-.2 1-.6 1.5h3.1v3.1c.5-.4 1-.6 1.5-.6a1.75 1.75 0 0 1 0 3.5c-.5 0-1-.2-1.5-.6v3.1h-8.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">play a new puzzle</span><span class="pz-tl__label">play a new puzzle</span></span></button>
+              <button type="button" class="pz-solve pz-act" data-trail-quiet data-act="solve"><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M3 14 10.5 6.5M9.2 5.2l2.6 2.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M13 1.8v2.6M11.7 3.1h2.6M14.6 7.6v1.8M13.7 8.5h1.8M7.4 1.9v1.6M6.6 2.7h1.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">fill it for me</span><span class="pz-tl__label">fill it for me</span></span></button>
             </div>
           </div>
-          <div class="home-mems" data-mems-move>
-            <div class="home-mems__tilt">
-              <p class="home-mems__title" data-trail-avoid>Check out my mems!</p>
-              <button type="button" class="home-mems__cam" data-mems-open aria-label="Open photo viewer" title="look closer">
-                <span class="home-mems__screen" data-mem-screen></span>
-                <img class="home-mems__art" src="assets/home/mems/camera.png" alt="Silver Sony point-and-shoot camera" draggable="false">
-              </button>
+          <div class="pz-head">
+            <h2 data-trail-quiet class="pz-heading">Organize the items</h2>
+            <p class="pz-sub" data-trail-quiet>Take a break and play my personal puzzles! (and get to know me)</p>
+          </div>
+          <div class="pz-section">
+            <div class="pz-spot" aria-label="My things are scattered across the table. Drag each one into its outline."></div>
+            <div class="home-bag pz-done" data-pz-done hidden>
+              <div class="home-bag__stage">
+                <button type="button" class="bag-item" style="--cx:250; --cy:222; --w:162; --r:-90; --spin:-40; --i:0; --d-open:30ms; --d-close:120ms" data-note="peep the smiskis :)" aria-label="Laptop">
+                  <img src="assets/bag/computer.png?v=tight" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:93; --cy:120; --w:90; --r:0; --spin:-40; --i:1; --d-open:60ms; --d-close:105ms" data-note="very important." aria-label="Charger">
+                  <img src="assets/bag/charger.png?v=tight" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:234; --cy:100; --w:30; --r:8; --spin:-40; --i:2; --d-open:90ms; --d-close:90ms" data-note="fav!!" aria-label="Lip gloss">
+                  <img src="assets/bag/lip-gloss.png?v=gloss2" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:170; --cy:92; --w:31; --r:-12; --spin:-40; --i:3; --d-open:120ms; --d-close:75ms" data-note="i love company merch" aria-label="Pens">
+                  <img src="assets/bag/pens.png?v=tight" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:298; --cy:104; --w:31; --r:-10; --spin:40; --i:4; --d-open:150ms; --d-close:60ms" data-note="yummy scent" aria-label="White tea perfume">
+                  <img src="assets/bag/perfume.png?v=tight" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:379; --cy:136; --w:72; --r:12; --spin:40; --i:5; --d-open:180ms; --d-close:45ms" data-note="i get oily :(" aria-label="Blotting papers">
+                  <img src="assets/bag/blotting.png?v=tight" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:83; --cy:275; --w:50; --r:-27; --spin:-40; --i:6; --d-open:210ms; --d-close:30ms" data-note="ibm owala!" aria-label="Water bottle">
+                  <img src="assets/bag/bottle.png?v=tight" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:417; --cy:225; --w:89; --r:-75; --spin:40; --i:7; --d-open:240ms; --d-close:15ms" data-note="only thing i need tbh" aria-label="Keys">
+                  <img src="assets/bag/keys.png?v=tight" alt="" draggable="false">
+                </button>
+                <button type="button" class="bag-item" style="--cx:404; --cy:318; --w:50; --r:-8; --spin:40; --i:8; --d-open:270ms; --d-close:0ms" data-note="#best mints" aria-label="Mints">
+                  <img src="assets/bag/mints.png?v=tight" alt="" draggable="false">
+                </button>
+                <div class="bag-tip" role="tooltip"></div>
+              <button type="button" class="pz-peek" data-trail-quiet data-spill tabindex="-1" aria-hidden="true"><span>click to see<br>what&rsquo;s in my bag</span><svg viewBox="0 0 100 40" aria-hidden="true"><path d="M96 18C70 4 34 6 8 26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15.9 24.9 8 26l3-7.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="home-bag__hotspot" data-spill aria-label="Close bag"></button>
+                <button type="button" class="home-bag__body" data-spill aria-expanded="false" aria-label="What’s in my bag?">
+                  <img src="assets/bag/bag.png?v=tight" alt="Black leather tote bag" draggable="false">
+                </button>
+              </div>
+            </div>
+            <div class="pz-spill" aria-hidden="true"></div>
+            <div class="pz-desk" data-pz-desk>
+              <div class="pz-board" aria-hidden="true">
+                <p class="pz-title">Find the<br>missing items</p>
+                <img class="pz-bagart" src="assets/bag/bag.png?v=tight" alt="" draggable="false">
+                <p class="pz-thanks">thanks for helping<br>collect my stuff!</p>
+              </div>
             </div>
           </div>
+          <p class="pz-status" data-trail-quiet data-pz-status aria-live="polite"></p>
+        </div>
+        <div class="home-puzzle" data-board-puzzle data-game="board" hidden>
+          <div class="pz-bar">
+            <div class="pz-meter" data-trail-quiet data-pz-meter>
+              <span class="pz-meter__watch" aria-hidden="true"><img src="assets/home/decor/star/star-00.png" alt="" draggable="false"></span>
+              <span class="pz-meter__clock" data-pz-clock role="timer" aria-label="Time">0:00</span>
+              <span class="pz-meter__dots" data-pz-dots aria-hidden="true"></span>
+              <button type="button" class="pz-again pz-act" data-trail-quiet data-act="scramble" hidden><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M2.5 5h2.3c1.5 0 2.4.6 3.2 1.9l1.5 2.6c.8 1.3 1.7 1.9 3.2 1.9h1.8M2.5 12h2.3c1 0 1.8-.3 2.4-1M10 6c.6-.7 1.4-1 2.4-1h1.8M12.6 3l2 2-2 2M12.6 10l2 2-2 2" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">scramble again</span><span class="pz-tl__label" data-again-label>scramble again</span></span></button>
+            </div>
+            <div class="pz-bar__end">
+              <button type="button" class="pz-next pz-act" data-game-next><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M2.5 5.5h3.1c-.4-.5-.6-1-.6-1.5a1.75 1.75 0 0 1 3.5 0c0 .5-.2 1-.6 1.5h3.1v3.1c.5-.4 1-.6 1.5-.6a1.75 1.75 0 0 1 0 3.5c-.5 0-1-.2-1.5-.6v3.1h-8.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">play a new puzzle</span><span class="pz-tl__label">play a new puzzle</span></span></button>
+              <button type="button" class="mb-zoom pz-act" data-mb-zoom hidden><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><circle cx="7.4" cy="7.4" r="4.6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="m10.8 10.8 3.7 3.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path data-mb-zoom-plus d="M7.4 5.4v4M5.4 7.4h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">look closer</span><span class="pz-tl__label" data-mb-zoom-label>look closer</span></span></button>
+              <button type="button" class="pz-solve pz-act" data-trail-quiet data-act="solve"><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M3 14 10.5 6.5M9.2 5.2l2.6 2.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M13 1.8v2.6M11.7 3.1h2.6M14.6 7.6v1.8M13.7 8.5h1.8M7.4 1.9v1.6M6.6 2.7h1.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">fill it for me</span><span class="pz-tl__label">fill it for me</span></span></button>
+            </div>
+          </div>
+          <div class="mb-stage">
+            <div class="mb-surface" aria-hidden="true"><div class="mb-surface__table"></div><div class="mb-surface__wall"></div></div>
+            <div class="pz-head mb-title">
+              <h2 data-trail-quiet class="pz-heading">Decorate the board</h2>
+              <p class="pz-sub" data-trail-quiet>Take a break and play my personal puzzles! (and get to know me)</p>
+            </div>
+            <div class="mb-spot" role="img" aria-label="A walnut-framed magnet board with empty polaroids, photo strips, a stamp frame and a print frame. Drag any photo into any frame."></div>
+            <div class="mb-spill" aria-hidden="true"></div>
+            <div class="mb-rig" data-mb-rig><div class="mb-desk" data-mb-desk></div></div>
+          </div>
+          <p class="pz-status" data-trail-quiet data-pz-status aria-live="polite"></p>
+        </div>
+        <div class="home-puzzle" data-word-puzzle data-game="words" hidden>
+          <div class="pz-bar">
+            <div class="pz-meter" data-trail-quiet data-pz-meter>
+              <span class="pz-meter__watch" aria-hidden="true"><img src="assets/home/decor/star/star-00.png" alt="" draggable="false"></span>
+              <span class="pz-meter__clock" data-pz-clock role="timer" aria-label="Time">0:00</span>
+              <span class="pz-meter__dots" data-pz-dots aria-hidden="true"></span>
+              <button type="button" class="pz-again pz-act" data-trail-quiet data-act="scramble" hidden><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M2.5 5h2.3c1.5 0 2.4.6 3.2 1.9l1.5 2.6c.8 1.3 1.7 1.9 3.2 1.9h1.8M2.5 12h2.3c1 0 1.8-.3 2.4-1M10 6c.6-.7 1.4-1 2.4-1h1.8M12.6 3l2 2-2 2M12.6 10l2 2-2 2" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">scramble again</span><span class="pz-tl__label" data-again-label>scramble again</span></span></button>
+            </div>
+            <div class="pz-bar__end">
+              <button type="button" class="pz-next pz-act" data-game-next><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M2.5 5.5h3.1c-.4-.5-.6-1-.6-1.5a1.75 1.75 0 0 1 3.5 0c0 .5-.2 1-.6 1.5h3.1v3.1c.5-.4 1-.6 1.5-.6a1.75 1.75 0 0 1 0 3.5c-.5 0-1-.2-1.5-.6v3.1h-8.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">play a new puzzle</span><span class="pz-tl__label">play a new puzzle</span></span></button>
+              <button type="button" class="pz-solve pz-act" data-trail-quiet data-act="solve"><svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M3 14 10.5 6.5M9.2 5.2l2.6 2.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M13 1.8v2.6M11.7 3.1h2.6M14.6 7.6v1.8M13.7 8.5h1.8M7.4 1.9v1.6M6.6 2.7h1.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">fill it for me</span><span class="pz-tl__label">fill it for me</span></span></button>
+            </div>
+          </div>
+          <div class="pz-head">
+            <h2 data-trail-quiet class="pz-heading">Find the hidden words</h2>
+            <p class="pz-sub" data-trail-quiet>Take a break and play my personal puzzles! (and get to know me)</p>
+          </div>
+          <div class="ws-stage">
+<div class="ws-view" data-trail-quiet>
+                        <div class="ws-box" role="application" aria-label="Star-shaped word search. Drag from the first letter of a word to its last.">
+                <div class="ws-grid"></div>
+                <svg class="ws-marks" aria-hidden="true"></svg>
+              </div>
+              <div class="ws-zoomctl" role="group" aria-label="Zoom" data-trail-quiet>
+                <button type="button" data-ws-zin aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+                <button type="button" data-ws-zout aria-label="Zoom out" disabled><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+              </div>
+            </div>
+            <div class="ws-bank" data-trail-quiet>
+              <h3>word bank</h3>
+              <ul class="ws-list" aria-label="Words to find"></ul>
+              <p class="pz-status" data-trail-quiet data-pz-status aria-live="polite"></p>
+            </div>
           </div>
         </div>
-      <div class="home-bag" data-bag>
-        <div class="home-bag__stage">
-          <button type="button" class="bag-item" style="--cx:250; --cy:222; --w:162; --r:-90; --spin:-40; --i:0; --d-open:30ms; --d-close:120ms" data-note="peep the smiskis :)" aria-label="Laptop">
-            <img src="assets/bag/computer.png?v=tight" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:93; --cy:120; --w:90; --r:0; --spin:-40; --i:1; --d-open:60ms; --d-close:105ms" data-note="very important." aria-label="Charger">
-            <img src="assets/bag/charger.png?v=tight" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:234; --cy:100; --w:30; --r:8; --spin:-40; --i:2; --d-open:90ms; --d-close:90ms" data-note="fav!!" aria-label="Lip gloss">
-            <img src="assets/bag/lip-gloss.png?v=gloss2" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:170; --cy:92; --w:31; --r:-12; --spin:-40; --i:3; --d-open:120ms; --d-close:75ms" data-note="i love company merch" aria-label="Pens">
-            <img src="assets/bag/pens.png?v=tight" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:298; --cy:104; --w:31; --r:-10; --spin:40; --i:4; --d-open:150ms; --d-close:60ms" data-note="yummy scent" aria-label="White tea perfume">
-            <img src="assets/bag/perfume.png?v=tight" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:379; --cy:136; --w:72; --r:12; --spin:40; --i:5; --d-open:180ms; --d-close:45ms" data-note="i get oily :(" aria-label="Blotting papers">
-            <img src="assets/bag/blotting.png?v=tight" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:83; --cy:275; --w:50; --r:-27; --spin:-40; --i:6; --d-open:210ms; --d-close:30ms" data-note="ibm owala!" aria-label="Water bottle">
-            <img src="assets/bag/bottle.png?v=tight" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:417; --cy:225; --w:89; --r:-75; --spin:40; --i:7; --d-open:240ms; --d-close:15ms" data-note="only thing i need tbh" aria-label="Keys">
-            <img src="assets/bag/keys.png?v=tight" alt="" draggable="false">
-          </button>
-          <button type="button" class="bag-item" style="--cx:404; --cy:318; --w:50; --r:-8; --spin:40; --i:8; --d-open:270ms; --d-close:0ms" data-note="#best mints" aria-label="Mints">
-            <img src="assets/bag/mints.png?v=tight" alt="" draggable="false">
-          </button>
-          <div class="bag-tip" role="tooltip"></div>
-          <button type="button" class="home-bag__hotspot" data-bag-toggle aria-label="Close bag"></button>
-          <button type="button" class="home-bag__body" data-bag-toggle aria-expanded="false" aria-label="What’s in my bag?">
-            <img src="assets/bag/bag.png?v=tight" alt="Black leather tote bag" draggable="false">
-          </button>
-        </div>
-        <button type="button" class="home-bag__label" data-bag-toggle data-trail-avoid aria-expanded="false">What’s in my bag?</button>
       </div>
-      </div>
-    </section>
 
     <section class="work" id="my-work" aria-labelledby="work-heading">
       <div class="work-head">
@@ -218,49 +313,32 @@
         </div>
       </a>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="home-footer__pit" data-gem-pit aria-hidden="true"></div>
-    <div class="site-footer__body">
-      <div class="home-footer__row">
-        <div class="home-footer__intro">
-          <p class="home-footer__hello">
-            <img src="assets/home/decor/circle/circle-00.png" alt="" width="18" height="18" aria-hidden="true">
-            <span>Say hi, I’d love to chat</span>
-          </p>
-          <a class="site-footer__mail gem-link gem-link--mail" href="mailto:allisonqiu10@gmail.com">
-            <span class="gem-wing gem-wing--l" aria-hidden="true"></span>
-            allisonqiu10@gmail.com
-            <span class="gem-wing gem-wing--r" aria-hidden="true"></span>
-          </a>
-          <span class="home-footer__note">made with late night work sessions on figma + chats with claude</span>
-        </div>
-        <div class="home-footer__brand">
-          <img class="home-footer__logo" src="assets/shared/aq-logo-full.png?v=full" alt="aq" height="52">
-          <span class="home-footer__copy">© 2026 Allison Qiu</span>
+    <footer class="site-footer">
+      <div class="home-footer__pit" data-gem-pit aria-hidden="true"></div>
+      <div class="site-footer__body">
+        <div class="home-footer__row">
+          <div class="home-footer__intro">
+            <p class="home-footer__hello">
+              <img src="assets/home/decor/circle/circle-00.png" alt="" width="18" height="18" aria-hidden="true">
+              <span>Say hi, I’d love to chat</span>
+            </p>
+            <a class="site-footer__mail gem-link gem-link--mail" href="mailto:allisonqiu10@gmail.com">
+              <span class="gem-wing gem-wing--l" aria-hidden="true"></span>
+              allisonqiu10@gmail.com
+              <span class="gem-wing gem-wing--r" aria-hidden="true"></span>
+            </a>
+            <span class="home-footer__note">made with late night work sessions on figma + chats with claude</span>
+          </div>
+          <div class="home-footer__brand">
+            <img class="home-footer__logo" src="assets/shared/aq-logo-full.png?v=full" alt="aq" height="52">
+            <span class="home-footer__copy">© 2026 Allison Qiu</span>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+    </section>
+  </main>
 
-  <div class="home-scrim" data-goals-scrim hidden></div>
-  <div class="home-modal home-modal--goals" data-goals-dialog role="dialog" aria-modal="true" aria-label="My Goals" hidden>
-    <button type="button" class="home-modal__x" data-goals-close aria-label="Close">×</button>
-    <div class="home-modal__head">
-      <h2 class="home-modal__title">My Goals</h2>
-      <p class="home-modal__years">2026-2027</p>
-    </div>
-    <div class="home-modal__rows" data-goals-rows></div>
-  </div>
-  <div class="home-scrim" data-mems-scrim hidden></div>
-  <div class="home-modal home-modal--mems" data-mems-dialog role="dialog" aria-modal="true" aria-label="My mems" hidden>
-    <button type="button" class="home-mems__cam home-mems__cam--popup" data-mems-next aria-label="Show next photo">
-      <span class="home-mems__screen" data-mem-screen></span>
-      <img class="home-mems__art" src="assets/home/mems/camera.png" alt="" draggable="false">
-    </button>
-    <button type="button" class="home-modal__sr" data-mems-close>Close</button>
-  </div>
 
   <script src="scripts/editorial.js?v=ww1"></script>
   <script type="module" src="scripts/walkthrough-init.js?v=photo1"></script>
@@ -271,7 +349,60 @@
   <script src="scripts/project-cursor.js?v=pc1"></script>
   <script src="scripts/motion.js?v=motion8"></script>
   <script src="scripts/allisonGPT.js?v=hidden1"></script>
-  <script src="scripts/home-v2.js?v=homev53"></script>
+  <script src="scripts/home-v2.js?v=homev56"></script>
+  <script src="scripts/puzzle-hero.js?v=pz8"></script>
+  <script src="scripts/board-puzzle.js?v=mb9"></script>
+  <script src="scripts/word-puzzle.js?v=ws27"></script>
+  <script>
+    /* One link steps through the puzzles: bag, board, word search, then round again. #board and
+       #words open those directly. */
+    (function () {
+      var ORDER = ["bag", "board", "words"], current = "bag", nexts = document.querySelectorAll("[data-game-next]");
+      // park the link just left of the visible game's Fill it for me
+      function park() {
+        var games = document.querySelector(".pz-games"), btn = document.querySelector('[data-game]:not([hidden]) .pz-solve');
+        if (!games || !btn) return;
+        var gr = games.getBoundingClientRect(), br = btn.getBoundingClientRect();
+        games.style.setProperty("--switch-right", (gr.right - br.left + 36) + "px");
+        games.style.setProperty("--switch-top", (br.top - gr.top + br.height / 2) + "px");
+      }
+      [0, 420].forEach(function (ms) { setTimeout(park, ms); });
+      window.addEventListener("resize", park);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(park);
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches, busy = false;
+      function show(name, animate) {
+        var from = document.querySelector("[data-game]:not([hidden])"), to = document.querySelector('[data-game="' + name + '"]');
+        if (!to || from === to) return;
+        current = name;
+        if (!animate || reduce || !from) { swap(from, to, name); return; }
+        // soft hand-off: the current puzzle lifts and fades, the next settles in
+        busy = true;
+        from.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-8px)" }], { duration: 220, easing: "cubic-bezier(.4,0,1,1)" }).onfinish = function () {
+          swap(from, to, name);
+          // fade only on the way in, so the puzzle measures itself in its real spot
+          to.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 420, easing: "cubic-bezier(.22,1,.36,1)" }).onfinish = function () { busy = false; };
+        };
+      }
+      function swap(from, to, name) {
+        document.querySelectorAll("[data-game]").forEach(function (g) { g.hidden = g !== to; });
+        park(); setTimeout(park, 60);
+        // no gem trail over the word search: it gets in the way of reading the letters
+        var heroEl = document.querySelector(".home-hero");
+        if (heroEl) heroEl.classList.remove("is-trail-off");
+        // the puzzles measure themselves on resize; a newly shown one needs a nudge to lay out
+        requestAnimationFrame(function () { window.dispatchEvent(new Event("resize")); });
+      }
+      nexts.forEach(function (next) { next.addEventListener("click", function () {
+        if (busy) return;
+        var name = ORDER[(ORDER.indexOf(current) + 1) % ORDER.length];
+        show(name, true);
+        try { history.replaceState(null, "", name === "bag" ? location.pathname : "#" + name); } catch (e) {}
+      }); });
+      function fromHash() { var h = location.hash.slice(1); if (h === "board" || h === "words") show(h, document.readyState === "complete"); else if (!h) show("bag", document.readyState === "complete"); }
+      fromHash();
+      window.addEventListener("hashchange", fromHash);
+    })();
+  </script>
   <script src="/scripts/figma-capture.js"></script>
 </body>
 </html>

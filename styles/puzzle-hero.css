@@ -1,0 +1,1949 @@
+/* Puzzle hero. The bag column becomes a jigsaw of the open bag: the tray sits where the bag was,
+   the loose pieces lie in the hero's open space (.pz-desk, positioned by scripts/puzzle-hero.js),
+   and solving it brings back the live bag. Crossword and Dots swap into the same column. */
+
+.home-page .home-hero--puzzle {
+  --pz-ink: var(--home-ink);
+  --pz-soft: rgba(20, 36, 59, 0.6);
+  --pz-faint: rgba(20, 36, 59, 0.38);
+  --pz-wash: rgba(20, 36, 59, 0.06);
+  --pz-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pz-spring: cubic-bezier(0.3, 1.4, 0.5, 1);
+  padding: 40px 0 64px;
+}
+
+.home-hero--puzzle .home-hero__copy {
+  flex: 1 1 380px;
+  padding-bottom: 36px;
+}
+
+.home-puzzle {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 0 0 auto;
+  width: min(520px, 100%);
+  pointer-events: none;
+}
+
+.home-puzzle > * {
+  pointer-events: auto;
+}
+
+.home-puzzle > .pz-spot,
+.home-puzzle > .pz-spill {
+  pointer-events: none;
+}
+
+.home-hero--puzzle.is-stacked .home-puzzle {
+  margin: 0 auto;
+}
+
+/* ---------- toolbar ---------- */
+.pz-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Two distinct buttons: Scramble is the quiet outlined one, Show solution the filled ink one. */
+.pz-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 16px 0 13px;
+  border-radius: 999px;
+  cursor: var(--cursor-link, pointer);
+  font: 400 14.5px/1 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+  transition: background 0.2s var(--pz-ease), color 0.2s var(--pz-ease), box-shadow 0.2s var(--pz-ease), transform 0.25s var(--pz-spring);
+}
+
+.pz-btn svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  transition: transform 0.45s var(--pz-spring);
+}
+
+.pz-btn:active {
+  transform: scale(0.96);
+}
+
+.pz-btn--ghost {
+  border: 1px solid rgba(20, 36, 59, 0.28);
+  background: #fff;
+  color: var(--pz-ink);
+}
+
+.pz-btn--ghost:hover,
+.pz-btn--ghost:focus-visible {
+  border-color: var(--pz-ink);
+  background: #f4f6f9;
+}
+
+.pz-btn--ghost:hover svg {
+  transform: scaleX(-1);
+}
+
+.pz-btn--solid {
+  border: 1px solid var(--pz-ink);
+  background: var(--pz-ink);
+  color: #fff;
+  box-shadow: 0 6px 14px -8px rgba(20, 36, 59, 0.6);
+}
+
+.pz-btn--solid:hover,
+.pz-btn--solid:focus-visible {
+  background: #22385a;
+  box-shadow: 0 10px 18px -10px rgba(20, 36, 59, 0.7);
+}
+
+.pz-btn--solid:hover svg {
+  transform: rotate(72deg) scale(1.15);
+}
+
+.pz-btn:focus-visible {
+  outline: 2px solid var(--pz-ink);
+  outline-offset: 3px;
+}
+
+/* ---------- the packing meter ---------- */
+.pz-meter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+  margin-top: 2px;
+}
+
+.pz-meter[hidden],
+.pz-again[hidden] {
+  display: none !important;
+}
+
+/* A star gem that clicks round a twelfth of a turn every second, like a watch hand. */
+.pz-meter__watch {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+}
+
+.pz-meter__watch img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(calc(var(--tick, 0) * 30deg));
+  transition: transform 0.45s var(--pz-spring);
+}
+
+.pz-meter:not(.is-running):not(.is-done) .pz-meter__watch img {
+  animation: pz-bob 2.4s ease-in-out infinite;
+}
+
+.pz-meter.is-done .pz-meter__watch img {
+  animation: pz-twirl 1.1s var(--pz-spring) both;
+}
+
+.pz-meter__clock {
+  min-width: 2.6ch;
+  color: var(--pz-ink);
+  font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* One slot per thing; a packed thing turns its slot into a little gem. */
+.pz-meter__dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pz-meter__dots i {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(20, 36, 59, 0.28);
+  background: center / contain no-repeat;
+  transition: width 0.3s var(--pz-spring), height 0.3s var(--pz-spring), box-shadow 0.2s ease;
+}
+
+.pz-meter__dots i.is-on {
+  width: 14px;
+  height: 14px;
+  box-shadow: none;
+  background-image: url("../assets/home/decor/circle/circle-00.png");
+}
+
+.pz-meter__dots i.is-pop {
+  animation: pz-pop 0.5s var(--pz-spring);
+}
+
+.pz-again {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px 7px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pz-wash);
+  cursor: var(--cursor-link, pointer);
+  color: var(--pz-ink);
+  font: 400 14px/1.2 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+  transition: background 0.2s var(--pz-ease);
+}
+
+.pz-again svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.5s var(--pz-spring);
+}
+
+.pz-again:hover,
+.pz-again:focus-visible {
+  background: rgba(20, 36, 59, 0.1);
+}
+
+.pz-again:hover svg,
+.pz-again:focus-visible svg {
+  transform: rotate(-200deg);
+}
+
+.pz-again:focus-visible {
+  outline: 2px solid var(--pz-ink);
+  outline-offset: 3px;
+}
+
+.pz-status {
+  margin: -6px 0 0;
+  min-height: 1.4em;
+  color: var(--pz-soft);
+  font: italic 300 15px/1.4 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.pz-status b {
+  color: var(--pz-ink);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@keyframes pz-bob { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-3px) rotate(8deg); } }
+@keyframes pz-twirl { from { transform: rotate(0) scale(0.6); } 60% { transform: rotate(400deg) scale(1.25); } to { transform: rotate(360deg) scale(1); } }
+@keyframes pz-pop { 0% { transform: scale(0.3); } 60% { transform: scale(1.35); } 100% { transform: scale(1); } }
+
+.pz-spot {
+  width: 100%;
+  aspect-ratio: 600 / 680;
+}
+
+.pz-spill {
+  display: none;
+}
+
+.home-hero--puzzle.is-stacked .pz-spill {
+  display: block;
+  height: var(--pz-spill, 0px);
+}
+
+.pz-pane[hidden],
+.pz-desk[hidden],
+.home-puzzle .pz-done[hidden] {
+  display: none !important;
+}
+
+/* ---------- the board, the loose things and the pack-up, all on the desk ---------- */
+.pz-desk {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  overflow: clip;
+  pointer-events: none;
+}
+
+.pz-board {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 600px;
+  height: 680px;
+  transform-origin: 0 0;
+  pointer-events: none;
+  transition: opacity 0.6s var(--pz-ease);
+}
+
+.pz-title,
+.pz-thanks {
+  position: absolute;
+  margin: 0;
+  color: var(--pz-ink);
+  font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+}
+
+.pz-title {
+  left: 30px;
+  top: 58px;
+  font-size: 56px;
+  line-height: 0.9;
+  transition: opacity 0.5s var(--pz-ease), transform 0.6s var(--pz-ease), filter 0.5s var(--pz-ease);
+}
+
+.pz-thanks {
+  left: 250px;
+  top: 196px;
+  width: 340px;
+  font-size: 50px;
+  line-height: 0.95;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s var(--pz-ease) 0.25s, transform 0.8s var(--pz-ease) 0.25s;
+}
+
+/* An outline pressed into the paper: a pale silhouette, shaded along the top edge, lit along the bottom. */
+.pz-hole {
+  position: absolute;
+  height: auto;
+  max-width: none;
+  filter: brightness(0) invert(0.935) drop-shadow(0 -1px 0 rgba(20, 36, 59, 0.24)) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 0 0.5px rgba(20, 36, 59, 0.18));
+  transition: opacity 0.8s var(--pz-ease);
+}
+
+.pz-bagart {
+  position: absolute;
+  height: auto;
+  max-width: none;
+  transform-origin: 50% 90%;
+  filter: drop-shadow(0 8px 12px rgba(20, 36, 59, 0.12));
+}
+
+.pz-gem {
+  position: absolute;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.pz-desk.is-packing .pz-hole { opacity: 0; }
+.pz-desk.is-thanks .pz-title { opacity: 0; transform: translateY(-12px); filter: blur(5px); }
+.pz-desk.is-thanks .pz-thanks { opacity: 1; transform: none; }
+.pz-desk.is-out .pz-board { opacity: 0; }
+
+.pz-thing {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: grab;
+  touch-action: none;
+  pointer-events: auto;
+  filter: drop-shadow(0 2px 2px rgba(20, 36, 59, 0.12)) drop-shadow(0 8px 12px rgba(20, 36, 59, 0.1));
+  transition: filter 0.2s var(--pz-ease);
+}
+
+.pz-thing img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform 0.3s var(--pz-ease);
+}
+
+.pz-thing.is-held { cursor: grabbing; filter: drop-shadow(0 4px 4px rgba(20, 36, 59, 0.12)) drop-shadow(0 22px 22px rgba(20, 36, 59, 0.16)); }
+.pz-thing.is-placed { cursor: default; pointer-events: none; filter: drop-shadow(0 1px 1px rgba(20, 36, 59, 0.14)); }
+.pz-thing.is-gliding { transition: transform 0.75s var(--pz-ease), filter 0.4s var(--pz-ease); }
+.pz-desk.is-out .pz-thing { opacity: 0; }
+
+/* The live homepage bag, back once everything is packed. It sits over the board's spot. */
+.home-puzzle .pz-done {
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.home-puzzle .pz-done .home-bag__stage {
+  width: 100%;
+}
+
+.pz-done.is-in {
+  animation: pz-fade-in 0.45s ease both;
+}
+
+@keyframes pz-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes pz-rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 767px) {
+  .home-page .home-hero--puzzle { padding: 8px 0 40px; gap: 28px; }
+  .home-hero--puzzle .home-hero__copy { flex: 0 0 auto; padding-bottom: 0; }
+  .pz-bar { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pz-thing,
+  .pz-thing img,
+  .pz-thing.is-gliding,
+  .pz-board,
+  .pz-hole,
+  .pz-title,
+  .pz-thanks { transition: none !important; }
+  .pz-done.is-in,
+  .pz-again,
+  .pz-meter__dots i.is-pop,
+  .pz-meter .pz-meter__watch img { animation: none !important; transition: none !important; }
+}
+
+/* ---------- sidebar layout: a full-width band with the identity column on the left (ruled off
+   top to bottom) and the puzzle stage filling the rest. The logo stays in the nav bar. ---------- */
+.home-page .home-hero--sidebar {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0;
+  width: 100vw;
+  /* Leaves --pz-peek of the first screen for the top of Selected work. */
+  min-height: calc(100vh - 93px - var(--pz-peek));
+  margin-left: calc(50% - 50vw);
+  padding: 0;
+  border-bottom: 1px solid var(--home-rule);
+}
+
+.home-hero--sidebar .pz-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 56px 36px 48px var(--site-gutter);
+  border-right: 1px solid var(--home-rule);
+}
+
+.home-hero--sidebar .pz-side .home-hero__title {
+  font-size: 76px;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__lede {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+/* Links stacked and left-aligned, each with a small line icon. */
+.home-page .home-hero--sidebar .pz-side .home-hero__links {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.home-hero--sidebar .pz-side .home-hero__links .gem-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .home-page .home-hero--sidebar .pz-side .home-hero__links { gap: 0; }
+}
+
+.home-hero--sidebar .pz-side .home-hero__links .u-narrow {
+  display: none;
+}
+
+.home-hero--sidebar .pz-side .home-hero__links .u-wide {
+  display: inline;
+}
+
+.pz-ico {
+  position: static;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--home-ink);
+}
+
+.pz-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 4px;
+  color: var(--home-ink-soft);
+  font: 400 15px/1.2 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.pz-now b {
+  color: var(--home-ink);
+  font-weight: 500;
+}
+
+.home-hero--sidebar .home-puzzle {
+  width: auto;
+  min-width: 0;
+  gap: 12px;
+  padding: 28px var(--site-gutter) 32px 40px;
+}
+
+.home-hero--sidebar .pz-bar {
+  justify-content: space-between;
+}
+
+.home-hero--sidebar .pz-bar__end {
+  display: flex;
+  gap: 10px;
+}
+
+.home-hero--sidebar .pz-meter {
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.home-hero--sidebar .pz-status {
+  margin: 0;
+}
+
+/* The stage: open white space the things lie on, with the board centred in it. */
+.pz-section {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.pz-section .pz-desk {
+  z-index: 2;
+}
+
+.pz-section .pz-spot {
+  width: min(470px, 100%);
+}
+
+@media (max-width: 860px) {
+  .home-page .home-hero--sidebar {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .home-hero--sidebar .pz-side {
+    padding: 28px var(--site-gutter) 28px;
+    border-right: 0;
+    border-bottom: 1px solid var(--home-rule);
+  }
+
+  .home-hero--sidebar .pz-side .home-hero__title {
+    font-size: clamp(56px, 14.8vw, 76px);
+  }
+
+  .home-hero--sidebar .home-puzzle {
+    padding: 20px var(--site-gutter) 32px;
+  }
+}
+
+.pz-section .home-bag__label {
+  background: transparent;
+}
+
+/* Full-bleed band at every width, and nothing (gems, held photos) may widen the page. */
+.home-page .home-hero.home-hero--sidebar {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  overflow-x: clip;
+}
+
+/* ---------- compact board (sidebar layout): title above, a bigger, squarer board ---------- */
+.pz-heading {
+  margin: 4px 0 0;
+  color: var(--home-ink);
+  font: 400 54px/0.95 "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+  letter-spacing: -0.06em;
+}
+
+[data-pz-compact] .pz-section {
+  padding: 0;
+}
+
+/* Flat lay from the reference (742 × 415): as tall as the viewport allows, leaving room either side for the loose things. */
+[data-pz-compact] .pz-section .pz-spot {
+  width: min(calc(100% - 340px), calc((100vh - 93px - 236px - var(--pz-peek)) * 860 / 690), 960px);
+  min-width: min(100%, 420px);
+  aspect-ratio: 860 / 690;
+}
+
+[data-pz-compact] .pz-board { width: 860px; height: 690px; }
+[data-pz-compact] .pz-title { display: none; }
+[data-pz-compact] .pz-thanks { left: 345px; top: 160px; width: 350px; font-size: 46px; }
+
+/* ---------- Show solution: a navy pill with a star gem that twirls, and the homepage's gem wings
+   popping out either side on hover, like the nav links. ---------- */
+.pz-solve {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--home-ink);
+  cursor: var(--cursor-link, pointer);
+  color: #fff;
+  font: 400 15px/1 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 8px 18px -10px rgba(20, 36, 59, 0.75);
+  transition: transform 0.3s var(--pz-spring), box-shadow 0.25s ease, background 0.2s ease;
+}
+
+.pz-solve__gem {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.35));
+  transition: transform 0.6s var(--pz-spring);
+}
+
+.pz-solve__wing {
+  position: absolute;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  background: url("../assets/home/decor/focus-state.png") center / contain no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.35s var(--pz-spring);
+}
+
+.pz-solve__wing--l {
+  right: calc(100% - 4px);
+  transform: translateY(-50%) translateX(8px) rotate(20deg) scale(0.6);
+}
+
+.pz-solve__wing--r {
+  left: calc(100% - 4px);
+  transform: translateY(-50%) translateX(-8px) scaleX(-1) rotate(20deg) scale(0.6);
+}
+
+.pz-solve:hover,
+.pz-solve:focus-visible {
+  background: #1c3150;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 12px 22px -10px rgba(20, 36, 59, 0.8);
+}
+
+.pz-solve:hover .pz-solve__gem,
+.pz-solve:focus-visible .pz-solve__gem {
+  transform: rotate(144deg) scale(1.15);
+}
+
+.pz-solve:hover .pz-solve__wing--l,
+.pz-solve:focus-visible .pz-solve__wing--l {
+  opacity: 1;
+  transform: translateY(-62%) translateX(0) rotate(-8deg) scale(1);
+}
+
+.pz-solve:hover .pz-solve__wing--r,
+.pz-solve:focus-visible .pz-solve__wing--r {
+  opacity: 1;
+  transform: translateY(-62%) translateX(0) scaleX(-1) rotate(-8deg) scale(1);
+}
+
+.pz-solve:active {
+  transform: scale(0.96);
+}
+
+.pz-solve:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pz-solve,
+  .pz-solve__gem,
+  .pz-solve__wing { transition: none; }
+}
+
+/* Title + a soft invitation under it. */
+.pz-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pz-sub {
+  margin: 0;
+  color: var(--home-ink-soft);
+  font: italic 300 17px/1.4 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- prototype: switch between the puzzles ---------- */
+.pz-games {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pz-games > .home-puzzle {
+  flex: 1;
+}
+
+.home-puzzle[hidden] {
+  display: none !important;
+}
+
+/* A soft pill with a white thumb that springs between the two games; the chosen one gets a
+   star gem that twirls in, and the homepage's gem wings flutter on hover. */
+/* Sits in the timer row, just left of the game's main button (its right edge is set by script). */
+.pz-games__switch {
+  position: absolute;
+  z-index: 5;
+  top: 24px;
+  right: var(--switch-right, 220px);
+  display: inline-flex;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(20, 36, 59, 0.055);
+  box-shadow: inset 0 1px 2px rgba(20, 36, 59, 0.08);
+}
+
+.pz-games__thumb {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(20, 36, 59, 0.12), 0 6px 14px -6px rgba(20, 36, 59, 0.28);
+  transition: transform 0.5s cubic-bezier(0.3, 1.35, 0.5, 1), width 0.5s cubic-bezier(0.3, 1.35, 0.5, 1);
+}
+
+.pz-games__switch button {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  cursor: var(--cursor-link, pointer);
+  color: var(--home-ink-soft);
+  font: 400 14.5px/1 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+  transition: color 0.25s ease, padding 0.4s cubic-bezier(0.3, 1.35, 0.5, 1);
+}
+
+.pz-games__switch button::before {
+  content: "";
+  width: 0;
+  height: 18px;
+  background: url("../assets/home/decor/star/star-00.png") center / contain no-repeat;
+  opacity: 0;
+  transform: rotate(-120deg) scale(0.3);
+  transition: width 0.4s cubic-bezier(0.3, 1.35, 0.5, 1), opacity 0.25s ease, transform 0.55s cubic-bezier(0.3, 1.35, 0.5, 1);
+}
+
+.pz-games__switch button[aria-pressed="true"] {
+  color: var(--home-ink);
+}
+
+.pz-games__switch button::before {
+  display: none;
+}
+
+
+
+.pz-games__switch button:not([aria-pressed="true"]):hover {
+  color: var(--home-ink);
+}
+
+.pz-games__switch .gem-wing {
+  top: 50%;
+  width: 14px;
+  height: 14px;
+}
+
+.pz-games__switch .gem-wing--l {
+  right: auto;
+  left: 2px;
+  transform: translateY(-50%) translateX(4px) rotate(20deg);
+}
+
+.pz-games__switch .gem-wing--r {
+  left: auto;
+  right: 2px;
+  transform: translateY(-50%) translateX(-4px) scaleX(-1) rotate(20deg);
+}
+
+.pz-games__switch button:not([aria-pressed="true"]):hover .gem-wing--l {
+  opacity: 1;
+  transform: translateY(-60%) translateX(0) rotate(-6deg);
+}
+
+.pz-games__switch button:not([aria-pressed="true"]):hover .gem-wing--r {
+  opacity: 1;
+  transform: translateY(-60%) translateX(0) scaleX(-1) rotate(-6deg);
+}
+
+.pz-games__switch button:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pz-games__thumb,
+  .pz-games__switch button,
+  .pz-games__switch button::before { transition: none; }
+}
+
+@media (max-width: 860px) {
+  .pz-games__switch {
+    position: relative;
+    top: auto;
+    right: auto;
+    align-self: flex-start;
+    margin: 20px 0 0 var(--site-gutter);
+  }
+}
+
+/* The switch takes a row, so both stages give a little height back. */
+.pz-games [data-pz-compact] .pz-section .pz-spot {
+  width: min(calc(100% - 340px), calc((100vh - 93px - 236px - var(--pz-peek)) * 860 / 690), 960px);
+}
+
+.pz-games .mb-spot {
+  height: clamp(380px, calc(100vh - 93px - 262px - var(--pz-peek)), 720px);
+}
+
+/* ---------- Selected work peeks in under the puzzle ---------- */
+.home-page {
+  --pz-peek: 112px;
+}
+
+.home-page .home-hero--sidebar + .work {
+  padding-top: 40px;
+}
+
+@media (max-width: 860px) {
+  .home-page .home-hero--sidebar + .work {
+    padding-top: 56px;
+  }
+}
+
+/* ---------- packed bag: click to spill wide (sidebar layout) ---------- */
+.home-puzzle .pz-done.is-wide {
+  overflow: visible;
+}
+
+.home-puzzle .pz-done.is-wide .home-bag__stage,
+.home-puzzle .pz-done.is-wide.is-open .home-bag__stage {
+  transform: none;
+}
+
+.home-puzzle .pz-done.is-wide.is-open .bag-item {
+  left: calc(var(--sx) / 520 * 100%);
+  top: calc(var(--sy) / 537 * 100%);
+  width: calc(var(--sw) / 520 * 100%);
+  transform: translate(-50%, -50%) rotate(calc(var(--sr) * 1deg)) scale(1);
+}
+
+.home-puzzle .pz-done.is-wide .bag-item:hover img,
+.home-puzzle .pz-done.is-wide .bag-item:focus-visible img {
+  transform: scale(1.07) rotate(-3deg);
+}
+
+.home-puzzle .pz-done.is-wide .bag-item img {
+  transition: transform 0.3s var(--pz-spring);
+}
+
+/* The note beside the closed bag: a star gem, two lines of handwriting-sized text and a little
+   curved arrow back at the bag. It bobs gently until the bag is opened. */
+.pz-peek {
+  position: absolute;
+  z-index: 8;
+  left: 80%;
+  top: 50%;
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  gap: 2px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: var(--cursor-link, pointer);
+  color: var(--home-ink);
+  font: 400 17px/1.25 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+  text-align: left;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.5s var(--pz-spring);
+}
+
+.pz-done.is-in .pz-peek {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.6s;
+  animation: pz-peek-bob 2.6s ease-in-out 1.4s infinite;
+}
+
+.pz-peek img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: transform 0.6s var(--pz-spring);
+}
+
+.pz-peek svg {
+  grid-column: 1 / -1;
+  width: 80px;
+  height: 44px;
+  margin-left: -44px;
+  color: var(--home-ink-soft);
+  transform: scaleY(-1);
+}
+
+.pz-peek:hover img {
+  transform: rotate(144deg) scale(1.2);
+}
+
+.pz-peek:hover span {
+  color: var(--home-ink);
+}
+
+.pz-done.is-open .pz-peek {
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+  transition-delay: 0s;
+}
+
+@keyframes pz-peek-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pz-done.is-in .pz-peek { animation: none; }
+}
+
+/* Open: the bag tips over on its side at the left (its mouth facing the spill). The hotspot that
+   closes it follows it there. Stage units are 520 × 537. */
+.home-puzzle .pz-done.is-wide .home-bag__body {
+  transform-origin: 50% 50%;
+  transition: transform 0.6s cubic-bezier(0.3, 1.3, 0.5, 1), left 0.6s cubic-bezier(0.3, 1.3, 0.5, 1), top 0.6s cubic-bezier(0.3, 1.3, 0.5, 1);
+}
+
+.home-puzzle .pz-done.is-wide.is-open .home-bag__body {
+  left: calc(-34 / 520 * 100%);
+  top: calc(290 / 537 * 100%);
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.home-puzzle .pz-done.is-wide.is-open .home-bag__hotspot {
+  left: calc(-205 / 520 * 100%);
+  top: calc(153 / 537 * 100%);
+  width: calc(343 / 520 * 100%);
+  height: calc(273 / 537 * 100%);
+}
+
+/* things leave from (and return to) the tipped bag's mouth */
+.home-puzzle .pz-done.is-wide .bag-item {
+  left: calc(120 / 520 * 100%);
+  top: calc(290 / 537 * 100%);
+}
+
+/* Packed and closed: the bag sits bigger, and the bag and its note are centred together. The
+   stage eases back to its natural size as the things spill out. */
+.home-puzzle .pz-done.is-wide:not(.is-open) .home-bag__stage {
+  transform-origin: calc(258 / 520 * 100%) calc(343 / 537 * 100%);
+  transform: none;
+}
+
+.home-puzzle .pz-done.is-wide .home-bag__stage {
+  transform-origin: calc(258 / 520 * 100%) calc(343 / 537 * 100%);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Note sits level with the middle of the bag (handles to base), its arrow pointing back in. */
+.home-puzzle .pz-done.is-wide .pz-peek {
+  left: 84%;
+  top: calc(343 / 537 * 100%);
+  margin-top: -16px;
+  font-size: 15px;
+  outline: none;
+  text-decoration: none;
+}
+
+.home-puzzle .pz-done.is-wide .pz-peek:focus-visible span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Sidebar links: on hover, a single gem wing flutters out to the right of the words. */
+.home-page .home-hero--sidebar .pz-side .home-hero__links .gem-wing--l {
+  display: none;
+}
+
+/* No focus box around the packed bag after clicking it; keyboard focus still gets a soft ring on the items. */
+.home-page .pz-done .home-bag__body,
+.home-page .pz-done .home-bag__hotspot,
+.home-page .pz-done .home-bag__body:focus-visible,
+.home-page .pz-done .home-bag__hotspot:focus-visible,
+.home-page .pz-done .bag-item:focus {
+  outline: none;
+}
+
+.home-page .pz-done .bag-tip {
+  transition: opacity var(--tip-fade, 0.15s ease), transform 0.2s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+/* No rule under the Selected work heading on the puzzle homepage. */
+.home-page .home-hero--sidebar ~ .work .work-head {
+  border-bottom: 0;
+}
+
+/* ---------- touch points, matched to the portfolio's text links ----------
+   Like the nav and hero links: the text simply goes medium weight on hover and when chosen,
+   with a hidden medium-weight copy reserving the width so nothing shifts. */
+.pz-tl__sizer,
+.pz-tl__label {
+  position: static;
+  grid-area: 1 / 1;
+  text-align: center;
+}
+
+.pz-tl__sizer {
+  font-weight: 500;
+  visibility: hidden;
+}
+
+.pz-tl__label {
+  font-weight: 400;
+}
+
+/* the switch: plain words, no pill */
+.pz-games__switch {
+  gap: 26px;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.pz-games__thumb {
+  display: none;
+}
+
+.pz-games__switch button {
+  display: inline-grid;
+  height: 42px;
+  padding: 0;
+  color: var(--home-ink-soft);
+  font: 400 16px/1 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.pz-games__switch button:hover,
+.pz-games__switch button[aria-pressed="true"] {
+  color: var(--home-ink);
+}
+
+.pz-games__switch button:hover .pz-tl__label,
+.pz-games__switch button:focus-visible .pz-tl__label,
+.pz-games__switch button[aria-pressed="true"] .pz-tl__label {
+  font-weight: 500;
+}
+
+/* Fill it for me: an underlined text link, like Resume */
+.pz-solve,
+.pz-solve:hover,
+.pz-solve:focus-visible {
+  display: inline-grid;
+  height: auto;
+  padding: 0 0 2px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transform: none;
+  color: var(--home-ink);
+  font: 400 16px/1.25 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.pz-solve .pz-tl__label {
+  border-bottom: 1px solid var(--home-ink);
+  padding-bottom: 2px;
+}
+
+.pz-solve .pz-tl__sizer {
+  padding-bottom: 3px;
+}
+
+.pz-solve:hover .pz-tl__label,
+.pz-solve:focus-visible .pz-tl__label {
+  font-weight: 500;
+}
+
+/* ---------- puzzle touch points, in the portfolio's text-link language ----------
+   "play a new puzzle →" and "scramble again" are text links like LinkedIn / Resume: an ink
+   underline, medium weight on hover with no shift, and a small icon that nudges on hover. */
+.pz-games__switch {
+  gap: 0;
+}
+
+.pz-next,
+.home-puzzle .pz-again {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  cursor: var(--cursor-link, pointer);
+  color: var(--home-ink);
+  font: 400 16px/1.25 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.pz-next__text,
+.pz-again__text {
+  display: inline-grid;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--home-ink);
+}
+
+.home-puzzle .pz-again {
+  font-size: 15px;
+}
+
+.home-puzzle .pz-again:hover,
+.home-puzzle .pz-again:focus-visible {
+  background: none;
+}
+
+.pz-next:hover .pz-tl__label,
+.pz-next:focus-visible .pz-tl__label,
+.home-puzzle .pz-again:hover .pz-tl__label,
+.home-puzzle .pz-again:focus-visible .pz-tl__label {
+  font-weight: 500;
+}
+
+.pz-next svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.24s ease;
+}
+
+.pz-next:hover svg,
+.pz-next:focus-visible svg {
+  transform: translateX(5px);
+}
+
+.home-puzzle .pz-again svg {
+  width: 13px;
+  height: 13px;
+}
+
+.pz-next:focus,
+.home-puzzle .pz-again:focus {
+  outline: none;
+}
+
+.pz-next {
+  white-space: nowrap;
+}
+
+.pz-games__switch button.pz-next {
+  display: inline-flex;
+  align-items: center;
+  height: 42px;
+  color: var(--home-ink);
+}
+
+/* "play a new puzzle": an outlined pill, so it reads as moving on rather than as an action inside
+   the puzzle (Fill it for me stays an underlined link). Fills with ink on hover. */
+.pz-games__switch button.pz-next {
+  height: 40px;
+  padding: 0 16px 0 18px;
+  border: 1px solid var(--home-ink);
+  border-radius: 999px;
+  background: #fff;
+  transition: background 0.22s ease, color 0.22s ease;
+}
+
+.pz-games__switch button.pz-next .pz-next__text {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.pz-games__switch button.pz-next:hover,
+.pz-games__switch button.pz-next:focus-visible {
+  background: var(--home-ink);
+  color: #fff;
+}
+
+.pz-games__switch button.pz-next:hover .pz-tl__label,
+.pz-games__switch button.pz-next:focus-visible .pz-tl__label {
+  font-weight: 400;
+}
+
+/* ---------- puzzle actions: "play a new puzzle" and "fill it for me" ----------
+   Built like the portfolio's nav and sidebar links: a thin line icon (same stroke as the
+   LinkedIn / mail / resume icons) beside plain Satoshi text in the soft ink. On hover the text
+   goes full ink and medium weight (a hidden medium copy holds the width) and the icon wiggles. */
+.home-page .pz-act,
+.home-page .pz-games__switch .pz-act,
+.home-page .pz-act:hover,
+.home-page .pz-act:focus-visible,
+.home-page .pz-games__switch .pz-act:hover,
+.home-page .pz-games__switch .pz-act:focus-visible {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transform: none;
+  cursor: var(--cursor-link, pointer);
+  font: 400 16.5px/1.2 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.home-page .pz-act {
+  color: var(--home-ink-soft);
+  transition: color 0.22s ease;
+}
+
+.home-page .pz-act:hover,
+.home-page .pz-act:focus-visible {
+  color: var(--home-ink);
+}
+
+.home-page .pz-act .pz-act__text {
+  display: inline-grid;
+  padding: 0;
+  border: 0;
+}
+
+.home-page .pz-act .pz-tl__label,
+.home-page .pz-act .pz-tl__sizer {
+  padding: 0;
+  border: 0;
+}
+
+.home-page .pz-act:hover .pz-tl__label,
+.home-page .pz-act:focus-visible .pz-tl__label {
+  font-weight: 500;
+}
+
+.home-page .pz-act .pz-act__ico {
+  position: static;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  transform-origin: 50% 60%;
+  transition: transform 0.45s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+.home-page .pz-next:hover .pz-act__ico,
+.home-page .pz-next:focus-visible .pz-act__ico {
+  transform: rotate(-14deg) scale(1.08);
+}
+
+.home-page .pz-solve:hover .pz-act__ico,
+.home-page .pz-solve:focus-visible .pz-act__ico {
+  transform: rotate(-18deg) translateY(-1px);
+}
+
+.home-page .pz-act:focus {
+  outline: none;
+}
+
+.home-page .pz-act:focus-visible .pz-act__text {
+  outline: 2px solid var(--home-ink);
+  outline-offset: 4px;
+}
+
+/* the two sit apart like the nav links do */
+.home-page .pz-games {
+  --pz-act-gap: 36px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .pz-act .pz-act__ico { transition: none; }
+}
+
+/* keep "play a new puzzle" in the soft ink at rest, and level with "fill it for me" */
+.home-page .pz-games__switch .pz-act {
+  color: var(--home-ink-soft);
+}
+
+.home-page .pz-games__switch .pz-act:hover,
+.home-page .pz-games__switch .pz-act:focus-visible {
+  color: var(--home-ink);
+}
+
+.home-page .pz-games .pz-games__switch {
+  top: var(--switch-top, 44px);
+  transform: translateY(-50%);
+}
+
+@media (max-width: 860px) {
+  .home-page .pz-games .pz-games__switch {
+    top: auto;
+    transform: none;
+  }
+}
+
+/* scramble again: same icon + text treatment, a touch smaller as it sits in the timer row */
+.home-page .home-puzzle .pz-again.pz-act {
+  height: 32px;
+  margin-left: 6px;
+  font-size: 15px;
+}
+
+.home-page .home-puzzle .pz-again.pz-act[hidden] {
+  display: none;
+}
+
+.home-page .home-puzzle .pz-again.pz-act .pz-act__ico {
+  width: 17px;
+  height: 17px;
+}
+
+.home-page .home-puzzle .pz-again.pz-act:hover .pz-act__ico,
+.home-page .home-puzzle .pz-again.pz-act:focus-visible .pz-act__ico {
+  transform: scaleX(-1);
+}
+
+/* the action row: play a new puzzle · (look closer) · fill it for me, spaced like the nav */
+.home-page .pz-bar__end {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.home-page .pz-act[hidden] {
+  display: none !important;
+}
+
+.home-page .mb-zoom.pz-act:hover .pz-act__ico,
+.home-page .mb-zoom.pz-act:focus-visible .pz-act__ico {
+  transform: scale(1.12);
+}
+
+@media (max-width: 860px) {
+  .home-page .pz-bar__end {
+    flex-wrap: wrap;
+    gap: 4px 24px;
+  }
+}
+
+/* Tighter gap between the Selected work heading and the first project (rows keep their own spacing). */
+.home-page .home-hero--sidebar ~ .work .work-head {
+  margin-bottom: -64px;
+}
+
+/* ---------- numbering: "(1)" beside each outline and on its loose thing ---------- */
+.pz-num {
+  position: absolute;
+  z-index: 1;
+  color: rgba(20, 36, 59, 0.55);
+  font: 500 12px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  transition: opacity 0.5s var(--pz-ease);
+}
+
+.pz-desk.is-packing .pz-num { opacity: 0; }
+
+.pz-thing .pz-tag {
+  position: absolute;
+  top: -10px;
+  right: -14px;
+  padding: 3px 7px 3px 8px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--home-rule), 0 4px 10px -6px rgba(20, 36, 59, 0.4);
+  color: var(--home-ink);
+  font: 500 11px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.pz-thing.is-placed .pz-tag,
+.pz-desk.is-packing .pz-tag {
+  opacity: 0;
+}
+
+/* closed, the bag stays exactly where it sits on the board */
+
+.home-puzzle .pz-done.is-wide.is-open .home-bag__stage,
+.home-puzzle .pz-done.is-wide .home-bag__stage {
+  transform: none;
+}
+
+/* "click to see what's in my bag": soft grey words with a hand-drawn arrow curving down to the bag */
+.home-puzzle .pz-done.is-wide .pz-peek {
+  left: calc(100% - 6px);
+  margin-top: -40px;
+  color: #393939;
+  font: 400 15px/1.3 "Satoshi", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.home-puzzle .pz-done.is-wide .pz-peek svg {
+  width: 74px;
+  height: 42px;
+  margin: 4px 0 0 -58px;
+  color: #707070;
+  transform: none;
+  overflow: visible;
+}
+
+.home-puzzle .pz-done.is-wide .pz-peek:hover span {
+  color: #181818;
+}
+
+/* puzzle notes and highlights use the site's greys rather than navy */
+.home-puzzle .bag-tip {
+  background: #393939;
+}
+
+
+.home-puzzle .pz-done.is-wide .pz-peek svg {
+  width: 96px;
+  height: 54px;
+  margin: 6px 0 0 -74px;
+}
+
+.home-puzzle .pz-done.is-wide .pz-peek svg path {
+  stroke-width: 1.6;
+}
+
+/* longer arrow that swoops from the words into the bag's opening */
+.home-puzzle .pz-done.is-wide .pz-peek {
+  margin-top: -54px;
+}
+
+.home-puzzle .pz-done.is-wide .pz-peek svg {
+  width: 260px;
+  height: 60px;
+  margin: 6px 0 0 -240px;
+}
+
+.home-puzzle .pz-done.is-wide .pz-peek svg path {
+  stroke-width: 1.5;
+}
+
+/* a soft white halo keeps the arrow readable where it crosses into the dark bag */
+.home-puzzle .pz-done.is-wide .pz-peek svg {
+  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff);
+}
+
+/* ---------- page layout: a slim sticky sidebar, with the puzzles and Selected work stacked in
+   the column beside it ---------- */
+.home-page .home-hero.home-hero--sidebar {
+  --side-w: 268px;
+  position: relative;
+  grid-template-columns: var(--side-w) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  min-height: 0;
+  border-bottom: 0;
+  overflow-x: clip;
+}
+
+/* the sidebar's rule runs the full height of the page */
+.home-page .home-hero--sidebar::after {
+  content: "";
+  position: absolute;
+  left: var(--side-w);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--home-rule);
+  pointer-events: none;
+}
+
+.home-page .home-hero--sidebar .pz-side {
+  grid-row: 1 / span 2;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  gap: 6px;
+  max-height: 100vh;
+  padding: 36px 26px 32px var(--site-gutter);
+  border-right: 0;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__title {
+  font-size: 50px;
+  padding-bottom: 4px;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__lede {
+  font-size: 15px;
+  line-height: 1.32;
+  padding-block: 2px;
+}
+
+.home-page .home-hero--sidebar .pz-now {
+  margin: 2px 0 2px;
+  font-size: 13px;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__links {
+  gap: 8px;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.home-page .home-hero--sidebar .pz-side .pz-ico {
+  width: 16px;
+  height: 16px;
+}
+
+/* the puzzles keep their first-screen height, with the top of Selected work peeking in */
+.home-page .home-hero--sidebar .pz-games {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: calc(100vh - 93px - var(--pz-peek));
+}
+
+.home-page .home-hero--sidebar > .work {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  padding-left: clamp(32px, 4vw, 64px);
+  padding-right: var(--site-gutter);
+  border-top: 1px solid var(--home-rule);
+}
+
+.home-page .home-hero--sidebar > .work .work-head {
+  border-bottom: 0;
+  margin-bottom: -64px;
+}
+
+@media (max-width: 860px) {
+  .home-page .home-hero.home-hero--sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-page .home-hero--sidebar::after { display: none; }
+  .home-page .home-hero--sidebar .pz-side { grid-row: auto; position: static; max-height: none; }
+  .home-page .home-hero--sidebar .pz-games,
+  .home-page .home-hero--sidebar > .work { grid-column: 1; grid-row: auto; }
+  .home-page .home-hero--sidebar > .work { padding-left: var(--site-gutter); }
+}
+
+/* the note sits to the right of the bag at strap height; a short arrow arcs from the words over
+   to the strap. Positions are in the bag stage's 520 × 537 units. */
+.home-puzzle .pz-done.is-wide .pz-peek {
+  display: block;
+  left: calc(455 / 520 * 100%);
+  top: calc(285 / 537 * 100%);
+  margin: 0;
+}
+
+.home-puzzle .pz-done.is-wide .pz-peek svg {
+  position: absolute;
+  left: -101px;
+  top: 1px;
+  width: 100px;
+  height: 40px;
+  margin: 0;
+}
+
+/* sit below the sticky nav bar, and bring Selected work up into the first screen's peek */
+.home-page .home-hero--sidebar .pz-side {
+  top: 93px;
+  max-height: calc(100vh - 93px);
+}
+
+.home-page .home-hero--sidebar > .work {
+  padding-top: 44px;
+}
+
+/* thinner sidebar, roomier Selected work */
+.home-page .home-hero.home-hero--sidebar {
+  --side-w: 232px;
+}
+
+.home-page .home-hero--sidebar .pz-side {
+  padding-right: 20px;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__title {
+  font-size: 44px;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__lede {
+  font-size: 14px;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__links {
+  font-size: 13px;
+}
+
+.home-page .home-hero--sidebar > .work {
+  padding-left: clamp(48px, 7vw, 120px);
+  padding-right: clamp(48px, 7vw, 120px);
+}
+
+/* sidebar content centred, with tighter gaps */
+.home-page .home-hero--sidebar .pz-side {
+  align-items: center;
+  text-align: center;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__title,
+.home-page .home-hero--sidebar .pz-side .home-hero__lede {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+  max-width: 100%;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__links {
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.home-hero--sidebar .pz-side .home-hero__links .gem-link {
+  gap: 7px;
+}
+
+.home-page .home-hero--sidebar .pz-now {
+  justify-content: center;
+}
+
+/* left-aligned text, with the block itself centred in the sidebar */
+.home-page .home-hero--sidebar .pz-side {
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.home-page .home-hero--sidebar .pz-side > * {
+  width: 184px;
+  max-width: calc(100% - 32px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__title {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__lede {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.home-page .home-hero--sidebar .pz-side .home-hero__links {
+  align-items: flex-start;
+}
+
+.home-page .home-hero--sidebar .pz-now {
+  justify-content: flex-start;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__title,
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__lede,
+.home-page .home-hero.home-hero--sidebar .pz-side > .pz-now,
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__links {
+  box-sizing: border-box;
+  width: 184px;
+  max-width: calc(100% - 32px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* "prev @ IBM": italic, natural word spacing; the links sit a little further below it */
+.home-page .home-hero.home-hero--sidebar .pz-side > .pz-now {
+  display: block;
+  font-style: italic;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .pz-now b {
+  font-style: italic;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__links {
+  margin-top: 12px;
+}
+
+/* the footer lives in the Selected work column, with the same side margins */
+.home-page .home-hero--sidebar > .site-footer {
+  grid-column: 2;
+  grid-row: 3;
+  min-width: 0;
+  margin: 0;
+}
+
+.home-page .home-hero--sidebar > .site-footer .site-footer__body {
+  width: auto;
+  max-width: none;
+  padding-left: clamp(48px, 7vw, 120px);
+  padding-right: clamp(48px, 7vw, 120px);
+}
+
+.home-page .home-hero.home-hero--sidebar {
+  grid-template-rows: auto auto auto;
+}
+
+.home-page .home-hero--sidebar .pz-side {
+  grid-row: 1 / span 3;
+}
+
+@media (max-width: 860px) {
+  .home-page .home-hero--sidebar > .site-footer { grid-column: 1; grid-row: auto; }
+  .home-page .home-hero--sidebar > .site-footer .site-footer__body { padding-left: var(--site-gutter); padding-right: var(--site-gutter); }
+}
+
+/* Selected work: every preview the same width, and frames and text share left edges */
+.home-page .home-hero--sidebar > .work a.work-row.project--feature {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.home-page .home-hero--sidebar > .work .work-row__text {
+  padding-left: 0;
+}
+
+/* puzzle titles step back: smaller than the name and the Selected work heading */
+.home-page .home-hero--sidebar .pz-heading {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.home-page .home-hero--sidebar .pz-sub {
+  font-size: 15px;
+}
+
+/* the puzzle-piece icon fills in on hover */
+.home-page .pz-next .pz-act__ico path {
+  fill: transparent;
+  transition: fill 0.2s ease;
+}
+
+.home-page .pz-next:hover .pz-act__ico path,
+.home-page .pz-next:focus-visible .pz-act__ico path {
+  fill: currentColor;
+}
+
+/* the puzzle header (timer row, title, subtitle) uses Selected work's side margins;
+   everything below it keeps its own layout */
+.home-page .home-hero--sidebar {
+  --work-x: clamp(48px, 7vw, 120px);
+}
+
+.home-page .home-hero--sidebar .home-puzzle > .pz-bar,
+.home-page .home-hero--sidebar .home-puzzle > .pz-head,
+.home-page .home-hero--sidebar .mb-stage > .mb-title {
+  margin-left: calc(var(--work-x) - 40px);
+  margin-right: calc(var(--work-x) - var(--site-gutter));
+}
+
+/* the word bank starts on the same left edge as the puzzle title */
+.home-page .home-hero--sidebar .ws-stage > .ws-bank {
+  margin-left: calc(var(--work-x) - 40px);
+}
+
+/* ---------- editorial sidebar: status line + ruled facts (Currently, Previously, Lately) ---------- */
+.home-page .home-hero.home-hero--sidebar .pz-side > .sb-status,
+.home-page .home-hero.home-hero--sidebar .pz-side > .sb-facts {
+  box-sizing: border-box;
+  width: 184px;
+  max-width: calc(100% - 32px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sb-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  color: #181818;
+  font: 500 12.5px/1.2 "Satoshi", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.sb-dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: #3fae6a;
+  box-shadow: 0 0 0 3px rgba(63, 174, 106, 0.18);
+}
+
+.sb-facts {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.sb-facts > div {
+  padding: 10px 0;
+  border-top: 1px solid #dcdcdc;
+}
+
+.sb-facts > div:last-child {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.sb-facts dt {
+  margin-bottom: 5px;
+  color: #707070;
+  font: 500 9.5px/1 "Satoshi", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sb-facts dd {
+  margin: 0;
+  color: #181818;
+  font: 400 13px/1.35 "Satoshi", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.sb-facts ul {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sb-facts li {
+  color: #393939;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__links {
+  margin-top: 16px;
+}
+
+/* minimal facts: no rules, a single quiet line each, more air between groups */
+.home-page .sb-facts {
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.home-page .sb-facts > div,
+.home-page .sb-facts > div:last-child {
+  padding: 0;
+  border: 0;
+}
+
+.home-page .sb-facts dt {
+  margin-bottom: 4px;
+  color: #aaaaaa;
+}
+
+.home-page .sb-facts dd {
+  color: #393939;
+  font-size: 13px;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__links {
+  margin-top: 22px;
+}
+
+/* a small line icon beside each label */
+.home-page .sb-facts dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sb-ico {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  color: #707070;
+}
+
+/* tagline: larger, regular weight, darker grey, roomier lines */
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__lede {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: #393939;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__lede em {
+  font-weight: 400;
+}
+
+/* more air between the sidebar's sections */
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__lede {
+  margin-top: 4px;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .sb-facts {
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__links {
+  margin-top: 32px;
+}
+
+/* sidebar links: no underlines (LinkedIn and Resume used the underlined "line" variant) */
+.home-page .home-hero--sidebar .pz-side .gem-link--line .gem-link__label {
+  border-bottom: 0;
+}
+
+.home-page .home-hero--sidebar .pz-side .gem-link--line .gem-link__sizer,
+.home-page .home-hero--sidebar .pz-side .gem-link--line .gem-link__label {
+  padding-bottom: 0;
+}

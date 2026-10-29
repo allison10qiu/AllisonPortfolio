@@ -1,0 +1,416 @@
+/* Magnet board puzzle (puzzle-board.html). Shares the sidebar layout, buttons and meter with
+   puzzle-hero.css. Everything on the board is placed in px by scripts/board-puzzle.js. */
+
+.mb-stage {
+  position: relative;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  column-gap: 28px;
+  row-gap: 4px;
+  padding: 0 0 4px;
+}
+
+.mb-title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+.mb-spot {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  height: clamp(380px, calc(100vh - 93px - 262px - var(--pz-peek, 0px)), 720px);
+  aspect-ratio: 1000 / 1355;
+  max-width: 100%;
+}
+
+.mb-spill {
+  display: none;
+}
+
+.mb-desk {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mb-desk > * {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.mb-board {
+  z-index: 0;
+  max-width: none;
+  filter: drop-shadow(0 18px 26px rgba(40, 28, 20, 0.18)) drop-shadow(0 3px 5px rgba(40, 28, 20, 0.16));
+}
+
+/* An empty frame window: every one the same light grey, sunk a little, with a small prompt. */
+.mb-well {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 1px;
+  background: #e9ebee;
+  box-shadow: inset 0 1px 3px rgba(20, 36, 59, 0.16), inset 0 0 0 1px rgba(20, 36, 59, 0.05);
+  color: rgba(20, 36, 59, 0.5);
+  cursor: var(--cursor-link, pointer);
+  pointer-events: auto;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mb-well:hover {
+  background: #f2f3f5;
+  color: var(--home-ink);
+}
+
+.mb-well:focus {
+  outline: none;
+}
+
+.mb-well:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--home-ink);
+}
+
+.mb-well__cta {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: 400 11px/1 "Satoshi", sans-serif;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.mb-well:not(.is-roomy) .mb-well__cta span {
+  display: none;
+}
+
+.mb-well__cta svg {
+  width: 13px;
+  height: 13px;
+  transition: transform 0.4s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.mb-well:hover .mb-well:not(.is-roomy) .mb-well__cta span {
+  display: none;
+}
+
+.mb-well__cta svg {
+  transform: rotate(90deg) scale(1.15);
+}
+
+.mb-frame {
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.16)) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.12));
+}
+
+.mb-frame svg {
+  display: block;
+  overflow: visible;
+}
+
+.mb-holder {
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.22));
+}
+
+.mb-holder img,
+.mb-holder svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* The frame a held photo would drop into. */
+.mb-aim {
+  z-index: 150;
+  border-radius: 2px;
+  opacity: 0;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(20, 36, 59, 0.5), 0 0 22px 4px rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.mb-aim.is-on {
+  opacity: 1;
+}
+
+.mb-photo {
+  z-index: 20;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: grab;
+  touch-action: none;
+  pointer-events: auto;
+  background: #ddd;
+  box-shadow: 0 1px 2px rgba(20, 36, 59, 0.18), 0 8px 16px -6px rgba(20, 36, 59, 0.3);
+  transition: box-shadow 0.2s ease;
+}
+
+.mb-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.mb-photo.is-gliding {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), width 0.5s cubic-bezier(0.22, 1, 0.36, 1), height 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease;
+}
+
+.mb-photo.is-held {
+  cursor: grabbing;
+  box-shadow: 0 4px 6px rgba(20, 36, 59, 0.18), 0 22px 30px -8px rgba(20, 36, 59, 0.4);
+}
+
+/* Framed: tucked under its frame, flat against the steel. */
+.mb-photo.is-framed {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.mb-photo.is-pop {
+  animation: mb-snap 0.35s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+@keyframes mb-snap {
+  0% { filter: brightness(1.25); }
+  100% { filter: none; }
+}
+
+.mb-gem {
+  position: absolute;
+  z-index: 160;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.home-hero--board .pz-status {
+  text-align: center;
+}
+
+/* Phones and narrow stages: title, then the board, then the pile underneath. */
+.is-stacked .mb-stage {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  row-gap: 18px;
+}
+
+.is-stacked .mb-title .pz-heading {
+  font-size: 46px;
+}
+
+.is-stacked .mb-spot {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  height: auto;
+}
+
+.is-stacked .mb-spill {
+  display: block;
+  grid-row: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-photo.is-gliding,
+  .mb-aim { transition: none; }
+  .mb-photo.is-pop { animation: none; }
+}
+
+/* ---------- zoom (after the board is full) ---------- */
+.mb-desk {
+  transform-origin: 0 0;
+}
+
+.mb-desk.is-easing {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mb-stage.is-zoomable,
+.mb-stage.is-zoomable .mb-photo {
+  cursor: zoom-in;
+}
+
+.mb-stage.is-zoomed {
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.mb-stage.is-zoomed:active {
+  cursor: grabbing;
+}
+
+.mb-stage.is-zoomed .mb-title {
+  visibility: hidden;
+}
+
+.mb-stage.is-zoomed .mb-photo {
+  cursor: inherit;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-desk.is-easing { transition: none; }
+}
+
+/* ---------- finale: table → wall ---------- */
+.mb-rig {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mb-rig .mb-desk {
+  z-index: auto;
+}
+
+.mb-title {
+  position: relative;
+  z-index: 3;
+}
+
+/* the world behind the board: hidden while playing, a light oak table, then a plaster wall */
+.mb-surface {
+  position: absolute;
+  inset: -8px calc(-1 * var(--site-gutter, 40px)) -32px -40px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mb-surface__table,
+.mb-surface__wall {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.mb-surface__table {
+  background:
+    repeating-linear-gradient(91deg, rgba(120, 82, 40, 0.06) 0 2px, transparent 2px 11px),
+    repeating-linear-gradient(89deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 29px),
+    radial-gradient(120% 90% at 50% 30%, rgba(255, 255, 255, 0.35), transparent 60%),
+    linear-gradient(180deg, #e6d2b2, #dcc39d 60%, #d4b98f);
+}
+
+.mb-surface__wall {
+  background:
+    radial-gradient(70% 60% at 30% 10%, rgba(255, 255, 255, 0.75), transparent 70%),
+    repeating-radial-gradient(circle at 20% 30%, rgba(120, 100, 80, 0.035) 0 1px, transparent 1px 4px),
+    repeating-radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, #f3eee6, #ebe4d8);
+  box-shadow: inset 0 -60px 80px -60px rgba(90, 70, 50, 0.18);
+}
+
+.mb-surface.is-table .mb-surface__table { opacity: 1; }
+.mb-surface.is-wall .mb-surface__table { opacity: 0; transition-delay: 0.2s; }
+.mb-surface.is-wall .mb-surface__wall { opacity: 1; }
+
+/* the board's shadow tells the story: pressed flat → lifted → hanging off the wall */
+.mb-board {
+  transition: filter 0.6s ease;
+}
+
+.mb-rig.is-flat .mb-board {
+  filter: drop-shadow(0 3px 3px rgba(60, 40, 20, 0.35)) drop-shadow(0 10px 16px rgba(60, 40, 20, 0.18));
+}
+
+.mb-rig.is-lifted .mb-board {
+  filter: drop-shadow(0 10px 10px rgba(60, 40, 20, 0.18)) drop-shadow(0 60px 50px rgba(60, 40, 20, 0.22));
+}
+
+.mb-rig.is-hung .mb-board {
+  filter: drop-shadow(2px 4px 4px rgba(60, 45, 30, 0.25)) drop-shadow(10px 26px 26px rgba(60, 45, 30, 0.22));
+}
+
+/* wire + nail */
+.mb-hanger {
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.mb-hanger svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.mb-rig.is-hung .mb-hanger {
+  opacity: 1;
+}
+
+.mb-nail {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fafafa, #b7b9bd 45%, #6d7076 100%);
+  box-shadow: 1px 3px 3px rgba(60, 45, 30, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-surface__table, .mb-surface__wall, .mb-board, .mb-hanger { transition: none; }
+}
+
+/* The background stays the page's white through the whole finale: only the board moves
+   (flat → lifted → hung), told by its tilt and shadow. */
+.mb-surface {
+  display: none;
+}
+
+/* the board's cast shadow, on the page behind it (only visible during the finale) */
+.mb-ground {
+  position: absolute;
+  z-index: 1;
+  border-radius: 6px;
+  background: rgba(45, 32, 20, 0.85);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* the board's own drop shadows give way to the cast shadow */
+.mb-rig.is-flat .mb-board,
+.mb-rig.is-lifted .mb-board,
+.mb-rig.is-hung .mb-board {
+  filter: drop-shadow(0 1px 1px rgba(45, 32, 20, 0.22));
+}
+
+/* the tabletop revealed under the board as the view tilts from overhead */
+.mb-table {
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+  border-radius: 10px;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  background:
+    repeating-linear-gradient(91deg, rgba(110, 72, 34, 0.07) 0 2px, transparent 2px 13px),
+    repeating-linear-gradient(89deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 31px),
+    radial-gradient(90% 70% at 45% 35%, rgba(255, 255, 255, 0.28), transparent 70%),
+    linear-gradient(175deg, #dcc196, #cfae7f 55%, #c4a272);
+  /* the slab's front edge, seen once it is tilted */
+  box-shadow: 0 14px 0 #9c7a4f, 0 30px 40px -10px rgba(60, 40, 20, 0.35);
+}
+
+/* no table: the board simply lifts off its surface, told by the 3D tilt and its shadow */
+.mb-table { display: none; }

@@ -218,9 +218,9 @@
 
     function trailPeak(clientX, clientY) {
       var peak = 0.9;
-      var avoid = document.querySelectorAll("[data-trail-avoid]");
+      var avoid = document.querySelectorAll("[data-trail-avoid], [data-trail-quiet]");
       if (window.innerWidth < 768) {
-        avoid = document.querySelectorAll("[data-trail-avoid], .home-goals, .home-mems__cam, .home-mems__title");
+        avoid = document.querySelectorAll("[data-trail-avoid], [data-trail-quiet], .home-goals, .home-mems__cam, .home-mems__title");
       }
       for (var a = 0; a < avoid.length; a += 1) {
         var box = avoid[a].getBoundingClientRect();
@@ -278,7 +278,7 @@
     }
 
     function onMove(event) {
-      if (!heroOn) return;
+      if (!heroOn || hero.classList.contains("is-trail-off")) return;
       if (nodes > 160) return;
       var rect = trail.getBoundingClientRect();
       var x = event.clientX - rect.left;
