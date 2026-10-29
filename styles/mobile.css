@@ -310,8 +310,7 @@
     font-weight: 400;
     line-height: 1.12;
     white-space: normal;
-  letter-spacing: -0.05em;
-}
+  }
 
   .home-page .project__tags {
     justify-content: flex-start;

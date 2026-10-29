@@ -212,7 +212,7 @@
 }
 .cs-idx__n {
   font: 400 italic 14px/15px "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   text-transform: none;
   color: #aaa;
 }
@@ -233,14 +233,12 @@
   border-bottom:1px solid #F4F4F4;cursor:var(--cursor-normal,default);user-select:none}
 .toc-locked[hidden]{display:none}
 .toc-locked__head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px;align-items:baseline}
-.toc-locked__range{font:400 italic 14px/15px 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA
-  letter-spacing: -0.05em;
-}
+.toc-locked__range{font:400 italic 14px/15px 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#AAAAAA}
 .toc-locked__label{font:500 10.5px/1.45 'Satoshi',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#707070}
 .toc-locked__bars{display:flex;flex-direction:column;gap:9px;padding-left:46px}
 .toc-locked__bars span{display:block;height:5px;background:#F1F1F1}
 .toc-locked__hint{font:400 italic 14px/1.35 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;
-  letter-spacing: -0.05em;color:#707070}
+  letter-spacing:-.01em;color:#707070}
 
 @media (max-width: 719px) {
   .cs-page [data-scroll-shot] { aspect-ratio: auto !important; overflow: visible !important; }
@@ -403,7 +401,7 @@
 .cs-nw__heading {
   margin: 0;
   font: 400 clamp(38px, 3.6vw, 52px)/1 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 .cs-nw__rail {
   overflow-x: auto;
@@ -475,7 +473,7 @@
 }
 .cs-nw__name {
   font: 400 clamp(28px, 2.4vw, 34px)/1.04 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
 }
 @media (hover: hover) and (pointer: fine) {
   .cs-nw__card:hover .cs-nw__media,

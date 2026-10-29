@@ -148,7 +148,7 @@
   font-size: clamp(68px, 8.5vw, 105px);
   font-weight: 400;
   line-height: 0.9;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.08em;
   color: var(--home-ink);
 }
 
@@ -497,7 +497,7 @@
   font-size: 28px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.075em;
   white-space: nowrap;
 }
 
@@ -510,7 +510,7 @@
   font-style: italic;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
   white-space: nowrap;
 }
 
@@ -567,7 +567,7 @@
   font-size: calc(43px * 0.775);
   font-weight: 400;
   line-height: 1.1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
   white-space: nowrap;
   color: var(--home-ink);
 }
@@ -727,7 +727,7 @@
   font-size: 72px;
   font-weight: 400;
   line-height: 0.9;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.07em;
 }
 
 .home-modal__years {
@@ -735,7 +735,7 @@
   font-family: "Apple Garamond", "Iowan Old Style", Palatino, Georgia, serif;
   font-size: 30px;
   font-style: italic;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 .home-goal {

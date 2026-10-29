@@ -279,7 +279,7 @@
 
 @font-face {
   font-family: "Apple Garamond";
-  src: url("../assets/fonts/zt/ZTBrosOskon90s-Regular.otf") format("opentype");
+  src: url("../assets/fonts/AppleGaramond.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -287,7 +287,7 @@
 
 @font-face {
   font-family: "Apple Garamond";
-  src: url("../assets/fonts/zt/ZTBrosOskon90s-Italic.otf") format("opentype");
+  src: url("../assets/fonts/AppleGaramond-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
