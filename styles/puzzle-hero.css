@@ -1947,3 +1947,15 @@
 .home-page .home-hero--sidebar .pz-side .gem-link--line .gem-link__label {
   padding-bottom: 0;
 }
+
+/* ---------- Fewer lines: the homepage keeps only its nav, sidebar and footer lines ---------- */
+.home-page .home-hero--sidebar > .work,
+.home-page .work-head {
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+}
+
+@media (max-width: 860px) {
+  .home-hero--sidebar .pz-side { border-bottom-width: 0; }
+}
+

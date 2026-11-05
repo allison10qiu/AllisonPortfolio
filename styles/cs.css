@@ -738,3 +738,24 @@
   .cs-hero { grid-template-columns: minmax(0, 1fr); }
   .cs-hero__side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
 }
+
+/* ---------- Fewer lines ----------
+   Kept: nav line, sidebar line, footer line, the rule under each page title, link
+   underlines and browser bars. Section, list and caption dividers go; spacing separates them instead. */
+.cs-page main :is(div, li, p, dl, ul, article, section, figcaption, span:not([aria-hidden]))[style*="border-top:"]:not([aria-hidden] *, #top p) {
+  border-top-width: 0 !important;
+}
+
+.cs-page main :is(li, ul, span:not([aria-hidden]))[style*="border-bottom:"]:not([aria-hidden] *) {
+  border-bottom-width: 0 !important;
+}
+
+.cs-page main.about-frame a[style*="border-top:"],
+.cs-aside div[style*="border-top:"],
+.cs-aside div[style*="border-bottom:"],
+.cs-aside .cs-idx__link,
+.cs-aside .toc-locked {
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+}
+
