@@ -370,7 +370,7 @@
    repositioned as it moves, nothing is cloned. Without script it is a plain snapping scroller. */
 .cs-nw {
   --nw-max: 1080px;
-  --nw-gutter: clamp(24px, 8.7vw, 112px);
+  --nw-gutter: var(--site-gutter, clamp(24px, 3.33vw, 48px));
   --nw-gap: 40px;
   padding: clamp(40px, 4vw, 56px) 0 clamp(48px, 4.4vw, 64px);
   font-family: "Satoshi", sans-serif;
@@ -381,14 +381,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: min(calc(100% - 2 * var(--nw-gutter)), var(--nw-max));
-  margin-inline: auto;
+  width: 100%;
   container-type: inline-size;
 }
 .cs-nw__head {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding-inline: var(--nw-gutter);
 }
 .cs-nw__eyebrow {
   font: 500 11px/1.3 "Satoshi", sans-serif;
@@ -423,7 +423,7 @@
   align-items: flex-start;
   gap: var(--nw-gap);
   width: max-content;
-  padding: 8px 0;
+  padding: 8px var(--nw-gutter);
 }
 .cs-nw__card {
   flex: none;
@@ -476,6 +476,15 @@
 @media (hover: hover) and (pointer: fine) {
   .cs-nw__card:hover .cs-nw__media,
   .cs-nw__card:focus-visible .cs-nw__media { transform: translateY(-4px); }
+}
+/* The rail runs edge to edge: cards grow so three always span the screen, leaving no gap as
+   a card wraps round. Everything inside scales with the card. */
+@media (min-width: 821px) {
+  .cs-nw__rail { --nw-card: max(clamp(260px, 40cqw, 432px), calc(100cqw / 3 - var(--nw-gap))); }
+  .cs-nw__card { width: var(--nw-card); }
+  .cs-nw__media { height: calc(var(--nw-card) * 0.667); }
+  .cs-nw__shot { max-width: calc(var(--nw-card) * 0.833); max-height: calc(var(--nw-card) * 0.51); }
+  .cs-nw__phone { height: calc(var(--nw-card) * 0.555); }
 }
 /* Narrow screens: one full card and a peek of the next. */
 @media (max-width: 820px) {
