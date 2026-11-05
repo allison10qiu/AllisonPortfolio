@@ -444,6 +444,32 @@
     io.observe(demo);
   }
 
+  // Case study titles run the full width of the content column on one line. Each title gets the size
+  // that makes it fit, so longer titles sit a little smaller. Phones keep the wrapped CSS size.
+  function setupTitleFit() {
+    if (!document.querySelector("[data-next]")) return;
+    var title = document.querySelector("#top h1");
+    if (!title) return;
+    var range = document.createRange();
+    range.selectNodeContents(title);
+    function fit() {
+      title.style.fontSize = "";
+      title.style.whiteSpace = "";
+      title.style.maxWidth = "";
+      if (window.innerWidth < 900) return;
+      title.style.maxWidth = "none";
+      title.style.whiteSpace = "nowrap";
+      title.style.fontSize = "100px";
+      var natural = range.getBoundingClientRect().width;
+      var room = title.parentElement.clientWidth;
+      if (natural && room) title.style.fontSize = Math.min(120, (room / natural) * 100 * 0.995).toFixed(2) + "px";
+    }
+    fit();
+    window.addEventListener("resize", fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener("load", fit);
+  }
+
   function setupNext() {
     var section = document.querySelector("[data-next]");
     var rail = document.querySelector("[data-nw-rail]");
@@ -578,6 +604,44 @@
     });
     measure();
     render();
+
+    // Continuous drift: the strip keeps moving on its own while it's on screen. It holds still under
+    // the mouse or keyboard focus so a card can be read and clicked, and while being dragged, wheeled
+    // or settling. Reduced motion gets no drift; the rail stays draggable.
+    if (reduced) return;
+    var DRIFT = 36; // px per second
+    var hovering = false;
+    var focused = false;
+    var wheeling = false;
+    var inView = true;
+    var last = 0;
+    rail.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") hovering = true; });
+    rail.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hovering = false; });
+    rail.addEventListener("focusin", function (e) { focused = !!(e.target.matches && e.target.matches(":focus-visible")); });
+    rail.addEventListener("focusout", function () { focused = false; });
+    rail.addEventListener("wheel", function () {
+      wheeling = true;
+      window.clearTimeout(rail._driftWheel);
+      rail._driftWheel = window.setTimeout(function () { wheeling = false; }, 700);
+    }, { passive: true });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries.some(function (en) { return en.isIntersecting; });
+      }).observe(rail);
+    }
+    function drift(now) {
+      // A long frame (a background tab, say) never turns into a jump.
+      var dt = last ? Math.min(now - last, 50) : 0;
+      last = now;
+      if (inView && !hovering && !focused && !wheeling && !drag && !raf) {
+        offset += DRIFT * dt / 1000;
+        var loop = step * count;
+        if (offset >= loop) offset -= loop;
+        render();
+      }
+      window.requestAnimationFrame(drift);
+    }
+    window.requestAnimationFrame(drift);
   }
 
   function setupGemPit() {
@@ -784,6 +848,7 @@
   setupFans();
   setupBoard();
   setupRo();
+  setupTitleFit();
   setupNext();
   setupGemPit();
 })();

@@ -157,9 +157,11 @@
     svg.setAttribute("viewBox", "0 0 " + N + " " + N);
     // embossed ink: the capsule reads as pressed into the paper, with a soft inner shadow along its
     // top edge and a lit lip of paper along its bottom
+    // The filter area is fixed to the grid: a percentage area is measured from the shape's box, which
+    // has zero height on a straight line, and the browser would then draw nothing at all.
     // letterpress: ink pressed deep into the felt. Paper fibre shows through the ink, ink pools
     // darker at the edges, the upper wall is in shade and the lower wall catches a thin light.
-    svg.innerHTML = '<defs><filter id="wsPress" x="-20%" y="-60%" width="140%" height="220%" color-interpolation-filters="sRGB">' +
+    svg.innerHTML = '<defs><filter id="wsPress" filterUnits="userSpaceOnUse" x="-2" y="-2" width="' + (N + 4) + '" height="' + (N + 4) + '" color-interpolation-filters="sRGB">' +
         // fibre: fine noise that lightens and darkens the ink unevenly
         '<feTurbulence type="fractalNoise" baseFrequency="3.2" numOctaves="2" seed="4" result="n"/>' +
         '<feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .22 -.04" result="fib"/>' +
@@ -210,6 +212,17 @@
     var n = Math.max(ady, adx);
     return [a[0] + Math.sign(dy) * n, a[1] + Math.sign(dx) * n];
   }
+  // The line stays on the star: walking out from the start, it stops at the last cell with a letter.
+  function onPaper(a, to) {
+    var dy = Math.sign(to[0] - a[0]), dx = Math.sign(to[1] - a[1]), n = Math.max(Math.abs(to[0] - a[0]), Math.abs(to[1] - a[1]));
+    var end = a;
+    for (var k = 1; k <= n; k++) {
+      var y = a[0] + dy * k, x = a[1] + dx * k;
+      if (!S.grid[y] || !S.grid[y][x]) break;
+      end = [y, x];
+    }
+    return end;
+  }
   function lettersOn(a, b) {
     var dy = Math.sign(b[0] - a[0]), dx = Math.sign(b[1] - a[1]), n = Math.max(Math.abs(b[0] - a[0]), Math.abs(b[1] - a[1])), out = "";
     for (var k = 0; k <= n; k++) { var v = S.grid[a[0] + dy * k] && S.grid[a[0] + dy * k][a[1] + dx * k]; if (!v) return null; out += v; }
@@ -239,8 +252,7 @@
   });
   box.addEventListener("pointermove", function (e) {
     if (!drag || e.pointerId !== drag.id) return;
-    var b = snap(drag.a, cellAt(e));
-    b = [Math.max(0, Math.min(N - 1, b[0])), Math.max(0, Math.min(N - 1, b[1]))];
+    var b = onPaper(drag.a, snap(drag.a, cellAt(e)));
     drag.b = b;
     live.setAttribute("x2", b[1] + 0.5); live.setAttribute("y2", b[0] + CY);
     litLive(drag.a, b);

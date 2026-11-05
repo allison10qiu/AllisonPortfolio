@@ -18,7 +18,8 @@
 
   // Shared project-card selector (homepage rows, Work page cards). "Coming soon"
   // cards are not projects you can open, so they never get the label.
-  var CARD = "a.project, a.home-card, a.work-card";
+  // Any other link can opt in with its own text through data-cursor-label.
+  var CARD = "a.project, a.home-card, a.work-card, a[data-cursor-label]";
   var SOON = ".home-card--soon, .work-card--soon";
   // Anything interactive; the label only shows when the card itself is the
   // nearest interactive element under the pointer (so nested links/buttons,
@@ -80,9 +81,10 @@
     }
   }
 
-  function show() {
+  function show(card) {
     if (!el) build();
     if (!on) {
+      label.textContent = card.getAttribute("data-cursor-label") || "View project";
       // Measure once per show (offset sizes ignore the scale transform).
       w = label.offsetWidth;
       h = label.offsetHeight;
@@ -104,7 +106,8 @@
     if (e.pointerType === "touch") return;
     x = e.clientX;
     y = e.clientY;
-    if (cardFor(e.target)) show();
+    var card = cardFor(e.target);
+    if (card) show(card);
     else hide();
   }
 
@@ -114,8 +117,8 @@
     scrollTimer = window.setTimeout(function () {
       scrollTimer = 0;
       if (!on && !el) return;
-      var node = document.elementFromPoint(x, y);
-      if (cardFor(node)) show();
+      var card = cardFor(document.elementFromPoint(x, y));
+      if (card) show(card);
       else hide();
     }, 50);
   }

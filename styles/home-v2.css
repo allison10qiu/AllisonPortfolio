@@ -1188,12 +1188,14 @@
   width: 100%;
 }
 
-.home-page .work-row[data-walkthrough="brilliant-cities"] .pw-stage {
+.home-page .work-row[data-walkthrough="brilliant-cities"] .pw-stage,
+.home-page .work-row[data-walkthrough="roam"] .pw-stage {
   display: flex;
   justify-content: center;
 }
 
-.home-page .work-row[data-walkthrough="brilliant-cities"] .pw-phone {
+.home-page .work-row[data-walkthrough="brilliant-cities"] .pw-phone,
+.home-page .work-row[data-walkthrough="roam"] .pw-phone {
   height: 440px;
   width: auto;
 }
@@ -1419,13 +1421,13 @@
 
 .work-row__desc {
   margin: 0;
-  max-width: 420px;
+  width: 100%;
+  max-width: none;
   font-family: "Satoshi", sans-serif;
   font-weight: 300;
   font-size: 19.5px;
   line-height: 1.45;
   letter-spacing: -0.05em;
-  text-wrap: pretty;
   background: transparent;
   padding: 0;
 }
@@ -1577,7 +1579,8 @@
     padding: 0;
   }
 
-  .home-page .work-row[data-walkthrough="brilliant-cities"] .pw-phone {
+  .home-page .work-row[data-walkthrough="brilliant-cities"] .pw-phone,
+  .home-page .work-row[data-walkthrough="roam"] .pw-phone {
     height: min(420px, 78vw);
   }
 

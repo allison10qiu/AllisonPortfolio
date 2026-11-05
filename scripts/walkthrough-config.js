@@ -158,4 +158,33 @@ export const WALKTHROUGHS = {
       { t: 6.5, x: 40, y: 67 },
     ],
   },
+
+  roam: {
+    project: 'ROAM',
+    frame: 'phone',
+    animated: true,
+    poster: 'roam/home.jpg',
+    duration: 9.0, startOffset: 0, idleSpeed: 0.7, hoverSpeed: 1,
+    layers: [
+      { key: 's0', src: 'roam/home.jpg', fit: 'top' },
+      { key: 'dim', kind: 'dim' },
+      { key: 's1', src: 'roam/postcard.jpg', fit: 'top' },
+      { key: 's2', src: 'roam/explore.jpg', fit: 'top' },
+    ],
+    timeline({ t, cl, out3, cut, set }, L) {
+      // feed → open a postcard → Explore → back to the feed
+      const push = out3((t - 2.6) / 0.45);
+      const dim = t < 5.6 ? push : 1 - cl((t - 5.6) / 0.2);
+      set(L.s0, 1, `translateX(${(-30 * (t < 5.6 ? push : 0)).toFixed(3)}%)`);
+      set(L.dim, 0.12 * dim);
+      set(L.s1, t >= 2.6 && t < 5.75 ? 1 : 0, `translateX(${(100 * (1 - push)).toFixed(3)}%)`);
+      set(L.s2, t >= 5.6 && t < 8.55 ? cut(5.6) : cl((8.75 - t) / 0.2) * (t >= 5.6 ? 1 : 0));
+    },
+    cursor: null,
+    tapSpace: [390, 844],
+    taps: [
+      { t: 2.4, x: 195, y: 380, box: [22, 290, 368, 480] },
+      { t: 5.4, x: 119, y: 792 },
+    ],
+  },
 };

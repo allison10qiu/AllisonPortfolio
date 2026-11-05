@@ -1566,7 +1566,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
   .home-page .home-hero--sidebar::after { display: none; }
-  .home-page .home-hero--sidebar .pz-side { grid-row: auto; position: static; max-height: none; }
+  .home-page .home-hero--sidebar .pz-side { grid-row: auto; position: relative; top: auto; max-height: none; }
   .home-page .home-hero--sidebar .pz-games,
   .home-page .home-hero--sidebar > .work { grid-column: 1; grid-row: auto; }
   .home-page .home-hero--sidebar > .work { padding-left: var(--site-gutter); }
