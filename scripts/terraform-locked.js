@@ -387,6 +387,7 @@
       Array.prototype.forEach.call(panels, function (panel) {
         var on = panel.getAttribute("data-comp-panel") === key;
         panel.hidden = !on;
+        if (on) placeThumb(panel);
       });
     }
 
@@ -406,20 +407,36 @@
     });
 
     var selectedState = "edit";
-    function applyState(panel, state) {
+    // The sliding white pill behind the selected state.
+    function placeThumb(panel) {
+      var group = panel.querySelector('[role="group"]');
+      var button = panel.querySelector("[data-state].is-on");
+      if (!group || !button || !button.offsetWidth) return;
+      var thumb = group.querySelector(".cs-switch-thumb");
+      if (!thumb) {
+        thumb = document.createElement("span");
+        thumb.className = "cs-switch-thumb";
+        thumb.setAttribute("aria-hidden", "true");
+        group.insertBefore(thumb, group.firstChild);
+      }
+      thumb.style.width = button.offsetWidth + "px";
+      thumb.style.transform = "translateX(" + button.offsetLeft + "px)";
+    }
+    function applyState(panel, wanted) {
       var stateButtons = panel.querySelectorAll("[data-state]");
       var shots = panel.querySelectorAll("[data-state-img]");
+      // Not every component has every state (Super select has no Editable): fall back to its first.
+      var state = panel.querySelector('[data-state="' + wanted + '"]') ? wanted : stateButtons[0].getAttribute("data-state");
       Array.prototype.forEach.call(stateButtons, function (button) {
         var on = button.getAttribute("data-state") === state;
         button.classList.toggle("is-on", on);
-        button.setAttribute("aria-selected", on ? "true" : "false");
         button.setAttribute("aria-pressed", on ? "true" : "false");
       });
       Array.prototype.forEach.call(shots, function (shot) {
-        var on = shot.getAttribute("data-state-img") === state;
-        shot.hidden = !on;
-        shot.classList.toggle("is-on", on);
+        shot.hidden = false;
+        shot.classList.toggle("is-on", shot.getAttribute("data-state-img") === state);
       });
+      placeThumb(panel);
     }
     Array.prototype.forEach.call(panels, function (panel) {
       Array.prototype.forEach.call(panel.querySelectorAll("[data-state]"), function (button) {
@@ -432,6 +449,11 @@
     });
 
     if (compButtons.length) showComp(compButtons[0].getAttribute("data-comp"));
+    function placeOpenThumb() {
+      Array.prototype.forEach.call(panels, function (panel) { if (!panel.hidden) placeThumb(panel); });
+    }
+    window.addEventListener("resize", placeOpenThumb);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeOpenThumb);
   }
 
   window.initTerraformLocked = function (root) {

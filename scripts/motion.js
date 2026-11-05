@@ -262,8 +262,6 @@
     arm(document.querySelector(".home-hero__links"), "rise", 200);
     arm(document.querySelector(".home-index__head"), "rise", 240);
     armAll(document.querySelectorAll(".home-index__list li"), "rise", 280);
-    arm(document.querySelector(".work-head"), "rise", 0);
-    armAll(document.querySelectorAll(".work .project"), "rise", 40);
   }
 
   function setupAbout() {
