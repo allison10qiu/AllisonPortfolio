@@ -200,7 +200,7 @@
 
 .cs-idx__link {
   display: grid;
-  grid-template-columns: 20px 16px minmax(0, 1fr);
+  grid-template-columns: 20px minmax(0, 1fr);
   column-gap: 10px;
   align-items: start;
   padding: 10px 0;
@@ -216,17 +216,11 @@
   text-transform: none;
   color: #aaa;
 }
-.cs-idx__dot {
-  display: block;
-  margin-top: 7px;
-  width: 6px;
-  height: 1px;
-  background: #dcdcdc;
-  transition: width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.2s ease;
-}
+.cs-idx__link { transition: color 0.2s ease; }
+/* The current section is marked by ink and weight alone, no dash. */
+.cs-idx__dot { display: none; }
 .cs-idx__link[aria-current="location"] { color: #181818; font-weight: 500; }
 .cs-idx__link[aria-current="location"] .cs-idx__n { color: #181818; }
-.cs-idx__link[aria-current="location"] .cs-idx__dot { width: 16px; height: 1.5px; background: #181818; }
 
 /* Sidebar block shown under the contents list while a case study is locked. Informational only. */
 .toc-locked{display:flex;flex-direction:column;gap:14px;padding:14px 0 16px;

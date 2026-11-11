@@ -16,14 +16,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
 <link rel="stylesheet" href="/styles/main.css?v=ww2">
 <link rel="stylesheet" href="/styles/editorial.css?v=ag2">
-<link rel="stylesheet" href="/styles/cs.css?v=nav26">
+<link rel="stylesheet" href="/styles/cs.css?v=nav27">
+<link rel="stylesheet" href="/styles/case-study.css?v=cs14">
 <link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
 <style>@view-transition { navigation: auto; }</style>
 <link rel="stylesheet" href="/styles/turn-the-page.css?v=tp2">
 <link rel="stylesheet" href="/styles/allisonGPT.css?v=ww1">
 <link rel="stylesheet" href="/styles/motion.css?v=motion6">
 </head>
-<body class="cs-page terraform-page">
+<body class="cs-page terraform-page cs-v2">
 <div id="tx-cover" aria-hidden="true"></div>
 <script src="/scripts/tx-cover.js?v=tx6"></script>
 <div style="position:relative;min-height:100vh;overflow-x:clip;font-family:'Satoshi',sans-serif;color:#181818;letter-spacing:-.05em">
@@ -48,59 +49,63 @@
     </div>
   </header>
 
-  <div style="display:flex;align-items:flex-start">
-    <aside class="cs-aside" style="display:flex;position:sticky;top:85px;flex:0 0 232px;height:calc(100vh - 85px);overflow-y:auto;box-sizing:border-box;background:#fff;border-right:1px solid #ECECEC;padding:36px 24px 40px 24px;letter-spacing:-.02em;flex-direction:column">
-      <a href="/#my-work" data-scroll-to="my-work" style="display:flex;align-items:center;gap:8px;min-height:32px;align-self:flex-start;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease"><span aria-hidden="true" style="letter-spacing:0">←</span>All work</a>
-      <div style="margin-top:20px;padding-top:14px;border-top:1.5px solid #181818;display:flex;flex-direction:column;gap:8px">
-        <span style="font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070">Case study</span>
-        <span style="font:400 30px/.95 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Terraform</span>
-        <span style="font:400 italic 15px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.02em;color:#393939">IBM, Summer 2026</span>
-      </div>
-      <div style="margin-top:28px;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #DCDCDC;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070"><span>Contents</span><span style="color:#181818;letter-spacing:.08em"><span data-idx-count>01 / 01</span></span></div>
-      <nav aria-label="Case study sections" data-idx-auto style="margin-top:6px;display:flex;flex-direction:column">
-        <a class="cs-idx__link" href="#s01"><span class="cs-idx__n">01</span><span class="cs-idx__dot" aria-hidden="true"></span><span>The problem</span></a>
+<!-- cs:start -->
+  <nav class="np-bar" aria-label="Chapters">
+    <div class="np-bar__track" data-np-track>
+      <a class="np-link" href="#tf-context">Context</a>
+      <a class="np-link" href="#tf-audit" data-np-href="#tf-audit">Audit</a>
+      <a class="np-link" href="#tf-research" data-np-href="#tf-research">Research</a>
+      <a class="np-link" href="#tf-explorations" data-np-href="#tf-explorations">Explorations</a>
+      <a class="np-link" href="#tf-decisions" data-np-href="#tf-decisions">Key decisions</a>
+      <a class="np-link" href="#tf-system" data-np-href="#tf-system">System</a>
+      <a class="np-link" href="#tf-outcome" data-np-href="#tf-outcome">Outcome</a>
+    </div>
+  </nav>
+
+  <div class="np-shell">
+    <aside class="np-side">
+      <nav class="np-side__inner" aria-label="Chapters">
+        <a class="np-back" href="/#my-work" data-scroll-to="my-work"><span aria-hidden="true">←</span> All work</a>
+        <a class="np-link" href="#tf-context">Context</a>
+        <a class="np-link" href="#tf-audit" data-np-href="#tf-audit">Audit</a>
+        <a class="np-link" href="#tf-research" data-np-href="#tf-research">Research</a>
+        <a class="np-link" href="#tf-explorations" data-np-href="#tf-explorations">Explorations</a>
+        <a class="np-link" href="#tf-decisions" data-np-href="#tf-decisions">Key decisions</a>
+        <a class="np-link" href="#tf-system" data-np-href="#tf-system">System</a>
+        <a class="np-link" href="#tf-outcome" data-np-href="#tf-outcome">Outcome</a>
       </nav>
-      <div class="toc-locked" data-idx-locked role="note" aria-label="Sections 02 to 13 are password protected">
-        <div class="toc-locked__head">
-          <span class="toc-locked__range">02–13</span>
-          <span class="toc-locked__label">12 sections, locked</span>
-        </div>
-        <div class="toc-locked__bars" aria-hidden="true">
-          <span style="width:72%"></span>
-          <span style="width:54%"></span>
-          <span style="width:64%"></span>
-        </div>
-        <span class="toc-locked__hint">Enter the password at the end of the problem to see the full case study.</span>
-      </div>
     </aside>
-  <main data-screen-label="Terraform case study" style="flex:1 1 0;min-width:0;padding:0 clamp(24px,8.7vw,112px);box-sizing:border-box">
 
-    <header id="top" data-screen-label="Hero" style="padding-top:clamp(44px,4.6vw,72px)">
-      <div style="display:flex;align-items:center;gap:10px;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070">
-        <span style="font-weight:500;color:#181818">01</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>IBM · Terraform</span>
-      </div>
-      <h1 style="margin:var(--space-md) 0 0;max-width:24ch;font:400 clamp(44px,5.8vw,88px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:balance">Making read-only access clearer in Terraform</h1>
-      <div class="cs-hero">
-        <dl class="cs-hero__side"><div><dt>Timeline</dt><dd>May — Aug 2026</dd></div><div><dt>Role</dt><dd>Product Design Intern</dd></div><div><dt>Made for</dt><dd>IBM</dd></div><div><dt>Focus</dt><dd><span>Enterprise product design</span><span>UX research + testing</span><span>Interaction design</span><span>Systems thinking</span></dd></div></dl>
-        <div class="cs-hero__main">
-          <div class="cs-hero__story"><p class="cs-hero__lead">During my Product Design internship at IBM, I worked on Terraform’s read-only experience for users who could review configurations but didn’t have permission to change them.</p><p class="cs-hero__body">What seemed like a permissions change affected much more than the Edit button. Across the product, removing editing controls could also remove context people needed to understand what was configured.</p></div>
-          <div class="cs-hero__contrib"><span class="cs-hero__contrib-label">My contribution</span><span class="cs-hero__contrib-text">I owned the workflow audit, interaction design, concept exploration, and usability testing for this work. Research was a team effort; my part is noted in that section.</span></div>
-        </div>
-      </div>
-      <div style="margin:var(--space-xl) 0 0">
-        <img data-asset-source="current-live-portfolio" src="/assets/home/walkthroughs/terraform/organizations.png" alt="Terraform Organizations settings on a laptop" style="display:block;width:100%;height:auto;filter:drop-shadow(0 18px 28px rgba(24,24,24,.16))">
-      </div>
-      <dl class="cs-hero__details"><div><dt>Scope</dt><dd>41 configuration routes</dd></div><div><dt>Tools</dt><dd>Figma · UserTesting · Jira · Terraform</dd></div></dl>
-    
-    </header>
+    <main class="np-main" data-screen-label="Terraform case study">
 
-    <section id="s01" data-sec="" data-screen-label="01 The problem" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">01</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>The problem</span></div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start">
-        <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:24px">
-          <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Read-only turned out to be more than removing the edit button.</h2>
-          <p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Terraform’s role-based access control decides who can view a setting and who can change it. Making a setting read-only raised a harder question: what should stay visible once the controls are gone?</p>
+      <header class="np-hero" id="top">
+        <h1 class="np-title">Making read-only access clearer in Terraform</h1>
+        <p class="np-dek">During my product design internship at IBM, I worked on Terraform’s read-only experience for people who can review configurations but don’t have permission to change them.</p>
+        <div class="np-spec">
+          <dl class="np-facts">
+            <div><dt>Role</dt><dd>Product Design Intern</dd></div>
+            <div><dt>Team</dt><dd>IBM, Terraform</dd></div>
+            <div><dt>Timeline</dt><dd>May–Aug 2026</dd></div>
+            <div><dt>Scope</dt><dd>41 configuration routes audited</dd></div>
+            <div><dt>Focus</dt><dd><ul class="np-focus"><li>Enterprise product design</li><li>UX research and testing</li><li>Interaction design</li></ul></dd></div>
+          </dl>
+          <dl class="np-rows">
+            <div><dt>Problem</dt><dd>What looked like a permissions change affected much more than the Edit button, because removing editing controls could also remove the context people needed to understand what was configured.</dd></div>
+            <div><dt>My contribution</dt><dd>I audited 41 configuration routes and explored how people could review settings they didn’t have permission to change. I also helped plan and run research sessions, tested two design directions, and turned the findings into rules for recurring components.</dd></div>
+          </dl>
         </div>
+        <figure class="np-fig np-wide np-hero__img np-plain">
+          <img src="/assets/home/walkthroughs/terraform/organizations.png" alt="Terraform Organizations settings on a laptop" style="filter:drop-shadow(0 18px 28px rgba(24,24,24,.16))">
+        </figure>
+      </header>
+
+      <section class="np-ch" id="tf-context" data-np-ch>
+        <p class="np-label">Context</p>
+        <h2 class="np-h2">Read-only was more than removing the Edit button</h2>
+        <div class="np-split np-split--demo">
+          <div class="np-prose">
+            <p>Terraform’s role-based access control decides who can view a setting and who can change it. Making a setting read-only raised a harder question: <strong>what should stay visible once the controls are gone?</strong></p>
+          </div>
         <div data-ro-demo="" style="flex:1.1 1 380px;display:flex;flex-direction:column;gap:16px">
           <div style="position:relative;border:1px solid #ECECEC;border-radius:3px;background:#fff;padding:22px 24px 24px;box-shadow:0 28px 50px -18px rgba(24,24,24,.22),0 2px 6px rgba(24,24,24,.06)">
             <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid #ECECEC"><span style="display:block;width:34%;height:10px;border-radius:4px;background:rgba(24,24,24,.2)"></span><span style="display:grid"><span style="grid-area:1/1;justify-self:end;display:flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid #AAAAAA;border-radius:6px;font:500 12px/1 'Satoshi',sans-serif;opacity:var(--ro-ctl,1);transition:opacity .5s ease"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8.5 1.5l2 2L4 10H2V8z"></path></svg>Edit</span><span style="grid-area:1/1;justify-self:end;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#181818;color:#fff;font:500 12px/1 'Satoshi',sans-serif;opacity:var(--ro-chip,0);transition:opacity .5s ease"><svg width="10" height="11" viewBox="0 0 10 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="5" width="8" height="6" rx="1"></rect><path d="M3 5V3.5a2 2 0 014 0V5"></path></svg>Read-only</span></span></div>
@@ -119,9 +124,8 @@
           </div>
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;max-width:46ch">The real design question became: what context still matters when someone can look, but not edit?</span><button data-ro-replay="" style="flex:none;min-height:44px;padding:0 0 0 12px;border:0;background:transparent;color:#707070;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:var(--cursor-link,pointer)">Replay<span aria-hidden="true"> ↻</span></button></div>
         </div>
-      </div>
-
-      <div id="gate" style="margin-top:var(--space-2xl);border-top:1px solid #181818">
+        </div>
+      <div id="gate" class="np-gate">
         <div class="tf-gate" data-part="gate" id="terraform-gate">
         <div class="tf-gate__panel" data-gate-panel>
           <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding:18px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase"><span style="display:flex;align-items:center;gap:8px"><img src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:14px;height:14px">Full case study</span><span style="color:#707070">Password protected</span></div>
@@ -137,7 +141,7 @@
                   <button class="tf-gate__submit" id="terraform-gate-submit" type="submit"><span data-gate-label>Unlock</span><span class="tf-gate__arrow" aria-hidden="true">→</span></button>
                 </form>
                 <span class="tf-gate__error" id="terraform-gate-error" role="alert" hidden><span aria-hidden="true" style="font-style:normal">— </span><span data-gate-msg></span></span>
-                <span style="font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Don’t have the password? <a href="mailto:allisonqiu10@gmail.com?subject=Terraform%20case%20study%20access" style="color:#181818;border-bottom:1px solid #181818">Contact me for access: allisonqiu10@gmail.com</a></span>
+                <span class="np-access" style="font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070"><span>Don’t have the password?</span><a href="mailto:allisonqiu10@gmail.com?subject=Terraform%20case%20study%20access" target="_blank" rel="noopener noreferrer" style="color:#181818;border-bottom:1px solid #181818">Contact me for access: allisonqiu10@gmail.com</a></span>
               </div>
             </div>
             <div style="display:flex;flex-direction:column"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;padding-bottom:10px;border-bottom:1px solid #181818">Inside</span><ol style="margin:0;padding:0;list-style:none">
@@ -158,12 +162,12 @@
 </div>
         </div>
       </div>
-    </section>
+      </section>
 
-    <div aria-hidden="true" class="terraform-locked" hidden id="terraform-locked"><div class="terraform-locked__inner"></div></div>
-
-  </main>
+          <div aria-hidden="true" class="terraform-locked" hidden id="terraform-locked"><div class="terraform-locked__inner"></div></div>
+    </main>
   </div>
+<!-- cs:end -->
 
   <section data-next="tf" class="cs-nw" aria-labelledby="cs-nw-title">
     <div class="cs-nw__inner">
@@ -173,6 +177,14 @@
       </header>
       <div class="cs-nw__rail" data-nw-rail>
         <div class="cs-nw__track" data-nw-track>
+        <a class="cs-nw__card" href="/projects/roam" data-nw="roam">
+          <span class="cs-nw__media"><span style="display:block;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)"><span class="cs-nw__phone"><img src="/assets/home/walkthroughs/roam/postcard.jpg" alt="ROAM postcard screen" draggable="false" style="display:block;width:100%;height:auto"></span></span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">02</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Lead Designer · Fall 2026</span></span>
+            <span class="cs-nw__name">ROAM</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">A short recap of a design-a-thon concept for keeping travel discovery, memories, and sharing in one app.</span>
+          </span>
+        </a>
         <a class="cs-nw__card" href="/projects/anda" data-nw="anda">
           <span class="cs-nw__media"><span style="display:block;width:max-content;background:#fff;border:1px solid #DADADA;border-radius:3px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)">
             <span style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;color:#555">Anda</span></span>
@@ -241,10 +253,11 @@
 </footer>
 
 <script src="/scripts/cs.js?v=cs14"></script>
+<script src="/scripts/case-study.js?v=cs7"></script>
 <script src="/scripts/cross-scroll.js"></script>
 <script src="/scripts/page-transition.js?v=tx13"></script>
 <script src="/scripts/turn-the-page.js?v=tp3" defer></script>
-<script src="/scripts/mailto.js"></script>
+<script src="/scripts/mailto.js?v=tab1"></script>
 <script src="/scripts/motion.js?v=motion9"></script>
 <script src="/scripts/terraform-locked.js?v=cs4" type="module"></script>
 <script src="/scripts/terraform-gate.js?v=tfjump4"></script>

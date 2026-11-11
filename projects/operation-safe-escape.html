@@ -15,14 +15,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
 <link rel="stylesheet" href="/styles/main.css?v=ww2">
 <link rel="stylesheet" href="/styles/editorial.css?v=ag2">
-<link rel="stylesheet" href="/styles/cs.css?v=nav26">
+<link rel="stylesheet" href="/styles/cs.css?v=nav27">
+<link rel="stylesheet" href="/styles/case-study.css?v=cs14">
 <link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
 <style>@view-transition { navigation: auto; }</style>
 <link rel="stylesheet" href="/styles/turn-the-page.css?v=tp2">
 <link rel="stylesheet" href="/styles/allisonGPT.css?v=ww1">
 <link rel="stylesheet" href="/styles/motion.css?v=motion6">
 </head>
-<body class="cs-page">
+<body class="cs-page cs-v2">
 <div id="tx-cover" aria-hidden="true"></div>
 <script src="/scripts/tx-cover.js?v=tx6"></script>
 <div style="position:relative;min-height:100vh;overflow-x:clip;font-family:'Satoshi',sans-serif;color:#181818;letter-spacing:-.05em">
@@ -47,170 +48,172 @@
     </div>
   </header>
 
-  <div style="display:flex;align-items:flex-start">
-    <aside class="cs-aside" style="display:flex;position:sticky;top:85px;flex:0 0 232px;height:calc(100vh - 85px);overflow-y:auto;box-sizing:border-box;background:#fff;border-right:1px solid #ECECEC;padding:36px 24px 40px 24px;letter-spacing:-.02em;flex-direction:column">
-      <a href="/#my-work" data-scroll-to="my-work" style="display:flex;align-items:center;gap:8px;min-height:32px;align-self:flex-start;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease"><span aria-hidden="true" style="letter-spacing:0">←</span>All work</a>
-      <div style="margin-top:20px;padding-top:14px;border-top:1.5px solid #181818;display:flex;flex-direction:column;gap:8px">
-        <span style="font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070">Case study</span>
-        <span style="font:400 30px/.95 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Operation Safe Escape</span>
-        <span style="font:400 italic 15px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.02em;color:#393939">Hack4Impact · Fall 2025</span>
-      </div>
-      <div style="margin-top:28px;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #DCDCDC;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070"><span>Contents</span><span style="color:#181818;letter-spacing:.08em"><span data-idx-count>01 / 10</span></span></div>
-      <nav aria-label="Case study sections" style="margin-top:6px;display:flex;flex-direction:column">
-        <a class="cs-idx__link" href="#s01"><span class="cs-idx__n">01</span><span class="cs-idx__dot" aria-hidden="true"></span><span>The problem</span></a><a class="cs-idx__link" href="#s02"><span class="cs-idx__n">02</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Volunteer workflow</span></a><a class="cs-idx__link" href="#s03"><span class="cs-idx__n">03</span><span class="cs-idx__dot" aria-hidden="true"></span><span>My role</span></a><a class="cs-idx__link" href="#s04"><span class="cs-idx__n">04</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Design constraints</span></a><a class="cs-idx__link" href="#s05"><span class="cs-idx__n">05</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Design system</span></a><a class="cs-idx__link" href="#s06"><span class="cs-idx__n">06</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Mobile-first intake</span></a><a class="cs-idx__link" href="#s07"><span class="cs-idx__n">07</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Form builder</span></a><a class="cs-idx__link" href="#s08"><span class="cs-idx__n">08</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Core experience</span></a><a class="cs-idx__link" href="#s09"><span class="cs-idx__n">09</span><span class="cs-idx__dot" aria-hidden="true"></span><span>How it connects</span></a><a class="cs-idx__link" href="#s10"><span class="cs-idx__n">10</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Outcome & reflection</span></a>
+<!-- cs:start -->
+  <nav class="np-bar" aria-label="Chapters">
+    <div class="np-bar__track" data-np-track>
+      <a class="np-link" href="#context">Context</a>
+      <a class="np-link" href="#constraints">Constraints</a>
+      <a class="np-link" href="#intake">Intake</a>
+      <a class="np-link" href="#workspace">Case workspace</a>
+      <a class="np-link" href="#connects">How it connects</a>
+      <a class="np-link" href="#outcome">Outcome</a>
+    </div>
+  </nav>
+
+  <div class="np-shell">
+    <aside class="np-side">
+      <nav class="np-side__inner" aria-label="Chapters">
+        <a class="np-back" href="/#my-work" data-scroll-to="my-work"><span aria-hidden="true">←</span> All work</a>
+        <a class="np-link" href="#context">Context</a>
+        <a class="np-link" href="#constraints">Constraints</a>
+        <a class="np-link" href="#intake">Intake</a>
+        <a class="np-link" href="#workspace">Case workspace</a>
+        <a class="np-link" href="#connects">How it connects</a>
+        <a class="np-link" href="#outcome">Outcome</a>
       </nav>
     </aside>
-  <main data-screen-label="OSE case study" style="flex:1 1 0;min-width:0;padding:0 clamp(24px,8.7vw,112px);box-sizing:border-box">
 
-    <header id="top" data-screen-label="Hero" style="padding-top:clamp(44px,4.6vw,72px)">
-      <div style="display:flex;align-items:center;gap:10px;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">04</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Operation Safe Escape</span></div>
-      <h1 style="margin:var(--space-md) 0 0;font:400 clamp(44px,5.8vw,88px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">Making case information easier to find when time matters</h1>
-      <div class="cs-hero">
-        <dl class="cs-hero__side"><div><dt>Timeline</dt><dd>Sept — Dec 2025</dd></div><div><dt>Role</dt><dd>Product Designer</dd></div><div><dt>Made for</dt><dd>Operation Safe Escape</dd></div><div><dt>Focus</dt><dd><span>Product design</span><span>Research</span><span>Design systems</span></dd></div></dl>
-        <div class="cs-hero__main">
-          <p class="cs-hero__lead">Operation Safe Escape supports survivors of domestic violence, stalking, and harassment. I designed several flows for FLOW, a secure case-management platform intended to bring parts of their email-and-spreadsheet workflow into one centralized system.</p>
-          <div class="cs-hero__contrib"><span class="cs-hero__contrib-label">My contribution</span><span class="cs-hero__contrib-text">Designed five FLOW workflows and contributed to the shared component system.</span></div>
+    <main class="np-main" data-screen-label="Operation Safe Escape case study">
+
+      <header class="np-hero" id="top">
+        <h1 class="np-title">Designing a secure case-management platform for Operation Safe Escape</h1>
+        <p class="np-dek">Operation Safe Escape supports survivors of domestic violence, stalking, and harassment. Through Hack4Impact, I designed parts of FLOW, a secure platform meant to bring OSE’s case work out of email threads and spreadsheets and into one place.</p>
+        <div class="np-spec">
+          <dl class="np-facts">
+            <div><dt>Role</dt><dd>Product Designer</dd></div>
+            <div><dt>Team</dt><dd>Hack4Impact, for Operation Safe Escape</dd></div>
+            <div><dt>Timeline</dt><dd>Sept–Dec 2025</dd></div>
+            <div><dt>Focus</dt><dd><ul class="np-focus"><li>Product design</li><li>Research</li><li>Design systems</li></ul></dd></div>
+          </dl>
+          <dl class="np-rows">
+            <div><dt>Problem</dt><dd>OSE tracked hundreds of survivor cases through email and spreadsheets, so admins and volunteers had to piece a case together before they could act on it.</dd></div>
+            <div><dt>My contribution</dt><dd>I designed five FLOW workflows, from survivor intake to the case dashboard, and contributed to the shared component system.</dd></div>
+          </dl>
         </div>
-      </div>
-      <figure style="margin:var(--space-xl) 0 0;width:100%;display:flex;flex-direction:column;gap:var(--space-md)">
-        <div data-fs="" tabindex="0" aria-label="Media — press Enter for full screen" style="display:flex;flex-direction:column;background:#fff;overflow:hidden;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">FLOW</span></span><img data-asset-source="current-live-portfolio" src="/assets/home/walkthroughs/ose/cases.png" alt="Survivor case dashboard" loading="lazy" style="display:block;width:100%;height:auto"></div>
-        <figcaption style="display:flex;flex-wrap:wrap;justify-content:space-between;text-align:left;gap:6px 24px;padding-top:12px;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>Survivor case dashboard in FLOW</span><a href="#s08" style="color:#707070;transition:color .2s ease">Jump to the core experience →</a></figcaption>
-      </figure>
-    </header>
+        <figure class="np-fig np-wide np-hero__img">
+          <div class="np-frame"><img src="/assets/home/walkthroughs/ose/cases.png" width="1400" height="736" alt="FLOW case dashboard listing survivor cases with status, priority and case type"></div>
+        </figure>
+      </header>
 
-    <section id="s01" data-sec="" data-screen-label="01 The problem" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">01</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>The problem</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">OSE was managing hundreds of cases through email and spreadsheets.</h2>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start">
-        <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:24px">
-          
-          <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">For a small team, keeping up with that information took time away from supporting survivors.</p>
+      <section class="np-ch" id="context" data-np-ch>
+        <p class="np-label">Context</p>
+        <h2 class="np-h2">Every case lived across email threads and spreadsheets</h2>
+        <div class="np-prose">
+          <p>OSE’s case history was spread across emails and spreadsheets, so a volunteer picking up an assignment depended on other people’s notes to understand what had already happened. FLOW gave us a way to design around that <strong>handoff</strong>, with the case history and the next steps available to the people working on it.</p>
         </div>
-        <ol style="flex:1 1 360px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #181818"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><p style="margin:0;font:400 16.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">OSE tracked survivor cases through email threads and spreadsheets while working with a small staff and volunteer team.</p></li><li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><p style="margin:0;font:400 16.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">That made case history harder to follow and left the team without one consistent place to review what had already happened.</p></li><li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><p style="margin:0;font:400 16.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">Admins and volunteers could spend time piecing together information before they could figure out what someone needed next.</p></li></ol>
-      </div>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline;padding-top:24px;border-top:1px solid #181818"><span style="flex:0 0 220px;font:400 clamp(26px,2.3vw,32px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Problem statement</span><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;color:#181818">OSE needed a secure way for admins and volunteers to understand a case quickly, keep its history in one place, and hand work off without losing context.</p></div>
-    </section>
-
-    <section id="s02" data-sec="" data-screen-label="02 Volunteer workflow" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">02</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Volunteer workflow</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Volunteers needed to understand a case without reconstructing it themselves.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:40px 64px;align-items:stretch">
-        <figure style="flex:0 1 300px;margin:0;display:flex;flex-direction:column;gap:12px"><img src="/assets/ose/persona.png?v=ose1" alt="Robert Gomez, OSE volunteer (composite persona)" style="display:block;width:100%;height:auto;border-radius:2px"><figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Robert Gomez</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">OSE volunteer · composite persona</span></figcaption></figure>
-        <div style="flex:1 1 380px;display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-lg)">
-          <p data-review="persona statement — not an interview quote" style="margin:0;font:400 clamp(24px,2.4vw,34px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;text-wrap:pretty">They needed the current need, case history, and next action to be visible in one place.</p>
-          <div style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">What he needs</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">To open a case and understand how urgent it is, what the survivor needs, and what has already happened — then leave a clear update for whoever works on it next.</p></div>
-          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:0 24px"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Access</dt><dd style="margin:0;font:400 15.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Only his assigned cases</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Handoff</dt><dd style="margin:0;font:400 15.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Depends on others’ notes</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Records</dt><dd style="margin:0;font:400 15.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Sensitive, secure login</dd></div></dl>
+        <div class="np-persona">
+          <img src="/assets/ose/persona.png?v=ose1" alt="" width="88" height="88">
+          <div>
+            <p class="np-persona__name">Robert Gomez</p>
+            <p class="np-persona__role">Composite persona</p>
+            <p class="np-persona__desc">OSE volunteer who sees only his assigned cases and depends on other people’s notes to pick up where they left off.</p>
+            <dl class="np-persona__need"><dt>What he needs</dt><dd>To open a case and see how urgent it is, what the survivor needs, and what has already happened, then leave a clear update for whoever works on it next.</dd></dl>
+          </div>
         </div>
-      </div>
-      <div style="margin-top:var(--space-xl);padding-top:24px;border-top:1px solid #181818;display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline">
-        <span style="flex:0 0 220px;font:400 clamp(26px,2.3vw,32px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Where it breaks down today</span>
-        <ol style="flex:1 1 420px;min-width:0;margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px"><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:14px 0"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 15.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;text-wrap:pretty">Sees only his assigned cases, but still has to look for the important details inside each one</span></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:14px 0"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 15.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;text-wrap:pretty">Can’t tell how urgent a case is, or what’s already been done, without opening it</span></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:14px 0"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 15.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;text-wrap:pretty">Depends on other people leaving clear notes for him to pick up where they left off</span></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:14px 0"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="font:400 15.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;text-wrap:pretty">Needs to log in and communicate securely, since the information is sensitive</span></li></ol>
-      </div>
-      <p style="margin:var(--space-lg) 0 0;padding-top:16px;border-top:1px solid #DCDCDC;font:400 14px/1.6 'Satoshi',sans-serif;letter-spacing:-.01em;color:#707070"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;margin-right:12px">Where he came from</span>Robert represents the volunteers OSE relies on alongside its small staff. I don’t have interview notes from this project, so he stands for the volunteer workflow described to us rather than a specific person I spoke to.</p>
-    </section>
+      </section>
 
-    <section id="s03" data-sec="" data-screen-label="03 My role" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">03</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>My role</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(30px,3vw,42px)/1.06 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">I designed several flows for FLOW, a secure case management platform.</h2>
-      <p style="margin:var(--space-md) 0 0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">My work focused on translating OSE’s case-management requirements into flows for reviewing cases, communicating securely, collecting survivor information, and maintaining forms after handoff.</p>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(40px,5vw,96px);align-items:flex-start">
-        <dl style="flex:0 1 240px;margin:0;display:flex;flex-direction:column;border-top:1px solid #181818">
-          <div style="display:flex;flex-direction:column;gap:8px;padding:14px 0"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Role</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Product Designer</dd></div>
-          <div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Shared with the team</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">The FLOW component set (section 05)</dd></div>
-        </dl>
-        <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;border-top:1px solid #181818">
-          <span style="padding:14px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">The flows I designed inside FLOW</span>
-          <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="border-top:1px solid #DCDCDC"><a href="#f1" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Survivor case dashboard</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#f2" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Survivor case card</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#f3" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Secure messaging</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#s07" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Form builder</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#s06" style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">05</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Mobile-first survivor intake</span></a></li></ol>
+      <section class="np-ch" id="constraints" data-np-ch>
+        <p class="np-label">Constraints</p>
+        <h2 class="np-h2">Safety came before convenience</h2>
+        <div class="np-three np-four">
+          <div><h3>Access follows the assignment</h3><p>Volunteers needed enough context to pick up their assigned cases, while the information they could see had to stay within the scope of that assignment. That made access part of the workflow itself, from what appeared in the case list to what someone could open and update.</p></div>
+          <div><h3>An ongoing process</h3><p>Cases move between survivors, admins, and volunteers over time, so the workflow had to keep enough history for someone new to understand what already happened.</p></div>
+          <div><h3>A lot of information per case</h3><p>Each case held a lot of detail, so I put the most important information first and kept the rest available when someone needed it.</p></div>
+          <div><h3>Building shared components</h3><p>OSE didn’t have a product design system, so our team built the components FLOW needed around its existing logo and typography, which kept flows designed in parallel consistent.</p></div>
         </div>
-      </div>
-    </section>
+        <figure class="np-fig np-fig--text">
+          <div class="np-frame np-frame--flat"><video src="/assets/ose/ose-design-system.mp4" poster="/assets/ose/ose-design-system-poster.jpg" aria-label="FLOW component set: palette, buttons and form components" muted loop playsinline preload="metadata" data-np-autoplay></video></div>
+        </figure>
+      </section>
 
-    <section id="s04" data-sec="" data-screen-label="04 Design constraints" style="margin-top:var(--cs-section-gap)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">04</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Design constraints</span></div>
-      <h2 style="margin:var(--space-lg) 0 0;font:400 clamp(42px,5.2vw,74px)/.96 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em;text-wrap:pretty">Safety shaped every part of the workflow.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column"><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #181818"><div style="flex:0 0 260px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Privacy above all</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">FLOW handles sensitive information about people seeking help, so privacy and safety had to come before convenience.</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #DCDCDC"><div style="flex:0 0 260px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">An ongoing process</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A case can move between survivors, admins, and volunteers over time. The workflow needed to preserve enough history that someone new could understand what had already happened.</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #DCDCDC"><div style="flex:0 0 260px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">A lot of information per case</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Each case could contain a lot of information. I focused on making the most important details easy to find first, with deeper information available when someone needed it.</p></div></div>
-    </section>
+      <section class="np-ch" id="intake" data-np-ch>
+        <p class="np-label">Intake</p>
+        <h2 class="np-h2">Designing intake for survivors and for the team that maintains it</h2>
 
-    <section id="s05" data-sec="" data-screen-label="05 Design system" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Design system</span></div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:var(--space-md) 72px;align-items:flex-start">
-        <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;flex:1 1 100%">Shared components helped separate flows feel like one product.</h2>
-        <p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;max-width:60ch">OSE didn’t have a full product design system when we started, so our design team built the shared components FLOW needed around its existing logo and typography. Those patterns gave the team a consistent foundation as different flows were designed in parallel.</p>
-      </div>
-      <div data-asset-note="live design-system video — reuse repo asset" style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:12px">
-        <video data-asset-source="current-live-portfolio" src="/assets/ose/ose-design-system.mp4" poster="/assets/ose/ose-design-system-poster.jpg" aria-label="FLOW design system — palette, buttons, form components" muted="" loop="" playsinline="" preload="metadata" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#F4F4F4"></video>
-        <span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Palette · buttons · form components</span>
-      </div>
-    </section>
+        <article class="np-dec">
+          <header class="np-dec__head"><span class="np-dec__n">01</span><h3>Designing intake for a phone</h3></header>
+          <p class="np-prose np-dec__body">Survivors needed to be able to complete intake without a desktop, so I designed it mobile-first. A <strong>Safety Exit</strong> stays in the same place on every screen, the intro explains how long the form takes and that questions can be skipped, and a progress bar shows how much is left.</p>
+          <ol class="np-phones">
+            <li><div class="np-frame"><img src="/assets/ose/crops/intake-1.svg" alt="Intake intro screen explaining the questionnaire and a Safety Exit button"></div><p>Intro</p></li>
+            <li><div class="np-frame"><img src="/assets/ose/crops/intake-2.svg" alt="Personal information section, section 1 of 5"></div><p>Personal information</p></li>
+            <li><div class="np-frame"><img src="/assets/ose/crops/intake-3.svg" alt="Personal needs section with short and long answers"></div><p>Personal needs</p></li>
+            <li><div class="np-frame"><img src="/assets/ose/crops/intake-4.svg" alt="Additional comments and Submit"></div><p>Additional comments</p></li>
+          </ol>
+        </article>
 
-    <section id="s06" data-sec="" data-screen-label="06 Mobile-first intake" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">06</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Mobile-first intake</span></div>
-      <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;margin-top:24px">I designed the intake flow around mobile.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(32px,4vw,64px);align-items:flex-start">
-        <dl style="flex:1 1 300px;margin:0;display:flex;flex-direction:column"><div style="display:flex;flex-direction:column;gap:10px;padding:0 0 22px"><dt style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Why</dt><dd style="margin:0"><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The intake needed to work well on a phone so survivors could complete it without depending on a desktop experience.</p></dd></div><div style="display:flex;flex-direction:column;gap:10px;padding:18px 0 22px"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Design response</dt><dd style="margin:0"><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Safety Exit stays fixed on every screen instead of moving between steps</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The intro sets expectations up front: how long the form takes, that questions can be skipped, and how information is handled.</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A progress bar and section counter show how much is left without anyone having to keep track</span></li></ul></dd></div></dl>
-        <figure style="flex:1.5 1 420px;min-width:0;margin:0"><div data-fs="" tabindex="0" aria-label="Media — press Enter for full screen" style="width:min(100%,320px);margin:0 auto;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 22px 44px -26px rgba(24,24,24,.3)"><div style="border-radius:21px;overflow:hidden"><div class="cs-scroll-thin" data-asset-source="current-live-portfolio" tabindex="0" aria-label="Mobile-first survivor intake, scrollable" style="width:100%;aspect-ratio:390/844;overflow:hidden auto;overscroll-behavior:contain;background:#fff;box-sizing:border-box"><img src="/assets/mockups/ose/intake.svg?v=fields1" alt="Mobile-first survivor intake" loading="lazy" style="display:block;width:100%;height:auto"></div></div></div></figure>
-      </div>
-    </section>
+        <article class="np-dec">
+          <header class="np-dec__head"><span class="np-dec__n">02</span><h3>A form builder OSE can maintain</h3></header>
+          <p class="np-prose np-dec__body">OSE doesn’t have developers on staff, so the team needed to <strong>update intake questions after handoff without relying on us</strong>. The form builder offers several question types, and admins can preview a form before publishing it to survivors.</p>
+          <figure class="np-fig">
+            <div class="np-frame"><img src="/assets/ose/crops/form-builder-top.png" width="1512" height="1000" alt="FLOW Form Builder with multiple choice, multi-select and dropdown questions, and Preview and Publish buttons"></div>
+            <figcaption>Each question has its own type, a required toggle, and its answer options.</figcaption>
+          </figure>
+        </article>
+      </section>
 
-    <section id="s07" data-sec="" data-screen-label="07 Form builder" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">07</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Form builder</span></div>
-      <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;margin-top:24px">The form builder mattered as much as the screens did.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(32px,4vw,64px);align-items:flex-start">
-        <dl style="flex:1 1 300px;margin:0;display:flex;flex-direction:column"><div style="display:flex;flex-direction:column;gap:10px;padding:0 0 22px"><dt style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Why</dt><dd style="margin:0"><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">OSE doesn’t have developers on staff, so the team needed to be able to update intake questions after handoff without relying on us for every change.</p></dd></div><div style="display:flex;flex-direction:column;gap:10px;padding:18px 0 22px"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Design response</dt><dd style="margin:0"><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Multiple question types let admins pick the right input for each question</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Preview and publish let them test a form before it reaches a survivor</span></li></ul></dd></div></dl>
-        <figure style="flex:1.5 1 420px;min-width:0;margin:0"><div data-fs="" tabindex="0" aria-label="Media — press Enter for full screen" style="display:flex;flex-direction:column;background:#fff;overflow:hidden;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">FLOW</span></span><div class="cs-scroll-thin" data-asset-source="current-live-portfolio" tabindex="0" aria-label="Form builder, scrollable" style="margin:0 auto;width:100%;aspect-ratio:1512/982;overflow:hidden auto;overscroll-behavior:contain;background:#fff;border:1px solid #DCDCDC;box-sizing:border-box"><img src="/assets/mockups/ose/form-builder.png" alt="Form builder" loading="lazy" style="display:block;width:100%;height:auto"></div></div><figcaption style="margin-top:var(--space-md);padding-top:12px;border-top:1px solid #DCDCDC;font:400 14px/1.5 'Satoshi',sans-serif;letter-spacing:-.01em;color:#707070">The Form Builder lets OSE update forms like its intake questionnaire without needing a developer every time a question changes.</figcaption></figure>
-      </div>
-    </section>
+      <section class="np-ch" id="workspace" data-np-ch>
+        <p class="np-label">Case workspace</p>
+        <h2 class="np-h2">One place to understand a case, update it, and pass it along</h2>
 
-    <section id="s08" data-sec="" data-screen-label="08 Core experience" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">08</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Core experience</span></div>
-      <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;margin-top:24px">One place to understand a case, update it, and pass it along.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-2xl)">
-        <article id="f1" style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #181818">
-          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Media — press Enter for full screen" style="display:flex;flex-direction:column;background:#fff;overflow:hidden;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">FLOW</span></span><img data-asset-source="current-live-portfolio" src="/assets/home/walkthroughs/ose/cases.png" alt="Survivor case dashboard" loading="lazy" style="display:block;width:100%;height:auto"></div></div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Survivor case dashboard</h3></div>
-            <p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;max-width:44ch">The dashboard puts every case in one place, so an admin can tell status, priority, and case type apart without opening each one.</p>
-            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #DCDCDC"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Sortable columns let admins bring the cases that need attention to the top instead of scanning the list manually.</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #DCDCDC"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Priority and case-type labels make urgency and category easier to distinguish before opening a case.</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #DCDCDC"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Export Cases to CSV replaces documentation OSE was putting together by hand for law enforcement</span></li></ul>
+        <article class="np-dec np-dec--side">
+          <div>
+            <header class="np-dec__head"><span class="np-dec__n">03</span><h3>Helping admins see which cases need attention</h3></header>
+            <p class="np-prose np-dec__body">Admins see every case in one list, while volunteers see only the cases assigned to them. <strong>Sortable columns bring the cases that need attention to the top</strong>, and priority and case-type labels make urgency easier to read before opening anything.</p>
+            <p class="np-prose np-dec__body">We designed the <strong>CSV export</strong> to help OSE prepare the documentation it had been assembling by hand for law enforcement.</p>
+          </div>
+          <figure class="np-fig">
+            <div class="np-frame"><img src="/assets/ose/crops/cases-detail.png" width="700" height="400" alt="Close-up of the status, priority and case type columns and the Export Cases to CSV button"></div>
+            <figcaption>Status, priority, and case type, each sortable.</figcaption>
+          </figure>
+        </article>
+
+        <article class="np-dec">
+          <header class="np-dec__head"><span class="np-dec__n">04</span><h3>Keeping a case’s story in one view</h3></header>
+          <p class="np-prose np-dec__body">Opening a case brings its details together, so an admin or volunteer isn’t piecing the story together from separate records. Priority, status, and case type stay on the left, and we designed <strong>Send Account Creation Email</strong> to take over a message admins had been writing by hand after escalating a case.</p>
+          <figure class="np-fig">
+            <div class="np-frame"><img src="/assets/home/walkthroughs/ose/case-view.png" width="1400" height="736" alt="Case card open over the dashboard, with priority, status and case type on the left and case information, Edit, Export Case to CSV and Send Account Creation Email on the right"></div>
+          </figure>
+        </article>
+
+        <article class="np-dec">
+          <div class="np-dec--side np-dec--flip np-dec--big">
+            <figure class="np-fig">
+              <div class="np-frame"><img src="/assets/ose/crops/chat-thread.png" width="842" height="736" alt="Secure message thread between a survivor and an admin"></div>
+            </figure>
+            <div>
+              <header class="np-dec__head"><span class="np-dec__n">05</span><h3>Moving conversations off personal email</h3></header>
+              <p class="np-prose np-dec__body">Secure messaging gives survivors, volunteers, and admins <strong>one place to talk instead of personal email threads</strong>, with role labels and color cues that show who is speaking.</p>
+            </div>
           </div>
         </article>
-        <article id="f2" style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Media — press Enter for full screen" style="display:flex;flex-direction:column;background:#fff;overflow:hidden;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">FLOW</span></span><img data-asset-source="current-live-portfolio" src="/assets/home/walkthroughs/ose/case-view.png" alt="Survivor case card" loading="lazy" style="display:block;width:100%;height:auto"></div></div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Survivor case card</h3></div>
-            <p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;max-width:44ch">Opening a case brings the important information into one view, so an admin or volunteer isn’t piecing the story together from separate records.</p>
-            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #DCDCDC"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Edit and per-case CSV export let admins update or document one case without leaving the view</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #DCDCDC"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Send Account Creation Email replaces the email admins were sending manually after escalating a case</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #DCDCDC"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Priority, status, and case type stay visible on the left, so context stays with the case</span></li></ul>
+      </section>
+
+      <section class="np-ch" id="connects" data-np-ch>
+        <p class="np-label">How it connects</p>
+        <h2 class="np-h2">From intake to a shared case record</h2>
+        <p class="np-prose">Intake starts the record, admins review and update it, volunteers pick up assigned work, and messaging <strong>keeps the conversation attached to the same case</strong>. After handoff, the form builder keeps the intake questions up to date.</p>
+        <ol class="np-chain">
+          <li><div class="np-frame"><img class="np-contain" src="/assets/ose/crops/intake-2.svg" alt="Mobile intake screen"></div><h3>Intake</h3><p>A survivor submits the form from their phone.</p></li>
+          <li><div class="np-frame"><img src="/assets/home/walkthroughs/ose/cases.png" width="1400" height="736" alt="Case dashboard"></div><h3>Case dashboard</h3><p>An admin sees the new case and its priority.</p></li>
+          <li><div class="np-frame"><img src="/assets/home/walkthroughs/ose/case-view.png" width="1400" height="736" alt="Case card"></div><h3>Case card</h3><p>Admins and volunteers review and update the case.</p></li>
+          <li><div class="np-frame"><img src="/assets/home/walkthroughs/ose/chat.png" width="1400" height="736" alt="Secure messaging"></div><h3>Secure messaging</h3><p>Everyone involved talks in the same place.</p></li>
+        </ol>
+      </section>
+
+      <section class="np-ch np-ch--end" id="outcome" data-np-ch>
+        <p class="np-label">Outcome</p>
+        <h2 class="np-h2">What we handed off</h2>
+        <p class="np-prose">I handed off designs for mobile intake, the form builder, the case dashboard, the case card, and messaging, along with the shared components we used across them. Together, those pieces show <strong>how a case could move from a survivor’s first submission to the staff and volunteers responsible for following up</strong>.</p>
+        <div class="np-takeaway">
+          <h3>What I took from the project</h3>
+          <div class="np-prose">
+            <p>On FLOW, I kept coming back to what a volunteer would need to know when they picked up a case someone else had been working on. They needed enough history to understand what had already happened, within the access they had to that case. Thinking through that handoff changed how I approached the case workspace, because the notes and conversations one person left behind would become the starting point for the next.</p>
           </div>
-        </article>
-        <article id="f3" style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Media — press Enter for full screen" style="display:flex;flex-direction:column;background:#fff;overflow:hidden;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">FLOW</span></span><img data-asset-source="current-live-portfolio" src="/assets/home/walkthroughs/ose/chat.png" alt="Secure messaging" loading="lazy" style="display:block;width:100%;height:auto"></div></div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Secure messaging</h3></div>
-            <p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;max-width:44ch">Secure messaging gives survivors, volunteers, and admins one place to talk instead of personal email threads.</p>
-            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #DCDCDC"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Role labels and color cues distinguish survivors, volunteers, and admins within the conversation.</span></li></ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="s09" data-sec="" data-screen-label="09 How it connects" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">09</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>How it connects</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(40px,5vw,72px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:balance">One case record keeps context attached as work moves between people.</h2>
-      <p style="margin:var(--space-md) 0 0;max-width:56ch;font:400 clamp(17px,1.3vw,19px)/1.55 'Satoshi',sans-serif;letter-spacing:-.025em;color:#393939;text-wrap:pretty">The intake starts the record, admins review and update it, volunteers can pick up assigned work, and secure messaging keeps communication connected to the same workflow.</p>
-      <ol data-flow="" aria-label="Case flow" style="margin:var(--space-xl) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px"><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>Survivor</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#s06" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Mobile-first intake</a></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>Admin</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#f1" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Survivor case dashboard</a></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #181818"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>Admin · Volunteer</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#f2" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Survivor case card</a></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>Survivor · Volunteer · Admin</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA"></span></span><a href="#f3" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Secure messaging</a></li></ol>
-      <div style="margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:8px 28px;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">Form builder (admin)</span><span>maintains the intake questions after handoff →</span><a href="#s07" style="color:#181818">07</a></div>
-    </section>
-
-    <section id="s10" data-sec="" data-screen-label="10 Outcome &amp; reflection" style="margin-top:var(--space-section-major)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">10</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Outcome &amp; reflection</span></div>
-      <h2 style="margin:var(--space-lg) 0 0;font:400 clamp(38px,4.6vw,64px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.055em;text-wrap:pretty">What we handed over, and what I took from it.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:40px 72px;align-items:flex-start">
-        <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Delivered work</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I handed off five connected FLOW experiences: the survivor case dashboard, case card, secure messaging, mobile-first intake, and form builder, along with the shared component patterns used across them.</p></div>
-        <div style="flex:1 1 340px;display:flex;flex-direction:column"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;padding-top:18px;border-top:1px solid #181818;color:#181818">Reflection</span><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><div style="display:flex;flex-direction:column;gap:8px"><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Safety changes what ‘better’ means.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Most of my earlier projects were about making a task faster. Here privacy and safety came before convenience, and that changed which options were even on the table.</p></div></div><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><div style="display:flex;flex-direction:column;gap:8px"><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Design for continuity, not just task completion.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I started thinking less about whether one person could finish a task and more about whether the next person could understand what happened before them. Designing the handoff became part of designing the workflow.</p></div></div><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><div style="display:flex;flex-direction:column;gap:8px"><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Useful work isn’t always the flashy work.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Sortable lists and CSV exports weren’t the exciting parts, but they replaced work OSE was doing by hand. I pay more attention now to whether a feature actually takes work off someone’s plate.</p></div></div></div>
-      </div>
-    </section>
-
-  </main>
+        </div>
+      </section>
+    </main>
   </div>
+<!-- cs:end -->
 
   <section data-next="ose" class="cs-nw" aria-labelledby="cs-nw-title">
     <div class="cs-nw__inner">
@@ -220,6 +223,14 @@
       </header>
       <div class="cs-nw__rail" data-nw-rail>
         <div class="cs-nw__track" data-nw-track>
+        <a class="cs-nw__card" href="/projects/roam" data-nw="roam">
+          <span class="cs-nw__media"><span style="display:block;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)"><span class="cs-nw__phone"><img src="/assets/home/walkthroughs/roam/postcard.jpg" alt="ROAM postcard screen" draggable="false" style="display:block;width:100%;height:auto"></span></span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">02</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Lead Designer · Fall 2026</span></span>
+            <span class="cs-nw__name">ROAM</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">A short recap of a design-a-thon concept for keeping travel discovery, memories, and sharing in one app.</span>
+          </span>
+        </a>
         <a class="cs-nw__card" href="/projects/nabu" data-nw="nabu">
           <span class="cs-nw__media"><span style="display:block;width:max-content;background:#fff;border:1px solid #DADADA;border-radius:3px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)">
             <span style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;color:#555">NABU</span></span>
@@ -288,6 +299,7 @@
 </footer>
 
 <script src="/scripts/cs.js?v=cs14"></script>
+<script src="/scripts/case-study.js?v=cs7"></script>
 <script src="/scripts/cross-scroll.js"></script>
 <script src="/scripts/page-transition.js?v=tx13"></script>
 <script src="/scripts/turn-the-page.js?v=tp3" defer></script>

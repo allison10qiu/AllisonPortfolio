@@ -15,14 +15,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
 <link rel="stylesheet" href="/styles/main.css?v=ww2">
 <link rel="stylesheet" href="/styles/editorial.css?v=ag2">
-<link rel="stylesheet" href="/styles/cs.css?v=nav26">
+<link rel="stylesheet" href="/styles/cs.css?v=nav27">
+<link rel="stylesheet" href="/styles/case-study.css?v=cs14">
 <link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
 <style>@view-transition { navigation: auto; }</style>
 <link rel="stylesheet" href="/styles/turn-the-page.css?v=tp2">
 <link rel="stylesheet" href="/styles/allisonGPT.css?v=ww1">
 <link rel="stylesheet" href="/styles/motion.css?v=motion6">
 </head>
-<body class="cs-page">
+<body class="cs-page cs-v2">
 <div id="tx-cover" aria-hidden="true"></div>
 <script src="/scripts/tx-cover.js?v=tx6"></script>
 <div style="position:relative;min-height:100vh;overflow-x:clip;font-family:'Satoshi',sans-serif;color:#181818;letter-spacing:-.05em">
@@ -47,227 +48,139 @@
     </div>
   </header>
 
-  <div style="display:flex;align-items:flex-start">
-    <aside class="cs-aside" style="display:flex;position:sticky;top:85px;flex:0 0 232px;height:calc(100vh - 85px);overflow-y:auto;box-sizing:border-box;background:#fff;border-right:1px solid #ECECEC;padding:36px 24px 40px 24px;letter-spacing:-.02em;flex-direction:column">
-      <a href="/#my-work" data-scroll-to="my-work" style="display:flex;align-items:center;gap:8px;min-height:32px;align-self:flex-start;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease"><span aria-hidden="true" style="letter-spacing:0">←</span>All work</a>
-      <div style="margin-top:20px;padding-top:14px;border-top:1.5px solid #181818;display:flex;flex-direction:column;gap:8px">
-        <span style="font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070">Case study</span>
-        <span style="font:400 30px/.95 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">Anda</span>
-        <span style="font:400 italic 15px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.02em;color:#393939">Hack4Impact · Spring 2026</span>
-      </div>
-      <div style="margin-top:28px;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #DCDCDC;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070"><span>Contents</span><span style="color:#181818;letter-spacing:.08em"><span data-idx-count>01 / 10</span></span></div>
-      <nav aria-label="Case study sections" style="margin-top:6px;display:flex;flex-direction:column">
-        <a class="cs-idx__link" href="#s01"><span class="cs-idx__n">01</span><span class="cs-idx__dot" aria-hidden="true"></span><span>The problem</span></a><a class="cs-idx__link" href="#s02"><span class="cs-idx__n">02</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Who we designed for</span></a><a class="cs-idx__link" href="#s03"><span class="cs-idx__n">03</span><span class="cs-idx__dot" aria-hidden="true"></span><span>My role</span></a><a class="cs-idx__link" href="#s04"><span class="cs-idx__n">04</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Data problem</span></a><a class="cs-idx__link" href="#s05"><span class="cs-idx__n">05</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Roadmap</span></a><a class="cs-idx__link" href="#s06"><span class="cs-idx__n">06</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Explainability</span></a><a class="cs-idx__link" href="#s07"><span class="cs-idx__n">07</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Predictive scoring</span></a><a class="cs-idx__link" href="#s08"><span class="cs-idx__n">08</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Synthetic data</span></a><a class="cs-idx__link" href="#s09"><span class="cs-idx__n">09</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Team output</span></a><a class="cs-idx__link" href="#s10"><span class="cs-idx__n">10</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Outcome & reflection</span></a>
+<!-- cs:start -->
+  <nav class="np-bar" aria-label="Chapters">
+    <div class="np-bar__track" data-np-track>
+      <a class="np-link" href="#context">Context</a>
+      <a class="np-link" href="#data">The data</a>
+      <a class="np-link" href="#roadmap">Roadmap</a>
+      <a class="np-link" href="#decisions">Key decisions</a>
+      <a class="np-link" href="#output">Team output</a>
+      <a class="np-link" href="#outcome">Outcome</a>
+    </div>
+  </nav>
+
+  <div class="np-shell">
+    <aside class="np-side">
+      <nav class="np-side__inner" aria-label="Chapters">
+        <a class="np-back" href="/#my-work" data-scroll-to="my-work"><span aria-hidden="true">←</span> All work</a>
+        <a class="np-link" href="#context">Context</a>
+        <a class="np-link" href="#data">The data</a>
+        <a class="np-link" href="#roadmap">Roadmap</a>
+        <a class="np-link" href="#decisions">Key decisions</a>
+        <a class="np-link" href="#output">Team output</a>
+        <a class="np-link" href="#outcome">Outcome</a>
       </nav>
     </aside>
-  <main data-screen-label="Anda case study" style="flex:1 1 0;min-width:0;padding:0 clamp(24px,8.7vw,112px);box-sizing:border-box">
 
-    <header id="top" data-screen-label="Hero" style="padding-top:clamp(44px,4.6vw,72px)">
-      <div style="display:flex;align-items:center;gap:10px;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">03</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Anda</span></div>
-      <h1 style="margin:var(--space-md) 0 0;font:400 clamp(44px,5.8vw,88px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">Deciding what Anda’s team should build first</h1>
-      <div class="cs-hero">
-        <dl class="cs-hero__side"><div><dt>Timeline</dt><dd>Feb — May 2026</dd></div><div><dt>Role</dt><dd>Product Manager</dd></div><div><dt>Made for</dt><dd>Anda, Angola</dd></div><div><dt>Focus</dt><dd><span>Requirements</span><span>Roadmapping</span><span>Data model</span></dd></div></dl>
-        <div class="cs-hero__main">
-          <p class="cs-hero__lead">Anda helps drivers in Angola earn a living while working toward owning their vehicles. The data needed to understand driver performance was scattered across Odoo, spreadsheets, GPS, and Yango.</p>
-          <div class="cs-hero__contrib"><span class="cs-hero__contrib-label">My contribution</span><span class="cs-hero__contrib-text">I owned the roadmap, requirements, and prioritization.</span></div>
+    <main class="np-main" data-screen-label="Anda case study">
+
+      <header class="np-hero" id="top">
+        <h1 class="np-title">Deciding what Anda’s team should build first</h1>
+        <p class="np-dek">Anda helps drivers in Angola earn a living while working toward owning their vehicles. Through Hack4Impact, I was the product manager for an admin and Customer Success platform built on driver data that was scattered across four systems.</p>
+        <div class="np-spec">
+          <dl class="np-facts">
+            <div><dt>Role</dt><dd>Product Manager</dd></div>
+            <div><dt>Team</dt><dd>Hack4Impact, for Anda (Angola)</dd></div>
+            <div><dt>Timeline</dt><dd>Feb–May 2026</dd></div>
+            <div><dt>Focus</dt><dd><ul class="np-focus"><li>Requirements</li><li>Roadmapping</li><li>Data model</li></ul></dd></div>
+          </dl>
+          <dl class="np-rows">
+            <div><dt>Problem</dt><dd>Driver activity and payment data lived in Odoo, spreadsheets, and GPS and Yango APIs, so no one could tell when a driver actually needed support.</dd></div>
+            <div><dt>My contribution</dt><dd>I owned the roadmap, requirements, and prioritization, and worked with our tech lead on the data model the product depended on.</dd></div>
+          </dl>
         </div>
-      </div>
-      <figure style="margin:var(--space-xl) 0 0;width:100%;display:flex;flex-direction:column;gap:var(--space-md)">
-        <img data-asset-source="current-live-portfolio" src="/assets/mockups/anda/csm.png" alt="Anda Customer Success Manager dashboard" style="display:block;width:100%;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);aspect-ratio:477/297;height:auto;object-fit:cover;object-position:left top">
-        <figcaption style="display:flex;flex-wrap:wrap;justify-content:space-between;text-align:left;gap:6px 24px;padding-top:12px;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>A look at the product direction the team designed — the screens are shown large in section 09</span><span style="color:#181818">Product design: Tiffany Liu · Isabella Raffo</span></figcaption>
-      </figure>
-      <section aria-label="The build order I set" style="margin-top:var(--space-xl);padding-top:var(--space-lg);border-top:1px solid #181818;min-width:0;display:flex;flex-direction:column;gap:20px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">The build order I set</span><a href="#s05" style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease">See the full roadmap →</a></div>
-          <ol style="position:relative;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:22px">
-            <span aria-hidden="true" style="position:absolute;left:9px;top:12px;bottom:12px;width:1px;background:#DCDCDC"></span>
-            <li style="position:relative;display:grid;grid-template-columns:20px 88px minmax(0,1fr);gap:0 18px;align-items:center">
-              <span aria-hidden="true" style="width:19px;height:19px;box-sizing:border-box;border-radius:50%;background:#181818;border:1.5px solid #181818"></span>
-              <span style="font:400 clamp(50px,4.6vw,66px)/.82 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">P0</span>
-              <span style="display:flex;flex-direction:column;gap:6px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Ship first</span><span style="font:400 clamp(19px,1.6vw,22px)/1.25 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;color:#181818;text-wrap:pretty">Trustworthy driver data, and a score that can explain itself.</span></span>
-            </li>
-            <li style="position:relative;display:grid;grid-template-columns:20px 88px minmax(0,1fr);gap:0 18px;align-items:center">
-              <span aria-hidden="true" style="width:19px;height:19px;box-sizing:border-box;border-radius:50%;background:#fff;border:1.5px solid #181818"></span>
-              <span style="font:400 clamp(50px,4.6vw,66px)/.82 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">P1</span>
-              <span style="display:flex;flex-direction:column;gap:6px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Once the data held up</span><span style="font:400 clamp(19px,1.6vw,22px)/1.25 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;color:#181818;text-wrap:pretty">Priority Queue and risk scoring for Customer Success Managers.</span></span>
-            </li>
-            <li style="position:relative;display:grid;grid-template-columns:20px 88px minmax(0,1fr);gap:0 18px;align-items:center">
-              <span aria-hidden="true" style="width:19px;height:19px;box-sizing:border-box;border-radius:50%;background:#fff;border:1.5px dashed #AAAAAA"></span>
-              <span style="font:400 clamp(50px,4.6vw,66px)/.82 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#AAAAAA">P2</span>
-              <span style="display:flex;flex-direction:column;gap:6px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Deferred</span><span style="font:400 clamp(19px,1.6vw,22px)/1.25 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em;color:#707070;text-wrap:pretty">Driver-facing app, rewards, and CSM messaging.</span></span>
-            </li>
-          </ol>
-        </section>
-    </header>
+        <figure class="np-fig np-wide np-hero__img">
+          <div class="np-frame"><img src="/assets/mockups/anda/csm.png" width="1728" height="1117" alt="Customer Success Manager dashboard ranking drivers with a score in each row"></div>
+          <figcaption>The CSM dashboard, from the P1 Priority Queue I scoped. Screens designed by Tiffany Liu and Isabella Raffo.</figcaption>
+        </figure>
+      </header>
 
-    <section id="s01" data-sec="" data-screen-label="01 The problem" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">01</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>The problem</span></div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start">
-        <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:24px">
-          <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:wrap">No one could tell when a driver actually needed support.</h2>
-          
-          <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Activity and payment data lived across Odoo, manual spreadsheets, and GPS and Yango APIs that didn’t talk to each other. So an inactive driver could be underperforming, dealing with a vehicle issue, or falling behind on payments — and admins couldn’t tell which.</p>
+      <section class="np-ch" id="context" data-np-ch>
+        <p class="np-label">Context</p>
+        <h2 class="np-h2">No one could tell when a driver needed support</h2>
+        <div class="np-prose">
+          <p>An inactive driver could be underperforming, dealing with a vehicle issue, or falling behind on payments, and admins couldn’t tell which. Checking on one driver meant opening several disconnected systems, and there was no clear way to decide <strong>who needed help most urgently</strong>.</p>
         </div>
-        <ol style="flex:1 1 360px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #181818"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><p style="margin:0;font:400 16.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">Admins and CSMs had no easy way to see how a driver was doing — driving regularly, offline for stretches, keeping up with payments, or falling behind.</p></li><li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><p style="margin:0;font:400 16.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">Checking on one driver meant opening several disconnected systems.</p></li><li style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><p style="margin:0;font:400 16.5px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em">There was no clear way to decide which drivers needed help most urgently.</p></li></ol>
-      </div>
-    </section>
-
-    <section id="s02" data-sec="" data-screen-label="02 Who we designed for" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">02</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Who we designed for</span></div>
-      <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;margin-top:24px">The Customer Success Managers who had to decide who needed help first.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:40px 64px;align-items:flex-start">
-        <figure style="flex:0 1 300px;margin:0;display:flex;flex-direction:column;gap:12px"><img src="/assets/anda/persona.png?v=anda1" alt="Afonso Ndalu, Customer Success Manager" style="display:block;width:100%;height:auto;border-radius:2px"><figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Afonso Ndalu</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Customer Success Manager</span></figcaption></figure>
-        <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:var(--space-lg)">
-          <blockquote style="margin:0;font:400 clamp(24px,2.4vw,34px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;text-wrap:pretty">CSMs needed to know whether a driver needed intervention before reaching out — and understand why the system had flagged them.</blockquote>
-          <div style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">What he needs</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A ranked view showing who needs help most urgently and why, grounded in activity and payment signals he can explain to a driver.</p></div>
-          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:0 24px"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Role</dt><dd style="margin:0;font:400 15.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Customer Success Manager</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Systems he checks</dt><dd style="margin:0;font:400 15.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Odoo, GPS, Yango, spreadsheets</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Decision he makes</dt><dd style="margin:0;font:400 15.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">Who to check on first</dd></div></dl>
-        </div>
-      </div>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline;padding:24px 0;border-top:1px solid #181818"><span style="flex:0 0 260px;font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">What that meant for the roadmap</span><p style="margin:0;flex:1 1 320px;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Two things had to be true before anything else: the activity and payment data had to be reliable, and a flagged driver had to come with a reason. That’s why explainability went into P0 and the ranked Priority Queue into P1.</p></div>
-    </section>
-
-    <section id="s03" data-sec="" data-screen-label="03 My role" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">03</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>My role</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(30px,3vw,42px)/1.06 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">I owned the roadmap, requirements, and prioritization.</h2>
-      <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;margin-top:var(--space-md)">Tiffany Liu and Isabella Raffo led product design, while I kept design and engineering aligned around the same priorities.</p>
-      <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:0 32px"><div style="display:flex;flex-direction:column;gap:10px;padding:16px 0 20px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Product management</span><span style="font:400 clamp(24px,2.1vw,28px)/1.18 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Allison Qiu</span></div><div style="display:flex;flex-direction:column;gap:10px;padding:16px 0 20px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Product design</span><span style="font:400 clamp(24px,2.1vw,28px)/1.18 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Tiffany Liu<br>Isabella Raffo</span></div><div style="display:flex;flex-direction:column;gap:10px;padding:16px 0 20px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Engineering</span><span style="font:400 clamp(24px,2.1vw,28px)/1.18 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Tech lead · developers</span></div></div>
-      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-md)"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">What I owned</span>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px"><div style="display:flex;flex-direction:column;gap:8px;padding:18px 0 22px;border-top:1px solid #DCDCDC"><span style="font:500 15px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">Requirements</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Wrote the PRD and the requirements the designers and developers built from.</p></div><div style="display:flex;flex-direction:column;gap:8px;padding:18px 0 22px;border-top:1px solid #DCDCDC"><span style="font:500 15px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">Prioritization</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Set P0, P1, and P2, including what we chose not to build this semester.</p></div><div style="display:flex;flex-direction:column;gap:8px;padding:18px 0 22px;border-top:1px solid #DCDCDC"><span style="font:500 15px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">Data model</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Worked with the tech lead to define the activity and payment data the product needed.</p></div><div style="display:flex;flex-direction:column;gap:8px;padding:18px 0 22px;border-top:1px solid #DCDCDC"><span style="font:500 15px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">Product decisions</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Decided to make explainability P0, hold predictive scoring in P1, and move forward with synthetic data while real data was delayed.</p></div><div style="display:flex;flex-direction:column;gap:8px;padding:18px 0 22px;border-top:1px solid #DCDCDC"><span style="font:500 15px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">Dependencies</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Separated blocked work from what the team could keep moving while dependencies were unresolved.</p></div><div style="display:flex;flex-direction:column;gap:8px;padding:18px 0 22px;border-top:1px solid #DCDCDC"><span style="font:500 15px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em">Coordination</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Kept design and engineering working from the same priorities week to week.</p></div></div>
-      </div>
-    </section>
-
-    <section id="s04" data-sec="" data-screen-label="04 The data problem" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">04</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>The data problem</span></div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:var(--space-md) 72px;align-items:flex-start">
-        <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;flex:1 1 100%">Before we could design the dashboards, we had to know which data we could rely on.</h2>
-        <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;flex:1 1 100%">Driver activity and payment data came from four places. Their reliability and availability shaped what we could prioritize first.</p>
-      </div>
-      <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:0 24px"><div style="display:flex;flex-direction:column;gap:12px;padding:18px 0 24px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">System of record</span><span style="font:400 28px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Odoo</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Where driver and payment records lived.</p></div><div style="display:flex;flex-direction:column;gap:12px;padding:18px 0 24px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Manual</span><span style="font:400 28px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Spreadsheets</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Filled in by hand, so gaps and errors were possible.</p></div><div style="display:flex;flex-direction:column;gap:12px;padding:18px 0 24px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Activity</span><span style="font:400 28px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">GPS API</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Vehicle movement, speed, and engine status.</p></div><div style="display:flex;flex-direction:column;gap:12px;padding:18px 0 24px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Activity</span><span style="font:400 28px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Yango API</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Trip and earnings activity from the ride-hailing side.</p></div></div>
-      <div style="margin-top:var(--space-lg);display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline"><span style="flex:0 0 220px;font:400 clamp(24px,2.1vw,30px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Why this set the order</span><p style="margin:0;flex:1 1 320px;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The screens were only going to be useful if the activity and payment data behind them held up, so I worked with our tech lead on the data model before we scoped any views. Reliable data and interpretable performance logic had to come before the views built on top of them.</p></div>
-    </section>
-
-    <section id="s05" data-sec="" data-screen-label="05 Roadmap" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Roadmap</span></div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:var(--space-md) 72px;align-items:flex-start">
-        <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;flex:1 1 100%">I wrote the PRD, then split the product into what we’d build first, next, and not yet.</h2>
-        <p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;flex:1 1 100%">I worked with our tech lead to define the data we needed, then prioritized the product around those dependencies. Each tier reflects what we needed first and what we intentionally deferred.</p>
-      </div>
-      <div style="margin-top:var(--cs-media-gap);display:flex;flex-direction:column">
-        <div style="display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-start;padding:22px 0 4px;border-top:1.5px solid #181818">
-          <div style="flex:0 0 200px;display:flex;flex-direction:column;gap:8px"><span style="font:400 34px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">P0</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Ship first</span></div>
-          <div style="flex:1 1 360px;display:flex;flex-direction:column"><p style="margin:0;padding:16px 0;border-top:1px solid #DCDCDC;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Authentication and the core Driver Performance Overview — nothing else mattered if admins couldn’t trust the data.</p><p style="margin:0;padding:16px 0;border-top:1px solid #DCDCDC;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Admin and CSM dashboards focused on the same two things: real activity and payment status.</p></div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-start;padding:22px 0 4px;border-top:1px solid #DCDCDC">
-          <div style="flex:0 0 200px;display:flex;flex-direction:column;gap:8px"><span style="font:400 34px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">P1</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Once the data held up</span></div>
-          <div style="flex:1 1 360px;display:flex;flex-direction:column"><p style="margin:0;padding:16px 0;border-top:1px solid #DCDCDC;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The Priority Queue view and risk scoring, giving CSMs a clear read on who to check on first.</p><div style="display:flex;flex-direction:column;gap:8px;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:500 10.5px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#181818;display:flex;align-items:center;gap:8px"><span style="width:14px;height:1px;background:#181818"></span>Trade-off</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Held predictive risk scoring until the system could explain itself — flagging a driver without a reason wasn’t good enough.</p></div></div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-start;padding:22px 0 4px;border-top:1px solid #DCDCDC">
-          <div style="flex:0 0 200px;display:flex;flex-direction:column;gap:8px"><span style="font:400 34px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">P2</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Deferred</span></div>
-          <div style="flex:1 1 360px;display:flex;flex-direction:column"><div style="display:flex;flex-direction:column;gap:8px;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:500 10.5px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#181818;display:flex;align-items:center;gap:8px"><span style="width:14px;height:1px;background:#181818"></span>Trade-off</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">The driver-facing mobile dashboard and rewards, since admins and CSMs needed visibility first.</p></div><div style="display:flex;flex-direction:column;gap:8px;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:500 10.5px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#181818;display:flex;align-items:center;gap:8px"><span style="width:14px;height:1px;background:#181818"></span>Trade-off</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">CSM messaging and CSM performance scoring, so CSMs had support tools before messaging tools.</p></div></div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline;margin-top:var(--cs-media-gap);padding-top:24px;border-top:1px solid #181818">
-          <span style="flex:0 0 260px;font:400 clamp(24px,2.1vw,30px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">We treated explainability as a requirement from the start.</span>
-          <p style="margin:0;flex:1 1 320px;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">If the platform flagged a driver, admins needed to see which activity or payment signals contributed.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="s06" data-sec="" data-screen-label="06 Explainability" style="margin-top:var(--space-section)">
-      <h2 style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0">Decision — explainability as P0</h2>
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">06</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Decision — explainability as P0</span></div>
-      <div style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px 64px"><div style="display:flex;flex-direction:column;gap:12px;padding:18px 0 0;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Product question</span><p style="margin:0;font:400 clamp(20px,1.7vw,24px)/1.3 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">What does someone need to see to understand a driver’s score?</p></div><div style="display:flex;flex-direction:column;gap:12px;padding:18px 0 0;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">My decision</span><p style="margin:0;font:400 clamp(20px,1.7vw,24px)/1.3 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">I made explainability a P0 requirement: admins needed to see which activity and payment signals contributed to a driver’s score.</p></div></div>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:32px 48px;align-items:flex-start">
-        <figure style="flex:2 1 520px;margin:0;display:flex;flex-direction:column;gap:var(--space-sm)"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Team output — designed by Tiffany Liu and Isabella Raffo</span><img data-asset-source="current-live-portfolio" src="/assets/mockups/anda/driver.png" alt="Anda driver score breakdown screen" style="display:block;width:100%;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);aspect-ratio:476/297;height:auto;object-fit:cover;object-position:left top"></figure>
-        <ol style="flex:1 1 260px;margin:0;padding:30px 0 0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid #181818"><span style="font:400 italic 18px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The breakdown shows the weight behind each factor: payment timeliness, hours worked, collection rate, portfolio risk.</p></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 18px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Collection Rate and % Portfolio at Risk are shown as ratios, so an admin can check the math.</p></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 18px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">An admin can point to the reason a driver was flagged, which is what the requirements asked for.</p></li></ol>
-      </div>
-    </section>
-
-    <section id="s07" data-sec="" data-screen-label="07 Predictive scoring" style="margin-top:var(--space-section-major)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">07</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Decision — holding predictive scoring</span></div>
-      <h2 style="margin:var(--space-lg) 0 0;font:400 clamp(42px,5.2vw,74px)/.96 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em;text-wrap:pretty">Predictive scoring stayed in P1 until we could explain the results.</h2>
-      <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:32px 64px">
-        <div style="display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Why it was valuable</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Risk scoring would give CSMs a clear read on who to check on first, instead of working through their drivers one by one.</p></div>
-        <div style="display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Why it wasn’t P0</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939;color:#181818">A risk label without a clear reason wouldn’t give CSMs enough information to understand or act on it.</p></div>
-      </div>
-    </section>
-
-    <section id="s08" data-sec="" data-screen-label="08 Synthetic data" style="margin-top:var(--space-section)">
-      <h2 style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0">Decision — working with synthetic data</h2>
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">08</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Decision — working with synthetic data</span></div>
-      <ol style="margin:24px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:32px 40px"><li style="display:flex;flex-direction:column;gap:14px;padding-top:18px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>The dependency</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><p style="margin:0;font:400 clamp(20px,1.7vw,24px)/1.3 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">Access to real driver data was delayed beyond our team’s control.</p></li><li style="display:flex;flex-direction:column;gap:14px;padding-top:18px;border-top:1px solid #181818"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818"><span>My decision</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><p style="margin:0;font:400 clamp(20px,1.7vw,24px)/1.3 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">I chose to move forward with synthetic activity and payment patterns so design and development could keep moving while we waited.</p></li><li style="display:flex;flex-direction:column;gap:14px;padding-top:18px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>What it didn’t fix</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA"></span></span><p style="margin:0;font:400 clamp(20px,1.7vw,24px)/1.3 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">Synthetic data kept the team moving, but it did not validate that the scoring would behave correctly with real drivers.</p></li></ol>
-    </section>
-
-    <section id="s09" data-sec="" data-screen-label="09 Team output" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">09</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>The team’s output</span></div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px 72px;align-items:flex-end;justify-content:space-between">
-        <h2 style="margin:0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty;flex:1 1 420px">What the team designed from those requirements.</h2>
-        <dl style="flex:0 1 auto;margin:0;display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid #181818"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Credit</dt><dd style="margin:0;font:400 15px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em">Product design: Tiffany Liu · Isabella Raffo</dd><dd style="margin:0;font:400 15px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Product management: Allison Qiu</dd></dl>
-      </div>
-      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-2xl)">
-        <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #181818">
-          <div data-fs="" style="flex:1.7 1 440px;min-width:0;display:flex;flex-direction:column;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)">
-            <span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">Anda</span></span>
-            <div tabindex="0" aria-label="Screen preview — press Enter for full screen" data-scroll-shot="" style="aspect-ratio:1728/1117;overflow:hidden"><img src="/assets/mockups/anda/csm.png" alt="Customer Success Manager dashboard" loading="lazy" style="display:block;width:100%;height:auto"></div>
+        <div class="np-persona">
+          <img src="/assets/anda/persona.png?v=anda1" alt="" width="88" height="88">
+          <div>
+            <p class="np-persona__name">Afonso Ndalu</p>
+            <p class="np-persona__role">Customer Success Manager</p>
+            <p class="np-persona__desc">Checks Odoo, GPS, Yango, and spreadsheets to decide which driver to check on first, and needs to understand why a driver was flagged before reaching out.</p>
+            <dl class="np-persona__need"><dt>What he needs</dt><dd>A ranked view of who needs help most urgently and why, grounded in activity and payment signals he can explain to a driver.</dd></dl>
           </div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Customer Success Manager dashboard</h3></div>
-            <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Traces back to</span><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The Priority Queue I scoped as P1 — a ranked view of a CSM’s drivers, with the score in the list so risk is visible before opening anyone.</p></div>
+        </div>
+      </section>
+
+      <section class="np-ch" id="data" data-np-ch>
+        <p class="np-label">The data</p>
+        <h2 class="np-h2">We had to know which data we could rely on first</h2>
+        <p class="np-prose">Driver activity and payment data came from four places, and their reliability shaped what we could prioritize. The screens would only be useful if that data held up, so <strong>I worked with our tech lead on the data model before we scoped any views</strong>.</p>
+        <div class="np-three np-four">
+          <div><h3>Odoo</h3><p>The system of record for driver and payment records.</p></div>
+          <div><h3>Spreadsheets</h3><p>Filled in by hand, so gaps and errors were possible.</p></div>
+          <div><h3>GPS API</h3><p>Vehicle movement, speed, and engine status.</p></div>
+          <div><h3>Yango API</h3><p>Trip and earnings activity from the ride-hailing side.</p></div>
+        </div>
+      </section>
+
+      <section class="np-ch" id="roadmap" data-np-ch>
+        <p class="np-label">Roadmap</p>
+        <h2 class="np-h2">From understanding driver performance to prioritizing outreach</h2>
+        <div class="np-three np-tiers np-tiers--two">
+          <div><h3>P0 · Make driver performance visible</h3><p>I scoped authentication, the Driver Performance Overview, and the admin and Customer Success dashboards for the first release. Together, they gave staff a place to review driver activity and payments and see which signals contributed to an individual’s performance score.</p></div>
+          <div><h3>P1 · Help Customer Success prioritize outreach</h3><p>I scoped the Priority Queue next, using driver activity and payment signals to help Customer Success Managers decide who to check on first.</p></div>
+        </div>
+      </section>
+
+      <section class="np-ch" id="decisions" data-np-ch>
+        <p class="np-label">Key decisions</p>
+        <h2 class="np-h2">Two calls that shaped the roadmap</h2>
+
+        <article class="np-dec np-dec--side np-dec--big-right">
+          <div>
+            <header class="np-dec__head"><span class="np-dec__n">01</span><h3>Show what goes into a driver’s performance score</h3></header>
+            <p class="np-prose np-dec__body">I made the score breakdown a P0 requirement because <strong>a single number gave staff little to investigate</strong>. Seeing the factors behind it gave them a place to start, whether that meant looking more closely at payment timeliness, hours worked, or another input.</p>
           </div>
+          <figure class="np-fig">
+            <div class="np-frame"><img src="/assets/mockups/anda/driver.png" width="1728" height="1453" alt="Driver performance page with a score breakdown by factor"></div>
+            <figcaption>The breakdown weights payment timeliness, hours worked, collection rate, and portfolio risk, with ratios an admin can check. Designed by Tiffany Liu and Isabella Raffo.</figcaption>
+          </figure>
         </article>
-        <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div data-fs="" style="flex:1.7 1 440px;min-width:0;display:flex;flex-direction:column;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)">
-            <span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">Anda</span><span data-scroll-hint="" style="margin-left:auto;display:inline;font:500 10px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Scroll ↓</span></span>
-            <div tabindex="0" aria-label="Vehicle activity screen, scrollable" data-scroll-shot="" data-scroll-shot="" style="aspect-ratio:1728/1117;overflow:hidden auto;overscroll-behavior:contain"><img src="/assets/mockups/anda/driver-vehicle.png" alt="Vehicle activity" loading="lazy" style="display:block;width:100%;height:auto"></div>
-          </div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Vehicle activity</h3></div>
-            <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Traces back to</span><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The P0 requirement that inactivity carry context: whether a vehicle is moving, parked, or has been offline for a longer stretch.</p></div>
-          </div>
-        </article>
-        <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div data-fs="" style="flex:1.7 1 440px;min-width:0;display:flex;flex-direction:column;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)">
-            <span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">Anda</span><span data-scroll-hint="" style="margin-left:auto;display:inline;font:500 10px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Scroll ↓</span></span>
-            <div tabindex="0" aria-label="Revenue and default rate screen, scrollable" data-scroll-shot="" data-scroll-shot="" style="aspect-ratio:1728/1117;overflow:hidden auto;overscroll-behavior:contain"><img src="/assets/mockups/anda/driver-revenue.png" alt="Revenue and default rate" loading="lazy" style="display:block;width:100%;height:auto"></div>
-          </div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Revenue and default rate</h3></div>
-            <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Traces back to</span><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The payment half of the P0 data set, shown as trends rather than a single current balance.</p></div>
-          </div>
-        </article>
-        <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div data-fs="" style="flex:1.7 1 440px;min-width:0;display:flex;flex-direction:column;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)">
-            <span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">Anda</span></span>
-            <div tabindex="0" aria-label="Screen preview — press Enter for full screen" data-scroll-shot="" style="aspect-ratio:1728/1117;overflow:hidden"><img src="/assets/mockups/anda/admin-0.png" alt="Manage users" loading="lazy" style="display:block;width:100%;height:auto"></div>
-          </div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Manage users</h3></div>
-            <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Traces back to</span><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The verification and role requirements, including Drivers Assigned so admins can see CSM workload.</p></div>
-          </div>
-        </article>
-        <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div data-fs="" style="flex:1.7 1 440px;min-width:0;display:flex;flex-direction:column;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)">
-            <span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">Anda</span></span>
-            <div tabindex="0" aria-label="Anda login page — press Enter for full screen" data-scroll-shot="" style="overflow:hidden"><img data-asset-source="approved-figma" src="/assets/mockups/anda/login.png" alt="Anda login page" loading="lazy" style="display:block;width:100%;height:auto"></div>
-          </div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">05</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Authentication</h3></div>
-            <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Traces back to</span><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">P0 alongside the core data — role-based access was a prerequisite, not a feature.</p></div>
-          </div>
-        </article>
-      </div>
-    </section>
 
-    <section id="s10" data-sec="" data-screen-label="10 Outcome &amp; reflection" style="margin-top:var(--space-section-major)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">10</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Outcome &amp; reflection</span></div>
-      <h2 style="margin:var(--space-lg) 0 0;font:400 clamp(38px,4.6vw,64px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.055em;text-wrap:pretty">This was my first time owning the product roadmap instead of contributing to one part of a project.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:40px 72px;align-items:flex-start">
-        <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">What the team got done</span><p style="margin:0;max-width:56ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">By the end of the semester, the team had designed the P0 experience — authentication, driver performance and score breakdowns, and the admin and CSM dashboards — along with the P1 Priority Queue. The driver-facing app, rewards, and CSM messaging remained intentionally out of scope. Tiffany Liu and Isabella Raffo designed the interfaces from the requirements and priorities I defined.</p></div>
-        <div style="flex:1 1 340px;display:flex;flex-direction:column"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;padding-top:18px;border-top:1px solid #181818;color:#181818">What I learned</span><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><div style="display:flex;flex-direction:column;gap:12px"><span style="font:400 clamp(21px,1.8vw,25px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Product decisions depended on the data.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I learned that I couldn’t make useful roadmap decisions without understanding the data and logic underneath the interface. Working closely with our tech lead made me more comfortable asking technical questions until I understood the constraints well enough to make the call.</p></div></div><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><div style="display:flex;flex-direction:column;gap:12px"><span style="font:400 clamp(21px,1.8vw,25px)/1.12 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.045em">Prioritization meant choosing what not to build.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Putting reliable driver data first meant delaying the driver-facing app and CSM messaging. I also learned to separate the work we could keep moving from dependencies, like real data access, that the team couldn’t control.</p></div></div></div>
-      </div>
-      <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px 64px;padding:22px 0 0;border-top:1.5px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#181818">What still needed validation</span><p style="margin:0;max-width:60ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Synthetic data kept design and development moving while access to real driver data was delayed, but it never showed that the scoring would behave correctly on real drivers. That was still open when the semester ended.</p></div>
-    </section>
+        <article class="np-dec">
+          <header class="np-dec__head"><span class="np-dec__n">02</span><h3>Explain why a driver is flagged</h3></header>
+          <p class="np-prose np-dec__body">A ranked queue could tell a Customer Success Manager where to start, but <strong>they still needed to know why a driver appeared near the top</strong> before reaching out. We used synthetic data to keep design and development moving while access to real driver data was delayed, which left the ranking itself to be validated after the semester.</p>
+        </article>
+      </section>
 
-  </main>
+      <section class="np-ch" id="output" data-np-ch>
+        <p class="np-label">Team output</p>
+        <h2 class="np-h2">What the team designed from those requirements</h2>
+        <p class="np-prose">Tiffany Liu and Isabella Raffo designed the interfaces. Each screen traces back to a requirement in the roadmap.</p>
+        <ol class="np-chain np-chain--tall">
+          <li><div class="np-frame"><img src="/assets/mockups/anda/driver-vehicle.png" width="1728" height="1657" alt="Vehicle activity view" style="object-position:center 40%"></div><h3>Vehicle activity</h3><p>From the P0 requirement that inactivity carry context: moving, parked, or offline for a longer stretch.</p></li>
+          <li><div class="np-frame"><img src="/assets/mockups/anda/driver-revenue.png" width="1728" height="2323" alt="Revenue and default rate charts" style="object-position:center 30%"></div><h3>Revenue and default rate</h3><p>The payment half of the P0 data, shown as trends rather than a single balance.</p></li>
+          <li><div class="np-frame"><img src="/assets/mockups/anda/admin-0.png" width="1728" height="1117" alt="Manage users table"></div><h3>Manage users</h3><p>Verification and roles, with Drivers Assigned so admins can see each CSM’s workload.</p></li>
+          <li><div class="np-frame"><img src="/assets/mockups/anda/login.png" width="1728" height="1117" alt="Sign-in screen"></div><h3>Authentication</h3><p>Role-based access shipped with the core data, as a prerequisite rather than a feature.</p></li>
+        </ol>
+      </section>
+
+      <section class="np-ch np-ch--end" id="outcome" data-np-ch>
+        <p class="np-label">Outcome</p>
+        <h2 class="np-h2">What we shipped to Anda</h2>
+        <p class="np-prose">We shipped authentication, the Driver Performance Overview and score breakdown, the admin and Customer Success dashboards, and the Priority Queue. The driver app, rewards, and messaging stayed out of scope so the team could focus on giving staff a clearer picture of driver activity and payments. <strong>How well the queue would prioritize outreach with real driver data remained open</strong> at the end of the semester.</p>
+        <div class="np-takeaway">
+          <h3>What I took from the project</h3>
+          <div class="np-prose">
+            <p>Owning my first roadmap taught me how much a decision about what to build depends on understanding the data behind it. We shipped a queue to help staff decide who to check on first, though we still needed real driver data to see whether the ranking held up. Working through that with our tech lead helped me get more comfortable asking technical questions until I understood what the team could move forward with and what we still needed to learn.</p>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
+<!-- cs:end -->
 
   <section data-next="anda" class="cs-nw" aria-labelledby="cs-nw-title">
     <div class="cs-nw__inner">
@@ -277,6 +190,14 @@
       </header>
       <div class="cs-nw__rail" data-nw-rail>
         <div class="cs-nw__track" data-nw-track>
+        <a class="cs-nw__card" href="/projects/roam" data-nw="roam">
+          <span class="cs-nw__media"><span style="display:block;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)"><span class="cs-nw__phone"><img src="/assets/home/walkthroughs/roam/postcard.jpg" alt="ROAM postcard screen" draggable="false" style="display:block;width:100%;height:auto"></span></span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">02</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Lead Designer · Fall 2026</span></span>
+            <span class="cs-nw__name">ROAM</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">A short recap of a design-a-thon concept for keeping travel discovery, memories, and sharing in one app.</span>
+          </span>
+        </a>
         <a class="cs-nw__card" href="/projects/operation-safe-escape" data-nw="ose">
           <span class="cs-nw__media"><span style="display:block;width:max-content;background:#fff;border:1px solid #DADADA;border-radius:3px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)">
             <span style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;color:#555">FLOW</span></span>
@@ -345,6 +266,7 @@
 </footer>
 
 <script src="/scripts/cs.js?v=cs14"></script>
+<script src="/scripts/case-study.js?v=cs7"></script>
 <script src="/scripts/cross-scroll.js"></script>
 <script src="/scripts/page-transition.js?v=tx13"></script>
 <script src="/scripts/turn-the-page.js?v=tp3" defer></script>

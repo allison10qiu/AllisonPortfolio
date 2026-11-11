@@ -1,0 +1,506 @@
+/* Case study layout: quiet chapter sidebar, phone chapter bar, editorial chapters. See CASE_STUDY_STYLE.md. */
+:root {
+  --np-ink: #181818;
+  --np-g1: #393939;
+  --np-g2: #707070;
+  --np-g4: #DCDCDC;
+  --np-g5: #ECECEC;
+  --np-serif: "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif;
+  --np-sans: "Satoshi", system-ui, sans-serif;
+  --np-shadow: 0 28px 50px -18px rgba(24,24,24,.28), 0 2px 6px rgba(24,24,24,.08);
+  --np-text: none;    /* text runs to the content margins */
+  --np-wide: 880px;  /* content never grows past this */
+  --np-pad: clamp(32px, 9vw, 160px); /* same margin on both sides of the content */
+  --np-gap-ch: clamp(88px, 9vw, 128px); /* space between chapters */
+  --np-bar-h: 0px;
+  --np-head: 85px; /* set from the real site header by proto.js */
+}
+
+.np-shell { display: flex; align-items: flex-start; }
+.np-main {
+  flex: 1 1 0; min-width: 0; box-sizing: border-box;
+  padding: 0 var(--np-pad) 40px;
+  color: var(--np-ink); font-family: var(--np-sans); letter-spacing: -.02em;
+}
+.np-main > * { max-width: var(--np-wide); }
+.np-main .np-wide, .np-main .np-full { max-width: none; }
+
+/* ---------- Desktop sidebar: quiet chapters ---------- */
+.np-side { display: none; }
+@media (min-width: 600px) {
+  .np-side {
+    display: block; position: sticky; top: var(--np-head); flex: 0 0 216px;
+    height: calc(100vh - var(--np-head)); box-sizing: border-box; padding: 48px 0 0 48px;
+  }
+  .np-side__inner { display: flex; flex-direction: column; gap: 2px; }
+  .np-side .np-back { margin-bottom: 26px; }
+  .np-side .np-link { padding: 6px 0; font: 400 14px/1.35 var(--np-sans); }
+}
+.np-back { display: inline-flex; gap: 6px; align-items: center; font: 500 13px/1 var(--np-sans); color: var(--np-g2); text-decoration: none; letter-spacing: -.01em; min-height: 32px; }
+.np-back:hover { color: var(--np-ink); }
+.np-link { color: var(--np-g2); text-decoration: none; transition: color .2s ease; }
+.np-link:hover { color: var(--np-ink); }
+.np-link[aria-current="location"] { color: var(--np-ink); font-weight: 500; }
+.np-link:focus-visible, .np-back:focus-visible, .np-tabs button:focus-visible { outline: 2px solid var(--np-ink); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- Mobile and tablet: chapter bar (Option C) ---------- */
+.np-bar {
+  position: sticky; top: var(--np-head); z-index: 15; background: #fff;
+  border-bottom: 1px solid var(--np-g5);
+}
+.np-bar__track {
+  display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x proximity;
+  padding: 0 20px; scroll-padding-inline: 20px; scrollbar-width: none;
+  /* Fade only the edge that has more chapters behind it. */
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+          mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+}
+.np-bar__track.is-mid { -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 32px), transparent); }
+.np-bar__track.is-end { -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px); mask-image: linear-gradient(90deg, transparent, #000 24px); }
+.np-bar__track::-webkit-scrollbar { display: none; }
+.np-bar .np-link {
+  flex: none; scroll-snap-align: start; display: flex; align-items: center;
+  height: 46px; font: 400 14px/1 var(--np-sans); white-space: nowrap;
+  box-shadow: inset 0 -1.5px 0 transparent; transition: color .2s ease, box-shadow .2s ease;
+}
+.np-bar .np-link[aria-current="location"] { box-shadow: inset 0 -1.5px 0 var(--np-ink); }
+.np-bar .np-link:focus-visible { outline-offset: -4px; }
+/* The chapter bar is phone only; from 600px up the sidebar takes over. */
+@media (min-width: 600px) { .np-bar { display: none; } }
+@media (max-width: 599px) { :root { --np-bar-h: 47px; } }
+@media (min-width: 600px) and (max-width: 1099px) { .np-side { flex-basis: 156px !important; padding-left: 24px !important; } }
+
+/* Headings and anchors land below the sticky bar instead of under it. */
+.np-ch, .np-hero { scroll-margin-top: calc(var(--np-head) + var(--np-bar-h) + 24px); }
+
+/* ---------- Type ---------- */
+.np-title { margin: 0 0 22px; max-width: none; font: 400 clamp(36px, 3.9vw, 52px)/1 var(--np-serif); letter-spacing: -.045em; text-wrap: balance; }
+.np-dek { margin: 0 0 52px; font: 400 clamp(17px, 1.4vw, 19px)/1.42 var(--np-sans); letter-spacing: -.02em; color: var(--np-g1); }
+.np-meta { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 0 0 44px; font: 400 14px/1.4 var(--np-sans); color: var(--np-g2); }
+.np-meta span:first-child { color: var(--np-ink); font-weight: 500; }
+.np-label { margin: 0 0 14px; font: 500 14px/1 var(--np-sans); color: var(--np-g2); letter-spacing: -.01em; }
+.np-h2 { margin: 0 0 28px; max-width: none; font: 400 clamp(28px, 2.6vw, 36px)/1.1 var(--np-serif); letter-spacing: -.04em; text-wrap: balance; }
+.np-prose, .np-prose p { max-width: var(--np-text); font: 400 17px/1.42 var(--np-sans); color: var(--np-g1); margin: 0 0 18px; }
+.np-prose p:last-child { margin-bottom: 0; }
+h3 { text-wrap: balance; }
+
+/* ---------- Hero ---------- */
+.np-hero { padding-top: clamp(40px, 5vw, 76px); }
+.np-sum { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; margin: 0 0 clamp(48px, 5vw, 72px); }
+.np-sum h2 { margin: 0 0 6px; font: 500 14px/1.3 var(--np-sans); letter-spacing: -.01em; color: var(--np-ink); }
+.np-sum p { margin: 0; font: 400 15.5px/1.4 var(--np-sans); color: var(--np-g1); }
+
+/* ---------- Chapters ---------- */
+.np-ch { margin-top: var(--np-gap-ch); }
+.np-ch > .np-prose { margin-bottom: 40px; }
+
+/* ---------- Figures: one frame, two widths ---------- */
+.np-fig { margin: 48px 0 0; }
+.np-wide { max-width: var(--np-wide); }
+.np-full { max-width: none; }
+.np-frame { position: relative; background: #fff; border-radius: 3px; box-shadow: var(--np-shadow); overflow: hidden; }
+.np-frame--flat { box-shadow: 0 0 0 1px var(--np-g5); }
+.np-frame img, .np-frame video { display: block; width: 100%; height: auto; }
+.np-frame video { aspect-ratio: 16 / 9; object-fit: cover; }
+.np-fig--text { max-width: var(--np-text); }
+figcaption { margin-top: 14px; max-width: var(--np-text); font: 400 14px/1.4 var(--np-sans); color: var(--np-g2); }
+
+
+/* ---------- Context ---------- */
+.np-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.np-flow { display: grid; gap: 10px; justify-items: center; justify-self: center; font: 400 14px/1.3 var(--np-sans); }
+.np-flow__src, .np-flow__out { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.np-flow span, .np-flow__node { padding: 9px 12px; border-radius: 3px; box-shadow: 0 0 0 1px var(--np-g4); color: var(--np-g1); background: #fff; }
+.np-flow__node { color: var(--np-ink); font-weight: 500; box-shadow: 0 0 0 1.5px var(--np-ink); }
+.np-flow__out span { box-shadow: 0 0 0 1px var(--np-g4); border-style: dashed; color: var(--np-g2); }
+.np-flow__arrow { width: 1px; height: 22px; background: var(--np-g4); position: relative; }
+.np-flow__arrow::after { content: ""; position: absolute; left: -3px; bottom: 0; width: 5px; height: 5px; border-right: 1px solid var(--np-g2); border-bottom: 1px solid var(--np-g2); transform: rotate(45deg); }
+
+/* ---------- Constraints ---------- */
+.np-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; }
+.np-three h3, .np-reflect h3 { margin: 0 0 8px; font: 400 23px/1.15 var(--np-serif); letter-spacing: -.025em; }
+.np-three p, .np-reflect p { margin: 0; font: 400 15.5px/1.4 var(--np-sans); color: var(--np-g1); }
+
+/* ---------- Decisions ---------- */
+.np-dec { margin-top: 64px; }
+.np-dec:first-of-type { margin-top: 48px; }
+.np-dec__head { margin-bottom: 16px; }
+.np-dec__n { display: block; margin-bottom: 10px; font: 400 22px/1 var(--np-serif); color: var(--np-g2); letter-spacing: -.02em; }
+.np-dec h3 { margin: 0; font: 400 clamp(22px, 2vw, 26px)/1.16 var(--np-serif); letter-spacing: -.03em; }
+
+.np-dec .np-fig { margin-top: 36px; }
+.np-trade { margin: 36px 0 0; padding-left: 20px; box-shadow: inset 1.5px 0 0 var(--np-ink); }
+.np-trade__k { margin: 0 0 4px !important; font: 500 14px/1.3 var(--np-sans) !important; color: var(--np-ink) !important; }
+.np-trade p { margin: 0; font: 400 16px/1.42 var(--np-sans); color: var(--np-g1); }
+
+/* ---------- Annotations ---------- */
+.np-pin {
+  position: absolute; z-index: 2; width: 26px; height: 26px; margin: -13px 0 0 -13px;
+  display: grid; place-items: center; border-radius: 50%;
+  background: var(--np-ink); color: #fff; font: 500 12.5px/1 var(--np-sans); letter-spacing: 0;
+  box-shadow: 0 0 0 3px #fff, 0 6px 14px -4px rgba(24,24,24,.45);
+  transition: transform .2s ease;
+}
+.np-pin.is-hot { transform: scale(1.18); }
+.np-notes { list-style: none; counter-reset: n; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 32px; }
+.np-notes li { counter-increment: n; position: relative; padding-left: 30px; font: 400 14.5px/1.4 var(--np-sans); color: var(--np-g1); cursor: default; }
+.np-notes li::before { content: counter(n); position: absolute; left: 0; top: 1px; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--np-ink); font: 500 11px/1 var(--np-sans); color: var(--np-ink); }
+.np-notes b { font-weight: 500; color: var(--np-ink); }
+
+/* ---------- Interactive demo ---------- */
+.np-tabs { display: flex; gap: 28px; margin-bottom: 18px; }
+.np-tabs button { appearance: none; border: 0; background: none; padding: 0 0 8px; cursor: pointer; font: 400 15px/1 var(--np-sans); color: var(--np-g2); letter-spacing: -.01em; box-shadow: inset 0 -1.5px 0 transparent; transition: color .2s, box-shadow .2s; }
+.np-tabs button[aria-selected="true"] { color: var(--np-ink); font-weight: 500; box-shadow: inset 0 -1.5px 0 var(--np-ink); }
+.np-demo__panel { animation: np-in .35s ease; }
+@keyframes np-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Connects ---------- */
+.np-chain { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 40px; counter-reset: c; }
+.np-chain li { counter-increment: c; }
+.np-chain .np-frame { aspect-ratio: 1868 / 982; }
+.np-chain .np-frame img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+.np-chain h3 { margin: 18px 0 4px; font: 500 16px/1.3 var(--np-sans); letter-spacing: -.01em; }
+.np-chain h3::before { content: "0" counter(c); margin-right: 10px; font: 400 18px/1 var(--np-serif); color: var(--np-g2); }
+.np-chain p { margin: 0; font: 400 15px/1.4 var(--np-sans); color: var(--np-g1); }
+
+/* ---------- Outcome ---------- */
+.np-reflect { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; margin-top: 48px; }
+.np-ch--end { margin-bottom: 40px; }
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 599px) {
+  .np-main { --np-pad: 20px; }
+}
+@media (max-width: 760px) {
+  .np-sum, .np-three, .np-reflect, .np-notes, .np-split { grid-template-columns: minmax(0, 1fr); }
+  .np-sum { gap: 20px; }
+  .np-split { gap: 36px; }
+  .np-chain { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .np-pin { width: 20px; height: 20px; margin: -10px 0 0 -10px; font-size: 10.5px; box-shadow: 0 0 0 2px #fff, 0 4px 10px -3px rgba(24,24,24,.45); }
+    .np-fig { margin-top: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .np-demo__panel { animation: none; }
+  .np-pin, .np-link, .np-tabs button { transition: none; }
+}
+
+/* ---------- Hero spec sheet (option D) ---------- */
+.np-spec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); gap: 32px 56px; margin: 0 0 clamp(48px, 5vw, 64px); }
+.np-spec dl { margin: 0; }
+.np-facts { display: grid; gap: 16px; align-content: start; }
+.np-facts dt { margin: 0 0 4px; font: 400 14px/1.3 var(--np-sans); color: var(--np-g2); }
+.np-facts dd { margin: 0; font: 400 15.5px/1.4 var(--np-sans); color: var(--np-ink); }
+.np-rows { display: grid; gap: 16px; align-content: start; }
+/* Label above its text, the same as the facts column. */
+.np-rows dt { margin: 0 0 4px; font: 400 14px/1.3 var(--np-sans); color: var(--np-g2); }
+.np-rows dd { margin: 0; font: 400 15.5px/1.4 var(--np-sans); color: var(--np-ink); }
+@media (max-width: 900px) {
+  .np-spec { grid-template-columns: minmax(0, 1fr); }
+  .np-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+}
+@media (max-width: 599px) {
+  .np-dek { margin-bottom: 28px; }
+}
+
+/* Key phrases in running text */
+.np-main p strong { font-weight: 500; color: var(--np-ink); }
+.np-split > .np-prose { margin: 0; } /* no stray margin, so the text and diagram centre on each other */
+
+/* Persona lives inside the workflow diagram, as the admin doing the work. */
+.np-flow__who { display: flex; align-items: center; gap: 12px; padding: 8px 16px 8px 8px !important; text-align: left; }
+.np-flow__who img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.np-flow__who b { display: block; font-weight: 500; }
+.np-flow__who i { display: block; font-style: normal; font-weight: 400; color: var(--np-g2); font-size: 13px; margin-top: 2px; }
+.np-flow__note { margin: 18px 0 0; max-width: 440px; text-align: center; font: 400 14.5px/1.4 var(--np-sans); color: var(--np-g1); }
+.np-flow__fine { margin: 6px 0 0; max-width: 440px; text-align: center; font: 400 13px/1.4 var(--np-sans); color: var(--np-g2); }
+.np-flow .np-flow__who span { padding: 0; box-shadow: none; background: none; color: var(--np-ink); }
+
+/* ---------- Persona card (option A) ---------- */
+.np-persona { display: grid; grid-template-columns: 220px minmax(0, 1fr); margin-top: 64px; background: #fff; border-radius: 3px; box-shadow: var(--np-shadow); overflow: hidden; }
+.np-persona > div { padding: 32px 36px; }
+/* Photo fills the card's full height, flush to its edges. The cutout needs a ground to read as a rectangle. */
+.np-persona img { display: block; width: 100%; height: 100%; min-height: 220px; object-fit: cover; object-position: center bottom; background: #F4F4F4; }
+.np-persona p, .np-persona dl, .np-persona dd { margin: 0; }
+.np-persona__name { font: 500 18px/1.3 var(--np-sans); color: var(--np-ink); }
+.np-persona__role { margin: 2px 0 22px !important; font: 400 14px/1.3 var(--np-sans); color: var(--np-g2); }
+.np-persona__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 32px; }
+.np-persona__need { margin-top: 20px !important; }
+.np-persona dt { margin: 0 0 4px; font: 400 14px/1.3 var(--np-sans); color: var(--np-g2); }
+.np-persona dd { font: 400 15.5px/1.4 var(--np-sans); color: var(--np-ink); }
+@media (max-width: 760px) {
+  .np-persona { grid-template-columns: minmax(0, 1fr); margin-top: 44px; }
+  .np-persona > div { padding: 22px 22px 24px; }
+  .np-persona img { height: 260px; min-height: 0; object-position: center 18%; }
+  .np-persona__facts { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+}
+
+/* ---------- Marker tooltips ---------- */
+.np-annot, .np-demo__panel { position: relative; }
+.np-pin { cursor: pointer; }
+.np-pin:hover, .np-pin.is-hot { transform: scale(1.15); }
+.np-pin:focus-visible { outline: 2px solid var(--np-ink); outline-offset: 3px; }
+.np-tip {
+  position: absolute; z-index: 5; width: max-content; max-width: 280px; padding: 12px 14px;
+  background: var(--np-ink); color: #fff; border-radius: 3px; box-shadow: var(--np-shadow);
+  font: 400 14px/1.4 var(--np-sans); letter-spacing: -.01em; pointer-events: none;
+  animation: np-in .15s ease;
+}
+.np-tip b { font-weight: 500; color: #fff; }
+.np-tip::after { content: ""; position: absolute; left: var(--ax, 50%); bottom: -5px; width: 10px; height: 10px; margin-left: -5px; background: inherit; transform: rotate(45deg); }
+.np-tip.is-below::after { bottom: auto; top: -5px; }
+/* On larger screens the tooltips carry the notes, so the list under each image goes. Phones keep the list. */
+@media (min-width: 600px) and (hover: hover) {
+  .np-annot .np-notes, .np-demo .np-notes { display: none; }
+  .np-annot .np-frame::after, .np-demo__panel .np-frame::after { content: "Hover a number to see what it does"; position: absolute; right: 12px; bottom: 10px; padding: 5px 9px; border-radius: 3px; background: rgba(255,255,255,.92); box-shadow: 0 0 0 1px var(--np-g5); font: 400 12.5px/1 var(--np-sans); color: var(--np-g1); }
+}
+@media (prefers-reduced-motion: reduce) { .np-tip { animation: none; } }
+
+/* Context: the diagram takes the paragraph's height exactly; the arrows absorb the difference. */
+.np-split { align-items: stretch; }
+.np-split .np-flow { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 8px; height: 100%; }
+.np-split .np-flow__arrow { flex: 1 1 0; min-height: 14px; max-height: 64px; }
+@media (max-width: 760px) { .np-split .np-flow { height: auto; } .np-split .np-flow__arrow { flex: none; height: 22px; } }
+
+/* Persona without the card: photo and details sit on the page. */
+.np-persona { background: none; box-shadow: none; border-radius: 0; overflow: visible; align-items: center; }
+.np-persona img { border-radius: 3px; }
+.np-persona > div { padding: 0 0 0 40px; }
+@media (max-width: 760px) { .np-persona > div { padding: 20px 0 0; } }
+
+/* The hover hint sits under the screenshot, not on it. */
+@media (min-width: 600px) and (hover: hover) {
+  .np-annot .np-frame::after, .np-demo__panel .np-frame::after { content: none; }
+  .np-annot::after, .np-demo__panel::after { content: "Hover a number to see what it does"; display: block; margin-top: 12px; font: 400 13px/1.4 var(--np-sans); color: var(--np-g2); }
+}
+
+/* ---------- Scroll reveal (only when JS is running and motion is allowed) ---------- */
+.np-reveal-on .np-rv { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.np-reveal-on .np-rv.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .np-reveal-on .np-rv { opacity: 1; transform: none; transition: none; } }
+
+/* Content column centres in the space beside the sidebar, so extra width becomes equal margins. */
+.np-main > * { margin-left: auto; margin-right: auto; }
+@media (min-width: 600px) and (max-width: 1099px) { .np-main { --np-pad: 40px; } }
+
+/* Copy pass: four constraints in a 2×2 grid; diagram caption. */
+.np-four { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
+.np-flow__cap { margin: 10px 0 0; max-width: 360px; text-align: center; font: 400 13.5px/1.4 var(--np-sans); color: var(--np-g2); }
+@media (max-width: 760px) { .np-four { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Refinement pass ---------- */
+/* Hero: facts are one quiet row, so the product image comes up. */
+.np-meta4 { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 12px 44px; margin: 0 0 40px; }
+.np-meta4 dt { margin: 0 0 3px; font: 400 13px/1.3 var(--np-sans); color: var(--np-g2); }
+.np-meta4 dd { margin: 0; font: 400 14.5px/1.4 var(--np-sans); color: var(--np-ink); }
+.np-dek { margin-bottom: 28px; }
+@media (max-width: 900px) { .np-meta4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; } }
+
+/* Image beside a short explanation. */
+.np-dec--side { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px; align-items: center; }
+.np-dec--side .np-fig { margin: 0; }
+.np-dec--side .np-dec__body + .np-dec__body { margin-top: 14px; }
+
+/* Overview with an enlarged detail, or two related states. */
+.np-pair { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; align-items: end; margin-top: 32px; }
+.np-pair--wide-first { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); }
+.np-pair .np-fig { margin: 0; }
+.np-pair figcaption, .np-cap { margin: 12px 0 0; font: 400 13.5px/1.4 var(--np-sans); color: var(--np-g2); }
+/* Pairs and side-by-side layouts stack before their images get too small to read. */
+@media (max-width: 900px) {
+  .np-dec--side, .np-pair, .np-pair--wide-first { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
+/* The hover hint only belongs where there are markers. */
+.np-demo__panel:not(:has(.np-pin))::after { content: none !important; }
+
+/* Mirrored image-beside-text: image left, text right. */
+.np-dec--flip { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+.np-dec--flip .np-fig { max-width: 340px; }
+@media (max-width: 900px) { .np-dec--flip .np-fig { order: 2; max-width: none; } }
+
+/* Add Partner click-through: the frame keeps the tallest state's height so nothing jumps. */
+.np-modal { aspect-ratio: 593 / 1341; }
+.np-modal img { position: absolute; inset: 0 0 auto 0; width: 100%; height: auto; animation: np-in .2s ease; }
+.np-hit { position: absolute; appearance: none; border: 0; padding: 0; background: transparent; border-radius: 12px; cursor: pointer; transition: box-shadow .2s ease; }
+.np-hit:hover, .np-hit:focus-visible { box-shadow: 0 0 0 2px var(--np-ink); outline: none; }
+.np-modal-demo[data-state="1"] [data-hit="field"] { box-shadow: 0 0 0 2px rgba(24,24,24,.35); }
+.np-modal-demo[data-state="1"] [data-hit="field"]:hover { box-shadow: 0 0 0 2px var(--np-ink); }
+.np-modal-demo figcaption { min-height: 2.8em; }
+@media (max-width: 900px) { .np-modal-demo { max-width: 320px; } }
+@media (prefers-reduced-motion: reduce) { .np-modal img { animation: none; } .np-hit { transition: none; } }
+.np-modal img[hidden], .np-hit[hidden] { display: none; }
+
+/* Slim layout D: facts left, Problem and My contribution right. */
+.np-hero .np-spec { margin-bottom: 44px; }
+.np-dec--side { align-items: start; } /* text starts level with the top of its image */
+
+/* ---------- Add Partner, in context ---------- */
+.np-ap__stage { position: relative; }
+.np-ap__bg { display: block; width: 100%; height: auto; }
+.np-ap[data-step="table"] .np-ap__open { box-shadow: 0 0 0 2px rgba(24,24,24,.5); animation: np-ring 2.4s ease-in-out infinite; }
+.np-ap.is-open .np-ap__open { pointer-events: none; }
+@keyframes np-ring { 0%, 100% { box-shadow: 0 0 0 2px rgba(24,24,24,.45); } 50% { box-shadow: 0 0 0 6px rgba(24,24,24,.12); } }
+.np-ap__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.4); opacity: 0; transition: opacity .25s ease; cursor: pointer; }
+.np-ap__modal { position: absolute; left: 50%; top: 5%; bottom: 5%; width: min(400px, 46%); transform: translate(-50%, 16px); opacity: 0;
+  transition: opacity .25s ease, transform .3s cubic-bezier(.2,.7,.2,1); border-radius: 18px; overflow: hidden; background: #fff;
+  box-shadow: 0 24px 48px -16px rgba(0,0,0,.45); }
+.np-ap.is-open .np-ap__scrim { opacity: 1; }
+.np-ap.is-open .np-ap__modal { opacity: 1; transform: translate(-50%, 0); }
+.np-ap__scrim[hidden], .np-ap__modal[hidden], .np-ap img[hidden], .np-ap .np-hit[hidden] { display: none; }
+.np-ap__scroll { height: 100%; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.np-ap__sheet { position: relative; aspect-ratio: 593 / 1341; }
+.np-ap__sheet img { position: absolute; inset: 0 0 auto 0; width: 100%; height: auto; }
+.np-ap.is-nudge .np-ap__sheet [data-hit="field"] { animation: np-nudge .4s ease; box-shadow: 0 0 0 2px #E5484D; }
+@keyframes np-nudge { 0%, 100% { transform: none; } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.np-ap figcaption { min-height: 1.4em; }
+/* Phones: the table is too short to hold the form, so the form opens as a sheet over the page. */
+@media (max-width: 600px) {
+  .np-ap__scrim { position: fixed; z-index: 40; }
+  .np-ap__modal { position: fixed; z-index: 41; top: auto; bottom: 0; left: 0; right: 0; width: auto; height: 82vh; transform: translateY(24px); border-radius: 18px 18px 0 0; }
+  .np-ap.is-open .np-ap__modal { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .np-ap__scrim, .np-ap__modal { transition: none; }
+  .np-ap[data-step="table"] .np-ap__open, .np-ap.is-nudge .np-ap__sheet [data-hit="field"] { animation: none; }
+}
+
+/* Partners screen: the app sidebar stays put while the table scrolls sideways at a readable size. */
+.np-ap__app { --app-h: clamp(340px, 34vw, 480px); display: flex; height: var(--app-h); background: #fff; }
+.np-ap__side { flex: none; height: 100%; width: auto; display: block; position: relative; z-index: 1; box-shadow: 1px 0 0 #F1F1F1; }
+.np-ap__pan { position: relative; flex: 1; min-width: 0; height: 100%; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: thin; }
+.np-ap__pan:focus-visible { outline: 2px solid var(--np-ink); outline-offset: -2px; }
+.np-ap__table { position: relative; height: 100%; aspect-ratio: 2437 / 982; }
+.np-ap__table img { display: block; height: 100%; width: auto; }
+/* A soft edge shows there is more table to the right (or left). */
+.np-ap__stage::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 48px; pointer-events: none; background: linear-gradient(90deg, rgba(255,255,255,0), #fff); transition: opacity .2s; }
+.np-ap.is-end .np-ap__stage::after, .np-ap.is-open .np-ap__stage::after { opacity: 0; }
+.np-ap__scrim, .np-ap__modal { z-index: 3; }
+@media (max-width: 600px) { .np-ap__app { --app-h: 300px; } }
+.np-ap .np-ap__app .np-ap__side { width: auto; height: 100%; max-width: none; }
+.np-ap .np-ap__table img { width: auto; height: 100%; max-width: none; }
+.np-ap .np-ap__sheet img { width: 100%; height: auto; }
+
+/* Hotspots stay invisible: the screenshot itself is the UI. Keyboard focus gets a quiet ring only. */
+.np-ap .np-hit:hover { box-shadow: none; }
+.np-ap .np-hit:focus { outline: none; box-shadow: none; }
+.np-ap .np-hit:focus-visible { box-shadow: 0 0 0 2px rgba(24,24,24,.28); }
+.np-ap.is-nudge .np-ap__sheet [data-hit="field"] { box-shadow: 0 0 0 2px rgba(229,72,77,.55); }
+
+/* Copy pass 3 */
+.np-persona__desc { margin: 0 0 18px !important; font: 400 15.5px/1.45 var(--np-sans) !important; color: var(--np-g1) !important; max-width: 560px; }
+.np-dec--side figcaption { margin-top: 12px; font: 400 13.5px/1.4 var(--np-sans); color: var(--np-g2); }
+.np-takeaway { margin-top: 48px; }
+.np-takeaway h3 { margin: 0 0 14px; font: 400 23px/1.15 var(--np-serif); letter-spacing: -.025em; }
+
+/* ---------- Phone sequence (OSE intake) ---------- */
+.np-phones { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.np-phones .np-frame { aspect-ratio: 430 / 932; border-radius: 14px; }
+.np-phones img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.np-phones p { margin: 12px 0 0; font: 400 13.5px/1.4 var(--np-sans); color: var(--np-g2); }
+@media (max-width: 760px) { .np-phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; } }
+/* A tall screen inside a wide frame is shown whole. */
+.np-chain .np-frame img.np-contain { object-fit: contain; object-position: center; background: #fff; }
+/* Image-beside-text where the image needs more room than the text. */
+.np-dec--big { grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); }
+.np-dec--flip.np-dec--big .np-fig { max-width: none; }
+
+/* ---------- Phone screens (mobile projects) ---------- */
+.np-hero__phones { margin-top: 0; }
+.np-phones .np-frame { aspect-ratio: 390 / 844; }
+.np-phones--two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 560px; }
+.np-phone .np-frame { aspect-ratio: 390 / 844; border-radius: 18px; }
+.np-phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.np-dec--phone { grid-template-columns: minmax(0, 1fr) minmax(0, 280px); gap: 56px; }
+.np-dec--flip.np-dec--phone { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); }
+.np-dec--phone .np-phone { max-width: 280px; }
+@media (max-width: 900px) { .np-dec--phone, .np-dec--flip.np-dec--phone { grid-template-columns: minmax(0, 1fr); } .np-dec--phone .np-phone { max-width: 260px; } }
+
+/* Text left, larger image right. */
+.np-dec--big-right { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); }
+/* Three tiers side by side (roadmaps). */
+.np-tiers { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 32px; }
+@media (max-width: 760px) { .np-tiers { grid-template-columns: minmax(0, 1fr); } }
+
+/* Password-protected chapters: listed so readers see what's inside, quieter until unlocked. */
+.np-link.is-locked { color: var(--np-g2); opacity: .75; }
+.np-link.is-locked::after { content: ""; display: inline-block; width: 8px; height: 9px; margin-left: 6px; vertical-align: -1px;
+  background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9'%3E%3Cpath d='M2 4V2.6a2 2 0 0 1 4 0V4h.5c.3 0 .5.2.5.5v4c0 .3-.2.5-.5.5h-5a.5.5 0 0 1-.5-.5v-4c0-.3.2-.5.5-.5H2zm1 0h2V2.6a1 1 0 0 0-2 0V4z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9'%3E%3Cpath d='M2 4V2.6a2 2 0 0 1 4 0V4h.5c.3 0 .5.2.5.5v4c0 .3-.2.5-.5.5h-5a.5.5 0 0 1-.5-.5v-4c0-.3.2-.5.5-.5H2zm1 0h2V2.6a1 1 0 0 0-2 0V4z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.np-plain img { display: block; width: 100%; height: auto; }
+
+/* ---------- Terraform ---------- */
+.np-gap { margin-top: 40px !important; }
+.np-split--demo { grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); align-items: start; }
+.np-split--demo [data-ro-demo] { min-width: 0; }
+.np-gate { margin-top: 72px; }
+/* M vs H: switcher and notes on the left, the scrolling page on the right. */
+.np-mh { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: 40px; align-items: start; margin-top: 32px; }
+.np-mh__copy { display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 900px) { .np-mh, .np-split--demo { grid-template-columns: minmax(0, 1fr); } }
+/* Numbered principles and rules, without boxes or lines. */
+.np-principles { list-style: none; counter-reset: pr; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 40px; }
+.np-principles li { counter-increment: pr; position: relative; padding-left: 34px; font: 400 15.5px/1.45 var(--np-sans); color: var(--np-g1); }
+.np-principles li::before { content: "0" counter(pr); position: absolute; left: 0; top: 0; font: 400 17px/1.3 var(--np-serif); color: var(--np-g2); }
+.np-principles b { font-weight: 500; color: var(--np-ink); }
+@media (max-width: 760px) { .np-principles { grid-template-columns: minmax(0, 1fr); } }
+.np-tf-helper { display: flex; justify-content: center; }
+.np-tf-workflow, .np-tf-comps { margin-top: 32px; }
+.np-ch .np-fig > figure, .np-ch > figure[style] { margin-top: 32px !important; }
+/* Tier bullets */
+.np-tiers ul { margin: 0; padding: 0 0 0 18px; display: grid; gap: 6px; }
+.np-tiers li { font: 400 15.5px/1.4 var(--np-sans); color: var(--np-g1); }
+.np-tiers li::marker { color: var(--np-g2); }
+.np-tiers__note { margin-top: 10px !important; font-size: 14px !important; color: var(--np-g2) !important; }
+/* The old Terraform layout narrows anything inside the protected area; the new chapters use the shared column. */
+.cs-v2 .terraform-locked .terraform-locked__inner > .np-ch { width: auto !important; max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+.cs-v2 .terraform-locked__inner > .np-ch:first-child { margin-top: var(--np-gap-ch); }
+/* Focus areas as a short list */
+.np-focus { margin: 0; padding: 0 0 0 16px; display: grid; gap: 2px; }
+.np-focus li::marker { color: var(--np-g2); }
+.np-tiers--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
+@media (max-width: 760px) { .np-tiers--two { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Phones: bring the first product image up ----------
+   Title and intro, then the image, then the facts. The Problem row is skipped here because
+   Context opens with it a screen later; desktop keeps the full spec block above the image. */
+@media (max-width: 600px) {
+  .np-hero { display: flex; flex-direction: column; padding-top: 28px; }
+  .np-hero > .np-title { order: 1; }
+  .np-hero > .np-dek { order: 2; margin-bottom: 24px; }
+  .np-hero > .np-hero__img, .np-hero > .np-hero__phones { order: 3; margin: 0 0 28px; }
+  .np-hero > .np-spec { order: 4; margin-bottom: 0; gap: 18px; }
+  .np-hero .np-rows > div:first-child { display: none; }
+  .np-hero .np-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+  .np-hero .np-facts > div:last-child { grid-column: 1 / -1; }
+  /* Focus as one wrapping line */
+  .np-focus { padding: 0; display: block; }
+  .np-focus li { display: inline; }
+  .np-focus li + li::before { content: " · "; color: var(--np-g2); }
+  .np-hero__phones { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .np-hero__phones .np-frame { border-radius: 10px; }
+}
+/* Terraform outcome now has three figures */
+.cs-v2 .np-ch .cs-outcome-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; max-width: 640px; }
+@media (max-width: 600px) { .cs-v2 .np-ch .cs-outcome-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+/* A single figure with its label beside it */
+.np-stat { display: flex; align-items: baseline; gap: 12px; margin: 8px 0 20px; }
+.np-stat__n { font: 400 40px/1 var(--np-serif); letter-spacing: -.03em; color: var(--np-ink); }
+.np-stat__l { font: 400 14px/1.3 var(--np-sans); color: var(--np-g2); }
+/* Terraform gate: the access line stacks */
+.np-access { display: flex !important; flex-direction: column; align-items: flex-start; gap: 4px; }
+/* Terraform gate: the error reads in the body face */
+.cs-v2 .tf-gate__error, .cs-v2 .tf-gate__error * { font-family: var(--np-sans) !important; font-style: normal !important; font-size: 14px !important; letter-spacing: -.01em !important; }
+
+/* ---------- ROAM (short preview) ---------- */
+.np-hero--short .np-meta4 { margin-bottom: 36px; }
+.roam-demo { display: block; }
+.np-hero__img figcaption a { color: var(--np-ink); text-decoration: none; border-bottom: 1px solid currentColor; }
+.np-dec--phone .np-h2 { margin-top: 0; }
+.np-phones--three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 8px; }
+.np-phones--three .np-frame { aspect-ratio: 390 / 864; border-radius: 18px; }
+.np-features h3 { margin: 18px 0 6px; font: 400 21px/1.2 var(--np-serif); letter-spacing: -.02em; color: var(--np-ink); text-wrap: balance; }
+.np-features p { margin: 0; font: 400 15px/1.45 var(--np-sans); color: var(--np-g1); }
+@media (max-width: 760px) { .np-phones--three { grid-template-columns: minmax(0, 1fr); gap: 40px; } .np-phones--three li { max-width: 300px; } }
+@media (max-width: 600px) { .np-hero--short > .np-meta4 { order: 4; margin: 0; } }
+/* A small label above a title (ROAM preview) */
+.np-kicker { margin: 0 0 14px; font: 500 14px/1 var(--np-sans); color: var(--np-g2); letter-spacing: -.01em; }
+@media (max-width: 600px) { .np-hero > .np-kicker { order: 0; } }

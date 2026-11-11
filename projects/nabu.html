@@ -15,14 +15,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
 <link rel="stylesheet" href="/styles/main.css?v=ww2">
 <link rel="stylesheet" href="/styles/editorial.css?v=ag2">
-<link rel="stylesheet" href="/styles/cs.css?v=nav26">
+<link rel="stylesheet" href="/styles/cs.css?v=nav27">
+<link rel="stylesheet" href="/styles/case-study.css?v=cs14">
 <link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
 <style>@view-transition { navigation: auto; }</style>
 <link rel="stylesheet" href="/styles/turn-the-page.css?v=tp2">
 <link rel="stylesheet" href="/styles/allisonGPT.css?v=ww1">
 <link rel="stylesheet" href="/styles/motion.css?v=motion6">
 </head>
-<body class="cs-page">
+<body class="cs-page cs-v2">
 <div id="tx-cover" aria-hidden="true"></div>
 <script src="/scripts/tx-cover.js?v=tx6"></script>
 <div style="position:relative;min-height:100vh;overflow-x:clip;font-family:'Satoshi',sans-serif;color:#181818;letter-spacing:-.05em">
@@ -47,154 +48,229 @@
     </div>
   </header>
 
-  <div style="display:flex;align-items:flex-start">
-    <aside class="cs-aside" style="display:flex;position:sticky;top:85px;flex:0 0 232px;height:calc(100vh - 85px);overflow-y:auto;box-sizing:border-box;background:#fff;border-right:1px solid #ECECEC;padding:36px 24px 40px 24px;letter-spacing:-.02em;flex-direction:column">
-      <a href="/#my-work" data-scroll-to="my-work" style="display:flex;align-items:center;gap:8px;min-height:32px;align-self:flex-start;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;transition:color .2s ease"><span aria-hidden="true" style="letter-spacing:0">←</span>All work</a>
-      <div style="margin-top:20px;padding-top:14px;border-top:1.5px solid #181818;display:flex;flex-direction:column;gap:8px">
-        <span style="font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070">Case study</span>
-        <span style="font:400 30px/.95 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em">NABU</span>
-        <span style="font:400 italic 15px/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.02em;color:#393939">Hack4Impact · Spring 2025</span>
-      </div>
-      <div style="margin-top:28px;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #DCDCDC;font:500 10.5px/1 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#707070"><span>Contents</span><span style="color:#181818;letter-spacing:.08em"><span data-idx-count>01 / 10</span></span></div>
-      <nav aria-label="Case study sections" style="margin-top:6px;display:flex;flex-direction:column">
-        <a class="cs-idx__link" href="#s01"><span class="cs-idx__n">01</span><span class="cs-idx__dot" aria-hidden="true"></span><span>The problem</span></a><a class="cs-idx__link" href="#s02"><span class="cs-idx__n">02</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Admin workflow</span></a><a class="cs-idx__link" href="#s03"><span class="cs-idx__n">03</span><span class="cs-idx__dot" aria-hidden="true"></span><span>My role</span></a><a class="cs-idx__link" href="#s04"><span class="cs-idx__n">04</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Design constraints</span></a><a class="cs-idx__link" href="#s05"><span class="cs-idx__n">05</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Working within the system</span></a><a class="cs-idx__link" href="#s06"><span class="cs-idx__n">06</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Access model</span></a><a class="cs-idx__link" href="#s07"><span class="cs-idx__n">07</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Visualization builder</span></a><a class="cs-idx__link" href="#s08"><span class="cs-idx__n">08</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Core experience</span></a><a class="cs-idx__link" href="#s09"><span class="cs-idx__n">09</span><span class="cs-idx__dot" aria-hidden="true"></span><span>How it connects</span></a><a class="cs-idx__link" href="#s10"><span class="cs-idx__n">10</span><span class="cs-idx__dot" aria-hidden="true"></span><span>Outcome & reflection</span></a>
+<!-- cs:start -->
+  <!-- Mobile and tablet: chapter bar (Option C). Hidden on desktop, where the sidebar takes over. -->
+  <nav class="np-bar" aria-label="Chapters">
+    <div class="np-bar__track" data-np-track>
+      <a class="np-link" href="#context">Context</a>
+      <a class="np-link" href="#constraints">Constraints</a>
+      <a class="np-link" href="#decisions">Key decisions</a>
+      <a class="np-link" href="#builder">The builder</a>
+      <a class="np-link" href="#connects">How it connects</a>
+      <a class="np-link" href="#outcome">Outcome</a>
+    </div>
+  </nav>
+
+  <div class="np-shell">
+    <!-- Desktop: quiet chapters, marked by ink and weight. -->
+    <aside class="np-side">
+      <nav class="np-side__inner" aria-label="Chapters">
+        <a class="np-back" href="/#my-work" data-scroll-to="my-work"><span aria-hidden="true">←</span> All work</a>
+        <a class="np-link" href="#context">Context</a>
+        <a class="np-link" href="#constraints">Constraints</a>
+        <a class="np-link" href="#decisions">Key decisions</a>
+        <a class="np-link" href="#builder">The builder</a>
+        <a class="np-link" href="#connects">How it connects</a>
+        <a class="np-link" href="#outcome">Outcome</a>
       </nav>
     </aside>
-  <main data-screen-label="NABU case study" style="flex:1 1 0;min-width:0;padding:0 clamp(24px,8.7vw,112px);box-sizing:border-box">
 
-    <header id="top" data-screen-label="Hero" style="padding-top:clamp(44px,4.6vw,72px)">
-      <div style="display:flex;align-items:center;gap:10px;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>NABU</span></div>
-      <h1 style="margin:var(--space-md) 0 0;font:400 clamp(44px,5.8vw,88px)/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;text-wrap:pretty">Making NABU’s data easier to manage and use</h1>
-      <div class="cs-hero">
-        <dl class="cs-hero__side"><div><dt>Timeline</dt><dd>Feb — May 2025</dd></div><div><dt>Role</dt><dd>Product Designer</dd></div><div><dt>Made for</dt><dd>NABU</dd></div><div><dt>Focus</dt><dd><span>Data visualization</span><span>Design systems</span></dd></div></dl>
-        <div class="cs-hero__main">
-          <p class="cs-hero__lead">NABU publishes storybooks in children’s native languages and reaches more than 12 million learners worldwide. I designed part of the internal platform their team uses to manage partners and turn data from MySQL, spreadsheets, and Google Analytics into visualizations.</p>
-          <div class="cs-hero__contrib"><span class="cs-hero__contrib-label">My contribution</span><span class="cs-hero__contrib-text" data-review="contribution wording — confirm">Designed the role, partner-request, and visualization-builder workflows, working within NABU’s existing brand system.</span></div>
+    <main class="np-main" data-screen-label="NABU case study (prototype)">
+
+      <!-- ===== Hero ===== -->
+      <header class="np-hero" id="top">
+        <h1 class="np-title">Designing NABU’s tools for partner access and reporting</h1>
+        <p class="np-dek">NABU publishes storybooks in children’s native languages for more than 12 million learners. Through Hack4Impact, I worked on the internal platform NABU uses to manage partners and share data with them.</p>
+        <div class="np-spec">
+          <dl class="np-facts">
+            <div><dt>Role</dt><dd>Product Designer</dd></div>
+            <div><dt>Team</dt><dd>Hack4Impact, for NABU</dd></div>
+            <div><dt>Timeline</dt><dd>Feb–May 2025</dd></div>
+            <div><dt>Focus</dt><dd><ul class="np-focus"><li>Data visualization</li><li>Design systems</li></ul></dd></div>
+          </dl>
+          <dl class="np-rows">
+            <div><dt>Problem</dt><dd>To set up each partner’s dashboard, admins had to manually pull together data from MySQL, spreadsheets, and Google Analytics.</dd></div>
+            <div><dt>My contribution</dt><dd>Working within NABU’s existing brand, I designed the tools admins use to review partner requests, manage access through roles, and build visualizations.</dd></div>
+          </dl>
         </div>
-      </div>
-      <figure style="margin:var(--space-xl) 0 0;width:100%;display:flex;flex-direction:column;gap:var(--space-md)">
-        <div data-fs="" tabindex="0" aria-label="NABU roles table with assigned visualizations expanded — press Enter for full screen" style="display:flex;flex-direction:column;background:#fff;overflow:hidden;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08)"><span aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid #ECECEC"><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="width:7px;height:7px;border-radius:50%;background:#D4D4D4"></span><span style="position:absolute;left:50%;transform:translateX(-50%);padding:4px 16px;background:#F2F2F2;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:0;color:#555">NABU</span></span><img data-asset-source="current-live-portfolio" src="/assets/mockups/nabu/s33.svg" alt="NABU roles table with assigned visualizations expanded" loading="lazy" style="display:block;width:100%;aspect-ratio:1076/700;height:auto;object-fit:cover;object-position:left top"></div>
-        <figcaption style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding-top:12px;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>Roles table with assigned visualizations</span><a href="#s08" style="color:#707070;transition:color .2s ease">Jump to the core experience →</a></figcaption>
-      </figure>
-    </header>
+        <figure class="np-fig np-wide np-hero__img">
+          <div class="np-frame"><img src="/assets/mockups/nabu/s33.svg" alt="NABU Role Builder: a table of roles with their descriptions and assigned visualizations"></div>
+        </figure>
+      </header>
 
-    <section id="s01" data-sec="" data-screen-label="01 The problem" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">01</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>The problem</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">NABU’s partner data was split across tools, making setup and reporting harder to keep consistent.</h2>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start">
-        <p style="flex:1 1 340px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Admins needed one place to manage partners, organize that data, and turn it into visualizations.</p>
-        <ol style="flex:1 1 420px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-top:1px solid #181818"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Data was split between MySQL, spreadsheets, and Google Analytics, with no single place for admins to work with it.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">When a new partner joined, admins set up dashboards by hand and collected data from country managers.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 20px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Doing that partner by partner took time and made it harder to keep anything consistent.</span></li></ol>
-      </div>
-    </section>
-
-    <section id="s02" data-sec="" data-screen-label="02 Admin workflow" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">02</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Admin workflow</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Admins needed one place to approve partners, manage access, and build visualizations.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:40px 64px;align-items:stretch">
-        <figure style="flex:0 1 300px;margin:0;display:flex;flex-direction:column;gap:12px"><img src="/assets/nabu/persona.png?v=case1" alt="Leila Mwangi, NABU admin (composite persona)" style="display:block;width:100%;height:auto;border-radius:3px"><figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font:400 22px/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Leila Mwangi</span><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">NABU admin · composite persona</span></figcaption></figure>
-        <div style="flex:1 1 380px;display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-lg)">
-          <p style="margin:0;font:400 clamp(24px,2.4vw,34px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;text-wrap:pretty">Her work moved between partner requests, role permissions, and visualization setup, often across hundreds of records.</p>
-          <div style="display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">What she needs</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A single workflow for approving partners, controlling access, and building visualizations without rebuilding each partner’s setup by hand.</p></div>
-          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:0 24px"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Role</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">NABU admin, partner side</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Data sources</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">MySQL, spreadsheets, Google Analytics</dd></div><div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Scale</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Around 200 partner roles</dd></div></dl>
+      <!-- ===== Context ===== -->
+      <section class="np-ch" id="context" data-np-ch>
+        <p class="np-label">Context</p>
+        <h2 class="np-h2">Every new partner meant another dashboard to set up</h2>
+        <div class="np-split">
+          <div class="np-prose">
+            <p>When a partner joined, NABU’s admins gathered information from country managers and pulled data from MySQL, spreadsheets, and Google Analytics to set up that partner’s dashboard. Because they did this <strong>by hand for each partner</strong>, it took time to bring the data together and was harder to keep dashboards consistent.</p>
+          </div>
+          <div class="np-flow" role="img" aria-label="The existing workflow: data from MySQL, spreadsheets and Google Analytics, set up by hand by an admin for each partner.">
+            <div class="np-flow__src" aria-hidden="true"><span>MySQL</span><span>Spreadsheets</span><span>Google Analytics</span></div>
+            <div class="np-flow__arrow" aria-hidden="true"></div>
+            <div class="np-flow__node" aria-hidden="true">An admin, by hand</div>
+            <div class="np-flow__arrow" aria-hidden="true"></div>
+            <div class="np-flow__out" aria-hidden="true"><span>Partner A</span><span>Partner B</span><span>Partner C …</span></div>
+            <p class="np-flow__cap">Admins pulled data from three sources to set up each partner’s dashboard.</p>
+          </div>
         </div>
-      </div>
-      <p style="margin:var(--space-lg) 0 0;padding-top:16px;border-top:1px solid #DCDCDC;font:400 14px/1.6 'Satoshi',sans-serif;letter-spacing:-.01em;color:#707070"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;margin-right:12px">Where she came from</span>Leila stands in for the NABU admins the platform was built for. I don’t have interview notes from this project, so she represents the workflows we were given rather than a specific person I spoke to.</p>
-    </section>
-
-    <section id="s03" data-sec="" data-screen-label="03 My role" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">03</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>My role</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">I designed part of the internal platform NABU’s team uses to manage partners and data.</h2>
-      <p style="margin:var(--space-md) 0 0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">My work focused on how admins approve partners, decide what each role can reach, and build the visualizations NABU shares, using the colors, typography, and branding NABU already had.</p>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(40px,5vw,96px);align-items:flex-start">
-        <dl style="flex:0 1 240px;margin:0;display:flex;flex-direction:column;border-top:1px solid #181818">
-          <div style="display:flex;flex-direction:column;gap:8px;padding:14px 0"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Role</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Product Designer</dd></div>
-          <div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Came with the project</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">NABU’s colors, typography, and branding guidelines</dd></div>
-          <div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #DCDCDC"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Shared with the team</dt><dd style="margin:0;font:400 15.5px/1.45 'Satoshi',sans-serif;letter-spacing:-.02em">Table, form, and button patterns (section 05)</dd></div>
-        </dl>
-        <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;border-top:1px solid #181818">
-          <span style="padding:14px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">The workflows I designed</span>
-          <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="border-top:1px solid #DCDCDC"><a href="#f1" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Roles table</span><span aria-hidden="true" style="font:400 14px/1 'Satoshi',sans-serif;color:#AAAAAA">↓</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#f2" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Partner requests</span><span aria-hidden="true" style="font:400 14px/1 'Satoshi',sans-serif;color:#AAAAAA">↓</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#s06" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Create role</span><span aria-hidden="true" style="font:400 14px/1 'Satoshi',sans-serif;color:#AAAAAA">↓</span></a></li><li style="border-top:1px solid #DCDCDC"><a href="#s07" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;color:#181818;transition:color .2s ease"><span style="font:400 italic 17px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">04</span><span style="font:400 clamp(22px,2vw,27px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.035em">Visualization builder</span><span aria-hidden="true" style="font:400 14px/1 'Satoshi',sans-serif;color:#AAAAAA">↓</span></a></li></ol>
+        <div class="np-persona">
+          <img src="/assets/nabu/persona.png?v=case1" alt="" width="88" height="88">
+          <div>
+            <p class="np-persona__name">Leila Mwangi</p>
+            <p class="np-persona__role">Composite persona</p>
+            <p class="np-persona__desc">NABU admin working with partner requests, roles, and reporting data across MySQL, spreadsheets, and Google Analytics.</p>
+            <dl class="np-persona__need"><dt>What she needs</dt><dd>A way to approve partners, manage what they can access, and build visualizations without setting up each dashboard from scratch.</dd></dl>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="s04" data-sec="" data-screen-label="04 Design constraints" style="margin-top:var(--cs-section-gap)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">04</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Design constraints</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(42px,5.2vw,74px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:balance">The interface depended on understanding the data first.</h2>
-      <div style="margin-top:var(--space-xl)"><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #181818"><div style="flex:0 0 260px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Organizing the data first</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Before designing the visualization flow, I spent time understanding how NABU’s data was organized and how an admin would need to move through it.</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #DCDCDC"><div style="flex:0 0 260px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Designing around tables</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A lot of this product is tables rather than typical consumer UI, so I had to know which fields mattered to an admin before deciding how a row should be laid out.</p></div><div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding:22px 0 26px;border-top:1px solid #DCDCDC"><div style="flex:0 0 260px;display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">One semester to deliver</span></div><p style="flex:1 1 320px;margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">We had one semester to design and ship, so we focused on the workflows NABU needed most instead of trying to solve everything.</p></div></div>
-    </section>
+      <!-- ===== Constraints ===== -->
+      <section class="np-ch" id="constraints" data-np-ch>
+        <p class="np-label">Constraints</p>
+        <h2 class="np-h2">The data shaped the interface</h2>
+        <div class="np-three np-four">
+          <div><h3>Understanding the data</h3><p>Before I could design the builder, I needed to understand how NABU’s data was organized and what an admin would need to do with it to create a visualization.</p></div>
+          <div><h3>Designing for tables</h3><p>Most of the work happened in tables, so I needed to know which fields admins relied on and how partners, roles, and visualizations related to each other before deciding what a row should show.</p></div>
+          <div><h3>Working within a semester</h3><p>We had one semester, so we focused on the workflows NABU needed to review partner requests, manage access, and share data.</p></div>
+          <div><h3>Working with NABU’s brand</h3><p>NABU already had its own colors and typography, which gave us a starting point as we designed the tables, forms, and buttons the platform needed.</p></div>
+        </div>
+        <figure class="np-fig np-fig--text">
+          <div class="np-frame np-frame--flat"><video src="/assets/nabu/nabu-design-system.mp4" poster="/assets/nabu/nabu-design-system-poster.jpg" aria-label="NABU design system" muted loop playsinline preload="metadata" data-np-autoplay></video></div>
+        </figure>
+      </section>
 
-    <section id="s05" data-sec="" data-screen-label="05 Working within the system" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">05</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Working within the system</span></div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:var(--space-md) 72px;align-items:flex-start">
-        <h2 style="margin:0;flex:1 1 100%;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">NABU’s system came with the project. We added what the platform needed.</h2>
-        <p style="margin:0;max-width:60ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">NABU gave us colors, typography, and branding guidelines, so I didn’t build the system from scratch. What we added were the table, form, and button patterns the platform needed, which kept more of our time on the data and workflow problems.</p>
-      </div>
-      <div data-asset-note="live design-system video — reuse repo asset" style="margin-top:var(--space-xl)">
-        <video data-asset-source="current-live-portfolio" src="/assets/nabu/nabu-design-system.mp4" poster="/assets/nabu/nabu-design-system-poster.jpg" aria-label="NABU design system" muted="" loop="" playsinline="" preload="metadata" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#F4F4F4"></video>
-      </div>
-    </section>
+      <!-- ===== Key decisions ===== -->
+      <section class="np-ch" id="decisions" data-np-ch>
+        <p class="np-label">Key decisions</p>
+        <h2 class="np-h2">Designing roles and partner approvals</h2>
 
-    <section id="s06" data-sec="" data-screen-label="06 Access model" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">06</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Access model</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Made a role the single place access is decided.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(32px,4vw,64px);align-items:flex-start">
-        <dl style="flex:1 1 300px;margin:0;display:flex;flex-direction:column"><div style="display:flex;flex-direction:column;gap:10px;padding:0 0 22px"><dt style="font:500 11px/1 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Why</dt><dd style="margin:0"><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A role determines which visualizations a partner can access, so I kept the role name, description, and assigned visualizations in one form.</p></dd></div><div style="display:flex;flex-direction:column;gap:10px;padding:18px 0 22px"><dt style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Design response</dt><dd style="margin:0"><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Creating, editing, and deleting all happen where the roles are listed</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">An admin can give a partner what they need without exposing the rest of the data</span></li></ul></dd></div></dl>
-        <figure style="flex:1.7 1 440px;min-width:0;margin:0"><div data-fs="" tabindex="0" aria-label="Create role form with name, description, and assigned visualizations — press Enter for full screen" style="background:#fff;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);overflow:hidden"><img data-asset-source="current-live-portfolio" src="/assets/mockups/nabu/s35.svg" alt="Create role form with name, description, and assigned visualizations" loading="lazy" style="display:block;width:100%;aspect-ratio:643/373;height:auto;object-fit:cover;object-position:left top"></div></figure>
-      </div>
-    </section>
-
-    <section id="s07" data-sec="" data-screen-label="07 Visualization builder" style="margin-top:var(--space-section)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">07</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Visualization builder</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Nobody has to rebuild a dashboard for every partner.</h2>
-      <p style="margin:var(--space-md) 0 0;max-width:56ch;font:400 clamp(17px,1.3vw,19px)/1.55 'Satoshi',sans-serif;letter-spacing:-.025em;color:#393939">Admins narrow the data they need, preview the result, then publish.</p>
-      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-xl)">
-        <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Visualization builder step 4, filters — press Enter for full screen" style="background:#fff;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);overflow:hidden"><img data-asset-source="current-live-portfolio" src="/assets/mockups/nabu/step4.svg" alt="Visualization builder step 4, filters" loading="lazy" style="display:block;width:100%;height:auto"></div></div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:14px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Step 4</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Filters</h3><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">This is where the admin picks the country, date range, and data they want the chart to cover.</p><ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:10px 0"><span style="font:400 italic 16px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Country and date range</span></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:10px 0"><span style="font:400 italic 16px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Data section, pre-filled from the organized data</span></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:10px 0"><span style="font:400 italic 16px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Progress markers for all five steps</span></li></ol></div>
+        <article class="np-dec np-dec--side">
+          <div>
+            <header class="np-dec__head"><span class="np-dec__n">01</span><h3>Defining access in the role form</h3></header>
+            <p class="np-prose np-dec__body">Since a partner’s role determines which visualizations they can see, I kept the role’s name, description, and assigned visualizations <strong>together</strong>. That way, an admin could see what a role was for as they decided what it should give partners access to.</p>
+          </div>
+          <figure class="np-fig">
+            <div class="np-frame"><img src="/assets/nabu/crops/create-role.svg" alt="Create Role form with fields for role name, role description and assigned visualizations, open over the roles table"></div>
+            <figcaption>The form opens over the roles table, so admins can create or edit a role without leaving the list.</figcaption>
+          </figure>
         </article>
-        <article style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Visualization builder step 5, preview with data table — press Enter for full screen" style="background:#fff;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);overflow:hidden"><img data-asset-source="current-live-portfolio" src="/assets/mockups/nabu/step5.svg" alt="Visualization builder step 5, preview with data table" loading="lazy" style="display:block;width:100%;height:auto"></div></div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:14px"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Step 5</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Preview</h3><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Before publishing, the admin sees the actual data behind the chart, so they can check the numbers instead of taking the chart’s word for it.</p><ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:10px 0"><span style="font:400 italic 16px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The underlying data table</span></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:10px 0"><span style="font:400 italic 16px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Back, to change a filter</span></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:baseline;padding:10px 0"><span style="font:400 italic 16px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Publish visualization</span></li></ol></div>
+
+        <article class="np-dec">
+          <header class="np-dec__head"><span class="np-dec__n">02</span><h3>Keeping a long roles table easy to scan</h3></header>
+          <p class="np-prose np-dec__body">With around 200 roles to manage, showing every assigned visualization at once would have made the table harder to scan. <strong>I kept each list accessible from its row</strong> so admins could find a role first and open the details when they needed them.</p>
+          <div class="np-pair">
+            <figure class="np-fig">
+              <div class="np-frame"><img src="/assets/mockups/nabu/s33.svg" alt="Role Builder table listing roles, descriptions and assigned visualizations"></div>
+            </figure>
+            <figure class="np-fig">
+              <div class="np-frame"><img src="/assets/nabu/crops/role-list.svg" alt="Close-up of one role's assigned visualizations list opened from its row"></div>
+              <figcaption>The list of visualizations assigned to one role.</figcaption>
+            </figure>
+          </div>
+          <aside class="np-trade">
+            <p class="np-trade__k">Trade-off</p>
+            <p>The open list covers the rows below it, and only one list can be open at a time. That works when checking a single role, though comparing two means opening them one after the other.</p>
+          </aside>
         </article>
-      </div>
-    </section>
 
-    <section id="s08" data-sec="" data-screen-label="08 Core experience" style="margin-top:var(--cs-section-gap)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">08</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Core experience</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(32px,3.5vw,50px)/1.05 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:pretty">Designing for hundreds of records changed what each table row needed to do.</h2>
-      
-      <div style="margin-top:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-2xl)">
-        <article id="f1" style="display:flex;flex-wrap:wrap;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #181818">
-          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Roles table with a row expanded to show assigned visualizations — press Enter for full screen" style="background:#fff;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);overflow:hidden"><img data-asset-source="current-live-portfolio" src="/assets/mockups/nabu/s33.svg" alt="Roles table with a row expanded to show assigned visualizations" loading="lazy" style="display:block;width:100%;aspect-ratio:1076/700;height:auto;object-fit:cover;object-position:left top"></div></div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Put the assigned visualizations inside the table row</h3></div><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">With around 200 roles and long descriptions, the row had to reveal detail without widening the table.</p><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">A dropdown inside the row expands the assigned visualizations, so several can be read without widening the table</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Edit and delete sit at the end of each row, next to Create New Role above the table</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Search and pagination bracket the table, since scanning all 200 was never realistic</span></li></ul><div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Trade-off</span><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">An open dropdown covers the rows beneath it, so only one role can be expanded at a time. Comparing two roles side by side came up less often than checking one, so we kept it.</p></div></div>
+        <article class="np-dec">
+          <header class="np-dec__head"><span class="np-dec__n">03</span><h3>Managing partners from the table</h3></header>
+          <p class="np-prose np-dec__body">I kept partner management in the table view, where admins could find a specific request or approve or reject several at once. When adding a partner, they could <strong>assign an existing role in the same form</strong>, which determined which published visualizations the partner could see.</p>
+          <figure class="np-fig np-ap" data-ap data-step="table">
+            <div class="np-frame np-ap__stage">
+              <div class="np-ap__app">
+                <img class="np-ap__side" src="/assets/nabu/crops/partners-side.svg" alt="" aria-hidden="true">
+                <div class="np-ap__pan" tabindex="0" role="region" aria-label="Current Partners table, scrolls sideways">
+                  <div class="np-ap__table">
+                    <img src="/assets/nabu/crops/partners-main.svg" alt="Current Partners table with name, organization, role, email, phone, NABU role, country and description columns, and an Add Partner button">
+                    <button type="button" class="np-hit np-ap__open" aria-haspopup="dialog" aria-label="Add Partner" style="left:91.6%;top:16.2%;width:7.1%;height:5.6%"></button>
+                  </div>
+                </div>
+              </div>
+              <div class="np-ap__scrim" data-ap-close hidden></div>
+              <div class="np-ap__modal" role="dialog" aria-modal="false" aria-label="Add Partner form" hidden>
+                <div class="np-ap__scroll" tabindex="-1">
+                  <div class="np-ap__sheet">
+                    <img data-s="1" src="/assets/nabu/add-partner/1-empty.png" width="593" height="1246" alt="Add Partner form with an empty Assigned NABU Role field">
+                    <img data-s="2" src="/assets/nabu/add-partner/2-open.png" width="593" height="1341" alt="Assigned NABU Role list open, showing existing roles" hidden>
+                    <img data-s="3" src="/assets/nabu/add-partner/3-selected.png" width="593" height="1246" alt="Add Partner form with a NABU role selected" hidden>
+                    <button type="button" class="np-hit" data-hit="close" aria-label="Close the form" style="left:86%;top:2.6%;width:10%;height:4.2%"></button>
+                    <button type="button" class="np-hit" data-hit="field" aria-label="Open the Assigned NABU Role list" style="left:8.9%;top:73.9%;width:82.2%;height:5.2%"></button>
+                    <button type="button" class="np-hit" data-hit="role" aria-label="Choose a NABU role" style="left:8.9%;top:78.6%;width:82.2%;height:20.4%" hidden></button>
+                    <button type="button" class="np-hit" data-hit="create" aria-label="Create Partner" style="left:8.9%;top:83%;width:82.2%;height:5%"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption data-ap-cap aria-live="polite">Scroll the table sideways, then select Add Partner to try the flow.</figcaption>
+          </figure>
+          <figure class="np-fig">
+            <div class="np-frame"><img src="/assets/nabu/review-partner-access.png" alt="Review Partner Access table with one request selected and an Approve or Reject bar for the selection" width="2000" height="819"></div>
+            <figcaption>Selected requests can be approved or rejected together.</figcaption>
+          </figure>
         </article>
-        <article id="f2" style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;gap:var(--space-lg) clamp(32px,4vw,64px);align-items:flex-start;padding-top:var(--space-lg);border-top:1px solid #DCDCDC">
-          <div style="flex:1.7 1 440px;min-width:0"><div data-fs="" tabindex="0" aria-label="Partner requests table with add-partner modal — press Enter for full screen" style="background:#fff;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);overflow:hidden"><img data-asset-source="current-live-portfolio" src="/assets/mockups/nabu/s64.svg" alt="Partner requests table with add-partner modal" loading="lazy" style="display:block;width:100%;aspect-ratio:1076/700;height:auto;object-fit:cover;object-position:left top;background:#fff"></div></div>
-          <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:14px"><span style="font:400 italic 18px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><h3 style="margin:0;font:400 clamp(22px,2vw,28px)/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Kept adding a partner in a modal instead of a separate page</h3></div><p style="margin:0;max-width:44ch;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Centralizing partner requests only helped if admins could act on them without leaving the table.</p><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The modal shows the roles that already exist, so nobody has to open another tab to look them up</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Multi-select lets an admin approve or reject several requests at once</span></li><li style="display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;padding:12px 0"><span aria-hidden="true" style="margin-top:10px;width:8px;height:1px;background:#181818"></span><span style="font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Search finds one requester in a longer list</span></li></ul></div>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section id="s09" data-sec="" data-screen-label="09 How it connects" style="margin-top:var(--cs-section-gap)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">09</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>How it connects</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(42px,5.2vw,74px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:balance">The role decides what each partner sees.</h2>
-      <p style="margin:var(--space-md) 0 0;max-width:56ch;font:400 clamp(17px,1.3vw,19px)/1.55 'Satoshi',sans-serif;letter-spacing:-.025em;color:#393939">Partner requests, roles, assigned visualizations, and final outputs form one access chain.</p>
-      <ol aria-label="Access flow" style="margin:var(--space-xl) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px"><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>01</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#f2" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Partner request</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Approved in the requests table</span></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>02</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#s06" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Role</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Named, described, given visualizations</span></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #DCDCDC"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>03</span><span aria-hidden="true" style="letter-spacing:0;color:#AAAAAA">→</span></span><a href="#s07" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">Assigned visualizations</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Built from organized data</span></li><li style="display:flex;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid #181818"><span style="display:flex;justify-content:space-between;align-items:baseline;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span>04</span></span><a href="#s09o" style="font:400 24px/1.1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em">What a partner sees</a><span style="font:400 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">Only what their role can reach</span></li></ol>
-      <figure id="s09o" style="margin:var(--space-2xl) 0 0;display:flex;flex-direction:column;gap:var(--space-md)"><div data-fs="" tabindex="0" aria-label="Published visualization output — press Enter for full screen" style="background:#fff;border-radius:3px;box-shadow:0 28px 50px -18px rgba(24,24,24,.28),0 2px 6px rgba(24,24,24,.08);overflow:hidden"><img data-asset-source="current-live-portfolio" src="/assets/mockups/nabu/published-table.png" alt="Published visualization output" loading="lazy" style="display:block;width:100%;height:auto"></div><figcaption style="padding-top:12px;border-top:1px solid #DCDCDC;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070">Output · From organized data to a chart NABU can send to a partner or funder</figcaption></figure>
-    </section>
+      <!-- ===== The builder ===== -->
+      <section class="np-ch" id="builder" data-np-ch>
+        <p class="np-label">The builder</p>
+        <h2 class="np-h2">Filtering data and reviewing it before publishing</h2>
+        <p class="np-prose">The last two steps of the builder show how admins narrow down the data they want to share and <strong>check what will go into the visualization before they publish it</strong>.</p>
+        <figure class="np-fig np-wide np-demo" data-demo>
+          <div class="np-tabs" role="tablist" aria-label="Visualization builder steps">
+            <button role="tab" id="np-t4" aria-controls="np-p4" aria-selected="true">Step 4 · Filters</button>
+            <button role="tab" id="np-t5" aria-controls="np-p5" aria-selected="false" tabindex="-1">Step 5 · Preview</button>
+          </div>
+          <div class="np-demo__stage">
+            <div class="np-demo__panel" id="np-p4" role="tabpanel" aria-labelledby="np-t4" data-annot>
+              <div class="np-frame np-pins">
+                <img src="/assets/mockups/nabu/step4.svg" alt="Step 4: filters for country, date range and data section">
+                <span class="np-pin" style="left:32%;top:46%">1</span>
+                <span class="np-pin" style="left:36%;top:64%">2</span>
+              </div>
+              <ol class="np-notes">
+                <li><b>Country and date range</b> determine which records to include.</li>
+                <li><b>The data section</b> is already filled in based on the data being used.</li>
+              </ol>
+            </div>
+            <div class="np-demo__panel" id="np-p5" role="tabpanel" aria-labelledby="np-t5" data-annot hidden>
+              <div class="np-frame"><img src="/assets/nabu/step5-preview.png" width="1512" height="982" alt="Step 5: Preview Visualization, showing a bar chart of monthly inflation in Argentina, 2002"></div>
+              <p class="np-cap">The preview shows the data as the selected chart type, here a bar chart, so admins can check it before publishing.</p>
+            </div>
+          </div>
+        </figure>
+      </section>
 
-    <section id="s10" data-sec="" data-screen-label="10 Outcome & reflection" style="margin-top:var(--space-section-major)">
-      <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #DCDCDC;font:400 12.5px/1 'Satoshi',sans-serif;color:#707070"><img data-spin="" src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:16px;height:16px;display:block"><span style="font-weight:500;color:#181818">10</span><span style="width:24px;height:1px;background:#DCDCDC"></span><span>Outcome & reflection</span></div>
-      <h2 style="margin:24px 0 0;font:400 clamp(42px,5.2vw,74px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.05em;text-wrap:balance">Four jobs in one place.</h2>
-      <div style="margin-top:var(--space-xl);display:flex;flex-wrap:wrap;gap:var(--space-xl) clamp(40px,5vw,96px);align-items:flex-start">
-        <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid #181818"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;color:#181818">Where it landed</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">The part of the platform we designed put four jobs in one place: approving partners, managing roles and what each one can reach, organizing the data behind them, and building the visualizations NABU shares.</p><p style="margin:0;font:400 15px/1.55 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070">I don’t have usage data from after handoff, so I can’t say how their week looks now.</p></div>
-        <div style="flex:1 1 340px;display:flex;flex-direction:column"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070;padding-top:18px;border-top:1px solid #181818;color:#181818">Reflection</span><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><div style="display:flex;flex-direction:column;gap:8px"><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Understand the data before the interface.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">I couldn’t organize the interface until I understood how the data itself was organized: what the fields meant and how an admin moved through them.</p></div></div><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid #DCDCDC"><span style="font:400 italic 22px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><div style="display:flex;flex-direction:column;gap:8px"><span style="font:400 clamp(21px,1.8vw,25px)/1.15 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.04em;color:#181818">Small tools remove daily work.</span><p style="margin:0;font:400 16.5px/1.62 'Satoshi',sans-serif;letter-spacing:-.02em;color:#393939">Working on an internal tool changed what I pay attention to. A search field and bulk actions aren’t much to look at, but they take repetitive work out of something admins do every day.</p></div></div></div>
-      </div>
-    </section>
+      <!-- ===== How it connects ===== -->
+      <section class="np-ch" id="connects" data-np-ch>
+        <p class="np-label">How it connects</p>
+        <h2 class="np-h2">From a partner request to a published visualization</h2>
+        <ol class="np-chain">
+          <li><div class="np-frame"><img src="/assets/nabu/review-partner-access.png" alt="Review Partner Access table with a request selected for approval" width="2000" height="819"></div><h3>Partner request</h3><p>An admin reviews and approves the request in the partners table.</p></li>
+          <li><div class="np-frame"><img src="/assets/nabu/add-partner/3-selected.png" alt="Add Partner form with an existing NABU role assigned" width="593" height="1246" style="object-position:center 88%"></div><h3>Role assignment</h3><p>When adding the partner, the admin assigns an existing role that determines which visualizations they can access.</p></li>
+          <li><div class="np-frame"><img src="/assets/nabu/step5-preview.png" width="1512" height="982" alt="Visualization builder preview with a bar chart"></div><h3>Visualization builder</h3><p>The admin chooses the data to include and reviews it before publishing.</p></li>
+          <li><div class="np-frame"><img src="/assets/mockups/nabu/published-table.png" alt="Published data table with NABU's purple header"></div><h3>Published visualization</h3><p>The partner can view published visualizations that are available to their role.</p></li>
+        </ol>
+      </section>
 
-  </main>
+      <!-- ===== Outcome ===== -->
+      <section class="np-ch np-ch--end" id="outcome" data-np-ch>
+        <p class="np-label">Outcome</p>
+        <h2 class="np-h2">What we handed off</h2>
+        <p class="np-prose">Our team handed off designs for partner approvals, role management, data organization, and visualization building. My work <strong>connected the steps admins take to approve partners, set their access, and prepare the visualizations NABU shares</strong>. I don’t have post-handoff usage data, so I don’t know whether the tools reduced setup time.</p>
+        <div class="np-takeaway">
+          <h3>What I took from the project</h3>
+          <div class="np-prose">
+            <p>Working on NABU made me think more carefully about how much detail belongs in a table. An admin looking through around 200 roles needed to find the right one before checking its access, so I kept the list of assigned visualizations inside the row. That kept the table easy to scan, though it made comparing roles less convenient. I’ll carry that question into other projects: what does someone need to see while they’re looking, and what can wait until they’ve found it?</p>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
+
+<!-- cs:end -->
 
   <section data-next="nabu" class="cs-nw" aria-labelledby="cs-nw-title">
     <div class="cs-nw__inner">
@@ -204,6 +280,14 @@
       </header>
       <div class="cs-nw__rail" data-nw-rail>
         <div class="cs-nw__track" data-nw-track>
+        <a class="cs-nw__card" href="/projects/roam" data-nw="roam">
+          <span class="cs-nw__media"><span style="display:block;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)"><span class="cs-nw__phone"><img src="/assets/home/walkthroughs/roam/postcard.jpg" alt="ROAM postcard screen" draggable="false" style="display:block;width:100%;height:auto"></span></span></span>
+          <span class="cs-nw__text">
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#707070"><span style="color:#181818">02</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Lead Designer · Fall 2026</span></span>
+            <span class="cs-nw__name">ROAM</span>
+            <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">A short recap of a design-a-thon concept for keeping travel discovery, memories, and sharing in one app.</span>
+          </span>
+        </a>
         <a class="cs-nw__card" href="/projects/brilliant-cities" data-nw="bc">
           <span class="cs-nw__media"><span style="display:block;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)"><span class="cs-nw__phone"><img src="/assets/home/walkthroughs/brilliant-cities/goal-60.png" alt="Brilliant Cities Number Sense goal screen" draggable="false" style="display:block;width:100%;height:auto"></span></span></span>
           <span class="cs-nw__text">
@@ -272,6 +356,7 @@
 </footer>
 
 <script src="/scripts/cs.js?v=cs14"></script>
+<script src="/scripts/case-study.js?v=cs7"></script>
 <script src="/scripts/cross-scroll.js"></script>
 <script src="/scripts/page-transition.js?v=tx13"></script>
 <script src="/scripts/turn-the-page.js?v=tp3" defer></script>
