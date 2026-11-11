@@ -44,6 +44,21 @@
     ITEMS.forEach(function (it) { var l = LAY[it.key]; it.cx = l[0]; it.cy = l[1]; it.w = l[2]; it.r = l[3]; });
     BAG.cx = 410; BAG.cy = 415; BAG.w = 390; MOUTH.x = 410; MOUTH.y = 330;
     THX = { x: 520, y: 205 };
+    // Homepage, desktop only: spread the outlines sideways from the bag so the flat lay
+    // uses the wide stage instead of bunching round the bag. The bag keeps its size and height.
+    if (document.body.hasAttribute("data-hv") && matchMedia("(min-width: 861px)").matches) {
+      var SX = 1.2, minX = Infinity, maxX = -Infinity;
+      ITEMS.forEach(function (it) {
+        it.cx = BAG.cx + (it.cx - BAG.cx) * SX;
+        var a = Math.abs(it.r * Math.PI / 180), h = it.w * it.a, hw = (it.w * Math.abs(Math.cos(a)) + h * Math.abs(Math.sin(a))) / 2;
+        minX = Math.min(minX, it.cx - hw); maxX = Math.max(maxX, it.cx + hw);
+      });
+      var D = 30 - minX;
+      ITEMS.forEach(function (it) { it.cx += D; });
+      BAG.cx += D; MOUTH.x += D; THX.x += D;
+      BW = Math.round(maxX + D + 30);
+      var WIDE_BW = BW;
+    }
   }
   var GEMS = [];
   for (var gi = 0; gi < 17; gi++) GEMS.push("assets/home/decor/star/star-" + String(gi).padStart(2, "0") + ".png");
@@ -56,6 +71,12 @@
   var meter = q("[data-pz-meter]"), clockEl = q("[data-pz-clock]"), dotsEl = q("[data-pz-dots]"), again = q(".pz-again");
   var spot = root.querySelector(".pz-spot"), spill = q(".pz-spill"), status = q("[data-pz-status]"), done = q(".pz-done");
   var board = desk.querySelector(".pz-board"), bagArt = desk.querySelector(".pz-bagart"), thanks = desk.querySelector(".pz-thanks");
+  if (typeof WIDE_BW === "number") {
+    board.style.width = WIDE_BW + "px";
+    spot.style.aspectRatio = WIDE_BW + " / " + BH;
+    spot.style.width = "min(100%, calc(max(360px, 100vh - 93px - 236px - var(--pz-peek, 0px)) * " + (WIDE_BW / BH).toFixed(4) + "))";
+    spot.style.minWidth = "0";
+  }
   var rand = rng(Date.now() % 100000);
   var P = { mode: "jigsaw", things: [], placed: 0, t0: 0, solvedAt: 0, finished: false, geo: "", timers: [] };
 
@@ -159,15 +180,17 @@
   // so the mess reads as one spill rather than things flung to the corners.
   function scatter(list, instant) {
     var reg = P.region, laid = [], sp = P.obstacles[P.obstacles.length - 1];
+    // Wide contained layout (desktop): use the whole width, not a tight ring round the board.
+    var wide = contained && !P.stacked && reg.x1 - reg.x0 > 900, ROOM = wide ? 120 : 40, PULL = wide ? 0.12 : 1.1, CLUMP = wide ? 0 : 0.6;
     list.slice().sort(function (a, b) { return b.w * b.h - a.w * a.h; }).forEach(function (t) {
       var rot = t.it.r + (rand() - 0.5) * 50, best = null, bestScore = -Infinity;
       for (var n = 0; n < 260; n++) {
         var bb = box(0, 0, t.w * LOOSE, t.h * LOOSE, rot), hw = (bb.x1 - bb.x0) / 2, hh = (bb.y1 - bb.y0) / 2;
         var x = reg.x0 + hw + rand() * Math.max(1, reg.x1 - reg.x0 - hw * 2), y = reg.y0 + hh + rand() * Math.max(1, reg.y1 - reg.y0 - hh * 2);
-        var b = box(x, y, t.w * LOOSE, t.h * LOOSE, rot, 4), room = 40, score = 0;
+        var b = box(x, y, t.w * LOOSE, t.h * LOOSE, rot, 4), room = ROOM, score = 0;
         laid.forEach(function (o) { room = Math.min(room, gap(b, o)); });
-        score = (room < 0 ? room * 6 - 120 : room) * 3 - Math.max(0, gap(b, sp)) * 1.1;
-        if (laid.length) score -= Math.min.apply(null, laid.map(function (o) { return Math.max(0, gap(b, o)); })) * 0.6;
+        score = (room < 0 ? room * 6 - 120 : room) * 3 - Math.max(0, gap(b, sp)) * PULL;
+        if (laid.length && CLUMP) score -= Math.min.apply(null, laid.map(function (o) { return Math.max(0, gap(b, o)); })) * CLUMP;
         P.obstacles.forEach(function (o) { var g = gap(b, o); if (g < 0) score += g * 6 - 400; });
         if (score > bestScore) { bestScore = score; best = [x, y, b]; }
       }
