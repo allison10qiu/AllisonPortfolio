@@ -601,3 +601,14 @@ html.hv-s1 .hv-pcard[data-hv-game="board"] .hv-tile__art .hv-pol img.hv-pol__cli
 /* Sheet close: the puzzle toolbar's own action style (line icon + lowercase word), pinned top right */
 .hv-dialog .hv-close.pz-act { position: absolute; top: 12px; right: 16px; z-index: 3; height: 44px; min-height: 44px; padding: 0 4px; border: 0 !important; border-radius: 0; background: none !important; box-shadow: none; }
 .hv-dialog .hv-close.pz-act:focus-visible { outline: 2px solid var(--home-ink, #14243b); outline-offset: 2px; }
+
+/* ---------- Puzzle sheet: title with close beside it, then the line, then the actions centred ---------- */
+.hv-dialog { padding-top: 24px; }
+.hv-dialog .home-puzzle { display: flex; flex-direction: column; }
+.hv-dialog .home-puzzle > .pz-head { order: 0; padding-right: 84px; margin: 0; }
+.hv-dialog .home-puzzle > .pz-bar { order: 1; position: static; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px 28px; margin: 14px 0 4px; width: 100%; }
+.hv-dialog .home-puzzle > .pz-bar .pz-meter { justify-content: center; margin: 0; }
+.hv-dialog .home-puzzle > .pz-bar .pz-meter:empty, .hv-dialog .home-puzzle > .pz-bar .pz-meter:not(:has(.pz-again:not([hidden]))) { display: none; }
+.hv-dialog .home-puzzle > .pz-bar .pz-bar__end { justify-content: center; gap: 28px; margin: 0; }
+.hv-dialog .home-puzzle > :not(.pz-head):not(.pz-bar) { order: 2; }
+.hv-dialog .hv-close.pz-act { top: 24px; right: 12px; }

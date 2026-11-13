@@ -30,8 +30,26 @@
     var close = el("button", "hv-close pz-act", '<svg class="pz-act__ico" viewBox="0 0 17 17" aria-hidden="true"><path d="M4.5 4.5l8 8M12.5 4.5l-8 8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span class="pz-act__text"><span class="pz-tl__sizer" aria-hidden="true">close</span><span class="pz-tl__label">close</span></span>');
     close.type = "button"; close.setAttribute("aria-label", "Close puzzle");
     dlg.appendChild(close); dlg.appendChild(games); document.body.appendChild(dlg);
+    // In the sheet each puzzle reads: title (with close beside it), its line, then the two actions
+    // centred underneath. The board's title lives inside its stage, so it moves up first.
+    games.querySelectorAll(".home-puzzle").forEach(function (p) {
+      var head = p.querySelector(".pz-head"), bar = p.querySelector(":scope > .pz-bar");
+      if (!head || !bar) return;
+      if (head.parentNode !== p) p.insertBefore(head, p.firstChild);
+      head.insertAdjacentElement("afterend", bar);
+    });
+    function placeClose() {
+      if (dlg.hidden) return;
+      var h = games.querySelector("[data-game]:not([hidden]) .pz-heading");
+      if (!h) return;
+      var hr = h.getBoundingClientRect(), dr = dlg.getBoundingClientRect();
+      var line = parseFloat(getComputedStyle(h).lineHeight) || hr.height;
+      close.style.top = Math.round(hr.top - dr.top + dlg.scrollTop + Math.min(line, hr.height) / 2 - 22) + "px";
+    }
+    window.addEventListener("resize", placeClose);
+    window.addEventListener("hashchange", function () { [0, 300, 700].forEach(function (ms) { setTimeout(placeClose, ms); }); });
     var opener = null;
-    function open(e) { opener = e && e.currentTarget; var g = opener && opener.getAttribute("data-hv-game"); if (g) showGame(g); dlg.hidden = false; document.documentElement.classList.add("hv-locked"); relayout(); close.focus(); }
+    function open(e) { opener = e && e.currentTarget; var g = opener && opener.getAttribute("data-hv-game"); if (g) showGame(g); dlg.hidden = false; document.documentElement.classList.add("hv-locked"); relayout(); [0, 120, 400].forEach(function (ms) { setTimeout(placeClose, ms); }); close.focus(); }
     function shut() { dlg.hidden = true; document.documentElement.classList.remove("hv-locked"); if (opener) opener.focus(); }
     close.addEventListener("click", shut);
     dlg.addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });

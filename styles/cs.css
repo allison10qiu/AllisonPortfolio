@@ -940,3 +940,10 @@
   .cs-page main .cs-outcome-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 }
 
+
+/* Where to next, phones: the phone frames are small here, so their corners scale down with them
+   (screen about 6.5% of its height, like a real phone) instead of keeping the desktop radii. */
+@media (max-width: 599px) {
+  .cs-nw__phone { border-radius: 11px; }
+  .cs-nw__media > span[style*="border-radius:28px"] { border-radius: 15px !important; padding: 4px !important; }
+}

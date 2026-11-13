@@ -15,8 +15,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
 <link rel="stylesheet" href="/styles/main.css?v=ww2">
 <link rel="stylesheet" href="/styles/editorial.css?v=ag2">
-<link rel="stylesheet" href="/styles/cs.css?v=nav27">
-<link rel="stylesheet" href="/styles/case-study.css?v=cs14">
+<link rel="stylesheet" href="/styles/cs.css?v=nav28">
+<link rel="stylesheet" href="/styles/case-study.css?v=cs26">
 <link rel="stylesheet" href="/styles/page-transitions.css?v=tx8">
 <style>@view-transition { navigation: auto; }
 .roam-body { margin: 0; font: 400 16.5px/1.5 'Satoshi', sans-serif; letter-spacing: -.025em; color: #393939; text-wrap: pretty; }
@@ -94,16 +94,20 @@
 
     <main class="np-main" data-screen-label="ROAM">
 
-      <header class="np-hero np-hero--short" id="top">
-        <p class="np-kicker">Design-a-thon concept preview</p>
+      <header class="np-hero" id="top">
         <h1 class="np-title">Turning scattered travel inspiration into shared experiences</h1>
         <p class="np-dek">ROAM is a social travel app concept that brings community-driven discovery, personalized place ratings, digital postcards, and curated travel guides together, so the places people save, the trips they take, and the memories they make can live in one place.</p>
-        <dl class="np-meta4">
-          <div><dt>Role</dt><dd>Lead Designer</dd></div>
-          <div><dt>Made for</dt><dd>SVSD Design-a-Thon 2026</dd></div>
-          <div><dt>Timeline</dt><dd>October 2026</dd></div>
-          <div><dt>Focus</dt><dd><ul class="np-focus"><li>Social discovery</li><li>Storytelling</li></ul></dd></div>
-        </dl>
+        <div class="np-spec">
+          <dl class="np-facts">
+            <div><dt>Role</dt><dd>Lead Designer</dd></div>
+            <div><dt>Made for</dt><dd>SVSD Design-a-Thon 2026</dd></div>
+            <div><dt>Timeline</dt><dd>October 2026</dd></div>
+            <div><dt>Focus</dt><dd><ul class="np-focus"><li>Social discovery</li><li>Storytelling</li></ul></dd></div>
+          </dl>
+          <dl class="np-rows">
+            <div><dt>Problem</dt><dd>Discovering a place, remembering it, and sharing it happen in different apps, so very little of what people find or remember stays connected.</dd></div>
+          </dl>
+        </div>
         <figure class="np-fig np-wide np-hero__img">
           <a class="np-frame roam-demo" href="https://youtu.be/dtzgiWg_cw4" target="_blank" rel="noopener noreferrer" aria-label="Watch the ROAM demo video on YouTube"><img src="/assets/roam/demo-poster.png" width="1280" height="720" alt="ROAM demo video: phones showing the postcard feed and a Sagrada Família stamp"></a>
           <figcaption><a href="https://youtu.be/dtzgiWg_cw4" target="_blank" rel="noopener noreferrer">Watch the demo ↗</a></figcaption>
@@ -112,23 +116,48 @@
 
       <section class="np-ch" id="roam-opportunity" data-np-ch>
         <p class="np-label">Opportunity</p>
-        <article class="np-dec np-dec--side np-dec--phone">
+        <h2 class="np-h2">The tools we use to discover places rarely connect with how we remember them</h2>
+        <article class="np-dec np-dec--side np-opp">
           <div>
-            <h2 class="np-h2">The tools we use to discover places rarely connect with how we remember them</h2>
-            <p class="np-prose">We save places on TikTok, collect travel inspiration on Pinterest, and take hundreds of photos that end up buried in our camera rolls. Discovering a place, remembering it, and sharing it happen in different apps, so <strong>very little of what we find or remember stays connected</strong>.</p>
+            <p class="np-prose np-dec__body">We save places on TikTok, collect travel inspiration on Pinterest, and take hundreds of photos that end up buried in our camera rolls. Discovering a place, remembering it, and sharing it happen in different apps, so <strong>very little of what we find or remember stays connected</strong>.</p>
           </div>
-          <figure class="np-fig np-phone"><div class="np-frame"><img src="/assets/home/walkthroughs/roam/home.jpg" width="780" height="1728" alt="ROAM home feed with friends' postcards and place ratings"></div></figure>
+          <div class="np-flow" role="img" aria-label="Saved places on TikTok, inspiration on Pinterest and photos in the camera roll, brought together in ROAM.">
+            <div class="np-flow__src" aria-hidden="true"><span>TikTok · saved places</span><span>Pinterest · inspiration</span><span>Camera roll · photos</span></div>
+            <div class="np-flow__arrow" aria-hidden="true"></div>
+            <div class="np-flow__node" aria-hidden="true">ROAM, in one place</div>
+            <p class="np-flow__cap">Discovering, remembering and sharing a place, together.</p>
+          </div>
         </article>
       </section>
 
       <section class="np-ch np-ch--end" id="roam-designed" data-np-ch>
         <p class="np-label">What we designed</p>
         <h2 class="np-h2">Discovery, memories, and guides in one app</h2>
-        <ol class="np-phones np-phones--three np-features">
-          <li><div class="np-frame"><img src="/assets/home/walkthroughs/roam/explore.jpg" width="780" height="1728" alt="Explore screen with category filters and postcard highlights"></div><h3>Discover through people, not just places</h3><p>Destinations come with community perspectives and factor-based ratings that reflect different travel priorities.</p></li>
-          <li><div class="np-frame"><img src="/assets/home/walkthroughs/roam/postcard.jpg" width="780" height="1728" alt="Postcard for Sagrada Família with photos and a vibe check"></div><h3>Turn memories into postcards</h3><p>Travel moments become visual keepsakes that are easy to personalize, revisit, and share.</p></li>
-          <li><div class="np-frame"><img src="/assets/home/walkthroughs/roam/collections.jpg" width="560" height="1220" alt="Collections of saved places grouped into travel guides"></div><h3>Curate stories into travel guides</h3><p>Favorite places, recommendations, and memories come together in personalized travel guides.</p></li>
+
+        <ol class="np-phones np-features-row">
+          <li>
+            <div class="np-frame"><img src="/assets/home/walkthroughs/roam/explore.jpg" width="780" height="1728" alt="Explore screen with category filters and postcard highlights"></div>
+            <div class="np-feature__text">
+              <header class="np-dec__head"><span class="np-dec__n">01</span><h3>Discover through people, not just places</h3></header>
+              <p class="np-prose np-dec__body">Destinations come with community perspectives and factor-based ratings that reflect different travel priorities.</p>
+            </div>
+          </li>
+          <li>
+            <div class="np-frame"><img src="/assets/home/walkthroughs/roam/postcard.jpg" width="780" height="1728" alt="Postcard for Sagrada Família with photos and a vibe check"></div>
+            <div class="np-feature__text">
+              <header class="np-dec__head"><span class="np-dec__n">02</span><h3>Turn memories into postcards</h3></header>
+              <p class="np-prose np-dec__body">Travel moments become visual keepsakes that are easy to personalize, revisit, and share.</p>
+            </div>
+          </li>
+          <li>
+            <div class="np-frame"><img src="/assets/home/walkthroughs/roam/collections.jpg" width="560" height="1220" alt="Collections of saved places grouped into travel guides"></div>
+            <div class="np-feature__text">
+              <header class="np-dec__head"><span class="np-dec__n">03</span><h3>Curate stories into travel guides</h3></header>
+              <p class="np-prose np-dec__body">Favorite places, recommendations, and memories come together in personalized travel guides.</p>
+            </div>
+          </li>
         </ol>
+
         <p class="np-cap">This is a short preview. A full case study is coming soon.</p>
       </section>
     </main>

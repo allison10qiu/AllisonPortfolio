@@ -504,3 +504,76 @@ figcaption { margin-top: 14px; max-width: var(--np-text); font: 400 14px/1.4 var
 /* A small label above a title (ROAM preview) */
 .np-kicker { margin: 0 0 14px; font: 500 14px/1 var(--np-sans); color: var(--np-g2); letter-spacing: -.01em; }
 @media (max-width: 600px) { .np-hero > .np-kicker { order: 0; } }
+
+/* Phones: titles run the full width instead of balancing into short lines. */
+@media (max-width: 599px) {
+  .np-title { text-wrap: pretty; font-size: clamp(36px, 10.6vw, 44px); }
+}
+
+/* ROAM on phones: smaller phone screens. The single screen drops to 200px; the three features
+   become rows with the screen on the left and the text beside it. */
+@media (max-width: 599px) {
+  .np-dec--phone .np-phone { max-width: 150px; }
+  .np-dec--phone .np-phone .np-frame { border-radius: 14px; }
+  .np-phones--three { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .np-phones--three li { max-width: none; display: grid; grid-template-columns: 120px minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: 18px; align-items: start; }
+  .np-phones--three li > h3 { text-wrap: pretty; }
+  .np-phones--three li > .np-frame { grid-row: 1 / span 2; border-radius: 12px; }
+  .np-phones--three li > h3 { margin-top: 0; }
+  .np-phones--three li > p { margin-top: 8px; }
+}
+
+/* Persona on phones: a smaller portrait instead of a full-width photo. */
+@media (max-width: 599px) {
+  .np-persona { grid-template-columns: 112px minmax(0, 1fr); align-items: start; column-gap: 18px; margin-top: 40px; }
+  .np-persona img { width: 112px; height: 140px; min-height: 0; object-position: center 16%; }
+  .np-persona > div { padding: 2px 0 0 !important; }
+  .np-persona__role { margin-bottom: 14px !important; }
+  .np-persona__desc { font-size: 15px !important; }
+}
+
+/* A decision whose screen needs room to be read (OSE 05, the message thread): the screen takes
+   most of the row, shown no wider than its 842px export. */
+.np-dec--side.np-dec--wideimg { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.np-dec--wideimg > div:not(.np-fig) { max-width: var(--np-text, 640px); }
+.np-dec--wideimg .np-fig { max-width: 842px !important; }
+.np-dec--wideimg .np-fig { order: 2 !important; }
+@media (max-width: 900px) { .np-dec--side.np-dec--wideimg { gap: 24px; } }
+
+/* Features in one row (ROAM): three numbered features side by side, each a phone with its number,
+   title and line under it. Phones get compact rows: the screen on the left, the text beside it. */
+.np-features-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 40px; align-items: start; }
+.np-features-row li { display: flex; flex-direction: column; gap: 22px; }
+.np-features-row .np-frame { width: 100%; max-width: 220px; aspect-ratio: 390 / 864; border-radius: 16px; }
+.np-features-row .np-dec__head { margin-bottom: 10px; }
+.np-features-row .np-dec__n { font-size: 18px; margin-bottom: 8px; }
+.np-features-row h3 { margin: 0; font: 400 22px/1.16 var(--np-serif); letter-spacing: -.03em; color: var(--np-ink); text-wrap: balance; }
+.np-features-row .np-dec__body { font-size: 15.5px; margin: 0; }
+.np-phone--sm { max-width: 230px !important; }
+@media (max-width: 599px) {
+  .np-features-row { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 28px; }
+  .np-features-row li { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 18px; align-items: start; }
+  .np-features-row .np-frame { max-width: none; border-radius: 12px; }
+  .np-features-row h3 { font-size: 20px; text-wrap: pretty; }
+  .np-features-row .np-dec__body { font-size: 15px; }
+  .np-phone--sm { max-width: 150px !important; }
+}
+.np-features-row + .np-cap { margin-top: 40px; }
+
+/* ROAM Opportunity: text beside the top of the home feed. The screen is cropped to its upper half
+   and fades out, so the chapter stays short. */
+.np-dec--side.np-opp { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 48px; align-items: start; margin-top: 28px; }
+.np-phone--crop { max-width: 240px !important; justify-self: end; }
+.np-phone--crop .np-frame { aspect-ratio: 390 / 470; border-radius: 18px 18px 0 0; box-shadow: none; outline: 1px solid #ececec; outline-offset: -1px;
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent); mask-image: linear-gradient(180deg, #000 70%, transparent); }
+.np-phone--crop img { object-position: top; }
+@media (max-width: 900px) { .np-dec--side.np-opp { grid-template-columns: minmax(0, 1fr) 200px; gap: 28px; } .np-phone--crop { max-width: 200px !important; } }
+@media (max-width: 599px) {
+  .np-dec--side.np-opp { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .np-phone--crop { max-width: 180px !important; justify-self: start; }
+  .np-phone--crop .np-frame { border-radius: 12px 12px 0 0; }
+}
+
+/* ROAM Opportunity, final: text beside a small diagram (NABU Context style) instead of a screen. */
+.np-dec--side.np-opp { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 48px; align-items: center; margin-top: 28px; }
+@media (max-width: 900px) { .np-dec--side.np-opp { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
