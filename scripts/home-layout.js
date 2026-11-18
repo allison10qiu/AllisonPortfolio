@@ -8,6 +8,14 @@
   var links = document.querySelector(".home-hero__links");
   var rows = work.querySelectorAll(".work-row");
   var mq = matchMedia("(max-width: 760px)"), mqS = matchMedia("(max-width: 860px)");
+  // The phone and tablet layouts rebuild the page once at load. If the window is resized across
+  // either breakpoint afterwards, reload so the page shows the layout that matches its new width
+  // (the same one a phone gets) instead of a half-desktop mix.
+  [mq, mqS].forEach(function (q) {
+    var start = q.matches, t;
+    function onChange() { clearTimeout(t); t = setTimeout(function () { if (q.matches !== start) location.reload(); }, 250); }
+    if (q.addEventListener) q.addEventListener("change", onChange); else if (q.addListener) q.addListener(onChange);
+  });
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; }
   function relayout() { window.dispatchEvent(new Event("resize")); setTimeout(function () { window.dispatchEvent(new Event("resize")); }, 350); }
   var thumb = '<img src="/assets/bag/bag.png?v=tight" alt="" draggable="false">';

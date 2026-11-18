@@ -86,16 +86,19 @@ html.hv-locked, html.hv-locked body { overflow: hidden; }
 .hv-b .hv-section .pz-games { min-height: 720px; }
 
 /* ---------- Phones, all variants ---------- */
+/* Project cards keep two columns as long as they fit; only on the smallest screens do they stack,
+   always screenshot first, then the text at full width. */
+@media (max-width: 540px) {
+  .home-page a.work-row { display: flex !important; flex-direction: column !important; gap: 18px !important; }
+  .home-page .work-row .work-row__media { width: 100% !important; order: 0 !important; }
+  .home-page .work-row .work-row__text { width: 100% !important; order: 1 !important; }
+}
 @media (max-width: 860px) {
   /* Stack the hero as a simple column so the puzzle never rides up over the intro links. */
   html[class*="hv-"] .home-page .home-hero.home-hero--sidebar { display: flex; flex-direction: column; min-height: 0; }
   html[class*="hv-"] .home-page .home-hero--sidebar .pz-side { max-height: none; padding-bottom: 28px; }
 }
 @media (max-width: 760px) {
-  /* Project cards stack: screenshot first, then the text at full width. */
-  html[class*="hv-"] .home-page .work-row { display: flex !important; flex-direction: column !important; gap: 18px !important; }
-  html[class*="hv-"] .home-page .work-row .work-row__media { width: 100% !important; order: 0; }
-  html[class*="hv-"] .home-page .work-row .work-row__text { width: 100% !important; order: 1; }
   /* The preview shows the board itself; the header and controls appear once you play. */
   .hv-teaser.is-closed .pz-bar, .hv-teaser.is-closed .pz-head, .hv-teaser.is-closed .pz-status { display: none !important; }
   .hv-a .hv-teaser, .hv-c .hv-teaser { --hv-peek: 360px; }

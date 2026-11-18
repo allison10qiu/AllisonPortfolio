@@ -1745,9 +1745,58 @@
   .home-page .home-hero--sidebar > .site-footer .site-footer__body { padding-left: var(--site-gutter); padding-right: var(--site-gutter); }
 }
 
-/* Selected work: every preview the same width, and frames and text share left edges */
-.home-page .home-hero--sidebar > .work a.work-row.project--feature {
+/* Selected work: every card uses the Terraform layout (two equal columns that
+   shrink with the window), frames and text share left edges */
+.home-page .home-hero--sidebar > .work a.work-row {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.home-page .home-hero--sidebar > .work .work-row--flip .work-row__media {
+  order: 2;
+}
+
+/* narrow two-column cards: titles shrink with the column so "Read-only governance" never clips */
+@media (min-width: 541px) and (max-width: 860px) {
+  .home-page .home-hero--sidebar > .work .work-row__title {
+    font-size: clamp(26px, 5.4vw, 39px);
+  }
+}
+
+/* Device frames keep their full-size corner rounding as they shrink: the radius scales with
+   the frame (8px on a 463px-wide browser, 27px on a 440px-tall phone) instead of staying fixed. */
+.home-page .home-hero--sidebar > .work .work-row {
+  --ph: 440px;
+}
+
+.home-page .home-hero--sidebar > .work .work-row .work-row__media {
+  container-type: inline-size;
+}
+
+.home-page .home-hero--sidebar > .work .work-row .pw-desk {
+  border-radius: min(8px, 1.73cqw);
+}
+
+.home-page .home-hero--sidebar > .work .work-row[data-walkthrough="brilliant-cities"] .pw-phone,
+.home-page .home-hero--sidebar > .work .work-row[data-walkthrough="roam"] .pw-phone {
+  height: var(--ph);
+  border-radius: calc(var(--ph) * 27 / 440);
+}
+
+.home-page .home-hero--sidebar > .work .work-row[data-walkthrough="brilliant-cities"] .pw-phone .pw-screen,
+.home-page .home-hero--sidebar > .work .work-row[data-walkthrough="roam"] .pw-phone .pw-screen {
+  border-radius: calc(var(--ph) * 22 / 440);
+}
+
+@media (min-width: 541px) {
+  .home-page .home-hero--sidebar > .work .work-row {
+    --ph: min(440px, 36vw);
+  }
+}
+
+@media (max-width: 540px) {
+  .home-page .home-hero--sidebar > .work .work-row {
+    --ph: min(420px, 78vw);
+  }
 }
 
 .home-page .home-hero--sidebar > .work .work-row__text {
@@ -1915,7 +1964,7 @@
 .home-page .home-hero.home-hero--sidebar .pz-side > .home-hero__lede {
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.3;
   letter-spacing: -0.015em;
   color: #393939;
 }
@@ -1959,3 +2008,18 @@
   .home-hero--sidebar .pz-side { border-bottom-width: 0; }
 }
 
+
+/* sidebar links: the icon fills in on hover, inner marks knock out to white */
+.home-hero__links .pz-ico > * {
+  transition: fill 0.18s ease, stroke 0.18s ease;
+}
+
+.home-hero__links .gem-link:hover .pz-ico > :first-child,
+.home-hero__links .gem-link:focus-visible .pz-ico > :first-child {
+  fill: currentColor;
+}
+
+.home-hero__links .gem-link:hover .pz-ico > :not(:first-child),
+.home-hero__links .gem-link:focus-visible .pz-ico > :not(:first-child) {
+  stroke: #fff;
+}
