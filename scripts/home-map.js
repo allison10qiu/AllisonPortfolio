@@ -77,6 +77,13 @@
     return out;
   }
 
+  var CAPTION_LIFT = 28; // px the caption sits above the number 4's baseline
+  function baseline(el) { // y of the baseline of an element's last line of text
+    var m = document.createElement("span");
+    m.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
+    el.appendChild(m); var y = m.getBoundingClientRect().top; m.remove(); return y;
+  }
+
   function draw() {
     var box = map.getBoundingClientRect();
     svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
@@ -86,6 +93,16 @@
     function crosses(a, b) { for (var t = 0.05; t < 1; t += 0.05) if (inKeep({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t })) return true; return false; }
 
     var c = items.map(function (el) { return centre(el, box); });
+    // the corner caption: its right edge lines up with the left edge of the number 6, and its last line
+    // sits a little above the baseline of the number 4
+    var cap = map.querySelector(".hp-map__caption"), four = map.querySelector('.hp-item[data-order="4"] .hp-item__num'),
+        six = map.querySelector('.hp-item[data-order="6"] .hp-item__num');
+    if (cap && four && six) {
+      cap.style.bottom = "0px";
+      var drop = cap.getBoundingClientRect().bottom - baseline(cap); // space under the caption's baseline
+      cap.style.bottom = Math.max(0, box.bottom - baseline(four) - drop + CAPTION_LIFT).toFixed(1) + "px";
+      cap.style.right = Math.max(0, box.right - six.getBoundingClientRect().left).toFixed(1) + "px";
+    }
     // desktop: poster-style hand-drawn lines (see handLines() above)
     if (matchMedia("(min-width: 861px)").matches) {
       svg.innerHTML = handLines(box);
