@@ -50,24 +50,14 @@
 .home-page .work.work--grid .work-row .work-row__media,
 .home-page .work.work--grid .work-row--flip .work-row__media { aspect-ratio: auto; }
 
-/* ---------- bento ----------
-   Two per row on 12 columns: Terraform 8 + ROAM 4 · Anda 6 + OSE 6 · NABU 8 + Brilliant Cities 4.
-   Every browser frame is the same height (--sh, measured from a half-width tile by
-   scripts/work-grid.js): wide tiles show a wider slice of the screen, not a taller one. Phones match. */
+/* ---------- wide screens ----------
+   Two equal cards per row. Every browser frame is the same height (--sh, measured from a half-width
+   tile by scripts/work-grid.js), and the phones match it. */
 @media (min-width: 1101px) {
   .home-page .work.work--grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(64px, 7.5vw, 128px); }
   .home-page .work.work--grid > .work-row { grid-column: span 6; }
-  .home-page .work.work--grid > .work-row[data-walkthrough="terraform"],
-  .home-page .work.work--grid > .work-row[data-walkthrough="nabu"] { grid-column: span 8; }
-  .home-page .work.work--grid > .work-row[data-walkthrough="roam"],
-  .home-page .work.work--grid > .work-row[data-walkthrough="brilliant-cities"] { grid-column: span 4; }
   .home-page .work.work--grid.has-sh .pw-desk .pw-screen { aspect-ratio: auto !important; height: var(--sh) !important; }
   .home-page .work.work--grid.has-sh .work-row { --ph: calc(var(--sh) + 20px); }
-  /* in the wide tiles the frame stays the same size as everywhere else and sits at the left, so it
-     never runs past the text below it */
-  .home-page .work.work--grid.has-sh .pw-desk { width: min(100%, var(--dw)) !important; }
-  .home-page .work.work--grid.has-sh .work-row[data-walkthrough="terraform"] .pw-stage,
-  .home-page .work.work--grid.has-sh .work-row[data-walkthrough="nabu"] .pw-stage { justify-content: flex-start; }
 }
 
 /* key phrases in each project description stand out on a quick scan */

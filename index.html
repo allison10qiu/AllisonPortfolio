@@ -23,22 +23,6 @@
   <meta name="twitter:image" content="https://www.allisonqiu.com/assets/allison-qiu-og-2026b.png" />
   <meta name="twitter:image:alt" content="The homepage of Allison Qiu’s product design portfolio, showing her name and tagline beside a goals list, a camera and a bag." />
   <title>Allison Qiu — Product Designer</title>
-  <script>
-    /* First-visit loader gate (scripts/loader.js): once per session, direct landings only. */
-    (function () {
-      try {
-        var h = document.documentElement;
-        if (sessionStorage.getItem("aq-loaded")) return;
-        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        if (h.classList.contains("tx-in") || h.classList.contains("tx-back") || h.classList.contains("tx-fade")) return;
-        if (location.hash === "#my-work") return;
-        var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
-        if (nav && (nav.type === "back_forward" || nav.type === "reload")) return;
-        h.classList.add("aq-loading");
-      } catch (e) {}
-    })();
-  </script>
-  <link rel="stylesheet" href="styles/loader.css?v=l1g">
   <link rel="stylesheet" href="styles/main.css?v=caps5">
   <link rel="stylesheet" href="styles/editorial.css?v=caps5">
   <link rel="stylesheet" href="styles/project-walkthrough.css?v=walk5g">
@@ -64,20 +48,10 @@
   <link rel="stylesheet" href="styles/home-v2.css?v=na1">
   <link rel="stylesheet" href="styles/home-work.css?v=7g">
   <link rel="stylesheet" href="styles/home-map.css?v=44">
-  <link rel="stylesheet" href="styles/work-grid.css?v=18">
+  <link rel="stylesheet" href="styles/work-grid.css?v=19">
   <link rel="stylesheet" href="styles/footer-stickers.css?v=11">
 </head>
 <body class="home-page">
-  <div id="aq-loader" aria-hidden="true">
-    <div class="aql-sheet"></div>
-    <div class="aql-logo">
-      <img class="aql-comet" src="assets/home/loader/lg-comet.png" alt="" draggable="false">
-      <img class="aql-a" src="assets/home/loader/lg-a.png" alt="" draggable="false">
-      <img class="aql-q" src="assets/home/loader/lg-q.png" alt="" draggable="false">
-    </div>
-    <div class="aql-fx"></div>
-  </div>
-  <script src="scripts/loader.js?v=l1"></script>
   <div id="tx-cover" aria-hidden="true"></div>
   <script src="scripts/tx-cover.js?v=tx6"></script>
   <header class="site-header">
