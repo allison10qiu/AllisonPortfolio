@@ -1,0 +1,199 @@
+/* Homepage hero: a map of the six projects, laid out like an exhibition poster. Each project is an
+   object, numbered to match Selected work, joined to the next by a thin hand-drawn line.
+   Positions are percentages of the map box (--x, --y = top-left, --w = width). */
+
+.home-page .home-hero.home-hero--map {
+  display: block;
+  padding-top: clamp(20px, 2.4vw, 36px);
+  padding-bottom: clamp(16px, 2vw, 28px);
+}
+
+/* the map spans the hero; the intro sits in the middle and the projects ring around it */
+/* Three bands: projects along the top, the intro in the middle, projects along the bottom. The bands
+   are sized to the objects (which scale with the page width), so the intro can never collide with
+   them, and the whole hero stays short enough for Selected work to peek in. */
+.hp-map {
+  --band-t: clamp(84px, 8.5vw, 124px);
+  --band-b: clamp(104px, 10.5vw, 150px);
+  position: relative; width: 100%; min-width: 0;
+  padding: var(--band-t) 0 var(--band-b);
+}
+.hp-map__lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.hp-map__lines path { fill: none; stroke: #8f8f8f; stroke-width: .9; stroke-linecap: round; }
+.hp-map__lines circle { fill: #8f8f8f; }
+
+.hp-map > .home-hero__copy {
+  position: relative; margin: 0 auto; padding: clamp(16px, 2vw, 28px) 0;
+  width: min(560px, 50%);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  z-index: 1;
+}
+.hp-map > .home-hero__copy .home-hero__title,
+.hp-map > .home-hero__copy .home-hero__lede { margin-left: auto; margin-right: auto; }
+.hp-map > .home-hero__copy .home-hero__links { justify-content: center; margin-left: auto; margin-right: auto; }
+
+.hp-item {
+  position: absolute;
+  left: var(--x); top: var(--y); width: var(--w);
+  z-index: 2;
+}
+.hp-item.is-bottom { top: auto; bottom: var(--b); }
+.hp-item {
+  display: block;
+  color: #181818;
+  text-decoration: none;
+  transform: rotate(var(--r, 0deg));
+  transition: transform .45s cubic-bezier(.3, 1.4, .5, 1);
+}
+.hp-item:hover, .hp-item:focus-visible { transform: rotate(0deg) translateY(-6px); }
+.hp-item:focus-visible { outline: none; }
+.hp-item:focus-visible .hp-item__obj { outline: 2px solid #181818; outline-offset: 6px; }
+
+.hp-item__num {
+  position: absolute; left: -13px; top: -15px;
+  font: 500 12px/1 "Satoshi", sans-serif; letter-spacing: 0; color: #181818;
+  transform: rotate(calc(var(--r, 0deg) * -1));
+}
+.hp-item__obj { position: relative; display: block; }
+.hp-item__obj img { display: block; width: 100%; height: auto; max-width: none; }
+
+/* project title, shown on hover under the object: small all-caps Satoshi */
+.hp-item__name {
+  position: absolute; left: 50%; top: calc(100% + 12px);
+  transform: translate(-50%, 4px) rotate(calc(var(--r, 0deg) * -1));
+  white-space: nowrap;
+  font: 500 11px/1 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: #181818;
+  opacity: 0; transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+.hp-item:hover .hp-item__name, .hp-item:focus-visible .hp-item__name { opacity: 1; transform: translate(-50%, 0) rotate(calc(var(--r, 0deg) * -1)); }
+
+/* cut-out objects (photos with the background removed) get a soft contact shadow */
+.hp-item--cut .hp-item__obj img { filter: drop-shadow(0 10px 12px rgba(24,24,24,.14)); }
+
+/* placeholder until the project's own object image arrives */
+.hp-slot {
+  display: grid; place-items: center; aspect-ratio: var(--ar, 1);
+  background: #fff;
+  border: 1px dashed #c9c9c9; border-radius: 6px;
+  font: 500 12px/1.3 "Satoshi", sans-serif; letter-spacing: -.01em; color: #9a9a9a; text-align: center;
+  padding: 8px;
+}
+
+/* the stamp: the real perforated stamp frame (assets/home/hero/stamp-h.png / stamp-v.png) cut from
+   off-white paper, with the project's logo cut out and laid on it */
+.hp-stamp {
+  position: relative; display: grid; place-items: center;
+  aspect-ratio: 1081 / 852;
+  background:
+    radial-gradient(120% 90% at 30% 20%, rgba(255,255,255,.9), transparent 60%),
+    #f6f4ee;
+  -webkit-mask: url("/assets/home/hero/stamp-h.png") center / 100% 100% no-repeat;
+  mask: url("/assets/home/hero/stamp-h.png") center / 100% 100% no-repeat;
+}
+.hp-stamp--v { aspect-ratio: 852 / 1081; -webkit-mask-image: url("/assets/home/hero/stamp-v.png"); mask-image: url("/assets/home/hero/stamp-v.png"); }
+.hp-stamp img { display: block; width: 70%; height: auto; }
+.hp-item--stamp .hp-item__obj { filter: drop-shadow(0 1px .5px rgba(0,0,0,.16)) drop-shadow(0 10px 16px rgba(24,24,24,.12)); }
+
+@media (max-width: 860px) {
+  .hp-map { --band-t: 30vw; --band-b: 34vw; }
+  .hp-map > .home-hero__copy { width: 92%; }
+  .hp-item { left: var(--mx); top: var(--my); width: var(--mw); }
+  .hp-item.is-bottom { left: var(--mx); top: auto; bottom: var(--mb); width: var(--mw); }
+  .hp-item__num { left: -12px; top: -14px; font-size: 12px; }
+}
+
+/* bring Selected work up so its heading peeks in under the map on the first screen */
+@media (min-width: 861px) {
+  .home-page .home-hero.home-hero--map { padding-bottom: 0; }
+  .home-page .home-hero--map + .work { padding-top: clamp(64px, 6vw, 96px); }
+}
+
+/* tighter stack: name, tagline and links read as one block */
+.hp-map > .home-hero__copy .home-hero__title { padding-bottom: 2px; }
+.hp-map > .home-hero__copy > .home-hero__lede { margin-top: 0; }
+.hp-map > .home-hero__copy > .home-hero__links { margin-top: 6px; padding-top: 0; }
+
+/* ---------- object sizes ----------
+   No photo treatment: the cut-outs show as they are, with the plain soft shadow from .hp-item--cut.
+   Sizes are balanced so each object carries similar visual weight. */
+/* balanced sizes: the narrow rack and the motorcycle come up, the house comes down a touch */
+@media (min-width: 861px) {
+  .hp-map--shared .hp-item[href$="terraform"] { --w: 4.3% !important; }
+  .hp-map--shared .hp-item[href$="anda"] { --w: 10% !important; }
+  .hp-map--shared .hp-item[href$="brilliant-cities"] { --w: 8.2% !important; }
+  .hp-map--shared .hp-item[href$="roam"] { --w: 8.8% !important; }
+}
+.hp-map > .home-hero__copy > .home-hero__lede { line-height: 1.22; }
+
+
+/* hero links: no wings; each link draws its underline in from the left on hover instead */
+.hp-map .home-hero__links .gem-wing { display: none !important; }
+.hp-map .home-hero__links .gem-link__label {
+  border-bottom: 0 !important;
+  font-weight: 400 !important;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0% 1px no-repeat;
+  transition: background-size .3s cubic-bezier(.22, 1, .36, 1);
+}
+.hp-map .home-hero__links .gem-link:hover .gem-link__label,
+.hp-map .home-hero__links .gem-link:focus-visible .gem-link__label { background-size: 100% 1px; }
+
+/* ---------- desktop: intro on the left, the projects scattered loosely on the right ----------
+   Each object's spot is --dx / --dy (top-left, % of the map), set inline in index.html. */
+@media (min-width: 861px) {
+  .hp-map { padding: 0; min-height: clamp(420px, 37vw, 560px); display: flex; align-items: center; }
+  .hp-map > .home-hero__copy { margin: 0; padding: 0; flex: 0 0 auto; width: min(520px, 44%) !important; max-width: min(520px, 44%) !important; align-items: flex-start; text-align: left; }
+  .hp-map > .home-hero__copy .home-hero__title,
+  .hp-map > .home-hero__copy .home-hero__lede { margin-left: 0; margin-right: 0; }
+  .hp-map > .home-hero__copy .home-hero__links { justify-content: flex-start; margin-left: 0; margin-right: 0; }
+  .hp-item, .hp-item.is-bottom { left: var(--dx); top: var(--dy); bottom: auto; }
+}
+
+.hp-map__lines path { stroke-width: .8; }
+
+/* each number sits in a different spot around its object, on a side the line doesn't touch */
+@media (min-width: 861px) {
+  .hp-item[data-num] .hp-item__num { left: auto; right: auto; top: auto; bottom: auto; }
+  .hp-item[data-num="tl"] .hp-item__num { left: -13px; top: -15px; }
+  .hp-item[data-num="tr"] .hp-item__num { right: -13px; top: -15px; }
+  .hp-item[data-num="bl"] .hp-item__num { left: -13px; bottom: -12px; }
+  .hp-item[data-num="br"] .hp-item__num { right: -13px; bottom: -12px; }
+  .hp-item[data-num="l"] .hp-item__num { left: -16px; top: 50%; margin-top: -6px; }
+  .hp-item[data-num="r"] .hp-item__num { right: -16px; top: 50%; margin-top: -6px; }
+  .hp-item[data-num="t"] .hp-item__num { left: 50%; top: -18px; margin-left: -3px; }
+}
+
+/* even breathing room: as much space under the nav as above Selected work */
+@media (min-width: 861px) {
+  .home-page .home-hero.home-hero--map { padding-top: clamp(40px, 4.2vw, 64px); }
+  .home-page .home-hero--map + .work { padding-top: clamp(48px, 4.2vw, 72px); }
+}
+
+/* hero links: a small line icon before each, so they read as clickable */
+.hp-map .home-hero__links .gem-link { display: inline-flex; align-items: center; gap: 6px; }
+.hp-map .home-hero__links .hl-icon { width: 14px; height: 14px; flex: none; color: currentColor; }
+.hp-map .home-hero__links .hl-shape, .hp-map .home-hero__links .hl-mark { transition: fill .22s ease, stroke .22s ease; }
+/* hover: the icon fills in solid, its inner marks knocked out in white */
+.hp-map .home-hero__links .gem-link:hover .hl-shape,
+.hp-map .home-hero__links .gem-link:focus-visible .hl-shape { fill: currentColor; }
+.hp-map .home-hero__links .gem-link:hover .hl-mark,
+.hp-map .home-hero__links .gem-link:focus-visible .hl-mark { stroke: #fff; }
+
+/* "Prev @ IBM": a small all-caps line between the name and the tagline */
+.hp-map > .home-hero__copy .home-hero__prev {
+  margin: 14px 0 0;
+  font: 500 15px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: #707070;
+}
+/* one left edge for the name, IBM line, tagline and links (drops the small side inset the name and
+   tagline carry elsewhere) */
+.hp-map > .home-hero__copy .home-hero__title,
+.hp-map > .home-hero__copy .home-hero__lede,
+.hp-map > .home-hero__copy .home-hero__links { padding-left: 0; padding-right: 0; }
+
+/* intro rhythm: name, then the IBM line, then the tagline, then the links, with even steps between
+   (about 30px under the name, measured from its baseline rather than the Q's tail, then about 22px).
+   The tagline scales with the page so it stays on two lines as the column narrows. */
+@media (min-width: 861px) {
+  .hp-map > .home-hero__copy > .home-hero__lede { margin-top: 6px !important; font-size: clamp(17px, 1.55vw, 22px) !important; line-height: 1.28; }
+  .hp-map > .home-hero__copy > .home-hero__links { margin-top: 7px !important; }
+}

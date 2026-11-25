@@ -3,9 +3,9 @@
 .home-page {
   /* Side padding shared by the header bar and the footer content. Same value as .cs-page in cs.css. */
   --site-gutter: clamp(24px, 3.4vw, 48px);
-  --home-ink: #14243b;
-  --home-ink-soft: rgba(20, 36, 59, 0.72);
-  --home-rule: rgba(20, 36, 59, 0.14);
+  --home-ink: #222222;
+  --home-ink-soft: rgba(34, 34, 34, 0.72);
+  --home-rule: rgba(34, 34, 34, 0.14);
   color: var(--home-ink);
   letter-spacing: -0.05em;
   background: #fff;
@@ -289,9 +289,10 @@
   transition: transform 0.24s ease;
 }
 
+/* the nav arrow stays put on hover */
 .home-page .site-header__nav .gem-link:hover .gem-link__arrow,
 .home-page .site-header__nav .gem-link:focus-visible .gem-link__arrow {
-  transform: translateX(14px);
+  transform: none;
 }
 
 .home-page .site-header__nav .gem-wing,
@@ -474,7 +475,7 @@
   border-radius: 2px;
   background: #fcfcfc;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  color: #14243b;
+  color: #222222;
   cursor: var(--cursor-link, pointer);
   letter-spacing: -0.02em;
   text-align: left;
@@ -486,7 +487,7 @@
   position: relative;
   flex: 0 0 auto;
   height: 42px;
-  border-bottom: 1px solid rgba(20, 36, 59, 0.85);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.85);
 }
 
 .home-goals__name {
@@ -520,7 +521,7 @@
   align-items: center;
   gap: 4px;
   padding: 0;
-  border-bottom: 1px solid rgba(20, 36, 59, 0.85);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.85);
   font-family: "Satoshi", sans-serif;
   font-size: 9px;
   font-weight: 400;
@@ -591,7 +592,7 @@
   width: 60.2%;
   height: 79.8%;
   overflow: hidden;
-  background: #14243b;
+  background: #222222;
 }
 
 .home-mems__screen img {
@@ -668,7 +669,7 @@
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(20, 36, 59, 0.28);
+  background: rgba(34, 34, 34, 0.28);
   backdrop-filter: blur(3px);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -693,8 +694,8 @@
   padding: 48px 56px 40px;
   border-radius: 16px;
   background: #f5f5f5;
-  box-shadow: 0 24px 60px rgba(20, 36, 59, 0.22);
-  color: #14243b;
+  box-shadow: 0 24px 60px rgba(34, 34, 34, 0.22);
+  color: #222222;
 }
 
 .home-modal__x {
@@ -706,7 +707,7 @@
   border: 0;
   border-radius: 999px;
   background: transparent;
-  color: #14243b;
+  color: #222222;
   font-size: 28px;
   line-height: 1;
   cursor: var(--cursor-link, pointer);
@@ -717,7 +718,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  border-bottom: 1px solid #14243b;
+  border-bottom: 1px solid #222222;
   padding-bottom: 8px;
 }
 
@@ -739,7 +740,7 @@
 }
 
 .home-goal {
-  border-bottom: 1px solid #14243b;
+  border-bottom: 1px solid #222222;
 }
 
 .home-goal__btn {
@@ -945,7 +946,7 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 3px 6px rgba(20, 36, 59, 0.12));
+  filter: drop-shadow(0 3px 6px rgba(34, 34, 34, 0.12));
   pointer-events: none;
 }
 
@@ -1231,7 +1232,7 @@
 .work-row__rule {
   width: 24px;
   height: 1px;
-  background: rgba(20, 36, 59, 0.3);
+  background: rgba(34, 34, 34, 0.3);
 }
 
 .work-row__title {
@@ -1458,7 +1459,7 @@
   z-index: 2;
   overflow: hidden;
   pointer-events: none;
-  filter: drop-shadow(0 3px 4px rgba(20, 36, 59, 0.18));
+  filter: drop-shadow(0 3px 4px rgba(34, 34, 34, 0.18));
 }
 
 .home-footer__pit canvas {
@@ -1545,7 +1546,7 @@
   font-weight: 300;
   font-size: 14.5px;
   line-height: 1.4;
-  color: rgba(20, 36, 59, 0.6);
+  color: rgba(34, 34, 34, 0.6);
 }
 
 .home-footer__brand {

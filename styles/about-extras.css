@@ -1,0 +1,118 @@
+/* About page additions: the "At a glance" sleeve card and the puzzle cards + popup.
+   See scripts/about-extras.js. */
+
+.ag-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 40px; }
+.ag-head h2 { flex: 1 1 420px; }
+.ag-hint { margin: 0; font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: #707070; }
+
+/* ---------- At a glance: the card pulls down out of a brushed-metal sleeve ---------- */
+.ag-sleeve { position: relative; margin-top: var(--space-xl, 48px); transition: height .6s cubic-bezier(.22, 1, .36, 1); }
+.ag-sleeve.is-dragging { transition: none; }
+.ag-stage { position: absolute; top: 0; transform-origin: 0 0; }
+
+.sl { position: relative; --sheen: 38%; }
+.sl__shadow, .sl__back, .sl__front, .sl__insert { position: absolute; left: 0; top: 0; border-radius: 5px; }
+.sl__shadow { box-shadow: 0 26px 50px -18px rgba(24, 24, 24, .35), 0 6px 14px rgba(24, 24, 24, .12), 0 1px 2px rgba(0, 0, 0, .25); }
+.sl__back {
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, rgba(0,0,0,.04) 1px 2px),
+    linear-gradient(180deg, #9c9fa3 0%, #8b8e92 50%, #979a9e 100%);
+}
+.sl__insert {
+  background: #fbfbf9; color: #0d0d0d;
+  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none;
+  border-radius: 3px;
+  box-shadow: 0 16px 34px -18px rgba(24, 24, 24, .4), 0 0 0 .5px rgba(0, 0, 0, .1);
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+.ag-sleeve.is-dragging .sl__insert { transition: none; cursor: grabbing; }
+.sl__insert:focus-visible { outline: 2px solid #181818; outline-offset: 4px; }
+.sl__cell { position: absolute; display: grid; place-items: center; font: 700 14px/1 "Satoshi", "Helvetica Neue", Arial, sans-serif; letter-spacing: -.05em; text-transform: uppercase; }
+.sl__cell.is-dot { color: #b5b5b5; font-weight: 500; }
+.sl__arrow { position: absolute; font-size: 11px; line-height: 1; letter-spacing: 0; }
+
+.sl__front { pointer-events: none; }
+.sl__metal {
+  position: absolute; inset: 0; border-radius: 5px;
+  background:
+    linear-gradient(100deg, transparent calc(var(--sheen) - 22%), rgba(255,255,255,.42) var(--sheen), transparent calc(var(--sheen) + 22%)),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 1px, rgba(0,0,0,.035) 1px 2px, rgba(255,255,255,.02) 2px 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .9' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #eef0f1 0%, #cdd0d3 18%, #f6f7f8 38%, #c3c6c9 58%, #b2b5b8 74%, #d8dadc 100%);
+  background-blend-mode: soft-light, normal, overlay, normal;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(0,0,0,.28), inset 1px 0 0 rgba(255,255,255,.55), inset -1px 0 0 rgba(0,0,0,.18);
+}
+.sl__hole {
+  position: absolute; border-radius: 1.5px;
+  box-shadow:
+    inset 0 2px 1.5px rgba(0,0,0,.32), inset 1.5px 0 1px rgba(0,0,0,.14), inset 0 -1px 0 rgba(255,255,255,.35),
+    0 1px 0 rgba(255,255,255,.75), 0 -1px 0 rgba(0,0,0,.18), 0 0 0 .5px rgba(0,0,0,.12);
+}
+.sl__notch-shade { position: absolute; border-radius: 6px 6px 0 0; box-shadow: inset 0 2px 2px rgba(0,0,0,.3), 0 -1px 0 rgba(255,255,255,.6); }
+
+/* ---------- puzzle cards ---------- */
+.pzc-row { margin-top: var(--space-xl, 48px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+@media (max-width: 760px) { .pzc-row { grid-template-columns: minmax(0, 1fr); } }
+.pzc {
+  appearance: none; margin: 0; padding: 0; text-align: left; cursor: pointer; font: inherit; color: #181818; letter-spacing: normal;
+  display: flex; flex-direction: column; min-width: 0;
+  background: #fff; border: 1px solid #DCDCDC; border-radius: 14px; overflow: hidden;
+  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s cubic-bezier(.22,1,.36,1), border-color .35s;
+}
+.pzc:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -20px rgba(24,24,24,.3); border-color: #c4c4c4; }
+.pzc:focus-visible { outline: 2px solid #181818; outline-offset: 4px; }
+.pzc__art { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; background: #f7f6f3; border-bottom: 1px solid #ececec; overflow: hidden; }
+.pzc__art img { display: block; max-width: none; user-select: none; }
+.pzc__txt { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; }
+.pzc__num { font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: .14em; color: #707070; }
+.pzc__name { font: 400 26px/1.05 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif; letter-spacing: -.04em; }
+.pzc__line { font: 400 14px/1.45 "Satoshi", sans-serif; letter-spacing: -.02em; color: #5c5c5c; }
+.pzc__go { margin-top: 10px; font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: #181818; }
+.pzc__go span { display: inline-block; transition: transform .25s cubic-bezier(.22,1,.36,1); }
+.pzc:hover .pzc__go span { transform: translateX(4px); }
+
+.pzc__bag { width: 46%; transform: rotate(-4deg); filter: drop-shadow(0 14px 18px rgba(34, 34, 34,.18)); transition: transform .4s cubic-bezier(.22,1,.36,1); }
+.pzc__pol { position: relative; width: 38%; aspect-ratio: 4 / 4.8; background: #fff; padding: 7% 7% 20%; box-sizing: border-box; transform: rotate(4deg); box-shadow: 0 1px 2px rgba(34, 34, 34,.12), 0 14px 26px rgba(34, 34, 34,.16); transition: transform .4s cubic-bezier(.22,1,.36,1); }
+.pzc__pol img.pzc__photo { width: 100%; height: 100%; object-fit: cover; }
+.pzc__pol img.pzc__clip { position: absolute; width: 34%; left: 33%; top: -14%; }
+.pzc__ws { position: relative; width: 62%; aspect-ratio: 1; container-type: inline-size; transition: transform .4s cubic-bezier(.22,1,.36,1); }
+.pzc__ws img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.pzc__ws img.pzc__lace { filter: drop-shadow(0 3px 5px rgba(34, 34, 34,.1)); }
+.pzc__ws img.pzc__felt { filter: drop-shadow(0 1px 1px rgba(34, 34, 34,.16)) drop-shadow(0 6px 10px rgba(34, 34, 34,.12)); }
+.pzc__grid { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(19, 1fr); grid-template-rows: repeat(19, 1fr); place-items: center; font: 500 3.9cqw/1 "Satoshi", sans-serif; letter-spacing: 0; color: rgba(34, 34, 34,.74); text-transform: lowercase; }
+.pzc__grid i { font-style: normal; }
+.pzc:hover .pzc__bag { transform: rotate(-1deg) translateY(-6px); }
+.pzc:hover .pzc__pol { transform: rotate(1deg) translateY(-6px); }
+.pzc:hover .pzc__ws { transform: rotate(-3deg) translateY(-6px); }
+
+/* ---------- puzzle popup ---------- */
+.pzm { position: fixed; inset: 0; z-index: 400; display: grid; place-items: center; padding: 3vh 3vw; }
+.pzm[hidden] { display: none; }
+.pzm__scrim { position: absolute; inset: 0; background: rgba(24, 24, 24, .34); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); opacity: 0; transition: opacity .22s ease; }
+.pzm__panel {
+  position: relative; display: flex; flex-direction: column;
+  width: min(1120px, 94vw); height: min(860px, 94vh);
+  background: #fff; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(24,24,24,.45), 0 0 0 1px rgba(24,24,24,.08);
+  opacity: 0; transform: translateY(14px) scale(.985); transition: opacity .22s ease, transform .32s cubic-bezier(.22,1,.36,1);
+}
+.pzm.is-in .pzm__scrim { opacity: 1; }
+.pzm.is-in .pzm__panel { opacity: 1; transform: none; }
+.pzm__top { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px 12px 18px; border-bottom: 1px solid #ececec; }
+.pzm__tabs { display: flex; gap: 4px; overflow-x: auto; }
+.pzm__tab { appearance: none; border: 1px solid transparent; background: none; border-radius: 999px; padding: 8px 14px; font: 500 14px/1 "Satoshi", sans-serif; letter-spacing: -.01em; color: #707070; cursor: pointer; white-space: nowrap; }
+.pzm__tab:hover { color: #181818; background: #f7f6f3; }
+.pzm__tab[aria-selected="true"] { color: #181818; border-color: #DCDCDC; background: #f7f6f3; }
+.pzm__x { appearance: none; border: 0; background: none; cursor: pointer; font: 500 14px/1 "Satoshi", sans-serif; letter-spacing: -.01em; color: #181818; padding: 10px 8px; display: inline-flex; gap: 6px; align-items: center; flex: none; }
+.pzm__x span { font-size: 20px; line-height: .6; }
+.pzm__tab:focus-visible, .pzm__x:focus-visible { outline: 2px solid #181818; outline-offset: 2px; }
+.pzm__frame { flex: 1; width: 100%; border: 0; display: block; background: #fff; }
+html.pzm-locked, html.pzm-locked body { overflow: hidden; }
+@media (max-width: 640px) {
+  .pzm { padding: 0; }
+  .pzm__panel { width: 100vw; height: 100dvh; border-radius: 0; }
+}
+
+/* no hover wings on the About page (nav and links) */
+.cs-page .gem-wing,
+.cs-page .project-wing { display: none !important; }

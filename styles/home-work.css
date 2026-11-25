@@ -1,0 +1,63 @@
+/* Selected work cards on the homepage.
+   Every card uses the Terraform layout: two equal columns that shrink with the window and alternate
+   image left / image right, down to 541px. On the smallest screens they stack, screenshot first. */
+.home-page .work a.work-row,
+.home-page .work a.work-row.project--feature {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(28px, 5vw, 80px);
+}
+
+.home-page .work .work-row .work-row__media { order: 0; }
+.home-page .work .work-row--flip .work-row__media { order: 2; }
+.home-page .work .work-row__text { order: 1; }
+
+/* narrow two-column cards: titles shrink with the column so "Read-only governance" never clips */
+@media (min-width: 541px) and (max-width: 860px) {
+  .home-page .work .work-row__text { padding: 0; }
+  .home-page .work .work-row__title { font-size: clamp(26px, 5.4vw, 39px); }
+}
+
+@media (max-width: 540px) {
+  .home-page .work a.work-row { display: flex; flex-direction: column; gap: 18px; }
+  .home-page .work .work-row .work-row__media,
+  .home-page .work .work-row--flip .work-row__media { width: 100%; order: 0; }
+  .home-page .work .work-row__text { width: 100%; order: 1; padding: 0; }
+}
+
+/* Device frames keep their full-size corner rounding as they shrink: the radius scales with the
+   frame (8px on a 463px-wide browser, 27px on a 440px-tall phone) instead of staying fixed. */
+.home-page .work .work-row { --ph: min(440px, 36vw); }
+@media (max-width: 540px) { .home-page .work .work-row { --ph: min(420px, 78vw); } }
+
+.home-page .work .work-row .work-row__media { container-type: inline-size; }
+.home-page .work .work-row .pw-desk { border-radius: min(8px, 1.73cqw); }
+
+.home-page .work .work-row[data-walkthrough="brilliant-cities"] .pw-phone,
+.home-page .work .work-row[data-walkthrough="roam"] .pw-phone {
+  height: var(--ph);
+  border-radius: calc(var(--ph) * 27 / 440);
+}
+
+.home-page .work .work-row[data-walkthrough="brilliant-cities"] .pw-phone .pw-screen,
+.home-page .work .work-row[data-walkthrough="roam"] .pw-phone .pw-screen {
+  border-radius: calc(var(--ph) * 22 / 440);
+}
+
+/* Hero copy rhythm: the name and tagline read as one unit, then a clear pause before the links. */
+.home-page .home-hero__copy { gap: 0; }
+.home-page .home-hero__copy > .home-hero__lede { margin-top: 10px; }
+.home-page .home-hero__copy > .home-hero__links { margin-top: 22px; }
+
+/* The homepage hero is text only now: name, tagline, links. Give it room so it reads as an opening,
+   then let Selected work follow. */
+.home-page .home-hero {
+  display: block;
+  min-height: 0;
+  padding-top: clamp(64px, 9vw, 136px);
+  padding-bottom: clamp(40px, 5vw, 80px);
+}
+
+/* Selected work heading: no rule under it, and the first project sits closer to the heading
+   (the cards keep their larger spacing between each other) */
+.home-page .work .work-head { border-bottom: 0; padding-bottom: 0; }
+.home-page .work > .work-head + .work-row { margin-top: calc(-1 * clamp(32px, 6vw, 72px)); }

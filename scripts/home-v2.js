@@ -228,10 +228,11 @@
         var dx = Math.max(box.left - clientX, 0, clientX - box.right);
         var dy = Math.max(box.top - clientY, 0, clientY - box.bottom);
         var dist = Math.hypot(dx, dy);
-        if (dist < 16) return 0;
-        if (dist < 44) peak = Math.min(peak, (0.9 * (dist - 16)) / 28);
+        if (dist <= 0) return 0;
+        // ease the sparkle out over a wide band as it nears the text, instead of a hard cut-off
+        if (dist < 120) { var t = dist / 120; peak = Math.min(peak, 0.9 * t * t * (3 - 2 * t)); }
       }
-      return peak < 0.08 ? 0 : peak;
+      return peak < 0.04 ? 0 : peak;
     }
 
     function spawn(x, y, peak) {

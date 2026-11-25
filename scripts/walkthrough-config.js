@@ -97,7 +97,7 @@ export const WALKTHROUGHS = {
     animated: true,
     poster: 'nabu/s86.png',
     duration: 7.2, startOffset: 3.0, idleSpeed: 0.7, hoverSpeed: 1,
-    pressColor: 'rgba(20,24,36,.16)',
+    pressColor: 'rgba(24, 24, 24,.16)',
     layers: [
       { key: 's0', src: 'nabu/s86.png', fit: 'fill' },
       { key: 's1', src: 'nabu/s92.png', fit: 'fill' },

@@ -8,7 +8,7 @@ const cl = (x) => Math.max(0, Math.min(1, x));
 const ez = (x) => 0.5 - 0.5 * Math.cos(Math.PI * cl(x));      // sine ease-in-out
 const out3 = (x) => 1 - Math.pow(1 - cl(x), 3);                // ease-out cubic
 
-const CURSOR_SVG = '<svg width="12" height="16" viewBox="0 0 12 16"><path d="M1 1v12.5l3.2-3 2.1 4.6 2-.9-2.1-4.5H10.5z" fill="#1B2540" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg>';
+const CURSOR_SVG = '<svg width="12" height="16" viewBox="0 0 12 16"><path d="M1 1v12.5l3.2-3 2.1 4.6 2-.9-2.1-4.5H10.5z" fill="#252525" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg>';
 
 function setLayer(el, o, tf) {
   if (!el) return;

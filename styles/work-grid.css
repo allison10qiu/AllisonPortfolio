@@ -1,0 +1,75 @@
+/* Work section: a two-column grid. Each project is its screenshot (or phone) with the number,
+   title, one line and role · date underneath. Replaces the full-width alternating rows. */
+.home-page .work.work--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 72px) clamp(56px, 6.5vw, 104px);
+}
+.home-page .work.work--grid > .work-head { grid-column: 1 / -1; }
+.home-page .work.work--grid > .work-head + .work-row { margin-top: 0; }
+.home-page .work.work--grid a.work-row,
+.home-page .work.work--grid a.work-row.project--feature { display: flex; flex-direction: column; gap: 18px; align-items: stretch; }
+.home-page .work.work--grid .work-row .work-row__media,
+.home-page .work.work--grid .work-row--flip .work-row__media { order: 0; width: 100%; aspect-ratio: 16 / 10; }
+.home-page .work.work--grid .work-row .pw-desk { width: 86%; }
+.home-page .work.work--grid .work-row { --ph: min(320px, 24vw); }
+.home-page .work.work--grid .work-row__text { order: 1; padding: 0; gap: 8px; }
+.home-page .work.work--grid .work-row__title,
+.home-page .work.work--grid .work-row__title.project-title-wrap { font-size: clamp(24px, 2.2vw, 32px) !important; }
+.home-page .work.work--grid .work-row__title .project-title__line { display: inline; }
+.home-page .work.work--grid .project-title__line--1 { margin-right: .26em; }
+.home-page .work.work--grid .work-row__desc { font-size: 15px; line-height: 1.4; }
+.home-page .work.work--grid .work-row__meta { font-size: 13px; }
+@media (max-width: 540px) {
+  .home-page .work.work--grid { grid-template-columns: minmax(0, 1fr); }
+  .home-page .work.work--grid .work-row { --ph: min(420px, 78vw); }
+}
+
+/* no decorative wings beside the titles on hover */
+.home-page .work.work--grid .gem-wing,
+.home-page .work.work--grid .project-wing { display: none !important; }
+
+/* every browser frame the same size: 16:10 screens */
+.home-page .work.work--grid .pw-desk { width: 86% !important; }
+.home-page .work.work--grid .pw-desk .pw-screen { aspect-ratio: 16 / 10 !important; height: auto !important; flex: none; position: relative; overflow: hidden; }
+.home-page .work.work--grid .pw-fit { position: absolute; left: 0; top: 0; }
+/* full width, anchored to the top: wider screenshots leave a little white page below, taller ones
+   lose a sliver at the bottom; nothing important is cropped from the sides */
+.home-page .work.work--grid .pw-fit { width: 100%; height: auto; }
+.home-page .work.work--grid .pw-desk .pw-screen { background: #fff; }
+/* phones match the browser frames' height: 86% width × 10/16 for the screen, plus the 20px bar */
+.home-page .work.work--grid .work-row { --ph: calc(53.75cqw + 20px); }
+
+/* titles line up with their number/label like Terraform's; the old wing lockup pulled them left */
+.home-page .work.work--grid .project-title-lockup { margin-left: 0 !important; padding-left: 0 !important; justify-content: flex-start; }
+
+/* frames span the full card width so they line up with the text below (left and right edges);
+   phones stay centred, at the frames' height: 100% × 10/16 screen + the 20px bar */
+.home-page .work.work--grid .pw-desk { width: 100% !important; }
+.home-page .work.work--grid .work-row { --ph: calc(62.5cqw + 20px); }
+.home-page .work.work--grid .work-row .work-row__media,
+.home-page .work.work--grid .work-row--flip .work-row__media { aspect-ratio: auto; }
+
+/* ---------- bento ----------
+   Two per row on 12 columns: Terraform 8 + ROAM 4 · Anda 6 + OSE 6 · NABU 8 + Brilliant Cities 4.
+   Every browser frame is the same height (--sh, measured from a half-width tile by
+   scripts/work-grid.js): wide tiles show a wider slice of the screen, not a taller one. Phones match. */
+@media (min-width: 1101px) {
+  .home-page .work.work--grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(64px, 7.5vw, 128px); }
+  .home-page .work.work--grid > .work-row { grid-column: span 6; }
+  .home-page .work.work--grid > .work-row[data-walkthrough="terraform"],
+  .home-page .work.work--grid > .work-row[data-walkthrough="nabu"] { grid-column: span 8; }
+  .home-page .work.work--grid > .work-row[data-walkthrough="roam"],
+  .home-page .work.work--grid > .work-row[data-walkthrough="brilliant-cities"] { grid-column: span 4; }
+  .home-page .work.work--grid.has-sh .pw-desk .pw-screen { aspect-ratio: auto !important; height: var(--sh) !important; }
+  .home-page .work.work--grid.has-sh .work-row { --ph: calc(var(--sh) + 20px); }
+  /* in the wide tiles the frame stays the same size as everywhere else and sits at the left, so it
+     never runs past the text below it */
+  .home-page .work.work--grid.has-sh .pw-desk { width: min(100%, var(--dw)) !important; }
+  .home-page .work.work--grid.has-sh .work-row[data-walkthrough="terraform"] .pw-stage,
+  .home-page .work.work--grid.has-sh .work-row[data-walkthrough="nabu"] .pw-stage { justify-content: flex-start; }
+}
+
+/* key phrases in each project description stand out on a quick scan */
+/* between Regular and Medium: Regular with a hairline stroke, which Satoshi has no weight for */
+.home-page .work .work-row__desc strong { font-weight: 400; color: #181818; -webkit-text-stroke: .25px currentColor; }

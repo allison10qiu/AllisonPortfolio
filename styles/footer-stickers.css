@@ -1,0 +1,105 @@
+/* Homepage footer: the nine things from my bag sit in it as white die-cut stickers; peel one off (click, tap or Enter) to reveal the real item underneath.
+   See scripts/footer-stickers.js. */
+
+/* ---------- the footer ---------- */
+.home-page .site-footer.site-footer--card { position: relative; }
+.home-page .site-footer--card .site-footer__body { padding-top: clamp(40px, 4vw, 56px); padding-bottom: clamp(36px, 3.6vw, 52px); }
+.home-page .site-footer--card .home-footer__row { display: flex; align-items: center; justify-content: space-between; gap: clamp(32px, 5vw, 96px); }
+.home-page .work { padding-bottom: clamp(72px, 7vw, 112px); }
+
+/* left: greeting, email, note, last-updated tag */
+.home-page .site-footer--card .home-footer__intro { gap: 10px; flex: 0 1 auto; }
+.home-page .site-footer--card .gem-wing { display: none !important; }
+.home-footer__updated {
+  display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
+  margin-top: 8px; padding: 0;
+  border: 0; border-radius: 0; background: none;
+  font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: #707070;
+  white-space: nowrap;
+}
+.home-footer__updated svg { width: 12px; height: 12px; flex: none; color: #707070; }
+.home-footer__updated time { color: #181818; }
+
+/* right: the sticker sheet */
+.home-page .site-footer--card .home-footer__brand { flex: 0 1 440px; max-width: 440px; margin-left: auto; display: block; }
+.peel-sheet { position: relative; width: 100%; aspect-ratio: 600 / 300; margin-bottom: 22px; }
+.peel-sheet__hint {
+  position: absolute; left: 0; right: 0; top: calc(100% + 4px); margin: 0;
+  display: flex; justify-content: space-between; gap: 16px;
+  font: 500 12px/1.4 "Satoshi", sans-serif; letter-spacing: -.01em; text-transform: lowercase; color: #707070;
+}
+.peel-sheet__hint [data-peel-count] { color: #181818; }
+.peel-sheet__hint [data-peel-hint] { font-weight: 400; }
+
+/* ---------- a sticker ----------
+   Underneath: the real item. On top: a white die-cut sticker the same shape.
+   The curl: the sticker's bottom-right corner folds back along a diagonal. --curl is how far the fold
+   has travelled in from the corner. The front is clipped along the fold, and the flap is the same
+   sticker mirrored across the fold line (so its outline is exactly the folded-over part), shown in the
+   sticker's grey backing. --w / --h are the sticker's size in px, set by scripts/footer-stickers.js. */
+@property --curl { syntax: "<length>"; inherits: true; initial-value: 0px; }
+.peel {
+  position: absolute; display: block; padding: 0; margin: 0;
+  appearance: none; border: 0; background: none;
+  --curl: 0px; --w: 100px; --h: 100px;
+  transition: --curl .55s cubic-bezier(.34, 1.3, .5, 1);
+}
+/* the cursor stays the normal one over the stickers (overrides the sitewide button cursor) */
+.peel-sheet .peel, .peel-sheet .peel * { cursor: var(--cursor-normal, auto) !important; }
+.peel:focus-visible { outline: 1px solid #181818; outline-offset: 6px; }
+.peel__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; max-width: none; pointer-events: none; }
+.peel__sticker {
+  position: absolute; inset: 0; display: block;
+  filter: drop-shadow(0 0 .5px rgba(0, 0, 0, .45)) drop-shadow(0 1px 0 rgba(0, 0, 0, .16)) drop-shadow(0 3px 5px rgba(0, 0, 0, .1));
+}
+.peel__sticker::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, .55) 50%, rgba(255, 255, 255, 0) 60%) 120% 0 / 260% 100% no-repeat,
+    linear-gradient(160deg, #fbfbf9, #ecebe7);
+  -webkit-mask: var(--src) center / contain no-repeat;
+  mask: var(--src) center / contain no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--curl)), calc(100% - var(--curl)) 100%, 0 100%);
+}
+/* the folded-back corner: only the triangle between the fold line and the corner's new position */
+.peel__flapwrap {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  clip-path: polygon(100% calc(100% - var(--curl)), calc(100% - var(--curl)) 100%, calc(100% - var(--curl)) calc(100% - var(--curl)));
+  filter: drop-shadow(-2px -2px 3px rgba(0, 0, 0, .18));
+}
+.peel__flap {
+  position: absolute; left: 0; top: 0; width: var(--w); height: var(--h);
+  transform-origin: 0 0;
+  /* mirror across the fold line x + y = w + h − curl */
+  transform: translate(calc(var(--w) + var(--h) - var(--curl)), calc(var(--w) + var(--h) - var(--curl))) matrix(0, -1, -1, 0, 0, 0);
+  background: linear-gradient(315deg, #f3f2ef 0%, #d9d8d4 55%, #c7c6c2 100%);
+  -webkit-mask: var(--src) center / contain no-repeat;
+  mask: var(--src) center / contain no-repeat;
+}
+.peel__num {
+  position: absolute; z-index: 1; transform: translate(-50%, -50%);
+  font: 600 10px/1 "Satoshi", sans-serif; letter-spacing: 0; color: #111;
+}
+
+/* hover: the corner rolls back naturally, with a little spring */
+@media (hover: hover) {
+  .peel:not(.is-peeled):not(.is-locked):not(.is-peeling):hover { --curl: calc(min(var(--w), var(--h)) * .42); }
+}
+
+/* peeling: the fold keeps rolling all the way across, then the sticker lifts off and is gone */
+.peel.is-peeling { transition: --curl .7s cubic-bezier(.5, 0, .3, 1); --curl: calc(var(--w) + var(--h)); }
+.peel.is-peeling .peel__sticker { animation: peel-lift .4s ease .62s forwards; }
+.peel.is-peeled .peel__sticker { visibility: hidden; }
+.peel.is-peeling .peel__img { animation: peel-reveal .9s ease forwards; }
+@keyframes peel-lift { to { opacity: 0; transform: translate(-18%, -26%) rotate(-8deg); } }
+@keyframes peel-reveal { 0% { transform: scale(.97); filter: brightness(.85); } 100% { transform: none; filter: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .peel { transition: none; }
+  .peel.is-peeling .peel__sticker { animation: none; visibility: hidden; }
+  .peel.is-peeling .peel__img { animation: none; }
+}
+
+@media (max-width: 860px) {
+  .home-page .site-footer--card .home-footer__row { flex-direction: column; align-items: stretch; }
+  .home-page .site-footer--card .home-footer__brand { max-width: none; }
+}
