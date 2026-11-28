@@ -990,7 +990,7 @@ body:has(.work) {
 .page__eyebrow {
   margin: 0 0 0.75rem;
   font-size: 0.8rem;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: #b2b2b2;
 }
@@ -1009,3 +1009,19 @@ body:has(.work) {
   line-height: 1.6;
   color: #b7c4d6;
 }
+
+/* ---------- letter spacing for sentence-case Satoshi ----------
+   Tight only where text is large; small text keeps Satoshi's own spacing so it stays easy to read. */
+.home-page .hp-map .home-hero__lede { letter-spacing: -.03em !important; }
+.home-page .hp-map .home-hero__links,
+.home-page .hp-map .home-hero__links .gem-link__label,
+.site-header .gem-link__label,
+.site-header .gem-link__arrow { letter-spacing: -.02em !important; }
+.home-page .work .work-row__desc,
+.home-page .work .work-row__kicker,
+.home-page .work .work-row__kicker span,
+.home-page .work .work-row__meta,
+.home-page .work .work-row__meta span,
+.home-page .site-footer .home-footer__hello,
+.home-page .site-footer [data-visit-greeting],
+.home-page .site-footer .home-footer__note { letter-spacing: 0 !important; }

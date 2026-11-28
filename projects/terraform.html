@@ -10,18 +10,18 @@
 <title>Terraform · Allison Qiu</title>
 <meta name="description" content="Terraform case study by Allison Qiu.">
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="/styles/terraform.css?v=caps5">
+<link rel="stylesheet" href="/styles/terraform.css?v=ls2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
-<link rel="stylesheet" href="/styles/main.css?v=caps5">
-<link rel="stylesheet" href="/styles/editorial.css?v=caps5">
-<link rel="stylesheet" href="/styles/cs.css?v=na1">
-<link rel="stylesheet" href="/styles/case-study.css?v=cs26g">
+<link rel="stylesheet" href="/styles/main.css?v=ls2">
+<link rel="stylesheet" href="/styles/editorial.css?v=ls2">
+<link rel="stylesheet" href="/styles/cs.css?v=ls2">
+<link rel="stylesheet" href="/styles/case-study.css?v=ls2">
 <link rel="stylesheet" href="/styles/page-transitions.css?v=tx8g">
 <style>@view-transition { navigation: auto; }</style>
 <link rel="stylesheet" href="/styles/turn-the-page.css?v=tp2g">
-<link rel="stylesheet" href="/styles/allisonGPT.css?v=caps5">
+<link rel="stylesheet" href="/styles/allisonGPT.css?v=ls2">
 <link rel="stylesheet" href="/styles/motion.css?v=motion6g">
 </head>
 <body class="cs-page terraform-page cs-v2">
@@ -107,25 +107,25 @@
           <div style="position:relative;border:1px solid #ECECEC;border-radius:3px;background:#fff;padding:22px 24px 24px;box-shadow:0 28px 50px -18px rgba(24,24,24,.22),0 2px 6px rgba(24,24,24,.06)">
             <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid #ECECEC"><span style="display:block;width:34%;height:10px;border-radius:4px;background:rgba(24,24,24,.2)"></span><span style="display:grid"><span style="grid-area:1/1;justify-self:end;display:flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid #AAAAAA;border-radius:6px;font:500 12px/1 'Satoshi',sans-serif;opacity:var(--ro-ctl,1);transition:opacity .5s ease"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8.5 1.5l2 2L4 10H2V8z"></path></svg>Edit</span><span style="grid-area:1/1;justify-self:end;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#181818;color:#fff;font:500 12px/1 'Satoshi',sans-serif;opacity:var(--ro-chip,0);transition:opacity .5s ease"><svg width="10" height="11" viewBox="0 0 10 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="5" width="8" height="6" rx="1"></rect><path d="M3 5V3.5a2 2 0 014 0V5"></path></svg>Read-only</span></span></div>
             <div style="display:grid;grid-template-columns:72px minmax(0,1fr);row-gap:20px;column-gap:16px;align-items:start">
-              <span style="padding-top:2px;font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070">Value</span>
+              <span style="padding-top:2px;font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070">Value</span>
               <span style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 'Satoshi',sans-serif;color:#707070">Current configuration</span><span style="display:flex;align-items:center;gap:10px;padding:8px 10px;margin:0 -10px;border-radius:6px;border:1.5px solid var(--ro-box,rgba(24,24,24,.35));transition:border-color .5s ease"><span style="position:relative;width:14px;height:14px;flex:none"><span style="position:absolute;inset:0;border-radius:50%;border:4.5px solid #181818;box-sizing:border-box;opacity:var(--ro-ctl,1);transition:opacity .5s ease"></span><svg style="position:absolute;inset:0;opacity:var(--ro-chip,0);transition:opacity .5s ease" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#181818" stroke-width="1.8"><path d="M2.5 7.5l3 3 6-7"></path></svg></span><span style="font:500 14.5px/1 'Satoshi',sans-serif">Selected value</span></span></span>
-              <span style="padding-top:2px;font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070">Context</span>
+              <span style="padding-top:2px;font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070">Context</span>
               <span style="display:flex;flex-direction:column;gap:12px"><span style="display:flex;align-items:center;gap:10px;opacity:var(--ro-ctx,1);transition:opacity .5s ease"><span style="position:relative;width:14px;height:14px;flex:none"><span style="position:absolute;inset:0;border-radius:50%;border:1.5px solid #AAAAAA;box-sizing:border-box;opacity:var(--ro-ctl,1);transition:opacity .5s ease"></span></span><span style="display:block;width:46%;height:8px;border-radius:4px;background:rgba(24,24,24,.14)"></span></span><span style="display:flex;align-items:center;gap:10px;opacity:var(--ro-ctx,1);transition:opacity .5s ease"><span style="position:relative;width:14px;height:14px;flex:none"><span style="position:absolute;inset:0;border-radius:50%;border:1.5px solid #AAAAAA;box-sizing:border-box;opacity:var(--ro-ctl,1);transition:opacity .5s ease"></span></span><span style="display:block;width:46%;height:8px;border-radius:4px;background:rgba(24,24,24,.14)"></span></span><span style="display:flex;align-items:center;gap:10px;padding-top:4px;opacity:var(--ro-ctx,1);transition:opacity .5s ease"><span style="width:14px;height:14px;flex:none;border-radius:50%;border:1.2px solid #AAAAAA;box-sizing:border-box;font:600 9px/12px 'Satoshi',sans-serif;text-align:center;color:#707070">i</span><span style="display:block;width:72%;height:7px;border-radius:4px;background:rgba(24,24,24,.1)"></span></span><span style="display:flex;align-items:center;gap:8px;padding-left:6px;opacity:var(--ro-ctx,1);transition:opacity .5s ease"><span style="width:12px;height:12px;flex:none;border-left:1.5px solid #AAAAAA;border-bottom:1.5px solid #AAAAAA;border-radius:0 0 0 4px;margin-top:-8px"></span><span style="display:block;width:38%;height:8px;border-radius:4px;background:rgba(24,24,24,.14)"></span><span style="font:400 11px/1 'Satoshi',sans-serif;color:#707070">depends on the value above</span></span></span>
-              <span style="padding-top:2px;font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070;opacity:var(--ro-ed,1);transition:opacity .5s ease">Editing</span>
+              <span style="padding-top:2px;font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070;opacity:var(--ro-ed,1);transition:opacity .5s ease">Editing</span>
               <span style="display:grid"><span style="grid-area:1/1;display:flex;gap:8px;opacity:var(--ro-ctl,1);transition:opacity .5s ease"><span style="padding:8px 14px;border-radius:6px;background:#181818;color:#fff;font:500 12px/1 'Satoshi',sans-serif">Save</span><span style="padding:8px 14px;border-radius:6px;border:1px solid #AAAAAA;font:500 12px/1 'Satoshi',sans-serif">Cancel</span></span><span style="grid-area:1/1;align-self:center;font:400 12px/1.3 'Satoshi',sans-serif;color:#707070;opacity:var(--ro-chip,0);transition:opacity .5s ease">Removed in read-only</span></span>
             </div>
           </div>
           <div style="display:grid;grid-template-columns:76px minmax(0,1fr);row-gap:6px;font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em">
-            <span style="font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;opacity:var(--ro-led,1);transition:opacity .4s ease;padding-top:3px">Editable</span><span style="opacity:var(--ro-led,1);transition:opacity .4s ease">Current value + Context + Editing controls</span>
-            <span style="font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;opacity:var(--ro-lro,.4);transition:opacity .4s ease;padding-top:3px">Read-only</span><span style="opacity:var(--ro-lro,.4);transition:opacity .4s ease">Current value + Necessary context − Editing controls</span>
+            <span style="font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;opacity:var(--ro-led,1);transition:opacity .4s ease;padding-top:3px">Editable</span><span style="opacity:var(--ro-led,1);transition:opacity .4s ease">Current value + Context + Editing controls</span>
+            <span style="font:700 9.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;opacity:var(--ro-lro,.4);transition:opacity .4s ease;padding-top:3px">Read-only</span><span style="opacity:var(--ro-lro,.4);transition:opacity .4s ease">Current value + Necessary context − Editing controls</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;max-width:46ch">The real design question became: what context still matters when someone can look, but not edit?</span><button data-ro-replay="" style="flex:none;min-height:44px;padding:0 0 0 12px;border:0;background:transparent;color:#707070;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;cursor:var(--cursor-link,pointer)">Replay<span aria-hidden="true"> ↻</span></button></div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-top:14px;border-top:1px solid #DCDCDC"><span style="font:500 14.5px/1.5 'Satoshi',sans-serif;letter-spacing:-.02em;max-width:46ch">The real design question became: what context still matters when someone can look, but not edit?</span><button data-ro-replay="" style="flex:none;min-height:44px;padding:0 0 0 12px;border:0;background:transparent;color:#707070;font:500 11px/1 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;cursor:var(--cursor-link,pointer)">Replay<span aria-hidden="true"> ↻</span></button></div>
         </div>
         </div>
       <div id="gate" class="np-gate">
         <div class="tf-gate" data-part="gate" id="terraform-gate">
         <div class="tf-gate__panel" data-gate-panel>
-          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding:18px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase"><span style="display:flex;align-items:center;gap:8px"><img src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:14px;height:14px">Full case study</span><span style="color:#707070">Password protected</span></div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding:18px 0;font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase"><span style="display:flex;align-items:center;gap:8px"><img src="/assets/home/gems/gem-5.png?v=claude1" alt="" aria-hidden="true" style="width:14px;height:14px">Full case study</span><span style="color:#707070">Password protected</span></div>
           <h2 style="margin:clamp(20px,3vw,40px) 0 0;font:400 clamp(44px,5.2vw,76px)/.98 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.055em;text-wrap:balance">Go deeper into the work.</h2>
           <div style="margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px clamp(40px,6vw,96px);align-items:start">
             <div style="display:flex;flex-direction:column;gap:28px">
@@ -141,7 +141,7 @@
                 <span class="np-access" style="font:400 13.5px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;color:#707070"><span>Don’t have the password?</span><a href="mailto:allisonqiu10@gmail.com?subject=Terraform%20case%20study%20access" target="_blank" rel="noopener noreferrer" style="color:#181818;border-bottom:1px solid #181818">Contact me for access: allisonqiu10@gmail.com</a></span>
               </div>
             </div>
-            <div style="display:flex;flex-direction:column"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070;padding-bottom:10px;border-bottom:1px solid #181818">Inside</span><ol style="margin:0;padding:0;list-style:none">
+            <div style="display:flex;flex-direction:column"><span style="font:500 11px/1.4 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070;padding-bottom:10px;border-bottom:1px solid #181818">Inside</span><ol style="margin:0;padding:0;list-style:none">
               <li style="display:grid;grid-template-columns:32px minmax(0,1fr);align-items:baseline;padding:14px 0;border-bottom:1px solid #ECECEC"><span style="font:400 italic 15px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">01</span><span style="font:400 clamp(19px,1.6vw,22px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em">41-route audit</span></li>
               <li style="display:grid;grid-template-columns:32px minmax(0,1fr);align-items:baseline;padding:14px 0;border-bottom:1px solid #ECECEC"><span style="font:400 italic 15px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">02</span><span style="font:400 clamp(19px,1.6vw,22px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em">Research findings</span></li>
               <li style="display:grid;grid-template-columns:32px minmax(0,1fr);align-items:baseline;padding:14px 0;border-bottom:1px solid #ECECEC"><span style="font:400 italic 15px/1 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;color:#707070">03</span><span style="font:400 clamp(19px,1.6vw,22px)/1.2 'AQ Garamond','Apple Garamond','Cormorant Garamond',Georgia,serif;letter-spacing:-.03em">Design explorations</span></li>
@@ -177,7 +177,7 @@
         <a class="cs-nw__card" href="/projects/roam" data-nw="roam">
           <span class="cs-nw__media"><span style="display:block;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)"><span class="cs-nw__phone"><img src="/assets/home/walkthroughs/roam/postcard.jpg" alt="ROAM postcard screen" draggable="false" style="display:block;width:100%;height:auto"></span></span></span>
           <span class="cs-nw__text">
-            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070"><span style="color:#181818">02</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Lead Designer · Fall 2026</span></span>
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070"><span style="color:#181818">02</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Lead Designer · Fall 2026</span></span>
             <span class="cs-nw__name">ROAM</span>
             <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">A short recap of a design-a-thon concept for keeping travel discovery, memories, and sharing in one app.</span>
           </span>
@@ -188,7 +188,7 @@
             <img src="/assets/home/walkthroughs/anda/admin-4.png" alt="Anda driver information screen" draggable="false" class="cs-nw__shot">
           </span></span>
           <span class="cs-nw__text">
-            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070"><span style="color:#181818">03</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Product Manager · Spring 2026</span></span>
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070"><span style="color:#181818">03</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Product Manager · Spring 2026</span></span>
             <span class="cs-nw__name">Anda</span>
             <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Led product strategy for a driver performance platform in Angola, prioritizing reliable data and explainable scoring to help customer success managers identify when drivers need additional support.</span>
           </span>
@@ -199,7 +199,7 @@
             <img src="/assets/home/walkthroughs/ose/cases.png" alt="Operation Safe Escape cases screen" draggable="false" class="cs-nw__shot">
           </span></span>
           <span class="cs-nw__text">
-            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070"><span style="color:#181818">04</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer · Fall 2025</span></span>
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070"><span style="color:#181818">04</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer · Fall 2025</span></span>
             <span class="cs-nw__name">Operation Safe Escape</span>
             <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Designed five workflows for a secure case management platform, giving staff and volunteers a centralized way to manage sensitive survivor information, prioritize urgent cases, and coordinate ongoing support.</span>
           </span>
@@ -210,7 +210,7 @@
             <img src="/assets/home/walkthroughs/nabu/s86.png" alt="NABU visualization builder screen" draggable="false" class="cs-nw__shot">
           </span></span>
           <span class="cs-nw__text">
-            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070"><span style="color:#181818">05</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer · Spring 2025</span></span>
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070"><span style="color:#181818">05</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer · Spring 2025</span></span>
             <span class="cs-nw__name">NABU</span>
             <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Designed partner management and reporting tools for a global literacy nonprofit, helping administrators manage data access and create custom visualizations without building separate dashboards for every partner.</span>
           </span>
@@ -218,7 +218,7 @@
         <a class="cs-nw__card" href="/projects/brilliant-cities" data-nw="bc">
           <span class="cs-nw__media"><span style="display:block;background:#fff;border:1px solid #DADADA;border-radius:28px;padding:7px;box-shadow:0 18px 36px -24px rgba(0,0,0,.3)"><span class="cs-nw__phone"><img src="/assets/home/walkthroughs/brilliant-cities/goal-60.png" alt="Brilliant Cities Number Sense goal screen" draggable="false" style="display:block;width:100%;height:auto"></span></span></span>
           <span class="cs-nw__text">
-            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.05em;text-transform:uppercase;color:#707070"><span style="color:#181818">06</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer</span></span>
+            <span style="display:flex;align-items:center;gap:12px;font:500 11px/1.3 'Satoshi',sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#707070"><span style="color:#181818">06</span><span style="width:24px;height:1px;background:#BDBDBD"></span><span>Designer</span></span>
             <span class="cs-nw__name">Brilliant Cities</span>
             <span style="font:400 15px/1.5 'Satoshi',sans-serif;color:#555;text-wrap:pretty">Co-designed a mobile habit tracker that extends community programs beyond in-person visits, helping parents establish age-appropriate healthy habits and track each child’s progress at home.</span>
           </span>

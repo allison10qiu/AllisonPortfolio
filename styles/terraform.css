@@ -512,7 +512,7 @@
 
 .terraform-page .tf-gate__kicker span:last-child {
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: #2e2e2e;
 }
@@ -546,7 +546,7 @@
 
 .terraform-page .terraform-gate__label {
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.72);
 }
@@ -745,7 +745,7 @@
 .terraform-page .tf-gate__aside-label {
   margin: 0 0 4px;
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.55);
 }
@@ -770,7 +770,7 @@
 .terraform-page .tf-gate__list li span:last-child {
   flex: 0 0 auto;
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.45);
 }
@@ -983,7 +983,7 @@
   border-radius: 4px;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   line-height: 11px;
   color: #676767;
@@ -1281,7 +1281,7 @@
   padding: 7px 0 1px;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   line-height: normal;
   color: #2e2e2e;
@@ -1526,7 +1526,7 @@
   font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: #2e2e2e;
 }
@@ -1588,7 +1588,7 @@
 
 .tf-workflow__label {
   font: 500 13px/1.3 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: inherit;
   transition: color 220ms ease;
@@ -1641,7 +1641,7 @@
   gap: 8px 24px;
   margin-top: 12px;
   font: 500 11px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.6);
 }
@@ -1708,7 +1708,7 @@
   background: #2e2e2e;
   color: #fff;
   font: 500 12px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   cursor: var(--cursor-link, pointer);
 }
@@ -1769,7 +1769,7 @@
 
 .terraform-page .tf-scale__kicker span:last-child {
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: #2e2e2e;
 }
@@ -1834,7 +1834,7 @@
 
 .terraform-page .tf-scale__ht {
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.65);
 }
@@ -1897,7 +1897,7 @@
 .terraform-page .tf-scale__state {
   display: none;
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.6);
 }
@@ -2275,7 +2275,7 @@
 .terraform-page .tf-meta > div > span:first-child,
 .terraform-page .tf-meta__mine > span:first-child {
   font: 700 11px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.6);
 }
@@ -2388,7 +2388,7 @@
 .terraform-page .tf-ro__grid > span:nth-child(odd) {
   padding-top: 2px;
   font: 700 10px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.6);
 }
@@ -2488,7 +2488,7 @@
   align-items: center;
   gap: 8px;
   font: 700 11px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
 }
 .terraform-page .tf-lockbox h2 { margin: 0; font: 500 32px/1.1 "Satoshi", sans-serif; }
@@ -2497,7 +2497,7 @@
   padding-bottom: 6px;
   border-bottom: 1.5px solid #2e2e2e;
   font: 700 11px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.6);
 }
@@ -2631,7 +2631,7 @@
   align-items: center;
   gap: 8px;
   font: 500 11px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: #181818;
 }
@@ -2643,7 +2643,7 @@
 }
 .terraform-page .tf-lockbox__done-cue {
   font: 500 11px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: #707070;
 }
@@ -2652,7 +2652,7 @@
 .terraform-page .tf-gate__pw { display: flex; flex-direction: column; gap: 12px; }
 .terraform-page .tf-gate__label {
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: #707070;
   transition: color 0.2s ease;
@@ -2705,7 +2705,7 @@
   background: transparent;
   color: #707070;
   font: 500 11px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   text-align: right;
   cursor: var(--cursor-link, pointer);
@@ -2725,7 +2725,7 @@
   background: transparent;
   color: #707070;
   font: 500 12px/1 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   cursor: var(--cursor-link, pointer);
   transition: color 0.2s ease;
@@ -2796,7 +2796,7 @@
 .terraform-page .tf-needs__head span,
 .terraform-page .tf-needs__lab {
   font: 700 11px/1.4 "Satoshi", sans-serif;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
   text-transform: uppercase;
   color: rgba(46, 46, 46, 0.6);
 }
@@ -2824,7 +2824,7 @@
 .terraform-page .tf-audit-lead p { margin: 0; max-width: 62ch; }
 .terraform-page .tf-audit-lead p { font: 400 16px/1.6 "Satoshi", sans-serif; color: rgba(46, 46, 46, 0.85); }
 .terraform-page .tf-questions { margin-top: var(--tf-s-28); }
-.terraform-page .tf-questions__label { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
+.terraform-page .tf-questions__label { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
 .terraform-page .tf-questions ol {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2905,18 +2905,18 @@
 }
 .terraform-page .tf-mh__stack img.is-on { opacity: 1; transform: none; }
 .terraform-page .tf-mh__notes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--tf-s-40); margin-top: var(--tf-s-28); }
-.terraform-page .tf-mh__notes b { display: block; font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
+.terraform-page .tf-mh__notes b { display: block; font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
 
 .terraform-page .tf-test { display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr); align-items: stretch; margin-top: var(--tf-s-36); }
 .terraform-page .tf-test article { display: flex; flex-direction: column; gap: var(--tf-s-10); padding: var(--tf-s-20); border-radius: 6px; background: #f4f7f9; }
-.terraform-page .tf-test article span { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
+.terraform-page .tf-test article span { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
 .terraform-page .tf-test article p { margin: 0; font: 500 20px/1.2 "Satoshi", sans-serif; }
 .terraform-page .tf-test > span { align-self: center; text-align: center; color: rgba(46, 46, 46, 0.4); }
 .terraform-page .tf-test .is-next { background: #2e2e2e; color: #fff; }
 .terraform-page .tf-test .is-next span { color: rgba(255, 255, 255, 0.7); }
 .terraform-page .tf-rating { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--tf-s-8) var(--tf-s-16); margin-top: var(--tf-s-20); padding-top: var(--tf-s-16); border-top: 1px solid rgba(46, 46, 46, 0.16); }
 .terraform-page .tf-rating span:first-child { font: 500 31px/1 "Satoshi", sans-serif; }
-.terraform-page .tf-rating span:nth-child(2) { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; }
+.terraform-page .tf-rating span:nth-child(2) { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; }
 .terraform-page .tf-rating span:last-child { font: 400 14px/1.5 "Satoshi", sans-serif; color: rgba(46, 46, 46, 0.65); }
 
 .terraform-page #combined.tf-bleed,
@@ -3030,7 +3030,7 @@
 .terraform-page .tf-decision p { margin: 0 0 var(--tf-s-16); font: 400 15px/1.55 "Satoshi", sans-serif; }
 .terraform-page .tf-decision__copy { display: flex; flex-direction: column; gap: var(--tf-s-20); }
 .terraform-page .tf-decision__copy p { margin: 0; font: 400 15.5px/1.6 "Satoshi", sans-serif; color: rgba(46, 46, 46, 0.85); }
-.terraform-page .tf-decision b { display: block; margin-bottom: 4px; font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
+.terraform-page .tf-decision b { display: block; margin-bottom: 4px; font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
 .terraform-page .tf-decision__mark { display: flex; gap: 8px; align-items: flex-start; }
 .terraform-page .tf-decision__mark span { flex: none; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; box-sizing: border-box; border: 1.5px solid #2e2e2e; font: 500 10px/1 "Satoshi", sans-serif; text-align: center; }
 .terraform-page .tf-decision__mark.is-solid span { background: #2e2e2e; color: #fff; border-color: #2e2e2e; }
@@ -3051,10 +3051,10 @@
   overflow: hidden;
 }
 .terraform-page .tf-decision .tf-decision__kept img { width: auto; max-width: 100%; max-height: 100%; height: auto; object-fit: contain; box-shadow: none; }
-.terraform-page .tf-decision__kept > span { position: absolute; left: 16px; top: 16px; padding: 6px 10px; border-radius: 999px; background: #2e2e2e; color: #fff; font: 700 11px/1 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; }
+.terraform-page .tf-decision__kept > span { position: absolute; left: 16px; top: 16px; padding: 6px 10px; border-radius: 999px; background: #2e2e2e; color: #fff; font: 700 11px/1 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; }
 .terraform-page .tf-keep { display: grid; grid-template-columns: 88px minmax(0, 1fr); margin-top: var(--tf-s-12); border-top: 1.5px solid #2e2e2e; }
 .terraform-page .tf-keep span { padding: var(--tf-s-16) 0; font: 400 15px/1.45 "Satoshi", sans-serif; }
-.terraform-page .tf-keep span:nth-child(odd) { font: 700 12px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; }
+.terraform-page .tf-keep span:nth-child(odd) { font: 700 12px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; }
 .terraform-page .tf-keep span:nth-child(2) { font-weight: 500; }
 .terraform-page .tf-keep span:nth-child(n + 3) { border-top: 1px solid rgba(46, 46, 46, 0.16); color: rgba(46, 46, 46, 0.7); }
 .terraform-page .tf-keep span:nth-child(3) { color: rgba(46, 46, 46, 0.55); }
@@ -3062,7 +3062,7 @@
 .terraform-page .tf-levels { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: var(--tf-s-32); border-top: 1.5px solid #2e2e2e; }
 .terraform-page .tf-levels div { display: flex; flex-direction: column; gap: 8px; padding: 16px 24px 0 0; }
 .terraform-page .tf-levels div + div { padding-left: 24px; border-left: 1px solid rgba(46, 46, 46, 0.16); }
-.terraform-page .tf-levels span { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
+.terraform-page .tf-levels span { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
 .terraform-page .tf-levels p { margin: 0; font: 500 20px/1.25 "Satoshi", sans-serif; }
 .terraform-page .tf-comps { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: var(--tf-s-40); align-items: start; padding-top: var(--tf-s-28); border-top: 1px solid rgba(46, 46, 46, 0.18); }
 .terraform-page .tf-comps__nav { display: flex; flex-direction: column; }
@@ -3077,7 +3077,7 @@
 .terraform-page .tf-comps__frame img { display: block; flex: none; width: auto; max-width: 100%; height: auto; object-fit: contain; background: #fff; border-radius: 6px; }
 .terraform-page .tf-comps [hidden] { display: none !important; }
 .terraform-page .tf-comps__rule { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: var(--tf-s-16); margin: 0; padding-top: var(--tf-s-12); border-top: 1px solid rgba(46, 46, 46, 0.16); font: 400 15px/1.5 "Satoshi", sans-serif; }
-.terraform-page .tf-comps__rule span:first-child { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
+.terraform-page .tf-comps__rule span:first-child { font: 700 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: rgba(46, 46, 46, 0.6); }
 
 .terraform-page .tf-rules { margin: 0; padding: 0; list-style: none; border-top: 1.5px solid #2e2e2e; }
 .terraform-page .tf-rules li { display: grid; grid-template-columns: 56px minmax(0, 0.9fr) minmax(0, 1.3fr) minmax(120px, 150px); gap: var(--tf-s-24); align-items: baseline; padding: var(--tf-s-20) 0; border-bottom: 1px solid rgba(46, 46, 46, 0.16); }

@@ -3,7 +3,7 @@
    <body data-hv="a" data-hvm="6" data-hvs="1"> and scripts/home-layout.js. */
 /* Homepage layout variants: local previews only. */
 :root { --hv-ink: #222222; --hv-soft: rgba(34, 34, 34,.62); }
-.hv-eyebrow { margin: 0 0 8px; font: 500 12px/1.2 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: var(--hv-soft); }
+.hv-eyebrow { margin: 0 0 8px; font: 500 12px/1.2 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: var(--hv-soft); }
 .hv-h2 { margin: 0; font: 400 clamp(30px, 3vw, 44px)/1.05 "AQ Garamond","Apple Garamond","Cormorant Garamond",Georgia,serif; letter-spacing: -.04em; color: var(--hv-ink); }
 .hv-sub { margin: 10px 0 0; font: 400 15px/1.45 "Satoshi", sans-serif; color: var(--hv-soft); }
 
@@ -493,7 +493,7 @@ html.hv-s1 .hv-tiles-label .pz-act__ico { display: none; }
   html.hv-s1 .hv-pcard[data-hv-game="board"] .hv-tile__art .hv-pol img.hv-pol__clip { width: 42px; top: -20px; }
   html.hv-s1 .hv-pcard[data-hv-game="words"] .hv-ws { width: 160px; height: 160px; }
   .hv-pcard__text { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-  .hv-pcard__meta { display: flex; align-items: center; gap: 12px; font: 500 11px/1.3 "Satoshi", sans-serif; letter-spacing: -.05em; text-transform: uppercase; color: #707070; }
+  .hv-pcard__meta { display: flex; align-items: center; gap: 12px; font: 500 11px/1.3 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: #707070; }
   .hv-pcard__n { color: #181818; }
   .hv-pcard__rule { width: 24px; height: 1px; background: #bdbdbd; }
   .hv-pcard__name { font: 400 28px/1.04 "AQ Garamond","Apple Garamond","Cormorant Garamond",Georgia,serif; letter-spacing: -.035em; color: #181818; }

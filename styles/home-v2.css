@@ -1436,7 +1436,7 @@
 .work-row__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 18px;
+  gap: 6px 0.5em; /* role · date: the gap scales with the text, so it stays snug at every size */
   font-family: "Satoshi", sans-serif;
   font-size: 14.5px;
   font-weight: 400;

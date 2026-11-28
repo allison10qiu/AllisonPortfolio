@@ -46,7 +46,7 @@
 .alison-gpt-panel{position:fixed;right:28px;bottom:28px;width:360px;height:min(530px,80dvh);border:1px solid #d1dee8;border-radius:20px;background:white;box-shadow:0 12px 55px #2B2E3622;display:flex;flex-direction:column;animation:agEnter .4s ease-out;overflow:hidden;z-index:10000}
 .alison-gpt-header{position:relative;padding:18px 22px;background:#2e2e2e;color:#fff}
 .alison-gpt-title{margin:0;font:500 28px "Satoshi",sans-serif}
-.alison-gpt-subtitle{margin:2px 0 0;font-size:10px;letter-spacing:-.05em;text-transform:uppercase;color:#fff;opacity:.85}
+.alison-gpt-subtitle{margin:2px 0 0;font-size:10px;letter-spacing:-.02em;text-transform:uppercase;color:#fff;opacity:.85}
 #alison-gpt-container .alison-gpt-close{position:absolute;right:9px;top:10px;border:0;background:transparent;color:#ffffff;font-size:24px;width:34px;height:34px}
 
 .alison-gpt-messages{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
