@@ -1,0 +1,101 @@
+/* About page, new layout in the site's own editorial style (Garamond headings, Satoshi text, black rules,
+   small uppercase labels, square-cornered photos), with smaller titles: the portrait beside a short intro,
+   then Experience, Involvement and Education as simple rows, then the polaroids. */
+
+/* ---------- intro: portrait on the left, the story on the right ---------- */
+.ab-intro { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: start; padding-top: clamp(48px, 5vw, 80px); }
+.ab-card { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.ab-card__photo { aspect-ratio: 529 / 660; overflow: hidden; }
+.ab-card__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; transform: scale(1.08); transform-origin: center 60%; }
+.ab-card__text { display: flex; flex-direction: column; gap: 6px; padding-top: 14px; border-top: 1px solid #181818; }
+.ab-card__name { font: 400 22px/1.1 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif; letter-spacing: -.04em; color: #181818; }
+.ab-card__role { font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: #707070; }
+.ab-card__links { display: flex; gap: 18px; margin-top: 6px; }
+.ab-card__links a { font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: #181818; text-decoration: none; transition: opacity .2s ease; }
+.ab-card__links a:hover { opacity: .6; }
+
+.ab-intro__copy { display: flex; flex-direction: column; gap: 16px; max-width: 58ch; }
+.ab-intro__copy h1 { margin: 0 0 8px; padding-bottom: 18px; border-bottom: 1px solid #181818;
+  font: 400 clamp(36px, 3.6vw, 52px)/1 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif; letter-spacing: -.045em; color: #181818; }
+.ab-intro__copy p { margin: 0; font: 400 clamp(16px, 1.2vw, 17px)/1.6 "Satoshi", sans-serif; letter-spacing: 0; color: #393939; }
+.ab-intro__copy a { color: #181818; text-decoration: underline; text-decoration-color: #c9c9c9; text-underline-offset: 3px; transition: text-decoration-color .2s ease; }
+.ab-intro__copy a:hover { text-decoration-color: #181818; }
+
+/* ---------- Experience / Involvement / Education ---------- */
+.ab-sec { margin-top: clamp(64px, 7vw, 104px); }
+.ab-sec__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.ab-sec__head h2 { margin: 0; font: 400 clamp(26px, 2.4vw, 34px)/1.05 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif; letter-spacing: -.045em; color: #181818; }
+.ab-sec__head a { font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: #181818; text-decoration: none; transition: opacity .2s ease; }
+.ab-sec__head a:hover { opacity: .6; }
+.ab-list { margin: 18px 0 0; padding: 0; list-style: none; border-top: 1px solid #181818; }
+.ab-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 32px; align-items: baseline; padding: 18px 0 20px; }
+.ab-row + .ab-row { border-top: 1px solid #DCDCDC; }
+.ab-row--thumb { grid-template-columns: 64px minmax(0, 1fr) auto; align-items: center; column-gap: 20px; }
+.ab-row__thumb { width: 64px; height: 64px; object-fit: cover; }
+.ab-row__main { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 2px; min-width: 0; }
+.ab-row__org { font: 400 clamp(20px, 1.7vw, 24px)/1.15 "AQ Garamond", "Apple Garamond", "Cormorant Garamond", Georgia, serif; letter-spacing: -.035em; color: #181818; }
+.ab-row__role { font: 400 15px/1.35 "Satoshi", sans-serif; letter-spacing: 0; color: #707070; }
+.ab-row__desc { flex: 0 0 100%; margin: 6px 0 0; padding-right: max(0px, calc(100% - 64ch)); box-sizing: border-box; font: 400 15px/1.5 "Satoshi", sans-serif; letter-spacing: 0; color: #393939; }
+.ab-row__date { font: 500 11px/1.4 "Satoshi", sans-serif; letter-spacing: -.02em; text-transform: uppercase; color: #707070; white-space: nowrap; text-align: right; }
+
+/* the polaroids section's title, brought down to the same size as the others */
+#s04 > h2 { font-size: clamp(26px, 2.4vw, 34px) !important; letter-spacing: -.045em !important; }
+#s04 { margin-top: clamp(64px, 7vw, 104px) !important; }
+
+@media (max-width: 760px) {
+  .ab-intro { grid-template-columns: minmax(0, 1fr); }
+  .ab-card { max-width: 280px; }
+  .ab-row { grid-template-columns: minmax(0, 1fr); }
+  .ab-row--thumb { grid-template-columns: 52px minmax(0, 1fr); }
+  .ab-row--thumb .ab-row__thumb { width: 52px; height: 52px; }
+  .ab-row--thumb .ab-row__date { grid-column: 2; }
+  .ab-row__date { text-align: left; }
+}
+
+/* Experience rows, after Xiaoyang Hu's: logo (no tile), company over role (with a briefcase), dates over a
+   small type tag on the right */
+.ab-xp { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; column-gap: 24px; padding: 22px 0; }
+.ab-xp + .ab-xp { border-top: 1px solid #DCDCDC; }
+.ab-xp__logo { display: grid; place-items: center; width: 72px; height: 40px; }
+.ab-xp__logo img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.ab-xp__main { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ab-xp__org { font: 500 17px/1.3 "Satoshi", sans-serif; letter-spacing: -.01em; color: #181818; }
+.ab-xp__role { display: inline-flex; align-items: center; gap: 8px; font: 400 15px/1.35 "Satoshi", sans-serif; letter-spacing: 0; color: #707070; }
+.ab-xp__icon { width: 14px; height: 14px; flex: none; color: #8a8a8a; }
+.ab-xp__side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.ab-xp__date { font: 400 14px/1.3 "Satoshi", sans-serif; letter-spacing: 0; color: #8a8a8a; white-space: nowrap; }
+.ab-xp__tag { padding: 3px 10px; border: 1px solid #DCDCDC; border-radius: 999px; font: 400 12px/1.3 "Satoshi", sans-serif; letter-spacing: 0; color: #8a8a8a; white-space: nowrap; }
+@media (max-width: 760px) {
+  .ab-xp { grid-template-columns: 56px minmax(0, 1fr); row-gap: 10px; }
+  .ab-xp__logo { width: 56px; }
+  .ab-xp__side { grid-column: 2; flex-direction: row; align-items: center; }
+}
+
+/* the Involvement carousels keep their own layout; only their section title comes down to the new size */
+#s02 { margin-top: clamp(64px, 7vw, 104px) !important; }
+#s02 > h2 { font-size: clamp(26px, 2.4vw, 34px) !important; letter-spacing: -.045em !important; }
+#s02 h3 { font-size: clamp(22px, 1.9vw, 28px) !important; }
+
+/* "What I do outside of class": the same header rhythm as Experience: title, an 18px gap, then a black rule
+   with the first entry starting right under it */
+#s02 > h2 { margin-top: 0 !important; }
+#s02 > h2 + div { margin-top: 18px !important; border-top: 1px solid #181818; }
+#s02 > h2 + div > article:first-child { border-top: 0 !important; padding-top: 22px !important; }
+
+/* carousels: no arrows or counter underneath; click a side photo (or scroll / use the arrow keys) to flip */
+#s02 div:has(> [data-fan-prev]) { display: none !important; }
+
+/* intro: the portrait is exactly as tall as the text beside it (the text sets the height), so the two columns
+   line up top and bottom; the text runs a touch larger so the photo has some height */
+@media (min-width: 761px) {
+  .ab-intro { align-items: stretch; }
+  .ab-card { height: 100%; position: relative; }
+  .ab-card__photo { aspect-ratio: auto; position: absolute; inset: 0; height: 100%; }
+  .ab-card__photo img { transform: none; object-position: center 35%; }
+  .ab-intro__copy { gap: 18px; }
+  .ab-intro__copy p { font-size: clamp(17px, 1.35vw, 19px); line-height: 1.6; }
+}
+
+/* portrait: zoomed in on the upper body */
+.ab-card__photo { overflow: hidden; }
+.ab-card__photo img { transform: scale(1.55) !important; transform-origin: 52% 28% !important; object-position: center 30% !important; }

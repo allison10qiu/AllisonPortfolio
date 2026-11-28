@@ -335,21 +335,9 @@
 
       if (reduce) return;
 
-      var card = link.closest("a.project[data-tx-project]");
-
-      /* Turn the Page: every other same-origin link navigates natively so the
-         cross-document view transition can run. Project-card clicks still wait
-         for the gem sprinkle. Original delay was 520ms. */
-      if (!card) return;
-      if (!(document.body.classList.contains("home-page") && e.detail !== 0 && window.__aqSprinkle)) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-      window.__aqSprinkle(e, card);
-      window.setTimeout(function () {
-        pauseVideos();
-        go(url.pathname + url.search);
-      }, 200);
+      /* Turn the Page: every same-origin link, project cards included, navigates natively so the
+         cross-document view transition can run (project cards no longer wait for a gem sprinkle). */
+      return;
     },
     true
   );
