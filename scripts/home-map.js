@@ -177,7 +177,7 @@
       else if (armed && inView()) play();
     }
     addEventListener("scroll", check, { passive: true });
-    addEventListener("load", check);
+    addEventListener("load", function () { requestAnimationFrame(check); }); // after the load redraw below
   }
 
   draw();
